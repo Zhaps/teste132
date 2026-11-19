@@ -1,3828 +1,2165 @@
-RAVEN CONTROL CENTER - AUDITORIA DIRECIONADA DE CODIGO
-Data: 2026-11-19 14:28:36
-Modo: SOMENTE LEITURA
-Objetivo: preparar correcao do KillFeed e integracao VPP.
-
-1. EXISTENCIA DOS DIRETORIOS
-C:\RavenRP\ControlCenter : True
-C:\RavenRP\ControlCenter\API : True
-C:\RavenRP\Discord-KillFeed : True
-
-ESTRUTURA: C:\RavenRP\ControlCenter
-
-Mode   Length LastWriteTime       Name                                  
-----   ------ -------------       ----                                  
-d-----        19/11/2026 08:44:42 API                                   
-d-----        19/11/2026 10:43:38 audit                                 
-d-----        18/11/2026 20:40:39 Backups                               
-d-----        19/11/2026 08:32:30 Dashboard                             
-d-----        17/11/2026 15:09:22 Integrations                          
-d-----        19/11/2026 08:21:22 Logs                                  
-d-----        17/11/2026 15:09:22 PriorityQueue                         
--a---- 1870   18/11/2026 19:12:25 Start-RavenAPI.ps1                    
--a---- 1137   18/11/2026 18:58:25 Start-RavenAPI.ps1.20261118-191224.bak
-
-
-
-
-ESTRUTURA: C:\RavenRP\ControlCenter\API
-
-Mode   Length LastWriteTime       Name                       
-----   ------ -------------       ----                       
-d-----        19/11/2026 08:53:46 backups                    
-d-----        19/11/2026 11:02:44 logs                       
-d-----        18/11/2026 21:47:00 migrations                 
-d-----        17/11/2026 17:36:47 node_modules               
-d-----        18/11/2026 20:09:42 scripts                    
-d-----        18/11/2026 21:18:14 src                        
--a---- 442    18/11/2026 19:56:45 .env                       
--a---- 386    17/11/2026 21:18:32 .env.backup-20261118-195645
--a---- 277    17/11/2026 17:38:58 .env.example               
--a---- 61     17/11/2026 17:38:58 .gitignore                 
--a---- 54241  17/11/2026 17:36:47 package-lock.json          
--a---- 810    17/11/2026 21:10:18 package.json               
-
-
-
-
-ESTRUTURA: C:\RavenRP\ControlCenter\API\src
-
-Mode   Length LastWriteTime       Name          
-----   ------ -------------       ----          
-d-----        17/11/2026 21:48:47 middleware    
-d-----        19/11/2026 08:53:46 routes        
-d-----        18/11/2026 21:47:00 services      
--a---- 821    17/11/2026 17:39:12 db.js         
--a---- 1343   18/11/2026 21:18:14 killfeed-db.js
--a---- 3809   19/11/2026 08:44:42 logger.js     
--a---- 4735   19/11/2026 08:53:46 server.js     
-
-
-
-
-ESTRUTURA: C:\RavenRP\ControlCenter\API\migrations
-
-Mode   Length LastWriteTime       Name                      
-----   ------ -------------       ----                      
--a----   5373 17/11/2026 21:09:26 001_initial_schema.sql    
--a----    995 17/11/2026 21:44:57 002_priority_integrity.sql
--a----    850 18/11/2026 21:56:06 003_system_incidents.sql  
-
-
-
-
-ESTRUTURA: C:\RavenRP\Discord-KillFeed
-
-Mode   Length LastWriteTime       Name              
-----   ------ -------------       ----              
-d-----        16/11/2026 13:50:36 .venv             
-d-----        16/11/2026 13:43:41 killfeed          
-d-----        17/11/2026 13:01:13 logs              
-d-----        16/11/2026 13:43:42 sql               
--a---- 522    16/11/2026 15:27:23 .env              
--a---- 438    16/11/2026 13:43:41 .env.example      
--a---- 46     16/11/2026 13:43:41 .gitignore        
--a---- 408    16/11/2026 13:43:41 install.bat       
--a---- 4245   16/11/2026 13:43:41 README.md         
--a---- 64     16/11/2026 13:43:41 requirements.txt  
--a---- 0      16/11/2026 16:37:57 start-killfeed.bat
--a---- 166    16/11/2026 13:43:41 start.bat         
-
-
-
-
-ESTRUTURA: C:\RavenRP\Discord-KillFeed\killfeed
-
-Mode   Length LastWriteTime       Name       
-----   ------ -------------       ----       
-d-----        16/11/2026 13:51:17 __pycache__
--a---- 2663   16/11/2026 13:43:41 database.py
--a---- 2311   16/11/2026 13:43:41 discord.py 
--a---- 3372   16/11/2026 13:43:41 monitor.py 
--a---- 3276   16/11/2026 13:43:41 parser.py  
--a---- 30     16/11/2026 13:43:41 __init__.py
--a---- 2521   16/11/2026 13:43:41 __main__.py
-
-
-
-
-ESTRUTURA: C:\RavenRP\Discord-KillFeed\sql
-
-Mode   Length LastWriteTime       Name      
-----   ------ -------------       ----      
--a----    758 16/11/2026 13:43:42 schema.sql
-
-
-
-
-2. METADADOS DOS REPOSITORIOS GIT
-
-3. CONFIGURACAO DA API - PACKAGE.JSON
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\API\package.json
-====================================================================================================
-{
-    "name": "raven-control-api",
-    "version": "1.0.0",
-    "description": "API central do Raven Control Center",
-    "main": "src/server.js",
-    "scripts": {
-        "test": "node --test",
-        "start": "node src/server.js",
-        "dev": "node --watch src/server.js",
-        "db:migrate": "node src/services/migrate.js"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "type": "commonjs",
-    "private": true,
-    "dependencies": {
-        "bcryptjs": "3.0.3",
-        "cors": "2.8.6",
-        "dotenv": "18.0.10",
-        "express": "5.3.0",
-        "express-rate-limit": "8.7.4",
-        "helmet": "8.3.0",
-        "jose": "6.2.17",
-        "pg": "8.23.1",
-        "pino": "10.4.0",
-        "pino-http": "11.0.0",
-        "zod": "4.6.7"
-    }
-}
-
-
-4. CODIGO JAVASCRIPT DA API
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\API\src\db.js
-====================================================================================================
-'use strict';
-
-const { Pool } = require('pg');
-const logger = require('./logger');
-
-if (!process.env.DB_PASSWORD_B64) {
-    throw new Error('DB_PASSWORD_B64 nao configurado.');
-}
-
-const password = Buffer
-    .from(process.env.DB_PASSWORD_B64, 'base64')
-    .toString('utf8');
-
-const pool = new Pool({
-    host: process.env.DB_HOST,
-    port: Number(process.env.DB_PORT || 5432),
-    database: process.env.DB_NAME,
-    user: process.env.DB_USER,
-    password,
-    max: Number(process.env.DB_POOL_MAX || 5),
-    connectionTimeoutMillis: Number(
-        process.env.DB_CONNECTION_TIMEOUT || 5000
-    ),
-    idleTimeoutMillis: 10000,
-    application_name: 'raven-control-api',
-    ssl: false
-});
-
-pool.on('error', (error) => {
-    logger.error({ error }, 'Erro inesperado no pool PostgreSQL');
-});
-
-module.exports = { pool };
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\API\src\killfeed-db.js
-====================================================================================================
-'use strict';
-
-const fs = require('node:fs');
-const path = require('node:path');
-const os = require('node:os');
-const { Pool } = require('pg');
-const logger = require('./logger');
-
-const secretPath = process.env.KILLFEED_READER_SECRET_FILE ||
-    path.join(
-        process.env.LOCALAPPDATA || os.homedir(),
-        'RavenControlCenter',
-        'killfeed-reader-secret.b64'
-    );
-
-if (!fs.existsSync(secretPath)) {
-    throw new Error('Credencial protegida do KillFeed nao encontrada.');
-}
-
-const encodedPassword = fs.readFileSync(secretPath, 'utf8').trim();
-const password = Buffer.from(encodedPassword, 'base64').toString('utf8');
-
-if (!password) {
-    throw new Error('Credencial do KillFeed esta vazia.');
-}
-
-const killfeedPool = new Pool({
-    host: process.env.KILLFEED_DB_HOST || '127.0.0.1',
-    port: Number(process.env.KILLFEED_DB_PORT || 5432),
-    database: process.env.KILLFEED_DB_NAME || 'dayz_killfeed',
-    user: process.env.KILLFEED_DB_USER || 'raven_killfeed_reader',
-    password,
-    max: 2,
-    connectionTimeoutMillis: 5000,
-    idleTimeoutMillis: 10000,
-    application_name: 'raven-killfeed-readonly-api',
-    ssl: false,
-    allowExitOnIdle: true
-});
-
-killfeedPool.on('error', error => {
-    logger.error({ code: error.code }, 'Erro inesperado no pool read-only do KillFeed');
-});
-
-module.exports = { killfeedPool };
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\API\src\logger.js
-====================================================================================================
-'use strict';
-
-const fs = require('fs');
-const path = require('path');
-const { Writable } = require('stream');
-const pino = require('pino');
-
-const logDir = path.resolve(__dirname, '..', 'logs');
-const MAX_FILE_SIZE = 10 * 1024 * 1024;
-const RETENTION_DAYS = 14;
-
-fs.mkdirSync(logDir, { recursive: true });
-
-function getDateKey() {
-    const now = new Date();
-
-    return [
-        now.getFullYear(),
-        String(now.getMonth() + 1).padStart(2, '0'),
-        String(now.getDate()).padStart(2, '0')
-    ].join('-');
-}
-
-function cleanupOldLogs() {
-    const cutoff = Date.now() - RETENTION_DAYS * 86400000;
-    const pattern = /^api-\d{4}-\d{2}-\d{2}-\d{3}\.log$/;
-
-    for (const name of fs.readdirSync(logDir)) {
-        if (!pattern.test(name)) continue;
-
-        const file = path.join(logDir, name);
-
-        try {
-            const stat = fs.statSync(file);
-
-            if (stat.isFile() && stat.mtimeMs < cutoff) {
-                fs.unlinkSync(file);
-            }
-        } catch (error) {
-            process.stderr.write(
-                `[RAVEN LOGGER] Falha na limpeza de ${name}: ${error.message}\n`
-            );
-        }
-    }
-}
-
-class RotatingLogStream extends Writable {
-    constructor() {
-        super();
-
-        this.fd = null;
-        this.currentDate = null;
-        this.currentSize = 0;
-        this.sequence = 0;
-
-        cleanupOldLogs();
-        this.openNextFile();
-    }
-
-    openNextFile() {
-        if (this.fd !== null) {
-            fs.closeSync(this.fd);
-            this.fd = null;
-        }
-
-        this.currentDate = getDateKey();
-
-        const pattern = new RegExp(
-            `^api-${this.currentDate}-(\\d{3})\\.log$`
-        );
-
-        let highest = 0;
-
-        for (const name of fs.readdirSync(logDir)) {
-            const match = name.match(pattern);
-
-            if (match) {
-                highest = Math.max(highest, Number(match[1]));
-            }
-        }
-
-        this.sequence = highest + 1;
-
-        const filename =
-            `api-${this.currentDate}-${String(this.sequence).padStart(3, '0')}.log`;
-
-        const fullPath = path.join(logDir, filename);
-
-        this.fd = fs.openSync(fullPath, 'a');
-        this.currentSize = fs.fstatSync(this.fd).size;
-    }
-
-    _write(chunk, encoding, callback) {
-        try {
-            const buffer = Buffer.isBuffer(chunk)
-                ? chunk
-                : Buffer.from(chunk, encoding);
-
-            if (
-                getDateKey() !== this.currentDate ||
-                this.currentSize + buffer.length > MAX_FILE_SIZE
-            ) {
-                this.openNextFile();
-            }
-
-            fs.writeSync(this.fd, buffer);
-            this.currentSize += buffer.length;
-
-            callback();
-        } catch (error) {
-            callback(error);
-        }
-    }
-
-    _final(callback) {
-        try {
-            if (this.fd !== null) {
-                fs.closeSync(this.fd);
-                this.fd = null;
-            }
-
-            callback();
-        } catch (error) {
-            callback(error);
-        }
-    }
-}
-
-const fileStream = new RotatingLogStream();
-
-const streams = pino.multistream([
-    { stream: process.stdout },
-    { stream: fileStream }
-]);
-
-const logger = pino({
-    level: process.env.LOG_LEVEL || 'info',
-
-    redact: {
-        paths: [
-            'req.headers.authorization',
-            'headers.authorization',
-            'req.headers.cookie',
-            'headers.cookie',
-            'password',
-            '*.password',
-            'token',
-            '*.token',
-            'accessToken',
-            '*.accessToken',
-            'refreshToken',
-            '*.refreshToken',
-            'DB_PASSWORD_B64'
-        ],
-        censor: '[REDACTED]'
-    },
-
-    timestamp: pino.stdTimeFunctions.isoTime
-}, streams);
-
-module.exports = logger;
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\API\src\middleware\require-auth.js
-====================================================================================================
-'use strict';
-
-const { verifyAccessToken } = require('../services/auth');
-const { pool } = require('../db');
-
-async function requireAuth(req, res, next) {
-    const authorization = req.get('authorization') || '';
-    const match = authorization.match(/^Bearer\s+(.+)$/i);
-
-    if (!match) {
-        return res.status(401).json({
-            error: 'AUTHENTICATION_REQUIRED'
-        });
-    }
-
-    try {
-        const payload = await verifyAccessToken(match[1]);
-        const adminId = Number(payload.sub);
-
-        if (!Number.isSafeInteger(adminId) || adminId <= 0) {
-            return res.status(401).json({
-                error: 'INVALID_TOKEN_SUBJECT'
-            });
-        }
-
-        const result = await pool.query(
-            `SELECT id, username, access_role, is_active
-             FROM public.admin_users
-             WHERE id = $1`,
-            [adminId]
-        );
-
-        const admin = result.rows[0];
-
-        if (!admin || !admin.is_active) {
-            return res.status(401).json({
-                error: 'ADMIN_INACTIVE'
-            });
-        }
-
-        req.admin = {
-            id: admin.id,
-            username: admin.username,
-            role: admin.access_role
-        };
-
-        return next();
-
-    } catch (error) {
-        if (
-            error.code === 'ECONNREFUSED' ||
-            error.code === '57P01'
-        ) {
-            req.log.error({ error }, 'PostgreSQL indisponivel');
-
-            return res.status(503).json({
-                error: 'AUTHENTICATION_SERVICE_UNAVAILABLE'
-            });
-        }
-
-        if (error.name === 'JWTExpired') {
-            return res.status(401).json({
-                error: 'TOKEN_EXPIRED'
-            });
-        }
-
-        if (
-            error.code === 'ERR_JWS_INVALID' ||
-            error.code === 'ERR_JWT_INVALID' ||
-            error.code === 'ERR_JWT_EXPIRED' ||
-            error.code === 'ERR_JWS_SIGNATURE_VERIFICATION_FAILED'
-        ) {
-            return res.status(401).json({
-                error: 'INVALID_OR_EXPIRED_TOKEN'
-            });
-        }
-
-        req.log.error({ error }, 'Falha na autenticacao');
-
-        return res.status(500).json({
-            error: 'AUTHENTICATION_ERROR'
-        });
-    }
-}
-
-module.exports = requireAuth;
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\API\src\middleware\require-role.js
-====================================================================================================
-'use strict';
-
-module.exports = (...allowedRoles) => {
-    return (req, res, next) => {
-        if (!req.admin) {
-            return res.status(401).json({ error: 'AUTHENTICATION_REQUIRED' });
-        }
-
-        if (!allowedRoles.includes(req.admin.role)) {
-            return res.status(403).json({ error: 'INSUFFICIENT_PERMISSIONS' });
-        }
-
-        return next();
-    };
-};
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\API\src\routes\audit.js
-====================================================================================================
-'use strict';
-
-const express = require('express');
-const { z } = require('zod');
-
-const { pool } = require('../db');
-const requireAuth = require('../middleware/require-auth');
-const requireRole = require('../middleware/require-role');
-
-const router = express.Router();
-
-router.use(requireAuth);
-router.use(requireRole('owner', 'admin'));
-
-const querySchema = z.object({
-    action: z.string().trim().max(100).optional(),
-    entityType: z.string().trim().max(60).optional(),
-    entityId: z.string().trim().max(100).optional(),
-    page: z.coerce.number().int().min(1).max(100000).default(1),
-    limit: z.coerce.number().int().min(1).max(100).default(50)
-}).strict();
-
-router.get('/', async (req, res) => {
-    const parsed = querySchema.safeParse(req.query);
-
-    if (!parsed.success) {
-        return res.status(400).json({ error: 'INVALID_AUDIT_QUERY' });
-    }
-
-    const { action, entityType, entityId, page, limit } = parsed.data;
-
-    const conditions = [];
-    const values = [];
-
-    if (action) {
-        values.push(action);
-        conditions.push(`action = $${values.length}`);
-    }
-
-    if (entityType) {
-        values.push(entityType);
-        conditions.push(`entity_type = $${values.length}`);
-    }
-
-    if (entityId) {
-        values.push(entityId);
-        conditions.push(`entity_id = $${values.length}`);
-    }
-
-    const where = conditions.length
-        ? `WHERE ${conditions.join(' AND ')}`
-        : '';
-
-    try {
-        const count = await pool.query(
-            `SELECT COUNT(*)::integer AS total
-             FROM public.audit_logs ${where}`,
-            values
-        );
-
-        const queryValues = [
-            ...values,
-            limit,
-            (page - 1) * limit
-        ];
-
-        const result = await pool.query(
-            `SELECT
-                id::text,
-                actor_type,
-                actor_identifier,
-                actor_admin_id::text,
-                action,
-                entity_type,
-                entity_id,
-                details,
-                source_ip,
-                created_at
-             FROM public.audit_logs
-             ${where}
-             ORDER BY created_at DESC
-             LIMIT $${values.length + 1}
-             OFFSET $${values.length + 2}`,
-            queryValues
-        );
-
-        return res.json({
-            page,
-            limit,
-            total: count.rows[0].total,
-            entries: result.rows
-        });
-    } catch (error) {
-        req.log.error({ error }, 'Falha ao consultar auditoria');
-
-        return res.status(500).json({
-            error: 'AUDIT_QUERY_ERROR'
-        });
-    }
-});
-
-module.exports = router;
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\API\src\routes\auth.js
-====================================================================================================
-'use strict';
-
-const express = require('express');
-const bcrypt = require('bcryptjs');
-const { z } = require('zod');
-const rateLimit = require('express-rate-limit');
-
-const { pool } = require('../db');
-const { createAccessToken } = require('../services/auth');
-const requireAuth = require('../middleware/require-auth');
-
-const router = express.Router();
-
-const loginLimiter = rateLimit({
-    windowMs: 15 * 60 * 1000,
-    limit: 5,
-    skipSuccessfulRequests: true,		
-    standardHeaders: 'draft-8',
-    legacyHeaders: false,
-    message: {
-        error: 'TOO_MANY_LOGIN_ATTEMPTS'
-    }
-});
-
-const loginSchema = z.object({
-    username: z.string()
-        .trim()
-        .toLowerCase()
-        .min(3)
-        .max(64)
-        .regex(/^[a-z0-9._-]+$/),
-
-    password: z.string().min(14).max(72)
-}).strict();
-
-const dummyHash = bcrypt.hashSync(
-    'raven-invalid-account-credential',
-    12
-);
-
-router.post('/login', loginLimiter, async (req, res) => {
-    const parsed = loginSchema.safeParse(req.body);
-
-    if (!parsed.success) {
-        return res.status(400).json({
-            error: 'INVALID_LOGIN_DATA'
-        });
-    }
-
-    const { username, password } = parsed.data;
-
-    if (Buffer.byteLength(password, 'utf8') > 72) {
-        return res.status(400).json({
-            error: 'INVALID_LOGIN_DATA'
-        });
-    }
-
-    try {
-        const result = await pool.query(
-            `SELECT id, username, password_hash,
-                    access_role, is_active
-             FROM public.admin_users
-             WHERE username = $1`,
-            [username]
-        );
-
-        const admin = result.rows[0];
-
-        const passwordValid = await bcrypt.compare(
-            password,
-            admin ? admin.password_hash : dummyHash
-        );
-
-        if (!admin || !admin.is_active || !passwordValid) {
-            return res.status(401).json({
-                error: 'INVALID_CREDENTIALS'
-            });
-        }
-
-        await pool.query(
-            `UPDATE public.admin_users
-             SET last_login_at = NOW()
-             WHERE id = $1`,
-            [admin.id]
-        );
-
-        const accessToken = await createAccessToken(admin);
-
-        return res.status(200).json({
-            accessToken,
-            tokenType: 'Bearer',
-            expiresIn: Number(
-                process.env.AUTH_ACCESS_TTL_SECONDS || 900
-            ),
-            admin: {
-                id: admin.id,
-                username: admin.username,
-                role: admin.access_role
-            }
-        });
-
-    } catch (error) {
-        req.log.error({ error }, 'Falha no login');
-
-        return res.status(500).json({
-            error: 'LOGIN_SERVICE_ERROR'
-        });
-    }
-});
-
-router.get('/me', requireAuth, (req, res) => {
-    return res.json({
-        admin: req.admin
-    });
-});
-
-module.exports = router;
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\API\src\routes\health.js
-====================================================================================================
-'use strict';
-
-const express = require('express');
-const { pool } = require('../db');
-const { killfeedPool } = require('../killfeed-db');
-const { recordHealthSnapshot } = require('../services/incident-monitor');
-
-const router = express.Router();
-
-async function checkDatabase(databasePool, req, label) {
-    const start = process.hrtime.bigint();
-
-    try {
-        await databasePool.query('SELECT 1 AS result');
-
-        const latencyMs = Number(
-            process.hrtime.bigint() - start
-        ) / 1_000_000;
-
-        return {
-            status: 'connected',
-            latencyMs: Number(latencyMs.toFixed(2))
-        };
-    } catch (error) {
-        req.log.error(
-            { code: error.code, component: label },
-            'Health check de banco falhou'
-        );
-
-        return {
-            status: 'disconnected'
-        };
-    }
-}
-
-router.get('/', async (req, res) => {
-    const [primaryDatabase, killfeedDatabase] = await Promise.all([
-        checkDatabase(pool, req, 'postgresql'),
-        checkDatabase(killfeedPool, req, 'killfeed')
-    ]);
-
-    const primaryConnected = primaryDatabase.status === 'connected';
-    const killfeedConnected = killfeedDatabase.status === 'connected';
-
-    await recordHealthSnapshot({
-        primary: primaryDatabase.status,
-        killfeed: killfeedDatabase.status
-    }, req.log);
-
-    const status = !primaryConnected
-        ? 'degraded'
-        : killfeedConnected
-            ? 'ok'
-            : 'degraded';
-
-    const memory = process.memoryUsage();
-
-    const response = {
-        status,
-        service: 'raven-control-api',
-        timestamp: new Date().toISOString(),
-        uptimeSeconds: Math.floor(process.uptime()),
-        process: {
-            memory: {
-                rssMb: Number((memory.rss / 1024 / 1024).toFixed(2)),
-                heapUsedMb: Number((memory.heapUsed / 1024 / 1024).toFixed(2)),
-                heapTotalMb: Number((memory.heapTotal / 1024 / 1024).toFixed(2))
-            }
-        },
-        databases: {
-            primary: primaryDatabase,
-            killfeed: killfeedDatabase
-        }
-    };
-
-    if (!primaryConnected) {
-        return res.status(503).json(response);
-    }
-
-    return res.status(200).json(response);
-});
-
-router.get('/live', (req, res) => {
-    return res.status(200).json({
-        status: 'alive',
-        service: 'raven-control-api',
-        timestamp: new Date().toISOString(),
-        uptimeSeconds: Math.floor(process.uptime())
-    });
-});
-
-module.exports = router;
-
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\API\src\routes\incidents.js
-====================================================================================================
-'use strict';
-
-const express = require('express');
-const { z } = require('zod');
-
-const { pool } = require('../db');
-const requireAuth = require('../middleware/require-auth');
-const requireRole = require('../middleware/require-role');
-
-const router = express.Router();
-
-router.use(requireAuth);
-router.use(requireRole('owner', 'admin'));
-
-const querySchema = z.object({
-    page: z.coerce.number().int().min(1).max(100000).default(1),
-    limit: z.coerce.number().int().min(1).max(100).default(50)
-}).strict();
-
-router.get('/', async (req, res) => {
-    const parsed = querySchema.safeParse(req.query);
-
-    if (!parsed.success) {
-        return res.status(400).json({
-            error: 'INVALID_INCIDENT_QUERY'
-        });
-    }
-
-    const { page, limit } = parsed.data;
-
-    try {
-        const count = await pool.query(
-            `SELECT COUNT(*)::integer AS total
-             FROM public.system_incidents`
-        );
-
-        const result = await pool.query(
-            `SELECT
-                id::text,
-                component,
-                severity,
-                details,
-                started_at,
-                resolved_at,
-                CASE
-                    WHEN resolved_at IS NULL
-                    THEN EXTRACT(EPOCH FROM (NOW() - started_at))::integer
-                    ELSE EXTRACT(EPOCH FROM (resolved_at - started_at))::integer
-                END AS duration_seconds,
-                resolved_at IS NULL AS is_open
-             FROM public.system_incidents
-             ORDER BY started_at DESC
-             LIMIT $1 OFFSET $2`,
-            [limit, (page - 1) * limit]
-        );
-
-        return res.json({
-            page,
-            limit,
-            total: count.rows[0].total,
-            incidents: result.rows
-        });
-    } catch (error) {
-        req.log.error(
-            { code: error.code },
-            'Falha ao consultar incidentes'
-        );
-
-        return res.status(500).json({
-            error: 'INCIDENT_QUERY_ERROR'
-        });
-    }
-});
-
-module.exports = router;
-
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\API\src\routes\killfeed.js
-====================================================================================================
-'use strict';
-
-const express = require('express');
-const { z } = require('zod');
-const { killfeedPool } = require('../killfeed-db');
-const requireAuth = require('../middleware/require-auth');
-
-const router = express.Router();
-router.use(requireAuth);
-
-const querySchema = z.object({
-    search: z.string().trim().max(64).optional(),
-    page: z.coerce.number().int().min(1).max(100000).default(1),
-    limit: z.coerce.number().int().min(1).max(100).default(50)
-}).strict();
-
-router.get('/', async (req, res) => {
-    const parsed = querySchema.safeParse(req.query);
-
-    if (!parsed.success) {
-        return res.status(400).json({ error: 'INVALID_KILLFEED_QUERY' });
-    }
-
-    const { search, page, limit } = parsed.data;
-    const offset = (page - 1) * limit;
-
-    try {
-        const values = [];
-        let where = '';
-
-        if (search) {
-            values.push(`%${search}%`);
-            where = 'WHERE (killer_name ILIKE $1 OR victim_name ILIKE $1 OR weapon ILIKE $1)';
-        }
-
-        const count = await killfeedPool.query(
-            `SELECT COUNT(*)::integer AS total
-             FROM public.pvp_kills ${where}`,
-            values
-        );
-
-        const result = await killfeedPool.query(
-            `SELECT id::text, occurred_at, killer_name, victim_name, weapon, distance_m
-             FROM public.pvp_kills
-             ${where}
-             ORDER BY occurred_at DESC, id DESC
-             LIMIT $${values.length + 1}
-             OFFSET $${values.length + 2}`,
-            [...values, limit, offset]
-        );
-
-        return res.json({
-            page,
-            limit,
-            total: count.rows[0].total,
-            kills: result.rows
-        });
-    } catch (error) {
-        req.log.error({ code: error.code }, 'Falha ao consultar historico KillFeed');
-        return res.status(503).json({ error: 'KILLFEED_DATABASE_UNAVAILABLE' });
-    }
-});
-
-module.exports = router;
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\API\src\routes\logs.js
-====================================================================================================
-'use strict';
-
-const express = require('express');
-const fs = require('fs');
-const path = require('path');
-const { z } = require('zod');
-
-const requireAuth = require('../middleware/require-auth');
-const requireRole = require('../middleware/require-role');
-
-const router = express.Router();
-
-const logDir = path.resolve(__dirname, '..', '..', 'logs');
-
-const MAX_FILES = 100;
-const MAX_SCAN_BYTES = 100 * 1024 * 1024;
-const MAX_LINE_LENGTH = 1024 * 1024;
-
-router.use(requireAuth);
-router.use(requireRole('owner', 'admin'));
-
-const querySchema = z.object({
-    level: z.enum([
-        'trace', 'debug', 'info', 'warn', 'error', 'fatal'
-    ]).optional(),
-
-    component: z.string().trim().max(80).optional(),
-    search: z.string().trim().max(200).optional(),
-
-    from: z.string().datetime({ offset: true }).optional(),
-    to: z.string().datetime({ offset: true }).optional(),
-
-    page: z.coerce.number().int().min(1).max(100000).default(1),
-    limit: z.coerce.number().int().min(1).max(100).default(50)
-}).strict().superRefine((value, context) => {
-    if (
-        value.from &&
-        value.to &&
-        new Date(value.from) > new Date(value.to)
-    ) {
-        context.addIssue({
-            code: 'custom',
-            path: ['from'],
-            message: 'FROM_AFTER_TO'
-        });
-    }
-});
-
-const levelNames = {
-    10: 'trace',
-    20: 'debug',
-    30: 'info',
-    40: 'warn',
-    50: 'error',
-    60: 'fatal'
-};
-
-function normalizeLevel(value) {
-    if (typeof value === 'string') {
-        const normalized = value.toLowerCase();
-
-        if ([
-            'trace', 'debug', 'info',
-            'warn', 'error', 'fatal'
-        ].includes(normalized)) {
-            return normalized;
-        }
-
-        if (/^\d+$/.test(value)) {
-            return levelNames[Number(value)] || 'unknown';
-        }
-    }
-
-    if (typeof value === 'number') {
-        return levelNames[value] || 'unknown';
-    }
-
-    return 'unknown';
-}
-
-function redactValue(value, key = '') {
-    const sensitiveKey =
-        /(authorization|cookie|password|passwd|token|secret|api.?key|DB_PASSWORD_B64)/i;
-
-    if (sensitiveKey.test(key)) {
-        return '[REDACTED]';
-    }
-
-    if (Array.isArray(value)) {
-        return value.map(item => redactValue(item));
-    }
-
-    if (value && typeof value === 'object') {
-        const output = {};
-
-        for (const [childKey, childValue] of Object.entries(value)) {
-            output[childKey] = redactValue(childValue, childKey);
-        }
-
-        return output;
-    }
-
-    if (typeof value === 'string') {
-        return value
-            .replace(
-                /(Bearer\s+)[A-Za-z0-9._~+/-]+=*/gi,
-                '$1[REDACTED]'
-            )
-            .replace(
-                /((?:password|passwd|token|secret|api[_-]?key)\s*[:=]\s*)[^,\s;]+/gi,
-                '$1[REDACTED]'
-            );
-    }
-
-    return value;
-}
-
-function getLogTimestamp(entry) {
-    const value = entry.time || entry.timestamp || entry.datetime;
-    const timestamp = typeof value === 'number'
-        ? value
-        : Date.parse(value);
-
-    if (!Number.isFinite(timestamp)) {
-        return null;
-    }
-
-    return timestamp;
-}
-
-function getComponent(entry) {
-    return String(
-        entry.component ||
-        entry.name ||
-        entry.event ||
-        'general'
-    );
-}
-
-function matchesFilters(entry, filters) {
-    const level = normalizeLevel(entry.level);
-    const component = getComponent(entry);
-    const message = String(entry.msg || entry.message || '');
-
-    if (filters.level && level !== filters.level) {
-        return false;
-    }
-
-    if (
-        filters.component &&
-        !component.toLowerCase().includes(filters.component.toLowerCase())
-    ) {
-        return false;
-    }
-
-    if (
-        filters.search &&
-        !JSON.stringify(entry)
-            .toLowerCase()
-            .includes(filters.search.toLowerCase())
-    ) {
-        return false;
-    }
-
-    const timestamp = getLogTimestamp(entry);
-
-    if (filters.from) {
-        if (timestamp === null || timestamp < Date.parse(filters.from)) {
-            return false;
-        }
-    }
-
-    if (filters.to) {
-        if (timestamp === null || timestamp > Date.parse(filters.to)) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
-function publicEntry(entry) {
-    const safe = redactValue(entry);
-
-    return {
-        time: safe.time || safe.timestamp || safe.datetime || null,
-        level: normalizeLevel(safe.level),
-        component: getComponent(safe),
-        message: String(safe.msg || safe.message || ''),
-        pid: safe.pid ?? null,
-        hostname: safe.hostname ?? null,
-        event: safe.event ?? null,
-        details: safe
-    };
-}
-
-router.get('/', async (req, res) => {
-    const parsed = querySchema.safeParse(req.query);
-
-    if (!parsed.success) {
-        return res.status(400).json({
-            error: 'INVALID_LOG_QUERY'
-        });
-    }
-
-    const filters = parsed.data;
-    const { page, limit } = filters;
-
-    try {
-        if (!fs.existsSync(logDir)) {
-            return res.json({
-                page,
-                limit,
-                total: 0,
-                logs: [],
-                filesScanned: 0
-            });
-        }
-
-        const pattern = /^api-\d{4}-\d{2}-\d{2}-\d{3}\.log$/;
-
-        let files = fs.readdirSync(logDir, { withFileTypes: true })
-            .filter(item => item.isFile() && pattern.test(item.name))
-            .map(item => item.name)
-            .sort()
-            .reverse();
-
-        if (filters.from || filters.to) {
-            const lower = filters.from
-                ? Date.parse(filters.from)
-                : -Infinity;
-
-            const upper = filters.to
-                ? Date.parse(filters.to)
-                : Infinity;
-
-            files = files.filter(name => {
-                const match = name.match(/^api-(\d{4}-\d{2}-\d{2})-/);
-
-                if (!match) return false;
-
-                const dayStart = Date.parse(`${match[1]}T00:00:00.000Z`);
-                const dayEnd = dayStart + 86400000 - 1;
-
-                return dayEnd >= lower && dayStart <= upper;
-            });
-        }
-
-        if (files.length > MAX_FILES) {
-            return res.status(413).json({
-                error: 'LOG_FILE_LIMIT_EXCEEDED',
-                message: 'Reduza o periodo da consulta.'
-            });
-        }
-
-        const selected = [];
-        let total = 0;
-        let scannedBytes = 0;
-        let filesScanned = 0;
-
-        const offset = (page - 1) * limit;
-        const end = offset + limit;
-
-        for (const filename of files) {
-            const fullPath = path.join(logDir, filename);
-            const stat = fs.statSync(fullPath);
-
-            if (!stat.isFile()) continue;
-
-            scannedBytes += stat.size;
-
-            if (scannedBytes > MAX_SCAN_BYTES) {
-                return res.status(413).json({
-                    error: 'LOG_SCAN_LIMIT_EXCEEDED',
-                    message: 'Reduza o periodo ou os filtros da consulta.'
-                });
-            }
-
-            const content = await fs.promises.readFile(fullPath, 'utf8');
-            const lines = content.split(/\r?\n/);
-
-            filesScanned++;
-
-            for (let index = lines.length - 1; index >= 0; index--) {
-                const line = lines[index];
-
-                if (!line || line.length > MAX_LINE_LENGTH) continue;
-
-                let entry;
-
-                try {
-                    entry = JSON.parse(line);
-                } catch {
-                    continue;
-                }
-
-                if (!matchesFilters(entry, filters)) continue;
-
-                if (total >= offset && total < end) {
-                    selected.push(publicEntry(entry));
-                }
-
-                total++;
-            }
-        }
-
-        return res.json({
-            page,
-            limit,
-            total,
-            logs: selected,
-            filesScanned
-        });
-
-    } catch (error) {
-        req.log.error(
-            { code: error.code },
-            'Falha ao consultar arquivos de log'
-        );
-
-        return res.status(500).json({
-            error: 'LOG_QUERY_ERROR'
-        });
-    }
-});
-
-module.exports = router;
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\API\src\routes\players.js
-====================================================================================================
-'use strict';
-
-const express = require('express');
-const { z } = require('zod');
-
-const { pool } = require('../db');
-const { withTransaction } = require('../services/transaction');
-const { writeAudit } = require('../services/audit');
-const requireAuth = require('../middleware/require-auth');
-const requireRole = require('../middleware/require-role');
-
-const router = express.Router();
-
-router.use(requireAuth);
-
-const listSchema = z.object({
-    search: z.string().trim().max(64).optional(),
-    page: z.coerce.number().int().min(1).max(100000).default(1),
-    limit: z.coerce.number().int().min(1).max(100).default(25)
-}).strict();
-
-const createSchema = z.object({
-    steam64: z.string().regex(/^[0-9]{17}$/),
-    displayName: z.string().trim().min(1).max(64).nullable().optional()
-}).strict();
-
-router.get('/', async (req, res) => {
-    const parsed = listSchema.safeParse(req.query);
-
-    if (!parsed.success) {
-        return res.status(400).json({ error: 'INVALID_QUERY' });
-    }
-
-    const { search, page, limit } = parsed.data;
-    const offset = (page - 1) * limit;
-
-    try {
-        const values = [];
-        let where = '';
-
-        if (search) {
-            values.push(search, `%${search}%`);
-            where = 'WHERE (steam64 = $1 OR display_name ILIKE $2)';
-        }
-
-        const count = await pool.query(
-            `SELECT COUNT(*)::integer AS total
-             FROM public.players ${where}`,
-            values
-        );
-
-        const paginationValues = [...values, limit, offset];
-        const limitPosition = values.length + 1;
-        const offsetPosition = values.length + 2;
-
-        const result = await pool.query(
-            `SELECT id::text, steam64, display_name,
-                    first_seen_at, last_seen_at, created_at, updated_at
-             FROM public.players
-             ${where}
-             ORDER BY created_at DESC
-             LIMIT $${limitPosition} OFFSET $${offsetPosition}`,
-            paginationValues
-        );
-
-        return res.json({
-            page,
-            limit,
-            total: count.rows[0].total,
-            players: result.rows
-        });
-    } catch (error) {
-        req.log.error({ error }, 'Falha ao listar jogadores');
-
-        return res.status(500).json({
-            error: 'PLAYER_LIST_ERROR'
-        });
-    }
-});
-
-router.post(
-    '/',
-    requireRole('owner', 'admin', 'moderator'),
-    async (req, res) => {
-        const parsed = createSchema.safeParse(req.body);
-
-        if (!parsed.success) {
-            return res.status(400).json({
-                error: 'INVALID_PLAYER_DATA',
-                details: parsed.error.issues.map(issue => ({
-                    field: issue.path.join('.'),
-                    message: issue.message
-                }))
-            });
-        }
-
-        const { steam64, displayName } = parsed.data;
-
-        try {
-            const player = await withTransaction(async client => {
-                const result = await client.query(
-                    `INSERT INTO public.players
-                        (steam64, display_name)
-                     VALUES ($1, $2)
-                     RETURNING id::text, steam64, display_name, created_at`,
-                    [steam64, displayName || null]
-                );
-
-                const created = result.rows[0];
-
-                await writeAudit(client, {
-                    actorType: 'admin',
-                    actorIdentifier: req.admin.username,
-                    actorAdminId: req.admin.id,
-                    action: 'player.created',
-                    entityType: 'player',
-                    entityId: created.id,
-                    details: {
-                        steam64,
-                        displayName: displayName || null
-                    },
-                    sourceIp: req.ip
-                });
-
-                return created;
-            });
-
-            return res.status(201).json({ player });
-        } catch (error) {
-            if (error.code === '23505') {
-                return res.status(409).json({
-                    error: 'PLAYER_ALREADY_EXISTS'
-                });
-            }
-
-            req.log.error({ error }, 'Falha ao cadastrar jogador');
-
-            return res.status(500).json({
-                error: 'PLAYER_CREATE_ERROR'
-            });
-        }
-    }
-);
-
-module.exports = router;
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\API\src\routes\priority.js
-====================================================================================================
-'use strict';
-
-const express = require('express');
-const { z } = require('zod');
-
-const { pool } = require('../db');
-const { withTransaction } = require('../services/transaction');
-const { writeAudit } = require('../services/audit');
-const { refreshGrantStatuses } = require('../services/priority-status');
-const requireAuth = require('../middleware/require-auth');
-const requireRole = require('../middleware/require-role');
-
-const router = express.Router();
-
-router.use(requireAuth);
-
-const grantSchema = z.object({
-    steam64: z.string().regex(/^[0-9]{17}$/),
-    categoryCode: z.string().trim().toLowerCase()
-        .regex(/^[a-z0-9_-]{1,32}$/),
-    startsAt: z.string().datetime({ offset: true }).optional(),
-    expiresAt: z.union([
-        z.string().datetime({ offset: true }),
-        z.null()
-    ]).optional(),
-    reason: z.string().trim().max(500).nullable().optional()
-}).strict();
-
-const renewSchema = z.object({
-    expiresAt: z.string().datetime({ offset: true }),
-    reason: z.string().trim().max(500).nullable().optional()
-}).strict();
-
-const revokeSchema = z.object({
-    reason: z.string().trim().max(500).nullable().optional()
-}).strict();
-
-const listSchema = z.object({
-    status: z.enum(['active','scheduled','expired','revoked']).optional(),
-    steam64: z.string().regex(/^[0-9]{17}$/).optional(),
-    category: z.string().trim().toLowerCase()
-        .regex(/^[a-z0-9_-]{1,32}$/).optional(),
-    page: z.coerce.number().int().min(1).max(100000).default(1),
-    limit: z.coerce.number().int().min(1).max(100).default(25)
-}).strict();
-
-function validId(value) {
-    return typeof value === 'string' &&
-        /^[1-9][0-9]{0,18}$/.test(value);
-}
-
-function sendOperationError(req, res, error, context) {
-    if (error.statusCode) {
-        return res.status(error.statusCode).json({
-            error: error.codeName || 'OPERATION_REJECTED',
-            message: error.message
-        });
-    }
-
-    if (error.code === '23505') {
-        return res.status(409).json({
-            error: 'PRIORITY_ALREADY_EXISTS'
-        });
-    }
-
-    req.log.error({ error }, context);
-
-    return res.status(500).json({
-        error: 'PRIORITY_OPERATION_ERROR'
-    });
-}
-
-function operationError(statusCode, codeName, message) {
-    const error = new Error(message);
-    error.statusCode = statusCode;
-    error.codeName = codeName;
-    return error;
-}
-
-/* CATEGORIAS */
-
-router.get('/categories', async (req, res) => {
-    try {
-        const result = await pool.query(
-            `SELECT id, code, name, description, display_order
-             FROM public.priority_categories
-             WHERE is_active = TRUE
-             ORDER BY display_order`
-        );
-
-        return res.json({ categories: result.rows });
-    } catch (error) {
-        req.log.error({ error }, 'Falha ao listar categorias');
-
-        return res.status(500).json({
-            error: 'CATEGORY_LIST_ERROR'
-        });
-    }
-});
-
-/* PRIORIDADES EFETIVAS */
-
-router.get('/effective', async (req, res) => {
-    try {
-        const players = await withTransaction(async client => {
-            await refreshGrantStatuses(client);
-
-            const result = await client.query(`
-                SELECT DISTINCT
-                    p.steam64,
-                    p.display_name
-                FROM public.priority_grants g
-                JOIN public.players p ON p.id = g.player_id
-                WHERE g.status = 'active'
-                  AND g.starts_at <= NOW()
-                  AND (g.expires_at IS NULL OR g.expires_at > NOW())
-                ORDER BY p.steam64
-            `);
-
-            return result.rows;
-        });
-
-        return res.json({
-            count: players.length,
-            players
-        });
-    } catch (error) {
-        req.log.error({ error }, 'Falha ao consultar fila efetiva');
-
-        return res.status(500).json({
-            error: 'EFFECTIVE_QUEUE_ERROR'
-        });
-    }
-});
-
-/* LISTAR CONCESSOES */
-
-router.get('/grants', async (req, res) => {
-    const parsed = listSchema.safeParse(req.query);
-
-    if (!parsed.success) {
-        return res.status(400).json({ error: 'INVALID_QUERY' });
-    }
-
-    const { status, steam64, category, page, limit } = parsed.data;
-
-    try {
-        await withTransaction(refreshGrantStatuses);
-
-        const conditions = [];
-        const values = [];
-
-        if (status) {
-            values.push(status);
-            conditions.push(`g.status = $${values.length}`);
-        }
-
-        if (steam64) {
-            values.push(steam64);
-            conditions.push(`p.steam64 = $${values.length}`);
-        }
-
-        if (category) {
-            values.push(category);
-            conditions.push(`c.code = $${values.length}`);
-        }
-
-        const where = conditions.length
-            ? `WHERE ${conditions.join(' AND ')}`
-            : '';
-
-        const count = await pool.query(
-            `SELECT COUNT(*)::integer AS total
-             FROM public.priority_grants g
-             JOIN public.players p ON p.id = g.player_id
-             JOIN public.priority_categories c ON c.id = g.category_id
-             ${where}`,
-            values
-        );
-
-        const offset = (page - 1) * limit;
-        const queryValues = [...values, limit, offset];
-        const limitPosition = values.length + 1;
-        const offsetPosition = values.length + 2;
-
-        const result = await pool.query(
-            `SELECT
-                g.id::text,
-                p.steam64,
-                p.display_name,
-                c.code AS category_code,
-                c.name AS category_name,
-                g.status,
-                g.grant_source,
-                g.reason,
-                g.starts_at,
-                g.expires_at,
-                g.created_at,
-                g.updated_at
-             FROM public.priority_grants g
-             JOIN public.players p ON p.id = g.player_id
-             JOIN public.priority_categories c ON c.id = g.category_id
-             ${where}
-             ORDER BY g.created_at DESC
-             LIMIT $${limitPosition} OFFSET $${offsetPosition}`,
-            queryValues
-        );
-
-        return res.json({
-            page,
-            limit,
-            total: count.rows[0].total,
-            grants: result.rows
-        });
-    } catch (error) {
-        req.log.error({ error }, 'Falha ao listar prioridades');
-
-        return res.status(500).json({
-            error: 'GRANT_LIST_ERROR'
-        });
-    }
-});
-
-/* CONCEDER PRIORIDADE */
-
-router.post(
-    '/grants',
-    requireRole('owner', 'admin', 'moderator'),
-    async (req, res) => {
-        const parsed = grantSchema.safeParse(req.body);
-
-        if (!parsed.success) {
-            return res.status(400).json({
-                error: 'INVALID_GRANT_DATA',
-                details: parsed.error.issues.map(issue => ({
-                    field: issue.path.join('.'),
-                    message: issue.message
-                }))
-            });
-        }
-
-        const input = parsed.data;
-        const startsAt = input.startsAt
-            ? new Date(input.startsAt)
-            : new Date();
-
-        const expiresAt = input.expiresAt
-            ? new Date(input.expiresAt)
-            : null;
-
-        if (expiresAt && expiresAt <= startsAt) {
-            return res.status(400).json({
-                error: 'INVALID_EXPIRATION_DATE'
-            });
-        }
-
-        const status = startsAt > new Date()
-            ? 'scheduled'
-            : 'active';
-
-        try {
-            const grant = await withTransaction(async client => {
-                await refreshGrantStatuses(client);
-
-                const playerResult = await client.query(
-                    `SELECT id FROM public.players
-                     WHERE steam64 = $1`,
-                    [input.steam64]
-                );
-
-                if (playerResult.rowCount === 0) {
-                    throw operationError(
-                        404,
-                        'PLAYER_NOT_FOUND',
-                        'Cadastre o jogador antes de conceder prioridade.'
-                    );
-                }
-
-                const categoryResult = await client.query(
-                    `SELECT id, code
-                     FROM public.priority_categories
-                     WHERE code = $1 AND is_active = TRUE`,
-                    [input.categoryCode]
-                );
-
-                if (categoryResult.rowCount === 0) {
-                    throw operationError(
-                        404,
-                        'CATEGORY_NOT_FOUND',
-                        'Categoria inexistente ou inativa.'
-                    );
-                }
-
-                const result = await client.query(
-                    `INSERT INTO public.priority_grants
-                        (player_id, category_id, status,
-                         grant_source, reason, starts_at, expires_at,
-                         granted_by_admin_id)
-                     VALUES ($1,$2,$3,'web',$4,$5,$6,$7)
-                     RETURNING id::text, status, starts_at, expires_at`,
-                    [
-                        playerResult.rows[0].id,
-                        categoryResult.rows[0].id,
-                        status,
-                        input.reason || null,
-                        startsAt,
-                        expiresAt,
-                        req.admin.id
-                    ]
-                );
-
-                const created = result.rows[0];
-
-                await writeAudit(client, {
-                    actorType: 'admin',
-                    actorIdentifier: req.admin.username,
-                    actorAdminId: req.admin.id,
-                    action: 'priority.granted',
-                    entityType: 'priority_grant',
-                    entityId: created.id,
-                    details: {
-                        steam64: input.steam64,
-                        category: input.categoryCode,
-                        status: created.status,
-                        expiresAt: created.expires_at
-                    },
-                    sourceIp: req.ip
-                });
-
-                return created;
-            });
-
-            return res.status(201).json({ grant });
-        } catch (error) {
-            return sendOperationError(
-                req, res, error, 'Falha ao conceder prioridade'
-            );
-        }
-    }
-);
-
-/* RENOVAR PRIORIDADE */
-
-router.post(
-    '/grants/:id/renew',
-    requireRole('owner', 'admin', 'moderator'),
-    async (req, res) => {
-        if (!validId(req.params.id)) {
-            return res.status(400).json({ error: 'INVALID_GRANT_ID' });
-        }
-
-        const parsed = renewSchema.safeParse(req.body);
-
-        if (!parsed.success) {
-            return res.status(400).json({
-                error: 'INVALID_RENEWAL_DATA'
-            });
-        }
-
-        const newExpiry = new Date(parsed.data.expiresAt);
-
-        try {
-            const grant = await withTransaction(async client => {
-                await refreshGrantStatuses(client);
-
-                const current = await client.query(
-                    `SELECT g.id, g.status, g.starts_at, g.expires_at,
-                            p.steam64, c.code AS category_code
-                     FROM public.priority_grants g
-                     JOIN public.players p ON p.id = g.player_id
-                     JOIN public.priority_categories c ON c.id = g.category_id
-                     WHERE g.id = $1
-                     FOR UPDATE OF g`,
-                    [req.params.id]
-                );
-
-                if (current.rowCount === 0) {
-                    throw operationError(404, 'GRANT_NOT_FOUND', 'Concessao nao encontrada.');
-                }
-
-                const old = current.rows[0];
-
-                if (!['active', 'scheduled'].includes(old.status)) {
-                    throw operationError(409, 'GRANT_NOT_RENEWABLE', 'Concessao nao esta ativa ou agendada.');
-                }
-
-                if (old.expires_at === null) {
-                    throw operationError(409, 'GRANT_IS_PERMANENT', 'Concessao permanente nao precisa de renovacao.');
-                }
-
-                if (
-                    newExpiry <= new Date(old.expires_at) ||
-                    newExpiry <= new Date(old.starts_at)
-                ) {
-                    throw operationError(400, 'INVALID_RENEWAL_DATE', 'A nova validade deve ser posterior a validade atual.');
-                }
-
-                const result = await client.query(
-                    `UPDATE public.priority_grants
-                     SET expires_at = $1,
-                         reason = COALESCE($2, reason),
-                         status = CASE
-                             WHEN starts_at > NOW() THEN 'scheduled'
-                             ELSE 'active'
-                         END
-                     WHERE id = $3
-                     RETURNING id::text, status, starts_at, expires_at`,
-                    [
-                        newExpiry,
-                        parsed.data.reason || null,
-                        req.params.id
-                    ]
-                );
-
-                const updated = result.rows[0];
-
-                await writeAudit(client, {
-                    actorType: 'admin',
-                    actorIdentifier: req.admin.username,
-                    actorAdminId: req.admin.id,
-                    action: 'priority.renewed',
-                    entityType: 'priority_grant',
-                    entityId: updated.id,
-                    details: {
-                        steam64: old.steam64,
-                        category: old.category_code,
-                        previousExpiry: old.expires_at,
-                        newExpiry: updated.expires_at
-                    },
-                    sourceIp: req.ip
-                });
-
-                return updated;
-            });
-
-            return res.json({ grant });
-        } catch (error) {
-            return sendOperationError(
-                req, res, error, 'Falha ao renovar prioridade'
-            );
-        }
-    }
-);
-
-/* REVOGAR PRIORIDADE */
-
-router.patch(
-    '/grants/:id/revoke',
-    requireRole('owner', 'admin', 'moderator'),
-    async (req, res) => {
-        if (!validId(req.params.id)) {
-            return res.status(400).json({ error: 'INVALID_GRANT_ID' });
-        }
-
-        const parsed = revokeSchema.safeParse(req.body || {});
-
-        if (!parsed.success) {
-            return res.status(400).json({
-                error: 'INVALID_REVOCATION_DATA'
-            });
-        }
-
-        try {
-            const grant = await withTransaction(async client => {
-                await refreshGrantStatuses(client);
-
-                const current = await client.query(
-                    `SELECT g.id, g.status, p.steam64, c.code AS category_code
-                     FROM public.priority_grants g
-                     JOIN public.players p ON p.id = g.player_id
-                     JOIN public.priority_categories c ON c.id = g.category_id
-                     WHERE g.id = $1
-                     FOR UPDATE OF g`,
-                    [req.params.id]
-                );
-
-                if (current.rowCount === 0) {
-                    throw operationError(404, 'GRANT_NOT_FOUND', 'Concessao nao encontrada.');
-                }
-
-                const old = current.rows[0];
-
-                if (!['active', 'scheduled'].includes(old.status)) {
-                    throw operationError(409, 'GRANT_NOT_REVOCABLE', 'Concessao nao esta ativa ou agendada.');
-                }
-
-                const result = await client.query(
-                    `UPDATE public.priority_grants
-                     SET status = 'revoked',
-                         revoked_at = NOW(),
-                         revoked_by_admin_id = $1,
-                         reason = COALESCE($2, reason)
-                     WHERE id = $3
-                     RETURNING id::text, status, revoked_at`,
-                    [
-                        req.admin.id,
-                        parsed.data.reason || null,
-                        req.params.id
-                    ]
-                );
-
-                const revoked = result.rows[0];
-
-                await writeAudit(client, {
-                    actorType: 'admin',
-                    actorIdentifier: req.admin.username,
-                    actorAdminId: req.admin.id,
-                    action: 'priority.revoked',
-                    entityType: 'priority_grant',
-                    entityId: revoked.id,
-                    details: {
-                        steam64: old.steam64,
-                        category: old.category_code,
-                        reason: parsed.data.reason || null
-                    },
-                    sourceIp: req.ip
-                });
-
-                return revoked;
-            });
-
-            return res.json({ grant });
-        } catch (error) {
-            return sendOperationError(
-                req, res, error, 'Falha ao revogar prioridade'
-            );
-        }
-    }
-);
-
-module.exports = router;
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\API\src\server.js
-====================================================================================================
-'use strict';
-
-const path = require('path');
-
-require('dotenv').config({
-    path: path.resolve(__dirname, '..', '.env')
-});
-
-const express = require('express');
-const helmet = require('helmet');
-const cors = require('cors');
-const rateLimit = require('express-rate-limit');
-const pinoHttp = require('pino-http');
-
-const logger = require('./logger');
-const { pool } = require('./db');
-const healthRoutes = require('./routes/health');
-const authRoutes = require('./routes/auth');
-const playersRoutes = require('./routes/players');
-const priorityRoutes = require('./routes/priority');
-const auditRoutes = require('./routes/audit');
-const killfeedRoutes = require('./routes/killfeed');
-const incidentsRoutes = require('./routes/incidents');
-const logsRoutes = require('./routes/logs');
-const { startPriorityScheduler, stopPriorityScheduler } = require('./services/priority-scheduler');
-
-const app = express();
-
-const HOST = process.env.API_HOST || '127.0.0.1';
-const PORT = Number(process.env.API_PORT || 3100);
-
-const allowedOrigins = new Set(
-    (process.env.CORS_ORIGINS || '')
-        .split(',')
-        .map(value => value.trim())
-        .filter(Boolean)
-);
-
-app.disable('x-powered-by');
-
-app.use(pinoHttp({ logger }));
-
-app.use(helmet());
-
-app.use(cors({
-    origin: (origin, callback) => {
-        if (!origin || allowedOrigins.has(origin)) {
-            return callback(null, true);
-        }
-
-        return callback(null, false);
-    },
-    credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS']
-}));
-
-app.use(express.json({ limit: '1mb' }));
-app.use(express.urlencoded({ extended: false, limit: '1mb' }));
-
-app.use(rateLimit({
-    windowMs: 15 * 60 * 1000,
-    limit: 300,
-    standardHeaders: 'draft-8',
-    legacyHeaders: false
-}));
-
-app.get('/', (req, res) => {
-    res.json({
-        name: 'Raven Control Center API',
-        version: '1.0.0',
-        status: 'running'
-    });
-});
-
-app.use('/api/health', healthRoutes);
-app.use('/api/auth', authRoutes);
-app.use('/api/players', playersRoutes);
-app.use('/api/priority', priorityRoutes);
-app.use('/api/audit', auditRoutes);
-app.use('/api/killfeed', killfeedRoutes);
-app.use('/api/incidents', incidentsRoutes);
-app.use('/api/logs', logsRoutes);
-
-app.use((req, res) => {
-    res.status(404).json({
-        error: 'ROUTE_NOT_FOUND'
-    });
-});
-
-app.use((error, req, res, next) => {
-    if (res.headersSent) {
-        return next(error);
-    }
-
-    req.log.error({ error }, 'Erro na requisicao');
-
-    res.status(error.status || 500).json({
-        error: 'INTERNAL_SERVER_ERROR',
-        message: 'Erro interno da API.'
-    });
-});
-
-let server;
-
-async function startServer() {
-    await pool.query('SELECT 1');
-    startPriorityScheduler();
-
-    server = app.listen(PORT, HOST, () => {
-        logger.info({
-            host: HOST,
-            port: PORT,
-            database: process.env.DB_NAME
-        }, 'Raven Control Center API iniciada');
-    });
-
-    server.on('error', (error) => {
-        logger.error({ error }, 'Falha no servidor HTTP');
-        process.exitCode = 1;
-    });
-}
-
-let shuttingDown = false;
-
-async function shutdown(signal) {
-    if (shuttingDown) return;
-    shuttingDown = true;
-
-    logger.info({ signal }, 'Encerramento seguro da API iniciado');
-
-    let shutdownError = null;
-
-    try {
-        await stopPriorityScheduler();
-    } catch (error) {
-        shutdownError = error;
-        logger.error({ error }, 'Falha ao aguardar o agendador');
-    }
-
-    if (server) {
-        try {
-            await new Promise((resolve, reject) => {
-                server.close((error) => {
-                    if (error) reject(error);
-                    else resolve();
-                });
-
-                if (typeof server.closeIdleConnections === 'function') {
-                    server.closeIdleConnections();
-                }
-            });
-        } catch (error) {
-            shutdownError = shutdownError || error;
-            logger.error({ error }, 'Falha ao encerrar servidor HTTP');
-        }
-    }
-
-    try {
-        await pool.end();
-    } catch (error) {
-        shutdownError = shutdownError || error;
-        logger.error({ error }, 'Falha ao encerrar pool PostgreSQL');
-    }
-
-    if (shutdownError) {
-        logger.error('API encerrada com erro durante o desligamento');
-        process.exitCode = 1;
-        return;
-    }
-
-    logger.info('API encerrada com seguranca');
-    process.exitCode = 0;
-}
-
-process.on('SIGINT', () => {
-    void shutdown('SIGINT');
-});
-
-process.on('SIGTERM', () => {
-    void shutdown('SIGTERM');
-});
-
-startServer().catch(async (error) => {
-    logger.fatal({ error }, 'Nao foi possivel iniciar a API');
-    await pool.end();
-    process.exit(1);
-});
-
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\API\src\services\audit.js
-====================================================================================================
-'use strict';
-
-async function writeAudit(client, data) {
-    await client.query(
-        `INSERT INTO public.audit_logs
-        (actor_type, actor_identifier, actor_admin_id,
-         action, entity_type, entity_id, details, source_ip)
-         VALUES ($1,$2,$3,$4,$5,$6,$7::jsonb,$8)`,
-        [
-            data.actorType || 'admin',
-            data.actorIdentifier || null,
-            data.actorAdminId || null,
-            data.action,
-            data.entityType || null,
-            data.entityId ? String(data.entityId) : null,
-            JSON.stringify(data.details || {}),
-            data.sourceIp || null
-        ]
-    );
-}
-
-module.exports = { writeAudit };
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\API\src\services\auth.js
-====================================================================================================
-'use strict';
-
-const secret = Buffer.from(
-    process.env.AUTH_JWT_SECRET_B64 || '',
-    'base64'
-);
-
-if (secret.length !== 32) {
-    throw new Error('Chave JWT invalida.');
-}
-
-const issuer = 'raven-control-api';
-const audience = 'raven-control-dashboard';
-
-async function createAccessToken(admin) {
-    const { SignJWT } = await import('jose');
-
-    const ttl = Number(
-        process.env.AUTH_ACCESS_TTL_SECONDS || 900
-    );
-
-    if (!Number.isInteger(ttl) || ttl < 60 || ttl > 3600) {
-        throw new Error('Validade JWT invalida.');
-    }
-
-    return new SignJWT({
-        role: admin.access_role
-    })
-        .setProtectedHeader({ alg: 'HS256', typ: 'JWT' })
-        .setSubject(String(admin.id))
-        .setIssuer(issuer)
-        .setAudience(audience)
-        .setIssuedAt()
-        .setExpirationTime(`${ttl}s`)
-        .sign(secret);
-}
-
-async function verifyAccessToken(token) {
-    const { jwtVerify } = await import('jose');
-
-    const result = await jwtVerify(token, secret, {
-        issuer,
-        audience,
-        algorithms: ['HS256']
-    });
-
-    return result.payload;
-}
-
-module.exports = {
-    createAccessToken,
-    verifyAccessToken
-};
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\API\src\services\incident-monitor.js
-====================================================================================================
-'use strict';
-
-const { pool } = require('../db');
-
-let primaryOutageStartedAt = null;
-
-async function recordHealthSnapshot(snapshot, logger) {
-    const now = new Date();
-
-    try {
-        if (snapshot.primary === 'disconnected') {
-            if (!primaryOutageStartedAt) {
-                primaryOutageStartedAt = now;
-            }
-        } else if (primaryOutageStartedAt) {
-            await pool.query(
-                `INSERT INTO public.system_incidents
-                    (component, severity, details, started_at, resolved_at)
-                 VALUES ('postgresql', 'critical', $1::jsonb, $2, $3)`,
-                [
-                    JSON.stringify({
-                        description: 'Indisponibilidade do PostgreSQL principal',
-                        detection: 'health-check'
-                    }),
-                    primaryOutageStartedAt,
-                    now
-                ]
-            );
-
-            primaryOutageStartedAt = null;
-        }
-
-        if (snapshot.primary === 'connected') {
-            if (snapshot.killfeed === 'disconnected') {
-                await pool.query(
-                    `INSERT INTO public.system_incidents
-                        (component, severity, details)
-                     VALUES (
-                        'killfeed',
-                        'warning',
-                        $1::jsonb
-                     )
-                     ON CONFLICT (component)
-                     WHERE resolved_at IS NULL
-                     DO NOTHING`,
-                    [JSON.stringify({
-                        description: 'Banco KillFeed indisponível',
-                        detection: 'health-check'
-                    })]
-                );
-            } else {
-                await pool.query(
-                    `UPDATE public.system_incidents
-                     SET resolved_at = NOW(),
-                         details = details || $1::jsonb
-                     WHERE component = 'killfeed'
-                       AND resolved_at IS NULL`,
-                    [JSON.stringify({
-                        recovery: 'Banco KillFeed restabelecido'
-                    })]
-                );
-            }
-
-            await pool.query(
-                `DELETE FROM public.system_incidents
-                 WHERE resolved_at IS NOT NULL
-                   AND resolved_at < NOW() - INTERVAL '90 days'`
-            );
-        }
-    } catch (error) {
-        if (logger && typeof logger.error === 'function') {
-            logger.error(
-                { code: error.code, message: error.message },
-                'Falha ao registrar histórico de incidentes'
-            );
-        }
-    }
-}
-
-module.exports = {
-    recordHealthSnapshot
-};
-
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\API\src\services\migrate.js
-====================================================================================================
-'use strict';
-
-const fs = require('fs');
-const path = require('path');
-const crypto = require('crypto');
-
-require('dotenv').config({
-    path: path.resolve(__dirname, '..', '..', '.env')
-});
-
-const logger = require('../logger');
-const { pool } = require('../db');
-
-const MIGRATIONS_DIR = path.resolve(__dirname, '..', '..', 'migrations');
-
-async function main() {
-    let client;
-    let lockAcquired = false;
-
-    try {
-        client = await pool.connect();
-
-        await client.query(
-            'SELECT pg_advisory_lock($1::integer, $2::integer)',
-            [741923, 1]
-        );
-
-        lockAcquired = true;
-
-        await client.query(`
-            CREATE TABLE IF NOT EXISTS public.schema_migrations (
-                version VARCHAR(20) PRIMARY KEY,
-                name VARCHAR(255) NOT NULL,
-                checksum VARCHAR(64) NOT NULL,
-                execution_ms INTEGER NOT NULL DEFAULT 0,
-                applied_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-            )
-        `);
-
-        const files = fs.readdirSync(MIGRATIONS_DIR)
-            .filter(file => /^\d+_.+\.sql$/i.test(file))
-            .sort();
-
-        if (files.length === 0) {
-            throw new Error('Nenhuma migration encontrada.');
-        }
-
-        let applied = 0;
-
-        for (const file of files) {
-            const version = file.match(/^(\d+)_/)[1];
-
-            const sql = fs.readFileSync(
-                path.join(MIGRATIONS_DIR, file),
-                'utf8'
-            );
-
-            const checksum = crypto
-                .createHash('sha256')
-                .update(sql)
-                .digest('hex');
-
-            const existing = await client.query(
-                'SELECT checksum FROM public.schema_migrations WHERE version = $1',
-                [version]
-            );
-
-            if (existing.rowCount > 0) {
-                if (existing.rows[0].checksum !== checksum) {
-                    throw new Error(`Checksum divergente: ${file}`);
-                }
-
-                logger.info({ version, file }, 'Migration ja aplicada');
-                continue;
-            }
-
-            const startedAt = Date.now();
-
-            await client.query('BEGIN');
-
-            try {
-                await client.query(sql);
-
-                const executionMs = Date.now() - startedAt;
-
-                await client.query(
-                    `INSERT INTO public.schema_migrations
-                    (version, name, checksum, execution_ms)
-                    VALUES ($1, $2, $3, $4)`,
-                    [version, file, checksum, executionMs]
-                );
-
-                await client.query('COMMIT');
-
-                applied++;
-
-                logger.info(
-                    { version, file, executionMs },
-                    'Migration aplicada'
-                );
-            } catch (error) {
-                await client.query('ROLLBACK');
-                throw error;
-            }
-        }
-
-        logger.info(
-            { applied, total: files.length },
-            'Migrations concluidas'
-        );
-    } finally {
-        if (client) {
-            if (lockAcquired) {
-                await client.query(
-                    'SELECT pg_advisory_unlock($1::integer, $2::integer)',
-                    [741923, 1]
-                );
-            }
-
-            client.release();
-        }
-
-        await pool.end();
-    }
-}
-
-main().catch(error => {
-    logger.fatal({ error }, 'Falha nas migrations');
-    process.exitCode = 1;
-});
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\API\src\services\priority-format.js
-====================================================================================================
-'use strict';
-
-function buildPriorityFileContent(rows) {
-    if (!Array.isArray(rows)) {
-        throw new TypeError('Lista de jogadores invalida.');
-    }
-
-    const ids = new Set();
-
-    for (const row of rows) {
-        const steam64 = row.steam64;
-
-        if (typeof steam64 !== 'string' || !/^[0-9]{17}$/.test(steam64)) {
-            throw new Error('Steam64 invalido encontrado na fila efetiva.');
-        }
-
-        ids.add(steam64);
-    }
-
-    return [...ids].sort().join(';');
-}
-
-module.exports = { buildPriorityFileContent };
-
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\API\src\services\priority-scheduler.js
-====================================================================================================
-'use strict';
-
-const logger = require('../logger');
-const { withTransaction } = require('./transaction');
-const { refreshGrantStatuses } = require('./priority-status');
-const { runPrioritySync } = require('./priority-sync');
-
-let timer = null;
-let runningPromise = null;
-let stopping = false;
-
-function runPriorityScheduler() {
-    if (stopping) return Promise.resolve();
-    if (runningPromise) return runningPromise;
-
-    runningPromise = (async () => {
-        try {
-            const result = await withTransaction(refreshGrantStatuses);
-
-            if (result.expired || result.activated) {
-                logger.info(result, 'Concessoes prioritarias atualizadas');
-            }
-
-            if (process.env.PRIORITY_SYNC_ENABLED === 'true') {
-                await runPrioritySync({
-                    dryRun: process.env.PRIORITY_SYNC_DRY_RUN !== 'false'
-                });
-            }
-        } catch (error) {
-            logger.error({ error }, 'Falha no agendador de prioridades');
-        }
-    })().finally(() => {
-        runningPromise = null;
-    });
-
-    return runningPromise;
-}
-
-function startPriorityScheduler() {
-    if (timer) return;
-
-    stopping = false;
-
-    void runPriorityScheduler();
-
-    timer = setInterval(() => {
-        void runPriorityScheduler();
-    }, 60 * 1000);
-
-    if (typeof timer.unref === 'function') {
-        timer.unref();
-    }
-
-    logger.info('Agendador de prioridades iniciado');
-}
-
-async function stopPriorityScheduler() {
-    stopping = true;
-
-    if (timer) {
-        clearInterval(timer);
-        timer = null;
-    }
-
-    if (runningPromise) {
-        await runningPromise;
-    }
-
-    logger.info('Agendador de prioridades encerrado');
-}
-
-module.exports = {
-    startPriorityScheduler,
-    stopPriorityScheduler,
-    runPriorityScheduler
-};
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\API\src\services\priority-status.js
-====================================================================================================
-'use strict';
-
-async function refreshGrantStatuses(client) {
-    const expired = await client.query(`
-        WITH changed AS (
-            UPDATE public.priority_grants
-            SET status = 'expired'
-            WHERE status IN ('active','scheduled')
-              AND expires_at IS NOT NULL
-              AND expires_at <= NOW()
-            RETURNING id, player_id, category_id
-        )
-        INSERT INTO public.audit_logs
-        (actor_type, actor_identifier, action,
-         entity_type, entity_id, details)
-        SELECT
-            'system',
-            'priority-scheduler',
-            'priority.expired',
-            'priority_grant',
-            id::text,
-            jsonb_build_object(
-                'player_id', player_id,
-                'category_id', category_id
-            )
-        FROM changed
-        RETURNING id
-    `);
-
-    const activated = await client.query(`
-        WITH changed AS (
-            UPDATE public.priority_grants
-            SET status = 'active'
-            WHERE status = 'scheduled'
-              AND starts_at <= NOW()
-              AND (expires_at IS NULL OR expires_at > NOW())
-            RETURNING id, player_id, category_id
-        )
-        INSERT INTO public.audit_logs
-        (actor_type, actor_identifier, action,
-         entity_type, entity_id, details)
-        SELECT
-            'system',
-            'priority-scheduler',
-            'priority.activated',
-            'priority_grant',
-            id::text,
-            jsonb_build_object(
-                'player_id', player_id,
-                'category_id', category_id
-            )
-        FROM changed
-        RETURNING id
-    `);
-
-    return {
-        expired: expired.rowCount,
-        activated: activated.rowCount
-    };
-}
-
-module.exports = { refreshGrantStatuses };
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\API\src\services\priority-sync.js
-====================================================================================================
-'use strict';
-
-const fs = require('node:fs/promises');
-const fsConstants = require('node:fs').constants;
-const path = require('node:path');
-const crypto = require('node:crypto');
-
-const { pool } = require('../db');
-const logger = require('../logger');
-const { buildPriorityFileContent } = require('./priority-format');
-const { shouldBlockEmptyPriorityWrite } = require('./priority-sync-guard');
-
-const TARGET_DIR = path.resolve(__dirname, '../../../../DayZServer');
-const TARGET_FILE = path.join(TARGET_DIR, 'priority.txt');
-
-const LOCK_A = 1380013138;
-const LOCK_B = 1346458195;
-
-function sha256(content) {
-    return crypto.createHash('sha256').update(content, 'utf8').digest('hex');
-}
-
-async function validateTargetDirectory() {
-    const stat = await fs.lstat(TARGET_DIR);
-
-    if (!stat.isDirectory() || stat.isSymbolicLink()) {
-        throw new Error('Diretorio de destino invalido ou simbolico.');
-    }
-}
-
-async function backupExistingFile() {
-    let stat;
-
-    try {
-        stat = await fs.lstat(TARGET_FILE);
-    } catch (error) {
-        if (error.code === 'ENOENT') return null;
-        throw error;
-    }
-
-    if (!stat.isFile() || stat.isSymbolicLink()) {
-        throw new Error('O destino priority.txt nao e um arquivo regular.');
-    }
-
-    const stamp = new Date().toISOString().replace(/[:.]/g, '-');
-    const backup = `${TARGET_FILE}.bak-${stamp}`;
-
-    await fs.copyFile(TARGET_FILE, backup, fsConstants.COPYFILE_EXCL);
-    return backup;
-}
-
-async function writePriorityFile(content) {
-    await validateTargetDirectory();
-
-    let existing = null;
-
-    try {
-        const stat = await fs.lstat(TARGET_FILE);
-
-        if (!stat.isFile() || stat.isSymbolicLink()) {
-            throw new Error('O destino priority.txt nao e um arquivo regular.');
-        }
-
-        existing = await fs.readFile(TARGET_FILE, 'utf8');
-    } catch (error) {
-        if (error.code !== 'ENOENT') throw error;
-    }
-
-    if (existing === content) {
-        return { changed: false, backup: null };
-    }
-
-    const backup = await backupExistingFile();
-
-    if (content.length === 0) {
-        try {
-            await fs.unlink(TARGET_FILE);
-        } catch (error) {
-            if (error.code !== 'ENOENT') throw error;
-        }
-
-        return { changed: true, backup };
-    }
-
-    const temp = `${TARGET_FILE}.tmp-${process.pid}-${crypto.randomBytes(6).toString('hex')}`;
-
-    try {
-        await fs.writeFile(temp, content, {
-            encoding: 'utf8',
-            flag: 'wx'
-        });
-
-        await fs.rename(temp, TARGET_FILE);
-    } catch (error) {
-        try {
-            await fs.unlink(temp);
-        } catch (_) {}
-
-        throw error;
-    }
-
-    return { changed: true, backup };
-}
-
-async function runPrioritySync(options = {}) {
-    const dryRun = options.dryRun !== false;
-    const client = await pool.connect();
-
-    let locked = false;
-    let runId = null;
-
-    try {
-        const lock = await client.query(
-            'SELECT pg_try_advisory_lock($1, $2) AS acquired',
-            [LOCK_A, LOCK_B]
-        );
-
-        locked = lock.rows[0].acquired;
-
-        if (!locked) {
-            return { status: 'skipped', reason: 'SYNC_ALREADY_RUNNING' };
-        }
-
-        const started = await client.query(
-            `INSERT INTO public.queue_sync_runs
-                (status, players_count, target_path)
-             VALUES ('running', 0, $1)
-             RETURNING id`,
-            [TARGET_FILE]
-        );
-
-        runId = started.rows[0].id;
-
-        const result = await client.query(`
-            SELECT DISTINCT p.steam64
-            FROM public.priority_grants g
-            JOIN public.players p ON p.id = g.player_id
-            WHERE g.status = 'active'
-              AND g.starts_at <= NOW()
-              AND (g.expires_at IS NULL OR g.expires_at > NOW())
-            ORDER BY p.steam64
-        `);
-
-        const content = buildPriorityFileContent(result.rows);
-        const checksum = sha256(content);
-
-        let fileResult = { changed: false, backup: null };
-        let emptyListProtected = false;
-
-        if (!dryRun) {
-            const allowEmpty = process.env.PRIORITY_SYNC_ALLOW_EMPTY === 'true';
-
-            if (shouldBlockEmptyPriorityWrite(content, allowEmpty)) {
-                emptyListProtected = true;
-
-                logger.warn({
-                    runId: String(runId),
-                    mode: 'LIVE',
-                    playersCount: 0,
-                    targetPath: TARGET_FILE
-                }, 'Sincronizacao LIVE bloqueada: lista vazia protegida');
-            } else {
-                fileResult = await writePriorityFile(content);
-            }
-        }
-
-        await client.query(
-            `UPDATE public.queue_sync_runs
-             SET status = 'success',
-                 players_count = $1,
-                 file_checksum = $2,
-                 finished_at = NOW()
-             WHERE id = $3`,
-            [result.rows.length, checksum, runId]
-        );
-
-        const response = {
-            status: 'success',
-            mode: dryRun ? 'DRY_RUN' : 'LIVE',
-            runId: String(runId),
-            playersCount: result.rows.length,
-            checksum,
-            targetPath: TARGET_FILE,
-            fileChanged: fileResult.changed,
-            backup: fileResult.backup,
-            emptyListProtected,
-            writeBlockedReason: emptyListProtected
-                ? 'EMPTY_PRIORITY_LIST_PROTECTED'
-                : null
-        };
-
-        logger.info(response, 'Sincronizacao de prioridades concluida');
-
-        return response;
-    } catch (error) {
-        if (runId !== null) {
-            try {
-                await client.query(
-                    `UPDATE public.queue_sync_runs
-                     SET status = 'failed',
-                         error_message = $1,
-                         finished_at = NOW()
-                     WHERE id = $2`,
-                    [String(error.message).slice(0, 2000), runId]
-                );
-            } catch (recordError) {
-                logger.error({ error: recordError }, 'Falha ao registrar erro da sincronizacao');
-            }
-        }
-
-        logger.error({ error }, 'Falha na sincronizacao de prioridades');
-        throw error;
-    } finally {
-        if (locked) {
-            try {
-                await client.query(
-                    'SELECT pg_advisory_unlock($1, $2)',
-                    [LOCK_A, LOCK_B]
-                );
-            } catch (error) {
-                logger.error({ error }, 'Falha ao liberar lock da sincronizacao');
-            }
-        }
-
-        client.release();
-    }
-}
-
-module.exports = {
-    buildPriorityFileContent,
-    runPrioritySync,
-    TARGET_FILE
-};
-
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\API\src\services\priority-sync.test.js
-====================================================================================================
-'use strict';
-
-const test = require('node:test');
-const assert = require('node:assert/strict');
-
-const { buildPriorityFileContent } = require('./priority-format');
-
-test('gera lista ordenada e sem duplicidades', () => {
-    const result = buildPriorityFileContent([
-        { steam64: '76561198000000002' },
-        { steam64: '76561198000000001' },
-        { steam64: '76561198000000002' }
-    ]);
-
-    assert.equal(result, '76561198000000001;76561198000000002');
-});
-
-test('lista vazia gera conteudo vazio', () => {
-    assert.equal(buildPriorityFileContent([]), '');
-});
-
-test('rejeita Steam64 invalido', () => {
-    assert.throws(
-        () => buildPriorityFileContent([{ steam64: '12345' }]),
-        /Steam64 invalido/
-    );
-});
-
-test('rejeita entrada que nao seja uma lista', () => {
-    assert.throws(
-        () => buildPriorityFileContent(null),
-        /Lista de jogadores invalida/
-    );
-});
-
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\API\src\services\priority-sync-guard.js
-====================================================================================================
-'use strict';
-
-function shouldBlockEmptyPriorityWrite(content, allowEmpty) {
-    if (typeof content !== 'string') {
-        throw new TypeError('Conteudo da lista de prioridades invalido.');
-    }
-
-    return content.length === 0 && allowEmpty !== true;
-}
-
-module.exports = {
-    shouldBlockEmptyPriorityWrite
-};
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\API\src\services\priority-sync-guard.test.js
-====================================================================================================
-'use strict';
-
-const test = require('node:test');
-const assert = require('node:assert/strict');
-
-const {
-    shouldBlockEmptyPriorityWrite
-} = require('./priority-sync-guard');
-
-test('bloqueia escrita de lista vazia por padrao', () => {
-    assert.equal(shouldBlockEmptyPriorityWrite('', false), true);
-});
-
-test('bloqueia escrita de lista vazia quando autorizacao esta ausente', () => {
-    assert.equal(shouldBlockEmptyPriorityWrite('', undefined), true);
-});
-
-test('permite lista vazia somente com autorizacao explicita', () => {
-    assert.equal(shouldBlockEmptyPriorityWrite('', true), false);
-});
-
-test('permite escrita quando existe conteudo', () => {
-    assert.equal(
-        shouldBlockEmptyPriorityWrite('76561198000000001', false),
-        false
-    );
-});
-
-test('rejeita conteudo que nao seja texto', () => {
-    assert.throws(
-        () => shouldBlockEmptyPriorityWrite(null, false),
-        /Conteudo da lista/
-    );
-});
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\API\src\services\transaction.js
-====================================================================================================
-'use strict';
-
-const { pool } = require('../db');
-
-async function withTransaction(callback) {
-    const client = await pool.connect();
-
-    try {
-        await client.query('BEGIN');
-
-        const result = await callback(client);
-
-        await client.query('COMMIT');
-        return result;
-    } catch (error) {
-        await client.query('ROLLBACK');
-        throw error;
-    } finally {
-        client.release();
-    }
-}
-
-module.exports = { withTransaction };
-
-5. MIGRACOES SQL DA API
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\API\migrations\001_initial_schema.sql
-====================================================================================================
-CREATE TABLE public.players (
-    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    steam64 VARCHAR(17) NOT NULL UNIQUE
-        CHECK (steam64 ~ '^[0-9]{17}$'),
-    display_name VARCHAR(64),
-    first_seen_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    last_seen_at TIMESTAMPTZ,
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);
-
-CREATE TABLE public.admin_users (
-    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    username VARCHAR(64) NOT NULL UNIQUE,
-    password_hash VARCHAR(255) NOT NULL,
-    access_role VARCHAR(20) NOT NULL DEFAULT 'admin'
-        CHECK (access_role IN ('owner','admin','moderator','viewer')),
-    is_active BOOLEAN NOT NULL DEFAULT TRUE,
-    last_login_at TIMESTAMPTZ,
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);
-
-CREATE TABLE public.priority_categories (
-    id SMALLINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    code VARCHAR(32) NOT NULL UNIQUE,
-    name VARCHAR(80) NOT NULL,
-    description TEXT,
-    display_order SMALLINT NOT NULL DEFAULT 0,
-    is_active BOOLEAN NOT NULL DEFAULT TRUE,
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);
-
-CREATE TABLE public.priority_grants (
-    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    player_id BIGINT NOT NULL REFERENCES public.players(id),
-    category_id SMALLINT NOT NULL REFERENCES public.priority_categories(id),
-    status VARCHAR(20) NOT NULL DEFAULT 'active'
-        CHECK (status IN ('scheduled','active','revoked','expired')),
-    grant_source VARCHAR(20) NOT NULL DEFAULT 'web'
-        CHECK (grant_source IN ('web','discord','system')),
-    reason TEXT,
-    starts_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    expires_at TIMESTAMPTZ,
-    granted_by_admin_id BIGINT REFERENCES public.admin_users(id),
-    revoked_by_admin_id BIGINT REFERENCES public.admin_users(id),
-    revoked_at TIMESTAMPTZ,
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    CHECK (expires_at IS NULL OR expires_at > starts_at)
-);
-
-CREATE TABLE public.discord_accounts (
-    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    player_id BIGINT NOT NULL UNIQUE REFERENCES public.players(id),
-    discord_user_id VARCHAR(20) NOT NULL UNIQUE
-        CHECK (discord_user_id ~ '^[0-9]{17,20}$'),
-    discord_username VARCHAR(100),
-    verified_at TIMESTAMPTZ,
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);
-
-CREATE TABLE public.audit_logs (
-    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    actor_type VARCHAR(20) NOT NULL
-        CHECK (actor_type IN ('admin','discord','system')),
-    actor_identifier VARCHAR(100),
-    actor_admin_id BIGINT REFERENCES public.admin_users(id) ON DELETE SET NULL,
-    action VARCHAR(100) NOT NULL,
-    entity_type VARCHAR(60),
-    entity_id VARCHAR(100),
-    details JSONB NOT NULL DEFAULT '{}'::JSONB,
-    source_ip INET,
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);
-
-CREATE TABLE public.system_settings (
-    setting_key VARCHAR(100) PRIMARY KEY,
-    setting_value JSONB NOT NULL,
-    description TEXT,
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);
-
-CREATE TABLE public.queue_sync_runs (
-    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    status VARCHAR(20) NOT NULL
-        CHECK (status IN ('running','success','failed')),
-    players_count INTEGER NOT NULL DEFAULT 0
-        CHECK (players_count >= 0),
-    file_checksum VARCHAR(64),
-    target_path TEXT,
-    error_message TEXT,
-    started_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    finished_at TIMESTAMPTZ
-);
-
-CREATE INDEX idx_priority_grants_player
-    ON public.priority_grants(player_id);
-
-CREATE INDEX idx_priority_grants_category
-    ON public.priority_grants(category_id);
-
-CREATE INDEX idx_priority_grants_status_expiration
-    ON public.priority_grants(status, expires_at);
-
-CREATE INDEX idx_audit_logs_created
-    ON public.audit_logs(created_at DESC);
-
-CREATE INDEX idx_audit_logs_entity
-    ON public.audit_logs(entity_type, entity_id);
-
-CREATE INDEX idx_queue_sync_runs_started
-    ON public.queue_sync_runs(started_at DESC);
-
-CREATE OR REPLACE FUNCTION public.set_updated_at()
-RETURNS TRIGGER
-LANGUAGE plpgsql
-AS $$
-BEGIN
-    NEW.updated_at = NOW();
-    RETURN NEW;
-END;
-$$;
-
-CREATE TRIGGER trg_players_updated_at
-BEFORE UPDATE ON public.players
-FOR EACH ROW EXECUTE FUNCTION public.set_updated_at();
-
-CREATE TRIGGER trg_admin_users_updated_at
-BEFORE UPDATE ON public.admin_users
-FOR EACH ROW EXECUTE FUNCTION public.set_updated_at();
-
-CREATE TRIGGER trg_priority_categories_updated_at
-BEFORE UPDATE ON public.priority_categories
-FOR EACH ROW EXECUTE FUNCTION public.set_updated_at();
-
-CREATE TRIGGER trg_priority_grants_updated_at
-BEFORE UPDATE ON public.priority_grants
-FOR EACH ROW EXECUTE FUNCTION public.set_updated_at();
-
-CREATE TRIGGER trg_system_settings_updated_at
-BEFORE UPDATE ON public.system_settings
-FOR EACH ROW EXECUTE FUNCTION public.set_updated_at();
-
-INSERT INTO public.priority_categories
-    (code, name, description, display_order)
-VALUES
-    ('staff', 'Staff', 'Equipe administrativa do Raven RP', 1),
-    ('supporters', 'Apoiadores', 'Apoiadores da comunidade', 2),
-    ('events', 'Eventos', 'Vencedores e convidados de eventos', 3),
-    ('creators', 'Criadores', 'Criadores de conteudo e parceiros', 4);
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\API\migrations\002_priority_integrity.sql
-====================================================================================================
--- Corrigir concessoes cuja validade ja terminou
-UPDATE public.priority_grants
-SET status = 'expired',
-    updated_at = NOW()
-WHERE status IN ('active', 'scheduled')
-  AND expires_at IS NOT NULL
-  AND expires_at <= NOW();
-
--- Uma concessao aberta por jogador e categoria.
--- O mesmo jogador pode possuir categorias diferentes.
-CREATE UNIQUE INDEX uq_priority_grants_player_category_open
-ON public.priority_grants (player_id, category_id)
-WHERE status IN ('active', 'scheduled');
-
--- Pesquisa de jogadores por nome
-CREATE INDEX idx_players_display_name_lower
-ON public.players (LOWER(display_name))
-WHERE display_name IS NOT NULL;
-
--- Pesquisa de concessoes por validade
-CREATE INDEX idx_priority_grants_expiration
-ON public.priority_grants (expires_at)
-WHERE status IN ('active', 'scheduled')
-  AND expires_at IS NOT NULL;
-
--- Pesquisa de auditoria por administrador
-CREATE INDEX idx_audit_logs_actor_admin
-ON public.audit_logs (actor_admin_id, created_at DESC)
-WHERE actor_admin_id IS NOT NULL;
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\API\migrations\003_system_incidents.sql
-====================================================================================================
-CREATE TABLE public.system_incidents (
-    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    component VARCHAR(32) NOT NULL
-        CHECK (component IN ('postgresql', 'killfeed')),
-    severity VARCHAR(16) NOT NULL
-        CHECK (severity IN ('warning', 'critical')),
-    details JSONB NOT NULL DEFAULT '{}'::JSONB,
-    started_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    resolved_at TIMESTAMPTZ,
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    CHECK (resolved_at IS NULL OR resolved_at >= started_at)
-);
-
-CREATE UNIQUE INDEX uq_system_incidents_open_component
-ON public.system_incidents (component)
-WHERE resolved_at IS NULL;
-
-CREATE INDEX idx_system_incidents_started
-ON public.system_incidents (started_at DESC);
-
-CREATE INDEX idx_system_incidents_resolved
-ON public.system_incidents (resolved_at DESC)
-WHERE resolved_at IS NOT NULL;
-
-
-6. OUTROS ARQUIVOS SQL DA API
-
-7. CODIGO PYTHON DO KILLFEED
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\Discord-KillFeed\killfeed\__init__.py
-====================================================================================================
-"""DayZ ADM PvP kill feed."""
-
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\Discord-KillFeed\killfeed\__main__.py
-====================================================================================================
-import argparse
-import logging
-import os
-from pathlib import Path
-from zoneinfo import ZoneInfo
-
-from dotenv import load_dotenv
-
-from .parser import parse_kill
-
-SAMPLE = ('14:22:34 | Player "Vex" (DEAD) (id=ABC pos=<4758.1, 10200.8, 288.6>) '
-          'killed by Player "Rook" (id=XYZ pos=<4611.0, 10088.4, 291.0>) '
-          'with M4-A1 from 185.1 meters')
-
-
-def main():
-    load_dotenv()
-    cli = argparse.ArgumentParser(description='DayZ PvP Kill Feed para Discord')
-    cli.add_argument('--test-parser', action='store_true', help='Valida o parser com uma linha de exemplo')
-    args = cli.parse_args()
-    timezone = ZoneInfo(os.getenv('TIMEZONE', 'America/Sao_Paulo'))
-
-    if args.test_parser:
-        result = parse_kill(SAMPLE, 'DayZServer_x64_2026-11-16_13-38-51.ADM', timezone)
-        if not result:
-            raise SystemExit('FALHA: exemplo nÃ£o reconhecido')
-        print('OK: parser reconheceu a morte PvP')
-        for key, value in result.items():
-            if key != 'raw_line':
-                print(f'{key}: {value}')
-        return
-
-    from .database import Database
-    from .discord import DiscordWebhook
-    from .monitor import AdmMonitor
-
-    log_dir = os.getenv('DAYZ_LOG_DIR', '').strip()
-    dsn = os.getenv('DATABASE_URL', '').strip()
-    webhook_url = os.getenv('DISCORD_WEBHOOK_URL', '').strip()
-    if not log_dir or not dsn or not webhook_url:
-        raise SystemExit('Configure DAYZ_LOG_DIR, DATABASE_URL e DISCORD_WEBHOOK_URL no arquivo .env')
-    if not Path(log_dir).is_dir():
-        raise SystemExit(f'DAYZ_LOG_DIR nÃ£o existe: {log_dir}')
-    if 'COLOQUE_A_URL' in webhook_url or 'ID/TOKEN' in webhook_url:
-        raise SystemExit('Configure a URL real do webhook no .env')
-
-    Path('logs').mkdir(exist_ok=True)
-    logging.basicConfig(
-        level=logging.INFO,
-        format='%(asctime)s %(levelname)s %(message)s',
-        handlers=[logging.StreamHandler(), logging.FileHandler('logs/killfeed.log', encoding='utf-8')],
-    )
-    logger = logging.getLogger('killfeed')
-    db = Database(dsn)
-    discord = DiscordWebhook(webhook_url, int(os.getenv('EMBED_COLOR', '15158332')))
-    monitor = AdmMonitor(
-        log_dir=log_dir,
-        pattern=os.getenv('DAYZ_FILE_GLOB', '*.ADM'),
-        database=db,
-        discord=discord,
-        timezone=timezone,
-        interval=max(0.5, float(os.getenv('POLL_INTERVAL_SECONDS', '1'))),
-    )
-    try:
-        monitor.run()
-    finally:
-        discord.close()
-        db.close()
-
-
-if __name__ == '__main__':
-    main()
-
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\Discord-KillFeed\killfeed\database.py
-====================================================================================================
-import json
-import psycopg
-from psycopg.rows import dict_row
-
-SCHEMA = '''
-CREATE TABLE IF NOT EXISTS pvp_kills (
-    id BIGSERIAL PRIMARY KEY,
-    event_id CHAR(64) NOT NULL UNIQUE,
-    occurred_at TIMESTAMPTZ NOT NULL,
-    killer_name TEXT NOT NULL,
-    killer_id TEXT,
-    victim_name TEXT NOT NULL,
-    victim_id TEXT,
-    weapon TEXT NOT NULL,
-    distance_m DOUBLE PRECISION,
-    killer_position JSONB,
-    victim_position JSONB,
-    raw_line TEXT NOT NULL,
-    discord_sent BOOLEAN NOT NULL DEFAULT FALSE,
-    discord_attempts INTEGER NOT NULL DEFAULT 0,
-    discord_last_error TEXT,
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);
-CREATE INDEX IF NOT EXISTS idx_pvp_kills_occurred_at ON pvp_kills (occurred_at DESC);
-CREATE INDEX IF NOT EXISTS idx_pvp_kills_pending ON pvp_kills (created_at) WHERE discord_sent = FALSE;
-'''
-
-
-class Database:
-    def __init__(self, dsn: str):
-        self.conn = psycopg.connect(dsn, row_factory=dict_row)
-        self.conn.execute(SCHEMA)
-        self.conn.commit()
-
-    def insert_kill(self, event: dict) -> bool:
-        query = '''INSERT INTO pvp_kills
-        (event_id, occurred_at, killer_name, killer_id, victim_name, victim_id,
-         weapon, distance_m, killer_position, victim_position, raw_line)
-        VALUES (%(event_id)s, %(occurred_at)s, %(killer_name)s, %(killer_id)s,
-         %(victim_name)s, %(victim_id)s, %(weapon)s, %(distance_m)s,
-         %(killer_position)s::jsonb, %(victim_position)s::jsonb, %(raw_line)s)
-        ON CONFLICT (event_id) DO NOTHING RETURNING id'''
-        values = dict(event)
-        values['killer_position'] = json.dumps(event['killer_position']) if event['killer_position'] else None
-        values['victim_position'] = json.dumps(event['victim_position']) if event['victim_position'] else None
-        try:
-            row = self.conn.execute(query, values).fetchone()
-            self.conn.commit()
-            return row is not None
-        except Exception:
-            self.conn.rollback()
-            raise
-
-    def pending(self, limit=20):
-        return self.conn.execute(
-            'SELECT * FROM pvp_kills WHERE discord_sent=FALSE ORDER BY id LIMIT %s', (limit,)
-        ).fetchall()
-
-    def mark_sent(self, row_id: int):
-        self.conn.execute('UPDATE pvp_kills SET discord_sent=TRUE, discord_last_error=NULL WHERE id=%s', (row_id,))
-        self.conn.commit()
-
-    def mark_error(self, row_id: int, error: str):
-        self.conn.execute('''UPDATE pvp_kills SET discord_attempts=discord_attempts+1,
-            discord_last_error=%s WHERE id=%s''', (error[:1000], row_id))
-        self.conn.commit()
-
-    def close(self):
-        self.conn.close()
-
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\Discord-KillFeed\killfeed\discord.py
-====================================================================================================
-import requests
-
-
-def _safe(value):
-    # Impede menÃ§Ãµes involuntÃ¡rias e limita o tamanho dos campos do Discord.
-    return str(value or 'NÃ£o informado').replace('@', '@\u200b')[:1024]
-
-
-def _coords(value):
-    if isinstance(value, str):
-        import json
-        value = json.loads(value)
-    return ', '.join(f'{float(v):.1f}' for v in value)
-
-
-class DiscordWebhook:
-    def __init__(self, url: str, color: int):
-        self.url = url
-        self.color = color
-        self.session = requests.Session()
-        self.session.headers.update({'User-Agent': 'DayZ-PvP-KillFeed/1.0'})
-
-    def send(self, event: dict):
-        fields = [
-            {'name': 'ðŸ”« Assassino', 'value': _safe(event['killer_name']), 'inline': True},
-            {'name': 'ðŸ’€ VÃ­tima', 'value': _safe(event['victim_name']), 'inline': True},
-            {'name': 'Arma', 'value': _safe(event['weapon']), 'inline': True},
-            {'name': 'DistÃ¢ncia', 'value': f"{event['distance_m']:.1f} m" if event['distance_m'] is not None else 'NÃ£o registrada', 'inline': True},
-            {'name': 'Data/hora', 'value': event['occurred_at'].strftime('%d/%m/%Y %H:%M:%S %Z'), 'inline': True},
-        ]
-        killer_pos = event.get('killer_position')
-        victim_pos = event.get('victim_position')
-        if killer_pos:
-            fields.append({'name': 'PosiÃ§Ã£o do assassino (X, Y, Z)', 'value': _coords(killer_pos), 'inline': True})
-        if victim_pos:
-            fields.append({'name': 'PosiÃ§Ã£o da vÃ­tima (X, Y, Z)', 'value': _coords(victim_pos), 'inline': True})
-
-        payload = {
-            'username': 'DayZ Kill Feed',
-            'allowed_mentions': {'parse': []},
-            'embeds': [{
-                'title': 'â˜ ï¸ KILL FEED â€” PvP',
-                'description': f"**{_safe(event['killer_name'])}** eliminou **{_safe(event['victim_name'])}**",
-                'color': self.color,
-                'fields': fields,
-                'footer': {'text': 'Servidor DayZ â€¢ Registro administrativo'},
-            }],
-        }
-        response = self.session.post(self.url, json=payload, timeout=15)
-        if response.status_code not in (200, 204):
-            raise RuntimeError(f'Discord HTTP {response.status_code}: {response.text[:250]}')
-
-    def close(self):
-        self.session.close()
-
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\Discord-KillFeed\killfeed\monitor.py
-====================================================================================================
-import logging
-import time
-from pathlib import Path
-
-from .parser import parse_kill
-
-
-def latest_adm(directory: Path, pattern: str):
-    candidates = list(directory.glob(pattern))
-    return max(candidates, key=lambda path: path.stat().st_mtime) if candidates else None
-
-
-class AdmMonitor:
-    def __init__(self, log_dir: str, pattern: str, database, discord, timezone, interval: float):
-        self.log_dir = Path(log_dir)
-        self.pattern = pattern
-        self.database = database
-        self.discord = discord
-        self.timezone = timezone
-        self.interval = interval
-        self.logger = logging.getLogger('killfeed')
-        self.current_file = None
-        self.position = 0
-        self.discord_retry_at = 0.0
-
-    def _dispatch_pending(self):
-        now = time.monotonic()
-        if now < self.discord_retry_at:
-            return
-        for row in self.database.pending():
-            try:
-                self.discord.send(row)
-                self.database.mark_sent(row['id'])
-                self.logger.info('Publicado no Discord: %s -> %s', row['killer_name'], row['victim_name'])
-            except Exception as exc:
-                self.database.mark_error(row['id'], str(exc))
-                self.logger.exception('Falha ao publicar evento %s', row['id'])
-                self.discord_retry_at = time.monotonic() + 10
-                break
-
-    def _tail(self):
-        newest = latest_adm(self.log_dir, self.pattern)
-        if newest is None:
-            return
-        if self.current_file is None:
-            # Primeira inicializaÃ§Ã£o: evita disparar todo o histÃ³rico antigo.
-            self.current_file = newest
-            self.position = newest.stat().st_size
-            self.logger.info('Arquivo ADM inicial: %s; leitura comeÃ§arÃ¡ no fim.', newest.name)
-            return
-        if newest != self.current_file:
-            self.current_file = newest
-            self.position = 0
-            self.logger.info('Novo arquivo ADM detectado: %s', newest.name)
-
-        size = self.current_file.stat().st_size
-        if size < self.position:
-            self.logger.warning('Arquivo ADM truncado; reposicionando leitura.')
-            self.position = 0
-        if size == self.position:
-            return
-
-        # Reabre a cada ciclo para nÃ£o bloquear o DayZ no Windows.
-        with self.current_file.open('rb') as stream:
-            stream.seek(self.position)
-            chunk = stream.read()
-            self.position = stream.tell()
-        lines = chunk.decode('utf-8', errors='replace').splitlines()
-        for line in lines:
-            event = parse_kill(line, self.current_file.name, self.timezone)
-            if event and self.database.insert_kill(event):
-                self.logger.info('PvP detectado: %s -> %s | %s', event['killer_name'], event['victim_name'], event['weapon'])
-
-    def run(self):
-        self.logger.info('Monitorando %s (%s)', self.log_dir, self.pattern)
-        while True:
-            try:
-                self._dispatch_pending()
-                self._tail()
-                time.sleep(self.interval)
-            except KeyboardInterrupt:
-                self.logger.info('Encerramento solicitado.')
-                return
-            except Exception:
-                self.logger.exception('Erro no monitoramento; nova tentativa em 3 segundos.')
-                time.sleep(3)
-
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\Discord-KillFeed\killfeed\parser.py
-====================================================================================================
-import hashlib
-import re
-from datetime import date, datetime
-from pathlib import Path
-from zoneinfo import ZoneInfo
-
-# Formato vanilla documentado: HH:MM:SS | Player "victim" (DEAD)
-# (id=... pos=<x, y, z>) killed by Player "killer" (id=... pos=<x, y, z>)
-# with WEAPON from N meters. A distÃ¢ncia/posiÃ§Ãµes podem variar em versÃµes/mods.
-KILL_RE = re.compile(
-    r'^(?P<clock>\d{2}:\d{2}:\d{2})\s*\|\s*'
-    r'Player\s+"(?P<victim>.*?)"\s+\(DEAD\)\s+'
-    r'\(id=(?P<victim_id>.*?)\s+pos=<(?P<vx>-?[\d.]+),\s*(?P<vy>-?[\d.]+),\s*(?P<vz>-?[\d.]+)>\)\s+'
-    r'killed by Player\s+"(?P<killer>.*?)"\s+'
-    r'\(id=(?P<killer_id>.*?)\s+pos=<(?P<kx>-?[\d.]+),\s*(?P<ky>-?[\d.]+),\s*(?P<kz>-?[\d.]+)>\)\s+'
-    r'with\s+(?P<weapon>.+?)\s+from\s+(?P<distance>[\d.]+)\s+meters?\s*$', re.I
-)
-
-# Fallback conservador: ainda exige morte de um Player causada por outro Player.
-FALLBACK_RE = re.compile(
-    r'^(?P<clock>\d{2}:\d{2}:\d{2})\s*\|\s*'
-    r'Player\s+"(?P<victim>.*?)".*?\(DEAD\).*?killed by Player\s+"(?P<killer>.*?)".*?'
-    r'with\s+(?P<weapon>.+?)(?:\s+from\s+(?P<distance>[\d.]+)\s*(?:meters?|m))?\s*$', re.I
-)
-
-
-def _date_from_filename(filename: str) -> date | None:
-    name = Path(filename).name
-    # DayZServer_x64_2026-11-16_13-38-51.ADM
-    match = re.search(r'(\d{4})-(\d{2})-(\d{2})', name)
-    # DayZServer_x64_2026_11_16_133851123.ADM
-    if not match:
-        match = re.search(r'(\d{4})_(\d{2})_(\d{2})', name)
-    if match:
-        try:
-            return date(*(int(part) for part in match.groups()))
-        except ValueError:
-            return None
-    return None
-
-
-def parse_kill(line: str, filename: str, timezone: ZoneInfo) -> dict | None:
-    raw = line.strip()
-    match = KILL_RE.match(raw)
-    has_positions = match is not None
-    if match is None:
-        match = FALLBACK_RE.match(raw)
-    if match is None:
-        return None
-
-    data = match.groupdict()
-    killer, victim = data['killer'].strip(), data['victim'].strip()
-    if not killer or not victim or killer.casefold() == victim.casefold():
-        return None
-
-    log_date = _date_from_filename(filename) or datetime.now(timezone).date()
-    clock = datetime.strptime(data['clock'], '%H:%M:%S').time()
-    occurred_at = datetime.combine(log_date, clock, tzinfo=timezone)
-
-    def coords(prefix):
-        if not has_positions:
-            return None
-        return [float(data[prefix + axis]) for axis in ('x', 'y', 'z')]
-
-    # O ID Ã© capturado sem o sufixo " pos=...".
-    victim_id = data.get('victim_id')
-    killer_id = data.get('killer_id')
-    if victim_id:
-        victim_id = victim_id.split(' pos=')[0].strip()[:128]
-    if killer_id:
-        killer_id = killer_id.split(' pos=')[0].strip()[:128]
-
-    event_id = hashlib.sha256((Path(filename).name + '|' + raw).encode('utf-8', 'replace')).hexdigest()
-    return {
-        'event_id': event_id,
-        'occurred_at': occurred_at,
-        'killer_name': killer,
-        'killer_id': killer_id,
-        'victim_name': victim,
-        'victim_id': victim_id,
-        'weapon': data.get('weapon', 'NÃ£o identificada').strip(),
-        'distance_m': float(data['distance']) if data.get('distance') else None,
-        'killer_position': coords('k'),
-        'victim_position': coords('v'),
-        'raw_line': raw,
-    }
-
-
-8. SQL DO KILLFEED
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\Discord-KillFeed\sql\schema.sql
-====================================================================================================
-CREATE TABLE IF NOT EXISTS pvp_kills (
-    id BIGSERIAL PRIMARY KEY,
-    event_id CHAR(64) NOT NULL UNIQUE,
-    occurred_at TIMESTAMPTZ NOT NULL,
-    killer_name TEXT NOT NULL,
-    killer_id TEXT,
-    victim_name TEXT NOT NULL,
-    victim_id TEXT,
-    weapon TEXT NOT NULL,
-    distance_m DOUBLE PRECISION,
-    killer_position JSONB,
-    victim_position JSONB,
-    raw_line TEXT NOT NULL,
-    discord_sent BOOLEAN NOT NULL DEFAULT FALSE,
-    discord_attempts INTEGER NOT NULL DEFAULT 0,
-    discord_last_error TEXT,
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);
-CREATE INDEX IF NOT EXISTS idx_pvp_kills_occurred_at ON pvp_kills (occurred_at DESC);
-CREATE INDEX IF NOT EXISTS idx_pvp_kills_pending ON pvp_kills (created_at) WHERE discord_sent = FALSE;
-
-
-9. DOCUMENTACAO DO KILLFEED
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\Discord-KillFeed\README.md
-====================================================================================================
-# DayZ PvP Kill Feed â†’ Discord
-
-ServiÃ§o independente para Windows que acompanha os arquivos `.ADM` do DayZ, detecta mortes PvP, grava no PostgreSQL e publica embeds em um canal privado do Discord.
-
-## Requisitos
-
-- Windows 10/11 ou Windows Server
-- Python 3.11 ou superior
-- PostgreSQL 14 ou superior
-- DayZ Dedicated Server iniciado com `-adminlog`
-- Webhook de um canal privado do Discord
-
-## 1. Ativar o ADM no DayZ
-
-O parÃ¢metro `-adminlog` Ã© obrigatÃ³rio. O arquivo `.ADM` Ã© criado na pasta definida pelo parÃ¢metro `-profiles`.
-
-Exemplo de inicializaÃ§Ã£o (adapte os caminhos e parÃ¢metros jÃ¡ existentes):
-
-```bat
-DayZServer_x64.exe -config=serverDZ.cfg -port=2302 "-profiles=C:\DayZServer\profiles" -adminlog
-```
-
-NÃ£o substitua sua linha atual: apenas acrescente `-adminlog` se ainda nÃ£o estiver presente. O valor de `DAYZ_LOG_DIR` deve apontar para a mesma pasta de `-profiles`.
-
-ReferÃªncia oficial: https://community.bohemia.net/wiki/DayZ:Administration_Logs
-
-## 2. Criar banco PostgreSQL
-
-No pgAdmin ou `psql`, execute (troque a senha):
-
-```sql
-CREATE USER dayz_killfeed WITH PASSWORD 'SENHA_FORTE_AQUI';
-CREATE DATABASE dayz_killfeed OWNER dayz_killfeed;
-```
-
-A aplicaÃ§Ã£o cria a tabela e os Ã­ndices automaticamente ao iniciar. O arquivo `sql/schema.sql` tambÃ©m pode ser executado manualmente.
-
-## 3. Criar webhook no Discord
-
-1. Abra as configuraÃ§Ãµes do servidor Discord.
-2. Entre em IntegraÃ§Ãµes â†’ Webhooks.
-3. Crie um webhook no canal privado da administraÃ§Ã£o.
-4. Copie a URL e guarde-a como segredo. Qualquer pessoa com essa URL pode publicar no canal.
-
-NÃ£o Ã© necessÃ¡rio criar um bot nem disponibilizar token de bot.
-
-## 4. Instalar e configurar
-
-1. Extraia a pasta do projeto no PC que hospeda o DayZ.
-2. Execute `install.bat`.
-3. Edite `.env` e configure:
-   - `DAYZ_LOG_DIR`: pasta `profiles` real do servidor.
-   - `DATABASE_URL`: endereÃ§o, banco, usuÃ¡rio e senha PostgreSQL.
-   - `DISCORD_WEBHOOK_URL`: URL do webhook.
-4. Rode o teste local do parser:
-
-```powershell
-.venv\Scripts\python.exe -m killfeed --test-parser
-```
-
-5. Execute `start.bat`.
-
-## 5. Testar com o log real
-
-FaÃ§a uma morte PvP controlada no servidor e confira:
-
-- O console do serviÃ§o deve exibir `PvP detectado`.
-- O canal Discord deve receber o Embed.
-- A tabela `pvp_kills` deve conter o evento.
-
-Consulta de conferÃªncia:
-
-```sql
-SELECT occurred_at, killer_name, victim_name, weapon, distance_m,
-       discord_sent, discord_attempts
-FROM pvp_kills
-ORDER BY occurred_at DESC
-LIMIT 20;
-```
-
-O parser foi implementado para o formato vanilla documentado. Mods, versÃµes ou formatos diferentes podem exigir ajuste. Se o parser de exemplo funcionar mas uma kill real nÃ£o for reconhecida, envie uma linha real do `.ADM` (pode ocultar os IDs) para ajustar a expressÃ£o com seguranÃ§a.
-
-## 6. InicializaÃ§Ã£o automÃ¡tica
-
-Use o Agendador de Tarefas do Windows:
-
-- Gatilho: Ao iniciar o computador (ou ao iniciar sessÃ£o, conforme sua operaÃ§Ã£o).
-- AÃ§Ã£o / Programa: caminho completo para `dayz-discord-killfeed\.venv\Scripts\python.exe`.
-- Argumentos: `-m killfeed`.
-- Iniciar em: caminho completo da pasta `dayz-discord-killfeed`.
-- Configure reinicializaÃ§Ã£o em caso de falha.
-
-O serviÃ§o grava o log em `logs\killfeed.log`.
-
-## Comportamento e limitaÃ§Ãµes
-
-- Na primeira inicializaÃ§Ã£o, o monitor comeÃ§a no final do `.ADM` mais recente para nÃ£o despejar o histÃ³rico antigo no Discord.
-- Ao detectar um novo arquivo `.ADM` (normalmente apÃ³s reinÃ­cio do servidor), comeÃ§a a acompanhar o novo arquivo desde o inÃ­cio.
-- A chave SHA-256 e a restriÃ§Ã£o `UNIQUE` evitam inserir a mesma linha duas vezes no banco.
-- Se o Discord estiver indisponÃ­vel, os eventos ficam pendentes no banco e sÃ£o tentados novamente.
-- A entrega ao Discord Ã© **at-least-once**: uma queda exatamente depois de o Discord aceitar a mensagem e antes de o banco marcar como enviada pode ocasionar uma mensagem repetida. Webhook nÃ£o oferece chave de idempotÃªncia para eliminar completamente essa janela.
-- O monitor acompanha o arquivo `.ADM` mais recente. NÃ£o mova nem apague o arquivo ativo enquanto o serviÃ§o estiver rodando.
-- O serviÃ§o nÃ£o executa comandos administrativos, nÃ£o altera o jogo e nÃ£o requer mod instalado pelos jogadores.
-
-
-10. DOCUMENTACAO E CONFIGURACAO DE EXEMPLO DA API
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\API\.env.example
-====================================================================================================
-NODE_ENV=development
-API_HOST=127.0.0.1
-API_PORT=3100
-LOG_LEVEL=info
-
-DB_HOST=127.0.0.1
-DB_PORT=5432
-DB_NAME=raven_control
-DB_USER=raven_app
-DB_PASSWORD_B64=SUBSTITUIR_POR_BASE64
-DB_POOL_MAX=5
-DB_CONNECTION_TIMEOUT=5000
-
-CORS_ORIGINS=http://localhost:5173,http://127.0.0.1:5173
-
-11. INTEGRACOES RAVEN - INVENTARIO
-
-ESTRUTURA: C:\RavenRP\ControlCenter\Integrations
-
-
-12. VERIFICACAO DE SEGURANCA
-Arquivos .env: NAO LIDOS
-Credenciais: NAO CONSULTADAS
-Banco PostgreSQL: NENHUMA CONEXAO REALIZADA
-Servicos: NAO REINICIADOS
-Migracoes: NAO EXECUTADAS
-Arquivos do projeto: NAO ALTERADOS
-Instalacoes: NENHUMA
-
-FIM DA AUDITORIA
-
+AUDITORIA CONCLUIDA
+Relatorio: C:\Users\Nasdara\Desktop\RAVEN_PATH_REFERENCES_AUDIT.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 24 | DIRETORIO: C:\DayZServer\profiles\VPPAdminTools
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 32 | C:\DayZServer\profiles\VPPAdminTools\Backups                                                                 True        15/11/2026 13:06:09
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 33 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins                                                     True        15/11/2026 13:06:10
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 34 | C:\DayZServer\profiles\VPPAdminTools\Exports                                                                 True        15/11/2026 13:06:09
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 35 | C:\DayZServer\profiles\VPPAdminTools\Logging                                                                 True        18/11/2026 12:31:56
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 36 | C:\DayZServer\profiles\VPPAdminTools\Permissions                                                             True        17/11/2026 13:25:19
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 37 | C:\DayZServer\profiles\VPPAdminTools\XMLEditor                                                               True        15/11/2026 13:06:10
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 38 | C:\DayZServer\profiles\VPPAdminTools\BanList.json                                                           False 457    15/11/2026 13:06:10
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 39 | C:\DayZServer\profiles\VPPAdminTools\LogOptions.json                                                        False 50     15/11/2026 13:06:10
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 40 | C:\DayZServer\profiles\VPPAdminTools\SpectateRecovery.json                                                  False 23     15/11/2026 14:49:09
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 41 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\BuildingSetManager                                  True        15/11/2026 13:06:10
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 42 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\ItemManager                                         True        15/11/2026 13:06:10
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 43 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TeleportManager                                     True        15/11/2026 13:06:10
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 44 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TimeManager                                         True        15/11/2026 13:06:10
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 45 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WeatherManager                                      True        15/11/2026 13:06:10
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 46 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager                                     True        15/11/2026 13:06:10
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 47 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\SteamAPI.json                                      False 102    15/11/2026 13:06:10
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 48 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\BuildingSetManager\BuildingSetJournal.json         False 55     15/11/2026 13:06:10
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 49 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\ItemManager\SavedItemPresets.vpp                   False 561    15/11/2026 13:06:10
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 50 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TeleportManager\TeleportLocation.json              False 4316   15/11/2026 13:06:10
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 51 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TimeManager\TimeSettingsPresets.json               False 212    15/11/2026 14:58:16
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 52 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WeatherManager\WeatherSettingsPresets.json         False 29     15/11/2026 13:06:10
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 53 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates                           True        15/11/2026 13:06:10
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 54 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt               False 6496   18/11/2026 12:31:57
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 55 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-10-22.txt                                    False 11419  15/11/2026 13:10:22
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 56 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-20-40.txt                                    False 11419  15/11/2026 13:20:41
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 57 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-27-35.txt                                    False 11419  15/11/2026 13:27:35
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 58 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-38-30.txt                                    False 11354  15/11/2026 13:38:30
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 59 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-41-45.txt                                    False 11616  15/11/2026 14:03:59
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 60 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-6-10.txt                                     False 11896  15/11/2026 13:06:10
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 61 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-7-43.txt                                     False 11288  15/11/2026 13:07:43
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 62 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-20-59.txt                                    False 11682  15/11/2026 14:36:04
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 63 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                    False 26007  15/11/2026 15:46:50
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 64 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-6-39.txt                                     False 11223  15/11/2026 14:06:40
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 65 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-9-38.txt                                     False 11470  15/11/2026 14:18:30
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 66 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_18-57-45.txt                                    False 11314  15/11/2026 15:57:45
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 67 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-1-1.txt                                      False 11052  15/11/2026 16:01:01
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 68 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-14-54.txt                                    False 11314  15/11/2026 16:14:54
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 69 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-3-27.txt                                     False 11183  15/11/2026 16:03:27
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 70 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-10-24.txt                                    False 11314  15/11/2026 17:10:24
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 71 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-58-45.txt                                    False 11314  15/11/2026 17:58:45
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 72 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                     False 18701  15/11/2026 18:45:24
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 73 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                    False 15064  16/11/2026 12:34:40
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 74 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-47-49.txt                                    False 11314  16/11/2026 12:47:49
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 75 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_18-45-49.txt                                    False 11314  16/11/2026 15:45:49
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 76 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-14-38.txt                                    False 11314  16/11/2026 16:14:38
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 77 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                    False 13413  16/11/2026 17:08:58
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 78 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-40-47.txt                                    False 11314  16/11/2026 16:40:47
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 79 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_20-24-6.txt                                     False 11260  16/11/2026 17:27:44
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 80 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                    False 21552  16/11/2026 19:40:53
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 81 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-48.txt                                    False 11314  16/11/2026 18:20:49
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 82 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_23-0-3.txt                                      False 11299  16/11/2026 20:19:17
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 83 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_16-25-19.txt                                    False 11558  17/11/2026 15:09:11
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 84 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                    False 13526  17/11/2026 22:42:11
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 85 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-18_15-31-56.txt                                    False 11314  18/11/2026 12:31:57
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 86 | C:\DayZServer\profiles\VPPAdminTools\Permissions\SuperAdmins                                                 True        15/11/2026 13:06:10
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 87 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups                                                  True        15/11/2026 13:06:10
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 88 | C:\DayZServer\profiles\VPPAdminTools\Permissions\credentials.txt                                            False 247    17/11/2026 13:25:19
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 89 | C:\DayZServer\profiles\VPPAdminTools\Permissions\webhooks_perms_v1.txt                                      False 1      15/11/2026 13:06:10
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 90 | C:\DayZServer\profiles\VPPAdminTools\Permissions\xmleditor_perms_v1.txt                                     False 1      15/11/2026 13:06:10
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 91 | C:\DayZServer\profiles\VPPAdminTools\Permissions\xmleditor_perms_v2.txt                                     False 1      15/11/2026 13:06:10
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 92 | C:\DayZServer\profiles\VPPAdminTools\Permissions\xmleditor_perms_v3.txt                                     False 1      15/11/2026 13:06:10
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 93 | C:\DayZServer\profiles\VPPAdminTools\Permissions\xmleditor_perms_v4.txt                                     False 1      15/11/2026 13:06:10
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 94 | C:\DayZServer\profiles\VPPAdminTools\Permissions\SuperAdmins\SuperAdmins.txt                                False 36     15/11/2026 15:28:07
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 95 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json                                 False 4649   15/11/2026 13:06:10
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 96 | C:\DayZServer\profiles\VPPAdminTools\XMLEditor\Backups                                                       True        15/11/2026 13:06:10
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 97 | C:\DayZServer\profiles\VPPAdminTools\XMLEditor\Cache                                                         True        15/11/2026 13:22:08
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 98 | C:\DayZServer\profiles\VPPAdminTools\XMLEditor\XMLEditorSettings.json                                       False 328    15/11/2026 13:06:10
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 99 | C:\DayZServer\profiles\VPPAdminTools\XMLEditor\Cache\eol_probe.txt                                          False 6      18/11/2026 12:33:44
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 109 | C:\DayZServer\profiles\VPPAdminTools\Backups
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 110 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 111 | C:\DayZServer\profiles\VPPAdminTools\Exports
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 112 | C:\DayZServer\profiles\VPPAdminTools\Logging
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 113 | C:\DayZServer\profiles\VPPAdminTools\Permissions
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 114 | C:\DayZServer\profiles\VPPAdminTools\XMLEditor
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 115 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\BuildingSetManager
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 116 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\ItemManager
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 117 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TeleportManager
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 118 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TimeManager
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 119 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WeatherManager
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 120 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 121 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 122 | C:\DayZServer\profiles\VPPAdminTools\Permissions\SuperAdmins
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 123 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 124 | C:\DayZServer\profiles\VPPAdminTools\XMLEditor\Backups
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 125 | C:\DayZServer\profiles\VPPAdminTools\XMLEditor\Cache
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 135 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\BanList.json
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 159 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\LogOptions.json
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 168 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\SpectateRecovery.json
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 176 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\SteamAPI.json
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 187 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\BuildingSetManager\BuildingSetJournal.json
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 197 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TeleportManager\TeleportLocation.json
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 382 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TimeManager\TimeSettingsPresets.json
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 399 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WeatherManager\WeatherSettingsPresets.json
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 407 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 582 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-10-22.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 720 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-20-40.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 858 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-27-35.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 996 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-38-30.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 1134 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-41-45.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 1275 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-6-10.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 1419 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-7-43.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 1557 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-20-59.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 1699 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 2013 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-6-39.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 2151 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-9-38.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 2292 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_18-57-45.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 2430 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-1-1.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 2568 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-14-54.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 2706 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-3-27.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 2844 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-10-24.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 2982 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-58-45.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 3120 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 3331 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 3509 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-47-49.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 3647 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_18-45-49.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 3785 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-14-38.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 3923 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 4083 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-40-47.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 4221 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_20-24-6.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 4360 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 4604 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-48.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 4742 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_23-0-3.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 4883 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_16-25-19.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 5024 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 5188 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-18_15-31-56.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 5326 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Permissions\credentials.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 5333 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Permissions\webhooks_perms_v1.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 5339 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Permissions\xmleditor_perms_v1.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 5345 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Permissions\xmleditor_perms_v2.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 5351 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Permissions\xmleditor_perms_v3.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 5357 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Permissions\xmleditor_perms_v4.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 5363 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Permissions\SuperAdmins\SuperAdmins.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 5370 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 5497 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\XMLEditor\XMLEditorSettings.json
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 5516 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\XMLEditor\Cache\eol_probe.txt
+C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 5528 | Arquivo      : C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\ItemManager\SavedItemPresets.vpp
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Config_WebHooks_VPP.txt | Linha 24 | Diretorio VPP: C:\DayZServer\profiles\VPPAdminTools
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Config_WebHooks_VPP.txt | Linha 25 | WebHooksManager: C:\DayZServer\profiles\VPPAdminTools\WebHooksManager
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Config_WebHooks_VPP.txt | Linha 34 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt .txt        6496 18/11/2026 12:31:57
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Config_WebHooks_VPP.txt | Linha 35 | C:\DayZServer\profiles\VPPAdminTools\Permissions\webhooks_perms_v1.txt                        .txt           1 15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Config_WebHooks_VPP.txt | Linha 44 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Config_WebHooks_VPP.txt | Linha 232 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Permissions\webhooks_perms_v1.txt
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 27 | C:\DayZServer\profiles\VPPAdminTools\Permissions\webhooks_perms_v1.txt      1 15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 37 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt     1 VPP Admin Tools webhook templates
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 38 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt     4 Each webhook has a folder named after its id with one <event>.tpl per event: the request body sent for it.
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 39 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt     5 Edit them here or in the WebHooks menu; the server reads them at start (or on Reload in the menu).
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 40 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt     6 Delete a file to get the webhook's preset template back.
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 41 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt     9   {{victim.name}}                        a variable (JSON-escaped for JSON webhooks)
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 42 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt    15   {{hook.<name>}}                        a custom variable of the webhook (username, avatar, chat_id, ...)
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 43 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt    17 Webhooks:
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 44 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json                      72             "MenuWebHooks",
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 45 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json                      73             "MenuWebHooks:Create",
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 46 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json                      74             "MenuWebHooks:Edit",
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 47 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json                      75             "MenuWebHooks:Delete",
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 48 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json                      76             "MenuWebHooks:EditTemplates",
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 49 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json                      77             "MenuWebHooks:TestSend",
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 50 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json                      78             "MenuWebHooks:ViewURL",
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 51 | C:\DayZServer\profiles\Zenarchist\Core\ZenCoreConfig.json                                        36         "AdminWebhooks": [
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 52 | C:\DayZServer\profiles\Zenarchist\Core\ZenCoreConfig.json                                        37             "Insert admin channel webhooks here"
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 53 | C:\DayZServer\profiles\Zenarchist\Core\ZenCoreConfig.json                                        41             "KillfeedWebhooks": [
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 54 | C:\DayZServer\profiles\Zenarchist\Core\ZenCoreConfig.json                                        42                 "Insert killfeed channel webhooks here"
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 64 | C:\DayZServer\profiles\BattlEye\BEServer_x64.cfg                                                    .cfg          59 15/11/2026 13:24:31
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 65 | C:\DayZServer\profiles\Buddys_Whistle\Buddys_Whistle_Config.json                                    .json        123 16/11/2026 12:47:49
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 66 | C:\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                          .json      16497 15/11/2026 17:58:45
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 67 | C:\DayZServer\profiles\CodeLock\CodeLockConfig.json                                                 .json        439 18/11/2026 12:31:57
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 68 | C:\DayZServer\profiles\CodeLock\CodeLockPerms.json                                                  .json        416 18/11/2026 18:34:41
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 69 | C:\DayZServer\profiles\KomodoDragon\KomodoDragon.json                                               .json        191 18/11/2026 12:31:57
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 70 | C:\DayZServer\profiles\KomodoDragon\ReadMe.txt                                                      .txt        2920 18/11/2026 12:31:57
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 71 | C:\DayZServer\profiles\Suppression\EarProtectionItems.txt                                           .txt          14 16/11/2026 12:12:50
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 72 | C:\DayZServer\profiles\Suppression\SuppressionSettings.json                                         .json        192 16/11/2026 15:45:48
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 73 | C:\DayZServer\profiles\Users\Server\DayZ.cfg                                                        .cfg          80 15/11/2026 13:03:18
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 74 | C:\DayZServer\profiles\Users\Survivor\Server.core.xml                                               .xml         583 18/11/2026 12:30:42
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 75 | C:\DayZServer\profiles\Users\Survivor\Server.dayz_preset_User.xml                                   .xml       33827 18/11/2026 12:30:42
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 76 | C:\DayZServer\profiles\VPPAdminTools\BanList.json                                                   .json        457 15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 77 | C:\DayZServer\profiles\VPPAdminTools\LogOptions.json                                                .json         50 15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 78 | C:\DayZServer\profiles\VPPAdminTools\SpectateRecovery.json                                          .json         23 15/11/2026 14:49:09
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 79 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\BuildingSetManager\BuildingSetJournal.json .json         55 15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 80 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TeleportManager\TeleportLocation.json      .json       4316 15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 81 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TimeManager\TimeSettingsPresets.json       .json        212 15/11/2026 14:58:16
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 82 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WeatherManager\WeatherSettingsPresets.json .json         29 15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 83 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt       .txt        6496 18/11/2026 12:31:57
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 84 | C:\DayZServer\profiles\VPPAdminTools\Permissions\webhooks_perms_v1.txt                              .txt           1 15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 85 | C:\DayZServer\profiles\VPPAdminTools\Permissions\xmleditor_perms_v1.txt                             .txt           1 15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 86 | C:\DayZServer\profiles\VPPAdminTools\Permissions\xmleditor_perms_v2.txt                             .txt           1 15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 87 | C:\DayZServer\profiles\VPPAdminTools\Permissions\xmleditor_perms_v3.txt                             .txt           1 15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 88 | C:\DayZServer\profiles\VPPAdminTools\Permissions\xmleditor_perms_v4.txt                             .txt           1 15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 89 | C:\DayZServer\profiles\VPPAdminTools\Permissions\SuperAdmins\SuperAdmins.txt                        .txt          36 15/11/2026 15:28:07
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 90 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json                         .json       4649 15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 91 | C:\DayZServer\profiles\VPPAdminTools\XMLEditor\XMLEditorSettings.json                               .json        328 15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 92 | C:\DayZServer\profiles\VPPAdminTools\XMLEditor\Cache\eol_probe.txt                                  .txt           6 18/11/2026 12:33:44
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 93 | C:\DayZServer\profiles\Zenarchist\ZenNotesConfig.json                                               .json        889 16/11/2026 12:12:50
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 94 | C:\DayZServer\profiles\Zenarchist\Core\ZenCoreConfig.json                                           .json       1540 16/11/2026 12:12:50
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 27 | C:\DayZServer\profiles\VPPAdminTools\Backups                                       15/11/2026 13:06:09
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 28 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins                           15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 29 | C:\DayZServer\profiles\VPPAdminTools\Exports                                       15/11/2026 13:06:09
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 30 | C:\DayZServer\profiles\VPPAdminTools\Logging                                       18/11/2026 12:31:56
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 31 | C:\DayZServer\profiles\VPPAdminTools\Permissions                                   17/11/2026 13:25:19
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 32 | C:\DayZServer\profiles\VPPAdminTools\XMLEditor                                     15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 33 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\BuildingSetManager        15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 34 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\ItemManager               15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 35 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TeleportManager           15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 36 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TimeManager               15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 37 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WeatherManager            15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 38 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager           15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 39 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates 15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 40 | C:\DayZServer\profiles\VPPAdminTools\Permissions\SuperAdmins                       15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 41 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups                        15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 42 | C:\DayZServer\profiles\VPPAdminTools\XMLEditor\Backups                             15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 43 | C:\DayZServer\profiles\VPPAdminTools\XMLEditor\Cache                               15/11/2026 13:22:08
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 53 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\SteamAPI.json                              .json        102 15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 54 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\BuildingSetManager\BuildingSetJournal.json .json         55 15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 55 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\ItemManager\SavedItemPresets.vpp           .vpp         561 15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 56 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TeleportManager\TeleportLocation.json      .json       4316 15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 57 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TimeManager\TimeSettingsPresets.json       .json        212 15/11/2026 14:58:16
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 58 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WeatherManager\WeatherSettingsPresets.json .json         29 15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 59 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt       .txt        6496 18/11/2026 12:31:57
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 60 | C:\DayZServer\profiles\VPPAdminTools\Permissions\webhooks_perms_v1.txt                              .txt           1 15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 70 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt     1 VPP Admin Tools webhook templates
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 71 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt     4 Each webhook has a folder named after its id with one <event>.tpl per event: the request body sent for it.
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 72 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt     5 Edit them here or in the WebHooks menu; the server reads them at start (or on Reload in the menu).
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 73 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt     6 Delete a file to get the webhook's preset template back.
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 74 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt     9   {{victim.name}}                        a variable (JSON-escaped for JSON webhooks)
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 75 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt    15   {{hook.<name>}}                        a custom variable of the webhook (username, avatar, chat_id, ...)
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 76 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt    17 Webhooks:
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 77 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-10-22.txt                         63 16:10:22 | [PermissionManager] Perm (MenuWebHooks) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 78 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-10-22.txt                         64 16:10:22 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 79 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-10-22.txt                         65 16:10:22 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 80 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-10-22.txt                         66 16:10:22 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 81 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-10-22.txt                         67 16:10:22 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 82 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-10-22.txt                         68 16:10:22 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 83 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-10-22.txt                         69 16:10:22 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 84 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-20-40.txt                         63 16:20:41 | [PermissionManager] Perm (MenuWebHooks) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 85 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-20-40.txt                         64 16:20:41 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 86 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-20-40.txt                         65 16:20:41 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 87 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-20-40.txt                         66 16:20:41 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 88 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-20-40.txt                         67 16:20:41 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 89 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-20-40.txt                         68 16:20:41 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 90 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-20-40.txt                         69 16:20:41 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 91 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-27-35.txt                         63 16:27:35 | [PermissionManager] Perm (MenuWebHooks) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 92 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-27-35.txt                         64 16:27:35 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 93 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-27-35.txt                         65 16:27:35 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 94 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-27-35.txt                         66 16:27:35 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 95 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-27-35.txt                         67 16:27:35 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 96 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-27-35.txt                         68 16:27:35 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 97 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-27-35.txt                         69 16:27:35 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 98 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-38-30.txt                         63 16:38:30 | [PermissionManager] Perm (MenuWebHooks) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 99 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-38-30.txt                         64 16:38:30 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 100 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-38-30.txt                         65 16:38:30 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 101 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-38-30.txt                         66 16:38:30 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 102 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-38-30.txt                         67 16:38:30 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 103 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-38-30.txt                         68 16:38:30 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 104 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-38-30.txt                         69 16:38:30 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 105 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-41-45.txt                         63 16:41:45 | [PermissionManager] Perm (MenuWebHooks) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 106 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-41-45.txt                         64 16:41:45 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 107 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-41-45.txt                         65 16:41:45 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 108 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-41-45.txt                         66 16:41:45 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 109 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-41-45.txt                         67 16:41:45 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 110 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-41-45.txt                         68 16:41:45 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 111 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-41-45.txt                         69 16:41:45 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 112 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-6-10.txt                          63 16:6:10 | [PermissionManager] Perm (MenuWebHooks) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 113 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-6-10.txt                          64 16:6:10 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 114 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-6-10.txt                          65 16:6:10 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 115 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-6-10.txt                          66 16:6:10 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 116 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-6-10.txt                          67 16:6:10 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 117 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-6-10.txt                          68 16:6:10 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 118 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-6-10.txt                          69 16:6:10 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 119 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-6-10.txt                         118 16:6:10 | [WebHooksManager] Permission migration v1 (EditTemplates, TestSend, ViewURL) done: 0 user group(s) updated
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 120 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-7-43.txt                          63 16:7:43 | [PermissionManager] Perm (MenuWebHooks) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 121 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-7-43.txt                          64 16:7:43 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 122 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-7-43.txt                          65 16:7:43 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 123 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-7-43.txt                          66 16:7:43 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 124 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-7-43.txt                          67 16:7:43 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 125 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-7-43.txt                          68 16:7:43 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 126 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-7-43.txt                          69 16:7:43 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 127 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-20-59.txt                         63 17:20:59 | [PermissionManager] Perm (MenuWebHooks) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 128 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-20-59.txt                         64 17:20:59 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 129 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-20-59.txt                         65 17:20:59 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 130 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-20-59.txt                         66 17:20:59 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 131 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-20-59.txt                         67 17:20:59 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 132 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-20-59.txt                         68 17:20:59 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 133 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-20-59.txt                         69 17:20:59 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 134 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                         63 17:37:47 | [PermissionManager] Perm (MenuWebHooks) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 135 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                         64 17:37:47 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 136 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                         65 17:37:47 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 137 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                         66 17:37:47 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 138 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                         67 17:37:47 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 139 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                         68 17:37:47 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 140 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                         69 17:37:47 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 141 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-6-39.txt                          63 17:6:39 | [PermissionManager] Perm (MenuWebHooks) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 142 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-6-39.txt                          64 17:6:39 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 143 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-6-39.txt                          65 17:6:39 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 144 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-6-39.txt                          66 17:6:39 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 145 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-6-39.txt                          67 17:6:39 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 146 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-6-39.txt                          68 17:6:39 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 147 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-6-39.txt                          69 17:6:39 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 148 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-9-38.txt                          63 17:9:38 | [PermissionManager] Perm (MenuWebHooks) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 149 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-9-38.txt                          64 17:9:38 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 150 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-9-38.txt                          65 17:9:38 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 151 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-9-38.txt                          66 17:9:38 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 152 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-9-38.txt                          67 17:9:38 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 153 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-9-38.txt                          68 17:9:38 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 154 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-9-38.txt                          69 17:9:38 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 155 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_18-57-45.txt                         63 18:57:45 | [PermissionManager] Perm (MenuWebHooks) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 156 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_18-57-45.txt                         64 18:57:45 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 157 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_18-57-45.txt                         65 18:57:45 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 158 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_18-57-45.txt                         66 18:57:45 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 159 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_18-57-45.txt                         67 18:57:45 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 160 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_18-57-45.txt                         68 18:57:45 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 161 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_18-57-45.txt                         69 18:57:45 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 162 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-1-1.txt                           63 19:1:1 | [PermissionManager] Perm (MenuWebHooks) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 163 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-1-1.txt                           64 19:1:1 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 164 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-1-1.txt                           65 19:1:1 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 165 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-1-1.txt                           66 19:1:1 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 166 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-1-1.txt                           67 19:1:1 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 167 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-1-1.txt                           68 19:1:1 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 168 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-1-1.txt                           69 19:1:1 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 169 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-14-54.txt                         63 19:14:54 | [PermissionManager] Perm (MenuWebHooks) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 170 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-14-54.txt                         64 19:14:54 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 171 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-14-54.txt                         65 19:14:54 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 172 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-14-54.txt                         66 19:14:54 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 173 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-14-54.txt                         67 19:14:54 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 174 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-14-54.txt                         68 19:14:54 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 175 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-14-54.txt                         69 19:14:54 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 176 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-3-27.txt                          63 19:3:27 | [PermissionManager] Perm (MenuWebHooks) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 177 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-3-27.txt                          64 19:3:27 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 178 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-3-27.txt                          65 19:3:27 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 179 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-3-27.txt                          66 19:3:27 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 180 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-3-27.txt                          67 19:3:27 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 181 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-3-27.txt                          68 19:3:27 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 182 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-3-27.txt                          69 19:3:27 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 183 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-10-24.txt                         63 20:10:24 | [PermissionManager] Perm (MenuWebHooks) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 184 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-10-24.txt                         64 20:10:24 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 185 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-10-24.txt                         65 20:10:24 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 186 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-10-24.txt                         66 20:10:24 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 187 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-10-24.txt                         67 20:10:24 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 188 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-10-24.txt                         68 20:10:24 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 189 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-10-24.txt                         69 20:10:24 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 190 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-58-45.txt                         63 20:58:45 | [PermissionManager] Perm (MenuWebHooks) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 191 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-58-45.txt                         64 20:58:45 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 192 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-58-45.txt                         65 20:58:45 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 193 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-58-45.txt                         66 20:58:45 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 194 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-58-45.txt                         67 20:58:45 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 195 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-58-45.txt                         68 20:58:45 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 196 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-58-45.txt                         69 20:58:45 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 197 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                          63 21:7:54 | [PermissionManager] Perm (MenuWebHooks) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 198 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                          64 21:7:54 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 199 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                          65 21:7:54 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 200 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                          66 21:7:54 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 201 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                          67 21:7:54 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 202 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                          68 21:7:54 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 203 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                          69 21:7:54 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 204 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                         63 15:12:50 | [PermissionManager] Perm (MenuWebHooks) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 205 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                         64 15:12:50 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 206 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                         65 15:12:50 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 207 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                         66 15:12:50 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 208 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                         67 15:12:50 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 209 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                         68 15:12:50 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 210 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                         69 15:12:50 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 211 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-47-49.txt                         63 15:47:49 | [PermissionManager] Perm (MenuWebHooks) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 212 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-47-49.txt                         64 15:47:49 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 213 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-47-49.txt                         65 15:47:49 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 214 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-47-49.txt                         66 15:47:49 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 215 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-47-49.txt                         67 15:47:49 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 216 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-47-49.txt                         68 15:47:49 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 217 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-47-49.txt                         69 15:47:49 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 218 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_18-45-49.txt                         63 18:45:49 | [PermissionManager] Perm (MenuWebHooks) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 219 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_18-45-49.txt                         64 18:45:49 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 220 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_18-45-49.txt                         65 18:45:49 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 221 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_18-45-49.txt                         66 18:45:49 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 222 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_18-45-49.txt                         67 18:45:49 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 223 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_18-45-49.txt                         68 18:45:49 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 224 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_18-45-49.txt                         69 18:45:49 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 225 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-14-38.txt                         63 19:14:38 | [PermissionManager] Perm (MenuWebHooks) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 226 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-14-38.txt                         64 19:14:38 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 227 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-14-38.txt                         65 19:14:38 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 228 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-14-38.txt                         66 19:14:38 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 229 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-14-38.txt                         67 19:14:38 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 230 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-14-38.txt                         68 19:14:38 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 231 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-14-38.txt                         69 19:14:38 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 232 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                         63 19:16:27 | [PermissionManager] Perm (MenuWebHooks) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 233 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                         64 19:16:27 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 234 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                         65 19:16:27 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 235 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                         66 19:16:27 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 236 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                         67 19:16:27 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 237 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                         68 19:16:27 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 238 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                         69 19:16:27 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 239 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-40-47.txt                         63 19:40:47 | [PermissionManager] Perm (MenuWebHooks) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 240 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-40-47.txt                         64 19:40:47 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 241 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-40-47.txt                         65 19:40:47 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 242 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-40-47.txt                         66 19:40:47 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 243 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-40-47.txt                         67 19:40:47 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 244 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-40-47.txt                         68 19:40:47 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 245 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-40-47.txt                         69 19:40:47 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 246 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_20-24-6.txt                          63 20:24:6 | [PermissionManager] Perm (MenuWebHooks) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 247 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_20-24-6.txt                          64 20:24:6 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 248 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_20-24-6.txt                          65 20:24:6 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 249 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_20-24-6.txt                          66 20:24:6 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 250 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_20-24-6.txt                          67 20:24:6 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 251 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_20-24-6.txt                          68 20:24:6 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 252 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_20-24-6.txt                          69 20:24:6 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 253 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                         63 21:20:20 | [PermissionManager] Perm (MenuWebHooks) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 254 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                         64 21:20:20 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 255 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                         65 21:20:20 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 256 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                         66 21:20:20 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 257 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                         67 21:20:20 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 258 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                         68 21:20:20 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 259 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                         69 21:20:20 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 260 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-48.txt                         63 21:20:48 | [PermissionManager] Perm (MenuWebHooks) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 261 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-48.txt                         64 21:20:48 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 262 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-48.txt                         65 21:20:48 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 263 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-48.txt                         66 21:20:48 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 264 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-48.txt                         67 21:20:48 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 265 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-48.txt                         68 21:20:48 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 266 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-48.txt                         69 21:20:48 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 267 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_23-0-3.txt                           63 23:0:3 | [PermissionManager] Perm (MenuWebHooks) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 268 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_23-0-3.txt                           64 23:0:3 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 269 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_23-0-3.txt                           65 23:0:3 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 270 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_23-0-3.txt                           66 23:0:3 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 271 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_23-0-3.txt                           67 23:0:3 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 272 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_23-0-3.txt                           68 23:0:3 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 273 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_23-0-3.txt                           69 23:0:3 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 274 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_16-25-19.txt                         63 16:25:19 | [PermissionManager] Perm (MenuWebHooks) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 275 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_16-25-19.txt                         64 16:25:19 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 276 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_16-25-19.txt                         65 16:25:19 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 277 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_16-25-19.txt                         66 16:25:19 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 278 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_16-25-19.txt                         67 16:25:19 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 279 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_16-25-19.txt                         68 16:25:19 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 280 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_16-25-19.txt                         69 16:25:19 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 281 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                         63 19:28:51 | [PermissionManager] Perm (MenuWebHooks) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 282 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                         64 19:28:51 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 283 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                         65 19:28:51 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 284 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                         66 19:28:51 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 285 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                         67 19:28:51 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 286 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                         68 19:28:51 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 287 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                         69 19:28:51 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 288 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-18_15-31-56.txt                         63 15:31:56 | [PermissionManager] Perm (MenuWebHooks) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 289 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-18_15-31-56.txt                         64 15:31:56 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 290 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-18_15-31-56.txt                         65 15:31:56 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 291 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-18_15-31-56.txt                         66 15:31:56 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 292 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-18_15-31-56.txt                         67 15:31:56 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 293 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-18_15-31-56.txt                         68 15:31:56 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 294 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-18_15-31-56.txt                         69 15:31:56 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 295 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json                      72             "MenuWebHooks",
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 296 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json                      73             "MenuWebHooks:Create",
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 297 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json                      74             "MenuWebHooks:Edit",
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 298 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json                      75             "MenuWebHooks:Delete",
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 299 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json                      76             "MenuWebHooks:EditTemplates",
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 300 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json                      77             "MenuWebHooks:TestSend",
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 301 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json                      78             "MenuWebHooks:ViewURL",
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 311 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\BuildingSetManager                                  True        15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 312 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\ItemManager                                         True        15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 313 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TeleportManager                                     True        15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 314 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TimeManager                                         True        15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 315 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WeatherManager                                      True        15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 316 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager                                     True        15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 317 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\SteamAPI.json                                      False 102    15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 318 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\BuildingSetManager\BuildingSetJournal.json         False 55     15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 319 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\ItemManager\SavedItemPresets.vpp                   False 561    15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 320 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TeleportManager\TeleportLocation.json              False 4316   15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 321 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TimeManager\TimeSettingsPresets.json               False 212    15/11/2026 14:58:16
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 322 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WeatherManager\WeatherSettingsPresets.json         False 29     15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 323 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates                           True        15/11/2026 13:06:10
+C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 324 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt               False 6496   18/11/2026 12:31:57
+C:\RavenRP\Auditorias\Bloco5_Padroes_Eventos_VPP.txt | Linha 24 | Diretorio: C:\DayZServer\profiles\VPPAdminTools\Logging
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 25 | Servidor DayZ: C:\RavenRP\DayZServer
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 31 | [NAO ENCONTRADO] C:\RavenRP\DayZServer\priority.txt
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 272 | Destino calculado: C:\RavenRP\DayZServer
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 2077 | $Server = "C:\RavenRP\DayZServer"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 2187 | $Server = "C:\RavenRP\DayZServer"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3329 | $Root = "C:\RavenRP\DayZServer"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3489 | @A_BeautifulCoyote             C:\RavenRP\DayZServer\@A_BeautifulCoyote
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3490 | @A_BeautifulKomodoDragon       C:\RavenRP\DayZServer\@A_BeautifulKomodoDragon
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3491 | @A_BeautifulMotorbikePassenger C:\RavenRP\DayZServer\@A_BeautifulMotorbikePassenger
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3492 | @A_BeautifulNasdaraCactusHurts C:\RavenRP\DayZServer\@A_BeautifulNasdaraCactusHurts
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3493 | @BuildingFortifications        C:\RavenRP\DayZServer\@BuildingFortifications
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3494 | @CF                            C:\RavenRP\DayZServer\@CF
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3495 | @CodeLock                      C:\RavenRP\DayZServer\@CodeLock
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3496 | @CookZ                         C:\RavenRP\DayZServer\@CookZ
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3497 | @Coyote                        C:\RavenRP\DayZServer\@Coyote
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3498 | @CustomFlagArmband             C:\RavenRP\DayZServer\@CustomFlagArmband
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3499 | @DabsFramework                 C:\RavenRP\DayZServer\@DabsFramework
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3500 | @Earplugs                      C:\RavenRP\DayZServer\@Earplugs
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3501 | @KomodoDragon                  C:\RavenRP\DayZServer\@KomodoDragon
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3502 | @MotorbikePassenger            C:\RavenRP\DayZServer\@MotorbikePassenger
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3503 | @NasdaraCactus                 C:\RavenRP\DayZServer\@NasdaraCactus
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3504 | @SimpleWhistle                 C:\RavenRP\DayZServer\@SimpleWhistle
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3505 | @SuppressionMod                C:\RavenRP\DayZServer\@SuppressionMod
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3506 | @SurvivorAnimations            C:\RavenRP\DayZServer\@SurvivorAnimations
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3507 | @VPPAdminTools                 C:\RavenRP\DayZServer\@VPPAdminTools
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3508 | @ZensCoreMod                   C:\RavenRP\DayZServer\@ZensCoreMod
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3509 | @ZensNotes                     C:\RavenRP\DayZServer\@ZensNotes
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3510 | addons                         C:\RavenRP\DayZServer\addons
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3511 | appcache                       C:\RavenRP\DayZServer\appcache
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3512 | backups                        C:\RavenRP\DayZServer\backups
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3513 | battleye                       C:\RavenRP\DayZServer\battleye
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3514 | config                         C:\RavenRP\DayZServer\config
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3515 | docs                           C:\RavenRP\DayZServer\docs
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3516 | dta                            C:\RavenRP\DayZServer\dta
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3517 | DuckDNS                        C:\RavenRP\DayZServer\DuckDNS
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3518 | keys                           C:\RavenRP\DayZServer\keys
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3519 | logs                           C:\RavenRP\DayZServer\logs
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3520 | mpmissions                     C:\RavenRP\DayZServer\mpmissions
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3521 | nasdara                        C:\RavenRP\DayZServer\nasdara
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3522 | profiles                       C:\RavenRP\DayZServer\profiles
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3523 | sakhal                         C:\RavenRP\DayZServer\sakhal
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3524 | server_manager                 C:\RavenRP\DayZServer\server_manager
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3525 | steamapps                      C:\RavenRP\DayZServer\steamapps
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3526 | update_logs                    C:\RavenRP\DayZServer\update_logs
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3527 | _CommonRedist                  C:\RavenRP\DayZServer\_CommonRedist
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3535 | atualiza_mods.bat    8804 16/11/2026 19:45:21 C:\RavenRP\DayZServer\atualiza_mods.bat
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3536 | ban.txt               599 15/11/2026 00:50:04 C:\RavenRP\DayZServer\ban.txt
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3537 | dayzsetting.xml      1106 15/11/2026 00:50:10 C:\RavenRP\DayZServer\dayzsetting.xml
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3538 | restart_server.bat    737 15/11/2026 13:33:13 C:\RavenRP\DayZServer\restart_server.bat
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3539 | serverDZ.cfg         1164 16/11/2026 20:30:58 C:\RavenRP\DayZServer\serverDZ.cfg
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3540 | start-killfeed.bat    340 16/11/2026 16:38:20 C:\RavenRP\DayZServer\start-killfeed.bat
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3541 | start.bat           10547 17/11/2026 13:23:51 C:\RavenRP\DayZServer\start.bat
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3542 | steam_appid.txt         6 15/11/2026 00:51:46 C:\RavenRP\DayZServer\steam_appid.txt
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3543 | whitelist.txt         766 15/11/2026 00:51:46 C:\RavenRP\DayZServer\whitelist.txt
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3544 | wipe.bat             4195 17/11/2026 13:09:05 C:\RavenRP\DayZServer\wipe.bat
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3555 | C:\RavenRP\DayZServer\dayzsetting.xml                                                                             13
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3556 | C:\RavenRP\DayZServer\dayzsetting.xml                                                                             14
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3557 | C:\RavenRP\DayZServer\serverDZ.cfg                                                                                 7
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3558 | C:\RavenRP\DayZServer\serverDZ.cfg                                                                                29
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3559 | C:\RavenRP\DayZServer\serverDZ.cfg                                                                                30
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3560 | C:\RavenRP\DayZServer\whitelist.txt                                                                                1
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3561 | C:\RavenRP\DayZServer\whitelist.txt                                                                                4
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3562 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\Fortifications Settings.txt                                 25
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3563 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\Fortifications Settings.txt                                 29
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3564 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\Fortifications Settings.txt                                 39
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3565 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\Fortifications Settings.txt                                 43
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3566 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json         22
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3567 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json         26
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3568 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json         36
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3569 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json         40
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3570 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json         50
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3571 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json         54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3572 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json         64
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3573 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json         68
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3574 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json         78
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3575 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json         82
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3576 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json         92
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3577 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json         96
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3578 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        106
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3579 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        110
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3580 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        120
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3581 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        124
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3582 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        134
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3583 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        138
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3584 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        148
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3585 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        152
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3586 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        162
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3587 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        166
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3588 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        176
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3589 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        186
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3590 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        190
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3591 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        200
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3592 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        204
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3593 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        214
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3594 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        218
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3595 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        228
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3596 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        232
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3597 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        242
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3598 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        246
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3599 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        256
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3600 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        260
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3601 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        270
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3602 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        274
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3603 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        284
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3604 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        288
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3605 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        298
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3606 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        302
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3607 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        312
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3608 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        316
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3609 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        326
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3610 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        330
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3611 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        340
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3612 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        344
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3613 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        354
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3614 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        364
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3615 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        368
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3616 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        378
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3617 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        382
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3618 | C:\RavenRP\DayZServer\@BuildingFortifications\Types.Xml\Types.XML                                                 31
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3619 | C:\RavenRP\DayZServer\@ZensNotes\extras\readme.txt                                                                 7
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3620 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                                   78
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3621 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                                  153
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3622 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                                  154
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3623 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                                  164
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3624 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                                  165
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3625 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                                  469
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3626 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                                  506
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3627 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                                  508
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3628 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                                  516
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3629 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                                  517
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3630 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                                  518
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3631 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                                  525
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3632 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                                  558
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3633 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                                  563
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3634 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                                  769
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3635 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                                  772
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3636 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                                  773
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3637 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                                  774
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3638 | C:\RavenRP\DayZServer\battleye\Bec\LICENSE.txt                                                                     4
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3639 | C:\RavenRP\DayZServer\battleye\Bec\Config\Commands.xml                                                           111
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3640 | C:\RavenRP\DayZServer\battleye\Bec\Config\Commands.xml                                                           121
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3641 | C:\RavenRP\DayZServer\battleye\Bec\Config\Commands.xml                                                           126
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3642 | C:\RavenRP\DayZServer\battleye\Bec\Config\Commands.xml                                                           127
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3643 | C:\RavenRP\DayZServer\battleye\Bec\Config\Commands.xml                                                           137
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3644 | C:\RavenRP\DayZServer\battleye\EULA\nl.txt                                                                         4
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3645 | C:\RavenRP\DayZServer\battleye\EULA\nl.txt                                                                        20
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3646 | C:\RavenRP\DayZServer\docs\LegalNotices.txt                                                                       48
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3647 | C:\RavenRP\DayZServer\docs\LegalNotices.txt                                                                       50
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3648 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.chernarusplus\cfgrandompresets.xml                                  308
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3649 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.chernarusplus\cfgrandompresets.xml                                  342
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3650 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.chernarusplus\cfgrandompresets.xml                                  421
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3651 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.chernarusplus\init.c                                                 62
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3652 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.chernarusplus\init.c                                                 87
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3653 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.chernarusplus\init.c                                                 91
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3654 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.enoch\cfgrandompresets.xml                                          306
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3655 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.enoch\cfgrandompresets.xml                                          340
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3656 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.enoch\cfgrandompresets.xml                                          422
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3657 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.enoch\init.c                                                         62
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3658 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.enoch\init.c                                                         77
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3659 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.enoch\init.c                                                         81
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3660 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.nasdara\cfgrandompresets.xml                                        327
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3661 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.nasdara\cfgrandompresets.xml                                        357
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3662 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.nasdara\cfgrandompresets.xml                                        425
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3663 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgrandompresets.xml                                 327
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3664 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgrandompresets.xml                                 357
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3665 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgrandompresets.xml                                 425
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3666 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.sakhal\cfgrandompresets.xml                                         311
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3667 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.sakhal\cfgrandompresets.xml                                         346
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3668 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.sakhal\cfgrandompresets.xml                                         420
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3669 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.sakhal\init.c                                                        80
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3670 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.sakhal\init.c                                                        98
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3671 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.sakhal\init.c                                                       102
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3672 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                                22
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3673 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                                26
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3674 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                                36
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3675 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                                40
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3676 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                                50
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3677 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                                54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3678 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                                64
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3679 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                                68
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3680 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                                78
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3681 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                                82
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3682 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                                92
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3683 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                                96
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3684 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               106
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3685 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               110
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3686 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               120
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3687 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               124
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3688 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               134
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3689 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               138
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3690 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               148
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3691 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               152
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3692 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               162
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3693 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               166
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3694 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               176
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3695 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               186
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3696 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               190
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3697 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               200
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3698 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               204
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3699 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               214
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3700 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               218
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3701 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               228
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3702 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               232
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3703 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               242
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3704 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               246
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3705 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               256
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3706 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               260
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3707 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               270
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3708 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               274
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3709 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               284
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3710 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               288
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3711 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               298
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3712 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               302
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3713 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               312
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3714 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               316
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3715 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               326
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3716 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               330
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3717 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               340
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3718 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               344
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3719 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               354
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3720 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               364
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3721 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               368
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3722 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               378
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3723 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               382
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3724 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               392
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3725 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               402
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3726 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               406
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3727 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               416
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3728 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               420
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3729 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               430
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3730 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               434
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3731 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               444
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3732 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               448
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3733 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               458
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3734 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               462
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3735 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               472
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3736 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               476
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3737 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               486
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3738 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               490
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3739 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               500
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3740 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               504
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3741 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               514
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3742 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               518
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3743 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               528
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3744 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               532
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3745 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               542
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3746 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               546
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3747 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               556
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3748 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               560
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3749 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               570
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3750 | C:\RavenRP\DayZServer\profiles\Users\Survivor\Server.dayz_preset_User.xml                                        326
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3751 | C:\RavenRP\DayZServer\profiles\Users\Survivor\Server.dayz_preset_User.xml                                        329
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3752 | C:\RavenRP\DayZServer\profiles\Users\Survivor\Server.dayz_preset_User.xml                                        332
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3753 | C:\RavenRP\DayZServer\profiles\Users\Survivor\Server.dayz_preset_User.xml                                        335
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3754 | C:\RavenRP\DayZServer\profiles\Users\Survivor\Server.dayz_preset_User.xml                                        338
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3755 | C:\RavenRP\DayZServer\profiles\Users\Survivor\Server.dayz_preset_User.xml                                        341
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3756 | C:\RavenRP\DayZServer\profiles\Users\Survivor\Server.dayz_preset_User.xml                                        344
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3757 | C:\RavenRP\DayZServer\profiles\Users\Survivor\Server.dayz_preset_User.xml                                        347
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3758 | C:\RavenRP\DayZServer\profiles\Users\Survivor\Server.dayz_preset_User.xml                                        350
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3759 | C:\RavenRP\DayZServer\profiles\Users\Survivor\Server.dayz_preset_User.xml                                        353
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3760 | C:\RavenRP\DayZServer\profiles\Users\Survivor\Server.dayz_preset_User.xml                                        356
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3761 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\BanList.json                                                          5
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3762 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-10-22.txt                                 111
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3763 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-20-40.txt                                 111
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3764 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-27-35.txt                                 111
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3765 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-41-45.txt                                 134
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3766 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-41-45.txt                                 135
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3767 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-41-45.txt                                 136
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3768 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-7-43.txt                                  111
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3769 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-20-59.txt                                 134
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3770 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-20-59.txt                                 135
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3771 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-20-59.txt                                 136
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3772 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-20-59.txt                                 137
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3773 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 133
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3774 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 134
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3775 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 135
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3776 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 136
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3777 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 137
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3778 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 138
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3779 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 139
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3780 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 140
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3781 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 141
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3782 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 142
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3783 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 143
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3784 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 144
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3785 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 145
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3786 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 146
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3787 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 147
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3788 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 148
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3789 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 149
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3790 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 150
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3791 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 151
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3792 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 152
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3793 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 158
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3794 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 159
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3795 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 160
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3796 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 161
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3797 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 162
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3798 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 163
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3799 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 164
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3800 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 165
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3801 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 166
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3802 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 167
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3803 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 168
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3804 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 169
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3805 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 170
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3806 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 171
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3807 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 172
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3808 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 173
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3809 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 174
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3810 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 175
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3811 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 176
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3812 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 177
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3813 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 178
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3814 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 179
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3815 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 180
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3816 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 181
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3817 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 182
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3818 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 183
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3819 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 184
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3820 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 185
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3821 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 186
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3822 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 187
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3823 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 188
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3824 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 189
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3825 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 190
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3826 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 191
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3827 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 192
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3828 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 193
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3829 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 194
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3830 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 195
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3831 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 196
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3832 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 197
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3833 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 198
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3834 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 199
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3835 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 200
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3836 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 201
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3837 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 202
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3838 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 203
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3839 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 204
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3840 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 205
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3841 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 206
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3842 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 207
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3843 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 208
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3844 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 209
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3845 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 210
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3846 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 211
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3847 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 212
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3848 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 213
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3849 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 214
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3850 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 215
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3851 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 216
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3852 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 217
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3853 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 218
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3854 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 219
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3855 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 220
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3856 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 221
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3857 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 222
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3858 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 223
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3859 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 224
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3860 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 225
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3861 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 226
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3862 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 227
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3863 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 228
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3864 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 229
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3865 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 230
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3866 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 231
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3867 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 232
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3868 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 233
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3869 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 234
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3870 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 235
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3871 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 236
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3872 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 237
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3873 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 238
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3874 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 239
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3875 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 240
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3876 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 241
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3877 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 242
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3878 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 243
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3879 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 244
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3880 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 245
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3881 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 246
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3882 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 247
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3883 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 248
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3884 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 249
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3885 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 250
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3886 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 251
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3887 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 252
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3888 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 253
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3889 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 254
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3890 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 255
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3891 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 256
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3892 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 257
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3893 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 258
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3894 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 259
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3895 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 260
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3896 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 261
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3897 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 262
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3898 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 263
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3899 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 264
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3900 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 265
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3901 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 266
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3902 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 267
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3903 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 268
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3904 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 269
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3905 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 270
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3906 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 271
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3907 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 272
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3908 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 273
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3909 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 274
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3910 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 275
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3911 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 276
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3912 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 277
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3913 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 278
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3914 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 279
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3915 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 280
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3916 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 281
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3917 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 282
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3918 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 283
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3919 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 284
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3920 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 285
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3921 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 286
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3922 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 287
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3923 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 288
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3924 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 289
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3925 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 290
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3926 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 291
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3927 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 292
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3928 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 293
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3929 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 294
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3930 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 295
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3931 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 296
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3932 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 297
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3933 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 298
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3934 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 299
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3935 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 300
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3936 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 301
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3937 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 302
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3938 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 303
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3939 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 304
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3940 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 305
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3941 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 306
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3942 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 307
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3943 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 308
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3944 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 309
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3945 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-9-38.txt                                  134
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3946 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-9-38.txt                                  135
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3947 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-9-38.txt                                  136
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3948 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  134
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3949 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  135
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3950 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  136
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3951 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  137
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3952 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  138
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3953 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  139
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3954 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  140
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3955 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  141
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3956 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  142
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3957 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  143
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3958 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  144
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3959 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  145
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3960 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  146
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3961 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  147
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3962 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  148
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3963 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  149
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3964 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  150
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3965 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  151
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3966 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  152
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3967 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  153
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3968 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  154
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3969 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  155
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3970 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  156
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3971 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  157
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3972 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  158
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3973 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  159
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3974 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  160
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3975 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  161
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3976 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  162
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3977 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  163
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3978 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  164
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3979 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  165
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3980 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  166
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3981 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  167
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3982 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  168
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3983 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  169
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3984 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  170
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3985 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  171
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3986 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  172
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3987 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  173
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3988 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  174
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3989 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  175
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3990 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  176
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3991 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  177
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3992 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  178
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3993 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  179
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3994 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  180
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3995 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  181
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3996 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  182
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3997 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  183
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3998 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  184
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3999 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  185
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4000 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  186
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4001 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  187
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4002 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  188
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4003 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  189
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4004 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  190
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4005 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  191
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4006 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  192
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4007 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  193
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4008 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  194
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4009 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  195
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4010 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  196
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4011 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  197
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4012 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  198
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4013 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  199
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4014 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  200
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4015 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  203
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4016 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  204
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4017 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  205
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4018 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  206
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4019 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 134
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4020 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 135
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4021 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 136
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4022 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 137
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4023 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 138
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4024 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 139
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4025 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 140
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4026 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 141
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4027 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 142
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4028 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 143
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4029 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 144
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4030 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 145
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4031 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 146
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4032 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 147
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4033 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 148
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4034 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 149
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4035 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 150
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4036 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 151
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4037 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 152
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4038 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 153
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4039 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 154
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4040 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 155
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4041 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 156
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4042 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 157
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4043 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 158
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4044 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 159
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4045 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 160
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4046 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 161
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4047 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 162
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4048 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 163
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4049 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 164
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4050 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 165
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4051 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 166
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4052 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 167
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4053 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 168
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4054 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 169
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4055 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 170
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4056 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 171
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4057 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 172
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4058 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 173
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4059 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 134
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4060 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 135
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4061 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 136
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4062 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 137
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4063 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 138
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4064 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 139
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4065 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 140
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4066 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 141
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4067 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 142
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4068 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 143
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4069 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 144
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4070 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 145
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4071 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 146
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4072 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 147
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4073 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 148
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4074 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 149
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4075 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 150
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4076 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 151
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4077 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 152
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4078 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 153
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4079 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 154
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4080 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 155
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4081 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_20-24-6.txt                                  134
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4082 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 134
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4083 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 135
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4084 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 136
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4085 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 137
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4086 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 138
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4087 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 139
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4088 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 140
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4089 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 141
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4090 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 142
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4091 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 143
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4092 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 144
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4093 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 145
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4094 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 146
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4095 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 147
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4096 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 148
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4097 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 149
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4098 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 150
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4099 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 151
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4100 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 152
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4101 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 153
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4102 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 154
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4103 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 155
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4104 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 156
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4105 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 157
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4106 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 158
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4107 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 159
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4108 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 160
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4109 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 161
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4110 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 162
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4111 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 163
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4112 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 164
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4113 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 165
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4114 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 166
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4115 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 167
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4116 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 168
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4117 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 169
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4118 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 170
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4119 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 171
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4120 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 172
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4121 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 173
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4122 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 174
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4123 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 175
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4124 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 176
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4125 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 177
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4126 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 178
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4127 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 179
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4128 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 180
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4129 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 181
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4130 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 182
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4131 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 183
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4132 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 184
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4133 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 185
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4134 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 186
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4135 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 187
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4136 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 188
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4137 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 189
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4138 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 190
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4139 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 191
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4140 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 192
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4141 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 193
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4142 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 194
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4143 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 195
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4144 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 196
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4145 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 197
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4146 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 198
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4147 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 199
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4148 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 200
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4149 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 201
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4150 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 202
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4151 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 203
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4152 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 204
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4153 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 205
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4154 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 206
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4155 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 207
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4156 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 208
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4157 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 209
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4158 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 210
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4159 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 211
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4160 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 212
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4161 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 213
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4162 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 214
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4163 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 215
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4164 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 216
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4165 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 217
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4166 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 218
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4167 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 219
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4168 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 220
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4169 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 221
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4170 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 222
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4171 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 223
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4172 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 224
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4173 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 225
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4174 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 226
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4175 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 227
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4176 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 228
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4177 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 229
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4178 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 230
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4179 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 231
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4180 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 232
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4181 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 233
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4182 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 234
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4183 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 235
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4184 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 236
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4185 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 237
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4186 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 238
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4187 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 239
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4188 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_23-0-3.txt                                   134
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4189 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_23-0-3.txt                                   135
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4190 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_23-0-3.txt                                   136
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4191 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_16-25-19.txt                                 134
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4192 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_16-25-19.txt                                 135
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4193 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_16-25-19.txt                                 136
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4194 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 134
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4195 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 135
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4196 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 136
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4197 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 137
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4198 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 138
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4199 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 139
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4200 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 140
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4201 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 141
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4202 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 142
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4203 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 143
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4204 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 144
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4205 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 145
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4206 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 146
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4207 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 147
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4208 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 148
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4209 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 149
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4210 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 150
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4211 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 151
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4212 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 152
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4213 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 153
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4214 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 154
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4215 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 155
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4216 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 156
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4217 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 157
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4218 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 158
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4219 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 159
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4220 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json                                8
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4221 | C:\RavenRP\DayZServer\profiles\Zenarchist\ZenNotesConfig.json                                                     35
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4222 | C:\RavenRP\DayZServer\profiles\Zenarchist\Core\ZenCoreConfig.json                                                 44
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4223 | C:\RavenRP\DayZServer\server_manager\readme.txt                                                                   66
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4224 | C:\RavenRP\DayZServer\server_manager\Server_manager.ps1                                                          711
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4225 | C:\RavenRP\DayZServer\server_manager\Server_manager.ps1                                                          718
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4226 | C:\RavenRP\DayZServer\server_manager\Server_manager.ps1                                                          735
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4227 | C:\RavenRP\DayZServer\server_manager\Server_manager.ps1                                                          806
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4235 | C:\RavenRP\DayZServer\atualiza_mods.bat                                               8804 16/11/2026 19:45:21
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4236 | C:\RavenRP\DayZServer\restart_server.bat                                               737 15/11/2026 13:33:13
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4237 | C:\RavenRP\DayZServer\start-killfeed.bat                                               340 16/11/2026 16:38:20
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4238 | C:\RavenRP\DayZServer\start.bat                                                      10547 17/11/2026 13:23:51
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4239 | C:\RavenRP\DayZServer\wipe.bat                                                        4195 17/11/2026 13:09:05
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4240 | C:\RavenRP\DayZServer\DuckDNS\update-duckdns.ps1                                      2292 17/11/2026 13:44:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4241 | C:\RavenRP\DayZServer\server_manager\Server_manager.ps1                              60755 15/11/2026 00:51:46
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4242 | C:\RavenRP\DayZServer\_CommonRedist\DotNet\4.5.2\Microsoft .NET Framework 4.5.2.cmd    142 15/11/2026 00:48:29
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4243 | C:\RavenRP\DayZServer\_CommonRedist\DotNet\4.5.2\noop.cmd                               22 15/11/2026 00:48:35
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4244 | C:\RavenRP\DayZServer\_CommonRedist\vcredist\2019\Microsoft Visual C++ 2019 x64.cmd    121 15/11/2026 00:48:27
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4245 | C:\RavenRP\DayZServer\_CommonRedist\vcredist\2019\Microsoft Visual C++ 2019 x86.cmd    121 15/11/2026 00:48:27
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 14618 | --- C:\RavenRP\DayZServer\atualiza_mods.bat ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 14631 | 13: set "SERVER_DIR=C:\DayZServer"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 14914 | --- C:\RavenRP\DayZServer\restart_server.bat ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 14925 | 11: call "C:\DayZServer\start.bat"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 14939 | --- C:\RavenRP\DayZServer\start-killfeed.bat ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 14956 | --- C:\RavenRP\DayZServer\start.bat ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 14966 | 10: set "SERVER_DIR=C:\DayZServer"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 15311 | --- C:\RavenRP\DayZServer\wipe.bat ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 15317 | 6: set "SERVER_DIR=C:\DayZServer"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 15484 | --- C:\RavenRP\DayZServer\DuckDNS\update-duckdns.ps1 ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 15493 | 9: $LogDir = "C:\DayZServer\logs"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 15565 | --- C:\RavenRP\DayZServer\server_manager\Server_manager.ps1 ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 17422 | --- C:\RavenRP\DayZServer\_CommonRedist\DotNet\4.5.2\Microsoft .NET Framework 4.5.2.cmd ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 17428 | --- C:\RavenRP\DayZServer\_CommonRedist\DotNet\4.5.2\noop.cmd ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 17432 | --- C:\RavenRP\DayZServer\_CommonRedist\vcredist\2019\Microsoft Visual C++ 2019 x64.cmd ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 17438 | --- C:\RavenRP\DayZServer\_CommonRedist\vcredist\2019\Microsoft Visual C++ 2019 x86.cmd ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 18743 | --- C:\RavenRP\DayZServer\restart_server.bat ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 18754 | 11: call "C:\DayZServer\start.bat"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 18768 | --- C:\RavenRP\DayZServer\serverDZ.cfg ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 18820 | --- C:\RavenRP\DayZServer\whitelist.txt ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 18830 | --- C:\RavenRP\DayZServer\@ZensNotes\extras\ZenNotesConfig.json ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 18865 | --- C:\RavenRP\DayZServer\battleye\BEServer_x64.cfg ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 18868 | --- C:\RavenRP\DayZServer\battleye\Bec\Config\Config.cfg ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 18872 | 4: BePath = C:\DayZServer\Battleye
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 18880 | --- C:\RavenRP\DayZServer\battleye\Bec\Config\WhiteList.txt ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 18882 | --- C:\RavenRP\DayZServer\profiles\BattlEye\BEServer_x64.cfg ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 18887 | --- C:\RavenRP\DayZServer\profiles\Buddys_Whistle\Buddys_Whistle_Config.json ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 18897 | --- C:\RavenRP\DayZServer\profiles\CodeLock\CodeLockConfig.json ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 18916 | --- C:\RavenRP\DayZServer\profiles\Users\Survivor\Server.core.xml ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 18931 | --- C:\RavenRP\DayZServer\profiles\Users\Survivor\Server.dayz_preset_User.xml ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 20124 | --- C:\RavenRP\DayZServer\profiles\Zenarchist\ZenNotesConfig.json ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 20162 | --- C:\RavenRP\DayZServer\profiles\Zenarchist\Core\ZenCoreConfig.json ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 20216 | --- C:\RavenRP\DayZServer\server_manager\example_launch_params.txt ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 20219 | --- C:\RavenRP\DayZServer\server_manager\example_server_mod_list.txt ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 20227 | --- C:\RavenRP\DayZServer\server_manager\Server_manager.ps1 ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 22309 | Linha 31: [NAO ENCONTRADO] C:\RavenRP\DayZServer\priority.txt
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 27173 | --- C:\RavenRP\DayZServer\atualiza_mods.bat ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 27186 | 13: set "SERVER_DIR=C:\DayZServer"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 27469 | --- C:\RavenRP\DayZServer\restart_server.bat ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 27480 | 11: call "C:\DayZServer\start.bat"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 27494 | --- C:\RavenRP\DayZServer\start-killfeed.bat ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 27511 | --- C:\RavenRP\DayZServer\start.bat ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 27521 | 10: set "SERVER_DIR=C:\DayZServer"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 27866 | --- C:\RavenRP\DayZServer\wipe.bat ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 27872 | 6: set "SERVER_DIR=C:\DayZServer"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 28039 | --- C:\RavenRP\DayZServer\DuckDNS\update-duckdns.ps1 ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 28048 | 9: $LogDir = "C:\DayZServer\logs"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 28120 | --- C:\RavenRP\DayZServer\server_manager\Server_manager.ps1 ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 29977 | --- C:\RavenRP\DayZServer\_CommonRedist\DotNet\4.5.2\Microsoft .NET Framework 4.5.2.cmd ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 29983 | --- C:\RavenRP\DayZServer\_CommonRedist\DotNet\4.5.2\noop.cmd ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 29987 | --- C:\RavenRP\DayZServer\_CommonRedist\vcredist\2019\Microsoft Visual C++ 2019 x64.cmd ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 29993 | --- C:\RavenRP\DayZServer\_CommonRedist\vcredist\2019\Microsoft Visual C++ 2019 x86.cmd ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 31298 | --- C:\RavenRP\DayZServer\restart_server.bat ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 31309 | 11: call "C:\DayZServer\start.bat"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 31323 | --- C:\RavenRP\DayZServer\serverDZ.cfg ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 31375 | --- C:\RavenRP\DayZServer\whitelist.txt ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 31385 | --- C:\RavenRP\DayZServer\@ZensNotes\extras\ZenNotesConfig.json ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 31420 | --- C:\RavenRP\DayZServer\battleye\BEServer_x64.cfg ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 31423 | --- C:\RavenRP\DayZServer\battleye\Bec\Config\Config.cfg ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 31427 | 4: BePath = C:\DayZServer\Battleye
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 31435 | --- C:\RavenRP\DayZServer\battleye\Bec\Config\WhiteList.txt ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 31437 | --- C:\RavenRP\DayZServer\profiles\BattlEye\BEServer_x64.cfg ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 31442 | --- C:\RavenRP\DayZServer\profiles\Buddys_Whistle\Buddys_Whistle_Config.json ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 31452 | --- C:\RavenRP\DayZServer\profiles\CodeLock\CodeLockConfig.json ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 31471 | --- C:\RavenRP\DayZServer\profiles\Users\Survivor\Server.core.xml ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 31486 | --- C:\RavenRP\DayZServer\profiles\Users\Survivor\Server.dayz_preset_User.xml ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 32679 | --- C:\RavenRP\DayZServer\profiles\Zenarchist\ZenNotesConfig.json ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 32717 | --- C:\RavenRP\DayZServer\profiles\Zenarchist\Core\ZenCoreConfig.json ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 32771 | --- C:\RavenRP\DayZServer\server_manager\example_launch_params.txt ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 32774 | --- C:\RavenRP\DayZServer\server_manager\example_server_mod_list.txt ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 32782 | --- C:\RavenRP\DayZServer\server_manager\Server_manager.ps1 ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 34864 | Linha 31: [NAO ENCONTRADO] C:\RavenRP\DayZServer\priority.txt
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 39728 | --- C:\RavenRP\DayZServer\atualiza_mods.bat ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 39741 | 13: set "SERVER_DIR=C:\DayZServer"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 40024 | --- C:\RavenRP\DayZServer\restart_server.bat ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 40035 | 11: call "C:\DayZServer\start.bat"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 40049 | --- C:\RavenRP\DayZServer\start-killfeed.bat ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 40066 | --- C:\RavenRP\DayZServer\start.bat ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 40076 | 10: set "SERVER_DIR=C:\DayZServer"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 40421 | --- C:\RavenRP\DayZServer\wipe.bat ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 40427 | 6: set "SERVER_DIR=C:\DayZServer"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 40594 | --- C:\RavenRP\DayZServer\DuckDNS\update-duckdns.ps1 ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 40603 | 9: $LogDir = "C:\DayZServer\logs"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 40675 | --- C:\RavenRP\DayZServer\server_manager\Server_manager.ps1 ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 42532 | --- C:\RavenRP\DayZServer\_CommonRedist\DotNet\4.5.2\Microsoft .NET Framework 4.5.2.cmd ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 42538 | --- C:\RavenRP\DayZServer\_CommonRedist\DotNet\4.5.2\noop.cmd ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 42542 | --- C:\RavenRP\DayZServer\_CommonRedist\vcredist\2019\Microsoft Visual C++ 2019 x64.cmd ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 42548 | --- C:\RavenRP\DayZServer\_CommonRedist\vcredist\2019\Microsoft Visual C++ 2019 x86.cmd ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 43853 | --- C:\RavenRP\DayZServer\restart_server.bat ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 43864 | 11: call "C:\DayZServer\start.bat"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 43878 | --- C:\RavenRP\DayZServer\serverDZ.cfg ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 43930 | --- C:\RavenRP\DayZServer\whitelist.txt ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 43940 | --- C:\RavenRP\DayZServer\@ZensNotes\extras\ZenNotesConfig.json ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 43975 | --- C:\RavenRP\DayZServer\battleye\BEServer_x64.cfg ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 43978 | --- C:\RavenRP\DayZServer\battleye\Bec\Config\Config.cfg ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 43982 | 4: BePath = C:\DayZServer\Battleye
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 43990 | --- C:\RavenRP\DayZServer\battleye\Bec\Config\WhiteList.txt ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 43992 | --- C:\RavenRP\DayZServer\profiles\BattlEye\BEServer_x64.cfg ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 43997 | --- C:\RavenRP\DayZServer\profiles\Buddys_Whistle\Buddys_Whistle_Config.json ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 44007 | --- C:\RavenRP\DayZServer\profiles\CodeLock\CodeLockConfig.json ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 44026 | --- C:\RavenRP\DayZServer\profiles\Users\Survivor\Server.core.xml ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 44041 | --- C:\RavenRP\DayZServer\profiles\Users\Survivor\Server.dayz_preset_User.xml ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 45234 | --- C:\RavenRP\DayZServer\profiles\Zenarchist\ZenNotesConfig.json ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 45272 | --- C:\RavenRP\DayZServer\profiles\Zenarchist\Core\ZenCoreConfig.json ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 45326 | --- C:\RavenRP\DayZServer\server_manager\example_launch_params.txt ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 45329 | --- C:\RavenRP\DayZServer\server_manager\example_server_mod_list.txt ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 45337 | --- C:\RavenRP\DayZServer\server_manager\Server_manager.ps1 ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 47419 | Linha 31: [NAO ENCONTRADO] C:\RavenRP\DayZServer\priority.txt
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 52951 | $DayZ = "C:\RavenRP\DayZServer"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 53006 | 10: set "SERVER_DIR=C:\DayZServer"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 53364 | 11: call "C:\DayZServer\start.bat"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 53393 | 13: set "SERVER_DIR=C:\DayZServer"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 53757 | 6: set "SERVER_DIR=C:\DayZServer"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 53936 | "C:\DayZServer",
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 53937 | "C:\RavenRP\DayZServer"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54078 | --- C:\DayZServer ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54082 | --- C:\RavenRP\DayZServer ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54090 | C:\DayZServer         17/11/2026 15:13:29 17/11/2026 15:13:29
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54091 | C:\RavenRP\DayZServer 15/11/2026 00:47:17 18/11/2026 12:30:18
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54096 | Caminho    : C:\DayZServer\DayZServer_x64.exe
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54105 | Caminho    : C:\RavenRP\DayZServer\DayZServer_x64.exe
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54116 | Caminho    : C:\DayZServer\serverDZ.cfg
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54125 | Caminho    : C:\RavenRP\DayZServer\serverDZ.cfg
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54136 | Caminho    : C:\DayZServer\start.bat
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54145 | Caminho    : C:\RavenRP\DayZServer\start.bat
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54154 | C:\DayZServer\priority.txt : AUSENTE
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54155 | C:\RavenRP\DayZServer\priority.txt : AUSENTE
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54159 | --- C:\DayZServer\BEC ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54162 | --- C:\RavenRP\DayZServer\BEC ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54169 | --- C:\DayZServer ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54171 | --- C:\RavenRP\DayZServer ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54186 | "C:\DayZServer",
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54272 | --- C:\DayZServer ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54276 | C:\DayZServer\battleye\Bec\Bec.exe 333312 09/04/2022 22:00:36
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54284 | C:\RavenRP\DayZServer\battleye\Bec\Bec.exe 333312 09/04/2022 22:00:36
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54292 | --- C:\DayZServer ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54296 | C:\DayZServer\serverDZ.cfg                       7 Referencia a whitelist
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54297 | C:\DayZServer\whitelist.txt                      1 Referencia a whitelist
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54298 | C:\DayZServer\whitelist.txt                      4 Referencia a whitelist
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54299 | C:\DayZServer\battleye\Bec\BecGuide.txt         78 Referencia a whitelist
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54300 | C:\DayZServer\battleye\Bec\BecGuide.txt        153 Referencia a whitelist
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54301 | C:\DayZServer\battleye\Bec\BecGuide.txt        154 Referencia a whitelist
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54302 | C:\DayZServer\battleye\Bec\BecGuide.txt        506 Referencia a whitelist
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54303 | C:\DayZServer\battleye\Bec\BecGuide.txt        508 Referencia a whitelist
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54304 | C:\DayZServer\battleye\Bec\BecGuide.txt        516 Referencia a whitelist
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54305 | C:\DayZServer\battleye\Bec\BecGuide.txt        517 Referencia a whitelist
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54306 | C:\DayZServer\battleye\Bec\BecGuide.txt        518 Referencia a whitelist
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54307 | C:\DayZServer\battleye\Bec\BecGuide.txt        525 Referencia a whitelist
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54502 | C:\RavenRP\DayZServer\serverDZ.cfg                                                                   7 Referencia a whitelist
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54503 | C:\RavenRP\DayZServer\whitelist.txt                                                                  1 Referencia a whitelist
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54504 | C:\RavenRP\DayZServer\whitelist.txt                                                                  4 Referencia a whitelist
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54505 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                     78 Referencia a whitelist
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54506 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                    153 Referencia a whitelist
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54507 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                    154 Referencia a whitelist
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54508 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                    506 Referencia a whitelist
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54509 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                    508 Referencia a whitelist
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54510 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                    516 Referencia a whitelist
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54511 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                    517 Referencia a whitelist
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54512 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                    518 Referencia a whitelist
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54513 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                    525 Referencia a whitelist
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54606 | "C:\DayZServer\battleye\Bec",
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54607 | "C:\RavenRP\DayZServer\battleye\Bec"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54709 | BEC: C:\DayZServer\battleye\Bec
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54716 | Diretorio C:\DayZServer\battleye\Bec\Config                                           15/11/2026 13:10:29
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54717 | Diretorio C:\DayZServer\battleye\Bec\Log                                              15/11/2026 13:13:21
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54718 | Arquivo   C:\DayZServer\battleye\Bec\.gitattributes                           66      09/04/2022 22:00:36
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54719 | Arquivo   C:\DayZServer\battleye\Bec\Bec.exe                                  333312  09/04/2022 22:00:36
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54720 | Arquivo   C:\DayZServer\battleye\Bec\Bec.lib                                  5310706 09/04/2022 22:00:36
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54721 | Arquivo   C:\DayZServer\battleye\Bec\BecGuide.txt                             28237   09/04/2022 22:00:36
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54722 | Arquivo   C:\DayZServer\battleye\Bec\Credits.txt                              650     09/04/2022 22:00:36
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54723 | Arquivo   C:\DayZServer\battleye\Bec\How to edit hosts file.txt               220     09/04/2022 22:00:36
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54724 | Arquivo   C:\DayZServer\battleye\Bec\LICENSE.txt                              2569    09/04/2022 22:00:36
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54725 | Arquivo   C:\DayZServer\battleye\Bec\README.md                                4086    09/04/2022 22:00:36
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54726 | Arquivo   C:\DayZServer\battleye\Bec\Config\Admins.xml                        317     15/11/2026 13:16:18
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54727 | Arquivo   C:\DayZServer\battleye\Bec\Config\BadNames.txt                      178     09/04/2022 22:00:36
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54728 | Arquivo   C:\DayZServer\battleye\Bec\Config\BadWords.txt                      273     09/04/2022 22:00:36
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54729 | Arquivo   C:\DayZServer\battleye\Bec\Config\Commands.xml                      13560   09/04/2022 22:00:36
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54730 | Arquivo   C:\DayZServer\battleye\Bec\Config\Config.cfg                        160     15/11/2026 13:16:59
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54731 | Arquivo   C:\DayZServer\battleye\Bec\Config\Scheduler - Example.xml           3147    09/04/2022 22:00:36
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54732 | Arquivo   C:\DayZServer\battleye\Bec\Config\Scheduler-FAQ.txt                 7584    09/04/2022 22:00:36
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54733 | Arquivo   C:\DayZServer\battleye\Bec\Config\Scheduler.xml                     977     15/11/2026 13:31:22
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54734 | Arquivo   C:\DayZServer\battleye\Bec\Config\WhiteList.txt                     0       09/04/2022 22:00:36
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54735 | Diretorio C:\DayZServer\battleye\Bec\Log\Config                                       15/11/2026 13:13:21
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54736 | Diretorio C:\DayZServer\battleye\Bec\Log\Config\BeLog                                 16/11/2026 12:13:03
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54737 | Diretorio C:\DayZServer\battleye\Bec\Log\Config\Chat                                  15/11/2026 13:13:21
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54738 | Diretorio C:\DayZServer\battleye\Bec\Log\Config\Error                                 15/11/2026 13:15:10
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54739 | Arquivo   C:\DayZServer\battleye\Bec\Log\Config\BeLog\Be_2026-11-15.log       4229    15/11/2026 18:08:28
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54740 | Arquivo   C:\DayZServer\battleye\Bec\Log\Config\BeLog\Be_2026-11-16.log       1723    16/11/2026 20:00:37
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54741 | Arquivo   C:\DayZServer\battleye\Bec\Log\Config\Error\BecError_2026-11-15.log 159     15/11/2026 16:15:03
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54749 | C:\DayZServer\battleye\Bec\BecGuide.txt                   .txt       28237
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54750 | C:\DayZServer\battleye\Bec\Credits.txt                    .txt         650
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54751 | C:\DayZServer\battleye\Bec\How to edit hosts file.txt     .txt         220
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54752 | C:\DayZServer\battleye\Bec\LICENSE.txt                    .txt        2569
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54753 | C:\DayZServer\battleye\Bec\Config\Admins.xml              .xml         317
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54754 | C:\DayZServer\battleye\Bec\Config\BadNames.txt            .txt         178
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54755 | C:\DayZServer\battleye\Bec\Config\BadWords.txt            .txt         273
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54756 | C:\DayZServer\battleye\Bec\Config\Commands.xml            .xml       13560
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54757 | C:\DayZServer\battleye\Bec\Config\Config.cfg              .cfg         160
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54758 | C:\DayZServer\battleye\Bec\Config\Scheduler - Example.xml .xml        3147
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54759 | C:\DayZServer\battleye\Bec\Config\Scheduler-FAQ.txt       .txt        7584
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54760 | C:\DayZServer\battleye\Bec\Config\Scheduler.xml           .xml         977
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54761 | C:\DayZServer\battleye\Bec\Config\WhiteList.txt           .txt           0
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54769 | C:\DayZServer\battleye\Bec\Config\Commands.xml              174 PLUGIN/EXTENSAO
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54770 | C:\DayZServer\battleye\Bec\Config\Commands.xml              188 PLUGIN/EXTENSAO
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54771 | C:\DayZServer\battleye\Bec\Config\Commands.xml              338 EVENTO DE ENTRADA
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54772 | C:\DayZServer\battleye\Bec\Config\Scheduler - Example.xml    23 PLUGIN/EXTENSAO
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54773 | C:\DayZServer\battleye\Bec\Config\Scheduler-FAQ.txt         176 PLUGIN/EXTENSAO
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54780 | FullName      : C:\DayZServer\battleye\Bec\Bec.exe
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54796 | BEC: C:\RavenRP\DayZServer\battleye\Bec
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54803 | Diretorio C:\RavenRP\DayZServer\battleye\Bec\Config                                           15/11/2026 13:10:29
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54804 | Diretorio C:\RavenRP\DayZServer\battleye\Bec\Log                                              15/11/2026 13:13:21
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54805 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\.gitattributes                           66      09/04/2022 22:00:36
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54806 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\Bec.exe                                  333312  09/04/2022 22:00:36
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54807 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\Bec.lib                                  5310706 09/04/2022 22:00:36
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54808 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                             28237   09/04/2022 22:00:36
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54809 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\Credits.txt                              650     09/04/2022 22:00:36
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54810 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\How to edit hosts file.txt               220     09/04/2022 22:00:36
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54811 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\LICENSE.txt                              2569    09/04/2022 22:00:36
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54812 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\README.md                                4086    09/04/2022 22:00:36
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54813 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\Config\Admins.xml                        317     15/11/2026 13:16:18
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54814 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\Config\BadNames.txt                      178     09/04/2022 22:00:36
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54815 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\Config\BadWords.txt                      273     09/04/2022 22:00:36
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54816 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\Config\Commands.xml                      13560   09/04/2022 22:00:36
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54817 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\Config\Config.cfg                        160     15/11/2026 13:16:59
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54818 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\Config\Scheduler - Example.xml           3147    09/04/2022 22:00:36
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54819 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\Config\Scheduler-FAQ.txt                 7584    09/04/2022 22:00:36
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54820 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\Config\Scheduler.xml                     977     15/11/2026 13:31:22
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54821 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\Config\WhiteList.txt                     0       09/04/2022 22:00:36
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54822 | Diretorio C:\RavenRP\DayZServer\battleye\Bec\Log\Config                                       15/11/2026 13:13:21
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54823 | Diretorio C:\RavenRP\DayZServer\battleye\Bec\Log\Config\BeLog                                 16/11/2026 12:13:03
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54824 | Diretorio C:\RavenRP\DayZServer\battleye\Bec\Log\Config\Chat                                  15/11/2026 13:13:21
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54825 | Diretorio C:\RavenRP\DayZServer\battleye\Bec\Log\Config\Error                                 15/11/2026 13:15:10
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54826 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\Log\Config\BeLog\Be_2026-11-15.log       4229    15/11/2026 18:08:28
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54827 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\Log\Config\BeLog\Be_2026-11-16.log       1723    16/11/2026 20:00:37
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54828 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\Log\Config\Error\BecError_2026-11-15.log 159     15/11/2026 16:15:03
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54836 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                   .txt       28237
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54837 | C:\RavenRP\DayZServer\battleye\Bec\Credits.txt                    .txt         650
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54838 | C:\RavenRP\DayZServer\battleye\Bec\How to edit hosts file.txt     .txt         220
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54839 | C:\RavenRP\DayZServer\battleye\Bec\LICENSE.txt                    .txt        2569
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54840 | C:\RavenRP\DayZServer\battleye\Bec\Config\Admins.xml              .xml         317
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54841 | C:\RavenRP\DayZServer\battleye\Bec\Config\BadNames.txt            .txt         178
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54842 | C:\RavenRP\DayZServer\battleye\Bec\Config\BadWords.txt            .txt         273
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54843 | C:\RavenRP\DayZServer\battleye\Bec\Config\Commands.xml            .xml       13560
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54844 | C:\RavenRP\DayZServer\battleye\Bec\Config\Config.cfg              .cfg         160
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54845 | C:\RavenRP\DayZServer\battleye\Bec\Config\Scheduler - Example.xml .xml        3147
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54846 | C:\RavenRP\DayZServer\battleye\Bec\Config\Scheduler-FAQ.txt       .txt        7584
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54847 | C:\RavenRP\DayZServer\battleye\Bec\Config\Scheduler.xml           .xml         977
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54848 | C:\RavenRP\DayZServer\battleye\Bec\Config\WhiteList.txt           .txt           0
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54856 | C:\RavenRP\DayZServer\battleye\Bec\Config\Commands.xml              174 PLUGIN/EXTENSAO
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54857 | C:\RavenRP\DayZServer\battleye\Bec\Config\Commands.xml              188 PLUGIN/EXTENSAO
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54858 | C:\RavenRP\DayZServer\battleye\Bec\Config\Commands.xml              338 EVENTO DE ENTRADA
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54859 | C:\RavenRP\DayZServer\battleye\Bec\Config\Scheduler - Example.xml    23 PLUGIN/EXTENSAO
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54860 | C:\RavenRP\DayZServer\battleye\Bec\Config\Scheduler-FAQ.txt         176 PLUGIN/EXTENSAO
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54867 | FullName      : C:\RavenRP\DayZServer\battleye\Bec\Bec.exe
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54894 | "C:\DayZServer\battleye\Bec",
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54895 | "C:\RavenRP\DayZServer\battleye\Bec"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54950 | BEC: C:\DayZServer\battleye\Bec
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54957 | 4: BePath = C:\DayZServer\Battleye
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55000 | BEC: C:\RavenRP\DayZServer\battleye\Bec
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55007 | 4: BePath = C:\DayZServer\Battleye
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55055 | "C:\DayZServer",
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55056 | "C:\RavenRP\DayZServer",
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55075 | foreach ($root in @("C:\DayZServer", "C:\RavenRP\DayZServer")) {
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55157 | --- C:\DayZServer\start.bat ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55184 | --- C:\RavenRP\DayZServer\start.bat ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55214 | C:\DayZServer\dayzsetting.xml:13: <jobsystem globalqueue="4096" threadqueue="1024">
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55215 | C:\DayZServer\server_manager\Server_manager.ps1:711: #Temporary command queues for SteamCMD
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55216 | C:\DayZServer\server_manager\Server_manager.ps1:718: #Generate command queue for SteamCMD
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55217 | C:\DayZServer\server_manager\Server_manager.ps1:735: #Save command queue to temporary file
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55218 | C:\DayZServer\server_manager\Server_manager.ps1:806: #Save command queue to temporary file
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55219 | C:\DayZServer\serverDZ.cfg:29: loginQueueConcurrentPlayers=5;
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55220 | C:\DayZServer\serverDZ.cfg:30: loginQueueMaxPlayers=500;
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55377 | "C:\DayZServer",
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55378 | "C:\RavenRP\DayZServer"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55428 | $file = "C:\DayZServer\dayzsetting.xml"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55471 | "C:\DayZServer",
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55472 | "C:\RavenRP\DayZServer"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55522 | $file = "C:\DayZServer\dayzsetting.xml"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55565 | "C:\DayZServer",
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55566 | "C:\RavenRP\DayZServer"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55619 | $file = "C:\DayZServer\dayzsetting.xml"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55652 | --- C:\DayZServer ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55656 | False C:\DayZServer\BEC\Bec.exe
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55657 | False C:\DayZServer\BEC\Config.cfg
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55658 | True C:\DayZServer\battleye\Bec\Bec.exe
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55659 | True C:\DayZServer\battleye\Bec\Config\Config.cfg
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55660 | True C:\DayZServer\battleye\Bec\Config\Scheduler.xml
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55664 | --- C:\RavenRP\DayZServer ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55668 | False C:\RavenRP\DayZServer\BEC\Bec.exe
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55669 | False C:\RavenRP\DayZServer\BEC\Config.cfg
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55670 | True C:\RavenRP\DayZServer\battleye\Bec\Bec.exe
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55671 | True C:\RavenRP\DayZServer\battleye\Bec\Config\Config.cfg
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55672 | True C:\RavenRP\DayZServer\battleye\Bec\Config\Scheduler.xml
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55680 | --- C:\DayZServer\start.bat ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55726 | --- C:\RavenRP\DayZServer\start.bat ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55791 | --- C:\DayZServer\battleye\Bec ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55808 | --- C:\RavenRP\DayZServer\battleye\Bec ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55831 | "C:\DayZServer",
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55832 | "C:\RavenRP\DayZServer"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55885 | $file = "C:\DayZServer\dayzsetting.xml"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55918 | --- C:\DayZServer ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55922 | False C:\DayZServer\BEC\Bec.exe
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55923 | False C:\DayZServer\BEC\Config.cfg
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55924 | True C:\DayZServer\battleye\Bec\Bec.exe
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55925 | True C:\DayZServer\battleye\Bec\Config\Config.cfg
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55926 | True C:\DayZServer\battleye\Bec\Config\Scheduler.xml
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55930 | --- C:\RavenRP\DayZServer ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55934 | False C:\RavenRP\DayZServer\BEC\Bec.exe
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55935 | False C:\RavenRP\DayZServer\BEC\Config.cfg
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55936 | True C:\RavenRP\DayZServer\battleye\Bec\Bec.exe
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55937 | True C:\RavenRP\DayZServer\battleye\Bec\Config\Config.cfg
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55938 | True C:\RavenRP\DayZServer\battleye\Bec\Config\Scheduler.xml
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55946 | --- C:\DayZServer\start.bat ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55992 | --- C:\RavenRP\DayZServer\start.bat ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56057 | --- C:\DayZServer\battleye\Bec ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56074 | --- C:\RavenRP\DayZServer\battleye\Bec ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56097 | "C:\DayZServer\battleye\Bec",
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56098 | "C:\RavenRP\DayZServer\battleye\Bec"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56146 | foreach ($root in @("C:\DayZServer", "C:\RavenRP\DayZServer")) {
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56164 | $modFiles = foreach ($root in @("C:\DayZServer", "C:\RavenRP\DayZServer")) {
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56213 | --- C:\DayZServer\battleye\Bec ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56399 | --- C:\RavenRP\DayZServer\battleye\Bec ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56589 | --- C:\DayZServer ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56593 | @A_BeautifulCoyote             C:\DayZServer\@A_BeautifulCoyote             15/11/2026 15:55:45
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56594 | @A_BeautifulKomodoDragon       C:\DayZServer\@A_BeautifulKomodoDragon       16/11/2026 12:10:35
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56595 | @A_BeautifulMotorbikePassenger C:\DayZServer\@A_BeautifulMotorbikePassenger 16/11/2026 12:10:33
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56596 | @A_BeautifulNasdaraCactusHurts C:\DayZServer\@A_BeautifulNasdaraCactusHurts 16/11/2026 12:10:37
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56597 | @BuildingFortifications        C:\DayZServer\@BuildingFortifications        16/11/2026 15:43:50
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56598 | @CF                            C:\DayZServer\@CF                            16/11/2026 15:43:08
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56599 | @CodeLock                      C:\DayZServer\@CodeLock                      16/11/2026 15:43:21
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56600 | @CookZ                         C:\DayZServer\@CookZ                         16/11/2026 15:43:19
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56601 | @Coyote                        C:\DayZServer\@Coyote                        16/11/2026 15:43:50
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56602 | @CustomFlagArmband             C:\DayZServer\@CustomFlagArmband             16/11/2026 15:43:50
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56603 | @DabsFramework                 C:\DayZServer\@DabsFramework                 16/11/2026 12:10:06
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56604 | @Earplugs                      C:\DayZServer\@Earplugs                      16/11/2026 15:43:09
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56605 | @KomodoDragon                  C:\DayZServer\@KomodoDragon                  16/11/2026 15:43:50
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56606 | @MotorbikePassenger            C:\DayZServer\@MotorbikePassenger            16/11/2026 15:43:50
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56607 | @NasdaraCactus                 C:\DayZServer\@NasdaraCactus                 16/11/2026 15:43:50
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56608 | @SimpleWhistle                 C:\DayZServer\@SimpleWhistle                 16/11/2026 12:10:45
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56609 | @SuppressionMod                C:\DayZServer\@SuppressionMod                16/11/2026 12:10:46
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56610 | @SurvivorAnimations            C:\DayZServer\@SurvivorAnimations            16/11/2026 15:43:26
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56611 | @VPPAdminTools                 C:\DayZServer\@VPPAdminTools                 16/11/2026 15:43:13
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56612 | @ZensCoreMod                   C:\DayZServer\@ZensCoreMod                   16/11/2026 12:10:08
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56613 | @ZensNotes                     C:\DayZServer\@ZensNotes                     16/11/2026 15:43:50
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56614 | server_manager                 C:\DayZServer\server_manager                 15/11/2026 00:52:28
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56618 | --- C:\RavenRP\DayZServer ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56622 | @A_BeautifulCoyote             C:\RavenRP\DayZServer\@A_BeautifulCoyote             15/11/2026 15:55:45
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56623 | @A_BeautifulKomodoDragon       C:\RavenRP\DayZServer\@A_BeautifulKomodoDragon       16/11/2026 12:10:35
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56624 | @A_BeautifulMotorbikePassenger C:\RavenRP\DayZServer\@A_BeautifulMotorbikePassenger 16/11/2026 12:10:33
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56625 | @A_BeautifulNasdaraCactusHurts C:\RavenRP\DayZServer\@A_BeautifulNasdaraCactusHurts 16/11/2026 12:10:37
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56626 | @BuildingFortifications        C:\RavenRP\DayZServer\@BuildingFortifications        16/11/2026 15:43:50
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56627 | @CF                            C:\RavenRP\DayZServer\@CF                            16/11/2026 15:43:08
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56628 | @CodeLock                      C:\RavenRP\DayZServer\@CodeLock                      16/11/2026 15:43:21
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56629 | @CookZ                         C:\RavenRP\DayZServer\@CookZ                         16/11/2026 15:43:19
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56630 | @Coyote                        C:\RavenRP\DayZServer\@Coyote                        16/11/2026 15:43:50
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56631 | @CustomFlagArmband             C:\RavenRP\DayZServer\@CustomFlagArmband             16/11/2026 15:43:50
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56632 | @DabsFramework                 C:\RavenRP\DayZServer\@DabsFramework                 16/11/2026 12:10:06
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56633 | @Earplugs                      C:\RavenRP\DayZServer\@Earplugs                      16/11/2026 15:43:09
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56634 | @KomodoDragon                  C:\RavenRP\DayZServer\@KomodoDragon                  16/11/2026 15:43:50
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56635 | @MotorbikePassenger            C:\RavenRP\DayZServer\@MotorbikePassenger            16/11/2026 15:43:50
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56636 | @NasdaraCactus                 C:\RavenRP\DayZServer\@NasdaraCactus                 16/11/2026 15:43:50
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56637 | @SimpleWhistle                 C:\RavenRP\DayZServer\@SimpleWhistle                 16/11/2026 12:10:45
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56638 | @SuppressionMod                C:\RavenRP\DayZServer\@SuppressionMod                16/11/2026 12:10:46
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56639 | @SurvivorAnimations            C:\RavenRP\DayZServer\@SurvivorAnimations            16/11/2026 15:43:26
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56640 | @VPPAdminTools                 C:\RavenRP\DayZServer\@VPPAdminTools                 16/11/2026 15:43:13
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56641 | @ZensCoreMod                   C:\RavenRP\DayZServer\@ZensCoreMod                   16/11/2026 12:10:08
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56642 | @ZensNotes                     C:\RavenRP\DayZServer\@ZensNotes                     16/11/2026 15:43:50
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56643 | server_manager                 C:\RavenRP\DayZServer\server_manager                 15/11/2026 00:52:28
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56658 | $root = "C:\DayZServer"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56846 | d----- dayzOffline.chernarusplus  C:\DayZServer\mpmissions\dayzOffline.chernarusplus  15/11/2026 01:07:16
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56847 | d----- dayzOffline.enoch          C:\DayZServer\mpmissions\dayzOffline.enoch          15/11/2026 00:52:28
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56848 | d----- dayzOffline.nasdara        C:\DayZServer\mpmissions\dayzOffline.nasdara        17/11/2026 13:25:19
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56849 | d----- dayzOffline.nasdara.BACKUP C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP 16/11/2026 17:38:33
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56850 | d----- dayzOffline.sakhal         C:\DayZServer\mpmissions\dayzOffline.sakhal         15/11/2026 00:52:28
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56854 | --- C:\DayZServer\mpmissions\dayzOffline.nasdara ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56898 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfgbunkerbroadcast.json                   2809 15/11/2026 00:51:53
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56899 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfgeconomycore.xml                        2130 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56900 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfgeffectarea.json                        6868 15/11/2026 00:51:53
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56901 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfgenvironment.xml                        4336 16/11/2026 19:47:36
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56902 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfgeventgroups.xml                       79614 15/11/2026 00:51:53
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56903 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfgeventspawns.xml                       35629 16/11/2026 19:47:36
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56904 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfgexternallocks.json                      153 15/11/2026 00:51:53
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56905 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfggameplay.json                          3615 15/11/2026 16:29:23
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56906 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfgignorelist.xml                          770 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56907 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfglimitsdefinition.xml                   1430 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56908 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfglimitsdefinitionuser.xml                892 15/11/2026 00:51:53
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56909 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfgplayerspawnpoints.xml                 26821 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56910 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfgrandompresets.xml                     30392 15/11/2026 00:51:53
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56911 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfgspawnabletypes.xml                   154847 15/11/2026 00:51:53
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56912 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfgundergroundtriggers.json            1187209 15/11/2026 00:48:24
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56913 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfgweather.xml                            4713 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56914 | C:\DayZServer\mpmissions\dayzOffline.nasdara\init.c                                    3947 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56915 | C:\DayZServer\mpmissions\dayzOffline.nasdara\mapclusterproto.xml                      49240 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56916 | C:\DayZServer\mpmissions\dayzOffline.nasdara\mapgroupcluster.xml                    4447639 15/11/2026 00:48:24
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56917 | C:\DayZServer\mpmissions\dayzOffline.nasdara\mapgroupcluster01.xml                  4504943 15/11/2026 00:48:24
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56918 | C:\DayZServer\mpmissions\dayzOffline.nasdara\mapgroupcluster02.xml                  1720534 15/11/2026 00:48:25
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56919 | C:\DayZServer\mpmissions\dayzOffline.nasdara\mapgroupcluster03.xml                  4730138 15/11/2026 00:48:25
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56920 | C:\DayZServer\mpmissions\dayzOffline.nasdara\mapgroupcluster04.xml                  2399717 15/11/2026 00:48:25
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56921 | C:\DayZServer\mpmissions\dayzOffline.nasdara\mapgroupcluster05.xml                       70 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56922 | C:\DayZServer\mpmissions\dayzOffline.nasdara\mapgroupdirt.xml                            71 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56923 | C:\DayZServer\mpmissions\dayzOffline.nasdara\mapgrouppos.xml                        1821192 15/11/2026 00:48:25
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56924 | C:\DayZServer\mpmissions\dayzOffline.nasdara\mapgroupproto.xml                      1893676 15/11/2026 00:48:25
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56925 | C:\DayZServer\mpmissions\dayzOffline.nasdara\CookZ\CookZ_V003.json                      532 16/11/2026 16:14:38
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56926 | C:\DayZServer\mpmissions\dayzOffline.nasdara\db\economy.xml                             509 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56927 | C:\DayZServer\mpmissions\dayzOffline.nasdara\db\events.xml                            54203 16/11/2026 19:47:36
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56928 | C:\DayZServer\mpmissions\dayzOffline.nasdara\db\globals.xml                            1747 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56929 | C:\DayZServer\mpmissions\dayzOffline.nasdara\db\messages.xml                           1232 15/11/2026 16:29:23
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56930 | C:\DayZServer\mpmissions\dayzOffline.nasdara\db\types.xml                           1067440 16/11/2026 19:47:35
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56931 | C:\DayZServer\mpmissions\dayzOffline.nasdara\env\bear_territories.xml                  9319 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56932 | C:\DayZServer\mpmissions\dayzOffline.nasdara\env\cattle_territories.xml                  59 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56933 | C:\DayZServer\mpmissions\dayzOffline.nasdara\env\dobermann_shepherd_territories.xml   10372 15/11/2026 00:51:53
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56934 | C:\DayZServer\mpmissions\dayzOffline.nasdara\env\fox_territories.xml                  17851 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56935 | C:\DayZServer\mpmissions\dayzOffline.nasdara\env\goat_territories.xml                 11835 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56936 | C:\DayZServer\mpmissions\dayzOffline.nasdara\env\hare_territories.xml                 27025 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56937 | C:\DayZServer\mpmissions\dayzOffline.nasdara\env\hen_territories.xml                  10977 15/11/2026 00:51:53
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56938 | C:\DayZServer\mpmissions\dayzOffline.nasdara\env\monitor_territories.xml              17806 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56939 | C:\DayZServer\mpmissions\dayzOffline.nasdara\env\mouflon_territories.xml              11841 15/11/2026 00:51:53
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56940 | C:\DayZServer\mpmissions\dayzOffline.nasdara\env\pig_territories.xml                   6242 15/11/2026 00:51:53
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56941 | C:\DayZServer\mpmissions\dayzOffline.nasdara\env\red_deer_territories.xml             12287 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56942 | C:\DayZServer\mpmissions\dayzOffline.nasdara\env\roe_deer_territories.xml             13663 15/11/2026 00:51:53
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56943 | C:\DayZServer\mpmissions\dayzOffline.nasdara\env\sheep_goat_territories.xml              59 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56944 | C:\DayZServer\mpmissions\dayzOffline.nasdara\env\sheep_territories.xml                10789 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56945 | C:\DayZServer\mpmissions\dayzOffline.nasdara\env\wildboar_territories.xml              9355 15/11/2026 00:51:53
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56946 | C:\DayZServer\mpmissions\dayzOffline.nasdara\env\wild_boar_territories.xml            11612 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56947 | C:\DayZServer\mpmissions\dayzOffline.nasdara\env\wolf_territories.xml                  5707 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56948 | C:\DayZServer\mpmissions\dayzOffline.nasdara\env\zombie_territories.xml               73531 15/11/2026 00:51:53
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56952 | --- C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP ---
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56996 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgbunkerbroadcast.json                   2809 15/11/2026 00:51:53
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56997 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgeconomycore.xml                        2130 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56998 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgeffectarea.json                        6868 15/11/2026 00:51:53
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56999 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgenvironment.xml                        4336 15/11/2026 00:51:53
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57000 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgeventgroups.xml                       79614 15/11/2026 00:51:53
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57001 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgeventspawns.xml                       35629 15/11/2026 00:51:53
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57002 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgexternallocks.json                      153 15/11/2026 00:51:53
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57003 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfggameplay.json                          3615 15/11/2026 16:29:23
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57004 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgignorelist.xml                          770 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57005 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfglimitsdefinition.xml                   1430 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57006 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfglimitsdefinitionuser.xml                892 15/11/2026 00:51:53
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57007 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgplayerspawnpoints.xml                 26821 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57008 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgrandompresets.xml                     30392 15/11/2026 00:51:53
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57009 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgspawnabletypes.xml                   154847 15/11/2026 00:51:53
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57010 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgundergroundtriggers.json            1187209 15/11/2026 00:48:24
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57011 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgweather.xml                            4713 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57012 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\init.c                                    3947 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57013 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\mapclusterproto.xml                      49240 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57014 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\mapgroupcluster.xml                    4447639 15/11/2026 00:48:24
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57015 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\mapgroupcluster01.xml                  4504943 15/11/2026 00:48:24
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57016 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\mapgroupcluster02.xml                  1720534 15/11/2026 00:48:25
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57017 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\mapgroupcluster03.xml                  4730138 15/11/2026 00:48:25
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57018 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\mapgroupcluster04.xml                  2399717 15/11/2026 00:48:25
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57019 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\mapgroupcluster05.xml                       70 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57020 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\mapgroupdirt.xml                            71 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57021 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\mapgrouppos.xml                        1821192 15/11/2026 00:48:25
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57022 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\mapgroupproto.xml                      1893676 15/11/2026 00:48:25
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57023 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\CookZ\CookZ_V003.json                      532 16/11/2026 16:14:38
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57024 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\db\economy.xml                             509 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57025 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\db\events.xml                            54203 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57026 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\db\globals.xml                            1747 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57027 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\db\messages.xml                           1232 15/11/2026 16:29:23
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57028 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\db\types.xml                           1067440 15/11/2026 00:48:24
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57029 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\env\bear_territories.xml                  9319 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57030 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\env\cattle_territories.xml                  59 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57031 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\env\dobermann_shepherd_territories.xml   10372 15/11/2026 00:51:53
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57032 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\env\fox_territories.xml                  17851 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57033 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\env\goat_territories.xml                 11835 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57034 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\env\hare_territories.xml                 27025 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57035 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\env\hen_territories.xml                  10977 15/11/2026 00:51:53
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57036 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\env\monitor_territories.xml              17806 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57037 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\env\mouflon_territories.xml              11841 15/11/2026 00:51:53
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57038 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\env\pig_territories.xml                   6242 15/11/2026 00:51:53
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57039 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\env\red_deer_territories.xml             12287 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57040 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\env\roe_deer_territories.xml             13663 15/11/2026 00:51:53
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57041 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\env\sheep_goat_territories.xml              59 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57042 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\env\sheep_territories.xml                10789 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57043 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\env\wildboar_territories.xml              9355 15/11/2026 00:51:53
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57044 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\env\wild_boar_territories.xml            11612 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57045 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\env\wolf_territories.xml                  5707 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57046 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\env\zombie_territories.xml               73531 15/11/2026 00:51:53
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57053 | C:\DayZServer\mpmissions\dayzOffline.chernarusplus\db\globals.xml:27: <var name="TimeLogin" type="0" value="15"/>
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57054 | C:\DayZServer\mpmissions\dayzOffline.enoch\db\globals.xml:27: <var name="TimeLogin" type="0" value="15"/>
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57055 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfgplayerspawnpoints.xml:123: When only counter is filled in, the group will only be active for that many logins.
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57056 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfgplayerspawnpoints.xml:275: When only counter is filled in, the group will only be active for that many logins.
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57057 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfgplayerspawnpoints.xml:427: When only counter is filled in, the group will only be active for that many logins.
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57058 | C:\DayZServer\mpmissions\dayzOffline.nasdara\db\globals.xml:27: <var name="TimeLogin" type="0" value="15"/>
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57059 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgplayerspawnpoints.xml:123: When only counter is filled in, the group will only be active for that many logins.
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57060 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgplayerspawnpoints.xml:275: When only counter is filled in, the group will only be active for that many logins.
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57061 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgplayerspawnpoints.xml:427: When only counter is filled in, the group will only be active for that many logins.
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57062 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\db\globals.xml:27: <var name="TimeLogin" type="0" value="15"/>
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57063 | C:\DayZServer\mpmissions\dayzOffline.sakhal\cfgplayerspawnpoints.xml:121: When only counter is filled in, the group will only be active for that many logins.
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57064 | C:\DayZServer\mpmissions\dayzOffline.sakhal\cfgplayerspawnpoints.xml:290: When only counter is filled in, the group will only be active for that many logins.
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57065 | C:\DayZServer\mpmissions\dayzOffline.sakhal\cfgplayerspawnpoints.xml:459: When only counter is filled in, the group will only be active for that many logins.
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57066 | C:\DayZServer\mpmissions\dayzOffline.sakhal\db\globals.xml:27: <var name="TimeLogin" type="0" value="15"/>
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57072 | $SERVER = "C:\DayZServer"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57128 | "C:\DayZServer"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57270 | C:\DayZServer\mpmissions\dayzOffline.nasdara\init.c   3947 15/11/2026 00:51:54
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57281 | @A_BeautifulCoyote             ABeautiful_Coyote.pbo               23699765 15/11/2026 15:55:42 C:\DayZServer\@A_BeautifulCoyote\addons\ABeautiful_Coyote.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57282 | @A_BeautifulKomodoDragon       Beautiful_Komodo.pbo                 2877647 16/11/2026 12:10:34 C:\DayZServer\@A_BeautifulKomodoDragon\addons\Beautiful_Komodo.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57283 | @A_BeautifulMotorbikePassenger BikesSeat2.pbo                       1136037 16/11/2026 12:10:31 C:\DayZServer\@A_BeautifulMotorbikePassenger\addons\BikesSeat2.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57284 | @A_BeautifulNasdaraCactusHurts Nasdara_Cactus.pbo                      5092 16/11/2026 12:10:37 C:\DayZServer\@A_BeautifulNasdaraCactusHurts\addons\Nasdara_Cactus.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57285 | @BuildingFortifications        0_BF_Define.pbo                         1888 16/11/2026 15:43:37 C:\DayZServer\@BuildingFortifications\Addons\0_BF_Define.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57286 | @BuildingFortifications        BuildingFortifications.pbo         161106427 16/11/2026 15:43:32 C:\DayZServer\@BuildingFortifications\Addons\BuildingFortifications.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57287 | @CF                            gui.pbo                                97235 16/11/2026 15:43:08 C:\DayZServer\@CF\addons\gui.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57288 | @CF                            legacy.pbo                               525 16/11/2026 15:43:08 C:\DayZServer\@CF\addons\legacy.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57289 | @CF                            scripts.pbo                           438303 16/11/2026 15:43:07 C:\DayZServer\@CF\addons\scripts.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57290 | @CodeLock                      CodeLock.pbo                        10312938 16/11/2026 15:43:20 C:\DayZServer\@CodeLock\Addons\CodeLock.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57291 | @CookZ                         CookZ.pbo                           65861838 16/11/2026 15:43:14 C:\DayZServer\@CookZ\addons\CookZ.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57292 | @Coyote                        ABeautiful_Coyote.pbo               23699765 16/11/2026 15:43:32 C:\DayZServer\@Coyote\addons\ABeautiful_Coyote.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57293 | @CustomFlagArmband             CustomFlagArmband.pbo                 696879 16/11/2026 15:43:32 C:\DayZServer\@CustomFlagArmband\Addons\CustomFlagArmband.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57294 | @DabsFramework                 GUI.pbo                             33431015 16/11/2026 12:10:04 C:\DayZServer\@DabsFramework\addons\GUI.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57295 | @DabsFramework                 Scripts.pbo                           781331 16/11/2026 12:10:04 C:\DayZServer\@DabsFramework\addons\Scripts.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57296 | @Earplugs                      Earplugs.pbo                            7480 16/11/2026 15:43:09 C:\DayZServer\@Earplugs\addons\Earplugs.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57297 | @KomodoDragon                  Beautiful_Komodo.pbo                 2877647 16/11/2026 15:43:32 C:\DayZServer\@KomodoDragon\addons\Beautiful_Komodo.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57298 | @MotorbikePassenger            BikesSeat2.pbo                       1136037 16/11/2026 15:43:26 C:\DayZServer\@MotorbikePassenger\addons\BikesSeat2.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57299 | @NasdaraCactus                 Nasdara_Cactus.pbo                      5092 16/11/2026 15:43:36 C:\DayZServer\@NasdaraCactus\addons\Nasdara_Cactus.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57300 | @SimpleWhistle                 Whistle.pbo                           100893 16/11/2026 12:10:44 C:\DayZServer\@SimpleWhistle\Addons\Whistle.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57301 | @SuppressionMod                Scripts.pbo                            28694 16/11/2026 12:10:46 C:\DayZServer\@SuppressionMod\addons\Scripts.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57302 | @SurvivorAnimations            0_SurvivorAnimsDefines.pbo               831 16/11/2026 15:43:22 C:\DayZServer\@SurvivorAnimations\Addons\0_SurvivorAnimsDefines.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57303 | @SurvivorAnimations            player_main.pbo                      2531459 16/11/2026 15:43:22 C:\DayZServer\@SurvivorAnimations\Addons\player_main.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57304 | @SurvivorAnimations            SurvivorAnims.pbo                   97994168 16/11/2026 15:43:22 C:\DayZServer\@SurvivorAnimations\Addons\SurvivorAnims.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57305 | @VPPAdminTools                 assets.pbo                           1179261 16/11/2026 15:43:10 C:\DayZServer\@VPPAdminTools\addons\assets.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57306 | @VPPAdminTools                 VPPAdminTools.pbo                   79657389 16/11/2026 15:43:10 C:\DayZServer\@VPPAdminTools\addons\VPPAdminTools.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57307 | @VPPAdminTools                 VPPStaticItems.pbo                    160409 16/11/2026 15:43:11 C:\DayZServer\@VPPAdminTools\addons\VPPStaticItems.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57308 | @ZensCoreMod                   ZenModCore.pbo                       2430897 16/11/2026 12:10:08 C:\DayZServer\@ZensCoreMod\addons\ZenModCore.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57309 | @ZensNotes                     ZenNotes.pbo                         5196442 16/11/2026 15:43:32 C:\DayZServer\@ZensNotes\addons\ZenNotes.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57310 | addons                         ai.pbo                                119965 15/11/2026 00:48:36 C:\DayZServer\addons\ai.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57311 | addons                         ai_bliss.pbo                           10843 15/11/2026 00:48:36 C:\DayZServer\addons\ai_bliss.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57312 | addons                         animals.pbo                         67075644 15/11/2026 00:48:24 C:\DayZServer\addons\animals.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57313 | addons                         animals_bliss.pbo                    8347335 15/11/2026 00:48:24 C:\DayZServer\addons\animals_bliss.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57314 | addons                         anims_anm_infected.pbo              15016602 15/11/2026 00:48:24 C:\DayZServer\addons\anims_anm_infected.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57315 | addons                         anims_anm_player.pbo               356687985 15/11/2026 00:48:24 C:\DayZServer\addons\anims_anm_player.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57316 | addons                         anims_cfg.pbo                          55722 15/11/2026 00:48:46 C:\DayZServer\addons\anims_cfg.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57317 | addons                         anims_workspaces.pbo                 4780932 15/11/2026 00:48:24 C:\DayZServer\addons\anims_workspaces.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57318 | addons                         characters_backpacks.pbo             5651934 15/11/2026 00:48:24 C:\DayZServer\addons\characters_backpacks.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57319 | addons                         characters_belts.pbo                  423354 15/11/2026 00:48:24 C:\DayZServer\addons\characters_belts.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57320 | addons                         characters_bodies.pbo                 540281 15/11/2026 00:48:24 C:\DayZServer\addons\characters_bodies.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57321 | addons                         characters_data.pbo                   198584 15/11/2026 00:48:46 C:\DayZServer\addons\characters_data.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57322 | addons                         characters_glasses.pbo                611507 15/11/2026 00:48:24 C:\DayZServer\addons\characters_glasses.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57323 | addons                         characters_gloves.pbo                5505207 15/11/2026 00:48:24 C:\DayZServer\addons\characters_gloves.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57324 | addons                         characters_headgear.pbo              4640361 15/11/2026 00:48:24 C:\DayZServer\addons\characters_headgear.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57325 | addons                         characters_heads.pbo                 1539091 15/11/2026 00:48:24 C:\DayZServer\addons\characters_heads.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57326 | addons                         characters_masks.pbo                 1195258 15/11/2026 00:48:24 C:\DayZServer\addons\characters_masks.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57327 | addons                         characters_pants.pbo                 4402342 15/11/2026 00:48:24 C:\DayZServer\addons\characters_pants.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57328 | addons                         characters_proxies.pbo                900384 15/11/2026 00:48:24 C:\DayZServer\addons\characters_proxies.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57329 | addons                         characters_shoes.pbo                 2407099 15/11/2026 00:48:24 C:\DayZServer\addons\characters_shoes.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57330 | addons                         characters_tops.pbo                  6204922 15/11/2026 00:48:24 C:\DayZServer\addons\characters_tops.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57331 | addons                         characters_vests.pbo                 1869323 15/11/2026 00:48:24 C:\DayZServer\addons\characters_vests.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57332 | addons                         characters_zombies.pbo               3915687 15/11/2026 00:48:24 C:\DayZServer\addons\characters_zombies.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57333 | addons                         data_bliss.pbo                          2934 15/11/2026 00:48:52 C:\DayZServer\addons\data_bliss.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57334 | addons                         dz.pbo                               2270036 15/11/2026 00:48:24 C:\DayZServer\addons\dz.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57335 | addons                         gear_books.pbo                        132043 15/11/2026 00:48:48 C:\DayZServer\addons\gear_books.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57336 | addons                         gear_camping.pbo                     4615454 15/11/2026 00:48:24 C:\DayZServer\addons\gear_camping.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57337 | addons                         gear_consumables.pbo                  871502 15/11/2026 00:48:24 C:\DayZServer\addons\gear_consumables.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57338 | addons                         gear_containers.pbo                   379296 15/11/2026 00:48:24 C:\DayZServer\addons\gear_containers.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57339 | addons                         gear_cooking.pbo                      592203 15/11/2026 00:48:24 C:\DayZServer\addons\gear_cooking.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57340 | addons                         gear_crafting.pbo                     339800 15/11/2026 00:48:24 C:\DayZServer\addons\gear_crafting.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57341 | addons                         gear_cultivation.pbo                  453022 15/11/2026 00:48:24 C:\DayZServer\addons\gear_cultivation.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57342 | addons                         gear_drinks.pbo                       213231 15/11/2026 00:48:52 C:\DayZServer\addons\gear_drinks.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57343 | addons                         gear_food.pbo                        3179679 15/11/2026 00:48:24 C:\DayZServer\addons\gear_food.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57344 | addons                         gear_medical.pbo                      460680 15/11/2026 00:48:24 C:\DayZServer\addons\gear_medical.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57345 | addons                         gear_navigation.pbo                   629461 15/11/2026 00:48:24 C:\DayZServer\addons\gear_navigation.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57346 | addons                         gear_optics.pbo                       216197 15/11/2026 00:48:53 C:\DayZServer\addons\gear_optics.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57347 | addons                         gear_radio.pbo                        249042 15/11/2026 00:48:56 C:\DayZServer\addons\gear_radio.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57348 | addons                         gear_tools.pbo                       1354374 15/11/2026 00:48:24 C:\DayZServer\addons\gear_tools.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57349 | addons                         gear_traps.pbo                        192898 15/11/2026 00:48:49 C:\DayZServer\addons\gear_traps.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57350 | addons                         modules_dayz.pbo                         476 15/11/2026 00:48:49 C:\DayZServer\addons\modules_dayz.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57351 | addons                         plants.pbo                          10162379 15/11/2026 00:48:24 C:\DayZServer\addons\plants.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57352 | addons                         plants_bliss.pbo                     5095211 15/11/2026 00:48:24 C:\DayZServer\addons\plants_bliss.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57353 | addons                         rocks.pbo                           16286702 15/11/2026 00:48:24 C:\DayZServer\addons\rocks.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57354 | addons                         rocks_bliss.pbo                       443853 15/11/2026 00:48:24 C:\DayZServer\addons\rocks_bliss.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57355 | addons                         server_data.pbo                          317 15/11/2026 00:48:50 C:\DayZServer\addons\server_data.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57356 | addons                         sounds_ai.pbo                       17446972 15/11/2026 00:48:24 C:\DayZServer\addons\sounds_ai.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57357 | addons                         sounds_bliss.pbo                     4901311 15/11/2026 00:48:24 C:\DayZServer\addons\sounds_bliss.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57358 | addons                         sounds_characters.pbo               42285489 15/11/2026 00:48:24 C:\DayZServer\addons\sounds_characters.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57359 | addons                         sounds_environment.pbo              12891959 15/11/2026 00:48:24 C:\DayZServer\addons\sounds_environment.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57360 | addons                         sounds_hpp.pbo                       8578378 15/11/2026 00:48:24 C:\DayZServer\addons\sounds_hpp.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57361 | addons                         sounds_music.pbo                     5751814 15/11/2026 00:48:24 C:\DayZServer\addons\sounds_music.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57362 | addons                         sounds_vehicles.pbo                  3017878 15/11/2026 00:48:24 C:\DayZServer\addons\sounds_vehicles.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57363 | addons                         sounds_weapons.pbo                  28661473 15/11/2026 00:48:24 C:\DayZServer\addons\sounds_weapons.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57364 | addons                         structures_data.pbo                   478651 15/11/2026 00:48:24 C:\DayZServer\addons\structures_data.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57365 | addons                         structures_data_bliss.pbo             219696 15/11/2026 00:49:02 C:\DayZServer\addons\structures_data_bliss.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57366 | addons                         structures_furniture.pbo             2742258 15/11/2026 00:48:24 C:\DayZServer\addons\structures_furniture.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57367 | addons                         structures_industrial.pbo           21878724 15/11/2026 00:48:24 C:\DayZServer\addons\structures_industrial.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57368 | addons                         structures_industrial_bliss.pbo      2504232 15/11/2026 00:48:24 C:\DayZServer\addons\structures_industrial_bliss.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57369 | addons                         structures_military.pbo             19243706 15/11/2026 00:48:24 C:\DayZServer\addons\structures_military.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57370 | addons                         structures_military_bliss.pbo        1026367 15/11/2026 00:48:24 C:\DayZServer\addons\structures_military_bliss.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57371 | addons                         structures_proxy_parts.pbo            135254 15/11/2026 00:48:58 C:\DayZServer\addons\structures_proxy_parts.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57372 | addons                         structures_rail.pbo                  3305745 15/11/2026 00:48:24 C:\DayZServer\addons\structures_rail.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57373 | addons                         structures_rail_bliss.pbo             238511 15/11/2026 00:48:49 C:\DayZServer\addons\structures_rail_bliss.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57374 | addons                         structures_residential.pbo          25630439 15/11/2026 00:48:24 C:\DayZServer\addons\structures_residential.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57375 | addons                         structures_residential_bliss.pbo     2607564 15/11/2026 00:48:24 C:\DayZServer\addons\structures_residential_bliss.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57376 | addons                         structures_roads.pbo                 1880194 15/11/2026 00:48:24 C:\DayZServer\addons\structures_roads.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57377 | addons                         structures_roads_bliss.pbo            953713 15/11/2026 00:48:24 C:\DayZServer\addons\structures_roads_bliss.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57378 | addons                         structures_ruins.pbo                 1995041 15/11/2026 00:48:24 C:\DayZServer\addons\structures_ruins.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57379 | addons                         structures_ruins_bliss.pbo          15608718 15/11/2026 00:48:24 C:\DayZServer\addons\structures_ruins_bliss.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57380 | addons                         structures_signs.pbo                 8371980 15/11/2026 00:48:24 C:\DayZServer\addons\structures_signs.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57381 | addons                         structures_signs_bliss.pbo           2107970 15/11/2026 00:48:24 C:\DayZServer\addons\structures_signs_bliss.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57382 | addons                         structures_specific.pbo             17198326 15/11/2026 00:48:24 C:\DayZServer\addons\structures_specific.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57383 | addons                         structures_specific_bliss.pbo        4029425 15/11/2026 00:48:24 C:\DayZServer\addons\structures_specific_bliss.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57384 | addons                         structures_underground_bliss.pbo    11199255 15/11/2026 00:48:24 C:\DayZServer\addons\structures_underground_bliss.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57385 | addons                         structures_walls.pbo                 2479747 15/11/2026 00:48:24 C:\DayZServer\addons\structures_walls.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57386 | addons                         structures_walls_bliss.pbo           1394895 15/11/2026 00:48:24 C:\DayZServer\addons\structures_walls_bliss.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57387 | addons                         structures_wrecks.pbo               33179416 15/11/2026 00:48:24 C:\DayZServer\addons\structures_wrecks.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57388 | addons                         structures_wrecks_bliss.pbo          1143098 15/11/2026 00:48:24 C:\DayZServer\addons\structures_wrecks_bliss.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57389 | addons                         surfaces.pbo                           96644 15/11/2026 00:49:04 C:\DayZServer\addons\surfaces.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57390 | addons                         surfaces_bliss.pbo                     37314 15/11/2026 00:49:04 C:\DayZServer\addons\surfaces_bliss.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57391 | addons                         ui.pbo                                  4392 15/11/2026 00:49:04 C:\DayZServer\addons\ui.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57392 | addons                         vehicles_data.pbo                      12511 15/11/2026 00:49:04 C:\DayZServer\addons\vehicles_data.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57393 | addons                         vehicles_parts.pbo                   1183914 15/11/2026 00:48:24 C:\DayZServer\addons\vehicles_parts.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57394 | addons                         vehicles_singletrack.pbo              554294 15/11/2026 00:48:24 C:\DayZServer\addons\vehicles_singletrack.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57395 | addons                         vehicles_water.pbo                     56337 15/11/2026 00:48:53 C:\DayZServer\addons\vehicles_water.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57396 | addons                         vehicles_wheeled.pbo                18609483 15/11/2026 00:48:24 C:\DayZServer\addons\vehicles_wheeled.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57397 | addons                         water.pbo                            2729219 15/11/2026 00:48:24 C:\DayZServer\addons\water.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57398 | addons                         water_bliss.pbo                      7926369 15/11/2026 00:48:24 C:\DayZServer\addons\water_bliss.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57399 | addons                         weapon_attachments_textures.pbo       404910 15/11/2026 00:48:24 C:\DayZServer\addons\weapon_attachments_textures.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57400 | addons                         weapon_lights.pbo                     119228 15/11/2026 00:49:07 C:\DayZServer\addons\weapon_lights.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57401 | addons                         weapon_magazines.pbo                 1628581 15/11/2026 00:48:24 C:\DayZServer\addons\weapon_magazines.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57402 | addons                         weapon_muzzles.pbo                    336685 15/11/2026 00:48:24 C:\DayZServer\addons\weapon_muzzles.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57403 | addons                         weapon_optics.pbo                    4559897 15/11/2026 00:48:24 C:\DayZServer\addons\weapon_optics.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57404 | addons                         weapon_supports.pbo                  1708728 15/11/2026 00:48:24 C:\DayZServer\addons\weapon_supports.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57405 | addons                         weapon_underslung.pbo                 403866 15/11/2026 00:48:24 C:\DayZServer\addons\weapon_underslung.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57406 | addons                         weapons_ammunition.pbo                797143 15/11/2026 00:48:24 C:\DayZServer\addons\weapons_ammunition.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57407 | addons                         weapons_animations.pbo                   336 15/11/2026 00:49:06 C:\DayZServer\addons\weapons_animations.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57408 | addons                         weapons_archery.pbo                   357220 15/11/2026 00:48:24 C:\DayZServer\addons\weapons_archery.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57409 | addons                         weapons_data.pbo                        6720 15/11/2026 00:49:10 C:\DayZServer\addons\weapons_data.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57410 | addons                         weapons_explosives.pbo                290624 15/11/2026 00:48:24 C:\DayZServer\addons\weapons_explosives.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57411 | addons                         weapons_firearms.pbo                10609341 15/11/2026 00:48:24 C:\DayZServer\addons\weapons_firearms.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57412 | addons                         weapons_launchers.pbo                1168652 15/11/2026 00:48:24 C:\DayZServer\addons\weapons_launchers.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57413 | addons                         weapons_melee.pbo                    3810804 15/11/2026 00:48:24 C:\DayZServer\addons\weapons_melee.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57414 | addons                         weapons_misc.pbo                         361 15/11/2026 00:49:10 C:\DayZServer\addons\weapons_misc.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57415 | addons                         weapons_nonlethal.pbo                 265974 15/11/2026 00:48:24 C:\DayZServer\addons\weapons_nonlethal.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57416 | addons                         weapons_pistols.pbo                  1262898 15/11/2026 00:48:24 C:\DayZServer\addons\weapons_pistols.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57417 | addons                         weapons_projectiles.pbo               815670 15/11/2026 00:48:24 C:\DayZServer\addons\weapons_projectiles.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57418 | addons                         weapons_proxies.pbo                   189007 15/11/2026 00:49:14 C:\DayZServer\addons\weapons_proxies.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57419 | addons                         weapons_shotguns.pbo                  912414 15/11/2026 00:48:24 C:\DayZServer\addons\weapons_shotguns.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57420 | addons                         worlds_chernarusplus.pbo           235159991 15/11/2026 00:48:24 C:\DayZServer\addons\worlds_chernarusplus.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57421 | addons                         worlds_chernarusplus_ce.pbo        108738678 15/11/2026 00:48:24 C:\DayZServer\addons\worlds_chernarusplus_ce.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57422 | addons                         worlds_chernarusplus_data.pbo       16318316 15/11/2026 00:48:24 C:\DayZServer\addons\worlds_chernarusplus_data.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57423 | addons                         worlds_chernarusplus_nav.pbo       640304940 15/11/2026 00:48:24 C:\DayZServer\addons\worlds_chernarusplus_nav.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57424 | addons                         worlds_enoch.pbo                   237282216 15/11/2026 00:48:24 C:\DayZServer\addons\worlds_enoch.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57425 | addons                         worlds_enoch_ce.pbo                100539910 15/11/2026 00:48:24 C:\DayZServer\addons\worlds_enoch_ce.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57426 | addons                         worlds_enoch_data.pbo               24516609 15/11/2026 00:48:24 C:\DayZServer\addons\worlds_enoch_data.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57427 | addons                         worlds_enoch_nav.pbo               429659040 15/11/2026 00:48:24 C:\DayZServer\addons\worlds_enoch_nav.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57428 | dta                            bin.pbo                               294513 16/11/2026 16:01:32 C:\DayZServer\dta\bin.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57429 | dta                            core.pbo                              116768 15/11/2026 00:50:10 C:\DayZServer\dta\core.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57430 | dta                            graphics.pbo                       128013134 15/11/2026 00:48:24 C:\DayZServer\dta\graphics.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57431 | dta                            gui.pbo                            149223513 15/11/2026 00:48:24 C:\DayZServer\dta\gui.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57432 | dta                            languagecore.pbo                     5032814 15/11/2026 00:48:24 C:\DayZServer\dta\languagecore.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57433 | dta                            scripts.pbo                         14401120 15/11/2026 00:48:24 C:\DayZServer\dta\scripts.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57434 | dta                            system.pbo                          16042964 15/11/2026 00:48:24 C:\DayZServer\dta\system.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57435 | nasdara                        ai_nasdara.pbo                         35742 15/11/2026 00:50:32 C:\DayZServer\nasdara\addons\ai_nasdara.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57436 | nasdara                        animals_nasdara.pbo                 16429031 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\animals_nasdara.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57437 | nasdara                        characters_nasdara.pbo               5310747 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\characters_nasdara.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57438 | nasdara                        data_nasdara.pbo                      424669 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\data_nasdara.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57439 | nasdara                        gear_nasdara.pbo                      685613 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\gear_nasdara.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57440 | nasdara                        plants_nasdara.pbo                   1270739 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\plants_nasdara.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57441 | nasdara                        rocks_nasdara.pbo                    4550706 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\rocks_nasdara.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57442 | nasdara                        sounds_nasdara.pbo                  18073807 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\sounds_nasdara.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57443 | nasdara                        structures_data_nasdara.pbo           215985 15/11/2026 00:50:21 C:\DayZServer\nasdara\addons\structures_data_nasdara.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57444 | nasdara                        structures_industrial_nasdara.pbo   23192523 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\structures_industrial_nasdara.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57445 | nasdara                        structures_military_nasdara.pbo     11088588 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\structures_military_nasdara.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57446 | nasdara                        structures_props_nasdara.pbo         3377496 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\structures_props_nasdara.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57447 | nasdara                        structures_residential_nasdara.pbo  46958858 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\structures_residential_nasdara.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57448 | nasdara                        structures_roads_nasdara.pbo        80652105 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\structures_roads_nasdara.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57449 | nasdara                        structures_ruins_nasdara.pbo         5507240 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\structures_ruins_nasdara.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57450 | nasdara                        structures_signs_nasdara.pbo         7157215 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\structures_signs_nasdara.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57451 | nasdara                        structures_specific_nasdara.pbo     29516281 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\structures_specific_nasdara.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57452 | nasdara                        structures_walls_nasdara.pbo         2558192 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\structures_walls_nasdara.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57453 | nasdara                        structures_wrecks_nasdara.pbo       14132736 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\structures_wrecks_nasdara.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57454 | nasdara                        surfaces_nasdara.pbo                   76460 15/11/2026 00:50:39 C:\DayZServer\nasdara\addons\surfaces_nasdara.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57455 | nasdara                        weapons_nasdara.pbo                  1039827 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\weapons_nasdara.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57456 | nasdara                        worlds_nasdara_ce.pbo              101196419 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\worlds_nasdara_ce.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57457 | nasdara                        worlds_nasdara_data.pbo             18618804 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\worlds_nasdara_data.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57458 | nasdara                        worlds_nasdara_nav.pbo             870043723 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\worlds_nasdara_nav.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57459 | sakhal                         data_sakhal.pbo                         8182 15/11/2026 00:51:27 C:\DayZServer\sakhal\addons\data_sakhal.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57460 | sakhal                         plants_sakhal.pbo                    3793427 15/11/2026 00:48:24 C:\DayZServer\sakhal\addons\plants_sakhal.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57461 | sakhal                         rocks_sakhal.pbo                     2417339 15/11/2026 00:48:24 C:\DayZServer\sakhal\addons\rocks_sakhal.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57462 | sakhal                         structures_sakhal.pbo               34823592 15/11/2026 00:48:24 C:\DayZServer\sakhal\addons\structures_sakhal.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57463 | sakhal                         surfaces_sakhal.pbo                    37236 15/11/2026 00:51:19 C:\DayZServer\sakhal\addons\surfaces_sakhal.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57464 | sakhal                         water_sakhal.pbo                    24237081 15/11/2026 00:48:24 C:\DayZServer\sakhal\addons\water_sakhal.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57465 | sakhal                         worlds_sakhal_ce.pbo                93011396 15/11/2026 00:48:24 C:\DayZServer\sakhal\addons\worlds_sakhal_ce.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57466 | sakhal                         worlds_sakhal_data.pbo              12942834 15/11/2026 00:48:24 C:\DayZServer\sakhal\addons\worlds_sakhal_data.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57467 | sakhal                         worlds_sakhal_nav.pbo              558105627 15/11/2026 00:48:24 C:\DayZServer\sakhal\addons\worlds_sakhal_nav.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57468 | steamapps                      Earplugs.pbo                            7480 16/11/2026 19:42:56 C:\DayZServer\steamapps\workshop\content\221100\3617493208\addons\Earplugs.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57517 | "C:\DayZServer",
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57612 | Pesquisando: C:\DayZServer
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57832 | $serverRoot = "C:\DayZServer"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57917 | Caminho: C:\DayZServer\@CF\addons\scripts.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57923 | Caminho: C:\DayZServer\@CodeLock\Addons\CodeLock.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57929 | Caminho: C:\DayZServer\@CookZ\addons\CookZ.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57935 | Caminho: C:\DayZServer\@DabsFramework\addons\Scripts.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57941 | Caminho: C:\DayZServer\@SuppressionMod\addons\Scripts.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57947 | Caminho: C:\DayZServer\@VPPAdminTools\addons\VPPAdminTools.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57953 | Caminho: C:\DayZServer\@ZensCoreMod\addons\ZenModCore.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57959 | Caminho: C:\DayZServer\dta\scripts.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57980 | r"C:\DayZServer\@CF\addons\scripts.pbo",
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57981 | r"C:\DayZServer\@DabsFramework\addons\Scripts.pbo",
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57982 | r"C:\DayZServer\@VPPAdminTools\addons\VPPAdminTools.pbo",
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57983 | r"C:\DayZServer\@CodeLock\Addons\CodeLock.pbo",
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57984 | r"C:\DayZServer\@ZensCoreMod\addons\ZenModCore.pbo",
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57985 | r"C:\DayZServer\@SuppressionMod\addons\Scripts.pbo",
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57986 | r"C:\DayZServer\dta\scripts.pbo",
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 58066 | PBO: C:\DayZServer\@CF\addons\scripts.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 58264 | PBO: C:\DayZServer\@DabsFramework\addons\Scripts.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 58474 | PBO: C:\DayZServer\@VPPAdminTools\addons\VPPAdminTools.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 58728 | PBO: C:\DayZServer\@CodeLock\Addons\CodeLock.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 58813 | PBO: C:\DayZServer\@ZensCoreMod\addons\ZenModCore.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59001 | PBO: C:\DayZServer\@SuppressionMod\addons\Scripts.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59064 | PBO: C:\DayZServer\dta\scripts.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59358 | "C:\DayZServer",
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59457 | Verificando: C:\DayZServer
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59580 | "C:\DayZServer\@CF\addons\scripts.pbo",
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59581 | "C:\DayZServer\@VPPAdminTools\addons\VPPAdminTools.pbo",
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59582 | "C:\DayZServer\dta\scripts.pbo"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59662 | FullName      : C:\DayZServer\@CF\addons\scripts.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59670 | FullName      : C:\DayZServer\@VPPAdminTools\addons\VPPAdminTools.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59678 | FullName      : C:\DayZServer\dta\scripts.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59699 | $root = "C:\DayZServer"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59725 | ROOT = Path(r"C:\DayZServer")
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59832 | Diretorio: C:\DayZServer
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59842 | PBO: C:\DayZServer\@A_BeautifulCoyote\addons\ABeautiful_Coyote.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59853 | PBO: C:\DayZServer\@A_BeautifulKomodoDragon\addons\Beautiful_Komodo.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59865 | PBO: C:\DayZServer\@A_BeautifulMotorbikePassenger\addons\BikesSeat2.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59876 | PBO: C:\DayZServer\@A_BeautifulNasdaraCactusHurts\addons\Nasdara_Cactus.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59881 | PBO: C:\DayZServer\@BuildingFortifications\Addons\BuildingFortifications.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59917 | PBO: C:\DayZServer\@CF\addons\gui.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59924 | PBO: C:\DayZServer\@CF\addons\scripts.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59982 | PBO: C:\DayZServer\@CodeLock\Addons\CodeLock.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60011 | $root = "C:\DayZServer"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60037 | ROOT = Path(r"C:\DayZServer")
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60144 | Diretorio: C:\DayZServer
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60154 | PBO: C:\DayZServer\@A_BeautifulCoyote\addons\ABeautiful_Coyote.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60165 | PBO: C:\DayZServer\@A_BeautifulKomodoDragon\addons\Beautiful_Komodo.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60177 | PBO: C:\DayZServer\@A_BeautifulMotorbikePassenger\addons\BikesSeat2.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60188 | PBO: C:\DayZServer\@A_BeautifulNasdaraCactusHurts\addons\Nasdara_Cactus.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60193 | PBO: C:\DayZServer\@BuildingFortifications\Addons\BuildingFortifications.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60229 | PBO: C:\DayZServer\@CF\addons\gui.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60236 | PBO: C:\DayZServer\@CF\addons\scripts.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60294 | PBO: C:\DayZServer\@CodeLock\Addons\CodeLock.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60311 | PBO: C:\DayZServer\@CookZ\addons\CookZ.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60332 | PBO: C:\DayZServer\@Coyote\addons\ABeautiful_Coyote.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60343 | PBO: C:\DayZServer\@DabsFramework\addons\GUI.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60357 | PBO: C:\DayZServer\@DabsFramework\addons\Scripts.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60419 | PBO: C:\DayZServer\@KomodoDragon\addons\Beautiful_Komodo.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60431 | PBO: C:\DayZServer\@MotorbikePassenger\addons\BikesSeat2.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60442 | PBO: C:\DayZServer\@NasdaraCactus\addons\Nasdara_Cactus.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60447 | PBO: C:\DayZServer\@SimpleWhistle\Addons\Whistle.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60456 | PBO: C:\DayZServer\@SuppressionMod\addons\Scripts.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60481 | PBO: C:\DayZServer\@SurvivorAnimations\Addons\player_main.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60492 | PBO: C:\DayZServer\@SurvivorAnimations\Addons\SurvivorAnims.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60510 | PBO: C:\DayZServer\@VPPAdminTools\addons\assets.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60541 | PBO: C:\DayZServer\@VPPAdminTools\addons\VPPAdminTools.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60606 | PBO: C:\DayZServer\@ZensCoreMod\addons\ZenModCore.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60657 | PBO: C:\DayZServer\@ZensNotes\addons\ZenNotes.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60696 | PBO: C:\DayZServer\addons\ai.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60703 | PBO: C:\DayZServer\addons\ai_bliss.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60710 | PBO: C:\DayZServer\addons\animals.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60729 | PBO: C:\DayZServer\addons\animals_bliss.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60740 | PBO: C:\DayZServer\addons\anims_anm_player.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60747 | PBO: C:\DayZServer\addons\anims_workspaces.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60758 | PBO: C:\DayZServer\addons\characters_backpacks.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60765 | PBO: C:\DayZServer\addons\characters_belts.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60772 | PBO: C:\DayZServer\addons\characters_bodies.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60779 | PBO: C:\DayZServer\addons\characters_data.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60786 | PBO: C:\DayZServer\addons\characters_glasses.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60793 | PBO: C:\DayZServer\addons\characters_gloves.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60800 | PBO: C:\DayZServer\addons\characters_headgear.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60811 | PBO: C:\DayZServer\addons\characters_heads.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60816 | PBO: C:\DayZServer\addons\characters_masks.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60827 | PBO: C:\DayZServer\addons\characters_pants.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60834 | PBO: C:\DayZServer\addons\characters_shoes.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60841 | PBO: C:\DayZServer\addons\characters_tops.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60848 | PBO: C:\DayZServer\addons\characters_vests.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60855 | PBO: C:\DayZServer\addons\characters_zombies.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60862 | PBO: C:\DayZServer\addons\dz.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60873 | PBO: C:\DayZServer\addons\gear_camping.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60888 | PBO: C:\DayZServer\addons\gear_consumables.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60895 | PBO: C:\DayZServer\addons\gear_containers.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60901 | PBO: C:\DayZServer\addons\gear_cooking.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60908 | PBO: C:\DayZServer\addons\gear_crafting.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60915 | PBO: C:\DayZServer\addons\gear_cultivation.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60922 | PBO: C:\DayZServer\addons\gear_drinks.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60929 | PBO: C:\DayZServer\addons\gear_food.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60936 | PBO: C:\DayZServer\addons\gear_medical.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60943 | PBO: C:\DayZServer\addons\gear_navigation.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60950 | PBO: C:\DayZServer\addons\gear_optics.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60957 | PBO: C:\DayZServer\addons\gear_radio.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60964 | PBO: C:\DayZServer\addons\gear_tools.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60971 | PBO: C:\DayZServer\addons\gear_traps.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60978 | PBO: C:\DayZServer\addons\sounds_hpp.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60984 | PBO: C:\DayZServer\addons\structures_military.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60995 | PBO: C:\DayZServer\addons\structures_proxy_parts.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61004 | PBO: C:\DayZServer\addons\structures_residential.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61019 | PBO: C:\DayZServer\addons\structures_ruins_bliss.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61024 | PBO: C:\DayZServer\addons\structures_signs.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61030 | PBO: C:\DayZServer\addons\structures_underground_bliss.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61037 | PBO: C:\DayZServer\addons\vehicles_parts.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61044 | PBO: C:\DayZServer\addons\vehicles_singletrack.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61051 | PBO: C:\DayZServer\addons\vehicles_water.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61058 | PBO: C:\DayZServer\addons\vehicles_wheeled.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61065 | PBO: C:\DayZServer\addons\weapon_lights.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61072 | PBO: C:\DayZServer\addons\weapon_magazines.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61079 | PBO: C:\DayZServer\addons\weapon_muzzles.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61086 | PBO: C:\DayZServer\addons\weapon_optics.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61093 | PBO: C:\DayZServer\addons\weapon_supports.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61100 | PBO: C:\DayZServer\addons\weapons_ammunition.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61105 | PBO: C:\DayZServer\addons\weapons_archery.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61111 | PBO: C:\DayZServer\addons\weapons_explosives.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61118 | PBO: C:\DayZServer\addons\weapons_firearms.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61125 | PBO: C:\DayZServer\addons\weapons_launchers.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61132 | PBO: C:\DayZServer\addons\weapons_melee.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61139 | PBO: C:\DayZServer\addons\weapons_nonlethal.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61146 | PBO: C:\DayZServer\addons\weapons_pistols.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61153 | PBO: C:\DayZServer\addons\weapons_shotguns.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61171 | $root = "C:\DayZServer"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61197 | ROOT = Path(r"C:\DayZServer")
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61304 | Diretorio: C:\DayZServer
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61326 | $root = "C:\DayZServer"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61352 | ROOT = Path(r"C:\DayZServer")
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61459 | Diretorio: C:\DayZServer
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61469 | PBO: C:\DayZServer\@A_BeautifulCoyote\addons\ABeautiful_Coyote.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61480 | PBO: C:\DayZServer\@A_BeautifulKomodoDragon\addons\Beautiful_Komodo.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61492 | PBO: C:\DayZServer\@A_BeautifulMotorbikePassenger\addons\BikesSeat2.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61503 | PBO: C:\DayZServer\@A_BeautifulNasdaraCactusHurts\addons\Nasdara_Cactus.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61508 | PBO: C:\DayZServer\@BuildingFortifications\Addons\BuildingFortifications.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61544 | PBO: C:\DayZServer\@CF\addons\gui.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61551 | PBO: C:\DayZServer\@CF\addons\scripts.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61609 | PBO: C:\DayZServer\@CodeLock\Addons\CodeLock.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61626 | PBO: C:\DayZServer\@CookZ\addons\CookZ.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61647 | PBO: C:\DayZServer\@Coyote\addons\ABeautiful_Coyote.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61658 | PBO: C:\DayZServer\@DabsFramework\addons\GUI.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61672 | PBO: C:\DayZServer\@DabsFramework\addons\Scripts.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61734 | PBO: C:\DayZServer\@KomodoDragon\addons\Beautiful_Komodo.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61746 | PBO: C:\DayZServer\@MotorbikePassenger\addons\BikesSeat2.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61757 | PBO: C:\DayZServer\@NasdaraCactus\addons\Nasdara_Cactus.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61762 | PBO: C:\DayZServer\@SimpleWhistle\Addons\Whistle.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61771 | PBO: C:\DayZServer\@SuppressionMod\addons\Scripts.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61796 | PBO: C:\DayZServer\@SurvivorAnimations\Addons\player_main.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61807 | PBO: C:\DayZServer\@SurvivorAnimations\Addons\SurvivorAnims.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61825 | PBO: C:\DayZServer\@VPPAdminTools\addons\assets.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61856 | PBO: C:\DayZServer\@VPPAdminTools\addons\VPPAdminTools.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61921 | PBO: C:\DayZServer\@ZensCoreMod\addons\ZenModCore.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61972 | PBO: C:\DayZServer\@ZensNotes\addons\ZenNotes.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62011 | PBO: C:\DayZServer\addons\ai.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62018 | PBO: C:\DayZServer\addons\ai_bliss.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62025 | PBO: C:\DayZServer\addons\animals.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62044 | PBO: C:\DayZServer\addons\animals_bliss.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62055 | PBO: C:\DayZServer\addons\anims_anm_player.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62062 | PBO: C:\DayZServer\addons\anims_workspaces.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62073 | PBO: C:\DayZServer\addons\characters_backpacks.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62080 | PBO: C:\DayZServer\addons\characters_belts.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62087 | PBO: C:\DayZServer\addons\characters_bodies.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62094 | PBO: C:\DayZServer\addons\characters_data.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62101 | PBO: C:\DayZServer\addons\characters_glasses.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62108 | PBO: C:\DayZServer\addons\characters_gloves.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62115 | PBO: C:\DayZServer\addons\characters_headgear.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62126 | PBO: C:\DayZServer\addons\characters_heads.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62131 | PBO: C:\DayZServer\addons\characters_masks.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62142 | PBO: C:\DayZServer\addons\characters_pants.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62149 | PBO: C:\DayZServer\addons\characters_shoes.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62156 | PBO: C:\DayZServer\addons\characters_tops.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62163 | PBO: C:\DayZServer\addons\characters_vests.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62170 | PBO: C:\DayZServer\addons\characters_zombies.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62177 | PBO: C:\DayZServer\addons\dz.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62188 | PBO: C:\DayZServer\addons\gear_camping.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62203 | PBO: C:\DayZServer\addons\gear_consumables.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62210 | PBO: C:\DayZServer\addons\gear_containers.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62216 | PBO: C:\DayZServer\addons\gear_cooking.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62223 | PBO: C:\DayZServer\addons\gear_crafting.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62230 | PBO: C:\DayZServer\addons\gear_cultivation.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62237 | PBO: C:\DayZServer\addons\gear_drinks.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62244 | PBO: C:\DayZServer\addons\gear_food.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62251 | PBO: C:\DayZServer\addons\gear_medical.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62258 | PBO: C:\DayZServer\addons\gear_navigation.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62265 | PBO: C:\DayZServer\addons\gear_optics.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62272 | PBO: C:\DayZServer\addons\gear_radio.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62279 | PBO: C:\DayZServer\addons\gear_tools.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62286 | PBO: C:\DayZServer\addons\gear_traps.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62293 | PBO: C:\DayZServer\addons\sounds_hpp.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62299 | PBO: C:\DayZServer\addons\structures_military.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62310 | PBO: C:\DayZServer\addons\structures_proxy_parts.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62319 | PBO: C:\DayZServer\addons\structures_residential.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62334 | PBO: C:\DayZServer\addons\structures_ruins_bliss.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62339 | PBO: C:\DayZServer\addons\structures_signs.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62345 | PBO: C:\DayZServer\addons\structures_underground_bliss.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62352 | PBO: C:\DayZServer\addons\vehicles_parts.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62359 | PBO: C:\DayZServer\addons\vehicles_singletrack.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62366 | PBO: C:\DayZServer\addons\vehicles_water.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62373 | PBO: C:\DayZServer\addons\vehicles_wheeled.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62380 | PBO: C:\DayZServer\addons\weapon_lights.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62387 | PBO: C:\DayZServer\addons\weapon_magazines.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62394 | PBO: C:\DayZServer\addons\weapon_muzzles.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62401 | PBO: C:\DayZServer\addons\weapon_optics.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62408 | PBO: C:\DayZServer\addons\weapon_supports.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62415 | PBO: C:\DayZServer\addons\weapons_ammunition.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62420 | PBO: C:\DayZServer\addons\weapons_archery.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62426 | PBO: C:\DayZServer\addons\weapons_explosives.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62433 | PBO: C:\DayZServer\addons\weapons_firearms.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62440 | PBO: C:\DayZServer\addons\weapons_launchers.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62447 | PBO: C:\DayZServer\addons\weapons_melee.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62454 | PBO: C:\DayZServer\addons\weapons_nonlethal.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62461 | PBO: C:\DayZServer\addons\weapons_pistols.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62468 | PBO: C:\DayZServer\addons\weapons_shotguns.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62475 | PBO: C:\DayZServer\addons\worlds_chernarusplus.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62484 | PBO: C:\DayZServer\addons\worlds_chernarusplus_ce.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62493 | PBO: C:\DayZServer\addons\worlds_enoch.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62505 | PBO: C:\DayZServer\addons\worlds_enoch_ce.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62514 | PBO: C:\DayZServer\dta\bin.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62527 | PBO: C:\DayZServer\dta\graphics.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62532 | PBO: C:\DayZServer\dta\gui.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62573 | PBO: C:\DayZServer\dta\languagecore.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62610 | PBO: C:\DayZServer\dta\scripts.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62697 | PBO: C:\DayZServer\dta\system.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62702 | PBO: C:\DayZServer\nasdara\addons\ai_nasdara.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62709 | PBO: C:\DayZServer\nasdara\addons\characters_nasdara.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62716 | PBO: C:\DayZServer\nasdara\addons\gear_nasdara.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62723 | PBO: C:\DayZServer\nasdara\addons\sounds_nasdara.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62729 | PBO: C:\DayZServer\nasdara\addons\structures_industrial_nasdara.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62740 | PBO: C:\DayZServer\nasdara\addons\structures_props_nasdara.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62747 | PBO: C:\DayZServer\nasdara\addons\structures_residential_nasdara.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62754 | PBO: C:\DayZServer\nasdara\addons\structures_roads_nasdara.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62761 | PBO: C:\DayZServer\nasdara\addons\weapons_nasdara.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62768 | PBO: C:\DayZServer\nasdara\addons\worlds_nasdara_ce.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62787 | PBO: C:\DayZServer\sakhal\addons\structures_sakhal.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62800 | PBO: C:\DayZServer\sakhal\addons\worlds_sakhal_ce.pbo
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62828 | $A = "C:\DayZServer"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62829 | $B = "C:\RavenRP\DayZServer"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62867 | Write-Host "Inventariando C:\DayZServer..." -ForegroundColor Cyan
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62870 | Write-Host "Inventariando C:\RavenRP\DayZServer..." -ForegroundColor Cyan
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62897 | Add-Report "Arquivos em C:\DayZServer: $($KeysA.Count)"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62898 | Add-Report "Arquivos em C:\RavenRP\DayZServer: $($KeysB.Count)"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62900 | Add-Report "Ausentes em C:\RavenRP\DayZServer: $($MissingB.Count)"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62901 | Add-Report "Ausentes em C:\DayZServer: $($MissingA.Count)"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62906 | Add-Report "=== AUSENTES EM C:\RavenRP\DayZServer ==="
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62912 | Add-Report "=== AUSENTES EM C:\DayZServer ==="
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62945 | Inventariando C:\DayZServer...
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62946 | Inventariando C:\RavenRP\DayZServer...
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62956 | Arquivos em C:\DayZServer: 2004
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62957 | Arquivos em C:\RavenRP\DayZServer: 2004
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62959 | Ausentes em C:\RavenRP\DayZServer: 0
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62960 | Ausentes em C:\DayZServer: 0
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62964 | === AUSENTES EM C:\RavenRP\DayZServer ===
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62966 | === AUSENTES EM C:\DayZServer ===
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62991 | "C:/DayZServer",
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62993 | "C:/RavenRP/DayZServer"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 63058 | "C:/DayZServer",
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 63060 | "C:/RavenRP/DayZServer"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 63125 | "C:/DayZServer",
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 63127 | "C:/RavenRP/DayZServer"
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 63185 | "C:\DayZServer",
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 63186 | "C:/DayZServer",
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 63187 | "C:\RavenRP\DayZServer",
+C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 63188 | "C:/RavenRP/DayZServer"
+C:\RavenRP\DayZServer\atualiza_mods.bat | Linha 13 | set "SERVER_DIR=C:\DayZServer"
+C:\RavenRP\DayZServer\restart_server.bat | Linha 11 | call "C:\DayZServer\start.bat"
+C:\RavenRP\DayZServer\start.bat | Linha 10 | set "SERVER_DIR=C:\DayZServer"
+C:\RavenRP\DayZServer\wipe.bat | Linha 6 | set "SERVER_DIR=C:\DayZServer"
+C:\RavenRP\DayZServer\battleye\Bec\Config\Config.cfg | Linha 4 | BePath = C:\DayZServer\Battleye
+C:\RavenRP\DayZServer\DuckDNS\update-duckdns.ps1 | Linha 9 | $LogDir = "C:\DayZServer\logs"
+PS C:\RavenRP\ControlCenter\API>
