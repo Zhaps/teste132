@@ -1,5550 +1,1368 @@
-**********************
-Início da transcrição do Windows PowerShell
-Hora de início: 20261119131218
-Nome de Usuário: DESKTOP-LDECQT3\Nasdara
-Executar como Usuário: DESKTOP-LDECQT3\Nasdara
-Nome da Configuração: 
-Computador: DESKTOP-LDECQT3 (Microsoft Windows NT 10.0.19045.0)
-Aplicativo Host: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
-ID do Processo: 1100
-PSVersion: 5.1.19041.6456
-PSEdition: Desktop
-PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.19041.6456
-BuildVersion: 10.0.19041.6456
-CLRVersion: 4.0.30319.42000
-WSManStackVersion: 3.0
-PSRemotingProtocolVersion: 2.3
-SerializationVersion: 1.1.0.1
-**********************
-Transcrição iniciada, o arquivo de saída é C:\RavenRP\VPP_Auditoria_Configuracoes.txt
+==================================================
+1. PREPARACAO DA VARREDURA
+==================================================
+Diretorio: C:\DayZServer
+Python: C:\Program Files\Python311\python.exe
 
 ==================================================
-1. VALIDACAO DO DIRETORIO
+2. VARREDURA DOS PBOs
 ==================================================
-DIRETORIO: C:\DayZServer\profiles\VPPAdminTools
-
-==================================================
-2. ESTRUTURA COMPLETA
-==================================================
-
-FullName                                                                                            PSIsContainer Length LastWriteTime
---------                                                                                            ------------- ------ -------------
-C:\DayZServer\profiles\VPPAdminTools\Backups                                                                 True        15/11/2026 13:06:09
-C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins                                                     True        15/11/2026 13:06:10
-C:\DayZServer\profiles\VPPAdminTools\Exports                                                                 True        15/11/2026 13:06:09
-C:\DayZServer\profiles\VPPAdminTools\Logging                                                                 True        18/11/2026 12:31:56
-C:\DayZServer\profiles\VPPAdminTools\Permissions                                                             True        17/11/2026 13:25:19
-C:\DayZServer\profiles\VPPAdminTools\XMLEditor                                                               True        15/11/2026 13:06:10
-C:\DayZServer\profiles\VPPAdminTools\BanList.json                                                           False 457    15/11/2026 13:06:10
-C:\DayZServer\profiles\VPPAdminTools\LogOptions.json                                                        False 50     15/11/2026 13:06:10
-C:\DayZServer\profiles\VPPAdminTools\SpectateRecovery.json                                                  False 23     15/11/2026 14:49:09
-C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\BuildingSetManager                                  True        15/11/2026 13:06:10
-C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\ItemManager                                         True        15/11/2026 13:06:10
-C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TeleportManager                                     True        15/11/2026 13:06:10
-C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TimeManager                                         True        15/11/2026 13:06:10
-C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WeatherManager                                      True        15/11/2026 13:06:10
-C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager                                     True        15/11/2026 13:06:10
-C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\SteamAPI.json                                      False 102    15/11/2026 13:06:10
-C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\BuildingSetManager\BuildingSetJournal.json         False 55     15/11/2026 13:06:10
-C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\ItemManager\SavedItemPresets.vpp                   False 561    15/11/2026 13:06:10
-C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TeleportManager\TeleportLocation.json              False 4316   15/11/2026 13:06:10
-C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TimeManager\TimeSettingsPresets.json               False 212    15/11/2026 14:58:16
-C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WeatherManager\WeatherSettingsPresets.json         False 29     15/11/2026 13:06:10
-C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates                           True        15/11/2026 13:06:10
-C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt               False 6496   18/11/2026 12:31:57
-C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-10-22.txt                                    False 11419  15/11/2026 13:10:22
-C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-20-40.txt                                    False 11419  15/11/2026 13:20:41
-C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-27-35.txt                                    False 11419  15/11/2026 13:27:35
-C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-38-30.txt                                    False 11354  15/11/2026 13:38:30
-C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-41-45.txt                                    False 11616  15/11/2026 14:03:59
-C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-6-10.txt                                     False 11896  15/11/2026 13:06:10
-C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-7-43.txt                                     False 11288  15/11/2026 13:07:43
-C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-20-59.txt                                    False 11682  15/11/2026 14:36:04
-C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                    False 26007  15/11/2026 15:46:50
-C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-6-39.txt                                     False 11223  15/11/2026 14:06:40
-C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-9-38.txt                                     False 11470  15/11/2026 14:18:30
-C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_18-57-45.txt                                    False 11314  15/11/2026 15:57:45
-C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-1-1.txt                                      False 11052  15/11/2026 16:01:01
-C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-14-54.txt                                    False 11314  15/11/2026 16:14:54
-C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-3-27.txt                                     False 11183  15/11/2026 16:03:27
-C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-10-24.txt                                    False 11314  15/11/2026 17:10:24
-C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-58-45.txt                                    False 11314  15/11/2026 17:58:45
-C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                     False 18701  15/11/2026 18:45:24
-C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                    False 15064  16/11/2026 12:34:40
-C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-47-49.txt                                    False 11314  16/11/2026 12:47:49
-C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_18-45-49.txt                                    False 11314  16/11/2026 15:45:49
-C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-14-38.txt                                    False 11314  16/11/2026 16:14:38
-C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                    False 13413  16/11/2026 17:08:58
-C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-40-47.txt                                    False 11314  16/11/2026 16:40:47
-C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_20-24-6.txt                                     False 11260  16/11/2026 17:27:44
-C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                    False 21552  16/11/2026 19:40:53
-C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-48.txt                                    False 11314  16/11/2026 18:20:49
-C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_23-0-3.txt                                      False 11299  16/11/2026 20:19:17
-C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_16-25-19.txt                                    False 11558  17/11/2026 15:09:11
-C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                    False 13526  17/11/2026 22:42:11
-C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-18_15-31-56.txt                                    False 11314  18/11/2026 12:31:57
-C:\DayZServer\profiles\VPPAdminTools\Permissions\SuperAdmins                                                 True        15/11/2026 13:06:10
-C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups                                                  True        15/11/2026 13:06:10
-C:\DayZServer\profiles\VPPAdminTools\Permissions\credentials.txt                                            False 247    17/11/2026 13:25:19
-C:\DayZServer\profiles\VPPAdminTools\Permissions\webhooks_perms_v1.txt                                      False 1      15/11/2026 13:06:10
-C:\DayZServer\profiles\VPPAdminTools\Permissions\xmleditor_perms_v1.txt                                     False 1      15/11/2026 13:06:10
-C:\DayZServer\profiles\VPPAdminTools\Permissions\xmleditor_perms_v2.txt                                     False 1      15/11/2026 13:06:10
-C:\DayZServer\profiles\VPPAdminTools\Permissions\xmleditor_perms_v3.txt                                     False 1      15/11/2026 13:06:10
-C:\DayZServer\profiles\VPPAdminTools\Permissions\xmleditor_perms_v4.txt                                     False 1      15/11/2026 13:06:10
-C:\DayZServer\profiles\VPPAdminTools\Permissions\SuperAdmins\SuperAdmins.txt                                False 36     15/11/2026 15:28:07
-C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json                                 False 4649   15/11/2026 13:06:10
-C:\DayZServer\profiles\VPPAdminTools\XMLEditor\Backups                                                       True        15/11/2026 13:06:10
-C:\DayZServer\profiles\VPPAdminTools\XMLEditor\Cache                                                         True        15/11/2026 13:22:08
-C:\DayZServer\profiles\VPPAdminTools\XMLEditor\XMLEditorSettings.json                                       False 328    15/11/2026 13:06:10
-C:\DayZServer\profiles\VPPAdminTools\XMLEditor\Cache\eol_probe.txt                                          False 6      18/11/2026 12:33:44
-
-
-
-==================================================
-3. RESUMO POR DIRETORIO
-==================================================
-
-FullName
---------
-C:\DayZServer\profiles\VPPAdminTools\Backups
-C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins
-C:\DayZServer\profiles\VPPAdminTools\Exports
-C:\DayZServer\profiles\VPPAdminTools\Logging
-C:\DayZServer\profiles\VPPAdminTools\Permissions
-C:\DayZServer\profiles\VPPAdminTools\XMLEditor
-C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\BuildingSetManager
-C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\ItemManager
-C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TeleportManager
-C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TimeManager
-C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WeatherManager
-C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager
-C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates
-C:\DayZServer\profiles\VPPAdminTools\Permissions\SuperAdmins
-C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups
-C:\DayZServer\profiles\VPPAdminTools\XMLEditor\Backups
-C:\DayZServer\profiles\VPPAdminTools\XMLEditor\Cache
-
-
-
-==================================================
-4. ANALISE DOS ARQUIVOS DE CONFIGURACAO
-==================================================
-Arquivos legiveis encontrados: 50
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\BanList.json
-TAMANHO: 457 bytes
---------------------------------------------------
-LINHA 1: {
-LINHA 2:     "m_BanList": [
-LINHA 3:         {
-LINHA 4:             "playerName": "user",
-LINHA 5:             "Steam64Id": "00000000000000000",
-LINHA 6:             "GUID": "123456789",
-LINHA 7:             "banReason": "Example reason",
-LINHA 8:             "issuedBy": "Example ban",
-LINHA 9:             "expirationDate": {
-LINHA 10:                 "Hour": 0,
-LINHA 11:                 "Minute": 0,
-LINHA 12:                 "Year": 0,
-LINHA 13:                 "Month": 0,
-LINHA 14:                 "Day": 0,
-LINHA 15:                 "Permanent": 1
-LINHA 16:             }
-LINHA 17:         }
-LINHA 18:     ]
-LINHA 19: }
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\LogOptions.json
-TAMANHO: 50 bytes
---------------------------------------------------
-LINHA 1: {
-LINHA 2:     "SendLogsToADM": 0,
-LINHA 3:     "LongTimeStamp": 0
-LINHA 4: }
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\SpectateRecovery.json
-TAMANHO: 23 bytes
---------------------------------------------------
-LINHA 1: {
-LINHA 2:     "positions": {}
-LINHA 3: }
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\SteamAPI.json
-TAMANHO: 102 bytes
---------------------------------------------------
-LINHA 1: {
-LINHA 2 : [CONTEUDO SENSIVEL MASCARADO]
-LINHA 3:     "QUERY_INTERVAL_SEC": 60.0,
-LINHA 4:     "QUERY_PORT": "",
-LINHA 5:     "SERVER_IP": ""
-LINHA 6: }
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\BuildingSetManager\BuildingSetJournal.json
-TAMANHO: 55 bytes
---------------------------------------------------
-LINHA 1: {
-LINHA 2:     "Version": 1,
-LINHA 3:     "Sets": [],
-LINHA 4:     "History": []
-LINHA 5: }
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TeleportManager\TeleportLocation.json
-TAMANHO: 4316 bytes
---------------------------------------------------
-LINHA 1: {
-LINHA 2:     "m_TeleportLocations": [
-LINHA 3:         {
-LINHA 4:             "m_Name": "Severograd",
-LINHA 5:             "m_Position": [
-LINHA 6:                 8428.0,
-LINHA 7:                 106.75238800048828,
-LINHA 8:                 12767.099609375
-LINHA 9:             ]
-LINHA 10:         },
-LINHA 11:         {
-LINHA 12:             "m_Name": "Krasnostav",
-LINHA 13:             "m_Position": [
-LINHA 14:                 11168.8720703125,
-LINHA 15:                 198.91537475585938,
-LINHA 16:                 12316.125
-LINHA 17:             ]
-LINHA 18:         },
-LINHA 19:         {
-LINHA 20:             "m_Name": "Mogilevka",
-LINHA 21:             "m_Position": [
-LINHA 22:                 7537.7998046875,
-LINHA 23:                 215.23233032226563,
-LINHA 24:                 5211.54638671875
-LINHA 25:             ]
-LINHA 26:         },
-LINHA 27:         {
-LINHA 28:             "m_Name": "Stary",
-LINHA 29:             "m_Position": [
-LINHA 30:                 6046.9423828125,
-LINHA 31:                 301.4139099121094,
-LINHA 32:                 7733.97021484375
-LINHA 33:             ]
-LINHA 34:         },
-LINHA 35:         {
-LINHA 36:             "m_Name": "Msta",
-LINHA 37:             "m_Position": [
-LINHA 38:                 11322.5478515625,
-LINHA 39:                 252.8081817626953,
-LINHA 40:                 5463.35888671875
-LINHA 41:             ]
-LINHA 42:         },
-LINHA 43:         {
-LINHA 44:             "m_Name": "Vybor",
-LINHA 45:             "m_Position": [
-LINHA 46:                 3784.159912109375,
-LINHA 47:                 310.99798583984377,
-LINHA 48:                 8923.48046875
-LINHA 49:             ]
-LINHA 50:         },
-LINHA 51:         {
-LINHA 52:             "m_Name": "Gorka",
-LINHA 53:             "m_Position": [
-LINHA 54:                 9514.26953125,
-LINHA 55:                 303.8056945800781,
-LINHA 56:                 8863.6923828125
-LINHA 57:             ]
-LINHA 58:         },
-LINHA 59:         {
-LINHA 60:             "m_Name": "Solnichni",
-LINHA 61:             "m_Position": [
-LINHA 62:                 13398.26953125,
-LINHA 63:                 5.95246696472168,
-LINHA 64:                 6303.4716796875
-LINHA 65:             ]
-LINHA 66:         },
-LINHA 67:         {
-LINHA 68:             "m_Name": "NWAF",
-LINHA 69:             "m_Position": [
-LINHA 70:                 4823.43017578125,
-LINHA 71:                 339.0544738769531,
-LINHA 72:                 10457.16015625
-LINHA 73:             ]
-LINHA 74:         },
-LINHA 75:         {
-LINHA 76:             "m_Name": "Blota",
-LINHA 77:             "m_Position": [
-LINHA 78:                 4467.609375,
-LINHA 79:                 6.073609828948975,
-LINHA 80:                 2496.135498046875
-LINHA 81:             ]
-LINHA 82:         },
-LINHA 83:         {
-LINHA 84:             "m_Name": "NEAF",
-LINHA 85:             "m_Position": [
-LINHA 86:                 11921.4296875,
-LINHA 87:                 140.0,
-LINHA 88:                 12525.5498046875
-LINHA 89:             ]
-LINHA 90:         },
-LINHA 91:         {
-LINHA 92:             "m_Name": "Cherno",
-LINHA 93:             "m_Position": [
-LINHA 94:                 6635.8349609375,
-LINHA 95:                 13.351085662841797,
-LINHA 96:                 2745.285400390625
-LINHA 97:             ]
-LINHA 98:         },
-LINHA 99:         {
-LINHA 100:             "m_Name": "Elektro",
-LINHA 101:             "m_Position": [
-LINHA 102:                 10553.5498046875,
-LINHA 103:                 6.0,
-LINHA 104:                 2313.3701171875
-LINHA 105:             ]
-LINHA 106:         },
-LINHA 107:         {
-LINHA 108:             "m_Name": "Berez",
-LINHA 109:             "m_Position": [
-LINHA 110:                 12319.9423828125,
-LINHA 111:                 13.747149467468262,
-LINHA 112:                 9532.0869140625
-LINHA 113:             ]
-LINHA 114:         },
-LINHA 115:         {
-LINHA 116:             "m_Name": "Svetlojarsk",
-LINHA 117:             "m_Position": [
-LINHA 118:                 13900.8203125,
-LINHA 119:                 19.00615692138672,
-LINHA 120:                 13258.1201171875
-LINHA 121:             ]
-LINHA 122:         },
-LINHA 123:         {
-LINHA 124:             "m_Name": "Zelenogorsk",
-LINHA 125:             "m_Position": [
-LINHA 126:                 2572.800048828125,
-LINHA 127:                 194.20457458496095,
-LINHA 128:                 5105.08984375
-LINHA 129:             ]
-LINHA 130:         },
-LINHA 131:         {
-LINHA 132:             "m_Name": "Lopatino",
-LINHA 133:             "m_Position": [
-LINHA 134:                 2714.739990234375,
-LINHA 135:                 273.989990234375,
-LINHA 136:                 9996.330078125
-LINHA 137:             ]
-LINHA 138:         },
-LINHA 139:         {
-LINHA 140:             "m_Name": "Tisy",
-LINHA 141:             "m_Position": [
-LINHA 142:                 1700.1619873046876,
-LINHA 143:                 449.0197448730469,
-LINHA 144:                 13993.8828125
-LINHA 145:             ]
-LINHA 146:         },
-LINHA 147:         {
-LINHA 148:             "m_Name": "Novaya",
-LINHA 149:             "m_Position": [
-LINHA 150:                 3395.287841796875,
-LINHA 151:                 193.98507690429688,
-LINHA 152:                 13013.609375
-LINHA 153:             ]
-LINHA 154:         },
-LINHA 155:         {
-LINHA 156:             "m_Name": "Novy",
-LINHA 157:             "m_Position": [
-LINHA 158:                 7085.72998046875,
-LINHA 159:                 297.32452392578127,
-LINHA 160:                 7720.85009765625
-LINHA 161:             ]
-LINHA 162:         },
-LINHA 163:         {
-LINHA 164:             "m_Name": "Grishino",
-LINHA 165:             "m_Position": [
-LINHA 166:                 5952.15576171875,
-LINHA 167:                 267.5643310546875,
-LINHA 168:                 10367.708984375
-LINHA 169:             ]
-LINHA 170:         },
-LINHA 171:         {
-LINHA 172:             "m_Name": "Kabanino",
-LINHA 173:             "m_Position": [
-LINHA 174:                 5363.97021484375,
-LINHA 175:                 331.6558837890625,
-LINHA 176:                 8594.3896484375
-LINHA 177:             ]
-LINHA 178:         }
-LINHA 179:     ]
-LINHA 180: }
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TimeManager\TimeSettingsPresets.json
-TAMANHO: 212 bytes
---------------------------------------------------
-LINHA 1: {
-LINHA 2:     "timeSettings": [
-LINHA 3:         {
-LINHA 4:             "hour": 15,
-LINHA 5:             "minute": 52,
-LINHA 6:             "month": 4,
-LINHA 7:             "day": 30,
-LINHA 8:             "year": 2026,
-LINHA 9:             "name": "4/30/2026 15:52"
-LINHA 10:         }
-LINHA 11:     ]
-LINHA 12: }
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WeatherManager\WeatherSettingsPresets.json
-TAMANHO: 29 bytes
---------------------------------------------------
-LINHA 1: {
-LINHA 2:     "weatherSettings": []
-LINHA 3: }
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt
-TAMANHO: 6496 bytes
---------------------------------------------------
-LINHA 1: VPP Admin Tools webhook templates
-LINHA 2: [IDENTIFICADOR MASCARADO]
-LINHA 4: Each webhook has a folder named after its id with one <event>.tpl per event: the request body sent for it.
-LINHA 5: Edit them here or in the WebHooks menu; the server reads them at start (or on Reload in the menu).
-LINHA 6: Delete a file to get the webhook's preset template back.
-LINHA 8: Syntax:
-LINHA 9:   {{victim.name}}                        a variable (JSON-escaped for JSON webhooks)
-LINHA 10:   {{victim.id|steamurl}}                 filters: upper lower trim truncate:N default:TEXT round:N number steamurl raw json
-LINHA 11:   {{#if killer.id}} ... {{else}} ... {{/if}}   shown when the variable is not empty
-LINHA 12:   {{#unless killer.id}} ... {{/unless}}       shown when it is empty
-LINHA 13:   {{#ifeq cause suicide}} ... {{/ifeq}}       shown when it equals the value
-LINHA 14:   {{! comment }}
-LINHA 15:   {{hook.<name>}}                        a custom variable of the webhook (username, avatar, chat_id, ...)
-LINHA 17: Webhooks:
-LINHA 19: Events and their variables:
-LINHA 21:   admin.action
-LINHA 22:     {{admin.name}}  e.g. SurvivorAdmin
-LINHA 23:     {{admin.id}}  e.g. 76561198000000000
-LINHA 24:     {{action}}  e.g. [ItemManager] Spawned Item: M4A1 on self
-LINHA 25:     {{action.text}}  e.g. Spawned Item: M4A1 on self
-LINHA 26:     {{module}}  e.g. ItemManager
-LINHA 27:     {{event}}  e.g. admin.action
-LINHA 28:     {{server.name}}  e.g. My DayZ Server
-LINHA 29:     {{server.ip}}  e.g. 203.0.113.10
-LINHA 30:     {{server.port}}  e.g. 27016
-LINHA 31:     {{server.map}}  e.g. chernarusplus
-LINHA 32:     {{players}}  e.g. 12
-LINHA 33:     {{time.iso}}  e.g. 2026-09-29T18:04:00.000Z
-LINHA 34:     {{time.unix}}  e.g. 1790705040
-LINHA 35:     {{time.date}}  e.g. 2026-09-29
-LINHA 36:     {{time.time}}  e.g. 18:04:00
-LINHA 38:   kill
-LINHA 39:     {{victim.name}}  e.g. Survivor
-LINHA 40:     {{victim.id}}  e.g. 76561198000000001
-LINHA 41:     {{victim.pos}}  e.g. 7500.1, 290.5, 7700.2
-LINHA 42:     {{killer.name}}  e.g. Bandit
-LINHA 43:     {{killer.id}}  e.g. 76561198000000002
-LINHA 44:     {{killer.pos}}  e.g. 7560.3, 291.0, 7712.8
-LINHA 45:     {{cause}}  e.g. player
-LINHA 46:     {{weapon}}  e.g. M4-A1
-LINHA 47:     {{distance}}  e.g. 61.4
-LINHA 48:     {{details}}  e.g. Survivor (7500, 7700) killed by: Bandit (7560, 7712) with [M4-A1] from [61.4] meters
-LINHA 49:     {{event}}  e.g. kill
-LINHA 50:     {{server.name}}  e.g. My DayZ Server
-LINHA 51:     {{server.ip}}  e.g. 203.0.113.10
-LINHA 52:     {{server.port}}  e.g. 27016
-LINHA 53:     {{server.map}}  e.g. chernarusplus
-LINHA 54:     {{players}}  e.g. 12
-LINHA 55:     {{time.iso}}  e.g. 2026-09-29T18:04:00.000Z
-LINHA 56:     {{time.unix}}  e.g. 1790705040
-LINHA 57:     {{time.date}}  e.g. 2026-09-29
-LINHA 58:     {{time.time}}  e.g. 18:04:00
-LINHA 60:   hit
-LINHA 61:     {{victim.name}}  e.g. Survivor
-LINHA 62:     {{victim.id}}  e.g. 76561198000000001
-LINHA 63:     {{victim.pos}}  e.g. 7500.1, 290.5, 7700.2
-LINHA 64:     {{source.name}}  e.g. Bandit
-LINHA 65:     {{source.id}}  e.g. 76561198000000002
-LINHA 66:     {{source.kind}}  e.g. player
-LINHA 67:     {{weapon}}  e.g. M4-A1
-LINHA 68:     {{ammo}}  e.g. Bullet_556x45
-LINHA 69:     {{zone}}  e.g. Torso
-LINHA 70:     {{distance}}  e.g. 61.4
-LINHA 71:     {{health}}  e.g. 72.5
-LINHA 72:     {{details}}  e.g. Survivor (7500, 7700) hit by Bandit (7560, 7712) into Torso(72.5 HP left) with (M4-A1) from (61.4) meters
-LINHA 73:     {{event}}  e.g. hit
-LINHA 74:     {{server.name}}  e.g. My DayZ Server
-LINHA 75:     {{server.ip}}  e.g. 203.0.113.10
-LINHA 76:     {{server.port}}  e.g. 27016
-LINHA 77:     {{server.map}}  e.g. chernarusplus
-LINHA 78:     {{players}}  e.g. 12
-LINHA 79:     {{time.iso}}  e.g. 2026-09-29T18:04:00.000Z
-LINHA 80:     {{time.unix}}  e.g. 1790705040
-LINHA 81:     {{time.date}}  e.g. 2026-09-29
-LINHA 82:     {{time.time}}  e.g. 18:04:00
-LINHA 84:   join
-LINHA 85:     {{player.name}}  e.g. Survivor
-LINHA 86:     {{player.id}}  e.g. 76561198000000001
-LINHA 87:     {{action}}  e.g. joined the server!
-LINHA 88:     {{event}}  e.g. join
-LINHA 89:     {{server.name}}  e.g. My DayZ Server
-LINHA 90:     {{server.ip}}  e.g. 203.0.113.10
-LINHA 91:     {{server.port}}  e.g. 27016
-LINHA 92:     {{server.map}}  e.g. chernarusplus
-LINHA 93:     {{players}}  e.g. 12
-LINHA 94:     {{time.iso}}  e.g. 2026-09-29T18:04:00.000Z
-LINHA 95:     {{time.unix}}  e.g. 1790705040
-LINHA 96:     {{time.date}}  e.g. 2026-09-29
-LINHA 97:     {{time.time}}  e.g. 18:04:00
-LINHA 99:   leave
-LINHA 100:     {{player.name}}  e.g. Survivor
-LINHA 101:     {{player.id}}  e.g. 76561198000000001
-LINHA 102:     {{action}}  e.g. left the server!
-LINHA 103:     {{event}}  e.g. leave
-LINHA 104:     {{server.name}}  e.g. My DayZ Server
-LINHA 105:     {{server.ip}}  e.g. 203.0.113.10
-LINHA 106:     {{server.port}}  e.g. 27016
-LINHA 107:     {{server.map}}  e.g. chernarusplus
-LINHA 108:     {{players}}  e.g. 12
-LINHA 109:     {{time.iso}}  e.g. 2026-09-29T18:04:00.000Z
-LINHA 110:     {{time.unix}}  e.g. 1790705040
-LINHA 111:     {{time.date}}  e.g. 2026-09-29
-LINHA 112:     {{time.time}}  e.g. 18:04:00
-LINHA 114:   leave.early
-LINHA 115:     {{player.name}}  e.g. Survivor
-LINHA 116:     {{player.id}}  e.g. 76561198000000001
-LINHA 117:     {{action}}  e.g. disconnected early from server (EXIT NOW).
-LINHA 118:     {{event}}  e.g. leave.early
-LINHA 119:     {{server.name}}  e.g. My DayZ Server
-LINHA 120:     {{server.ip}}  e.g. 203.0.113.10
-LINHA 121:     {{server.port}}  e.g. 27016
-LINHA 122:     {{server.map}}  e.g. chernarusplus
-LINHA 123:     {{players}}  e.g. 12
-LINHA 124:     {{time.iso}}  e.g. 2026-09-29T18:04:00.000Z
-LINHA 125:     {{time.unix}}  e.g. 1790705040
-LINHA 126:     {{time.date}}  e.g. 2026-09-29
-LINHA 127:     {{time.time}}  e.g. 18:04:00
-LINHA 129:   logout.start
-LINHA 130:     {{player.name}}  e.g. Survivor
-LINHA 131:     {{player.id}}  e.g. 76561198000000001
-LINHA 132:     {{action}}  e.g. initiated disconnect process..
-LINHA 133:     {{event}}  e.g. logout.start
-LINHA 134:     {{server.name}}  e.g. My DayZ Server
-LINHA 135:     {{server.ip}}  e.g. 203.0.113.10
-LINHA 136:     {{server.port}}  e.g. 27016
-LINHA 137:     {{server.map}}  e.g. chernarusplus
-LINHA 138:     {{players}}  e.g. 12
-LINHA 139:     {{time.iso}}  e.g. 2026-09-29T18:04:00.000Z
-LINHA 140:     {{time.unix}}  e.g. 1790705040
-LINHA 141:     {{time.date}}  e.g. 2026-09-29
-LINHA 142:     {{time.time}}  e.g. 18:04:00
-LINHA 144:   logout.cancel
-LINHA 145:     {{player.name}}  e.g. Survivor
-LINHA 146:     {{player.id}}  e.g. 76561198000000001
-LINHA 147:     {{action}}  e.g. canceled logout
-LINHA 148:     {{event}}  e.g. logout.cancel
-LINHA 149:     {{server.name}}  e.g. My DayZ Server
-LINHA 150:     {{server.ip}}  e.g. 203.0.113.10
-LINHA 151:     {{server.port}}  e.g. 27016
-LINHA 152:     {{server.map}}  e.g. chernarusplus
-LINHA 153:     {{players}}  e.g. 12
-LINHA 154:     {{time.iso}}  e.g. 2026-09-29T18:04:00.000Z
-LINHA 155:     {{time.unix}}  e.g. 1790705040
-LINHA 156:     {{time.date}}  e.g. 2026-09-29
-LINHA 157:     {{time.time}}  e.g. 18:04:00
-LINHA 159:   server.status
-LINHA 160:     {{server.fps}}  e.g. 58
-LINHA 161:     {{uptime}}  e.g. 0d 5h 12m 40s
-LINHA 162:     {{uptime.seconds}}  e.g. 18760
-LINHA 163:     {{event}}  e.g. server.status
-LINHA 164:     {{server.name}}  e.g. My DayZ Server
-LINHA 165:     {{server.ip}}  e.g. 203.0.113.10
-LINHA 166:     {{server.port}}  e.g. 27016
-LINHA 167:     {{server.map}}  e.g. chernarusplus
-LINHA 168:     {{players}}  e.g. 12
-LINHA 169:     {{time.iso}}  e.g. 2026-09-29T18:04:00.000Z
-LINHA 170:     {{time.unix}}  e.g. 1790705040
-LINHA 171:     {{time.date}}  e.g. 2026-09-29
-LINHA 172:     {{time.time}}  e.g. 18:04:00
-LINHA 174:   server.boot
-LINHA 175:     {{event}}  e.g. server.boot
-LINHA 176:     {{server.name}}  e.g. My DayZ Server
-LINHA 177:     {{server.ip}}  e.g. 203.0.113.10
-LINHA 178:     {{server.port}}  e.g. 27016
-LINHA 179:     {{server.map}}  e.g. chernarusplus
-LINHA 180:     {{players}}  e.g. 12
-LINHA 181:     {{time.iso}}  e.g. 2026-09-29T18:04:00.000Z
-LINHA 182:     {{time.unix}}  e.g. 1790705040
-LINHA 183:     {{time.date}}  e.g. 2026-09-29
-LINHA 184:     {{time.time}}  e.g. 18:04:00
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-10-22.txt
-TAMANHO: 11419 bytes
---------------------------------------------------
-LINHA 1: [IDENTIFICADOR MASCARADO] Admin Tools Session [IDENTIFICADOR MASCARADO]
-LINHA 2: Logs Started: 2026-11-15_16-10-22
-LINHA 3: [IDENTIFICADOR MASCARADO]
-LINHA 4: 16:10:22 | [PermissionManager] Perm (DeleteObjectAtCrosshair) has been registered!
-LINHA 5: 16:10:22 | [PermissionManager] Perm (TeleportToCrosshair) has been registered!
-LINHA 6: 16:10:22 | [PermissionManager] Perm (FreeCamera) has been registered!
-LINHA 7: 16:10:22 | [PermissionManager] Perm ([IDENTIFICADOR MASCARADO]) has been registered!
-LINHA 8: 16:10:22 | [PermissionManager] Perm (MenuItemManager) has been registered!
-LINHA 9: 16:10:22 | [PermissionManager] Perm (MenuItemManager:SpawnItem) has been registered!
-LINHA 10: 16:10:22 | [PermissionManager] Perm (MenuItemManager:EditPreset) has been registered!
-LINHA 11: 16:10:22 | [PermissionManager] Perm (MenuItemManager:SpawnPreset) has been registered!
-LINHA 12: 16:10:22 | [PermissionManager] Perm (MenuItemManager:DeletePreset) has been registered!
-LINHA 13: 16:10:22 | [PermissionManager] Perm (MenuItemManager:AddPreset) has been registered!
-LINHA 14: 16:10:22 | [PermissionManager] Perm (MenuServerManager) has been registered!
-LINHA 15: 16:10:22 | [PermissionManager] Perm (ServerManager:RestartServer) has been registered!
-LINHA 16: 16:10:22 | [PermissionManager] Perm (ServerManager:LockServer) has been registered!
-LINHA 17: 16:10:22 | [PermissionManager] Perm (ServerManager:KickAllPlayers) has been registered!
-LINHA 18: 16:10:22 | [PermissionManager] Perm (MenuWeatherManager) has been registered!
-LINHA 19: 16:10:22 | [PermissionManager] Perm (WeatherManager:ApplyWeather) has been registered!
-LINHA 20: 16:10:22 | [PermissionManager] Perm (WeatherManager:ApplyTime) has been registered!
-LINHA 21: 16:10:22 | [PermissionManager] Perm (WeatherManager:SavePreset) has been registered!
-LINHA 22: 16:10:22 | [PermissionManager] Perm (WeatherManager:DeletePreset) has been registered!
-LINHA 23: 16:10:22 | [PermissionManager] Perm (WeatherManager:ApplyPreset) has been registered!
-LINHA 24: 16:10:22 | [PermissionManager] Perm (WeatherManager:ApplyTimePreset) has been registered!
-LINHA 25: 16:10:22 | [PermissionManager] Perm (WeatherManager:SaveTimePreset) has been registered!
-LINHA 26: 16:10:22 | [PermissionManager] Perm (WeatherManager:DeleteTimePreset) has been registered!
-LINHA 27: 16:10:22 | [PermissionManager] Perm (MenuObjectManager) has been registered!
-LINHA 28: 16:10:22 | [PermissionManager] Perm (MenuObjectManager:CreateNewSet) has been registered!
-LINHA 29: 16:10:22 | [PermissionManager] Perm (MenuObjectManager:UpdateSet) has been registered!
-LINHA 30: 16:10:22 | [PermissionManager] Perm (MenuObjectManager:DeleteSet) has been registered!
-LINHA 31: 16:10:22 | [PermissionManager] Perm (MenuObjectManager:EditSet) has been registered!
-LINHA 32: 16:10:22 | [PermissionManager] Perm (MenuPermissionsEditor) has been registered!
-LINHA 33: 16:10:22 | [PermissionManager] Perm (PermissionsEditor:RemoveUser) has been registered!
-LINHA 34: 16:10:22 | [PermissionManager] Perm (PermissionsEditor:AddUser) has been registered!
-LINHA 35: 16:10:22 | [PermissionManager] Perm (PermissionsEditor:CreateUserGroup) has been registered!
-LINHA 36: 16:10:22 | [PermissionManager] Perm (PermissionsEditor:DeleteUserGroup) has been registered!
-LINHA 37: 16:10:22 | [PermissionManager] Perm (PermissionsEditor:ChangePermLevel) has been registered!
-LINHA 38: 16:10:22 | [PermissionManager] Perm (MenuPlayerManager) has been registered!
-LINHA 39: 16:10:22 | [PermissionManager] Perm (PlayerManager:GiveGodmode) has been registered!
-LINHA 40: 16:10:22 | [PermissionManager] Perm (PlayerManager:BanPlayer) has been registered!
-LINHA 41: 16:10:22 | [PermissionManager] Perm (PlayerManager:KickPlayer) has been registered!
-LINHA 42: 16:10:22 | [PermissionManager] Perm (PlayerManager:HealPlayers) has been registered!
-LINHA 43: 16:10:22 | [PermissionManager] Perm (PlayerManager:SetPlayerStats) has been registered!
-LINHA 44: 16:10:22 | [PermissionManager] Perm (PlayerManager:KillPlayers) has been registered!
-LINHA 45: 16:10:22 | [PermissionManager] Perm (PlayerManager:GodMode) has been registered!
-LINHA 46: 16:10:22 | [PermissionManager] Perm (PlayerManager:SpectatePlayer) has been registered!
-LINHA 47: 16:10:22 | [PermissionManager] Perm (PlayerManager:TeleportToPlayer) has been registered!
-LINHA 48: 16:10:22 | [PermissionManager] Perm (PlayerManager:TeleportPlayerTo) has been registered!
-LINHA 49: 16:10:22 | [PermissionManager] Perm (PlayerManager:SetPlayerInvisible) has been registered!
-LINHA 50: 16:10:22 | [PermissionManager] Perm (PlayerManager:SendMessage) has been registered!
-LINHA 51: 16:10:22 | [PermissionManager] Perm (PlayerManager:GiveUnlimitedAmmo) has been registered!
-LINHA 52: 16:10:22 | [PermissionManager] Perm (PlayerManager:MakePlayerVomit) has been registered!
-LINHA 53: 16:10:22 | [PermissionManager] Perm (PlayerManager:FreezePlayers) has been registered!
-LINHA 54: 16:10:22 | [PermissionManager] Perm (PlayerManager:ChangeScale) has been registered!
-LINHA 55: 16:10:22 | [PermissionManager] Perm (PlayerManager:StopBleeding) has been registered!
-LINHA 56: 16:10:22 | [PermissionManager] Perm (PlayerManager:ClearInventory) has been registered!
-LINHA 57: 16:10:22 | [PermissionManager] Perm (PlayerManager:EditModifiers) has been registered!
-LINHA 58: 16:10:22 | [PermissionManager] Perm (MenuBansManager) has been registered!
-LINHA 59: 16:10:22 | [PermissionManager] Perm (BansManager:UnbanPlayer) has been registered!
-LINHA 60: 16:10:22 | [PermissionManager] Perm (BansManager:UpdateBanDuration) has been registered!
-LINHA 61: 16:10:22 | [PermissionManager] Perm (BansManager:UpdateBanReason) has been registered!
-LINHA 62: 16:10:22 | [PermissionManager] Perm (MenuSpectateTools) has been registered!
-LINHA 63: 16:10:22 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-LINHA 64: 16:10:22 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-LINHA 65: 16:10:22 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-LINHA 66: 16:10:22 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-LINHA 67: 16:10:22 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-LINHA 68: 16:10:22 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-LINHA 69: 16:10:22 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-LINHA 70: 16:10:22 | [PermissionManager] Perm (MenuTeleportManager) has been registered!
-LINHA 71: 16:10:22 | [PermissionManager] Perm (TeleportManager:ViewPlayerPositions) has been registered!
-LINHA 72: 16:10:22 | [PermissionManager] Perm (TeleportManager:TPPlayers) has been registered!
-LINHA 73: 16:10:22 | [PermissionManager] Perm (TeleportManager:TPSelf) has been registered!
-LINHA 74: 16:10:22 | [PermissionManager] Perm (TeleportManager:DeletePreset) has been registered!
-LINHA 75: 16:10:22 | [PermissionManager] Perm (TeleportManager:AddNewPreset) has been registered!
-LINHA 76: 16:10:22 | [PermissionManager] Perm (TeleportManager:EditPreset) has been registered!
-LINHA 77: 16:10:22 | [PermissionManager] Perm (TeleportManager:TeleportEntity) has been registered!
-LINHA 78: 16:10:22 | [PermissionManager] Perm (EspToolsMenu) has been registered!
-LINHA 79: 16:10:22 | [PermissionManager] Perm (EspToolsMenu:DeleteObjects) has been registered!
-LINHA 80: 16:10:22 | [PermissionManager] Perm (EspToolsMenu:PlayerESP) has been registered!
-LINHA 81: 16:10:22 | [PermissionManager] Perm (EspToolsMenu:RestPasscodeFence) has been registered!
-LINHA 82: 16:10:22 | [PermissionManager] Perm (EspToolsMenu:RetriveCodeFromObj) has been registered!
-LINHA 83: 16:10:22 | [PermissionManager] Perm (EspToolsMenu:PlayerMeshEsp) has been registered!
-LINHA 84: 16:10:22 | [PermissionManager] Perm (EspToolsMenu:InstantBaseBuild) has been registered!
-LINHA 85: 16:10:22 | [PermissionManager] Perm (MenuXMLEditor) has been registered!
-LINHA 86: 16:10:22 | [PermissionManager] Perm (MenuXMLEditor:EditTypes) has been registered!
-LINHA 87: 16:10:22 | [PermissionManager] Perm (MenuXMLEditor:AddRemoveTypes) has been registered!
-LINHA 88: 16:10:22 | [PermissionManager] Perm (MenuXMLEditor:DistributionMap) has been registered!
-LINHA 89: 16:10:22 | [PermissionManager] Perm (MenuXMLEditor:ViewBackups) has been registered!
-LINHA 90: 16:10:22 | [PermissionManager] Perm (MenuXMLEditor:RestoreBackup) has been registered!
-LINHA 91: 16:10:22 | [PermissionManager] Perm (MenuXMLEditor:DeleteBackup) has been registered!
-LINHA 92: 16:10:22 | [PermissionManager] Perm (MenuXMLEditor:LiveScan) has been registered!
-LINHA 93: 16:10:22 | [PermissionManager] Perm (MenuXMLEditor:DeleteObjects) has been registered!
-LINHA 94: 16:10:22 | [PermissionManager] Perm (MenuXMLEditor:EditMessages) has been registered!
-LINHA 95: 16:10:22 | [PermissionManager] Perm (MenuXMLEditor:EditEvents) has been registered!
-LINHA 96: 16:10:22 | [PermissionManager] Perm (MenuXMLEditor:EditSpawnables) has been registered!
-LINHA 97: 16:10:22 | [PermissionManager] Perm (MenuCommandsConsole) has been registered!
-LINHA 98: 16:10:22 | [PermissionManager] Perm (ContextMenu:ItemHealth) has been registered!
-LINHA 99: 16:10:22 | [PermissionManager] Perm (ContextMenu:WeaponLoad) has been registered!
-LINHA 100: 16:10:22 | [PermissionManager] Perm (ContextMenu:CreatureHeal) has been registered!
-LINHA 101: 16:10:22 | [PermissionManager] Perm (ContextMenu:SpawnAttachment) has been registered!
-LINHA 102: 16:10:22 | [PermissionManager] Perm (ContextMenu:CreatureKill) has been registered!
-LINHA 103: 16:10:22 | [PermissionManager] Perm (ContextMenu:ItemQuantity) has been registered!
-LINHA 104: 16:10:22 | [PermissionManager] Perm (ContextMenu:SetScale) has been registered!
-LINHA 105: 16:10:22 | [PermissionManager] Perm (ContextMenu:VehicleRefuel) has been registered!
-LINHA 106: 16:10:22 | [PermissionManager] Perm (ContextMenu:WeaponRefill) has been registered!
-LINHA 107: 16:10:22 | [PermissionManager] Perm (ContextMenu:Ragdoll) has been registered!
-LINHA 108: 16:10:22 | [PermissionManager] Perm (ContextMenu:WeaponJam) has been registered!
-LINHA 109: 16:10:22 | [PermissionManager] Perm (ContextMenu:WeaponEject) has been registered!
-LINHA 110 : [CONTEUDO SENSIVEL MASCARADO]
-LINHA 111: 16:10:22 | [PermissionManager] Adding Super Admin ([IDENTIFICADOR MASCARADO](eachIDentryona*newline*,nospacesbetweenorcommas))
-LINHA 112: 16:10:22 | [PermissionManager] Loaded UserGroups.json
-LINHA 113: 16:10:22 | [BansManager]:: Load(): Loading ban list Json File $profile:VPPAdminTools/BanList.json
-LINHA 114: 16:10:22 | [PermissionManager] Perm (Chat:StripPlayer) has been registered!
-LINHA 115: 16:10:22 | [PermissionManager] Perm (Chat:KillPlayer) has been registered!
-LINHA 116: 16:10:22 | [PermissionManager] Perm (Chat:HealPlayer) has been registered!
-LINHA 117: 16:10:22 | [PermissionManager] Perm (Chat:BringPlayer) has been registered!
-LINHA 118: 16:10:22 | [PermissionManager] Perm (Chat:ReturnPlayer) has been registered!
-LINHA 119: 16:10:22 | [PermissionManager] Perm (Chat:GotoPlayer) has been registered!
-LINHA 120: 16:10:22 | [PermissionManager] Perm (Chat:UnbanPlayer) has been registered!
-LINHA 121: 16:10:22 | [PermissionManager] Perm (Chat:TeleportToTown) has been registered!
-LINHA 122: 16:10:22 | [PermissionManager] Perm (Chat:TeleportToPoint) has been registered!
-LINHA 123: 16:10:22 | [PermissionManager] Perm (Chat:GiveAmmo) has been registered!
-LINHA 124: 16:10:22 | [PermissionManager] Perm (Chat:SpawnInventory) has been registered!
-LINHA 125: 16:10:22 | [PermissionManager] Perm (Chat:SpawnOnGround) has been registered!
-LINHA 126: 16:10:22 | [PermissionManager] Perm (Chat:SpawnInHands) has been registered!
-LINHA 127: 16:10:22 | [PermissionManager] Perm (Chat:SpawnCar) has been registered!
-LINHA 128: 16:10:22 | [PermissionManager] Perm (Chat:refuelCar) has been registered!
-LINHA 129: 16:10:22 | [WeatherManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 130: 16:10:22 | [TimeManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 131: 16:10:22 | [BuildingSetManager] Journal: 0 set(s) loaded, 0 found by the folder scan, 0 dropped, 0 converted from .vpp, 0 upgraded to format 2
-LINHA 132: 16:10:22 | [SteamAPIManager] WARNING couldn't fetch server IP from configs; using cURL...
-LINHA 133 : [CONTEUDO SENSIVEL MASCARADO]
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-20-40.txt
-TAMANHO: 11419 bytes
---------------------------------------------------
-LINHA 1: [IDENTIFICADOR MASCARADO] Admin Tools Session [IDENTIFICADOR MASCARADO]
-LINHA 2: Logs Started: 2026-11-15_16-20-40
-LINHA 3: [IDENTIFICADOR MASCARADO]
-LINHA 4: 16:20:41 | [PermissionManager] Perm (DeleteObjectAtCrosshair) has been registered!
-LINHA 5: 16:20:41 | [PermissionManager] Perm (TeleportToCrosshair) has been registered!
-LINHA 6: 16:20:41 | [PermissionManager] Perm (FreeCamera) has been registered!
-LINHA 7: 16:20:41 | [PermissionManager] Perm ([IDENTIFICADOR MASCARADO]) has been registered!
-LINHA 8: 16:20:41 | [PermissionManager] Perm (MenuItemManager) has been registered!
-LINHA 9: 16:20:41 | [PermissionManager] Perm (MenuItemManager:SpawnItem) has been registered!
-LINHA 10: 16:20:41 | [PermissionManager] Perm (MenuItemManager:EditPreset) has been registered!
-LINHA 11: 16:20:41 | [PermissionManager] Perm (MenuItemManager:SpawnPreset) has been registered!
-LINHA 12: 16:20:41 | [PermissionManager] Perm (MenuItemManager:DeletePreset) has been registered!
-LINHA 13: 16:20:41 | [PermissionManager] Perm (MenuItemManager:AddPreset) has been registered!
-LINHA 14: 16:20:41 | [PermissionManager] Perm (MenuServerManager) has been registered!
-LINHA 15: 16:20:41 | [PermissionManager] Perm (ServerManager:RestartServer) has been registered!
-LINHA 16: 16:20:41 | [PermissionManager] Perm (ServerManager:LockServer) has been registered!
-LINHA 17: 16:20:41 | [PermissionManager] Perm (ServerManager:KickAllPlayers) has been registered!
-LINHA 18: 16:20:41 | [PermissionManager] Perm (MenuWeatherManager) has been registered!
-LINHA 19: 16:20:41 | [PermissionManager] Perm (WeatherManager:ApplyWeather) has been registered!
-LINHA 20: 16:20:41 | [PermissionManager] Perm (WeatherManager:ApplyTime) has been registered!
-LINHA 21: 16:20:41 | [PermissionManager] Perm (WeatherManager:SavePreset) has been registered!
-LINHA 22: 16:20:41 | [PermissionManager] Perm (WeatherManager:DeletePreset) has been registered!
-LINHA 23: 16:20:41 | [PermissionManager] Perm (WeatherManager:ApplyPreset) has been registered!
-LINHA 24: 16:20:41 | [PermissionManager] Perm (WeatherManager:ApplyTimePreset) has been registered!
-LINHA 25: 16:20:41 | [PermissionManager] Perm (WeatherManager:SaveTimePreset) has been registered!
-LINHA 26: 16:20:41 | [PermissionManager] Perm (WeatherManager:DeleteTimePreset) has been registered!
-LINHA 27: 16:20:41 | [PermissionManager] Perm (MenuObjectManager) has been registered!
-LINHA 28: 16:20:41 | [PermissionManager] Perm (MenuObjectManager:CreateNewSet) has been registered!
-LINHA 29: 16:20:41 | [PermissionManager] Perm (MenuObjectManager:UpdateSet) has been registered!
-LINHA 30: 16:20:41 | [PermissionManager] Perm (MenuObjectManager:DeleteSet) has been registered!
-LINHA 31: 16:20:41 | [PermissionManager] Perm (MenuObjectManager:EditSet) has been registered!
-LINHA 32: 16:20:41 | [PermissionManager] Perm (MenuPermissionsEditor) has been registered!
-LINHA 33: 16:20:41 | [PermissionManager] Perm (PermissionsEditor:RemoveUser) has been registered!
-LINHA 34: 16:20:41 | [PermissionManager] Perm (PermissionsEditor:AddUser) has been registered!
-LINHA 35: 16:20:41 | [PermissionManager] Perm (PermissionsEditor:CreateUserGroup) has been registered!
-LINHA 36: 16:20:41 | [PermissionManager] Perm (PermissionsEditor:DeleteUserGroup) has been registered!
-LINHA 37: 16:20:41 | [PermissionManager] Perm (PermissionsEditor:ChangePermLevel) has been registered!
-LINHA 38: 16:20:41 | [PermissionManager] Perm (MenuPlayerManager) has been registered!
-LINHA 39: 16:20:41 | [PermissionManager] Perm (PlayerManager:GiveGodmode) has been registered!
-LINHA 40: 16:20:41 | [PermissionManager] Perm (PlayerManager:BanPlayer) has been registered!
-LINHA 41: 16:20:41 | [PermissionManager] Perm (PlayerManager:KickPlayer) has been registered!
-LINHA 42: 16:20:41 | [PermissionManager] Perm (PlayerManager:HealPlayers) has been registered!
-LINHA 43: 16:20:41 | [PermissionManager] Perm (PlayerManager:SetPlayerStats) has been registered!
-LINHA 44: 16:20:41 | [PermissionManager] Perm (PlayerManager:KillPlayers) has been registered!
-LINHA 45: 16:20:41 | [PermissionManager] Perm (PlayerManager:GodMode) has been registered!
-LINHA 46: 16:20:41 | [PermissionManager] Perm (PlayerManager:SpectatePlayer) has been registered!
-LINHA 47: 16:20:41 | [PermissionManager] Perm (PlayerManager:TeleportToPlayer) has been registered!
-LINHA 48: 16:20:41 | [PermissionManager] Perm (PlayerManager:TeleportPlayerTo) has been registered!
-LINHA 49: 16:20:41 | [PermissionManager] Perm (PlayerManager:SetPlayerInvisible) has been registered!
-LINHA 50: 16:20:41 | [PermissionManager] Perm (PlayerManager:SendMessage) has been registered!
-LINHA 51: 16:20:41 | [PermissionManager] Perm (PlayerManager:GiveUnlimitedAmmo) has been registered!
-LINHA 52: 16:20:41 | [PermissionManager] Perm (PlayerManager:MakePlayerVomit) has been registered!
-LINHA 53: 16:20:41 | [PermissionManager] Perm (PlayerManager:FreezePlayers) has been registered!
-LINHA 54: 16:20:41 | [PermissionManager] Perm (PlayerManager:ChangeScale) has been registered!
-LINHA 55: 16:20:41 | [PermissionManager] Perm (PlayerManager:StopBleeding) has been registered!
-LINHA 56: 16:20:41 | [PermissionManager] Perm (PlayerManager:ClearInventory) has been registered!
-LINHA 57: 16:20:41 | [PermissionManager] Perm (PlayerManager:EditModifiers) has been registered!
-LINHA 58: 16:20:41 | [PermissionManager] Perm (MenuBansManager) has been registered!
-LINHA 59: 16:20:41 | [PermissionManager] Perm (BansManager:UnbanPlayer) has been registered!
-LINHA 60: 16:20:41 | [PermissionManager] Perm (BansManager:UpdateBanDuration) has been registered!
-LINHA 61: 16:20:41 | [PermissionManager] Perm (BansManager:UpdateBanReason) has been registered!
-LINHA 62: 16:20:41 | [PermissionManager] Perm (MenuSpectateTools) has been registered!
-LINHA 63: 16:20:41 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-LINHA 64: 16:20:41 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-LINHA 65: 16:20:41 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-LINHA 66: 16:20:41 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-LINHA 67: 16:20:41 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-LINHA 68: 16:20:41 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-LINHA 69: 16:20:41 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-LINHA 70: 16:20:41 | [PermissionManager] Perm (MenuTeleportManager) has been registered!
-LINHA 71: 16:20:41 | [PermissionManager] Perm (TeleportManager:ViewPlayerPositions) has been registered!
-LINHA 72: 16:20:41 | [PermissionManager] Perm (TeleportManager:TPPlayers) has been registered!
-LINHA 73: 16:20:41 | [PermissionManager] Perm (TeleportManager:TPSelf) has been registered!
-LINHA 74: 16:20:41 | [PermissionManager] Perm (TeleportManager:DeletePreset) has been registered!
-LINHA 75: 16:20:41 | [PermissionManager] Perm (TeleportManager:AddNewPreset) has been registered!
-LINHA 76: 16:20:41 | [PermissionManager] Perm (TeleportManager:EditPreset) has been registered!
-LINHA 77: 16:20:41 | [PermissionManager] Perm (TeleportManager:TeleportEntity) has been registered!
-LINHA 78: 16:20:41 | [PermissionManager] Perm (EspToolsMenu) has been registered!
-LINHA 79: 16:20:41 | [PermissionManager] Perm (EspToolsMenu:DeleteObjects) has been registered!
-LINHA 80: 16:20:41 | [PermissionManager] Perm (EspToolsMenu:PlayerESP) has been registered!
-LINHA 81: 16:20:41 | [PermissionManager] Perm (EspToolsMenu:RestPasscodeFence) has been registered!
-LINHA 82: 16:20:41 | [PermissionManager] Perm (EspToolsMenu:RetriveCodeFromObj) has been registered!
-LINHA 83: 16:20:41 | [PermissionManager] Perm (EspToolsMenu:PlayerMeshEsp) has been registered!
-LINHA 84: 16:20:41 | [PermissionManager] Perm (EspToolsMenu:InstantBaseBuild) has been registered!
-LINHA 85: 16:20:41 | [PermissionManager] Perm (MenuXMLEditor) has been registered!
-LINHA 86: 16:20:41 | [PermissionManager] Perm (MenuXMLEditor:EditTypes) has been registered!
-LINHA 87: 16:20:41 | [PermissionManager] Perm (MenuXMLEditor:AddRemoveTypes) has been registered!
-LINHA 88: 16:20:41 | [PermissionManager] Perm (MenuXMLEditor:DistributionMap) has been registered!
-LINHA 89: 16:20:41 | [PermissionManager] Perm (MenuXMLEditor:ViewBackups) has been registered!
-LINHA 90: 16:20:41 | [PermissionManager] Perm (MenuXMLEditor:RestoreBackup) has been registered!
-LINHA 91: 16:20:41 | [PermissionManager] Perm (MenuXMLEditor:DeleteBackup) has been registered!
-LINHA 92: 16:20:41 | [PermissionManager] Perm (MenuXMLEditor:LiveScan) has been registered!
-LINHA 93: 16:20:41 | [PermissionManager] Perm (MenuXMLEditor:DeleteObjects) has been registered!
-LINHA 94: 16:20:41 | [PermissionManager] Perm (MenuXMLEditor:EditMessages) has been registered!
-LINHA 95: 16:20:41 | [PermissionManager] Perm (MenuXMLEditor:EditEvents) has been registered!
-LINHA 96: 16:20:41 | [PermissionManager] Perm (MenuXMLEditor:EditSpawnables) has been registered!
-LINHA 97: 16:20:41 | [PermissionManager] Perm (MenuCommandsConsole) has been registered!
-LINHA 98: 16:20:41 | [PermissionManager] Perm (ContextMenu:ItemHealth) has been registered!
-LINHA 99: 16:20:41 | [PermissionManager] Perm (ContextMenu:WeaponLoad) has been registered!
-LINHA 100: 16:20:41 | [PermissionManager] Perm (ContextMenu:CreatureHeal) has been registered!
-LINHA 101: 16:20:41 | [PermissionManager] Perm (ContextMenu:SpawnAttachment) has been registered!
-LINHA 102: 16:20:41 | [PermissionManager] Perm (ContextMenu:CreatureKill) has been registered!
-LINHA 103: 16:20:41 | [PermissionManager] Perm (ContextMenu:ItemQuantity) has been registered!
-LINHA 104: 16:20:41 | [PermissionManager] Perm (ContextMenu:SetScale) has been registered!
-LINHA 105: 16:20:41 | [PermissionManager] Perm (ContextMenu:VehicleRefuel) has been registered!
-LINHA 106: 16:20:41 | [PermissionManager] Perm (ContextMenu:WeaponRefill) has been registered!
-LINHA 107: 16:20:41 | [PermissionManager] Perm (ContextMenu:Ragdoll) has been registered!
-LINHA 108: 16:20:41 | [PermissionManager] Perm (ContextMenu:WeaponJam) has been registered!
-LINHA 109: 16:20:41 | [PermissionManager] Perm (ContextMenu:WeaponEject) has been registered!
-LINHA 110 : [CONTEUDO SENSIVEL MASCARADO]
-LINHA 111: 16:20:41 | [PermissionManager] Adding Super Admin ([IDENTIFICADOR MASCARADO](eachIDentryona*newline*,nospacesbetweenorcommas))
-LINHA 112: 16:20:41 | [PermissionManager] Loaded UserGroups.json
-LINHA 113: 16:20:41 | [BansManager]:: Load(): Loading ban list Json File $profile:VPPAdminTools/BanList.json
-LINHA 114: 16:20:41 | [PermissionManager] Perm (Chat:StripPlayer) has been registered!
-LINHA 115: 16:20:41 | [PermissionManager] Perm (Chat:KillPlayer) has been registered!
-LINHA 116: 16:20:41 | [PermissionManager] Perm (Chat:HealPlayer) has been registered!
-LINHA 117: 16:20:41 | [PermissionManager] Perm (Chat:BringPlayer) has been registered!
-LINHA 118: 16:20:41 | [PermissionManager] Perm (Chat:ReturnPlayer) has been registered!
-LINHA 119: 16:20:41 | [PermissionManager] Perm (Chat:GotoPlayer) has been registered!
-LINHA 120: 16:20:41 | [PermissionManager] Perm (Chat:UnbanPlayer) has been registered!
-LINHA 121: 16:20:41 | [PermissionManager] Perm (Chat:TeleportToTown) has been registered!
-LINHA 122: 16:20:41 | [PermissionManager] Perm (Chat:TeleportToPoint) has been registered!
-LINHA 123: 16:20:41 | [PermissionManager] Perm (Chat:GiveAmmo) has been registered!
-LINHA 124: 16:20:41 | [PermissionManager] Perm (Chat:SpawnInventory) has been registered!
-LINHA 125: 16:20:41 | [PermissionManager] Perm (Chat:SpawnOnGround) has been registered!
-LINHA 126: 16:20:41 | [PermissionManager] Perm (Chat:SpawnInHands) has been registered!
-LINHA 127: 16:20:41 | [PermissionManager] Perm (Chat:SpawnCar) has been registered!
-LINHA 128: 16:20:41 | [PermissionManager] Perm (Chat:refuelCar) has been registered!
-LINHA 129: 16:20:41 | [WeatherManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 130: 16:20:41 | [TimeManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 131: 16:20:41 | [BuildingSetManager] Journal: 0 set(s) loaded, 0 found by the folder scan, 0 dropped, 0 converted from .vpp, 0 upgraded to format 2
-LINHA 132: 16:20:41 | [SteamAPIManager] WARNING couldn't fetch server IP from configs; using cURL...
-LINHA 133 : [CONTEUDO SENSIVEL MASCARADO]
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-27-35.txt
-TAMANHO: 11419 bytes
---------------------------------------------------
-LINHA 1: [IDENTIFICADOR MASCARADO] Admin Tools Session [IDENTIFICADOR MASCARADO]
-LINHA 2: Logs Started: 2026-11-15_16-27-35
-LINHA 3: [IDENTIFICADOR MASCARADO]
-LINHA 4: 16:27:35 | [PermissionManager] Perm (DeleteObjectAtCrosshair) has been registered!
-LINHA 5: 16:27:35 | [PermissionManager] Perm (TeleportToCrosshair) has been registered!
-LINHA 6: 16:27:35 | [PermissionManager] Perm (FreeCamera) has been registered!
-LINHA 7: 16:27:35 | [PermissionManager] Perm ([IDENTIFICADOR MASCARADO]) has been registered!
-LINHA 8: 16:27:35 | [PermissionManager] Perm (MenuItemManager) has been registered!
-LINHA 9: 16:27:35 | [PermissionManager] Perm (MenuItemManager:SpawnItem) has been registered!
-LINHA 10: 16:27:35 | [PermissionManager] Perm (MenuItemManager:EditPreset) has been registered!
-LINHA 11: 16:27:35 | [PermissionManager] Perm (MenuItemManager:SpawnPreset) has been registered!
-LINHA 12: 16:27:35 | [PermissionManager] Perm (MenuItemManager:DeletePreset) has been registered!
-LINHA 13: 16:27:35 | [PermissionManager] Perm (MenuItemManager:AddPreset) has been registered!
-LINHA 14: 16:27:35 | [PermissionManager] Perm (MenuServerManager) has been registered!
-LINHA 15: 16:27:35 | [PermissionManager] Perm (ServerManager:RestartServer) has been registered!
-LINHA 16: 16:27:35 | [PermissionManager] Perm (ServerManager:LockServer) has been registered!
-LINHA 17: 16:27:35 | [PermissionManager] Perm (ServerManager:KickAllPlayers) has been registered!
-LINHA 18: 16:27:35 | [PermissionManager] Perm (MenuWeatherManager) has been registered!
-LINHA 19: 16:27:35 | [PermissionManager] Perm (WeatherManager:ApplyWeather) has been registered!
-LINHA 20: 16:27:35 | [PermissionManager] Perm (WeatherManager:ApplyTime) has been registered!
-LINHA 21: 16:27:35 | [PermissionManager] Perm (WeatherManager:SavePreset) has been registered!
-LINHA 22: 16:27:35 | [PermissionManager] Perm (WeatherManager:DeletePreset) has been registered!
-LINHA 23: 16:27:35 | [PermissionManager] Perm (WeatherManager:ApplyPreset) has been registered!
-LINHA 24: 16:27:35 | [PermissionManager] Perm (WeatherManager:ApplyTimePreset) has been registered!
-LINHA 25: 16:27:35 | [PermissionManager] Perm (WeatherManager:SaveTimePreset) has been registered!
-LINHA 26: 16:27:35 | [PermissionManager] Perm (WeatherManager:DeleteTimePreset) has been registered!
-LINHA 27: 16:27:35 | [PermissionManager] Perm (MenuObjectManager) has been registered!
-LINHA 28: 16:27:35 | [PermissionManager] Perm (MenuObjectManager:CreateNewSet) has been registered!
-LINHA 29: 16:27:35 | [PermissionManager] Perm (MenuObjectManager:UpdateSet) has been registered!
-LINHA 30: 16:27:35 | [PermissionManager] Perm (MenuObjectManager:DeleteSet) has been registered!
-LINHA 31: 16:27:35 | [PermissionManager] Perm (MenuObjectManager:EditSet) has been registered!
-LINHA 32: 16:27:35 | [PermissionManager] Perm (MenuPermissionsEditor) has been registered!
-LINHA 33: 16:27:35 | [PermissionManager] Perm (PermissionsEditor:RemoveUser) has been registered!
-LINHA 34: 16:27:35 | [PermissionManager] Perm (PermissionsEditor:AddUser) has been registered!
-LINHA 35: 16:27:35 | [PermissionManager] Perm (PermissionsEditor:CreateUserGroup) has been registered!
-LINHA 36: 16:27:35 | [PermissionManager] Perm (PermissionsEditor:DeleteUserGroup) has been registered!
-LINHA 37: 16:27:35 | [PermissionManager] Perm (PermissionsEditor:ChangePermLevel) has been registered!
-LINHA 38: 16:27:35 | [PermissionManager] Perm (MenuPlayerManager) has been registered!
-LINHA 39: 16:27:35 | [PermissionManager] Perm (PlayerManager:GiveGodmode) has been registered!
-LINHA 40: 16:27:35 | [PermissionManager] Perm (PlayerManager:BanPlayer) has been registered!
-LINHA 41: 16:27:35 | [PermissionManager] Perm (PlayerManager:KickPlayer) has been registered!
-LINHA 42: 16:27:35 | [PermissionManager] Perm (PlayerManager:HealPlayers) has been registered!
-LINHA 43: 16:27:35 | [PermissionManager] Perm (PlayerManager:SetPlayerStats) has been registered!
-LINHA 44: 16:27:35 | [PermissionManager] Perm (PlayerManager:KillPlayers) has been registered!
-LINHA 45: 16:27:35 | [PermissionManager] Perm (PlayerManager:GodMode) has been registered!
-LINHA 46: 16:27:35 | [PermissionManager] Perm (PlayerManager:SpectatePlayer) has been registered!
-LINHA 47: 16:27:35 | [PermissionManager] Perm (PlayerManager:TeleportToPlayer) has been registered!
-LINHA 48: 16:27:35 | [PermissionManager] Perm (PlayerManager:TeleportPlayerTo) has been registered!
-LINHA 49: 16:27:35 | [PermissionManager] Perm (PlayerManager:SetPlayerInvisible) has been registered!
-LINHA 50: 16:27:35 | [PermissionManager] Perm (PlayerManager:SendMessage) has been registered!
-LINHA 51: 16:27:35 | [PermissionManager] Perm (PlayerManager:GiveUnlimitedAmmo) has been registered!
-LINHA 52: 16:27:35 | [PermissionManager] Perm (PlayerManager:MakePlayerVomit) has been registered!
-LINHA 53: 16:27:35 | [PermissionManager] Perm (PlayerManager:FreezePlayers) has been registered!
-LINHA 54: 16:27:35 | [PermissionManager] Perm (PlayerManager:ChangeScale) has been registered!
-LINHA 55: 16:27:35 | [PermissionManager] Perm (PlayerManager:StopBleeding) has been registered!
-LINHA 56: 16:27:35 | [PermissionManager] Perm (PlayerManager:ClearInventory) has been registered!
-LINHA 57: 16:27:35 | [PermissionManager] Perm (PlayerManager:EditModifiers) has been registered!
-LINHA 58: 16:27:35 | [PermissionManager] Perm (MenuBansManager) has been registered!
-LINHA 59: 16:27:35 | [PermissionManager] Perm (BansManager:UnbanPlayer) has been registered!
-LINHA 60: 16:27:35 | [PermissionManager] Perm (BansManager:UpdateBanDuration) has been registered!
-LINHA 61: 16:27:35 | [PermissionManager] Perm (BansManager:UpdateBanReason) has been registered!
-LINHA 62: 16:27:35 | [PermissionManager] Perm (MenuSpectateTools) has been registered!
-LINHA 63: 16:27:35 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-LINHA 64: 16:27:35 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-LINHA 65: 16:27:35 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-LINHA 66: 16:27:35 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-LINHA 67: 16:27:35 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-LINHA 68: 16:27:35 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-LINHA 69: 16:27:35 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-LINHA 70: 16:27:35 | [PermissionManager] Perm (MenuTeleportManager) has been registered!
-LINHA 71: 16:27:35 | [PermissionManager] Perm (TeleportManager:ViewPlayerPositions) has been registered!
-LINHA 72: 16:27:35 | [PermissionManager] Perm (TeleportManager:TPPlayers) has been registered!
-LINHA 73: 16:27:35 | [PermissionManager] Perm (TeleportManager:TPSelf) has been registered!
-LINHA 74: 16:27:35 | [PermissionManager] Perm (TeleportManager:DeletePreset) has been registered!
-LINHA 75: 16:27:35 | [PermissionManager] Perm (TeleportManager:AddNewPreset) has been registered!
-LINHA 76: 16:27:35 | [PermissionManager] Perm (TeleportManager:EditPreset) has been registered!
-LINHA 77: 16:27:35 | [PermissionManager] Perm (TeleportManager:TeleportEntity) has been registered!
-LINHA 78: 16:27:35 | [PermissionManager] Perm (EspToolsMenu) has been registered!
-LINHA 79: 16:27:35 | [PermissionManager] Perm (EspToolsMenu:DeleteObjects) has been registered!
-LINHA 80: 16:27:35 | [PermissionManager] Perm (EspToolsMenu:PlayerESP) has been registered!
-LINHA 81: 16:27:35 | [PermissionManager] Perm (EspToolsMenu:RestPasscodeFence) has been registered!
-LINHA 82: 16:27:35 | [PermissionManager] Perm (EspToolsMenu:RetriveCodeFromObj) has been registered!
-LINHA 83: 16:27:35 | [PermissionManager] Perm (EspToolsMenu:PlayerMeshEsp) has been registered!
-LINHA 84: 16:27:35 | [PermissionManager] Perm (EspToolsMenu:InstantBaseBuild) has been registered!
-LINHA 85: 16:27:35 | [PermissionManager] Perm (MenuXMLEditor) has been registered!
-LINHA 86: 16:27:35 | [PermissionManager] Perm (MenuXMLEditor:EditTypes) has been registered!
-LINHA 87: 16:27:35 | [PermissionManager] Perm (MenuXMLEditor:AddRemoveTypes) has been registered!
-LINHA 88: 16:27:35 | [PermissionManager] Perm (MenuXMLEditor:DistributionMap) has been registered!
-LINHA 89: 16:27:35 | [PermissionManager] Perm (MenuXMLEditor:ViewBackups) has been registered!
-LINHA 90: 16:27:35 | [PermissionManager] Perm (MenuXMLEditor:RestoreBackup) has been registered!
-LINHA 91: 16:27:35 | [PermissionManager] Perm (MenuXMLEditor:DeleteBackup) has been registered!
-LINHA 92: 16:27:35 | [PermissionManager] Perm (MenuXMLEditor:LiveScan) has been registered!
-LINHA 93: 16:27:35 | [PermissionManager] Perm (MenuXMLEditor:DeleteObjects) has been registered!
-LINHA 94: 16:27:35 | [PermissionManager] Perm (MenuXMLEditor:EditMessages) has been registered!
-LINHA 95: 16:27:35 | [PermissionManager] Perm (MenuXMLEditor:EditEvents) has been registered!
-LINHA 96: 16:27:35 | [PermissionManager] Perm (MenuXMLEditor:EditSpawnables) has been registered!
-LINHA 97: 16:27:35 | [PermissionManager] Perm (MenuCommandsConsole) has been registered!
-LINHA 98: 16:27:35 | [PermissionManager] Perm (ContextMenu:ItemHealth) has been registered!
-LINHA 99: 16:27:35 | [PermissionManager] Perm (ContextMenu:WeaponLoad) has been registered!
-LINHA 100: 16:27:35 | [PermissionManager] Perm (ContextMenu:CreatureHeal) has been registered!
-LINHA 101: 16:27:35 | [PermissionManager] Perm (ContextMenu:SpawnAttachment) has been registered!
-LINHA 102: 16:27:35 | [PermissionManager] Perm (ContextMenu:CreatureKill) has been registered!
-LINHA 103: 16:27:35 | [PermissionManager] Perm (ContextMenu:ItemQuantity) has been registered!
-LINHA 104: 16:27:35 | [PermissionManager] Perm (ContextMenu:SetScale) has been registered!
-LINHA 105: 16:27:35 | [PermissionManager] Perm (ContextMenu:VehicleRefuel) has been registered!
-LINHA 106: 16:27:35 | [PermissionManager] Perm (ContextMenu:WeaponRefill) has been registered!
-LINHA 107: 16:27:35 | [PermissionManager] Perm (ContextMenu:Ragdoll) has been registered!
-LINHA 108: 16:27:35 | [PermissionManager] Perm (ContextMenu:WeaponJam) has been registered!
-LINHA 109: 16:27:35 | [PermissionManager] Perm (ContextMenu:WeaponEject) has been registered!
-LINHA 110 : [CONTEUDO SENSIVEL MASCARADO]
-LINHA 111: 16:27:35 | [PermissionManager] Adding Super Admin ([IDENTIFICADOR MASCARADO](eachIDentryona*newline*,nospacesbetweenorcommas))
-LINHA 112: 16:27:35 | [PermissionManager] Loaded UserGroups.json
-LINHA 113: 16:27:35 | [BansManager]:: Load(): Loading ban list Json File $profile:VPPAdminTools/BanList.json
-LINHA 114: 16:27:35 | [PermissionManager] Perm (Chat:StripPlayer) has been registered!
-LINHA 115: 16:27:35 | [PermissionManager] Perm (Chat:KillPlayer) has been registered!
-LINHA 116: 16:27:35 | [PermissionManager] Perm (Chat:HealPlayer) has been registered!
-LINHA 117: 16:27:35 | [PermissionManager] Perm (Chat:BringPlayer) has been registered!
-LINHA 118: 16:27:35 | [PermissionManager] Perm (Chat:ReturnPlayer) has been registered!
-LINHA 119: 16:27:35 | [PermissionManager] Perm (Chat:GotoPlayer) has been registered!
-LINHA 120: 16:27:35 | [PermissionManager] Perm (Chat:UnbanPlayer) has been registered!
-LINHA 121: 16:27:35 | [PermissionManager] Perm (Chat:TeleportToTown) has been registered!
-LINHA 122: 16:27:35 | [PermissionManager] Perm (Chat:TeleportToPoint) has been registered!
-LINHA 123: 16:27:35 | [PermissionManager] Perm (Chat:GiveAmmo) has been registered!
-LINHA 124: 16:27:35 | [PermissionManager] Perm (Chat:SpawnInventory) has been registered!
-LINHA 125: 16:27:35 | [PermissionManager] Perm (Chat:SpawnOnGround) has been registered!
-LINHA 126: 16:27:35 | [PermissionManager] Perm (Chat:SpawnInHands) has been registered!
-LINHA 127: 16:27:35 | [PermissionManager] Perm (Chat:SpawnCar) has been registered!
-LINHA 128: 16:27:35 | [PermissionManager] Perm (Chat:refuelCar) has been registered!
-LINHA 129: 16:27:35 | [WeatherManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 130: 16:27:35 | [TimeManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 131: 16:27:35 | [BuildingSetManager] Journal: 0 set(s) loaded, 0 found by the folder scan, 0 dropped, 0 converted from .vpp, 0 upgraded to format 2
-LINHA 132: 16:27:35 | [SteamAPIManager] WARNING couldn't fetch server IP from configs; using cURL...
-LINHA 133 : [CONTEUDO SENSIVEL MASCARADO]
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-38-30.txt
-TAMANHO: 11354 bytes
---------------------------------------------------
-LINHA 1: [IDENTIFICADOR MASCARADO] Admin Tools Session [IDENTIFICADOR MASCARADO]
-LINHA 2: Logs Started: 2026-11-15_16-38-30
-LINHA 3: [IDENTIFICADOR MASCARADO]
-LINHA 4: 16:38:30 | [PermissionManager] Perm (DeleteObjectAtCrosshair) has been registered!
-LINHA 5: 16:38:30 | [PermissionManager] Perm (TeleportToCrosshair) has been registered!
-LINHA 6: 16:38:30 | [PermissionManager] Perm (FreeCamera) has been registered!
-LINHA 7: 16:38:30 | [PermissionManager] Perm ([IDENTIFICADOR MASCARADO]) has been registered!
-LINHA 8: 16:38:30 | [PermissionManager] Perm (MenuItemManager) has been registered!
-LINHA 9: 16:38:30 | [PermissionManager] Perm (MenuItemManager:SpawnItem) has been registered!
-LINHA 10: 16:38:30 | [PermissionManager] Perm (MenuItemManager:EditPreset) has been registered!
-LINHA 11: 16:38:30 | [PermissionManager] Perm (MenuItemManager:SpawnPreset) has been registered!
-LINHA 12: 16:38:30 | [PermissionManager] Perm (MenuItemManager:DeletePreset) has been registered!
-LINHA 13: 16:38:30 | [PermissionManager] Perm (MenuItemManager:AddPreset) has been registered!
-LINHA 14: 16:38:30 | [PermissionManager] Perm (MenuServerManager) has been registered!
-LINHA 15: 16:38:30 | [PermissionManager] Perm (ServerManager:RestartServer) has been registered!
-LINHA 16: 16:38:30 | [PermissionManager] Perm (ServerManager:LockServer) has been registered!
-LINHA 17: 16:38:30 | [PermissionManager] Perm (ServerManager:KickAllPlayers) has been registered!
-LINHA 18: 16:38:30 | [PermissionManager] Perm (MenuWeatherManager) has been registered!
-LINHA 19: 16:38:30 | [PermissionManager] Perm (WeatherManager:ApplyWeather) has been registered!
-LINHA 20: 16:38:30 | [PermissionManager] Perm (WeatherManager:ApplyTime) has been registered!
-LINHA 21: 16:38:30 | [PermissionManager] Perm (WeatherManager:SavePreset) has been registered!
-LINHA 22: 16:38:30 | [PermissionManager] Perm (WeatherManager:DeletePreset) has been registered!
-LINHA 23: 16:38:30 | [PermissionManager] Perm (WeatherManager:ApplyPreset) has been registered!
-LINHA 24: 16:38:30 | [PermissionManager] Perm (WeatherManager:ApplyTimePreset) has been registered!
-LINHA 25: 16:38:30 | [PermissionManager] Perm (WeatherManager:SaveTimePreset) has been registered!
-LINHA 26: 16:38:30 | [PermissionManager] Perm (WeatherManager:DeleteTimePreset) has been registered!
-LINHA 27: 16:38:30 | [PermissionManager] Perm (MenuObjectManager) has been registered!
-LINHA 28: 16:38:30 | [PermissionManager] Perm (MenuObjectManager:CreateNewSet) has been registered!
-LINHA 29: 16:38:30 | [PermissionManager] Perm (MenuObjectManager:UpdateSet) has been registered!
-LINHA 30: 16:38:30 | [PermissionManager] Perm (MenuObjectManager:DeleteSet) has been registered!
-LINHA 31: 16:38:30 | [PermissionManager] Perm (MenuObjectManager:EditSet) has been registered!
-LINHA 32: 16:38:30 | [PermissionManager] Perm (MenuPermissionsEditor) has been registered!
-LINHA 33: 16:38:30 | [PermissionManager] Perm (PermissionsEditor:RemoveUser) has been registered!
-LINHA 34: 16:38:30 | [PermissionManager] Perm (PermissionsEditor:AddUser) has been registered!
-LINHA 35: 16:38:30 | [PermissionManager] Perm (PermissionsEditor:CreateUserGroup) has been registered!
-LINHA 36: 16:38:30 | [PermissionManager] Perm (PermissionsEditor:DeleteUserGroup) has been registered!
-LINHA 37: 16:38:30 | [PermissionManager] Perm (PermissionsEditor:ChangePermLevel) has been registered!
-LINHA 38: 16:38:30 | [PermissionManager] Perm (MenuPlayerManager) has been registered!
-LINHA 39: 16:38:30 | [PermissionManager] Perm (PlayerManager:GiveGodmode) has been registered!
-LINHA 40: 16:38:30 | [PermissionManager] Perm (PlayerManager:BanPlayer) has been registered!
-LINHA 41: 16:38:30 | [PermissionManager] Perm (PlayerManager:KickPlayer) has been registered!
-LINHA 42: 16:38:30 | [PermissionManager] Perm (PlayerManager:HealPlayers) has been registered!
-LINHA 43: 16:38:30 | [PermissionManager] Perm (PlayerManager:SetPlayerStats) has been registered!
-LINHA 44: 16:38:30 | [PermissionManager] Perm (PlayerManager:KillPlayers) has been registered!
-LINHA 45: 16:38:30 | [PermissionManager] Perm (PlayerManager:GodMode) has been registered!
-LINHA 46: 16:38:30 | [PermissionManager] Perm (PlayerManager:SpectatePlayer) has been registered!
-LINHA 47: 16:38:30 | [PermissionManager] Perm (PlayerManager:TeleportToPlayer) has been registered!
-LINHA 48: 16:38:30 | [PermissionManager] Perm (PlayerManager:TeleportPlayerTo) has been registered!
-LINHA 49: 16:38:30 | [PermissionManager] Perm (PlayerManager:SetPlayerInvisible) has been registered!
-LINHA 50: 16:38:30 | [PermissionManager] Perm (PlayerManager:SendMessage) has been registered!
-LINHA 51: 16:38:30 | [PermissionManager] Perm (PlayerManager:GiveUnlimitedAmmo) has been registered!
-LINHA 52: 16:38:30 | [PermissionManager] Perm (PlayerManager:MakePlayerVomit) has been registered!
-LINHA 53: 16:38:30 | [PermissionManager] Perm (PlayerManager:FreezePlayers) has been registered!
-LINHA 54: 16:38:30 | [PermissionManager] Perm (PlayerManager:ChangeScale) has been registered!
-LINHA 55: 16:38:30 | [PermissionManager] Perm (PlayerManager:StopBleeding) has been registered!
-LINHA 56: 16:38:30 | [PermissionManager] Perm (PlayerManager:ClearInventory) has been registered!
-LINHA 57: 16:38:30 | [PermissionManager] Perm (PlayerManager:EditModifiers) has been registered!
-LINHA 58: 16:38:30 | [PermissionManager] Perm (MenuBansManager) has been registered!
-LINHA 59: 16:38:30 | [PermissionManager] Perm (BansManager:UnbanPlayer) has been registered!
-LINHA 60: 16:38:30 | [PermissionManager] Perm (BansManager:UpdateBanDuration) has been registered!
-LINHA 61: 16:38:30 | [PermissionManager] Perm (BansManager:UpdateBanReason) has been registered!
-LINHA 62: 16:38:30 | [PermissionManager] Perm (MenuSpectateTools) has been registered!
-LINHA 63: 16:38:30 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-LINHA 64: 16:38:30 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-LINHA 65: 16:38:30 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-LINHA 66: 16:38:30 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-LINHA 67: 16:38:30 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-LINHA 68: 16:38:30 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-LINHA 69: 16:38:30 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-LINHA 70: 16:38:30 | [PermissionManager] Perm (MenuTeleportManager) has been registered!
-LINHA 71: 16:38:30 | [PermissionManager] Perm (TeleportManager:ViewPlayerPositions) has been registered!
-LINHA 72: 16:38:30 | [PermissionManager] Perm (TeleportManager:TPPlayers) has been registered!
-LINHA 73: 16:38:30 | [PermissionManager] Perm (TeleportManager:TPSelf) has been registered!
-LINHA 74: 16:38:30 | [PermissionManager] Perm (TeleportManager:DeletePreset) has been registered!
-LINHA 75: 16:38:30 | [PermissionManager] Perm (TeleportManager:AddNewPreset) has been registered!
-LINHA 76: 16:38:30 | [PermissionManager] Perm (TeleportManager:EditPreset) has been registered!
-LINHA 77: 16:38:30 | [PermissionManager] Perm (TeleportManager:TeleportEntity) has been registered!
-LINHA 78: 16:38:30 | [PermissionManager] Perm (EspToolsMenu) has been registered!
-LINHA 79: 16:38:30 | [PermissionManager] Perm (EspToolsMenu:DeleteObjects) has been registered!
-LINHA 80: 16:38:30 | [PermissionManager] Perm (EspToolsMenu:PlayerESP) has been registered!
-LINHA 81: 16:38:30 | [PermissionManager] Perm (EspToolsMenu:RestPasscodeFence) has been registered!
-LINHA 82: 16:38:30 | [PermissionManager] Perm (EspToolsMenu:RetriveCodeFromObj) has been registered!
-LINHA 83: 16:38:30 | [PermissionManager] Perm (EspToolsMenu:PlayerMeshEsp) has been registered!
-LINHA 84: 16:38:30 | [PermissionManager] Perm (EspToolsMenu:InstantBaseBuild) has been registered!
-LINHA 85: 16:38:30 | [PermissionManager] Perm (MenuXMLEditor) has been registered!
-LINHA 86: 16:38:30 | [PermissionManager] Perm (MenuXMLEditor:EditTypes) has been registered!
-LINHA 87: 16:38:30 | [PermissionManager] Perm (MenuXMLEditor:AddRemoveTypes) has been registered!
-LINHA 88: 16:38:30 | [PermissionManager] Perm (MenuXMLEditor:DistributionMap) has been registered!
-LINHA 89: 16:38:30 | [PermissionManager] Perm (MenuXMLEditor:ViewBackups) has been registered!
-LINHA 90: 16:38:30 | [PermissionManager] Perm (MenuXMLEditor:RestoreBackup) has been registered!
-LINHA 91: 16:38:30 | [PermissionManager] Perm (MenuXMLEditor:DeleteBackup) has been registered!
-LINHA 92: 16:38:30 | [PermissionManager] Perm (MenuXMLEditor:LiveScan) has been registered!
-LINHA 93: 16:38:30 | [PermissionManager] Perm (MenuXMLEditor:DeleteObjects) has been registered!
-LINHA 94: 16:38:30 | [PermissionManager] Perm (MenuXMLEditor:EditMessages) has been registered!
-LINHA 95: 16:38:30 | [PermissionManager] Perm (MenuXMLEditor:EditEvents) has been registered!
-LINHA 96: 16:38:30 | [PermissionManager] Perm (MenuXMLEditor:EditSpawnables) has been registered!
-LINHA 97: 16:38:30 | [PermissionManager] Perm (MenuCommandsConsole) has been registered!
-LINHA 98: 16:38:30 | [PermissionManager] Perm (ContextMenu:ItemHealth) has been registered!
-LINHA 99: 16:38:30 | [PermissionManager] Perm (ContextMenu:WeaponLoad) has been registered!
-LINHA 100: 16:38:30 | [PermissionManager] Perm (ContextMenu:CreatureHeal) has been registered!
-LINHA 101: 16:38:30 | [PermissionManager] Perm (ContextMenu:SpawnAttachment) has been registered!
-LINHA 102: 16:38:30 | [PermissionManager] Perm (ContextMenu:CreatureKill) has been registered!
-LINHA 103: 16:38:30 | [PermissionManager] Perm (ContextMenu:ItemQuantity) has been registered!
-LINHA 104: 16:38:30 | [PermissionManager] Perm (ContextMenu:SetScale) has been registered!
-LINHA 105: 16:38:30 | [PermissionManager] Perm (ContextMenu:VehicleRefuel) has been registered!
-LINHA 106: 16:38:30 | [PermissionManager] Perm (ContextMenu:WeaponRefill) has been registered!
-LINHA 107: 16:38:30 | [PermissionManager] Perm (ContextMenu:Ragdoll) has been registered!
-LINHA 108: 16:38:30 | [PermissionManager] Perm (ContextMenu:WeaponJam) has been registered!
-LINHA 109: 16:38:30 | [PermissionManager] Perm (ContextMenu:WeaponEject) has been registered!
-LINHA 110 : [CONTEUDO SENSIVEL MASCARADO]
-LINHA 111: 16:38:30 | [PermissionManager] Adding Super Admin (76561198196693358)
-LINHA 112: 16:38:30 | [PermissionManager] Loaded UserGroups.json
-LINHA 113: 16:38:30 | [BansManager]:: Load(): Loading ban list Json File $profile:VPPAdminTools/BanList.json
-LINHA 114: 16:38:30 | [PermissionManager] Perm (Chat:StripPlayer) has been registered!
-LINHA 115: 16:38:30 | [PermissionManager] Perm (Chat:KillPlayer) has been registered!
-LINHA 116: 16:38:30 | [PermissionManager] Perm (Chat:HealPlayer) has been registered!
-LINHA 117: 16:38:30 | [PermissionManager] Perm (Chat:BringPlayer) has been registered!
-LINHA 118: 16:38:30 | [PermissionManager] Perm (Chat:ReturnPlayer) has been registered!
-LINHA 119: 16:38:30 | [PermissionManager] Perm (Chat:GotoPlayer) has been registered!
-LINHA 120: 16:38:30 | [PermissionManager] Perm (Chat:UnbanPlayer) has been registered!
-LINHA 121: 16:38:30 | [PermissionManager] Perm (Chat:TeleportToTown) has been registered!
-LINHA 122: 16:38:30 | [PermissionManager] Perm (Chat:TeleportToPoint) has been registered!
-LINHA 123: 16:38:30 | [PermissionManager] Perm (Chat:GiveAmmo) has been registered!
-LINHA 124: 16:38:30 | [PermissionManager] Perm (Chat:SpawnInventory) has been registered!
-LINHA 125: 16:38:30 | [PermissionManager] Perm (Chat:SpawnOnGround) has been registered!
-LINHA 126: 16:38:30 | [PermissionManager] Perm (Chat:SpawnInHands) has been registered!
-LINHA 127: 16:38:30 | [PermissionManager] Perm (Chat:SpawnCar) has been registered!
-LINHA 128: 16:38:30 | [PermissionManager] Perm (Chat:refuelCar) has been registered!
-LINHA 129: 16:38:30 | [WeatherManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 130: 16:38:30 | [TimeManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 131: 16:38:30 | [BuildingSetManager] Journal: 0 set(s) loaded, 0 found by the folder scan, 0 dropped, 0 converted from .vpp, 0 upgraded to format 2
-LINHA 132: 16:38:30 | [SteamAPIManager] WARNING couldn't fetch server IP from configs; using cURL...
-LINHA 133 : [CONTEUDO SENSIVEL MASCARADO]
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-41-45.txt
-TAMANHO: 11616 bytes
---------------------------------------------------
-LINHA 1: [IDENTIFICADOR MASCARADO] Admin Tools Session [IDENTIFICADOR MASCARADO]
-LINHA 2: Logs Started: 2026-11-15_16-41-45
-LINHA 3: [IDENTIFICADOR MASCARADO]
-LINHA 4: 16:41:45 | [PermissionManager] Perm (DeleteObjectAtCrosshair) has been registered!
-LINHA 5: 16:41:45 | [PermissionManager] Perm (TeleportToCrosshair) has been registered!
-LINHA 6: 16:41:45 | [PermissionManager] Perm (FreeCamera) has been registered!
-LINHA 7: 16:41:45 | [PermissionManager] Perm ([IDENTIFICADOR MASCARADO]) has been registered!
-LINHA 8: 16:41:45 | [PermissionManager] Perm (MenuItemManager) has been registered!
-LINHA 9: 16:41:45 | [PermissionManager] Perm (MenuItemManager:SpawnItem) has been registered!
-LINHA 10: 16:41:45 | [PermissionManager] Perm (MenuItemManager:EditPreset) has been registered!
-LINHA 11: 16:41:45 | [PermissionManager] Perm (MenuItemManager:SpawnPreset) has been registered!
-LINHA 12: 16:41:45 | [PermissionManager] Perm (MenuItemManager:DeletePreset) has been registered!
-LINHA 13: 16:41:45 | [PermissionManager] Perm (MenuItemManager:AddPreset) has been registered!
-LINHA 14: 16:41:45 | [PermissionManager] Perm (MenuServerManager) has been registered!
-LINHA 15: 16:41:45 | [PermissionManager] Perm (ServerManager:RestartServer) has been registered!
-LINHA 16: 16:41:45 | [PermissionManager] Perm (ServerManager:LockServer) has been registered!
-LINHA 17: 16:41:45 | [PermissionManager] Perm (ServerManager:KickAllPlayers) has been registered!
-LINHA 18: 16:41:45 | [PermissionManager] Perm (MenuWeatherManager) has been registered!
-LINHA 19: 16:41:45 | [PermissionManager] Perm (WeatherManager:ApplyWeather) has been registered!
-LINHA 20: 16:41:45 | [PermissionManager] Perm (WeatherManager:ApplyTime) has been registered!
-LINHA 21: 16:41:45 | [PermissionManager] Perm (WeatherManager:SavePreset) has been registered!
-LINHA 22: 16:41:45 | [PermissionManager] Perm (WeatherManager:DeletePreset) has been registered!
-LINHA 23: 16:41:45 | [PermissionManager] Perm (WeatherManager:ApplyPreset) has been registered!
-LINHA 24: 16:41:45 | [PermissionManager] Perm (WeatherManager:ApplyTimePreset) has been registered!
-LINHA 25: 16:41:45 | [PermissionManager] Perm (WeatherManager:SaveTimePreset) has been registered!
-LINHA 26: 16:41:45 | [PermissionManager] Perm (WeatherManager:DeleteTimePreset) has been registered!
-LINHA 27: 16:41:45 | [PermissionManager] Perm (MenuObjectManager) has been registered!
-LINHA 28: 16:41:45 | [PermissionManager] Perm (MenuObjectManager:CreateNewSet) has been registered!
-LINHA 29: 16:41:45 | [PermissionManager] Perm (MenuObjectManager:UpdateSet) has been registered!
-LINHA 30: 16:41:45 | [PermissionManager] Perm (MenuObjectManager:DeleteSet) has been registered!
-LINHA 31: 16:41:45 | [PermissionManager] Perm (MenuObjectManager:EditSet) has been registered!
-LINHA 32: 16:41:45 | [PermissionManager] Perm (MenuPermissionsEditor) has been registered!
-LINHA 33: 16:41:45 | [PermissionManager] Perm (PermissionsEditor:RemoveUser) has been registered!
-LINHA 34: 16:41:45 | [PermissionManager] Perm (PermissionsEditor:AddUser) has been registered!
-LINHA 35: 16:41:45 | [PermissionManager] Perm (PermissionsEditor:CreateUserGroup) has been registered!
-LINHA 36: 16:41:45 | [PermissionManager] Perm (PermissionsEditor:DeleteUserGroup) has been registered!
-LINHA 37: 16:41:45 | [PermissionManager] Perm (PermissionsEditor:ChangePermLevel) has been registered!
-LINHA 38: 16:41:45 | [PermissionManager] Perm (MenuPlayerManager) has been registered!
-LINHA 39: 16:41:45 | [PermissionManager] Perm (PlayerManager:GiveGodmode) has been registered!
-LINHA 40: 16:41:45 | [PermissionManager] Perm (PlayerManager:BanPlayer) has been registered!
-LINHA 41: 16:41:45 | [PermissionManager] Perm (PlayerManager:KickPlayer) has been registered!
-LINHA 42: 16:41:45 | [PermissionManager] Perm (PlayerManager:HealPlayers) has been registered!
-LINHA 43: 16:41:45 | [PermissionManager] Perm (PlayerManager:SetPlayerStats) has been registered!
-LINHA 44: 16:41:45 | [PermissionManager] Perm (PlayerManager:KillPlayers) has been registered!
-LINHA 45: 16:41:45 | [PermissionManager] Perm (PlayerManager:GodMode) has been registered!
-LINHA 46: 16:41:45 | [PermissionManager] Perm (PlayerManager:SpectatePlayer) has been registered!
-LINHA 47: 16:41:45 | [PermissionManager] Perm (PlayerManager:TeleportToPlayer) has been registered!
-LINHA 48: 16:41:45 | [PermissionManager] Perm (PlayerManager:TeleportPlayerTo) has been registered!
-LINHA 49: 16:41:45 | [PermissionManager] Perm (PlayerManager:SetPlayerInvisible) has been registered!
-LINHA 50: 16:41:45 | [PermissionManager] Perm (PlayerManager:SendMessage) has been registered!
-LINHA 51: 16:41:45 | [PermissionManager] Perm (PlayerManager:GiveUnlimitedAmmo) has been registered!
-LINHA 52: 16:41:45 | [PermissionManager] Perm (PlayerManager:MakePlayerVomit) has been registered!
-LINHA 53: 16:41:45 | [PermissionManager] Perm (PlayerManager:FreezePlayers) has been registered!
-LINHA 54: 16:41:45 | [PermissionManager] Perm (PlayerManager:ChangeScale) has been registered!
-LINHA 55: 16:41:45 | [PermissionManager] Perm (PlayerManager:StopBleeding) has been registered!
-LINHA 56: 16:41:45 | [PermissionManager] Perm (PlayerManager:ClearInventory) has been registered!
-LINHA 57: 16:41:45 | [PermissionManager] Perm (PlayerManager:EditModifiers) has been registered!
-LINHA 58: 16:41:45 | [PermissionManager] Perm (MenuBansManager) has been registered!
-LINHA 59: 16:41:45 | [PermissionManager] Perm (BansManager:UnbanPlayer) has been registered!
-LINHA 60: 16:41:45 | [PermissionManager] Perm (BansManager:UpdateBanDuration) has been registered!
-LINHA 61: 16:41:45 | [PermissionManager] Perm (BansManager:UpdateBanReason) has been registered!
-LINHA 62: 16:41:45 | [PermissionManager] Perm (MenuSpectateTools) has been registered!
-LINHA 63: 16:41:45 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-LINHA 64: 16:41:45 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-LINHA 65: 16:41:45 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-LINHA 66: 16:41:45 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-LINHA 67: 16:41:45 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-LINHA 68: 16:41:45 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-LINHA 69: 16:41:45 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-LINHA 70: 16:41:45 | [PermissionManager] Perm (MenuTeleportManager) has been registered!
-LINHA 71: 16:41:45 | [PermissionManager] Perm (TeleportManager:ViewPlayerPositions) has been registered!
-LINHA 72: 16:41:45 | [PermissionManager] Perm (TeleportManager:TPPlayers) has been registered!
-LINHA 73: 16:41:45 | [PermissionManager] Perm (TeleportManager:TPSelf) has been registered!
-LINHA 74: 16:41:45 | [PermissionManager] Perm (TeleportManager:DeletePreset) has been registered!
-LINHA 75: 16:41:45 | [PermissionManager] Perm (TeleportManager:AddNewPreset) has been registered!
-LINHA 76: 16:41:45 | [PermissionManager] Perm (TeleportManager:EditPreset) has been registered!
-LINHA 77: 16:41:45 | [PermissionManager] Perm (TeleportManager:TeleportEntity) has been registered!
-LINHA 78: 16:41:45 | [PermissionManager] Perm (EspToolsMenu) has been registered!
-LINHA 79: 16:41:45 | [PermissionManager] Perm (EspToolsMenu:DeleteObjects) has been registered!
-LINHA 80: 16:41:45 | [PermissionManager] Perm (EspToolsMenu:PlayerESP) has been registered!
-LINHA 81: 16:41:45 | [PermissionManager] Perm (EspToolsMenu:RestPasscodeFence) has been registered!
-LINHA 82: 16:41:45 | [PermissionManager] Perm (EspToolsMenu:RetriveCodeFromObj) has been registered!
-LINHA 83: 16:41:45 | [PermissionManager] Perm (EspToolsMenu:PlayerMeshEsp) has been registered!
-LINHA 84: 16:41:45 | [PermissionManager] Perm (EspToolsMenu:InstantBaseBuild) has been registered!
-LINHA 85: 16:41:45 | [PermissionManager] Perm (MenuXMLEditor) has been registered!
-LINHA 86: 16:41:45 | [PermissionManager] Perm (MenuXMLEditor:EditTypes) has been registered!
-LINHA 87: 16:41:45 | [PermissionManager] Perm (MenuXMLEditor:AddRemoveTypes) has been registered!
-LINHA 88: 16:41:45 | [PermissionManager] Perm (MenuXMLEditor:DistributionMap) has been registered!
-LINHA 89: 16:41:45 | [PermissionManager] Perm (MenuXMLEditor:ViewBackups) has been registered!
-LINHA 90: 16:41:45 | [PermissionManager] Perm (MenuXMLEditor:RestoreBackup) has been registered!
-LINHA 91: 16:41:45 | [PermissionManager] Perm (MenuXMLEditor:DeleteBackup) has been registered!
-LINHA 92: 16:41:45 | [PermissionManager] Perm (MenuXMLEditor:LiveScan) has been registered!
-LINHA 93: 16:41:45 | [PermissionManager] Perm (MenuXMLEditor:DeleteObjects) has been registered!
-LINHA 94: 16:41:45 | [PermissionManager] Perm (MenuXMLEditor:EditMessages) has been registered!
-LINHA 95: 16:41:45 | [PermissionManager] Perm (MenuXMLEditor:EditEvents) has been registered!
-LINHA 96: 16:41:45 | [PermissionManager] Perm (MenuXMLEditor:EditSpawnables) has been registered!
-LINHA 97: 16:41:45 | [PermissionManager] Perm (MenuCommandsConsole) has been registered!
-LINHA 98: 16:41:45 | [PermissionManager] Perm (ContextMenu:ItemHealth) has been registered!
-LINHA 99: 16:41:45 | [PermissionManager] Perm (ContextMenu:WeaponLoad) has been registered!
-LINHA 100: 16:41:45 | [PermissionManager] Perm (ContextMenu:CreatureHeal) has been registered!
-LINHA 101: 16:41:45 | [PermissionManager] Perm (ContextMenu:SpawnAttachment) has been registered!
-LINHA 102: 16:41:45 | [PermissionManager] Perm (ContextMenu:CreatureKill) has been registered!
-LINHA 103: 16:41:45 | [PermissionManager] Perm (ContextMenu:ItemQuantity) has been registered!
-LINHA 104: 16:41:45 | [PermissionManager] Perm (ContextMenu:SetScale) has been registered!
-LINHA 105: 16:41:45 | [PermissionManager] Perm (ContextMenu:VehicleRefuel) has been registered!
-LINHA 106: 16:41:45 | [PermissionManager] Perm (ContextMenu:WeaponRefill) has been registered!
-LINHA 107: 16:41:45 | [PermissionManager] Perm (ContextMenu:Ragdoll) has been registered!
-LINHA 108: 16:41:45 | [PermissionManager] Perm (ContextMenu:WeaponJam) has been registered!
-LINHA 109: 16:41:45 | [PermissionManager] Perm (ContextMenu:WeaponEject) has been registered!
-LINHA 110 : [CONTEUDO SENSIVEL MASCARADO]
-LINHA 111: 16:41:45 | [PermissionManager] Adding Super Admin (76561198196693358)
-LINHA 112: 16:41:45 | [PermissionManager] Loaded UserGroups.json
-LINHA 113: 16:41:45 | [BansManager]:: Load(): Loading ban list Json File $profile:VPPAdminTools/BanList.json
-LINHA 114: 16:41:45 | [PermissionManager] Perm (Chat:StripPlayer) has been registered!
-LINHA 115: 16:41:45 | [PermissionManager] Perm (Chat:KillPlayer) has been registered!
-LINHA 116: 16:41:45 | [PermissionManager] Perm (Chat:HealPlayer) has been registered!
-LINHA 117: 16:41:45 | [PermissionManager] Perm (Chat:BringPlayer) has been registered!
-LINHA 118: 16:41:45 | [PermissionManager] Perm (Chat:ReturnPlayer) has been registered!
-LINHA 119: 16:41:45 | [PermissionManager] Perm (Chat:GotoPlayer) has been registered!
-LINHA 120: 16:41:45 | [PermissionManager] Perm (Chat:UnbanPlayer) has been registered!
-LINHA 121: 16:41:45 | [PermissionManager] Perm (Chat:TeleportToTown) has been registered!
-LINHA 122: 16:41:45 | [PermissionManager] Perm (Chat:TeleportToPoint) has been registered!
-LINHA 123: 16:41:45 | [PermissionManager] Perm (Chat:GiveAmmo) has been registered!
-LINHA 124: 16:41:45 | [PermissionManager] Perm (Chat:SpawnInventory) has been registered!
-LINHA 125: 16:41:45 | [PermissionManager] Perm (Chat:SpawnOnGround) has been registered!
-LINHA 126: 16:41:45 | [PermissionManager] Perm (Chat:SpawnInHands) has been registered!
-LINHA 127: 16:41:45 | [PermissionManager] Perm (Chat:SpawnCar) has been registered!
-LINHA 128: 16:41:45 | [PermissionManager] Perm (Chat:refuelCar) has been registered!
-LINHA 129: 16:41:45 | [WeatherManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 130: 16:41:45 | [TimeManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 131: 16:41:45 | [BuildingSetManager] Journal: 0 set(s) loaded, 0 found by the folder scan, 0 dropped, 0 converted from .vpp, 0 upgraded to format 2
-LINHA 132: 16:41:45 | [SteamAPIManager] WARNING couldn't fetch server IP from configs; using cURL...
-LINHA 133 : [CONTEUDO SENSIVEL MASCARADO]
-LINHA 134: 16:58:12 | Player "******" ([IDENTIFICADOR MASCARADO]) connected to server!
-LINHA 135: 17:3:58 | Player "******" ([IDENTIFICADOR MASCARADO]) initiated disconnect process...
-LINHA 136: 17:3:59 | Player "******" ([IDENTIFICADOR MASCARADO]) disconnected early from server (EXIT NOW).
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-6-10.txt
-TAMANHO: 11896 bytes
---------------------------------------------------
-LINHA 1: [IDENTIFICADOR MASCARADO] Admin Tools Session [IDENTIFICADOR MASCARADO]
-LINHA 2: Logs Started: 2026-11-15_16-6-10
-LINHA 3: [IDENTIFICADOR MASCARADO]
-LINHA 4: 16:6:10 | [PermissionManager] Perm (DeleteObjectAtCrosshair) has been registered!
-LINHA 5: 16:6:10 | [PermissionManager] Perm (TeleportToCrosshair) has been registered!
-LINHA 6: 16:6:10 | [PermissionManager] Perm (FreeCamera) has been registered!
-LINHA 7: 16:6:10 | [PermissionManager] Perm ([IDENTIFICADOR MASCARADO]) has been registered!
-LINHA 8: 16:6:10 | [PermissionManager] Perm (MenuItemManager) has been registered!
-LINHA 9: 16:6:10 | [PermissionManager] Perm (MenuItemManager:SpawnItem) has been registered!
-LINHA 10: 16:6:10 | [PermissionManager] Perm (MenuItemManager:EditPreset) has been registered!
-LINHA 11: 16:6:10 | [PermissionManager] Perm (MenuItemManager:SpawnPreset) has been registered!
-LINHA 12: 16:6:10 | [PermissionManager] Perm (MenuItemManager:DeletePreset) has been registered!
-LINHA 13: 16:6:10 | [PermissionManager] Perm (MenuItemManager:AddPreset) has been registered!
-LINHA 14: 16:6:10 | [PermissionManager] Perm (MenuServerManager) has been registered!
-LINHA 15: 16:6:10 | [PermissionManager] Perm (ServerManager:RestartServer) has been registered!
-LINHA 16: 16:6:10 | [PermissionManager] Perm (ServerManager:LockServer) has been registered!
-LINHA 17: 16:6:10 | [PermissionManager] Perm (ServerManager:KickAllPlayers) has been registered!
-LINHA 18: 16:6:10 | [PermissionManager] Perm (MenuWeatherManager) has been registered!
-LINHA 19: 16:6:10 | [PermissionManager] Perm (WeatherManager:ApplyWeather) has been registered!
-LINHA 20: 16:6:10 | [PermissionManager] Perm (WeatherManager:ApplyTime) has been registered!
-LINHA 21: 16:6:10 | [PermissionManager] Perm (WeatherManager:SavePreset) has been registered!
-LINHA 22: 16:6:10 | [PermissionManager] Perm (WeatherManager:DeletePreset) has been registered!
-LINHA 23: 16:6:10 | [PermissionManager] Perm (WeatherManager:ApplyPreset) has been registered!
-LINHA 24: 16:6:10 | [PermissionManager] Perm (WeatherManager:ApplyTimePreset) has been registered!
-LINHA 25: 16:6:10 | [PermissionManager] Perm (WeatherManager:SaveTimePreset) has been registered!
-LINHA 26: 16:6:10 | [PermissionManager] Perm (WeatherManager:DeleteTimePreset) has been registered!
-LINHA 27: 16:6:10 | [PermissionManager] Perm (MenuObjectManager) has been registered!
-LINHA 28: 16:6:10 | [PermissionManager] Perm (MenuObjectManager:CreateNewSet) has been registered!
-LINHA 29: 16:6:10 | [PermissionManager] Perm (MenuObjectManager:UpdateSet) has been registered!
-LINHA 30: 16:6:10 | [PermissionManager] Perm (MenuObjectManager:DeleteSet) has been registered!
-LINHA 31: 16:6:10 | [PermissionManager] Perm (MenuObjectManager:EditSet) has been registered!
-LINHA 32: 16:6:10 | [PermissionManager] Perm (MenuPermissionsEditor) has been registered!
-LINHA 33: 16:6:10 | [PermissionManager] Perm (PermissionsEditor:RemoveUser) has been registered!
-LINHA 34: 16:6:10 | [PermissionManager] Perm (PermissionsEditor:AddUser) has been registered!
-LINHA 35: 16:6:10 | [PermissionManager] Perm (PermissionsEditor:CreateUserGroup) has been registered!
-LINHA 36: 16:6:10 | [PermissionManager] Perm (PermissionsEditor:DeleteUserGroup) has been registered!
-LINHA 37: 16:6:10 | [PermissionManager] Perm (PermissionsEditor:ChangePermLevel) has been registered!
-LINHA 38: 16:6:10 | [PermissionManager] Perm (MenuPlayerManager) has been registered!
-LINHA 39: 16:6:10 | [PermissionManager] Perm (PlayerManager:GiveGodmode) has been registered!
-LINHA 40: 16:6:10 | [PermissionManager] Perm (PlayerManager:BanPlayer) has been registered!
-LINHA 41: 16:6:10 | [PermissionManager] Perm (PlayerManager:KickPlayer) has been registered!
-LINHA 42: 16:6:10 | [PermissionManager] Perm (PlayerManager:HealPlayers) has been registered!
-LINHA 43: 16:6:10 | [PermissionManager] Perm (PlayerManager:SetPlayerStats) has been registered!
-LINHA 44: 16:6:10 | [PermissionManager] Perm (PlayerManager:KillPlayers) has been registered!
-LINHA 45: 16:6:10 | [PermissionManager] Perm (PlayerManager:GodMode) has been registered!
-LINHA 46: 16:6:10 | [PermissionManager] Perm (PlayerManager:SpectatePlayer) has been registered!
-LINHA 47: 16:6:10 | [PermissionManager] Perm (PlayerManager:TeleportToPlayer) has been registered!
-LINHA 48: 16:6:10 | [PermissionManager] Perm (PlayerManager:TeleportPlayerTo) has been registered!
-LINHA 49: 16:6:10 | [PermissionManager] Perm (PlayerManager:SetPlayerInvisible) has been registered!
-LINHA 50: 16:6:10 | [PermissionManager] Perm (PlayerManager:SendMessage) has been registered!
-LINHA 51: 16:6:10 | [PermissionManager] Perm (PlayerManager:GiveUnlimitedAmmo) has been registered!
-LINHA 52: 16:6:10 | [PermissionManager] Perm (PlayerManager:MakePlayerVomit) has been registered!
-LINHA 53: 16:6:10 | [PermissionManager] Perm (PlayerManager:FreezePlayers) has been registered!
-LINHA 54: 16:6:10 | [PermissionManager] Perm (PlayerManager:ChangeScale) has been registered!
-LINHA 55: 16:6:10 | [PermissionManager] Perm (PlayerManager:StopBleeding) has been registered!
-LINHA 56: 16:6:10 | [PermissionManager] Perm (PlayerManager:ClearInventory) has been registered!
-LINHA 57: 16:6:10 | [PermissionManager] Perm (PlayerManager:EditModifiers) has been registered!
-LINHA 58: 16:6:10 | [PermissionManager] Perm (MenuBansManager) has been registered!
-LINHA 59: 16:6:10 | [PermissionManager] Perm (BansManager:UnbanPlayer) has been registered!
-LINHA 60: 16:6:10 | [PermissionManager] Perm (BansManager:UpdateBanDuration) has been registered!
-LINHA 61: 16:6:10 | [PermissionManager] Perm (BansManager:UpdateBanReason) has been registered!
-LINHA 62: 16:6:10 | [PermissionManager] Perm (MenuSpectateTools) has been registered!
-LINHA 63: 16:6:10 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-LINHA 64: 16:6:10 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-LINHA 65: 16:6:10 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-LINHA 66: 16:6:10 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-LINHA 67: 16:6:10 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-LINHA 68: 16:6:10 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-LINHA 69: 16:6:10 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-LINHA 70: 16:6:10 | [PermissionManager] Perm (MenuTeleportManager) has been registered!
-LINHA 71: 16:6:10 | [PermissionManager] Perm (TeleportManager:ViewPlayerPositions) has been registered!
-LINHA 72: 16:6:10 | [PermissionManager] Perm (TeleportManager:TPPlayers) has been registered!
-LINHA 73: 16:6:10 | [PermissionManager] Perm (TeleportManager:TPSelf) has been registered!
-LINHA 74: 16:6:10 | [PermissionManager] Perm (TeleportManager:DeletePreset) has been registered!
-LINHA 75: 16:6:10 | [PermissionManager] Perm (TeleportManager:AddNewPreset) has been registered!
-LINHA 76: 16:6:10 | [PermissionManager] Perm (TeleportManager:EditPreset) has been registered!
-LINHA 77: 16:6:10 | [PermissionManager] Perm (TeleportManager:TeleportEntity) has been registered!
-LINHA 78: 16:6:10 | [PermissionManager] Perm (EspToolsMenu) has been registered!
-LINHA 79: 16:6:10 | [PermissionManager] Perm (EspToolsMenu:DeleteObjects) has been registered!
-LINHA 80: 16:6:10 | [PermissionManager] Perm (EspToolsMenu:PlayerESP) has been registered!
-LINHA 81: 16:6:10 | [PermissionManager] Perm (EspToolsMenu:RestPasscodeFence) has been registered!
-LINHA 82: 16:6:10 | [PermissionManager] Perm (EspToolsMenu:RetriveCodeFromObj) has been registered!
-LINHA 83: 16:6:10 | [PermissionManager] Perm (EspToolsMenu:PlayerMeshEsp) has been registered!
-LINHA 84: 16:6:10 | [PermissionManager] Perm (EspToolsMenu:InstantBaseBuild) has been registered!
-LINHA 85: 16:6:10 | [PermissionManager] Perm (MenuXMLEditor) has been registered!
-LINHA 86: 16:6:10 | [PermissionManager] Perm (MenuXMLEditor:EditTypes) has been registered!
-LINHA 87: 16:6:10 | [PermissionManager] Perm (MenuXMLEditor:AddRemoveTypes) has been registered!
-LINHA 88: 16:6:10 | [PermissionManager] Perm (MenuXMLEditor:DistributionMap) has been registered!
-LINHA 89: 16:6:10 | [PermissionManager] Perm (MenuXMLEditor:ViewBackups) has been registered!
-LINHA 90: 16:6:10 | [PermissionManager] Perm (MenuXMLEditor:RestoreBackup) has been registered!
-LINHA 91: 16:6:10 | [PermissionManager] Perm (MenuXMLEditor:DeleteBackup) has been registered!
-LINHA 92: 16:6:10 | [PermissionManager] Perm (MenuXMLEditor:LiveScan) has been registered!
-LINHA 93: 16:6:10 | [PermissionManager] Perm (MenuXMLEditor:DeleteObjects) has been registered!
-LINHA 94: 16:6:10 | [PermissionManager] Perm (MenuXMLEditor:EditMessages) has been registered!
-LINHA 95: 16:6:10 | [PermissionManager] Perm (MenuXMLEditor:EditEvents) has been registered!
-LINHA 96: 16:6:10 | [PermissionManager] Perm (MenuXMLEditor:EditSpawnables) has been registered!
-LINHA 97: 16:6:10 | [PermissionManager] Perm (MenuCommandsConsole) has been registered!
-LINHA 98: 16:6:10 | [PermissionManager] Perm (ContextMenu:ItemHealth) has been registered!
-LINHA 99: 16:6:10 | [PermissionManager] Perm (ContextMenu:WeaponLoad) has been registered!
-LINHA 100: 16:6:10 | [PermissionManager] Perm (ContextMenu:CreatureHeal) has been registered!
-LINHA 101: 16:6:10 | [PermissionManager] Perm (ContextMenu:SpawnAttachment) has been registered!
-LINHA 102: 16:6:10 | [PermissionManager] Perm (ContextMenu:CreatureKill) has been registered!
-LINHA 103: 16:6:10 | [PermissionManager] Perm (ContextMenu:ItemQuantity) has been registered!
-LINHA 104: 16:6:10 | [PermissionManager] Perm (ContextMenu:SetScale) has been registered!
-LINHA 105: 16:6:10 | [PermissionManager] Perm (ContextMenu:VehicleRefuel) has been registered!
-LINHA 106: 16:6:10 | [PermissionManager] Perm (ContextMenu:WeaponRefill) has been registered!
-LINHA 107: 16:6:10 | [PermissionManager] Perm (ContextMenu:Ragdoll) has been registered!
-LINHA 108: 16:6:10 | [PermissionManager] Perm (ContextMenu:WeaponJam) has been registered!
-LINHA 109: 16:6:10 | [PermissionManager] Perm (ContextMenu:WeaponEject) has been registered!
-LINHA 110 : [CONTEUDO SENSIVEL MASCARADO]
-LINHA 111: 16:6:10 | [PermissionManager] SuperAdmins.txt File Missing...Creating Defaults. Please change SuperAdmins.txt file, and restart the server.
-LINHA 112: 16:6:10 | [PermissionManager] Group: (Admins) Permission Level: (1) was created!
-LINHA 113: 16:6:10 | [PermissionManager] Created default UserGroups.vpp
-LINHA 114: 16:6:10 | [XMLEditor] Permission migration done: 0 user group(s) updated
-LINHA 115: 16:6:10 | [XMLEditor] Permission migration v2 (EditMessages) done: 0 user group(s) updated
-LINHA 116: 16:6:10 | [XMLEditor] Permission migration v3 (EditEvents) done: 0 user group(s) updated
-LINHA 117: 16:6:10 | [XMLEditor] Permission migration v4 (EditSpawnables) done: 0 user group(s) updated
-LINHA 118: 16:6:10 | [WebHooksManager] Permission migration v1 (EditTemplates, TestSend, ViewURL) done: 0 user group(s) updated
-LINHA 119: 16:6:10 | [BansManager]:: Save(): Saving ban list!
-LINHA 120: 16:6:10 | [PermissionManager] Perm (Chat:StripPlayer) has been registered!
-LINHA 121: 16:6:10 | [PermissionManager] Perm (Chat:KillPlayer) has been registered!
-LINHA 122: 16:6:10 | [PermissionManager] Perm (Chat:HealPlayer) has been registered!
-LINHA 123: 16:6:10 | [PermissionManager] Perm (Chat:BringPlayer) has been registered!
-LINHA 124: 16:6:10 | [PermissionManager] Perm (Chat:ReturnPlayer) has been registered!
-LINHA 125: 16:6:10 | [PermissionManager] Perm (Chat:GotoPlayer) has been registered!
-LINHA 126: 16:6:10 | [PermissionManager] Perm (Chat:UnbanPlayer) has been registered!
-LINHA 127: 16:6:10 | [PermissionManager] Perm (Chat:TeleportToTown) has been registered!
-LINHA 128: 16:6:10 | [PermissionManager] Perm (Chat:TeleportToPoint) has been registered!
-LINHA 129: 16:6:10 | [PermissionManager] Perm (Chat:GiveAmmo) has been registered!
-LINHA 130: 16:6:10 | [PermissionManager] Perm (Chat:SpawnInventory) has been registered!
-LINHA 131: 16:6:10 | [PermissionManager] Perm (Chat:SpawnOnGround) has been registered!
-LINHA 132: 16:6:10 | [PermissionManager] Perm (Chat:SpawnInHands) has been registered!
-LINHA 133: 16:6:10 | [PermissionManager] Perm (Chat:SpawnCar) has been registered!
-LINHA 134: 16:6:10 | [PermissionManager] Perm (Chat:refuelCar) has been registered!
-LINHA 135: 16:6:10 | [WeatherManager] Creating Default Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 136: 16:6:10 | [WeatherManager] Save to $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 137: 16:6:10 | [TimeManager] Saving to $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 138: 16:6:10 | [BuildingSetManager] Journal: 0 set(s) loaded, 0 found by the folder scan, 0 dropped, 0 converted from .vpp, 0 upgraded to format 2
-LINHA 139: 16:6:10 | [SteamAPIManager] configuration file missing...creating default.
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-7-43.txt
-TAMANHO: 11288 bytes
---------------------------------------------------
-LINHA 1: [IDENTIFICADOR MASCARADO] Admin Tools Session [IDENTIFICADOR MASCARADO]
-LINHA 2: Logs Started: 2026-11-15_16-7-43
-LINHA 3: [IDENTIFICADOR MASCARADO]
-LINHA 4: 16:7:43 | [PermissionManager] Perm (DeleteObjectAtCrosshair) has been registered!
-LINHA 5: 16:7:43 | [PermissionManager] Perm (TeleportToCrosshair) has been registered!
-LINHA 6: 16:7:43 | [PermissionManager] Perm (FreeCamera) has been registered!
-LINHA 7: 16:7:43 | [PermissionManager] Perm ([IDENTIFICADOR MASCARADO]) has been registered!
-LINHA 8: 16:7:43 | [PermissionManager] Perm (MenuItemManager) has been registered!
-LINHA 9: 16:7:43 | [PermissionManager] Perm (MenuItemManager:SpawnItem) has been registered!
-LINHA 10: 16:7:43 | [PermissionManager] Perm (MenuItemManager:EditPreset) has been registered!
-LINHA 11: 16:7:43 | [PermissionManager] Perm (MenuItemManager:SpawnPreset) has been registered!
-LINHA 12: 16:7:43 | [PermissionManager] Perm (MenuItemManager:DeletePreset) has been registered!
-LINHA 13: 16:7:43 | [PermissionManager] Perm (MenuItemManager:AddPreset) has been registered!
-LINHA 14: 16:7:43 | [PermissionManager] Perm (MenuServerManager) has been registered!
-LINHA 15: 16:7:43 | [PermissionManager] Perm (ServerManager:RestartServer) has been registered!
-LINHA 16: 16:7:43 | [PermissionManager] Perm (ServerManager:LockServer) has been registered!
-LINHA 17: 16:7:43 | [PermissionManager] Perm (ServerManager:KickAllPlayers) has been registered!
-LINHA 18: 16:7:43 | [PermissionManager] Perm (MenuWeatherManager) has been registered!
-LINHA 19: 16:7:43 | [PermissionManager] Perm (WeatherManager:ApplyWeather) has been registered!
-LINHA 20: 16:7:43 | [PermissionManager] Perm (WeatherManager:ApplyTime) has been registered!
-LINHA 21: 16:7:43 | [PermissionManager] Perm (WeatherManager:SavePreset) has been registered!
-LINHA 22: 16:7:43 | [PermissionManager] Perm (WeatherManager:DeletePreset) has been registered!
-LINHA 23: 16:7:43 | [PermissionManager] Perm (WeatherManager:ApplyPreset) has been registered!
-LINHA 24: 16:7:43 | [PermissionManager] Perm (WeatherManager:ApplyTimePreset) has been registered!
-LINHA 25: 16:7:43 | [PermissionManager] Perm (WeatherManager:SaveTimePreset) has been registered!
-LINHA 26: 16:7:43 | [PermissionManager] Perm (WeatherManager:DeleteTimePreset) has been registered!
-LINHA 27: 16:7:43 | [PermissionManager] Perm (MenuObjectManager) has been registered!
-LINHA 28: 16:7:43 | [PermissionManager] Perm (MenuObjectManager:CreateNewSet) has been registered!
-LINHA 29: 16:7:43 | [PermissionManager] Perm (MenuObjectManager:UpdateSet) has been registered!
-LINHA 30: 16:7:43 | [PermissionManager] Perm (MenuObjectManager:DeleteSet) has been registered!
-LINHA 31: 16:7:43 | [PermissionManager] Perm (MenuObjectManager:EditSet) has been registered!
-LINHA 32: 16:7:43 | [PermissionManager] Perm (MenuPermissionsEditor) has been registered!
-LINHA 33: 16:7:43 | [PermissionManager] Perm (PermissionsEditor:RemoveUser) has been registered!
-LINHA 34: 16:7:43 | [PermissionManager] Perm (PermissionsEditor:AddUser) has been registered!
-LINHA 35: 16:7:43 | [PermissionManager] Perm (PermissionsEditor:CreateUserGroup) has been registered!
-LINHA 36: 16:7:43 | [PermissionManager] Perm (PermissionsEditor:DeleteUserGroup) has been registered!
-LINHA 37: 16:7:43 | [PermissionManager] Perm (PermissionsEditor:ChangePermLevel) has been registered!
-LINHA 38: 16:7:43 | [PermissionManager] Perm (MenuPlayerManager) has been registered!
-LINHA 39: 16:7:43 | [PermissionManager] Perm (PlayerManager:GiveGodmode) has been registered!
-LINHA 40: 16:7:43 | [PermissionManager] Perm (PlayerManager:BanPlayer) has been registered!
-LINHA 41: 16:7:43 | [PermissionManager] Perm (PlayerManager:KickPlayer) has been registered!
-LINHA 42: 16:7:43 | [PermissionManager] Perm (PlayerManager:HealPlayers) has been registered!
-LINHA 43: 16:7:43 | [PermissionManager] Perm (PlayerManager:SetPlayerStats) has been registered!
-LINHA 44: 16:7:43 | [PermissionManager] Perm (PlayerManager:KillPlayers) has been registered!
-LINHA 45: 16:7:43 | [PermissionManager] Perm (PlayerManager:GodMode) has been registered!
-LINHA 46: 16:7:43 | [PermissionManager] Perm (PlayerManager:SpectatePlayer) has been registered!
-LINHA 47: 16:7:43 | [PermissionManager] Perm (PlayerManager:TeleportToPlayer) has been registered!
-LINHA 48: 16:7:43 | [PermissionManager] Perm (PlayerManager:TeleportPlayerTo) has been registered!
-LINHA 49: 16:7:43 | [PermissionManager] Perm (PlayerManager:SetPlayerInvisible) has been registered!
-LINHA 50: 16:7:43 | [PermissionManager] Perm (PlayerManager:SendMessage) has been registered!
-LINHA 51: 16:7:43 | [PermissionManager] Perm (PlayerManager:GiveUnlimitedAmmo) has been registered!
-LINHA 52: 16:7:43 | [PermissionManager] Perm (PlayerManager:MakePlayerVomit) has been registered!
-LINHA 53: 16:7:43 | [PermissionManager] Perm (PlayerManager:FreezePlayers) has been registered!
-LINHA 54: 16:7:43 | [PermissionManager] Perm (PlayerManager:ChangeScale) has been registered!
-LINHA 55: 16:7:43 | [PermissionManager] Perm (PlayerManager:StopBleeding) has been registered!
-LINHA 56: 16:7:43 | [PermissionManager] Perm (PlayerManager:ClearInventory) has been registered!
-LINHA 57: 16:7:43 | [PermissionManager] Perm (PlayerManager:EditModifiers) has been registered!
-LINHA 58: 16:7:43 | [PermissionManager] Perm (MenuBansManager) has been registered!
-LINHA 59: 16:7:43 | [PermissionManager] Perm (BansManager:UnbanPlayer) has been registered!
-LINHA 60: 16:7:43 | [PermissionManager] Perm (BansManager:UpdateBanDuration) has been registered!
-LINHA 61: 16:7:43 | [PermissionManager] Perm (BansManager:UpdateBanReason) has been registered!
-LINHA 62: 16:7:43 | [PermissionManager] Perm (MenuSpectateTools) has been registered!
-LINHA 63: 16:7:43 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-LINHA 64: 16:7:43 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-LINHA 65: 16:7:43 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-LINHA 66: 16:7:43 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-LINHA 67: 16:7:43 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-LINHA 68: 16:7:43 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-LINHA 69: 16:7:43 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-LINHA 70: 16:7:43 | [PermissionManager] Perm (MenuTeleportManager) has been registered!
-LINHA 71: 16:7:43 | [PermissionManager] Perm (TeleportManager:ViewPlayerPositions) has been registered!
-LINHA 72: 16:7:43 | [PermissionManager] Perm (TeleportManager:TPPlayers) has been registered!
-LINHA 73: 16:7:43 | [PermissionManager] Perm (TeleportManager:TPSelf) has been registered!
-LINHA 74: 16:7:43 | [PermissionManager] Perm (TeleportManager:DeletePreset) has been registered!
-LINHA 75: 16:7:43 | [PermissionManager] Perm (TeleportManager:AddNewPreset) has been registered!
-LINHA 76: 16:7:43 | [PermissionManager] Perm (TeleportManager:EditPreset) has been registered!
-LINHA 77: 16:7:43 | [PermissionManager] Perm (TeleportManager:TeleportEntity) has been registered!
-LINHA 78: 16:7:43 | [PermissionManager] Perm (EspToolsMenu) has been registered!
-LINHA 79: 16:7:43 | [PermissionManager] Perm (EspToolsMenu:DeleteObjects) has been registered!
-LINHA 80: 16:7:43 | [PermissionManager] Perm (EspToolsMenu:PlayerESP) has been registered!
-LINHA 81: 16:7:43 | [PermissionManager] Perm (EspToolsMenu:RestPasscodeFence) has been registered!
-LINHA 82: 16:7:43 | [PermissionManager] Perm (EspToolsMenu:RetriveCodeFromObj) has been registered!
-LINHA 83: 16:7:43 | [PermissionManager] Perm (EspToolsMenu:PlayerMeshEsp) has been registered!
-LINHA 84: 16:7:43 | [PermissionManager] Perm (EspToolsMenu:InstantBaseBuild) has been registered!
-LINHA 85: 16:7:43 | [PermissionManager] Perm (MenuXMLEditor) has been registered!
-LINHA 86: 16:7:43 | [PermissionManager] Perm (MenuXMLEditor:EditTypes) has been registered!
-LINHA 87: 16:7:43 | [PermissionManager] Perm (MenuXMLEditor:AddRemoveTypes) has been registered!
-LINHA 88: 16:7:43 | [PermissionManager] Perm (MenuXMLEditor:DistributionMap) has been registered!
-LINHA 89: 16:7:43 | [PermissionManager] Perm (MenuXMLEditor:ViewBackups) has been registered!
-LINHA 90: 16:7:43 | [PermissionManager] Perm (MenuXMLEditor:RestoreBackup) has been registered!
-LINHA 91: 16:7:43 | [PermissionManager] Perm (MenuXMLEditor:DeleteBackup) has been registered!
-LINHA 92: 16:7:43 | [PermissionManager] Perm (MenuXMLEditor:LiveScan) has been registered!
-LINHA 93: 16:7:43 | [PermissionManager] Perm (MenuXMLEditor:DeleteObjects) has been registered!
-LINHA 94: 16:7:43 | [PermissionManager] Perm (MenuXMLEditor:EditMessages) has been registered!
-LINHA 95: 16:7:43 | [PermissionManager] Perm (MenuXMLEditor:EditEvents) has been registered!
-LINHA 96: 16:7:43 | [PermissionManager] Perm (MenuXMLEditor:EditSpawnables) has been registered!
-LINHA 97: 16:7:43 | [PermissionManager] Perm (MenuCommandsConsole) has been registered!
-LINHA 98: 16:7:43 | [PermissionManager] Perm (ContextMenu:ItemHealth) has been registered!
-LINHA 99: 16:7:43 | [PermissionManager] Perm (ContextMenu:WeaponLoad) has been registered!
-LINHA 100: 16:7:43 | [PermissionManager] Perm (ContextMenu:CreatureHeal) has been registered!
-LINHA 101: 16:7:43 | [PermissionManager] Perm (ContextMenu:SpawnAttachment) has been registered!
-LINHA 102: 16:7:43 | [PermissionManager] Perm (ContextMenu:CreatureKill) has been registered!
-LINHA 103: 16:7:43 | [PermissionManager] Perm (ContextMenu:ItemQuantity) has been registered!
-LINHA 104: 16:7:43 | [PermissionManager] Perm (ContextMenu:SetScale) has been registered!
-LINHA 105: 16:7:43 | [PermissionManager] Perm (ContextMenu:VehicleRefuel) has been registered!
-LINHA 106: 16:7:43 | [PermissionManager] Perm (ContextMenu:WeaponRefill) has been registered!
-LINHA 107: 16:7:43 | [PermissionManager] Perm (ContextMenu:Ragdoll) has been registered!
-LINHA 108: 16:7:43 | [PermissionManager] Perm (ContextMenu:WeaponJam) has been registered!
-LINHA 109: 16:7:43 | [PermissionManager] Perm (ContextMenu:WeaponEject) has been registered!
-LINHA 110 : [CONTEUDO SENSIVEL MASCARADO]
-LINHA 111: 16:7:43 | [PermissionManager] Adding Super Admin ([IDENTIFICADOR MASCARADO](eachIDentryona*newline*,nospacesbetweenorcommas))
-LINHA 112: 16:7:43 | [PermissionManager] Loaded UserGroups.json
-LINHA 113: 16:7:43 | [BansManager]:: Load(): Loading ban list Json File $profile:VPPAdminTools/BanList.json
-LINHA 114: 16:7:43 | [PermissionManager] Perm (Chat:StripPlayer) has been registered!
-LINHA 115: 16:7:43 | [PermissionManager] Perm (Chat:KillPlayer) has been registered!
-LINHA 116: 16:7:43 | [PermissionManager] Perm (Chat:HealPlayer) has been registered!
-LINHA 117: 16:7:43 | [PermissionManager] Perm (Chat:BringPlayer) has been registered!
-LINHA 118: 16:7:43 | [PermissionManager] Perm (Chat:ReturnPlayer) has been registered!
-LINHA 119: 16:7:43 | [PermissionManager] Perm (Chat:GotoPlayer) has been registered!
-LINHA 120: 16:7:43 | [PermissionManager] Perm (Chat:UnbanPlayer) has been registered!
-LINHA 121: 16:7:43 | [PermissionManager] Perm (Chat:TeleportToTown) has been registered!
-LINHA 122: 16:7:43 | [PermissionManager] Perm (Chat:TeleportToPoint) has been registered!
-LINHA 123: 16:7:43 | [PermissionManager] Perm (Chat:GiveAmmo) has been registered!
-LINHA 124: 16:7:43 | [PermissionManager] Perm (Chat:SpawnInventory) has been registered!
-LINHA 125: 16:7:43 | [PermissionManager] Perm (Chat:SpawnOnGround) has been registered!
-LINHA 126: 16:7:43 | [PermissionManager] Perm (Chat:SpawnInHands) has been registered!
-LINHA 127: 16:7:43 | [PermissionManager] Perm (Chat:SpawnCar) has been registered!
-LINHA 128: 16:7:43 | [PermissionManager] Perm (Chat:refuelCar) has been registered!
-LINHA 129: 16:7:43 | [WeatherManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 130: 16:7:43 | [TimeManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 131: 16:7:43 | [BuildingSetManager] Journal: 0 set(s) loaded, 0 found by the folder scan, 0 dropped, 0 converted from .vpp, 0 upgraded to format 2
-LINHA 132: 16:7:43 | [SteamAPIManager] WARNING couldn't fetch server IP from configs; using cURL...
-LINHA 133 : [CONTEUDO SENSIVEL MASCARADO]
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-20-59.txt
-TAMANHO: 11682 bytes
---------------------------------------------------
-LINHA 1: [IDENTIFICADOR MASCARADO] Admin Tools Session [IDENTIFICADOR MASCARADO]
-LINHA 2: Logs Started: 2026-11-15_17-20-59
-LINHA 3: [IDENTIFICADOR MASCARADO]
-LINHA 4: 17:20:59 | [PermissionManager] Perm (DeleteObjectAtCrosshair) has been registered!
-LINHA 5: 17:20:59 | [PermissionManager] Perm (TeleportToCrosshair) has been registered!
-LINHA 6: 17:20:59 | [PermissionManager] Perm (FreeCamera) has been registered!
-LINHA 7: 17:20:59 | [PermissionManager] Perm ([IDENTIFICADOR MASCARADO]) has been registered!
-LINHA 8: 17:20:59 | [PermissionManager] Perm (MenuItemManager) has been registered!
-LINHA 9: 17:20:59 | [PermissionManager] Perm (MenuItemManager:SpawnItem) has been registered!
-LINHA 10: 17:20:59 | [PermissionManager] Perm (MenuItemManager:EditPreset) has been registered!
-LINHA 11: 17:20:59 | [PermissionManager] Perm (MenuItemManager:SpawnPreset) has been registered!
-LINHA 12: 17:20:59 | [PermissionManager] Perm (MenuItemManager:DeletePreset) has been registered!
-LINHA 13: 17:20:59 | [PermissionManager] Perm (MenuItemManager:AddPreset) has been registered!
-LINHA 14: 17:20:59 | [PermissionManager] Perm (MenuServerManager) has been registered!
-LINHA 15: 17:20:59 | [PermissionManager] Perm (ServerManager:RestartServer) has been registered!
-LINHA 16: 17:20:59 | [PermissionManager] Perm (ServerManager:LockServer) has been registered!
-LINHA 17: 17:20:59 | [PermissionManager] Perm (ServerManager:KickAllPlayers) has been registered!
-LINHA 18: 17:20:59 | [PermissionManager] Perm (MenuWeatherManager) has been registered!
-LINHA 19: 17:20:59 | [PermissionManager] Perm (WeatherManager:ApplyWeather) has been registered!
-LINHA 20: 17:20:59 | [PermissionManager] Perm (WeatherManager:ApplyTime) has been registered!
-LINHA 21: 17:20:59 | [PermissionManager] Perm (WeatherManager:SavePreset) has been registered!
-LINHA 22: 17:20:59 | [PermissionManager] Perm (WeatherManager:DeletePreset) has been registered!
-LINHA 23: 17:20:59 | [PermissionManager] Perm (WeatherManager:ApplyPreset) has been registered!
-LINHA 24: 17:20:59 | [PermissionManager] Perm (WeatherManager:ApplyTimePreset) has been registered!
-LINHA 25: 17:20:59 | [PermissionManager] Perm (WeatherManager:SaveTimePreset) has been registered!
-LINHA 26: 17:20:59 | [PermissionManager] Perm (WeatherManager:DeleteTimePreset) has been registered!
-LINHA 27: 17:20:59 | [PermissionManager] Perm (MenuObjectManager) has been registered!
-LINHA 28: 17:20:59 | [PermissionManager] Perm (MenuObjectManager:CreateNewSet) has been registered!
-LINHA 29: 17:20:59 | [PermissionManager] Perm (MenuObjectManager:UpdateSet) has been registered!
-LINHA 30: 17:20:59 | [PermissionManager] Perm (MenuObjectManager:DeleteSet) has been registered!
-LINHA 31: 17:20:59 | [PermissionManager] Perm (MenuObjectManager:EditSet) has been registered!
-LINHA 32: 17:20:59 | [PermissionManager] Perm (MenuPermissionsEditor) has been registered!
-LINHA 33: 17:20:59 | [PermissionManager] Perm (PermissionsEditor:RemoveUser) has been registered!
-LINHA 34: 17:20:59 | [PermissionManager] Perm (PermissionsEditor:AddUser) has been registered!
-LINHA 35: 17:20:59 | [PermissionManager] Perm (PermissionsEditor:CreateUserGroup) has been registered!
-LINHA 36: 17:20:59 | [PermissionManager] Perm (PermissionsEditor:DeleteUserGroup) has been registered!
-LINHA 37: 17:20:59 | [PermissionManager] Perm (PermissionsEditor:ChangePermLevel) has been registered!
-LINHA 38: 17:20:59 | [PermissionManager] Perm (MenuPlayerManager) has been registered!
-LINHA 39: 17:20:59 | [PermissionManager] Perm (PlayerManager:GiveGodmode) has been registered!
-LINHA 40: 17:20:59 | [PermissionManager] Perm (PlayerManager:BanPlayer) has been registered!
-LINHA 41: 17:20:59 | [PermissionManager] Perm (PlayerManager:KickPlayer) has been registered!
-LINHA 42: 17:20:59 | [PermissionManager] Perm (PlayerManager:HealPlayers) has been registered!
-LINHA 43: 17:20:59 | [PermissionManager] Perm (PlayerManager:SetPlayerStats) has been registered!
-LINHA 44: 17:20:59 | [PermissionManager] Perm (PlayerManager:KillPlayers) has been registered!
-LINHA 45: 17:20:59 | [PermissionManager] Perm (PlayerManager:GodMode) has been registered!
-LINHA 46: 17:20:59 | [PermissionManager] Perm (PlayerManager:SpectatePlayer) has been registered!
-LINHA 47: 17:20:59 | [PermissionManager] Perm (PlayerManager:TeleportToPlayer) has been registered!
-LINHA 48: 17:20:59 | [PermissionManager] Perm (PlayerManager:TeleportPlayerTo) has been registered!
-LINHA 49: 17:20:59 | [PermissionManager] Perm (PlayerManager:SetPlayerInvisible) has been registered!
-LINHA 50: 17:20:59 | [PermissionManager] Perm (PlayerManager:SendMessage) has been registered!
-LINHA 51: 17:20:59 | [PermissionManager] Perm (PlayerManager:GiveUnlimitedAmmo) has been registered!
-LINHA 52: 17:20:59 | [PermissionManager] Perm (PlayerManager:MakePlayerVomit) has been registered!
-LINHA 53: 17:20:59 | [PermissionManager] Perm (PlayerManager:FreezePlayers) has been registered!
-LINHA 54: 17:20:59 | [PermissionManager] Perm (PlayerManager:ChangeScale) has been registered!
-LINHA 55: 17:20:59 | [PermissionManager] Perm (PlayerManager:StopBleeding) has been registered!
-LINHA 56: 17:20:59 | [PermissionManager] Perm (PlayerManager:ClearInventory) has been registered!
-LINHA 57: 17:20:59 | [PermissionManager] Perm (PlayerManager:EditModifiers) has been registered!
-LINHA 58: 17:20:59 | [PermissionManager] Perm (MenuBansManager) has been registered!
-LINHA 59: 17:20:59 | [PermissionManager] Perm (BansManager:UnbanPlayer) has been registered!
-LINHA 60: 17:20:59 | [PermissionManager] Perm (BansManager:UpdateBanDuration) has been registered!
-LINHA 61: 17:20:59 | [PermissionManager] Perm (BansManager:UpdateBanReason) has been registered!
-LINHA 62: 17:20:59 | [PermissionManager] Perm (MenuSpectateTools) has been registered!
-LINHA 63: 17:20:59 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-LINHA 64: 17:20:59 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-LINHA 65: 17:20:59 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-LINHA 66: 17:20:59 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-LINHA 67: 17:20:59 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-LINHA 68: 17:20:59 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-LINHA 69: 17:20:59 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-LINHA 70: 17:20:59 | [PermissionManager] Perm (MenuTeleportManager) has been registered!
-LINHA 71: 17:20:59 | [PermissionManager] Perm (TeleportManager:ViewPlayerPositions) has been registered!
-LINHA 72: 17:20:59 | [PermissionManager] Perm (TeleportManager:TPPlayers) has been registered!
-LINHA 73: 17:20:59 | [PermissionManager] Perm (TeleportManager:TPSelf) has been registered!
-LINHA 74: 17:20:59 | [PermissionManager] Perm (TeleportManager:DeletePreset) has been registered!
-LINHA 75: 17:20:59 | [PermissionManager] Perm (TeleportManager:AddNewPreset) has been registered!
-LINHA 76: 17:20:59 | [PermissionManager] Perm (TeleportManager:EditPreset) has been registered!
-LINHA 77: 17:20:59 | [PermissionManager] Perm (TeleportManager:TeleportEntity) has been registered!
-LINHA 78: 17:20:59 | [PermissionManager] Perm (EspToolsMenu) has been registered!
-LINHA 79: 17:20:59 | [PermissionManager] Perm (EspToolsMenu:DeleteObjects) has been registered!
-LINHA 80: 17:20:59 | [PermissionManager] Perm (EspToolsMenu:PlayerESP) has been registered!
-LINHA 81: 17:20:59 | [PermissionManager] Perm (EspToolsMenu:RestPasscodeFence) has been registered!
-LINHA 82: 17:20:59 | [PermissionManager] Perm (EspToolsMenu:RetriveCodeFromObj) has been registered!
-LINHA 83: 17:20:59 | [PermissionManager] Perm (EspToolsMenu:PlayerMeshEsp) has been registered!
-LINHA 84: 17:20:59 | [PermissionManager] Perm (EspToolsMenu:InstantBaseBuild) has been registered!
-LINHA 85: 17:20:59 | [PermissionManager] Perm (MenuXMLEditor) has been registered!
-LINHA 86: 17:20:59 | [PermissionManager] Perm (MenuXMLEditor:EditTypes) has been registered!
-LINHA 87: 17:20:59 | [PermissionManager] Perm (MenuXMLEditor:AddRemoveTypes) has been registered!
-LINHA 88: 17:20:59 | [PermissionManager] Perm (MenuXMLEditor:DistributionMap) has been registered!
-LINHA 89: 17:20:59 | [PermissionManager] Perm (MenuXMLEditor:ViewBackups) has been registered!
-LINHA 90: 17:20:59 | [PermissionManager] Perm (MenuXMLEditor:RestoreBackup) has been registered!
-LINHA 91: 17:20:59 | [PermissionManager] Perm (MenuXMLEditor:DeleteBackup) has been registered!
-LINHA 92: 17:20:59 | [PermissionManager] Perm (MenuXMLEditor:LiveScan) has been registered!
-LINHA 93: 17:20:59 | [PermissionManager] Perm (MenuXMLEditor:DeleteObjects) has been registered!
-LINHA 94: 17:20:59 | [PermissionManager] Perm (MenuXMLEditor:EditMessages) has been registered!
-LINHA 95: 17:20:59 | [PermissionManager] Perm (MenuXMLEditor:EditEvents) has been registered!
-LINHA 96: 17:20:59 | [PermissionManager] Perm (MenuXMLEditor:EditSpawnables) has been registered!
-LINHA 97: 17:20:59 | [PermissionManager] Perm (MenuCommandsConsole) has been registered!
-LINHA 98: 17:20:59 | [PermissionManager] Perm (ContextMenu:ItemHealth) has been registered!
-LINHA 99: 17:20:59 | [PermissionManager] Perm (ContextMenu:WeaponLoad) has been registered!
-LINHA 100: 17:20:59 | [PermissionManager] Perm (ContextMenu:CreatureHeal) has been registered!
-LINHA 101: 17:20:59 | [PermissionManager] Perm (ContextMenu:SpawnAttachment) has been registered!
-LINHA 102: 17:20:59 | [PermissionManager] Perm (ContextMenu:CreatureKill) has been registered!
-LINHA 103: 17:20:59 | [PermissionManager] Perm (ContextMenu:ItemQuantity) has been registered!
-LINHA 104: 17:20:59 | [PermissionManager] Perm (ContextMenu:SetScale) has been registered!
-LINHA 105: 17:20:59 | [PermissionManager] Perm (ContextMenu:VehicleRefuel) has been registered!
-LINHA 106: 17:20:59 | [PermissionManager] Perm (ContextMenu:WeaponRefill) has been registered!
-LINHA 107: 17:20:59 | [PermissionManager] Perm (ContextMenu:Ragdoll) has been registered!
-LINHA 108: 17:20:59 | [PermissionManager] Perm (ContextMenu:WeaponJam) has been registered!
-LINHA 109: 17:20:59 | [PermissionManager] Perm (ContextMenu:WeaponEject) has been registered!
-LINHA 110 : [CONTEUDO SENSIVEL MASCARADO]
-LINHA 111: 17:20:59 | [PermissionManager] Adding Super Admin (76561198196693358)
-LINHA 112: 17:20:59 | [PermissionManager] Loaded UserGroups.json
-LINHA 113: 17:20:59 | [BansManager]:: Load(): Loading ban list Json File $profile:VPPAdminTools/BanList.json
-LINHA 114: 17:20:59 | [PermissionManager] Perm (Chat:StripPlayer) has been registered!
-LINHA 115: 17:20:59 | [PermissionManager] Perm (Chat:KillPlayer) has been registered!
-LINHA 116: 17:20:59 | [PermissionManager] Perm (Chat:HealPlayer) has been registered!
-LINHA 117: 17:20:59 | [PermissionManager] Perm (Chat:BringPlayer) has been registered!
-LINHA 118: 17:20:59 | [PermissionManager] Perm (Chat:ReturnPlayer) has been registered!
-LINHA 119: 17:20:59 | [PermissionManager] Perm (Chat:GotoPlayer) has been registered!
-LINHA 120: 17:20:59 | [PermissionManager] Perm (Chat:UnbanPlayer) has been registered!
-LINHA 121: 17:20:59 | [PermissionManager] Perm (Chat:TeleportToTown) has been registered!
-LINHA 122: 17:20:59 | [PermissionManager] Perm (Chat:TeleportToPoint) has been registered!
-LINHA 123: 17:20:59 | [PermissionManager] Perm (Chat:GiveAmmo) has been registered!
-LINHA 124: 17:20:59 | [PermissionManager] Perm (Chat:SpawnInventory) has been registered!
-LINHA 125: 17:20:59 | [PermissionManager] Perm (Chat:SpawnOnGround) has been registered!
-LINHA 126: 17:20:59 | [PermissionManager] Perm (Chat:SpawnInHands) has been registered!
-LINHA 127: 17:20:59 | [PermissionManager] Perm (Chat:SpawnCar) has been registered!
-LINHA 128: 17:20:59 | [PermissionManager] Perm (Chat:refuelCar) has been registered!
-LINHA 129: 17:20:59 | [WeatherManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 130: 17:20:59 | [TimeManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 131: 17:20:59 | [BuildingSetManager] Journal: 0 set(s) loaded, 0 found by the folder scan, 0 dropped, 0 converted from .vpp, 0 upgraded to format 2
-LINHA 132: 17:20:59 | [SteamAPIManager] WARNING couldn't fetch server IP from configs; using cURL...
-LINHA 133 : [CONTEUDO SENSIVEL MASCARADO]
-LINHA 134: 17:22:58 | Player "Chaves" ([IDENTIFICADOR MASCARADO]) connected to server!
-LINHA 135: 17:22:58 | Player "******" ([IDENTIFICADOR MASCARADO]) connected to server!
-LINHA 136: 17:36:4 | Player "Chaves" ([IDENTIFICADOR MASCARADO]) initiated disconnect process...
-LINHA 137: 17:36:4 | Player "******" ([IDENTIFICADOR MASCARADO]) initiated disconnect process...
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt
-TAMANHO: 26007 bytes
---------------------------------------------------
-LINHA 1: [IDENTIFICADOR MASCARADO] Admin Tools Session [IDENTIFICADOR MASCARADO]
-LINHA 2: Logs Started: 2026-11-15_17-37-47
-LINHA 3: [IDENTIFICADOR MASCARADO]
-LINHA 4: 17:37:47 | [PermissionManager] Perm (DeleteObjectAtCrosshair) has been registered!
-LINHA 5: 17:37:47 | [PermissionManager] Perm (TeleportToCrosshair) has been registered!
-LINHA 6: 17:37:47 | [PermissionManager] Perm (FreeCamera) has been registered!
-LINHA 7: 17:37:47 | [PermissionManager] Perm ([IDENTIFICADOR MASCARADO]) has been registered!
-LINHA 8: 17:37:47 | [PermissionManager] Perm (MenuItemManager) has been registered!
-LINHA 9: 17:37:47 | [PermissionManager] Perm (MenuItemManager:SpawnItem) has been registered!
-LINHA 10: 17:37:47 | [PermissionManager] Perm (MenuItemManager:EditPreset) has been registered!
-LINHA 11: 17:37:47 | [PermissionManager] Perm (MenuItemManager:SpawnPreset) has been registered!
-LINHA 12: 17:37:47 | [PermissionManager] Perm (MenuItemManager:DeletePreset) has been registered!
-LINHA 13: 17:37:47 | [PermissionManager] Perm (MenuItemManager:AddPreset) has been registered!
-LINHA 14: 17:37:47 | [PermissionManager] Perm (MenuServerManager) has been registered!
-LINHA 15: 17:37:47 | [PermissionManager] Perm (ServerManager:RestartServer) has been registered!
-LINHA 16: 17:37:47 | [PermissionManager] Perm (ServerManager:LockServer) has been registered!
-LINHA 17: 17:37:47 | [PermissionManager] Perm (ServerManager:KickAllPlayers) has been registered!
-LINHA 18: 17:37:47 | [PermissionManager] Perm (MenuWeatherManager) has been registered!
-LINHA 19: 17:37:47 | [PermissionManager] Perm (WeatherManager:ApplyWeather) has been registered!
-LINHA 20: 17:37:47 | [PermissionManager] Perm (WeatherManager:ApplyTime) has been registered!
-LINHA 21: 17:37:47 | [PermissionManager] Perm (WeatherManager:SavePreset) has been registered!
-LINHA 22: 17:37:47 | [PermissionManager] Perm (WeatherManager:DeletePreset) has been registered!
-LINHA 23: 17:37:47 | [PermissionManager] Perm (WeatherManager:ApplyPreset) has been registered!
-LINHA 24: 17:37:47 | [PermissionManager] Perm (WeatherManager:ApplyTimePreset) has been registered!
-LINHA 25: 17:37:47 | [PermissionManager] Perm (WeatherManager:SaveTimePreset) has been registered!
-LINHA 26: 17:37:47 | [PermissionManager] Perm (WeatherManager:DeleteTimePreset) has been registered!
-LINHA 27: 17:37:47 | [PermissionManager] Perm (MenuObjectManager) has been registered!
-LINHA 28: 17:37:47 | [PermissionManager] Perm (MenuObjectManager:CreateNewSet) has been registered!
-LINHA 29: 17:37:47 | [PermissionManager] Perm (MenuObjectManager:UpdateSet) has been registered!
-LINHA 30: 17:37:47 | [PermissionManager] Perm (MenuObjectManager:DeleteSet) has been registered!
-LINHA 31: 17:37:47 | [PermissionManager] Perm (MenuObjectManager:EditSet) has been registered!
-LINHA 32: 17:37:47 | [PermissionManager] Perm (MenuPermissionsEditor) has been registered!
-LINHA 33: 17:37:47 | [PermissionManager] Perm (PermissionsEditor:RemoveUser) has been registered!
-LINHA 34: 17:37:47 | [PermissionManager] Perm (PermissionsEditor:AddUser) has been registered!
-LINHA 35: 17:37:47 | [PermissionManager] Perm (PermissionsEditor:CreateUserGroup) has been registered!
-LINHA 36: 17:37:47 | [PermissionManager] Perm (PermissionsEditor:DeleteUserGroup) has been registered!
-LINHA 37: 17:37:47 | [PermissionManager] Perm (PermissionsEditor:ChangePermLevel) has been registered!
-LINHA 38: 17:37:47 | [PermissionManager] Perm (MenuPlayerManager) has been registered!
-LINHA 39: 17:37:47 | [PermissionManager] Perm (PlayerManager:GiveGodmode) has been registered!
-LINHA 40: 17:37:47 | [PermissionManager] Perm (PlayerManager:BanPlayer) has been registered!
-LINHA 41: 17:37:47 | [PermissionManager] Perm (PlayerManager:KickPlayer) has been registered!
-LINHA 42: 17:37:47 | [PermissionManager] Perm (PlayerManager:HealPlayers) has been registered!
-LINHA 43: 17:37:47 | [PermissionManager] Perm (PlayerManager:SetPlayerStats) has been registered!
-LINHA 44: 17:37:47 | [PermissionManager] Perm (PlayerManager:KillPlayers) has been registered!
-LINHA 45: 17:37:47 | [PermissionManager] Perm (PlayerManager:GodMode) has been registered!
-LINHA 46: 17:37:47 | [PermissionManager] Perm (PlayerManager:SpectatePlayer) has been registered!
-LINHA 47: 17:37:47 | [PermissionManager] Perm (PlayerManager:TeleportToPlayer) has been registered!
-LINHA 48: 17:37:47 | [PermissionManager] Perm (PlayerManager:TeleportPlayerTo) has been registered!
-LINHA 49: 17:37:47 | [PermissionManager] Perm (PlayerManager:SetPlayerInvisible) has been registered!
-LINHA 50: 17:37:47 | [PermissionManager] Perm (PlayerManager:SendMessage) has been registered!
-LINHA 51: 17:37:47 | [PermissionManager] Perm (PlayerManager:GiveUnlimitedAmmo) has been registered!
-LINHA 52: 17:37:47 | [PermissionManager] Perm (PlayerManager:MakePlayerVomit) has been registered!
-LINHA 53: 17:37:47 | [PermissionManager] Perm (PlayerManager:FreezePlayers) has been registered!
-LINHA 54: 17:37:47 | [PermissionManager] Perm (PlayerManager:ChangeScale) has been registered!
-LINHA 55: 17:37:47 | [PermissionManager] Perm (PlayerManager:StopBleeding) has been registered!
-LINHA 56: 17:37:47 | [PermissionManager] Perm (PlayerManager:ClearInventory) has been registered!
-LINHA 57: 17:37:47 | [PermissionManager] Perm (PlayerManager:EditModifiers) has been registered!
-LINHA 58: 17:37:47 | [PermissionManager] Perm (MenuBansManager) has been registered!
-LINHA 59: 17:37:47 | [PermissionManager] Perm (BansManager:UnbanPlayer) has been registered!
-LINHA 60: 17:37:47 | [PermissionManager] Perm (BansManager:UpdateBanDuration) has been registered!
-LINHA 61: 17:37:47 | [PermissionManager] Perm (BansManager:UpdateBanReason) has been registered!
-LINHA 62: 17:37:47 | [PermissionManager] Perm (MenuSpectateTools) has been registered!
-LINHA 63: 17:37:47 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-LINHA 64: 17:37:47 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-LINHA 65: 17:37:47 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-LINHA 66: 17:37:47 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-LINHA 67: 17:37:47 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-LINHA 68: 17:37:47 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-LINHA 69: 17:37:47 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-LINHA 70: 17:37:47 | [PermissionManager] Perm (MenuTeleportManager) has been registered!
-LINHA 71: 17:37:47 | [PermissionManager] Perm (TeleportManager:ViewPlayerPositions) has been registered!
-LINHA 72: 17:37:47 | [PermissionManager] Perm (TeleportManager:TPPlayers) has been registered!
-LINHA 73: 17:37:47 | [PermissionManager] Perm (TeleportManager:TPSelf) has been registered!
-LINHA 74: 17:37:47 | [PermissionManager] Perm (TeleportManager:DeletePreset) has been registered!
-LINHA 75: 17:37:47 | [PermissionManager] Perm (TeleportManager:AddNewPreset) has been registered!
-LINHA 76: 17:37:47 | [PermissionManager] Perm (TeleportManager:EditPreset) has been registered!
-LINHA 77: 17:37:47 | [PermissionManager] Perm (TeleportManager:TeleportEntity) has been registered!
-LINHA 78: 17:37:47 | [PermissionManager] Perm (EspToolsMenu) has been registered!
-LINHA 79: 17:37:47 | [PermissionManager] Perm (EspToolsMenu:DeleteObjects) has been registered!
-LINHA 80: 17:37:47 | [PermissionManager] Perm (EspToolsMenu:PlayerESP) has been registered!
-LINHA 81: 17:37:47 | [PermissionManager] Perm (EspToolsMenu:RestPasscodeFence) has been registered!
-LINHA 82: 17:37:47 | [PermissionManager] Perm (EspToolsMenu:RetriveCodeFromObj) has been registered!
-LINHA 83: 17:37:47 | [PermissionManager] Perm (EspToolsMenu:PlayerMeshEsp) has been registered!
-LINHA 84: 17:37:47 | [PermissionManager] Perm (EspToolsMenu:InstantBaseBuild) has been registered!
-LINHA 85: 17:37:47 | [PermissionManager] Perm (MenuXMLEditor) has been registered!
-LINHA 86: 17:37:47 | [PermissionManager] Perm (MenuXMLEditor:EditTypes) has been registered!
-LINHA 87: 17:37:47 | [PermissionManager] Perm (MenuXMLEditor:AddRemoveTypes) has been registered!
-LINHA 88: 17:37:47 | [PermissionManager] Perm (MenuXMLEditor:DistributionMap) has been registered!
-LINHA 89: 17:37:47 | [PermissionManager] Perm (MenuXMLEditor:ViewBackups) has been registered!
-LINHA 90: 17:37:47 | [PermissionManager] Perm (MenuXMLEditor:RestoreBackup) has been registered!
-LINHA 91: 17:37:47 | [PermissionManager] Perm (MenuXMLEditor:DeleteBackup) has been registered!
-LINHA 92: 17:37:47 | [PermissionManager] Perm (MenuXMLEditor:LiveScan) has been registered!
-LINHA 93: 17:37:47 | [PermissionManager] Perm (MenuXMLEditor:DeleteObjects) has been registered!
-LINHA 94: 17:37:47 | [PermissionManager] Perm (MenuXMLEditor:EditMessages) has been registered!
-LINHA 95: 17:37:47 | [PermissionManager] Perm (MenuXMLEditor:EditEvents) has been registered!
-LINHA 96: 17:37:47 | [PermissionManager] Perm (MenuXMLEditor:EditSpawnables) has been registered!
-LINHA 97: 17:37:47 | [PermissionManager] Perm (MenuCommandsConsole) has been registered!
-LINHA 98: 17:37:47 | [PermissionManager] Perm (ContextMenu:ItemHealth) has been registered!
-LINHA 99: 17:37:47 | [PermissionManager] Perm (ContextMenu:WeaponLoad) has been registered!
-LINHA 100: 17:37:47 | [PermissionManager] Perm (ContextMenu:CreatureHeal) has been registered!
-LINHA 101: 17:37:47 | [PermissionManager] Perm (ContextMenu:SpawnAttachment) has been registered!
-LINHA 102: 17:37:47 | [PermissionManager] Perm (ContextMenu:CreatureKill) has been registered!
-LINHA 103: 17:37:47 | [PermissionManager] Perm (ContextMenu:ItemQuantity) has been registered!
-LINHA 104: 17:37:47 | [PermissionManager] Perm (ContextMenu:SetScale) has been registered!
-LINHA 105: 17:37:47 | [PermissionManager] Perm (ContextMenu:VehicleRefuel) has been registered!
-LINHA 106: 17:37:47 | [PermissionManager] Perm (ContextMenu:WeaponRefill) has been registered!
-LINHA 107: 17:37:47 | [PermissionManager] Perm (ContextMenu:Ragdoll) has been registered!
-LINHA 108: 17:37:47 | [PermissionManager] Perm (ContextMenu:WeaponJam) has been registered!
-LINHA 109: 17:37:47 | [PermissionManager] Perm (ContextMenu:WeaponEject) has been registered!
-LINHA 110: 17:37:47 | [PermissionManager] Adding Super Admin (76561198196693358)
-LINHA 111: 17:37:47 | [PermissionManager] Loaded UserGroups.json
-LINHA 112: 17:37:47 | [BansManager]:: Load(): Loading ban list Json File $profile:VPPAdminTools/BanList.json
-LINHA 113: 17:37:47 | [PermissionManager] Perm (Chat:StripPlayer) has been registered!
-LINHA 114: 17:37:47 | [PermissionManager] Perm (Chat:KillPlayer) has been registered!
-LINHA 115: 17:37:47 | [PermissionManager] Perm (Chat:HealPlayer) has been registered!
-LINHA 116: 17:37:47 | [PermissionManager] Perm (Chat:BringPlayer) has been registered!
-LINHA 117: 17:37:47 | [PermissionManager] Perm (Chat:ReturnPlayer) has been registered!
-LINHA 118: 17:37:47 | [PermissionManager] Perm (Chat:GotoPlayer) has been registered!
-LINHA 119: 17:37:47 | [PermissionManager] Perm (Chat:UnbanPlayer) has been registered!
-LINHA 120: 17:37:47 | [PermissionManager] Perm (Chat:TeleportToTown) has been registered!
-LINHA 121: 17:37:47 | [PermissionManager] Perm (Chat:TeleportToPoint) has been registered!
-LINHA 122: 17:37:47 | [PermissionManager] Perm (Chat:GiveAmmo) has been registered!
-LINHA 123: 17:37:47 | [PermissionManager] Perm (Chat:SpawnInventory) has been registered!
-LINHA 124: 17:37:47 | [PermissionManager] Perm (Chat:SpawnOnGround) has been registered!
-LINHA 125: 17:37:47 | [PermissionManager] Perm (Chat:SpawnInHands) has been registered!
-LINHA 126: 17:37:47 | [PermissionManager] Perm (Chat:SpawnCar) has been registered!
-LINHA 127: 17:37:47 | [PermissionManager] Perm (Chat:refuelCar) has been registered!
-LINHA 128: 17:37:47 | [WeatherManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 129: 17:37:47 | [TimeManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 130: 17:37:47 | [BuildingSetManager] Journal: 0 set(s) loaded, 0 found by the folder scan, 0 dropped, 0 converted from .vpp, 0 upgraded to format 2
-LINHA 131: 17:37:47 | [SteamAPIManager] WARNING couldn't fetch server IP from configs; using cURL...
-LINHA 132 : [CONTEUDO SENSIVEL MASCARADO]
-LINHA 133: 17:39:42 | Player "Chaves" ([IDENTIFICADOR MASCARADO]) connected to server!
-LINHA 134: 17:42:55 | Player "******" ([IDENTIFICADOR MASCARADO]) connected to server!
-LINHA 135: 17:45:20 | "******" ([IDENTIFICADOR MASCARADO]) started to spectate player: "76561198099577548"
-LINHA 136: 17:45:49 | "******" ([IDENTIFICADOR MASCARADO]) gave godmode to ([IDENTIFICADOR MASCARADO])
-LINHA 137: 17:46:5 | "******" ([IDENTIFICADOR MASCARADO]) stopped bleeding on player ([IDENTIFICADOR MASCARADO])
-LINHA 138: 17:46:11 | "******" ([IDENTIFICADOR MASCARADO]) gave unlimited ammo to ([IDENTIFICADOR MASCARADO])
-LINHA 139: 17:46:55 | "******" ([IDENTIFICADOR MASCARADO]) just updated a health stat on ([IDENTIFICADOR MASCARADO])
-LINHA 140: 17:47:24 | "******" ([IDENTIFICADOR MASCARADO]) gave godmode to ([IDENTIFICADOR MASCARADO])
-LINHA 141: 17:47:29 | "******" ([IDENTIFICADOR MASCARADO]) gave unlimited ammo to ([IDENTIFICADOR MASCARADO])
-LINHA 142: 17:48:53 | "******" ([IDENTIFICADOR MASCARADO]) executed kill command on: "76561198099577548"
-LINHA 143: 17:49:9 | Spectate session ended for [IDENTIFICADOR MASCARADO] (reason=2)
-LINHA 144: 17:49:37 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (HumanSteakMeat)
-LINHA 145: 17:50:3 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Achar)
-LINHA 146: 17:50:43 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Achar)
-LINHA 147: 17:50:44 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Achar)
-LINHA 148: 17:51:32 | "76561198196693358" ([IDENTIFICADOR MASCARADO]) teleported to (pos=<14834.000000, 208.819000, 7806.839844>)
-LINHA 149: 17:51:32 | "******": ([IDENTIFICADOR MASCARADO]) teleported to (pos=14834,208.819,7806.84)
-LINHA 150: 17:56:22 | "******" ([IDENTIFICADOR MASCARADO]) gave godmode to ([IDENTIFICADOR MASCARADO])
-LINHA 151: 17:56:23 | "******" ([IDENTIFICADOR MASCARADO]) stopped bleeding on player ([IDENTIFICADOR MASCARADO])
-LINHA 152: 17:57:4 | "******" ([IDENTIFICADOR MASCARADO]) Froze player controls ([IDENTIFICADOR MASCARADO])
-LINHA 153: 17:57:37 | [WeatherManager] Send Data Count is 0
-LINHA 154: 17:58:16 | [TimeManager] Saving setting to 4/30/2026 15:52
-LINHA 155: 17:58:16 | [TimeManager] Saving to $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 156: 17:58:26 | [Time Manager] Setting Date to 2026/4/15 15:50
-LINHA 157: 17:58:36 | [Time Manager] Setting Date to 2026/4/15 0:50
-LINHA 158: 18:7:7 | Player "Morpheus" ([IDENTIFICADOR MASCARADO]) connected to server!
-LINHA 159: 18:13:5 | Player "Chaves" ([IDENTIFICADOR MASCARADO]) initiated disconnect process...
-LINHA 160: 18:13:20 | Player "Chaves" ([IDENTIFICADOR MASCARADO]) disconnected from server.
-LINHA 161: 18:13:43 | Player "Chaves" ([IDENTIFICADOR MASCARADO]) connected to server!
-LINHA 162: 18:14:8 | "******" ([IDENTIFICADOR MASCARADO]) executed kill command on: "76561198196693358"
-LINHA 163: 18:14:14 | "******" ([IDENTIFICADOR MASCARADO]) executed kill command on: "76561198196693358"
-LINHA 164: 18:15:49 | "******" ([IDENTIFICADOR MASCARADO]) toggled freecam
-LINHA 165: 18:15:51 | "******" ([IDENTIFICADOR MASCARADO]) toggled freecam
-LINHA 166: 18:18:1 | "******" ([IDENTIFICADOR MASCARADO]) deactivated modifier "Fatigue" on player ([IDENTIFICADOR MASCARADO])
-LINHA 167: 18:18:10 | "******" ([IDENTIFICADOR MASCARADO]) activated modifier "Fatigue" on player ([IDENTIFICADOR MASCARADO])
-LINHA 168: 18:18:13 | "******" ([IDENTIFICADOR MASCARADO]) deactivated modifier "Toxicity" on player ([IDENTIFICADOR MASCARADO])
-LINHA 169: 18:18:14 | "******" ([IDENTIFICADOR MASCARADO]) deactivated modifier "BreathVapour" on player ([IDENTIFICADOR MASCARADO])
-LINHA 170: 18:18:15 | "******" ([IDENTIFICADOR MASCARADO]) deactivated modifier "WoundInfectStage2" on player ([IDENTIFICADOR MASCARADO])
-LINHA 171: 18:18:18 | "******" ([IDENTIFICADOR MASCARADO]) deactivated modifier "WoundInfectStage1" on player ([IDENTIFICADOR MASCARADO])
-LINHA 172: 18:18:22 | "******" ([IDENTIFICADOR MASCARADO]) deactivated modifier "Toxicity" on player ([IDENTIFICADOR MASCARADO])
-LINHA 173: 18:18:22 | "******" ([IDENTIFICADOR MASCARADO]) deactivated modifier "WoundInfectStage2" on player ([IDENTIFICADOR MASCARADO])
-LINHA 174: 18:19:27 | "******" ([IDENTIFICADOR MASCARADO]) deactivated modifier "BrokenLegs" on player ([IDENTIFICADOR MASCARADO])
-LINHA 175: 18:20:49 | "******" ([IDENTIFICADOR MASCARADO]) deactivated modifier "Stomach" on player ([IDENTIFICADOR MASCARADO])
-LINHA 176: 18:20:50 | "******" ([IDENTIFICADOR MASCARADO]) deactivated modifier "ImmuneSystem" on player ([IDENTIFICADOR MASCARADO])
-LINHA 177: 18:20:53 | "******" ([IDENTIFICADOR MASCARADO]) deactivated modifier "Thirst" on player ([IDENTIFICADOR MASCARADO])
-LINHA 178: 18:20:56 | "******" ([IDENTIFICADOR MASCARADO]) deactivated modifier "HeatComfort" on player ([IDENTIFICADOR MASCARADO])
-LINHA 179: 18:20:57 | "******" ([IDENTIFICADOR MASCARADO]) deactivated modifier "BloodRegen" on player ([IDENTIFICADOR MASCARADO])
-LINHA 180: 18:20:59 | "******" ([IDENTIFICADOR MASCARADO]) deactivated modifier "Hunger" on player ([IDENTIFICADOR MASCARADO])
-LINHA 181: 18:21:0 | "******" ([IDENTIFICADOR MASCARADO]) deactivated modifier "Fever" on player ([IDENTIFICADOR MASCARADO])
-LINHA 182: 18:21:1 | "******" ([IDENTIFICADOR MASCARADO]) deactivated modifier "CommonCold" on player ([IDENTIFICADOR MASCARADO])
-LINHA 183: 18:21:1 | "******" ([IDENTIFICADOR MASCARADO]) deactivated modifier "Thirst" on player ([IDENTIFICADOR MASCARADO])
-LINHA 184: 18:21:3 | "******" ([IDENTIFICADOR MASCARADO]) deactivated modifier "Shock" on player ([IDENTIFICADOR MASCARADO])
-LINHA 185: 18:21:8 | "******" ([IDENTIFICADOR MASCARADO]) executed kill command on: "76561198196693358"
-LINHA 186: 18:21:9 | "******" ([IDENTIFICADOR MASCARADO]) gave godmode to ([IDENTIFICADOR MASCARADO])
-LINHA 187: 18:21:12 | "******" ([IDENTIFICADOR MASCARADO]) executed kill command on: "76561198196693358"
-LINHA 188: 18:23:11 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (ContaminatedArea_Dynamic)
-LINHA 189: 18:24:8 | "76561198196693358" ([IDENTIFICADOR MASCARADO]) teleported to (pos=<10197.400391, 179.470001, 4072.830078>)
-LINHA 190: 18:24:8 | "******": ([IDENTIFICADOR MASCARADO]) teleported to (pos=10197.4,179.47,4072.83)
-LINHA 191: 18:28:15 | Player "Morpheus" ([IDENTIFICADOR MASCARADO]) initiated disconnect process...
-LINHA 192: 18:28:30 | Player "Morpheus" ([IDENTIFICADOR MASCARADO]) disconnected from server.
-LINHA 193: 18:30:29 | Player "Morpheus" ([IDENTIFICADOR MASCARADO]) connected to server!
-LINHA 194: 18:34:1 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Hatchet)
-LINHA 195: 18:34:1 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Hatchet)
-LINHA 196: 18:34:10 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 197: 18:34:11 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 198: 18:34:11 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 199: 18:34:11 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 200: 18:34:11 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 201: 18:34:11 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 202: 18:34:12 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 203: 18:34:12 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 204: 18:34:12 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 205: 18:34:12 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 206: 18:34:12 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 207: 18:34:12 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 208: 18:34:13 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 209: 18:34:13 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 210: 18:34:13 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 211: 18:34:13 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 212: 18:34:13 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 213: 18:34:13 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 214: 18:34:14 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 215: 18:34:14 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 216: 18:34:14 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 217: 18:34:26 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Nail)
-LINHA 218: 18:34:26 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Nail)
-LINHA 219: 18:34:26 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Nail)
-LINHA 220: 18:34:26 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Nail)
-LINHA 221: 18:34:26 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Nail)
-LINHA 222: 18:34:26 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Nail)
-LINHA 223: 18:34:27 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Nail)
-LINHA 224: 18:34:27 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Nail)
-LINHA 225: 18:34:40 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Rope)
-LINHA 226: 18:34:44 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Rope)
-LINHA 227: 18:35:25 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 228: 18:35:25 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 229: 18:35:25 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 230: 18:35:26 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 231: 18:35:26 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 232: 18:35:26 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 233: 18:35:26 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 234: 18:35:26 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 235: 18:35:26 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 236: 18:35:26 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 237: 18:35:27 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 238: 18:35:27 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 239: 18:35:27 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 240: 18:35:27 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 241: 18:35:27 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 242: 18:35:28 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 243: 18:35:28 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 244: 18:35:28 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 245: 18:35:28 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 246: 18:35:28 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 247: 18:35:28 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenPlank)
-LINHA 248: 18:35:51 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Rope)
-LINHA 249: 18:35:51 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Rope)
-LINHA 250: 18:35:51 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Rope)
-LINHA 251: 18:35:51 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Rope)
-LINHA 252: 18:35:52 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Rope)
-LINHA 253: 18:35:52 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Rope)
-LINHA 254: 18:35:52 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Rope)
-LINHA 255: 18:35:52 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Rope)
-LINHA 256: 18:36:14 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenStick)
-LINHA 257: 18:36:14 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenStick)
-LINHA 258: 18:36:15 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenStick)
-LINHA 259: 18:36:15 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenStick)
-LINHA 260: 18:36:15 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenStick)
-LINHA 261: 18:36:15 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenStick)
-LINHA 262: 18:36:15 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenStick)
-LINHA 263: 18:36:15 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenStick)
-LINHA 264: 18:36:16 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenStick)
-LINHA 265: 18:36:16 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenStick)
-LINHA 266: 18:36:16 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenStick)
-LINHA 267: 18:36:16 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenStick)
-LINHA 268: 18:36:16 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenStick)
-LINHA 269: 18:36:16 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenStick)
-LINHA 270: 18:36:17 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenStick)
-LINHA 271: 18:36:17 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenStick)
-LINHA 272: 18:36:17 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenStick)
-LINHA 273: 18:36:17 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenStick)
-LINHA 274: 18:36:17 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenStick)
-LINHA 275: 18:36:18 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenStick)
-LINHA 276: 18:36:18 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenStick)
-LINHA 277: 18:36:18 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenStick)
-LINHA 278: 18:36:18 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenStick)
-LINHA 279: 18:36:18 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenStick)
-LINHA 280: 18:36:18 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenStick)
-LINHA 281: 18:36:19 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenStick)
-LINHA 282: 18:36:19 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenStick)
-LINHA 283: 18:36:19 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenStick)
-LINHA 284: 18:36:19 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenStick)
-LINHA 285: 18:36:19 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenStick)
-LINHA 286: 18:36:19 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenStick)
-LINHA 287: 18:36:20 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenStick)
-LINHA 288: 18:36:20 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenStick)
-LINHA 289: 18:36:20 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenStick)
-LINHA 290: 18:36:44 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Hatchet)
-LINHA 291: 18:36:44 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Hatchet)
-LINHA 292: 18:36:44 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Hatchet)
-LINHA 293: 18:36:44 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Hatchet)
-LINHA 294: 18:36:44 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Hatchet)
-LINHA 295: 18:36:44 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Hatchet)
-LINHA 296: 18:36:44 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Hatchet)
-LINHA 297: 18:36:45 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Hatchet)
-LINHA 298: 18:36:45 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Hatchet)
-LINHA 299: 18:36:45 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Hatchet)
-LINHA 300: 18:36:45 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Hatchet)
-LINHA 301: 18:36:56 | "******" ([IDENTIFICADOR MASCARADO]) healed player ([IDENTIFICADOR MASCARADO])
-LINHA 302: 18:37:1 | "******" ([IDENTIFICADOR MASCARADO]) healed player ([IDENTIFICADOR MASCARADO])
-LINHA 303: 18:37:27 | "******" ([IDENTIFICADOR MASCARADO]) healed player ([IDENTIFICADOR MASCARADO])
-LINHA 304: 18:46:49 | Player "Morpheus" ([IDENTIFICADOR MASCARADO]) initiated disconnect process...
-LINHA 305: 18:46:49 | Player "Chaves" ([IDENTIFICADOR MASCARADO]) initiated disconnect process...
-LINHA 306: 18:46:49 | Player "******" ([IDENTIFICADOR MASCARADO]) initiated disconnect process...
-LINHA 307: 18:46:50 | Player "Morpheus" ([IDENTIFICADOR MASCARADO]) disconnected from server.
-LINHA 308: 18:46:50 | Player "Chaves" ([IDENTIFICADOR MASCARADO]) disconnected from server.
-LINHA 309: 18:46:50 | Player "******" ([IDENTIFICADOR MASCARADO]) disconnected from server.
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-6-39.txt
-TAMANHO: 11223 bytes
---------------------------------------------------
-LINHA 1: [IDENTIFICADOR MASCARADO] Admin Tools Session [IDENTIFICADOR MASCARADO]
-LINHA 2: Logs Started: 2026-11-15_17-6-39
-LINHA 3: [IDENTIFICADOR MASCARADO]
-LINHA 4: 17:6:39 | [PermissionManager] Perm (DeleteObjectAtCrosshair) has been registered!
-LINHA 5: 17:6:39 | [PermissionManager] Perm (TeleportToCrosshair) has been registered!
-LINHA 6: 17:6:39 | [PermissionManager] Perm (FreeCamera) has been registered!
-LINHA 7: 17:6:39 | [PermissionManager] Perm ([IDENTIFICADOR MASCARADO]) has been registered!
-LINHA 8: 17:6:39 | [PermissionManager] Perm (MenuItemManager) has been registered!
-LINHA 9: 17:6:39 | [PermissionManager] Perm (MenuItemManager:SpawnItem) has been registered!
-LINHA 10: 17:6:39 | [PermissionManager] Perm (MenuItemManager:EditPreset) has been registered!
-LINHA 11: 17:6:39 | [PermissionManager] Perm (MenuItemManager:SpawnPreset) has been registered!
-LINHA 12: 17:6:39 | [PermissionManager] Perm (MenuItemManager:DeletePreset) has been registered!
-LINHA 13: 17:6:39 | [PermissionManager] Perm (MenuItemManager:AddPreset) has been registered!
-LINHA 14: 17:6:39 | [PermissionManager] Perm (MenuServerManager) has been registered!
-LINHA 15: 17:6:39 | [PermissionManager] Perm (ServerManager:RestartServer) has been registered!
-LINHA 16: 17:6:39 | [PermissionManager] Perm (ServerManager:LockServer) has been registered!
-LINHA 17: 17:6:39 | [PermissionManager] Perm (ServerManager:KickAllPlayers) has been registered!
-LINHA 18: 17:6:39 | [PermissionManager] Perm (MenuWeatherManager) has been registered!
-LINHA 19: 17:6:39 | [PermissionManager] Perm (WeatherManager:ApplyWeather) has been registered!
-LINHA 20: 17:6:39 | [PermissionManager] Perm (WeatherManager:ApplyTime) has been registered!
-LINHA 21: 17:6:39 | [PermissionManager] Perm (WeatherManager:SavePreset) has been registered!
-LINHA 22: 17:6:39 | [PermissionManager] Perm (WeatherManager:DeletePreset) has been registered!
-LINHA 23: 17:6:39 | [PermissionManager] Perm (WeatherManager:ApplyPreset) has been registered!
-LINHA 24: 17:6:39 | [PermissionManager] Perm (WeatherManager:ApplyTimePreset) has been registered!
-LINHA 25: 17:6:39 | [PermissionManager] Perm (WeatherManager:SaveTimePreset) has been registered!
-LINHA 26: 17:6:39 | [PermissionManager] Perm (WeatherManager:DeleteTimePreset) has been registered!
-LINHA 27: 17:6:39 | [PermissionManager] Perm (MenuObjectManager) has been registered!
-LINHA 28: 17:6:39 | [PermissionManager] Perm (MenuObjectManager:CreateNewSet) has been registered!
-LINHA 29: 17:6:39 | [PermissionManager] Perm (MenuObjectManager:UpdateSet) has been registered!
-LINHA 30: 17:6:39 | [PermissionManager] Perm (MenuObjectManager:DeleteSet) has been registered!
-LINHA 31: 17:6:39 | [PermissionManager] Perm (MenuObjectManager:EditSet) has been registered!
-LINHA 32: 17:6:39 | [PermissionManager] Perm (MenuPermissionsEditor) has been registered!
-LINHA 33: 17:6:39 | [PermissionManager] Perm (PermissionsEditor:RemoveUser) has been registered!
-LINHA 34: 17:6:39 | [PermissionManager] Perm (PermissionsEditor:AddUser) has been registered!
-LINHA 35: 17:6:39 | [PermissionManager] Perm (PermissionsEditor:CreateUserGroup) has been registered!
-LINHA 36: 17:6:39 | [PermissionManager] Perm (PermissionsEditor:DeleteUserGroup) has been registered!
-LINHA 37: 17:6:39 | [PermissionManager] Perm (PermissionsEditor:ChangePermLevel) has been registered!
-LINHA 38: 17:6:39 | [PermissionManager] Perm (MenuPlayerManager) has been registered!
-LINHA 39: 17:6:39 | [PermissionManager] Perm (PlayerManager:GiveGodmode) has been registered!
-LINHA 40: 17:6:39 | [PermissionManager] Perm (PlayerManager:BanPlayer) has been registered!
-LINHA 41: 17:6:39 | [PermissionManager] Perm (PlayerManager:KickPlayer) has been registered!
-LINHA 42: 17:6:39 | [PermissionManager] Perm (PlayerManager:HealPlayers) has been registered!
-LINHA 43: 17:6:39 | [PermissionManager] Perm (PlayerManager:SetPlayerStats) has been registered!
-LINHA 44: 17:6:39 | [PermissionManager] Perm (PlayerManager:KillPlayers) has been registered!
-LINHA 45: 17:6:39 | [PermissionManager] Perm (PlayerManager:GodMode) has been registered!
-LINHA 46: 17:6:39 | [PermissionManager] Perm (PlayerManager:SpectatePlayer) has been registered!
-LINHA 47: 17:6:39 | [PermissionManager] Perm (PlayerManager:TeleportToPlayer) has been registered!
-LINHA 48: 17:6:39 | [PermissionManager] Perm (PlayerManager:TeleportPlayerTo) has been registered!
-LINHA 49: 17:6:39 | [PermissionManager] Perm (PlayerManager:SetPlayerInvisible) has been registered!
-LINHA 50: 17:6:39 | [PermissionManager] Perm (PlayerManager:SendMessage) has been registered!
-LINHA 51: 17:6:39 | [PermissionManager] Perm (PlayerManager:GiveUnlimitedAmmo) has been registered!
-LINHA 52: 17:6:39 | [PermissionManager] Perm (PlayerManager:MakePlayerVomit) has been registered!
-LINHA 53: 17:6:39 | [PermissionManager] Perm (PlayerManager:FreezePlayers) has been registered!
-LINHA 54: 17:6:39 | [PermissionManager] Perm (PlayerManager:ChangeScale) has been registered!
-LINHA 55: 17:6:39 | [PermissionManager] Perm (PlayerManager:StopBleeding) has been registered!
-LINHA 56: 17:6:39 | [PermissionManager] Perm (PlayerManager:ClearInventory) has been registered!
-LINHA 57: 17:6:39 | [PermissionManager] Perm (PlayerManager:EditModifiers) has been registered!
-LINHA 58: 17:6:39 | [PermissionManager] Perm (MenuBansManager) has been registered!
-LINHA 59: 17:6:39 | [PermissionManager] Perm (BansManager:UnbanPlayer) has been registered!
-LINHA 60: 17:6:39 | [PermissionManager] Perm (BansManager:UpdateBanDuration) has been registered!
-LINHA 61: 17:6:39 | [PermissionManager] Perm (BansManager:UpdateBanReason) has been registered!
-LINHA 62: 17:6:39 | [PermissionManager] Perm (MenuSpectateTools) has been registered!
-LINHA 63: 17:6:39 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-LINHA 64: 17:6:39 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-LINHA 65: 17:6:39 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-LINHA 66: 17:6:39 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-LINHA 67: 17:6:39 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-LINHA 68: 17:6:39 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-LINHA 69: 17:6:39 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-LINHA 70: 17:6:39 | [PermissionManager] Perm (MenuTeleportManager) has been registered!
-LINHA 71: 17:6:39 | [PermissionManager] Perm (TeleportManager:ViewPlayerPositions) has been registered!
-LINHA 72: 17:6:39 | [PermissionManager] Perm (TeleportManager:TPPlayers) has been registered!
-LINHA 73: 17:6:39 | [PermissionManager] Perm (TeleportManager:TPSelf) has been registered!
-LINHA 74: 17:6:39 | [PermissionManager] Perm (TeleportManager:DeletePreset) has been registered!
-LINHA 75: 17:6:39 | [PermissionManager] Perm (TeleportManager:AddNewPreset) has been registered!
-LINHA 76: 17:6:39 | [PermissionManager] Perm (TeleportManager:EditPreset) has been registered!
-LINHA 77: 17:6:39 | [PermissionManager] Perm (TeleportManager:TeleportEntity) has been registered!
-LINHA 78: 17:6:39 | [PermissionManager] Perm (EspToolsMenu) has been registered!
-LINHA 79: 17:6:39 | [PermissionManager] Perm (EspToolsMenu:DeleteObjects) has been registered!
-LINHA 80: 17:6:39 | [PermissionManager] Perm (EspToolsMenu:PlayerESP) has been registered!
-LINHA 81: 17:6:39 | [PermissionManager] Perm (EspToolsMenu:RestPasscodeFence) has been registered!
-LINHA 82: 17:6:39 | [PermissionManager] Perm (EspToolsMenu:RetriveCodeFromObj) has been registered!
-LINHA 83: 17:6:39 | [PermissionManager] Perm (EspToolsMenu:PlayerMeshEsp) has been registered!
-LINHA 84: 17:6:39 | [PermissionManager] Perm (EspToolsMenu:InstantBaseBuild) has been registered!
-LINHA 85: 17:6:39 | [PermissionManager] Perm (MenuXMLEditor) has been registered!
-LINHA 86: 17:6:39 | [PermissionManager] Perm (MenuXMLEditor:EditTypes) has been registered!
-LINHA 87: 17:6:39 | [PermissionManager] Perm (MenuXMLEditor:AddRemoveTypes) has been registered!
-LINHA 88: 17:6:39 | [PermissionManager] Perm (MenuXMLEditor:DistributionMap) has been registered!
-LINHA 89: 17:6:39 | [PermissionManager] Perm (MenuXMLEditor:ViewBackups) has been registered!
-LINHA 90: 17:6:39 | [PermissionManager] Perm (MenuXMLEditor:RestoreBackup) has been registered!
-LINHA 91: 17:6:39 | [PermissionManager] Perm (MenuXMLEditor:DeleteBackup) has been registered!
-LINHA 92: 17:6:39 | [PermissionManager] Perm (MenuXMLEditor:LiveScan) has been registered!
-LINHA 93: 17:6:39 | [PermissionManager] Perm (MenuXMLEditor:DeleteObjects) has been registered!
-LINHA 94: 17:6:39 | [PermissionManager] Perm (MenuXMLEditor:EditMessages) has been registered!
-LINHA 95: 17:6:39 | [PermissionManager] Perm (MenuXMLEditor:EditEvents) has been registered!
-LINHA 96: 17:6:39 | [PermissionManager] Perm (MenuXMLEditor:EditSpawnables) has been registered!
-LINHA 97: 17:6:39 | [PermissionManager] Perm (MenuCommandsConsole) has been registered!
-LINHA 98: 17:6:39 | [PermissionManager] Perm (ContextMenu:ItemHealth) has been registered!
-LINHA 99: 17:6:39 | [PermissionManager] Perm (ContextMenu:WeaponLoad) has been registered!
-LINHA 100: 17:6:39 | [PermissionManager] Perm (ContextMenu:CreatureHeal) has been registered!
-LINHA 101: 17:6:39 | [PermissionManager] Perm (ContextMenu:SpawnAttachment) has been registered!
-LINHA 102: 17:6:39 | [PermissionManager] Perm (ContextMenu:CreatureKill) has been registered!
-LINHA 103: 17:6:39 | [PermissionManager] Perm (ContextMenu:ItemQuantity) has been registered!
-LINHA 104: 17:6:39 | [PermissionManager] Perm (ContextMenu:SetScale) has been registered!
-LINHA 105: 17:6:39 | [PermissionManager] Perm (ContextMenu:VehicleRefuel) has been registered!
-LINHA 106: 17:6:39 | [PermissionManager] Perm (ContextMenu:WeaponRefill) has been registered!
-LINHA 107: 17:6:39 | [PermissionManager] Perm (ContextMenu:Ragdoll) has been registered!
-LINHA 108: 17:6:39 | [PermissionManager] Perm (ContextMenu:WeaponJam) has been registered!
-LINHA 109: 17:6:39 | [PermissionManager] Perm (ContextMenu:WeaponEject) has been registered!
-LINHA 110 : [CONTEUDO SENSIVEL MASCARADO]
-LINHA 111: 17:6:39 | [PermissionManager] Adding Super Admin (76561198196693358)
-LINHA 112: 17:6:39 | [PermissionManager] Loaded UserGroups.json
-LINHA 113: 17:6:39 | [BansManager]:: Load(): Loading ban list Json File $profile:VPPAdminTools/BanList.json
-LINHA 114: 17:6:39 | [PermissionManager] Perm (Chat:StripPlayer) has been registered!
-LINHA 115: 17:6:39 | [PermissionManager] Perm (Chat:KillPlayer) has been registered!
-LINHA 116: 17:6:39 | [PermissionManager] Perm (Chat:HealPlayer) has been registered!
-LINHA 117: 17:6:39 | [PermissionManager] Perm (Chat:BringPlayer) has been registered!
-LINHA 118: 17:6:39 | [PermissionManager] Perm (Chat:ReturnPlayer) has been registered!
-LINHA 119: 17:6:39 | [PermissionManager] Perm (Chat:GotoPlayer) has been registered!
-LINHA 120: 17:6:39 | [PermissionManager] Perm (Chat:UnbanPlayer) has been registered!
-LINHA 121: 17:6:39 | [PermissionManager] Perm (Chat:TeleportToTown) has been registered!
-LINHA 122: 17:6:39 | [PermissionManager] Perm (Chat:TeleportToPoint) has been registered!
-LINHA 123: 17:6:39 | [PermissionManager] Perm (Chat:GiveAmmo) has been registered!
-LINHA 124: 17:6:39 | [PermissionManager] Perm (Chat:SpawnInventory) has been registered!
-LINHA 125: 17:6:39 | [PermissionManager] Perm (Chat:SpawnOnGround) has been registered!
-LINHA 126: 17:6:39 | [PermissionManager] Perm (Chat:SpawnInHands) has been registered!
-LINHA 127: 17:6:39 | [PermissionManager] Perm (Chat:SpawnCar) has been registered!
-LINHA 128: 17:6:39 | [PermissionManager] Perm (Chat:refuelCar) has been registered!
-LINHA 129: 17:6:39 | [WeatherManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 130: 17:6:39 | [TimeManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 131: 17:6:40 | [BuildingSetManager] Journal: 0 set(s) loaded, 0 found by the folder scan, 0 dropped, 0 converted from .vpp, 0 upgraded to format 2
-LINHA 132: 17:6:40 | [SteamAPIManager] WARNING couldn't fetch server IP from configs; using cURL...
-LINHA 133 : [CONTEUDO SENSIVEL MASCARADO]
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-9-38.txt
-TAMANHO: 11470 bytes
---------------------------------------------------
-LINHA 1: [IDENTIFICADOR MASCARADO] Admin Tools Session [IDENTIFICADOR MASCARADO]
-LINHA 2: Logs Started: 2026-11-15_17-9-38
-LINHA 3: [IDENTIFICADOR MASCARADO]
-LINHA 4: 17:9:38 | [PermissionManager] Perm (DeleteObjectAtCrosshair) has been registered!
-LINHA 5: 17:9:38 | [PermissionManager] Perm (TeleportToCrosshair) has been registered!
-LINHA 6: 17:9:38 | [PermissionManager] Perm (FreeCamera) has been registered!
-LINHA 7: 17:9:38 | [PermissionManager] Perm ([IDENTIFICADOR MASCARADO]) has been registered!
-LINHA 8: 17:9:38 | [PermissionManager] Perm (MenuItemManager) has been registered!
-LINHA 9: 17:9:38 | [PermissionManager] Perm (MenuItemManager:SpawnItem) has been registered!
-LINHA 10: 17:9:38 | [PermissionManager] Perm (MenuItemManager:EditPreset) has been registered!
-LINHA 11: 17:9:38 | [PermissionManager] Perm (MenuItemManager:SpawnPreset) has been registered!
-LINHA 12: 17:9:38 | [PermissionManager] Perm (MenuItemManager:DeletePreset) has been registered!
-LINHA 13: 17:9:38 | [PermissionManager] Perm (MenuItemManager:AddPreset) has been registered!
-LINHA 14: 17:9:38 | [PermissionManager] Perm (MenuServerManager) has been registered!
-LINHA 15: 17:9:38 | [PermissionManager] Perm (ServerManager:RestartServer) has been registered!
-LINHA 16: 17:9:38 | [PermissionManager] Perm (ServerManager:LockServer) has been registered!
-LINHA 17: 17:9:38 | [PermissionManager] Perm (ServerManager:KickAllPlayers) has been registered!
-LINHA 18: 17:9:38 | [PermissionManager] Perm (MenuWeatherManager) has been registered!
-LINHA 19: 17:9:38 | [PermissionManager] Perm (WeatherManager:ApplyWeather) has been registered!
-LINHA 20: 17:9:38 | [PermissionManager] Perm (WeatherManager:ApplyTime) has been registered!
-LINHA 21: 17:9:38 | [PermissionManager] Perm (WeatherManager:SavePreset) has been registered!
-LINHA 22: 17:9:38 | [PermissionManager] Perm (WeatherManager:DeletePreset) has been registered!
-LINHA 23: 17:9:38 | [PermissionManager] Perm (WeatherManager:ApplyPreset) has been registered!
-LINHA 24: 17:9:38 | [PermissionManager] Perm (WeatherManager:ApplyTimePreset) has been registered!
-LINHA 25: 17:9:38 | [PermissionManager] Perm (WeatherManager:SaveTimePreset) has been registered!
-LINHA 26: 17:9:38 | [PermissionManager] Perm (WeatherManager:DeleteTimePreset) has been registered!
-LINHA 27: 17:9:38 | [PermissionManager] Perm (MenuObjectManager) has been registered!
-LINHA 28: 17:9:38 | [PermissionManager] Perm (MenuObjectManager:CreateNewSet) has been registered!
-LINHA 29: 17:9:38 | [PermissionManager] Perm (MenuObjectManager:UpdateSet) has been registered!
-LINHA 30: 17:9:38 | [PermissionManager] Perm (MenuObjectManager:DeleteSet) has been registered!
-LINHA 31: 17:9:38 | [PermissionManager] Perm (MenuObjectManager:EditSet) has been registered!
-LINHA 32: 17:9:38 | [PermissionManager] Perm (MenuPermissionsEditor) has been registered!
-LINHA 33: 17:9:38 | [PermissionManager] Perm (PermissionsEditor:RemoveUser) has been registered!
-LINHA 34: 17:9:38 | [PermissionManager] Perm (PermissionsEditor:AddUser) has been registered!
-LINHA 35: 17:9:38 | [PermissionManager] Perm (PermissionsEditor:CreateUserGroup) has been registered!
-LINHA 36: 17:9:38 | [PermissionManager] Perm (PermissionsEditor:DeleteUserGroup) has been registered!
-LINHA 37: 17:9:38 | [PermissionManager] Perm (PermissionsEditor:ChangePermLevel) has been registered!
-LINHA 38: 17:9:38 | [PermissionManager] Perm (MenuPlayerManager) has been registered!
-LINHA 39: 17:9:38 | [PermissionManager] Perm (PlayerManager:GiveGodmode) has been registered!
-LINHA 40: 17:9:38 | [PermissionManager] Perm (PlayerManager:BanPlayer) has been registered!
-LINHA 41: 17:9:38 | [PermissionManager] Perm (PlayerManager:KickPlayer) has been registered!
-LINHA 42: 17:9:38 | [PermissionManager] Perm (PlayerManager:HealPlayers) has been registered!
-LINHA 43: 17:9:38 | [PermissionManager] Perm (PlayerManager:SetPlayerStats) has been registered!
-LINHA 44: 17:9:38 | [PermissionManager] Perm (PlayerManager:KillPlayers) has been registered!
-LINHA 45: 17:9:38 | [PermissionManager] Perm (PlayerManager:GodMode) has been registered!
-LINHA 46: 17:9:38 | [PermissionManager] Perm (PlayerManager:SpectatePlayer) has been registered!
-LINHA 47: 17:9:38 | [PermissionManager] Perm (PlayerManager:TeleportToPlayer) has been registered!
-LINHA 48: 17:9:38 | [PermissionManager] Perm (PlayerManager:TeleportPlayerTo) has been registered!
-LINHA 49: 17:9:38 | [PermissionManager] Perm (PlayerManager:SetPlayerInvisible) has been registered!
-LINHA 50: 17:9:38 | [PermissionManager] Perm (PlayerManager:SendMessage) has been registered!
-LINHA 51: 17:9:38 | [PermissionManager] Perm (PlayerManager:GiveUnlimitedAmmo) has been registered!
-LINHA 52: 17:9:38 | [PermissionManager] Perm (PlayerManager:MakePlayerVomit) has been registered!
-LINHA 53: 17:9:38 | [PermissionManager] Perm (PlayerManager:FreezePlayers) has been registered!
-LINHA 54: 17:9:38 | [PermissionManager] Perm (PlayerManager:ChangeScale) has been registered!
-LINHA 55: 17:9:38 | [PermissionManager] Perm (PlayerManager:StopBleeding) has been registered!
-LINHA 56: 17:9:38 | [PermissionManager] Perm (PlayerManager:ClearInventory) has been registered!
-LINHA 57: 17:9:38 | [PermissionManager] Perm (PlayerManager:EditModifiers) has been registered!
-LINHA 58: 17:9:38 | [PermissionManager] Perm (MenuBansManager) has been registered!
-LINHA 59: 17:9:38 | [PermissionManager] Perm (BansManager:UnbanPlayer) has been registered!
-LINHA 60: 17:9:38 | [PermissionManager] Perm (BansManager:UpdateBanDuration) has been registered!
-LINHA 61: 17:9:38 | [PermissionManager] Perm (BansManager:UpdateBanReason) has been registered!
-LINHA 62: 17:9:38 | [PermissionManager] Perm (MenuSpectateTools) has been registered!
-LINHA 63: 17:9:38 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-LINHA 64: 17:9:38 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-LINHA 65: 17:9:38 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-LINHA 66: 17:9:38 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-LINHA 67: 17:9:38 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-LINHA 68: 17:9:38 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-LINHA 69: 17:9:38 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-LINHA 70: 17:9:38 | [PermissionManager] Perm (MenuTeleportManager) has been registered!
-LINHA 71: 17:9:38 | [PermissionManager] Perm (TeleportManager:ViewPlayerPositions) has been registered!
-LINHA 72: 17:9:38 | [PermissionManager] Perm (TeleportManager:TPPlayers) has been registered!
-LINHA 73: 17:9:38 | [PermissionManager] Perm (TeleportManager:TPSelf) has been registered!
-LINHA 74: 17:9:38 | [PermissionManager] Perm (TeleportManager:DeletePreset) has been registered!
-LINHA 75: 17:9:38 | [PermissionManager] Perm (TeleportManager:AddNewPreset) has been registered!
-LINHA 76: 17:9:38 | [PermissionManager] Perm (TeleportManager:EditPreset) has been registered!
-LINHA 77: 17:9:38 | [PermissionManager] Perm (TeleportManager:TeleportEntity) has been registered!
-LINHA 78: 17:9:38 | [PermissionManager] Perm (EspToolsMenu) has been registered!
-LINHA 79: 17:9:38 | [PermissionManager] Perm (EspToolsMenu:DeleteObjects) has been registered!
-LINHA 80: 17:9:38 | [PermissionManager] Perm (EspToolsMenu:PlayerESP) has been registered!
-LINHA 81: 17:9:38 | [PermissionManager] Perm (EspToolsMenu:RestPasscodeFence) has been registered!
-LINHA 82: 17:9:38 | [PermissionManager] Perm (EspToolsMenu:RetriveCodeFromObj) has been registered!
-LINHA 83: 17:9:38 | [PermissionManager] Perm (EspToolsMenu:PlayerMeshEsp) has been registered!
-LINHA 84: 17:9:38 | [PermissionManager] Perm (EspToolsMenu:InstantBaseBuild) has been registered!
-LINHA 85: 17:9:38 | [PermissionManager] Perm (MenuXMLEditor) has been registered!
-LINHA 86: 17:9:38 | [PermissionManager] Perm (MenuXMLEditor:EditTypes) has been registered!
-LINHA 87: 17:9:38 | [PermissionManager] Perm (MenuXMLEditor:AddRemoveTypes) has been registered!
-LINHA 88: 17:9:38 | [PermissionManager] Perm (MenuXMLEditor:DistributionMap) has been registered!
-LINHA 89: 17:9:38 | [PermissionManager] Perm (MenuXMLEditor:ViewBackups) has been registered!
-LINHA 90: 17:9:38 | [PermissionManager] Perm (MenuXMLEditor:RestoreBackup) has been registered!
-LINHA 91: 17:9:38 | [PermissionManager] Perm (MenuXMLEditor:DeleteBackup) has been registered!
-LINHA 92: 17:9:38 | [PermissionManager] Perm (MenuXMLEditor:LiveScan) has been registered!
-LINHA 93: 17:9:38 | [PermissionManager] Perm (MenuXMLEditor:DeleteObjects) has been registered!
-LINHA 94: 17:9:38 | [PermissionManager] Perm (MenuXMLEditor:EditMessages) has been registered!
-LINHA 95: 17:9:38 | [PermissionManager] Perm (MenuXMLEditor:EditEvents) has been registered!
-LINHA 96: 17:9:38 | [PermissionManager] Perm (MenuXMLEditor:EditSpawnables) has been registered!
-LINHA 97: 17:9:38 | [PermissionManager] Perm (MenuCommandsConsole) has been registered!
-LINHA 98: 17:9:38 | [PermissionManager] Perm (ContextMenu:ItemHealth) has been registered!
-LINHA 99: 17:9:38 | [PermissionManager] Perm (ContextMenu:WeaponLoad) has been registered!
-LINHA 100: 17:9:38 | [PermissionManager] Perm (ContextMenu:CreatureHeal) has been registered!
-LINHA 101: 17:9:38 | [PermissionManager] Perm (ContextMenu:SpawnAttachment) has been registered!
-LINHA 102: 17:9:38 | [PermissionManager] Perm (ContextMenu:CreatureKill) has been registered!
-LINHA 103: 17:9:38 | [PermissionManager] Perm (ContextMenu:ItemQuantity) has been registered!
-LINHA 104: 17:9:38 | [PermissionManager] Perm (ContextMenu:SetScale) has been registered!
-LINHA 105: 17:9:38 | [PermissionManager] Perm (ContextMenu:VehicleRefuel) has been registered!
-LINHA 106: 17:9:38 | [PermissionManager] Perm (ContextMenu:WeaponRefill) has been registered!
-LINHA 107: 17:9:38 | [PermissionManager] Perm (ContextMenu:Ragdoll) has been registered!
-LINHA 108: 17:9:38 | [PermissionManager] Perm (ContextMenu:WeaponJam) has been registered!
-LINHA 109: 17:9:38 | [PermissionManager] Perm (ContextMenu:WeaponEject) has been registered!
-LINHA 110 : [CONTEUDO SENSIVEL MASCARADO]
-LINHA 111: 17:9:38 | [PermissionManager] Adding Super Admin (76561198196693358)
-LINHA 112: 17:9:38 | [PermissionManager] Loaded UserGroups.json
-LINHA 113: 17:9:38 | [BansManager]:: Load(): Loading ban list Json File $profile:VPPAdminTools/BanList.json
-LINHA 114: 17:9:38 | [PermissionManager] Perm (Chat:StripPlayer) has been registered!
-LINHA 115: 17:9:38 | [PermissionManager] Perm (Chat:KillPlayer) has been registered!
-LINHA 116: 17:9:38 | [PermissionManager] Perm (Chat:HealPlayer) has been registered!
-LINHA 117: 17:9:38 | [PermissionManager] Perm (Chat:BringPlayer) has been registered!
-LINHA 118: 17:9:38 | [PermissionManager] Perm (Chat:ReturnPlayer) has been registered!
-LINHA 119: 17:9:38 | [PermissionManager] Perm (Chat:GotoPlayer) has been registered!
-LINHA 120: 17:9:38 | [PermissionManager] Perm (Chat:UnbanPlayer) has been registered!
-LINHA 121: 17:9:38 | [PermissionManager] Perm (Chat:TeleportToTown) has been registered!
-LINHA 122: 17:9:38 | [PermissionManager] Perm (Chat:TeleportToPoint) has been registered!
-LINHA 123: 17:9:38 | [PermissionManager] Perm (Chat:GiveAmmo) has been registered!
-LINHA 124: 17:9:38 | [PermissionManager] Perm (Chat:SpawnInventory) has been registered!
-LINHA 125: 17:9:38 | [PermissionManager] Perm (Chat:SpawnOnGround) has been registered!
-LINHA 126: 17:9:38 | [PermissionManager] Perm (Chat:SpawnInHands) has been registered!
-LINHA 127: 17:9:38 | [PermissionManager] Perm (Chat:SpawnCar) has been registered!
-LINHA 128: 17:9:38 | [PermissionManager] Perm (Chat:refuelCar) has been registered!
-LINHA 129: 17:9:38 | [WeatherManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 130: 17:9:38 | [TimeManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 131: 17:9:38 | [BuildingSetManager] Journal: 0 set(s) loaded, 0 found by the folder scan, 0 dropped, 0 converted from .vpp, 0 upgraded to format 2
-LINHA 132: 17:9:38 | [SteamAPIManager] WARNING couldn't fetch server IP from configs; using cURL...
-LINHA 133 : [CONTEUDO SENSIVEL MASCARADO]
-LINHA 134: 17:12:17 | Player "******" ([IDENTIFICADOR MASCARADO]) connected to server!
-LINHA 135: 17:18:29 | Player "******" ([IDENTIFICADOR MASCARADO]) initiated disconnect process...
-LINHA 136: 17:18:30 | Player "******" ([IDENTIFICADOR MASCARADO]) disconnected from server.
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_18-57-45.txt
-TAMANHO: 11314 bytes
---------------------------------------------------
-LINHA 1: [IDENTIFICADOR MASCARADO] Admin Tools Session [IDENTIFICADOR MASCARADO]
-LINHA 2: Logs Started: 2026-11-15_18-57-45
-LINHA 3: [IDENTIFICADOR MASCARADO]
-LINHA 4: 18:57:45 | [PermissionManager] Perm (DeleteObjectAtCrosshair) has been registered!
-LINHA 5: 18:57:45 | [PermissionManager] Perm (TeleportToCrosshair) has been registered!
-LINHA 6: 18:57:45 | [PermissionManager] Perm (FreeCamera) has been registered!
-LINHA 7: 18:57:45 | [PermissionManager] Perm ([IDENTIFICADOR MASCARADO]) has been registered!
-LINHA 8: 18:57:45 | [PermissionManager] Perm (MenuItemManager) has been registered!
-LINHA 9: 18:57:45 | [PermissionManager] Perm (MenuItemManager:SpawnItem) has been registered!
-LINHA 10: 18:57:45 | [PermissionManager] Perm (MenuItemManager:EditPreset) has been registered!
-LINHA 11: 18:57:45 | [PermissionManager] Perm (MenuItemManager:SpawnPreset) has been registered!
-LINHA 12: 18:57:45 | [PermissionManager] Perm (MenuItemManager:DeletePreset) has been registered!
-LINHA 13: 18:57:45 | [PermissionManager] Perm (MenuItemManager:AddPreset) has been registered!
-LINHA 14: 18:57:45 | [PermissionManager] Perm (MenuServerManager) has been registered!
-LINHA 15: 18:57:45 | [PermissionManager] Perm (ServerManager:RestartServer) has been registered!
-LINHA 16: 18:57:45 | [PermissionManager] Perm (ServerManager:LockServer) has been registered!
-LINHA 17: 18:57:45 | [PermissionManager] Perm (ServerManager:KickAllPlayers) has been registered!
-LINHA 18: 18:57:45 | [PermissionManager] Perm (MenuWeatherManager) has been registered!
-LINHA 19: 18:57:45 | [PermissionManager] Perm (WeatherManager:ApplyWeather) has been registered!
-LINHA 20: 18:57:45 | [PermissionManager] Perm (WeatherManager:ApplyTime) has been registered!
-LINHA 21: 18:57:45 | [PermissionManager] Perm (WeatherManager:SavePreset) has been registered!
-LINHA 22: 18:57:45 | [PermissionManager] Perm (WeatherManager:DeletePreset) has been registered!
-LINHA 23: 18:57:45 | [PermissionManager] Perm (WeatherManager:ApplyPreset) has been registered!
-LINHA 24: 18:57:45 | [PermissionManager] Perm (WeatherManager:ApplyTimePreset) has been registered!
-LINHA 25: 18:57:45 | [PermissionManager] Perm (WeatherManager:SaveTimePreset) has been registered!
-LINHA 26: 18:57:45 | [PermissionManager] Perm (WeatherManager:DeleteTimePreset) has been registered!
-LINHA 27: 18:57:45 | [PermissionManager] Perm (MenuObjectManager) has been registered!
-LINHA 28: 18:57:45 | [PermissionManager] Perm (MenuObjectManager:CreateNewSet) has been registered!
-LINHA 29: 18:57:45 | [PermissionManager] Perm (MenuObjectManager:UpdateSet) has been registered!
-LINHA 30: 18:57:45 | [PermissionManager] Perm (MenuObjectManager:DeleteSet) has been registered!
-LINHA 31: 18:57:45 | [PermissionManager] Perm (MenuObjectManager:EditSet) has been registered!
-LINHA 32: 18:57:45 | [PermissionManager] Perm (MenuPermissionsEditor) has been registered!
-LINHA 33: 18:57:45 | [PermissionManager] Perm (PermissionsEditor:RemoveUser) has been registered!
-LINHA 34: 18:57:45 | [PermissionManager] Perm (PermissionsEditor:AddUser) has been registered!
-LINHA 35: 18:57:45 | [PermissionManager] Perm (PermissionsEditor:CreateUserGroup) has been registered!
-LINHA 36: 18:57:45 | [PermissionManager] Perm (PermissionsEditor:DeleteUserGroup) has been registered!
-LINHA 37: 18:57:45 | [PermissionManager] Perm (PermissionsEditor:ChangePermLevel) has been registered!
-LINHA 38: 18:57:45 | [PermissionManager] Perm (MenuPlayerManager) has been registered!
-LINHA 39: 18:57:45 | [PermissionManager] Perm (PlayerManager:GiveGodmode) has been registered!
-LINHA 40: 18:57:45 | [PermissionManager] Perm (PlayerManager:BanPlayer) has been registered!
-LINHA 41: 18:57:45 | [PermissionManager] Perm (PlayerManager:KickPlayer) has been registered!
-LINHA 42: 18:57:45 | [PermissionManager] Perm (PlayerManager:HealPlayers) has been registered!
-LINHA 43: 18:57:45 | [PermissionManager] Perm (PlayerManager:SetPlayerStats) has been registered!
-LINHA 44: 18:57:45 | [PermissionManager] Perm (PlayerManager:KillPlayers) has been registered!
-LINHA 45: 18:57:45 | [PermissionManager] Perm (PlayerManager:GodMode) has been registered!
-LINHA 46: 18:57:45 | [PermissionManager] Perm (PlayerManager:SpectatePlayer) has been registered!
-LINHA 47: 18:57:45 | [PermissionManager] Perm (PlayerManager:TeleportToPlayer) has been registered!
-LINHA 48: 18:57:45 | [PermissionManager] Perm (PlayerManager:TeleportPlayerTo) has been registered!
-LINHA 49: 18:57:45 | [PermissionManager] Perm (PlayerManager:SetPlayerInvisible) has been registered!
-LINHA 50: 18:57:45 | [PermissionManager] Perm (PlayerManager:SendMessage) has been registered!
-LINHA 51: 18:57:45 | [PermissionManager] Perm (PlayerManager:GiveUnlimitedAmmo) has been registered!
-LINHA 52: 18:57:45 | [PermissionManager] Perm (PlayerManager:MakePlayerVomit) has been registered!
-LINHA 53: 18:57:45 | [PermissionManager] Perm (PlayerManager:FreezePlayers) has been registered!
-LINHA 54: 18:57:45 | [PermissionManager] Perm (PlayerManager:ChangeScale) has been registered!
-LINHA 55: 18:57:45 | [PermissionManager] Perm (PlayerManager:StopBleeding) has been registered!
-LINHA 56: 18:57:45 | [PermissionManager] Perm (PlayerManager:ClearInventory) has been registered!
-LINHA 57: 18:57:45 | [PermissionManager] Perm (PlayerManager:EditModifiers) has been registered!
-LINHA 58: 18:57:45 | [PermissionManager] Perm (MenuBansManager) has been registered!
-LINHA 59: 18:57:45 | [PermissionManager] Perm (BansManager:UnbanPlayer) has been registered!
-LINHA 60: 18:57:45 | [PermissionManager] Perm (BansManager:UpdateBanDuration) has been registered!
-LINHA 61: 18:57:45 | [PermissionManager] Perm (BansManager:UpdateBanReason) has been registered!
-LINHA 62: 18:57:45 | [PermissionManager] Perm (MenuSpectateTools) has been registered!
-LINHA 63: 18:57:45 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-LINHA 64: 18:57:45 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-LINHA 65: 18:57:45 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-LINHA 66: 18:57:45 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-LINHA 67: 18:57:45 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-LINHA 68: 18:57:45 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-LINHA 69: 18:57:45 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-LINHA 70: 18:57:45 | [PermissionManager] Perm (MenuTeleportManager) has been registered!
-LINHA 71: 18:57:45 | [PermissionManager] Perm (TeleportManager:ViewPlayerPositions) has been registered!
-LINHA 72: 18:57:45 | [PermissionManager] Perm (TeleportManager:TPPlayers) has been registered!
-LINHA 73: 18:57:45 | [PermissionManager] Perm (TeleportManager:TPSelf) has been registered!
-LINHA 74: 18:57:45 | [PermissionManager] Perm (TeleportManager:DeletePreset) has been registered!
-LINHA 75: 18:57:45 | [PermissionManager] Perm (TeleportManager:AddNewPreset) has been registered!
-LINHA 76: 18:57:45 | [PermissionManager] Perm (TeleportManager:EditPreset) has been registered!
-LINHA 77: 18:57:45 | [PermissionManager] Perm (TeleportManager:TeleportEntity) has been registered!
-LINHA 78: 18:57:45 | [PermissionManager] Perm (EspToolsMenu) has been registered!
-LINHA 79: 18:57:45 | [PermissionManager] Perm (EspToolsMenu:DeleteObjects) has been registered!
-LINHA 80: 18:57:45 | [PermissionManager] Perm (EspToolsMenu:PlayerESP) has been registered!
-LINHA 81: 18:57:45 | [PermissionManager] Perm (EspToolsMenu:RestPasscodeFence) has been registered!
-LINHA 82: 18:57:45 | [PermissionManager] Perm (EspToolsMenu:RetriveCodeFromObj) has been registered!
-LINHA 83: 18:57:45 | [PermissionManager] Perm (EspToolsMenu:PlayerMeshEsp) has been registered!
-LINHA 84: 18:57:45 | [PermissionManager] Perm (EspToolsMenu:InstantBaseBuild) has been registered!
-LINHA 85: 18:57:45 | [PermissionManager] Perm (MenuXMLEditor) has been registered!
-LINHA 86: 18:57:45 | [PermissionManager] Perm (MenuXMLEditor:EditTypes) has been registered!
-LINHA 87: 18:57:45 | [PermissionManager] Perm (MenuXMLEditor:AddRemoveTypes) has been registered!
-LINHA 88: 18:57:45 | [PermissionManager] Perm (MenuXMLEditor:DistributionMap) has been registered!
-LINHA 89: 18:57:45 | [PermissionManager] Perm (MenuXMLEditor:ViewBackups) has been registered!
-LINHA 90: 18:57:45 | [PermissionManager] Perm (MenuXMLEditor:RestoreBackup) has been registered!
-LINHA 91: 18:57:45 | [PermissionManager] Perm (MenuXMLEditor:DeleteBackup) has been registered!
-LINHA 92: 18:57:45 | [PermissionManager] Perm (MenuXMLEditor:LiveScan) has been registered!
-LINHA 93: 18:57:45 | [PermissionManager] Perm (MenuXMLEditor:DeleteObjects) has been registered!
-LINHA 94: 18:57:45 | [PermissionManager] Perm (MenuXMLEditor:EditMessages) has been registered!
-LINHA 95: 18:57:45 | [PermissionManager] Perm (MenuXMLEditor:EditEvents) has been registered!
-LINHA 96: 18:57:45 | [PermissionManager] Perm (MenuXMLEditor:EditSpawnables) has been registered!
-LINHA 97: 18:57:45 | [PermissionManager] Perm (MenuCommandsConsole) has been registered!
-LINHA 98: 18:57:45 | [PermissionManager] Perm (ContextMenu:ItemHealth) has been registered!
-LINHA 99: 18:57:45 | [PermissionManager] Perm (ContextMenu:WeaponLoad) has been registered!
-LINHA 100: 18:57:45 | [PermissionManager] Perm (ContextMenu:CreatureHeal) has been registered!
-LINHA 101: 18:57:45 | [PermissionManager] Perm (ContextMenu:SpawnAttachment) has been registered!
-LINHA 102: 18:57:45 | [PermissionManager] Perm (ContextMenu:CreatureKill) has been registered!
-LINHA 103: 18:57:45 | [PermissionManager] Perm (ContextMenu:ItemQuantity) has been registered!
-LINHA 104: 18:57:45 | [PermissionManager] Perm (ContextMenu:SetScale) has been registered!
-LINHA 105: 18:57:45 | [PermissionManager] Perm (ContextMenu:VehicleRefuel) has been registered!
-LINHA 106: 18:57:45 | [PermissionManager] Perm (ContextMenu:WeaponRefill) has been registered!
-LINHA 107: 18:57:45 | [PermissionManager] Perm (ContextMenu:Ragdoll) has been registered!
-LINHA 108: 18:57:45 | [PermissionManager] Perm (ContextMenu:WeaponJam) has been registered!
-LINHA 109: 18:57:45 | [PermissionManager] Perm (ContextMenu:WeaponEject) has been registered!
-LINHA 110: 18:57:45 | [PermissionManager] Adding Super Admin (76561198196693358)
-LINHA 111: 18:57:45 | [PermissionManager] Adding Super Admin (76561199508282814)
-LINHA 112: 18:57:45 | [PermissionManager] Loaded UserGroups.json
-LINHA 113: 18:57:45 | [BansManager]:: Load(): Loading ban list Json File $profile:VPPAdminTools/BanList.json
-LINHA 114: 18:57:45 | [PermissionManager] Perm (Chat:StripPlayer) has been registered!
-LINHA 115: 18:57:45 | [PermissionManager] Perm (Chat:KillPlayer) has been registered!
-LINHA 116: 18:57:45 | [PermissionManager] Perm (Chat:HealPlayer) has been registered!
-LINHA 117: 18:57:45 | [PermissionManager] Perm (Chat:BringPlayer) has been registered!
-LINHA 118: 18:57:45 | [PermissionManager] Perm (Chat:ReturnPlayer) has been registered!
-LINHA 119: 18:57:45 | [PermissionManager] Perm (Chat:GotoPlayer) has been registered!
-LINHA 120: 18:57:45 | [PermissionManager] Perm (Chat:UnbanPlayer) has been registered!
-LINHA 121: 18:57:45 | [PermissionManager] Perm (Chat:TeleportToTown) has been registered!
-LINHA 122: 18:57:45 | [PermissionManager] Perm (Chat:TeleportToPoint) has been registered!
-LINHA 123: 18:57:45 | [PermissionManager] Perm (Chat:GiveAmmo) has been registered!
-LINHA 124: 18:57:45 | [PermissionManager] Perm (Chat:SpawnInventory) has been registered!
-LINHA 125: 18:57:45 | [PermissionManager] Perm (Chat:SpawnOnGround) has been registered!
-LINHA 126: 18:57:45 | [PermissionManager] Perm (Chat:SpawnInHands) has been registered!
-LINHA 127: 18:57:45 | [PermissionManager] Perm (Chat:SpawnCar) has been registered!
-LINHA 128: 18:57:45 | [PermissionManager] Perm (Chat:refuelCar) has been registered!
-LINHA 129: 18:57:45 | [WeatherManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 130: 18:57:45 | [TimeManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 131: 18:57:45 | [BuildingSetManager] Journal: 0 set(s) loaded, 0 found by the folder scan, 0 dropped, 0 converted from .vpp, 0 upgraded to format 2
-LINHA 132: 18:57:45 | [SteamAPIManager] WARNING couldn't fetch server IP from configs; using cURL...
-LINHA 133 : [CONTEUDO SENSIVEL MASCARADO]
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-1-1.txt
-TAMANHO: 11052 bytes
---------------------------------------------------
-LINHA 1: [IDENTIFICADOR MASCARADO] Admin Tools Session [IDENTIFICADOR MASCARADO]
-LINHA 2: Logs Started: 2026-11-15_19-1-1
-LINHA 3: [IDENTIFICADOR MASCARADO]
-LINHA 4: 19:1:1 | [PermissionManager] Perm (DeleteObjectAtCrosshair) has been registered!
-LINHA 5: 19:1:1 | [PermissionManager] Perm (TeleportToCrosshair) has been registered!
-LINHA 6: 19:1:1 | [PermissionManager] Perm (FreeCamera) has been registered!
-LINHA 7: 19:1:1 | [PermissionManager] Perm ([IDENTIFICADOR MASCARADO]) has been registered!
-LINHA 8: 19:1:1 | [PermissionManager] Perm (MenuItemManager) has been registered!
-LINHA 9: 19:1:1 | [PermissionManager] Perm (MenuItemManager:SpawnItem) has been registered!
-LINHA 10: 19:1:1 | [PermissionManager] Perm (MenuItemManager:EditPreset) has been registered!
-LINHA 11: 19:1:1 | [PermissionManager] Perm (MenuItemManager:SpawnPreset) has been registered!
-LINHA 12: 19:1:1 | [PermissionManager] Perm (MenuItemManager:DeletePreset) has been registered!
-LINHA 13: 19:1:1 | [PermissionManager] Perm (MenuItemManager:AddPreset) has been registered!
-LINHA 14: 19:1:1 | [PermissionManager] Perm (MenuServerManager) has been registered!
-LINHA 15: 19:1:1 | [PermissionManager] Perm (ServerManager:RestartServer) has been registered!
-LINHA 16: 19:1:1 | [PermissionManager] Perm (ServerManager:LockServer) has been registered!
-LINHA 17: 19:1:1 | [PermissionManager] Perm (ServerManager:KickAllPlayers) has been registered!
-LINHA 18: 19:1:1 | [PermissionManager] Perm (MenuWeatherManager) has been registered!
-LINHA 19: 19:1:1 | [PermissionManager] Perm (WeatherManager:ApplyWeather) has been registered!
-LINHA 20: 19:1:1 | [PermissionManager] Perm (WeatherManager:ApplyTime) has been registered!
-LINHA 21: 19:1:1 | [PermissionManager] Perm (WeatherManager:SavePreset) has been registered!
-LINHA 22: 19:1:1 | [PermissionManager] Perm (WeatherManager:DeletePreset) has been registered!
-LINHA 23: 19:1:1 | [PermissionManager] Perm (WeatherManager:ApplyPreset) has been registered!
-LINHA 24: 19:1:1 | [PermissionManager] Perm (WeatherManager:ApplyTimePreset) has been registered!
-LINHA 25: 19:1:1 | [PermissionManager] Perm (WeatherManager:SaveTimePreset) has been registered!
-LINHA 26: 19:1:1 | [PermissionManager] Perm (WeatherManager:DeleteTimePreset) has been registered!
-LINHA 27: 19:1:1 | [PermissionManager] Perm (MenuObjectManager) has been registered!
-LINHA 28: 19:1:1 | [PermissionManager] Perm (MenuObjectManager:CreateNewSet) has been registered!
-LINHA 29: 19:1:1 | [PermissionManager] Perm (MenuObjectManager:UpdateSet) has been registered!
-LINHA 30: 19:1:1 | [PermissionManager] Perm (MenuObjectManager:DeleteSet) has been registered!
-LINHA 31: 19:1:1 | [PermissionManager] Perm (MenuObjectManager:EditSet) has been registered!
-LINHA 32: 19:1:1 | [PermissionManager] Perm (MenuPermissionsEditor) has been registered!
-LINHA 33: 19:1:1 | [PermissionManager] Perm (PermissionsEditor:RemoveUser) has been registered!
-LINHA 34: 19:1:1 | [PermissionManager] Perm (PermissionsEditor:AddUser) has been registered!
-LINHA 35: 19:1:1 | [PermissionManager] Perm (PermissionsEditor:CreateUserGroup) has been registered!
-LINHA 36: 19:1:1 | [PermissionManager] Perm (PermissionsEditor:DeleteUserGroup) has been registered!
-LINHA 37: 19:1:1 | [PermissionManager] Perm (PermissionsEditor:ChangePermLevel) has been registered!
-LINHA 38: 19:1:1 | [PermissionManager] Perm (MenuPlayerManager) has been registered!
-LINHA 39: 19:1:1 | [PermissionManager] Perm (PlayerManager:GiveGodmode) has been registered!
-LINHA 40: 19:1:1 | [PermissionManager] Perm (PlayerManager:BanPlayer) has been registered!
-LINHA 41: 19:1:1 | [PermissionManager] Perm (PlayerManager:KickPlayer) has been registered!
-LINHA 42: 19:1:1 | [PermissionManager] Perm (PlayerManager:HealPlayers) has been registered!
-LINHA 43: 19:1:1 | [PermissionManager] Perm (PlayerManager:SetPlayerStats) has been registered!
-LINHA 44: 19:1:1 | [PermissionManager] Perm (PlayerManager:KillPlayers) has been registered!
-LINHA 45: 19:1:1 | [PermissionManager] Perm (PlayerManager:GodMode) has been registered!
-LINHA 46: 19:1:1 | [PermissionManager] Perm (PlayerManager:SpectatePlayer) has been registered!
-LINHA 47: 19:1:1 | [PermissionManager] Perm (PlayerManager:TeleportToPlayer) has been registered!
-LINHA 48: 19:1:1 | [PermissionManager] Perm (PlayerManager:TeleportPlayerTo) has been registered!
-LINHA 49: 19:1:1 | [PermissionManager] Perm (PlayerManager:SetPlayerInvisible) has been registered!
-LINHA 50: 19:1:1 | [PermissionManager] Perm (PlayerManager:SendMessage) has been registered!
-LINHA 51: 19:1:1 | [PermissionManager] Perm (PlayerManager:GiveUnlimitedAmmo) has been registered!
-LINHA 52: 19:1:1 | [PermissionManager] Perm (PlayerManager:MakePlayerVomit) has been registered!
-LINHA 53: 19:1:1 | [PermissionManager] Perm (PlayerManager:FreezePlayers) has been registered!
-LINHA 54: 19:1:1 | [PermissionManager] Perm (PlayerManager:ChangeScale) has been registered!
-LINHA 55: 19:1:1 | [PermissionManager] Perm (PlayerManager:StopBleeding) has been registered!
-LINHA 56: 19:1:1 | [PermissionManager] Perm (PlayerManager:ClearInventory) has been registered!
-LINHA 57: 19:1:1 | [PermissionManager] Perm (PlayerManager:EditModifiers) has been registered!
-LINHA 58: 19:1:1 | [PermissionManager] Perm (MenuBansManager) has been registered!
-LINHA 59: 19:1:1 | [PermissionManager] Perm (BansManager:UnbanPlayer) has been registered!
-LINHA 60: 19:1:1 | [PermissionManager] Perm (BansManager:UpdateBanDuration) has been registered!
-LINHA 61: 19:1:1 | [PermissionManager] Perm (BansManager:UpdateBanReason) has been registered!
-LINHA 62: 19:1:1 | [PermissionManager] Perm (MenuSpectateTools) has been registered!
-LINHA 63: 19:1:1 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-LINHA 64: 19:1:1 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-LINHA 65: 19:1:1 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-LINHA 66: 19:1:1 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-LINHA 67: 19:1:1 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-LINHA 68: 19:1:1 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-LINHA 69: 19:1:1 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-LINHA 70: 19:1:1 | [PermissionManager] Perm (MenuTeleportManager) has been registered!
-LINHA 71: 19:1:1 | [PermissionManager] Perm (TeleportManager:ViewPlayerPositions) has been registered!
-LINHA 72: 19:1:1 | [PermissionManager] Perm (TeleportManager:TPPlayers) has been registered!
-LINHA 73: 19:1:1 | [PermissionManager] Perm (TeleportManager:TPSelf) has been registered!
-LINHA 74: 19:1:1 | [PermissionManager] Perm (TeleportManager:DeletePreset) has been registered!
-LINHA 75: 19:1:1 | [PermissionManager] Perm (TeleportManager:AddNewPreset) has been registered!
-LINHA 76: 19:1:1 | [PermissionManager] Perm (TeleportManager:EditPreset) has been registered!
-LINHA 77: 19:1:1 | [PermissionManager] Perm (TeleportManager:TeleportEntity) has been registered!
-LINHA 78: 19:1:1 | [PermissionManager] Perm (EspToolsMenu) has been registered!
-LINHA 79: 19:1:1 | [PermissionManager] Perm (EspToolsMenu:DeleteObjects) has been registered!
-LINHA 80: 19:1:1 | [PermissionManager] Perm (EspToolsMenu:PlayerESP) has been registered!
-LINHA 81: 19:1:1 | [PermissionManager] Perm (EspToolsMenu:RestPasscodeFence) has been registered!
-LINHA 82: 19:1:1 | [PermissionManager] Perm (EspToolsMenu:RetriveCodeFromObj) has been registered!
-LINHA 83: 19:1:1 | [PermissionManager] Perm (EspToolsMenu:PlayerMeshEsp) has been registered!
-LINHA 84: 19:1:1 | [PermissionManager] Perm (EspToolsMenu:InstantBaseBuild) has been registered!
-LINHA 85: 19:1:1 | [PermissionManager] Perm (MenuXMLEditor) has been registered!
-LINHA 86: 19:1:1 | [PermissionManager] Perm (MenuXMLEditor:EditTypes) has been registered!
-LINHA 87: 19:1:1 | [PermissionManager] Perm (MenuXMLEditor:AddRemoveTypes) has been registered!
-LINHA 88: 19:1:1 | [PermissionManager] Perm (MenuXMLEditor:DistributionMap) has been registered!
-LINHA 89: 19:1:1 | [PermissionManager] Perm (MenuXMLEditor:ViewBackups) has been registered!
-LINHA 90: 19:1:1 | [PermissionManager] Perm (MenuXMLEditor:RestoreBackup) has been registered!
-LINHA 91: 19:1:1 | [PermissionManager] Perm (MenuXMLEditor:DeleteBackup) has been registered!
-LINHA 92: 19:1:1 | [PermissionManager] Perm (MenuXMLEditor:LiveScan) has been registered!
-LINHA 93: 19:1:1 | [PermissionManager] Perm (MenuXMLEditor:DeleteObjects) has been registered!
-LINHA 94: 19:1:1 | [PermissionManager] Perm (MenuXMLEditor:EditMessages) has been registered!
-LINHA 95: 19:1:1 | [PermissionManager] Perm (MenuXMLEditor:EditEvents) has been registered!
-LINHA 96: 19:1:1 | [PermissionManager] Perm (MenuXMLEditor:EditSpawnables) has been registered!
-LINHA 97: 19:1:1 | [PermissionManager] Perm (MenuCommandsConsole) has been registered!
-LINHA 98: 19:1:1 | [PermissionManager] Perm (ContextMenu:ItemHealth) has been registered!
-LINHA 99: 19:1:1 | [PermissionManager] Perm (ContextMenu:WeaponLoad) has been registered!
-LINHA 100: 19:1:1 | [PermissionManager] Perm (ContextMenu:CreatureHeal) has been registered!
-LINHA 101: 19:1:1 | [PermissionManager] Perm (ContextMenu:SpawnAttachment) has been registered!
-LINHA 102: 19:1:1 | [PermissionManager] Perm (ContextMenu:CreatureKill) has been registered!
-LINHA 103: 19:1:1 | [PermissionManager] Perm (ContextMenu:ItemQuantity) has been registered!
-LINHA 104: 19:1:1 | [PermissionManager] Perm (ContextMenu:SetScale) has been registered!
-LINHA 105: 19:1:1 | [PermissionManager] Perm (ContextMenu:VehicleRefuel) has been registered!
-LINHA 106: 19:1:1 | [PermissionManager] Perm (ContextMenu:WeaponRefill) has been registered!
-LINHA 107: 19:1:1 | [PermissionManager] Perm (ContextMenu:Ragdoll) has been registered!
-LINHA 108: 19:1:1 | [PermissionManager] Perm (ContextMenu:WeaponJam) has been registered!
-LINHA 109: 19:1:1 | [PermissionManager] Perm (ContextMenu:WeaponEject) has been registered!
-LINHA 110: 19:1:1 | [PermissionManager] Adding Super Admin (76561198196693358)
-LINHA 111: 19:1:1 | [PermissionManager] Adding Super Admin (76561199508282814)
-LINHA 112: 19:1:1 | [PermissionManager] Loaded UserGroups.json
-LINHA 113: 19:1:1 | [BansManager]:: Load(): Loading ban list Json File $profile:VPPAdminTools/BanList.json
-LINHA 114: 19:1:1 | [PermissionManager] Perm (Chat:StripPlayer) has been registered!
-LINHA 115: 19:1:1 | [PermissionManager] Perm (Chat:KillPlayer) has been registered!
-LINHA 116: 19:1:1 | [PermissionManager] Perm (Chat:HealPlayer) has been registered!
-LINHA 117: 19:1:1 | [PermissionManager] Perm (Chat:BringPlayer) has been registered!
-LINHA 118: 19:1:1 | [PermissionManager] Perm (Chat:ReturnPlayer) has been registered!
-LINHA 119: 19:1:1 | [PermissionManager] Perm (Chat:GotoPlayer) has been registered!
-LINHA 120: 19:1:1 | [PermissionManager] Perm (Chat:UnbanPlayer) has been registered!
-LINHA 121: 19:1:1 | [PermissionManager] Perm (Chat:TeleportToTown) has been registered!
-LINHA 122: 19:1:1 | [PermissionManager] Perm (Chat:TeleportToPoint) has been registered!
-LINHA 123: 19:1:1 | [PermissionManager] Perm (Chat:GiveAmmo) has been registered!
-LINHA 124: 19:1:1 | [PermissionManager] Perm (Chat:SpawnInventory) has been registered!
-LINHA 125: 19:1:1 | [PermissionManager] Perm (Chat:SpawnOnGround) has been registered!
-LINHA 126: 19:1:1 | [PermissionManager] Perm (Chat:SpawnInHands) has been registered!
-LINHA 127: 19:1:1 | [PermissionManager] Perm (Chat:SpawnCar) has been registered!
-LINHA 128: 19:1:1 | [PermissionManager] Perm (Chat:refuelCar) has been registered!
-LINHA 129: 19:1:1 | [WeatherManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 130: 19:1:1 | [TimeManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 131: 19:1:1 | [BuildingSetManager] Journal: 0 set(s) loaded, 0 found by the folder scan, 0 dropped, 0 converted from .vpp, 0 upgraded to format 2
-LINHA 132: 19:1:1 | [SteamAPIManager] WARNING couldn't fetch server IP from configs; using cURL...
-LINHA 133 : [CONTEUDO SENSIVEL MASCARADO]
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-14-54.txt
-TAMANHO: 11314 bytes
---------------------------------------------------
-LINHA 1: [IDENTIFICADOR MASCARADO] Admin Tools Session [IDENTIFICADOR MASCARADO]
-LINHA 2: Logs Started: 2026-11-15_19-14-54
-LINHA 3: [IDENTIFICADOR MASCARADO]
-LINHA 4: 19:14:54 | [PermissionManager] Perm (DeleteObjectAtCrosshair) has been registered!
-LINHA 5: 19:14:54 | [PermissionManager] Perm (TeleportToCrosshair) has been registered!
-LINHA 6: 19:14:54 | [PermissionManager] Perm (FreeCamera) has been registered!
-LINHA 7: 19:14:54 | [PermissionManager] Perm ([IDENTIFICADOR MASCARADO]) has been registered!
-LINHA 8: 19:14:54 | [PermissionManager] Perm (MenuItemManager) has been registered!
-LINHA 9: 19:14:54 | [PermissionManager] Perm (MenuItemManager:SpawnItem) has been registered!
-LINHA 10: 19:14:54 | [PermissionManager] Perm (MenuItemManager:EditPreset) has been registered!
-LINHA 11: 19:14:54 | [PermissionManager] Perm (MenuItemManager:SpawnPreset) has been registered!
-LINHA 12: 19:14:54 | [PermissionManager] Perm (MenuItemManager:DeletePreset) has been registered!
-LINHA 13: 19:14:54 | [PermissionManager] Perm (MenuItemManager:AddPreset) has been registered!
-LINHA 14: 19:14:54 | [PermissionManager] Perm (MenuServerManager) has been registered!
-LINHA 15: 19:14:54 | [PermissionManager] Perm (ServerManager:RestartServer) has been registered!
-LINHA 16: 19:14:54 | [PermissionManager] Perm (ServerManager:LockServer) has been registered!
-LINHA 17: 19:14:54 | [PermissionManager] Perm (ServerManager:KickAllPlayers) has been registered!
-LINHA 18: 19:14:54 | [PermissionManager] Perm (MenuWeatherManager) has been registered!
-LINHA 19: 19:14:54 | [PermissionManager] Perm (WeatherManager:ApplyWeather) has been registered!
-LINHA 20: 19:14:54 | [PermissionManager] Perm (WeatherManager:ApplyTime) has been registered!
-LINHA 21: 19:14:54 | [PermissionManager] Perm (WeatherManager:SavePreset) has been registered!
-LINHA 22: 19:14:54 | [PermissionManager] Perm (WeatherManager:DeletePreset) has been registered!
-LINHA 23: 19:14:54 | [PermissionManager] Perm (WeatherManager:ApplyPreset) has been registered!
-LINHA 24: 19:14:54 | [PermissionManager] Perm (WeatherManager:ApplyTimePreset) has been registered!
-LINHA 25: 19:14:54 | [PermissionManager] Perm (WeatherManager:SaveTimePreset) has been registered!
-LINHA 26: 19:14:54 | [PermissionManager] Perm (WeatherManager:DeleteTimePreset) has been registered!
-LINHA 27: 19:14:54 | [PermissionManager] Perm (MenuObjectManager) has been registered!
-LINHA 28: 19:14:54 | [PermissionManager] Perm (MenuObjectManager:CreateNewSet) has been registered!
-LINHA 29: 19:14:54 | [PermissionManager] Perm (MenuObjectManager:UpdateSet) has been registered!
-LINHA 30: 19:14:54 | [PermissionManager] Perm (MenuObjectManager:DeleteSet) has been registered!
-LINHA 31: 19:14:54 | [PermissionManager] Perm (MenuObjectManager:EditSet) has been registered!
-LINHA 32: 19:14:54 | [PermissionManager] Perm (MenuPermissionsEditor) has been registered!
-LINHA 33: 19:14:54 | [PermissionManager] Perm (PermissionsEditor:RemoveUser) has been registered!
-LINHA 34: 19:14:54 | [PermissionManager] Perm (PermissionsEditor:AddUser) has been registered!
-LINHA 35: 19:14:54 | [PermissionManager] Perm (PermissionsEditor:CreateUserGroup) has been registered!
-LINHA 36: 19:14:54 | [PermissionManager] Perm (PermissionsEditor:DeleteUserGroup) has been registered!
-LINHA 37: 19:14:54 | [PermissionManager] Perm (PermissionsEditor:ChangePermLevel) has been registered!
-LINHA 38: 19:14:54 | [PermissionManager] Perm (MenuPlayerManager) has been registered!
-LINHA 39: 19:14:54 | [PermissionManager] Perm (PlayerManager:GiveGodmode) has been registered!
-LINHA 40: 19:14:54 | [PermissionManager] Perm (PlayerManager:BanPlayer) has been registered!
-LINHA 41: 19:14:54 | [PermissionManager] Perm (PlayerManager:KickPlayer) has been registered!
-LINHA 42: 19:14:54 | [PermissionManager] Perm (PlayerManager:HealPlayers) has been registered!
-LINHA 43: 19:14:54 | [PermissionManager] Perm (PlayerManager:SetPlayerStats) has been registered!
-LINHA 44: 19:14:54 | [PermissionManager] Perm (PlayerManager:KillPlayers) has been registered!
-LINHA 45: 19:14:54 | [PermissionManager] Perm (PlayerManager:GodMode) has been registered!
-LINHA 46: 19:14:54 | [PermissionManager] Perm (PlayerManager:SpectatePlayer) has been registered!
-LINHA 47: 19:14:54 | [PermissionManager] Perm (PlayerManager:TeleportToPlayer) has been registered!
-LINHA 48: 19:14:54 | [PermissionManager] Perm (PlayerManager:TeleportPlayerTo) has been registered!
-LINHA 49: 19:14:54 | [PermissionManager] Perm (PlayerManager:SetPlayerInvisible) has been registered!
-LINHA 50: 19:14:54 | [PermissionManager] Perm (PlayerManager:SendMessage) has been registered!
-LINHA 51: 19:14:54 | [PermissionManager] Perm (PlayerManager:GiveUnlimitedAmmo) has been registered!
-LINHA 52: 19:14:54 | [PermissionManager] Perm (PlayerManager:MakePlayerVomit) has been registered!
-LINHA 53: 19:14:54 | [PermissionManager] Perm (PlayerManager:FreezePlayers) has been registered!
-LINHA 54: 19:14:54 | [PermissionManager] Perm (PlayerManager:ChangeScale) has been registered!
-LINHA 55: 19:14:54 | [PermissionManager] Perm (PlayerManager:StopBleeding) has been registered!
-LINHA 56: 19:14:54 | [PermissionManager] Perm (PlayerManager:ClearInventory) has been registered!
-LINHA 57: 19:14:54 | [PermissionManager] Perm (PlayerManager:EditModifiers) has been registered!
-LINHA 58: 19:14:54 | [PermissionManager] Perm (MenuBansManager) has been registered!
-LINHA 59: 19:14:54 | [PermissionManager] Perm (BansManager:UnbanPlayer) has been registered!
-LINHA 60: 19:14:54 | [PermissionManager] Perm (BansManager:UpdateBanDuration) has been registered!
-LINHA 61: 19:14:54 | [PermissionManager] Perm (BansManager:UpdateBanReason) has been registered!
-LINHA 62: 19:14:54 | [PermissionManager] Perm (MenuSpectateTools) has been registered!
-LINHA 63: 19:14:54 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-LINHA 64: 19:14:54 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-LINHA 65: 19:14:54 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-LINHA 66: 19:14:54 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-LINHA 67: 19:14:54 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-LINHA 68: 19:14:54 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-LINHA 69: 19:14:54 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-LINHA 70: 19:14:54 | [PermissionManager] Perm (MenuTeleportManager) has been registered!
-LINHA 71: 19:14:54 | [PermissionManager] Perm (TeleportManager:ViewPlayerPositions) has been registered!
-LINHA 72: 19:14:54 | [PermissionManager] Perm (TeleportManager:TPPlayers) has been registered!
-LINHA 73: 19:14:54 | [PermissionManager] Perm (TeleportManager:TPSelf) has been registered!
-LINHA 74: 19:14:54 | [PermissionManager] Perm (TeleportManager:DeletePreset) has been registered!
-LINHA 75: 19:14:54 | [PermissionManager] Perm (TeleportManager:AddNewPreset) has been registered!
-LINHA 76: 19:14:54 | [PermissionManager] Perm (TeleportManager:EditPreset) has been registered!
-LINHA 77: 19:14:54 | [PermissionManager] Perm (TeleportManager:TeleportEntity) has been registered!
-LINHA 78: 19:14:54 | [PermissionManager] Perm (EspToolsMenu) has been registered!
-LINHA 79: 19:14:54 | [PermissionManager] Perm (EspToolsMenu:DeleteObjects) has been registered!
-LINHA 80: 19:14:54 | [PermissionManager] Perm (EspToolsMenu:PlayerESP) has been registered!
-LINHA 81: 19:14:54 | [PermissionManager] Perm (EspToolsMenu:RestPasscodeFence) has been registered!
-LINHA 82: 19:14:54 | [PermissionManager] Perm (EspToolsMenu:RetriveCodeFromObj) has been registered!
-LINHA 83: 19:14:54 | [PermissionManager] Perm (EspToolsMenu:PlayerMeshEsp) has been registered!
-LINHA 84: 19:14:54 | [PermissionManager] Perm (EspToolsMenu:InstantBaseBuild) has been registered!
-LINHA 85: 19:14:54 | [PermissionManager] Perm (MenuXMLEditor) has been registered!
-LINHA 86: 19:14:54 | [PermissionManager] Perm (MenuXMLEditor:EditTypes) has been registered!
-LINHA 87: 19:14:54 | [PermissionManager] Perm (MenuXMLEditor:AddRemoveTypes) has been registered!
-LINHA 88: 19:14:54 | [PermissionManager] Perm (MenuXMLEditor:DistributionMap) has been registered!
-LINHA 89: 19:14:54 | [PermissionManager] Perm (MenuXMLEditor:ViewBackups) has been registered!
-LINHA 90: 19:14:54 | [PermissionManager] Perm (MenuXMLEditor:RestoreBackup) has been registered!
-LINHA 91: 19:14:54 | [PermissionManager] Perm (MenuXMLEditor:DeleteBackup) has been registered!
-LINHA 92: 19:14:54 | [PermissionManager] Perm (MenuXMLEditor:LiveScan) has been registered!
-LINHA 93: 19:14:54 | [PermissionManager] Perm (MenuXMLEditor:DeleteObjects) has been registered!
-LINHA 94: 19:14:54 | [PermissionManager] Perm (MenuXMLEditor:EditMessages) has been registered!
-LINHA 95: 19:14:54 | [PermissionManager] Perm (MenuXMLEditor:EditEvents) has been registered!
-LINHA 96: 19:14:54 | [PermissionManager] Perm (MenuXMLEditor:EditSpawnables) has been registered!
-LINHA 97: 19:14:54 | [PermissionManager] Perm (MenuCommandsConsole) has been registered!
-LINHA 98: 19:14:54 | [PermissionManager] Perm (ContextMenu:ItemHealth) has been registered!
-LINHA 99: 19:14:54 | [PermissionManager] Perm (ContextMenu:WeaponLoad) has been registered!
-LINHA 100: 19:14:54 | [PermissionManager] Perm (ContextMenu:CreatureHeal) has been registered!
-LINHA 101: 19:14:54 | [PermissionManager] Perm (ContextMenu:SpawnAttachment) has been registered!
-LINHA 102: 19:14:54 | [PermissionManager] Perm (ContextMenu:CreatureKill) has been registered!
-LINHA 103: 19:14:54 | [PermissionManager] Perm (ContextMenu:ItemQuantity) has been registered!
-LINHA 104: 19:14:54 | [PermissionManager] Perm (ContextMenu:SetScale) has been registered!
-LINHA 105: 19:14:54 | [PermissionManager] Perm (ContextMenu:VehicleRefuel) has been registered!
-LINHA 106: 19:14:54 | [PermissionManager] Perm (ContextMenu:WeaponRefill) has been registered!
-LINHA 107: 19:14:54 | [PermissionManager] Perm (ContextMenu:Ragdoll) has been registered!
-LINHA 108: 19:14:54 | [PermissionManager] Perm (ContextMenu:WeaponJam) has been registered!
-LINHA 109: 19:14:54 | [PermissionManager] Perm (ContextMenu:WeaponEject) has been registered!
-LINHA 110: 19:14:54 | [PermissionManager] Adding Super Admin (76561198196693358)
-LINHA 111: 19:14:54 | [PermissionManager] Adding Super Admin (76561199508282814)
-LINHA 112: 19:14:54 | [PermissionManager] Loaded UserGroups.json
-LINHA 113: 19:14:54 | [BansManager]:: Load(): Loading ban list Json File $profile:VPPAdminTools/BanList.json
-LINHA 114: 19:14:54 | [PermissionManager] Perm (Chat:StripPlayer) has been registered!
-LINHA 115: 19:14:54 | [PermissionManager] Perm (Chat:KillPlayer) has been registered!
-LINHA 116: 19:14:54 | [PermissionManager] Perm (Chat:HealPlayer) has been registered!
-LINHA 117: 19:14:54 | [PermissionManager] Perm (Chat:BringPlayer) has been registered!
-LINHA 118: 19:14:54 | [PermissionManager] Perm (Chat:ReturnPlayer) has been registered!
-LINHA 119: 19:14:54 | [PermissionManager] Perm (Chat:GotoPlayer) has been registered!
-LINHA 120: 19:14:54 | [PermissionManager] Perm (Chat:UnbanPlayer) has been registered!
-LINHA 121: 19:14:54 | [PermissionManager] Perm (Chat:TeleportToTown) has been registered!
-LINHA 122: 19:14:54 | [PermissionManager] Perm (Chat:TeleportToPoint) has been registered!
-LINHA 123: 19:14:54 | [PermissionManager] Perm (Chat:GiveAmmo) has been registered!
-LINHA 124: 19:14:54 | [PermissionManager] Perm (Chat:SpawnInventory) has been registered!
-LINHA 125: 19:14:54 | [PermissionManager] Perm (Chat:SpawnOnGround) has been registered!
-LINHA 126: 19:14:54 | [PermissionManager] Perm (Chat:SpawnInHands) has been registered!
-LINHA 127: 19:14:54 | [PermissionManager] Perm (Chat:SpawnCar) has been registered!
-LINHA 128: 19:14:54 | [PermissionManager] Perm (Chat:refuelCar) has been registered!
-LINHA 129: 19:14:54 | [WeatherManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 130: 19:14:54 | [TimeManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 131: 19:14:54 | [BuildingSetManager] Journal: 0 set(s) loaded, 0 found by the folder scan, 0 dropped, 0 converted from .vpp, 0 upgraded to format 2
-LINHA 132: 19:14:54 | [SteamAPIManager] WARNING couldn't fetch server IP from configs; using cURL...
-LINHA 133 : [CONTEUDO SENSIVEL MASCARADO]
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-3-27.txt
-TAMANHO: 11183 bytes
---------------------------------------------------
-LINHA 1: [IDENTIFICADOR MASCARADO] Admin Tools Session [IDENTIFICADOR MASCARADO]
-LINHA 2: Logs Started: 2026-11-15_19-3-27
-LINHA 3: [IDENTIFICADOR MASCARADO]
-LINHA 4: 19:3:27 | [PermissionManager] Perm (DeleteObjectAtCrosshair) has been registered!
-LINHA 5: 19:3:27 | [PermissionManager] Perm (TeleportToCrosshair) has been registered!
-LINHA 6: 19:3:27 | [PermissionManager] Perm (FreeCamera) has been registered!
-LINHA 7: 19:3:27 | [PermissionManager] Perm ([IDENTIFICADOR MASCARADO]) has been registered!
-LINHA 8: 19:3:27 | [PermissionManager] Perm (MenuItemManager) has been registered!
-LINHA 9: 19:3:27 | [PermissionManager] Perm (MenuItemManager:SpawnItem) has been registered!
-LINHA 10: 19:3:27 | [PermissionManager] Perm (MenuItemManager:EditPreset) has been registered!
-LINHA 11: 19:3:27 | [PermissionManager] Perm (MenuItemManager:SpawnPreset) has been registered!
-LINHA 12: 19:3:27 | [PermissionManager] Perm (MenuItemManager:DeletePreset) has been registered!
-LINHA 13: 19:3:27 | [PermissionManager] Perm (MenuItemManager:AddPreset) has been registered!
-LINHA 14: 19:3:27 | [PermissionManager] Perm (MenuServerManager) has been registered!
-LINHA 15: 19:3:27 | [PermissionManager] Perm (ServerManager:RestartServer) has been registered!
-LINHA 16: 19:3:27 | [PermissionManager] Perm (ServerManager:LockServer) has been registered!
-LINHA 17: 19:3:27 | [PermissionManager] Perm (ServerManager:KickAllPlayers) has been registered!
-LINHA 18: 19:3:27 | [PermissionManager] Perm (MenuWeatherManager) has been registered!
-LINHA 19: 19:3:27 | [PermissionManager] Perm (WeatherManager:ApplyWeather) has been registered!
-LINHA 20: 19:3:27 | [PermissionManager] Perm (WeatherManager:ApplyTime) has been registered!
-LINHA 21: 19:3:27 | [PermissionManager] Perm (WeatherManager:SavePreset) has been registered!
-LINHA 22: 19:3:27 | [PermissionManager] Perm (WeatherManager:DeletePreset) has been registered!
-LINHA 23: 19:3:27 | [PermissionManager] Perm (WeatherManager:ApplyPreset) has been registered!
-LINHA 24: 19:3:27 | [PermissionManager] Perm (WeatherManager:ApplyTimePreset) has been registered!
-LINHA 25: 19:3:27 | [PermissionManager] Perm (WeatherManager:SaveTimePreset) has been registered!
-LINHA 26: 19:3:27 | [PermissionManager] Perm (WeatherManager:DeleteTimePreset) has been registered!
-LINHA 27: 19:3:27 | [PermissionManager] Perm (MenuObjectManager) has been registered!
-LINHA 28: 19:3:27 | [PermissionManager] Perm (MenuObjectManager:CreateNewSet) has been registered!
-LINHA 29: 19:3:27 | [PermissionManager] Perm (MenuObjectManager:UpdateSet) has been registered!
-LINHA 30: 19:3:27 | [PermissionManager] Perm (MenuObjectManager:DeleteSet) has been registered!
-LINHA 31: 19:3:27 | [PermissionManager] Perm (MenuObjectManager:EditSet) has been registered!
-LINHA 32: 19:3:27 | [PermissionManager] Perm (MenuPermissionsEditor) has been registered!
-LINHA 33: 19:3:27 | [PermissionManager] Perm (PermissionsEditor:RemoveUser) has been registered!
-LINHA 34: 19:3:27 | [PermissionManager] Perm (PermissionsEditor:AddUser) has been registered!
-LINHA 35: 19:3:27 | [PermissionManager] Perm (PermissionsEditor:CreateUserGroup) has been registered!
-LINHA 36: 19:3:27 | [PermissionManager] Perm (PermissionsEditor:DeleteUserGroup) has been registered!
-LINHA 37: 19:3:27 | [PermissionManager] Perm (PermissionsEditor:ChangePermLevel) has been registered!
-LINHA 38: 19:3:27 | [PermissionManager] Perm (MenuPlayerManager) has been registered!
-LINHA 39: 19:3:27 | [PermissionManager] Perm (PlayerManager:GiveGodmode) has been registered!
-LINHA 40: 19:3:27 | [PermissionManager] Perm (PlayerManager:BanPlayer) has been registered!
-LINHA 41: 19:3:27 | [PermissionManager] Perm (PlayerManager:KickPlayer) has been registered!
-LINHA 42: 19:3:27 | [PermissionManager] Perm (PlayerManager:HealPlayers) has been registered!
-LINHA 43: 19:3:27 | [PermissionManager] Perm (PlayerManager:SetPlayerStats) has been registered!
-LINHA 44: 19:3:27 | [PermissionManager] Perm (PlayerManager:KillPlayers) has been registered!
-LINHA 45: 19:3:27 | [PermissionManager] Perm (PlayerManager:GodMode) has been registered!
-LINHA 46: 19:3:27 | [PermissionManager] Perm (PlayerManager:SpectatePlayer) has been registered!
-LINHA 47: 19:3:27 | [PermissionManager] Perm (PlayerManager:TeleportToPlayer) has been registered!
-LINHA 48: 19:3:27 | [PermissionManager] Perm (PlayerManager:TeleportPlayerTo) has been registered!
-LINHA 49: 19:3:27 | [PermissionManager] Perm (PlayerManager:SetPlayerInvisible) has been registered!
-LINHA 50: 19:3:27 | [PermissionManager] Perm (PlayerManager:SendMessage) has been registered!
-LINHA 51: 19:3:27 | [PermissionManager] Perm (PlayerManager:GiveUnlimitedAmmo) has been registered!
-LINHA 52: 19:3:27 | [PermissionManager] Perm (PlayerManager:MakePlayerVomit) has been registered!
-LINHA 53: 19:3:27 | [PermissionManager] Perm (PlayerManager:FreezePlayers) has been registered!
-LINHA 54: 19:3:27 | [PermissionManager] Perm (PlayerManager:ChangeScale) has been registered!
-LINHA 55: 19:3:27 | [PermissionManager] Perm (PlayerManager:StopBleeding) has been registered!
-LINHA 56: 19:3:27 | [PermissionManager] Perm (PlayerManager:ClearInventory) has been registered!
-LINHA 57: 19:3:27 | [PermissionManager] Perm (PlayerManager:EditModifiers) has been registered!
-LINHA 58: 19:3:27 | [PermissionManager] Perm (MenuBansManager) has been registered!
-LINHA 59: 19:3:27 | [PermissionManager] Perm (BansManager:UnbanPlayer) has been registered!
-LINHA 60: 19:3:27 | [PermissionManager] Perm (BansManager:UpdateBanDuration) has been registered!
-LINHA 61: 19:3:27 | [PermissionManager] Perm (BansManager:UpdateBanReason) has been registered!
-LINHA 62: 19:3:27 | [PermissionManager] Perm (MenuSpectateTools) has been registered!
-LINHA 63: 19:3:27 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-LINHA 64: 19:3:27 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-LINHA 65: 19:3:27 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-LINHA 66: 19:3:27 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-LINHA 67: 19:3:27 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-LINHA 68: 19:3:27 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-LINHA 69: 19:3:27 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-LINHA 70: 19:3:27 | [PermissionManager] Perm (MenuTeleportManager) has been registered!
-LINHA 71: 19:3:27 | [PermissionManager] Perm (TeleportManager:ViewPlayerPositions) has been registered!
-LINHA 72: 19:3:27 | [PermissionManager] Perm (TeleportManager:TPPlayers) has been registered!
-LINHA 73: 19:3:27 | [PermissionManager] Perm (TeleportManager:TPSelf) has been registered!
-LINHA 74: 19:3:27 | [PermissionManager] Perm (TeleportManager:DeletePreset) has been registered!
-LINHA 75: 19:3:27 | [PermissionManager] Perm (TeleportManager:AddNewPreset) has been registered!
-LINHA 76: 19:3:27 | [PermissionManager] Perm (TeleportManager:EditPreset) has been registered!
-LINHA 77: 19:3:27 | [PermissionManager] Perm (TeleportManager:TeleportEntity) has been registered!
-LINHA 78: 19:3:27 | [PermissionManager] Perm (EspToolsMenu) has been registered!
-LINHA 79: 19:3:27 | [PermissionManager] Perm (EspToolsMenu:DeleteObjects) has been registered!
-LINHA 80: 19:3:27 | [PermissionManager] Perm (EspToolsMenu:PlayerESP) has been registered!
-LINHA 81: 19:3:27 | [PermissionManager] Perm (EspToolsMenu:RestPasscodeFence) has been registered!
-LINHA 82: 19:3:27 | [PermissionManager] Perm (EspToolsMenu:RetriveCodeFromObj) has been registered!
-LINHA 83: 19:3:27 | [PermissionManager] Perm (EspToolsMenu:PlayerMeshEsp) has been registered!
-LINHA 84: 19:3:27 | [PermissionManager] Perm (EspToolsMenu:InstantBaseBuild) has been registered!
-LINHA 85: 19:3:27 | [PermissionManager] Perm (MenuXMLEditor) has been registered!
-LINHA 86: 19:3:27 | [PermissionManager] Perm (MenuXMLEditor:EditTypes) has been registered!
-LINHA 87: 19:3:27 | [PermissionManager] Perm (MenuXMLEditor:AddRemoveTypes) has been registered!
-LINHA 88: 19:3:27 | [PermissionManager] Perm (MenuXMLEditor:DistributionMap) has been registered!
-LINHA 89: 19:3:27 | [PermissionManager] Perm (MenuXMLEditor:ViewBackups) has been registered!
-LINHA 90: 19:3:27 | [PermissionManager] Perm (MenuXMLEditor:RestoreBackup) has been registered!
-LINHA 91: 19:3:27 | [PermissionManager] Perm (MenuXMLEditor:DeleteBackup) has been registered!
-LINHA 92: 19:3:27 | [PermissionManager] Perm (MenuXMLEditor:LiveScan) has been registered!
-LINHA 93: 19:3:27 | [PermissionManager] Perm (MenuXMLEditor:DeleteObjects) has been registered!
-LINHA 94: 19:3:27 | [PermissionManager] Perm (MenuXMLEditor:EditMessages) has been registered!
-LINHA 95: 19:3:27 | [PermissionManager] Perm (MenuXMLEditor:EditEvents) has been registered!
-LINHA 96: 19:3:27 | [PermissionManager] Perm (MenuXMLEditor:EditSpawnables) has been registered!
-LINHA 97: 19:3:27 | [PermissionManager] Perm (MenuCommandsConsole) has been registered!
-LINHA 98: 19:3:27 | [PermissionManager] Perm (ContextMenu:ItemHealth) has been registered!
-LINHA 99: 19:3:27 | [PermissionManager] Perm (ContextMenu:WeaponLoad) has been registered!
-LINHA 100: 19:3:27 | [PermissionManager] Perm (ContextMenu:CreatureHeal) has been registered!
-LINHA 101: 19:3:27 | [PermissionManager] Perm (ContextMenu:SpawnAttachment) has been registered!
-LINHA 102: 19:3:27 | [PermissionManager] Perm (ContextMenu:CreatureKill) has been registered!
-LINHA 103: 19:3:27 | [PermissionManager] Perm (ContextMenu:ItemQuantity) has been registered!
-LINHA 104: 19:3:27 | [PermissionManager] Perm (ContextMenu:SetScale) has been registered!
-LINHA 105: 19:3:27 | [PermissionManager] Perm (ContextMenu:VehicleRefuel) has been registered!
-LINHA 106: 19:3:27 | [PermissionManager] Perm (ContextMenu:WeaponRefill) has been registered!
-LINHA 107: 19:3:27 | [PermissionManager] Perm (ContextMenu:Ragdoll) has been registered!
-LINHA 108: 19:3:27 | [PermissionManager] Perm (ContextMenu:WeaponJam) has been registered!
-LINHA 109: 19:3:27 | [PermissionManager] Perm (ContextMenu:WeaponEject) has been registered!
-LINHA 110: 19:3:27 | [PermissionManager] Adding Super Admin (76561198196693358)
-LINHA 111: 19:3:27 | [PermissionManager] Adding Super Admin (76561199508282814)
-LINHA 112: 19:3:27 | [PermissionManager] Loaded UserGroups.json
-LINHA 113: 19:3:27 | [BansManager]:: Load(): Loading ban list Json File $profile:VPPAdminTools/BanList.json
-LINHA 114: 19:3:27 | [PermissionManager] Perm (Chat:StripPlayer) has been registered!
-LINHA 115: 19:3:27 | [PermissionManager] Perm (Chat:KillPlayer) has been registered!
-LINHA 116: 19:3:27 | [PermissionManager] Perm (Chat:HealPlayer) has been registered!
-LINHA 117: 19:3:27 | [PermissionManager] Perm (Chat:BringPlayer) has been registered!
-LINHA 118: 19:3:27 | [PermissionManager] Perm (Chat:ReturnPlayer) has been registered!
-LINHA 119: 19:3:27 | [PermissionManager] Perm (Chat:GotoPlayer) has been registered!
-LINHA 120: 19:3:27 | [PermissionManager] Perm (Chat:UnbanPlayer) has been registered!
-LINHA 121: 19:3:27 | [PermissionManager] Perm (Chat:TeleportToTown) has been registered!
-LINHA 122: 19:3:27 | [PermissionManager] Perm (Chat:TeleportToPoint) has been registered!
-LINHA 123: 19:3:27 | [PermissionManager] Perm (Chat:GiveAmmo) has been registered!
-LINHA 124: 19:3:27 | [PermissionManager] Perm (Chat:SpawnInventory) has been registered!
-LINHA 125: 19:3:27 | [PermissionManager] Perm (Chat:SpawnOnGround) has been registered!
-LINHA 126: 19:3:27 | [PermissionManager] Perm (Chat:SpawnInHands) has been registered!
-LINHA 127: 19:3:27 | [PermissionManager] Perm (Chat:SpawnCar) has been registered!
-LINHA 128: 19:3:27 | [PermissionManager] Perm (Chat:refuelCar) has been registered!
-LINHA 129: 19:3:27 | [WeatherManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 130: 19:3:27 | [TimeManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 131: 19:3:27 | [BuildingSetManager] Journal: 0 set(s) loaded, 0 found by the folder scan, 0 dropped, 0 converted from .vpp, 0 upgraded to format 2
-LINHA 132: 19:3:27 | [SteamAPIManager] WARNING couldn't fetch server IP from configs; using cURL...
-LINHA 133 : [CONTEUDO SENSIVEL MASCARADO]
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-10-24.txt
-TAMANHO: 11314 bytes
---------------------------------------------------
-LINHA 1: [IDENTIFICADOR MASCARADO] Admin Tools Session [IDENTIFICADOR MASCARADO]
-LINHA 2: Logs Started: 2026-11-15_20-10-24
-LINHA 3: [IDENTIFICADOR MASCARADO]
-LINHA 4: 20:10:24 | [PermissionManager] Perm (DeleteObjectAtCrosshair) has been registered!
-LINHA 5: 20:10:24 | [PermissionManager] Perm (TeleportToCrosshair) has been registered!
-LINHA 6: 20:10:24 | [PermissionManager] Perm (FreeCamera) has been registered!
-LINHA 7: 20:10:24 | [PermissionManager] Perm ([IDENTIFICADOR MASCARADO]) has been registered!
-LINHA 8: 20:10:24 | [PermissionManager] Perm (MenuItemManager) has been registered!
-LINHA 9: 20:10:24 | [PermissionManager] Perm (MenuItemManager:SpawnItem) has been registered!
-LINHA 10: 20:10:24 | [PermissionManager] Perm (MenuItemManager:EditPreset) has been registered!
-LINHA 11: 20:10:24 | [PermissionManager] Perm (MenuItemManager:SpawnPreset) has been registered!
-LINHA 12: 20:10:24 | [PermissionManager] Perm (MenuItemManager:DeletePreset) has been registered!
-LINHA 13: 20:10:24 | [PermissionManager] Perm (MenuItemManager:AddPreset) has been registered!
-LINHA 14: 20:10:24 | [PermissionManager] Perm (MenuServerManager) has been registered!
-LINHA 15: 20:10:24 | [PermissionManager] Perm (ServerManager:RestartServer) has been registered!
-LINHA 16: 20:10:24 | [PermissionManager] Perm (ServerManager:LockServer) has been registered!
-LINHA 17: 20:10:24 | [PermissionManager] Perm (ServerManager:KickAllPlayers) has been registered!
-LINHA 18: 20:10:24 | [PermissionManager] Perm (MenuWeatherManager) has been registered!
-LINHA 19: 20:10:24 | [PermissionManager] Perm (WeatherManager:ApplyWeather) has been registered!
-LINHA 20: 20:10:24 | [PermissionManager] Perm (WeatherManager:ApplyTime) has been registered!
-LINHA 21: 20:10:24 | [PermissionManager] Perm (WeatherManager:SavePreset) has been registered!
-LINHA 22: 20:10:24 | [PermissionManager] Perm (WeatherManager:DeletePreset) has been registered!
-LINHA 23: 20:10:24 | [PermissionManager] Perm (WeatherManager:ApplyPreset) has been registered!
-LINHA 24: 20:10:24 | [PermissionManager] Perm (WeatherManager:ApplyTimePreset) has been registered!
-LINHA 25: 20:10:24 | [PermissionManager] Perm (WeatherManager:SaveTimePreset) has been registered!
-LINHA 26: 20:10:24 | [PermissionManager] Perm (WeatherManager:DeleteTimePreset) has been registered!
-LINHA 27: 20:10:24 | [PermissionManager] Perm (MenuObjectManager) has been registered!
-LINHA 28: 20:10:24 | [PermissionManager] Perm (MenuObjectManager:CreateNewSet) has been registered!
-LINHA 29: 20:10:24 | [PermissionManager] Perm (MenuObjectManager:UpdateSet) has been registered!
-LINHA 30: 20:10:24 | [PermissionManager] Perm (MenuObjectManager:DeleteSet) has been registered!
-LINHA 31: 20:10:24 | [PermissionManager] Perm (MenuObjectManager:EditSet) has been registered!
-LINHA 32: 20:10:24 | [PermissionManager] Perm (MenuPermissionsEditor) has been registered!
-LINHA 33: 20:10:24 | [PermissionManager] Perm (PermissionsEditor:RemoveUser) has been registered!
-LINHA 34: 20:10:24 | [PermissionManager] Perm (PermissionsEditor:AddUser) has been registered!
-LINHA 35: 20:10:24 | [PermissionManager] Perm (PermissionsEditor:CreateUserGroup) has been registered!
-LINHA 36: 20:10:24 | [PermissionManager] Perm (PermissionsEditor:DeleteUserGroup) has been registered!
-LINHA 37: 20:10:24 | [PermissionManager] Perm (PermissionsEditor:ChangePermLevel) has been registered!
-LINHA 38: 20:10:24 | [PermissionManager] Perm (MenuPlayerManager) has been registered!
-LINHA 39: 20:10:24 | [PermissionManager] Perm (PlayerManager:GiveGodmode) has been registered!
-LINHA 40: 20:10:24 | [PermissionManager] Perm (PlayerManager:BanPlayer) has been registered!
-LINHA 41: 20:10:24 | [PermissionManager] Perm (PlayerManager:KickPlayer) has been registered!
-LINHA 42: 20:10:24 | [PermissionManager] Perm (PlayerManager:HealPlayers) has been registered!
-LINHA 43: 20:10:24 | [PermissionManager] Perm (PlayerManager:SetPlayerStats) has been registered!
-LINHA 44: 20:10:24 | [PermissionManager] Perm (PlayerManager:KillPlayers) has been registered!
-LINHA 45: 20:10:24 | [PermissionManager] Perm (PlayerManager:GodMode) has been registered!
-LINHA 46: 20:10:24 | [PermissionManager] Perm (PlayerManager:SpectatePlayer) has been registered!
-LINHA 47: 20:10:24 | [PermissionManager] Perm (PlayerManager:TeleportToPlayer) has been registered!
-LINHA 48: 20:10:24 | [PermissionManager] Perm (PlayerManager:TeleportPlayerTo) has been registered!
-LINHA 49: 20:10:24 | [PermissionManager] Perm (PlayerManager:SetPlayerInvisible) has been registered!
-LINHA 50: 20:10:24 | [PermissionManager] Perm (PlayerManager:SendMessage) has been registered!
-LINHA 51: 20:10:24 | [PermissionManager] Perm (PlayerManager:GiveUnlimitedAmmo) has been registered!
-LINHA 52: 20:10:24 | [PermissionManager] Perm (PlayerManager:MakePlayerVomit) has been registered!
-LINHA 53: 20:10:24 | [PermissionManager] Perm (PlayerManager:FreezePlayers) has been registered!
-LINHA 54: 20:10:24 | [PermissionManager] Perm (PlayerManager:ChangeScale) has been registered!
-LINHA 55: 20:10:24 | [PermissionManager] Perm (PlayerManager:StopBleeding) has been registered!
-LINHA 56: 20:10:24 | [PermissionManager] Perm (PlayerManager:ClearInventory) has been registered!
-LINHA 57: 20:10:24 | [PermissionManager] Perm (PlayerManager:EditModifiers) has been registered!
-LINHA 58: 20:10:24 | [PermissionManager] Perm (MenuBansManager) has been registered!
-LINHA 59: 20:10:24 | [PermissionManager] Perm (BansManager:UnbanPlayer) has been registered!
-LINHA 60: 20:10:24 | [PermissionManager] Perm (BansManager:UpdateBanDuration) has been registered!
-LINHA 61: 20:10:24 | [PermissionManager] Perm (BansManager:UpdateBanReason) has been registered!
-LINHA 62: 20:10:24 | [PermissionManager] Perm (MenuSpectateTools) has been registered!
-LINHA 63: 20:10:24 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-LINHA 64: 20:10:24 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-LINHA 65: 20:10:24 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-LINHA 66: 20:10:24 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-LINHA 67: 20:10:24 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-LINHA 68: 20:10:24 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-LINHA 69: 20:10:24 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-LINHA 70: 20:10:24 | [PermissionManager] Perm (MenuTeleportManager) has been registered!
-LINHA 71: 20:10:24 | [PermissionManager] Perm (TeleportManager:ViewPlayerPositions) has been registered!
-LINHA 72: 20:10:24 | [PermissionManager] Perm (TeleportManager:TPPlayers) has been registered!
-LINHA 73: 20:10:24 | [PermissionManager] Perm (TeleportManager:TPSelf) has been registered!
-LINHA 74: 20:10:24 | [PermissionManager] Perm (TeleportManager:DeletePreset) has been registered!
-LINHA 75: 20:10:24 | [PermissionManager] Perm (TeleportManager:AddNewPreset) has been registered!
-LINHA 76: 20:10:24 | [PermissionManager] Perm (TeleportManager:EditPreset) has been registered!
-LINHA 77: 20:10:24 | [PermissionManager] Perm (TeleportManager:TeleportEntity) has been registered!
-LINHA 78: 20:10:24 | [PermissionManager] Perm (EspToolsMenu) has been registered!
-LINHA 79: 20:10:24 | [PermissionManager] Perm (EspToolsMenu:DeleteObjects) has been registered!
-LINHA 80: 20:10:24 | [PermissionManager] Perm (EspToolsMenu:PlayerESP) has been registered!
-LINHA 81: 20:10:24 | [PermissionManager] Perm (EspToolsMenu:RestPasscodeFence) has been registered!
-LINHA 82: 20:10:24 | [PermissionManager] Perm (EspToolsMenu:RetriveCodeFromObj) has been registered!
-LINHA 83: 20:10:24 | [PermissionManager] Perm (EspToolsMenu:PlayerMeshEsp) has been registered!
-LINHA 84: 20:10:24 | [PermissionManager] Perm (EspToolsMenu:InstantBaseBuild) has been registered!
-LINHA 85: 20:10:24 | [PermissionManager] Perm (MenuXMLEditor) has been registered!
-LINHA 86: 20:10:24 | [PermissionManager] Perm (MenuXMLEditor:EditTypes) has been registered!
-LINHA 87: 20:10:24 | [PermissionManager] Perm (MenuXMLEditor:AddRemoveTypes) has been registered!
-LINHA 88: 20:10:24 | [PermissionManager] Perm (MenuXMLEditor:DistributionMap) has been registered!
-LINHA 89: 20:10:24 | [PermissionManager] Perm (MenuXMLEditor:ViewBackups) has been registered!
-LINHA 90: 20:10:24 | [PermissionManager] Perm (MenuXMLEditor:RestoreBackup) has been registered!
-LINHA 91: 20:10:24 | [PermissionManager] Perm (MenuXMLEditor:DeleteBackup) has been registered!
-LINHA 92: 20:10:24 | [PermissionManager] Perm (MenuXMLEditor:LiveScan) has been registered!
-LINHA 93: 20:10:24 | [PermissionManager] Perm (MenuXMLEditor:DeleteObjects) has been registered!
-LINHA 94: 20:10:24 | [PermissionManager] Perm (MenuXMLEditor:EditMessages) has been registered!
-LINHA 95: 20:10:24 | [PermissionManager] Perm (MenuXMLEditor:EditEvents) has been registered!
-LINHA 96: 20:10:24 | [PermissionManager] Perm (MenuXMLEditor:EditSpawnables) has been registered!
-LINHA 97: 20:10:24 | [PermissionManager] Perm (MenuCommandsConsole) has been registered!
-LINHA 98: 20:10:24 | [PermissionManager] Perm (ContextMenu:ItemHealth) has been registered!
-LINHA 99: 20:10:24 | [PermissionManager] Perm (ContextMenu:WeaponLoad) has been registered!
-LINHA 100: 20:10:24 | [PermissionManager] Perm (ContextMenu:CreatureHeal) has been registered!
-LINHA 101: 20:10:24 | [PermissionManager] Perm (ContextMenu:SpawnAttachment) has been registered!
-LINHA 102: 20:10:24 | [PermissionManager] Perm (ContextMenu:CreatureKill) has been registered!
-LINHA 103: 20:10:24 | [PermissionManager] Perm (ContextMenu:ItemQuantity) has been registered!
-LINHA 104: 20:10:24 | [PermissionManager] Perm (ContextMenu:SetScale) has been registered!
-LINHA 105: 20:10:24 | [PermissionManager] Perm (ContextMenu:VehicleRefuel) has been registered!
-LINHA 106: 20:10:24 | [PermissionManager] Perm (ContextMenu:WeaponRefill) has been registered!
-LINHA 107: 20:10:24 | [PermissionManager] Perm (ContextMenu:Ragdoll) has been registered!
-LINHA 108: 20:10:24 | [PermissionManager] Perm (ContextMenu:WeaponJam) has been registered!
-LINHA 109: 20:10:24 | [PermissionManager] Perm (ContextMenu:WeaponEject) has been registered!
-LINHA 110: 20:10:24 | [PermissionManager] Adding Super Admin (76561198196693358)
-LINHA 111: 20:10:24 | [PermissionManager] Adding Super Admin (76561199508282814)
-LINHA 112: 20:10:24 | [PermissionManager] Loaded UserGroups.json
-LINHA 113: 20:10:24 | [BansManager]:: Load(): Loading ban list Json File $profile:VPPAdminTools/BanList.json
-LINHA 114: 20:10:24 | [PermissionManager] Perm (Chat:StripPlayer) has been registered!
-LINHA 115: 20:10:24 | [PermissionManager] Perm (Chat:KillPlayer) has been registered!
-LINHA 116: 20:10:24 | [PermissionManager] Perm (Chat:HealPlayer) has been registered!
-LINHA 117: 20:10:24 | [PermissionManager] Perm (Chat:BringPlayer) has been registered!
-LINHA 118: 20:10:24 | [PermissionManager] Perm (Chat:ReturnPlayer) has been registered!
-LINHA 119: 20:10:24 | [PermissionManager] Perm (Chat:GotoPlayer) has been registered!
-LINHA 120: 20:10:24 | [PermissionManager] Perm (Chat:UnbanPlayer) has been registered!
-LINHA 121: 20:10:24 | [PermissionManager] Perm (Chat:TeleportToTown) has been registered!
-LINHA 122: 20:10:24 | [PermissionManager] Perm (Chat:TeleportToPoint) has been registered!
-LINHA 123: 20:10:24 | [PermissionManager] Perm (Chat:GiveAmmo) has been registered!
-LINHA 124: 20:10:24 | [PermissionManager] Perm (Chat:SpawnInventory) has been registered!
-LINHA 125: 20:10:24 | [PermissionManager] Perm (Chat:SpawnOnGround) has been registered!
-LINHA 126: 20:10:24 | [PermissionManager] Perm (Chat:SpawnInHands) has been registered!
-LINHA 127: 20:10:24 | [PermissionManager] Perm (Chat:SpawnCar) has been registered!
-LINHA 128: 20:10:24 | [PermissionManager] Perm (Chat:refuelCar) has been registered!
-LINHA 129: 20:10:24 | [WeatherManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 130: 20:10:24 | [TimeManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 131: 20:10:24 | [BuildingSetManager] Journal: 0 set(s) loaded, 0 found by the folder scan, 0 dropped, 0 converted from .vpp, 0 upgraded to format 2
-LINHA 132: 20:10:24 | [SteamAPIManager] WARNING couldn't fetch server IP from configs; using cURL...
-LINHA 133 : [CONTEUDO SENSIVEL MASCARADO]
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-58-45.txt
-TAMANHO: 11314 bytes
---------------------------------------------------
-LINHA 1: [IDENTIFICADOR MASCARADO] Admin Tools Session [IDENTIFICADOR MASCARADO]
-LINHA 2: Logs Started: 2026-11-15_20-58-45
-LINHA 3: [IDENTIFICADOR MASCARADO]
-LINHA 4: 20:58:45 | [PermissionManager] Perm (DeleteObjectAtCrosshair) has been registered!
-LINHA 5: 20:58:45 | [PermissionManager] Perm (TeleportToCrosshair) has been registered!
-LINHA 6: 20:58:45 | [PermissionManager] Perm (FreeCamera) has been registered!
-LINHA 7: 20:58:45 | [PermissionManager] Perm ([IDENTIFICADOR MASCARADO]) has been registered!
-LINHA 8: 20:58:45 | [PermissionManager] Perm (MenuItemManager) has been registered!
-LINHA 9: 20:58:45 | [PermissionManager] Perm (MenuItemManager:SpawnItem) has been registered!
-LINHA 10: 20:58:45 | [PermissionManager] Perm (MenuItemManager:EditPreset) has been registered!
-LINHA 11: 20:58:45 | [PermissionManager] Perm (MenuItemManager:SpawnPreset) has been registered!
-LINHA 12: 20:58:45 | [PermissionManager] Perm (MenuItemManager:DeletePreset) has been registered!
-LINHA 13: 20:58:45 | [PermissionManager] Perm (MenuItemManager:AddPreset) has been registered!
-LINHA 14: 20:58:45 | [PermissionManager] Perm (MenuServerManager) has been registered!
-LINHA 15: 20:58:45 | [PermissionManager] Perm (ServerManager:RestartServer) has been registered!
-LINHA 16: 20:58:45 | [PermissionManager] Perm (ServerManager:LockServer) has been registered!
-LINHA 17: 20:58:45 | [PermissionManager] Perm (ServerManager:KickAllPlayers) has been registered!
-LINHA 18: 20:58:45 | [PermissionManager] Perm (MenuWeatherManager) has been registered!
-LINHA 19: 20:58:45 | [PermissionManager] Perm (WeatherManager:ApplyWeather) has been registered!
-LINHA 20: 20:58:45 | [PermissionManager] Perm (WeatherManager:ApplyTime) has been registered!
-LINHA 21: 20:58:45 | [PermissionManager] Perm (WeatherManager:SavePreset) has been registered!
-LINHA 22: 20:58:45 | [PermissionManager] Perm (WeatherManager:DeletePreset) has been registered!
-LINHA 23: 20:58:45 | [PermissionManager] Perm (WeatherManager:ApplyPreset) has been registered!
-LINHA 24: 20:58:45 | [PermissionManager] Perm (WeatherManager:ApplyTimePreset) has been registered!
-LINHA 25: 20:58:45 | [PermissionManager] Perm (WeatherManager:SaveTimePreset) has been registered!
-LINHA 26: 20:58:45 | [PermissionManager] Perm (WeatherManager:DeleteTimePreset) has been registered!
-LINHA 27: 20:58:45 | [PermissionManager] Perm (MenuObjectManager) has been registered!
-LINHA 28: 20:58:45 | [PermissionManager] Perm (MenuObjectManager:CreateNewSet) has been registered!
-LINHA 29: 20:58:45 | [PermissionManager] Perm (MenuObjectManager:UpdateSet) has been registered!
-LINHA 30: 20:58:45 | [PermissionManager] Perm (MenuObjectManager:DeleteSet) has been registered!
-LINHA 31: 20:58:45 | [PermissionManager] Perm (MenuObjectManager:EditSet) has been registered!
-LINHA 32: 20:58:45 | [PermissionManager] Perm (MenuPermissionsEditor) has been registered!
-LINHA 33: 20:58:45 | [PermissionManager] Perm (PermissionsEditor:RemoveUser) has been registered!
-LINHA 34: 20:58:45 | [PermissionManager] Perm (PermissionsEditor:AddUser) has been registered!
-LINHA 35: 20:58:45 | [PermissionManager] Perm (PermissionsEditor:CreateUserGroup) has been registered!
-LINHA 36: 20:58:45 | [PermissionManager] Perm (PermissionsEditor:DeleteUserGroup) has been registered!
-LINHA 37: 20:58:45 | [PermissionManager] Perm (PermissionsEditor:ChangePermLevel) has been registered!
-LINHA 38: 20:58:45 | [PermissionManager] Perm (MenuPlayerManager) has been registered!
-LINHA 39: 20:58:45 | [PermissionManager] Perm (PlayerManager:GiveGodmode) has been registered!
-LINHA 40: 20:58:45 | [PermissionManager] Perm (PlayerManager:BanPlayer) has been registered!
-LINHA 41: 20:58:45 | [PermissionManager] Perm (PlayerManager:KickPlayer) has been registered!
-LINHA 42: 20:58:45 | [PermissionManager] Perm (PlayerManager:HealPlayers) has been registered!
-LINHA 43: 20:58:45 | [PermissionManager] Perm (PlayerManager:SetPlayerStats) has been registered!
-LINHA 44: 20:58:45 | [PermissionManager] Perm (PlayerManager:KillPlayers) has been registered!
-LINHA 45: 20:58:45 | [PermissionManager] Perm (PlayerManager:GodMode) has been registered!
-LINHA 46: 20:58:45 | [PermissionManager] Perm (PlayerManager:SpectatePlayer) has been registered!
-LINHA 47: 20:58:45 | [PermissionManager] Perm (PlayerManager:TeleportToPlayer) has been registered!
-LINHA 48: 20:58:45 | [PermissionManager] Perm (PlayerManager:TeleportPlayerTo) has been registered!
-LINHA 49: 20:58:45 | [PermissionManager] Perm (PlayerManager:SetPlayerInvisible) has been registered!
-LINHA 50: 20:58:45 | [PermissionManager] Perm (PlayerManager:SendMessage) has been registered!
-LINHA 51: 20:58:45 | [PermissionManager] Perm (PlayerManager:GiveUnlimitedAmmo) has been registered!
-LINHA 52: 20:58:45 | [PermissionManager] Perm (PlayerManager:MakePlayerVomit) has been registered!
-LINHA 53: 20:58:45 | [PermissionManager] Perm (PlayerManager:FreezePlayers) has been registered!
-LINHA 54: 20:58:45 | [PermissionManager] Perm (PlayerManager:ChangeScale) has been registered!
-LINHA 55: 20:58:45 | [PermissionManager] Perm (PlayerManager:StopBleeding) has been registered!
-LINHA 56: 20:58:45 | [PermissionManager] Perm (PlayerManager:ClearInventory) has been registered!
-LINHA 57: 20:58:45 | [PermissionManager] Perm (PlayerManager:EditModifiers) has been registered!
-LINHA 58: 20:58:45 | [PermissionManager] Perm (MenuBansManager) has been registered!
-LINHA 59: 20:58:45 | [PermissionManager] Perm (BansManager:UnbanPlayer) has been registered!
-LINHA 60: 20:58:45 | [PermissionManager] Perm (BansManager:UpdateBanDuration) has been registered!
-LINHA 61: 20:58:45 | [PermissionManager] Perm (BansManager:UpdateBanReason) has been registered!
-LINHA 62: 20:58:45 | [PermissionManager] Perm (MenuSpectateTools) has been registered!
-LINHA 63: 20:58:45 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-LINHA 64: 20:58:45 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-LINHA 65: 20:58:45 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-LINHA 66: 20:58:45 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-LINHA 67: 20:58:45 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-LINHA 68: 20:58:45 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-LINHA 69: 20:58:45 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-LINHA 70: 20:58:45 | [PermissionManager] Perm (MenuTeleportManager) has been registered!
-LINHA 71: 20:58:45 | [PermissionManager] Perm (TeleportManager:ViewPlayerPositions) has been registered!
-LINHA 72: 20:58:45 | [PermissionManager] Perm (TeleportManager:TPPlayers) has been registered!
-LINHA 73: 20:58:45 | [PermissionManager] Perm (TeleportManager:TPSelf) has been registered!
-LINHA 74: 20:58:45 | [PermissionManager] Perm (TeleportManager:DeletePreset) has been registered!
-LINHA 75: 20:58:45 | [PermissionManager] Perm (TeleportManager:AddNewPreset) has been registered!
-LINHA 76: 20:58:45 | [PermissionManager] Perm (TeleportManager:EditPreset) has been registered!
-LINHA 77: 20:58:45 | [PermissionManager] Perm (TeleportManager:TeleportEntity) has been registered!
-LINHA 78: 20:58:45 | [PermissionManager] Perm (EspToolsMenu) has been registered!
-LINHA 79: 20:58:45 | [PermissionManager] Perm (EspToolsMenu:DeleteObjects) has been registered!
-LINHA 80: 20:58:45 | [PermissionManager] Perm (EspToolsMenu:PlayerESP) has been registered!
-LINHA 81: 20:58:45 | [PermissionManager] Perm (EspToolsMenu:RestPasscodeFence) has been registered!
-LINHA 82: 20:58:45 | [PermissionManager] Perm (EspToolsMenu:RetriveCodeFromObj) has been registered!
-LINHA 83: 20:58:45 | [PermissionManager] Perm (EspToolsMenu:PlayerMeshEsp) has been registered!
-LINHA 84: 20:58:45 | [PermissionManager] Perm (EspToolsMenu:InstantBaseBuild) has been registered!
-LINHA 85: 20:58:45 | [PermissionManager] Perm (MenuXMLEditor) has been registered!
-LINHA 86: 20:58:45 | [PermissionManager] Perm (MenuXMLEditor:EditTypes) has been registered!
-LINHA 87: 20:58:45 | [PermissionManager] Perm (MenuXMLEditor:AddRemoveTypes) has been registered!
-LINHA 88: 20:58:45 | [PermissionManager] Perm (MenuXMLEditor:DistributionMap) has been registered!
-LINHA 89: 20:58:45 | [PermissionManager] Perm (MenuXMLEditor:ViewBackups) has been registered!
-LINHA 90: 20:58:45 | [PermissionManager] Perm (MenuXMLEditor:RestoreBackup) has been registered!
-LINHA 91: 20:58:45 | [PermissionManager] Perm (MenuXMLEditor:DeleteBackup) has been registered!
-LINHA 92: 20:58:45 | [PermissionManager] Perm (MenuXMLEditor:LiveScan) has been registered!
-LINHA 93: 20:58:45 | [PermissionManager] Perm (MenuXMLEditor:DeleteObjects) has been registered!
-LINHA 94: 20:58:45 | [PermissionManager] Perm (MenuXMLEditor:EditMessages) has been registered!
-LINHA 95: 20:58:45 | [PermissionManager] Perm (MenuXMLEditor:EditEvents) has been registered!
-LINHA 96: 20:58:45 | [PermissionManager] Perm (MenuXMLEditor:EditSpawnables) has been registered!
-LINHA 97: 20:58:45 | [PermissionManager] Perm (MenuCommandsConsole) has been registered!
-LINHA 98: 20:58:45 | [PermissionManager] Perm (ContextMenu:ItemHealth) has been registered!
-LINHA 99: 20:58:45 | [PermissionManager] Perm (ContextMenu:WeaponLoad) has been registered!
-LINHA 100: 20:58:45 | [PermissionManager] Perm (ContextMenu:CreatureHeal) has been registered!
-LINHA 101: 20:58:45 | [PermissionManager] Perm (ContextMenu:SpawnAttachment) has been registered!
-LINHA 102: 20:58:45 | [PermissionManager] Perm (ContextMenu:CreatureKill) has been registered!
-LINHA 103: 20:58:45 | [PermissionManager] Perm (ContextMenu:ItemQuantity) has been registered!
-LINHA 104: 20:58:45 | [PermissionManager] Perm (ContextMenu:SetScale) has been registered!
-LINHA 105: 20:58:45 | [PermissionManager] Perm (ContextMenu:VehicleRefuel) has been registered!
-LINHA 106: 20:58:45 | [PermissionManager] Perm (ContextMenu:WeaponRefill) has been registered!
-LINHA 107: 20:58:45 | [PermissionManager] Perm (ContextMenu:Ragdoll) has been registered!
-LINHA 108: 20:58:45 | [PermissionManager] Perm (ContextMenu:WeaponJam) has been registered!
-LINHA 109: 20:58:45 | [PermissionManager] Perm (ContextMenu:WeaponEject) has been registered!
-LINHA 110: 20:58:45 | [PermissionManager] Adding Super Admin (76561198196693358)
-LINHA 111: 20:58:45 | [PermissionManager] Adding Super Admin (76561199508282814)
-LINHA 112: 20:58:45 | [PermissionManager] Loaded UserGroups.json
-LINHA 113: 20:58:45 | [BansManager]:: Load(): Loading ban list Json File $profile:VPPAdminTools/BanList.json
-LINHA 114: 20:58:45 | [PermissionManager] Perm (Chat:StripPlayer) has been registered!
-LINHA 115: 20:58:45 | [PermissionManager] Perm (Chat:KillPlayer) has been registered!
-LINHA 116: 20:58:45 | [PermissionManager] Perm (Chat:HealPlayer) has been registered!
-LINHA 117: 20:58:45 | [PermissionManager] Perm (Chat:BringPlayer) has been registered!
-LINHA 118: 20:58:45 | [PermissionManager] Perm (Chat:ReturnPlayer) has been registered!
-LINHA 119: 20:58:45 | [PermissionManager] Perm (Chat:GotoPlayer) has been registered!
-LINHA 120: 20:58:45 | [PermissionManager] Perm (Chat:UnbanPlayer) has been registered!
-LINHA 121: 20:58:45 | [PermissionManager] Perm (Chat:TeleportToTown) has been registered!
-LINHA 122: 20:58:45 | [PermissionManager] Perm (Chat:TeleportToPoint) has been registered!
-LINHA 123: 20:58:45 | [PermissionManager] Perm (Chat:GiveAmmo) has been registered!
-LINHA 124: 20:58:45 | [PermissionManager] Perm (Chat:SpawnInventory) has been registered!
-LINHA 125: 20:58:45 | [PermissionManager] Perm (Chat:SpawnOnGround) has been registered!
-LINHA 126: 20:58:45 | [PermissionManager] Perm (Chat:SpawnInHands) has been registered!
-LINHA 127: 20:58:45 | [PermissionManager] Perm (Chat:SpawnCar) has been registered!
-LINHA 128: 20:58:45 | [PermissionManager] Perm (Chat:refuelCar) has been registered!
-LINHA 129: 20:58:45 | [WeatherManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 130: 20:58:45 | [TimeManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 131: 20:58:45 | [BuildingSetManager] Journal: 0 set(s) loaded, 0 found by the folder scan, 0 dropped, 0 converted from .vpp, 0 upgraded to format 2
-LINHA 132: 20:58:45 | [SteamAPIManager] WARNING couldn't fetch server IP from configs; using cURL...
-LINHA 133 : [CONTEUDO SENSIVEL MASCARADO]
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt
-TAMANHO: 18701 bytes
---------------------------------------------------
-LINHA 1: [IDENTIFICADOR MASCARADO] Admin Tools Session [IDENTIFICADOR MASCARADO]
-LINHA 2: Logs Started: 2026-11-15_21-7-54
-LINHA 3: [IDENTIFICADOR MASCARADO]
-LINHA 4: 21:7:54 | [PermissionManager] Perm (DeleteObjectAtCrosshair) has been registered!
-LINHA 5: 21:7:54 | [PermissionManager] Perm (TeleportToCrosshair) has been registered!
-LINHA 6: 21:7:54 | [PermissionManager] Perm (FreeCamera) has been registered!
-LINHA 7: 21:7:54 | [PermissionManager] Perm ([IDENTIFICADOR MASCARADO]) has been registered!
-LINHA 8: 21:7:54 | [PermissionManager] Perm (MenuItemManager) has been registered!
-LINHA 9: 21:7:54 | [PermissionManager] Perm (MenuItemManager:SpawnItem) has been registered!
-LINHA 10: 21:7:54 | [PermissionManager] Perm (MenuItemManager:EditPreset) has been registered!
-LINHA 11: 21:7:54 | [PermissionManager] Perm (MenuItemManager:SpawnPreset) has been registered!
-LINHA 12: 21:7:54 | [PermissionManager] Perm (MenuItemManager:DeletePreset) has been registered!
-LINHA 13: 21:7:54 | [PermissionManager] Perm (MenuItemManager:AddPreset) has been registered!
-LINHA 14: 21:7:54 | [PermissionManager] Perm (MenuServerManager) has been registered!
-LINHA 15: 21:7:54 | [PermissionManager] Perm (ServerManager:RestartServer) has been registered!
-LINHA 16: 21:7:54 | [PermissionManager] Perm (ServerManager:LockServer) has been registered!
-LINHA 17: 21:7:54 | [PermissionManager] Perm (ServerManager:KickAllPlayers) has been registered!
-LINHA 18: 21:7:54 | [PermissionManager] Perm (MenuWeatherManager) has been registered!
-LINHA 19: 21:7:54 | [PermissionManager] Perm (WeatherManager:ApplyWeather) has been registered!
-LINHA 20: 21:7:54 | [PermissionManager] Perm (WeatherManager:ApplyTime) has been registered!
-LINHA 21: 21:7:54 | [PermissionManager] Perm (WeatherManager:SavePreset) has been registered!
-LINHA 22: 21:7:54 | [PermissionManager] Perm (WeatherManager:DeletePreset) has been registered!
-LINHA 23: 21:7:54 | [PermissionManager] Perm (WeatherManager:ApplyPreset) has been registered!
-LINHA 24: 21:7:54 | [PermissionManager] Perm (WeatherManager:ApplyTimePreset) has been registered!
-LINHA 25: 21:7:54 | [PermissionManager] Perm (WeatherManager:SaveTimePreset) has been registered!
-LINHA 26: 21:7:54 | [PermissionManager] Perm (WeatherManager:DeleteTimePreset) has been registered!
-LINHA 27: 21:7:54 | [PermissionManager] Perm (MenuObjectManager) has been registered!
-LINHA 28: 21:7:54 | [PermissionManager] Perm (MenuObjectManager:CreateNewSet) has been registered!
-LINHA 29: 21:7:54 | [PermissionManager] Perm (MenuObjectManager:UpdateSet) has been registered!
-LINHA 30: 21:7:54 | [PermissionManager] Perm (MenuObjectManager:DeleteSet) has been registered!
-LINHA 31: 21:7:54 | [PermissionManager] Perm (MenuObjectManager:EditSet) has been registered!
-LINHA 32: 21:7:54 | [PermissionManager] Perm (MenuPermissionsEditor) has been registered!
-LINHA 33: 21:7:54 | [PermissionManager] Perm (PermissionsEditor:RemoveUser) has been registered!
-LINHA 34: 21:7:54 | [PermissionManager] Perm (PermissionsEditor:AddUser) has been registered!
-LINHA 35: 21:7:54 | [PermissionManager] Perm (PermissionsEditor:CreateUserGroup) has been registered!
-LINHA 36: 21:7:54 | [PermissionManager] Perm (PermissionsEditor:DeleteUserGroup) has been registered!
-LINHA 37: 21:7:54 | [PermissionManager] Perm (PermissionsEditor:ChangePermLevel) has been registered!
-LINHA 38: 21:7:54 | [PermissionManager] Perm (MenuPlayerManager) has been registered!
-LINHA 39: 21:7:54 | [PermissionManager] Perm (PlayerManager:GiveGodmode) has been registered!
-LINHA 40: 21:7:54 | [PermissionManager] Perm (PlayerManager:BanPlayer) has been registered!
-LINHA 41: 21:7:54 | [PermissionManager] Perm (PlayerManager:KickPlayer) has been registered!
-LINHA 42: 21:7:54 | [PermissionManager] Perm (PlayerManager:HealPlayers) has been registered!
-LINHA 43: 21:7:54 | [PermissionManager] Perm (PlayerManager:SetPlayerStats) has been registered!
-LINHA 44: 21:7:54 | [PermissionManager] Perm (PlayerManager:KillPlayers) has been registered!
-LINHA 45: 21:7:54 | [PermissionManager] Perm (PlayerManager:GodMode) has been registered!
-LINHA 46: 21:7:54 | [PermissionManager] Perm (PlayerManager:SpectatePlayer) has been registered!
-LINHA 47: 21:7:54 | [PermissionManager] Perm (PlayerManager:TeleportToPlayer) has been registered!
-LINHA 48: 21:7:54 | [PermissionManager] Perm (PlayerManager:TeleportPlayerTo) has been registered!
-LINHA 49: 21:7:54 | [PermissionManager] Perm (PlayerManager:SetPlayerInvisible) has been registered!
-LINHA 50: 21:7:54 | [PermissionManager] Perm (PlayerManager:SendMessage) has been registered!
-LINHA 51: 21:7:54 | [PermissionManager] Perm (PlayerManager:GiveUnlimitedAmmo) has been registered!
-LINHA 52: 21:7:54 | [PermissionManager] Perm (PlayerManager:MakePlayerVomit) has been registered!
-LINHA 53: 21:7:54 | [PermissionManager] Perm (PlayerManager:FreezePlayers) has been registered!
-LINHA 54: 21:7:54 | [PermissionManager] Perm (PlayerManager:ChangeScale) has been registered!
-LINHA 55: 21:7:54 | [PermissionManager] Perm (PlayerManager:StopBleeding) has been registered!
-LINHA 56: 21:7:54 | [PermissionManager] Perm (PlayerManager:ClearInventory) has been registered!
-LINHA 57: 21:7:54 | [PermissionManager] Perm (PlayerManager:EditModifiers) has been registered!
-LINHA 58: 21:7:54 | [PermissionManager] Perm (MenuBansManager) has been registered!
-LINHA 59: 21:7:54 | [PermissionManager] Perm (BansManager:UnbanPlayer) has been registered!
-LINHA 60: 21:7:54 | [PermissionManager] Perm (BansManager:UpdateBanDuration) has been registered!
-LINHA 61: 21:7:54 | [PermissionManager] Perm (BansManager:UpdateBanReason) has been registered!
-LINHA 62: 21:7:54 | [PermissionManager] Perm (MenuSpectateTools) has been registered!
-LINHA 63: 21:7:54 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-LINHA 64: 21:7:54 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-LINHA 65: 21:7:54 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-LINHA 66: 21:7:54 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-LINHA 67: 21:7:54 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-LINHA 68: 21:7:54 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-LINHA 69: 21:7:54 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-LINHA 70: 21:7:54 | [PermissionManager] Perm (MenuTeleportManager) has been registered!
-LINHA 71: 21:7:54 | [PermissionManager] Perm (TeleportManager:ViewPlayerPositions) has been registered!
-LINHA 72: 21:7:54 | [PermissionManager] Perm (TeleportManager:TPPlayers) has been registered!
-LINHA 73: 21:7:54 | [PermissionManager] Perm (TeleportManager:TPSelf) has been registered!
-LINHA 74: 21:7:54 | [PermissionManager] Perm (TeleportManager:DeletePreset) has been registered!
-LINHA 75: 21:7:54 | [PermissionManager] Perm (TeleportManager:AddNewPreset) has been registered!
-LINHA 76: 21:7:54 | [PermissionManager] Perm (TeleportManager:EditPreset) has been registered!
-LINHA 77: 21:7:54 | [PermissionManager] Perm (TeleportManager:TeleportEntity) has been registered!
-LINHA 78: 21:7:54 | [PermissionManager] Perm (EspToolsMenu) has been registered!
-LINHA 79: 21:7:54 | [PermissionManager] Perm (EspToolsMenu:DeleteObjects) has been registered!
-LINHA 80: 21:7:54 | [PermissionManager] Perm (EspToolsMenu:PlayerESP) has been registered!
-LINHA 81: 21:7:54 | [PermissionManager] Perm (EspToolsMenu:RestPasscodeFence) has been registered!
-LINHA 82: 21:7:54 | [PermissionManager] Perm (EspToolsMenu:RetriveCodeFromObj) has been registered!
-LINHA 83: 21:7:54 | [PermissionManager] Perm (EspToolsMenu:PlayerMeshEsp) has been registered!
-LINHA 84: 21:7:54 | [PermissionManager] Perm (EspToolsMenu:InstantBaseBuild) has been registered!
-LINHA 85: 21:7:54 | [PermissionManager] Perm (MenuXMLEditor) has been registered!
-LINHA 86: 21:7:54 | [PermissionManager] Perm (MenuXMLEditor:EditTypes) has been registered!
-LINHA 87: 21:7:54 | [PermissionManager] Perm (MenuXMLEditor:AddRemoveTypes) has been registered!
-LINHA 88: 21:7:54 | [PermissionManager] Perm (MenuXMLEditor:DistributionMap) has been registered!
-LINHA 89: 21:7:54 | [PermissionManager] Perm (MenuXMLEditor:ViewBackups) has been registered!
-LINHA 90: 21:7:54 | [PermissionManager] Perm (MenuXMLEditor:RestoreBackup) has been registered!
-LINHA 91: 21:7:54 | [PermissionManager] Perm (MenuXMLEditor:DeleteBackup) has been registered!
-LINHA 92: 21:7:54 | [PermissionManager] Perm (MenuXMLEditor:LiveScan) has been registered!
-LINHA 93: 21:7:54 | [PermissionManager] Perm (MenuXMLEditor:DeleteObjects) has been registered!
-LINHA 94: 21:7:54 | [PermissionManager] Perm (MenuXMLEditor:EditMessages) has been registered!
-LINHA 95: 21:7:54 | [PermissionManager] Perm (MenuXMLEditor:EditEvents) has been registered!
-LINHA 96: 21:7:54 | [PermissionManager] Perm (MenuXMLEditor:EditSpawnables) has been registered!
-LINHA 97: 21:7:54 | [PermissionManager] Perm (MenuCommandsConsole) has been registered!
-LINHA 98: 21:7:54 | [PermissionManager] Perm (ContextMenu:ItemHealth) has been registered!
-LINHA 99: 21:7:54 | [PermissionManager] Perm (ContextMenu:WeaponLoad) has been registered!
-LINHA 100: 21:7:54 | [PermissionManager] Perm (ContextMenu:CreatureHeal) has been registered!
-LINHA 101: 21:7:54 | [PermissionManager] Perm (ContextMenu:SpawnAttachment) has been registered!
-LINHA 102: 21:7:54 | [PermissionManager] Perm (ContextMenu:CreatureKill) has been registered!
-LINHA 103: 21:7:54 | [PermissionManager] Perm (ContextMenu:ItemQuantity) has been registered!
-LINHA 104: 21:7:54 | [PermissionManager] Perm (ContextMenu:SetScale) has been registered!
-LINHA 105: 21:7:54 | [PermissionManager] Perm (ContextMenu:VehicleRefuel) has been registered!
-LINHA 106: 21:7:54 | [PermissionManager] Perm (ContextMenu:WeaponRefill) has been registered!
-LINHA 107: 21:7:54 | [PermissionManager] Perm (ContextMenu:Ragdoll) has been registered!
-LINHA 108: 21:7:54 | [PermissionManager] Perm (ContextMenu:WeaponJam) has been registered!
-LINHA 109: 21:7:54 | [PermissionManager] Perm (ContextMenu:WeaponEject) has been registered!
-LINHA 110: 21:7:54 | [PermissionManager] Adding Super Admin (76561198196693358)
-LINHA 111: 21:7:54 | [PermissionManager] Adding Super Admin (76561199508282814)
-LINHA 112: 21:7:54 | [PermissionManager] Loaded UserGroups.json
-LINHA 113: 21:7:54 | [BansManager]:: Load(): Loading ban list Json File $profile:VPPAdminTools/BanList.json
-LINHA 114: 21:7:54 | [PermissionManager] Perm (Chat:StripPlayer) has been registered!
-LINHA 115: 21:7:54 | [PermissionManager] Perm (Chat:KillPlayer) has been registered!
-LINHA 116: 21:7:54 | [PermissionManager] Perm (Chat:HealPlayer) has been registered!
-LINHA 117: 21:7:54 | [PermissionManager] Perm (Chat:BringPlayer) has been registered!
-LINHA 118: 21:7:54 | [PermissionManager] Perm (Chat:ReturnPlayer) has been registered!
-LINHA 119: 21:7:54 | [PermissionManager] Perm (Chat:GotoPlayer) has been registered!
-LINHA 120: 21:7:54 | [PermissionManager] Perm (Chat:UnbanPlayer) has been registered!
-LINHA 121: 21:7:54 | [PermissionManager] Perm (Chat:TeleportToTown) has been registered!
-LINHA 122: 21:7:54 | [PermissionManager] Perm (Chat:TeleportToPoint) has been registered!
-LINHA 123: 21:7:54 | [PermissionManager] Perm (Chat:GiveAmmo) has been registered!
-LINHA 124: 21:7:54 | [PermissionManager] Perm (Chat:SpawnInventory) has been registered!
-LINHA 125: 21:7:54 | [PermissionManager] Perm (Chat:SpawnOnGround) has been registered!
-LINHA 126: 21:7:54 | [PermissionManager] Perm (Chat:SpawnInHands) has been registered!
-LINHA 127: 21:7:54 | [PermissionManager] Perm (Chat:SpawnCar) has been registered!
-LINHA 128: 21:7:54 | [PermissionManager] Perm (Chat:refuelCar) has been registered!
-LINHA 129: 21:7:54 | [WeatherManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 130: 21:7:54 | [TimeManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 131: 21:7:54 | [BuildingSetManager] Journal: 0 set(s) loaded, 0 found by the folder scan, 0 dropped, 0 converted from .vpp, 0 upgraded to format 2
-LINHA 132: 21:7:54 | [SteamAPIManager] WARNING couldn't fetch server IP from configs; using cURL...
-LINHA 133 : [CONTEUDO SENSIVEL MASCARADO]
-LINHA 134: 21:9:51 | Player "Chaves" ([IDENTIFICADOR MASCARADO]) connected to server!
-LINHA 135: 21:14:18 | Player "******" ([IDENTIFICADOR MASCARADO]) connected to server!
-LINHA 136: 21:16:26 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (DirtBikeHelmet_Green)
-LINHA 137: 21:16:55 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Motorbike_02_Red)
-LINHA 138: 21:18:41 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenLog)
-LINHA 139: 21:18:42 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenLog)
-LINHA 140: 21:18:42 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenLog)
-LINHA 141: 21:18:42 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenLog)
-LINHA 142: 21:18:42 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenLog)
-LINHA 143: 21:18:42 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenLog)
-LINHA 144: 21:18:42 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenLog)
-LINHA 145: 21:18:43 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenLog)
-LINHA 146: 21:18:43 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenLog)
-LINHA 147: 21:18:43 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (WoodenLog)
-LINHA 148: 21:18:58 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Shovel)
-LINHA 149: 21:18:59 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Shovel)
-LINHA 150: 21:19:6 | Admin "******" ([IDENTIFICADOR MASCARADO]) built part a_base at position: <10204.224609, 180.778275, 4130.086914>
-LINHA 151: 21:19:30 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (MetalWire)
-LINHA 152: 21:19:31 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (MetalWire)
-LINHA 153: 21:19:31 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (MetalWire)
-LINHA 154: 21:19:50 | Admin "******" ([IDENTIFICADOR MASCARADO]) built part b_right_frames at position: <10204.224609, 180.778275, 4130.086914>
-LINHA 155: 21:19:51 | Admin "******" ([IDENTIFICADOR MASCARADO]) built part c_right_planks at position: <10204.224609, 180.778275, 4130.086914>
-LINHA 156: 21:19:52 | Admin "******" ([IDENTIFICADOR MASCARADO]) built part b_left_frames at position: <10204.224609, 180.778275, 4130.086914>
-LINHA 157: 21:19:53 | Admin "******" ([IDENTIFICADOR MASCARADO]) built part h_hindges at position: <10204.224609, 180.778275, 4130.086914>
-LINHA 158: 21:19:54 | Admin "******" ([IDENTIFICADOR MASCARADO]) built part f_left_inner_planks at position: <10204.224609, 180.778275, 4130.086914>
-LINHA 159: 21:19:55 | Admin "******" ([IDENTIFICADOR MASCARADO]) built part g_left_inner_plate at position: <10204.224609, 180.778275, 4130.086914>
-LINHA 160: 21:19:56 | Admin "******" ([IDENTIFICADOR MASCARADO]) built part f_right_inner_planks at position: <10204.224609, 180.778275, 4130.086914>
-LINHA 161: 21:19:57 | Admin "******" ([IDENTIFICADOR MASCARADO]) built part g_right_inner_plate at position: <10204.224609, 180.778275, 4130.086914>
-LINHA 162: 21:19:58 | Admin "******" ([IDENTIFICADOR MASCARADO]) built part c_left_planks at position: <10204.224609, 180.778275, 4130.086914>
-LINHA 163: 21:19:59 | Admin "******" ([IDENTIFICADOR MASCARADO]) built part d_right_final_planks at position: <10204.224609, 180.778275, 4130.086914>
-LINHA 164: 21:20:0 | Admin "******" ([IDENTIFICADOR MASCARADO]) built part e_right_outer_plate at position: <10204.224609, 180.778275, 4130.086914>
-LINHA 165: 21:20:1 | Admin "******" ([IDENTIFICADOR MASCARADO]) built part d_left_final_planks at position: <10204.224609, 180.778275, 4130.086914>
-LINHA 166: 21:20:2 | Admin "******" ([IDENTIFICADOR MASCARADO]) built part e_left_outer_plate at position: <10204.224609, 180.778275, 4130.086914>
-LINHA 167: 21:20:28 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (CodeLock)
-LINHA 168: 21:20:29 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (DigitalCodeLock)
-LINHA 169: 21:20:31 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (DigitalCodeLock)
-LINHA 170: 21:26:11 | Admin "******" ([IDENTIFICADOR MASCARADO]) built part a_base at position: <10203.925781, 180.778275, 4128.434082>
-LINHA 171: 21:26:12 | Admin "******" ([IDENTIFICADOR MASCARADO]) built part b_right_frames at position: <10203.925781, 180.778275, 4128.434082>
-LINHA 172: 21:26:16 | Admin "******" ([IDENTIFICADOR MASCARADO]) built part c_right_planks at position: <10203.925781, 180.778275, 4128.434082>
-LINHA 173: 21:26:17 | Admin "******" ([IDENTIFICADOR MASCARADO]) built part b_left_frames at position: <10203.925781, 180.778275, 4128.434082>
-LINHA 174: 21:26:17 | Admin "******" ([IDENTIFICADOR MASCARADO]) built part h_hindges at position: <10203.925781, 180.778275, 4128.434082>
-LINHA 175: 21:26:18 | Admin "******" ([IDENTIFICADOR MASCARADO]) built part f_left_inner_planks at position: <10203.925781, 180.778275, 4128.434082>
-LINHA 176: 21:26:39 | Admin "******" ([IDENTIFICADOR MASCARADO]) built part g_left_inner_plate at position: <10203.925781, 180.778275, 4128.434082>
-LINHA 177: 21:26:40 | Admin "******" ([IDENTIFICADOR MASCARADO]) built part f_right_inner_planks at position: <10203.925781, 180.778275, 4128.434082>
-LINHA 178: 21:26:41 | Admin "******" ([IDENTIFICADOR MASCARADO]) built part g_right_inner_plate at position: <10203.925781, 180.778275, 4128.434082>
-LINHA 179: 21:26:42 | Admin "******" ([IDENTIFICADOR MASCARADO]) built part c_left_planks at position: <10203.925781, 180.778275, 4128.434082>
-LINHA 180: 21:26:42 | Admin "******" ([IDENTIFICADOR MASCARADO]) built part d_right_final_planks at position: <10203.925781, 180.778275, 4128.434082>
-LINHA 181: 21:26:43 | Admin "******" ([IDENTIFICADOR MASCARADO]) built part e_right_outer_plate at position: <10203.925781, 180.778275, 4128.434082>
-LINHA 182: 21:26:44 | Admin "******" ([IDENTIFICADOR MASCARADO]) built part d_left_final_planks at position: <10203.925781, 180.778275, 4128.434082>
-LINHA 183: 21:26:45 | Admin "******" ([IDENTIFICADOR MASCARADO]) built part e_left_outer_plate at position: <10203.925781, 180.778275, 4128.434082>
-LINHA 184: 21:29:44 | Admin "******" ([IDENTIFICADOR MASCARADO]) built part base at position: <10205.407227, 180.778275, 4118.958008>
-LINHA 185: 21:29:45 | Admin "******" ([IDENTIFICADOR MASCARADO]) built part support at position: <10205.407227, 180.778275, 4118.958008>
-LINHA 186: 21:29:46 | Admin "******" ([IDENTIFICADOR MASCARADO]) built part pole at position: <10205.407227, 180.778275, 4118.958008>
-LINHA 187: 21:30:9 | Player "Lenner" ([IDENTIFICADOR MASCARADO]) connected to server!
-LINHA 188: 21:30:21 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Flag_DayZ)
-LINHA 189: 21:31:44 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Animal_BosTaurus_Brown)
-LINHA 190: 21:32:5 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Animal_BosTaurus_Brown)
-LINHA 191: 21:32:7 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Animal_BosTaurus_White)
-LINHA 192: 21:32:7 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Animal_BosTaurus_Spotted)
-LINHA 193: 21:32:8 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Animal_BosTaurusF_Brown)
-LINHA 194: 21:32:9 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Animal_BosTaurusF_White)
-LINHA 195: 21:32:9 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: ([IDENTIFICADOR MASCARADO])
-LINHA 196: 21:32:9 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: ([IDENTIFICADOR MASCARADO])
-LINHA 197: 21:32:10 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Animal_CanisLupus_Grey)
-LINHA 198: 21:32:36 | "******" ([IDENTIFICADOR MASCARADO]) healed player ([IDENTIFICADOR MASCARADO])
-LINHA 199: 21:35:52 | "******" ([IDENTIFICADOR MASCARADO]) healed player ([IDENTIFICADOR MASCARADO])
-LINHA 200: 21:36:12 | Player "Morpheus" ([IDENTIFICADOR MASCARADO]) connected to server!
-LINHA 201: 21:36:50 | [WeatherManager] Send Data Count is 0
-LINHA 202: 21:36:58 | [Time Manager] Setting Date to 2026/4/30 9:39
-LINHA 203: 21:37:30 | Player "Lenner" ([IDENTIFICADOR MASCARADO]) initiated disconnect process...
-LINHA 204: 21:37:30 | Player "Morpheus" ([IDENTIFICADOR MASCARADO]) initiated disconnect process...
-LINHA 205: 21:37:30 | Player "Chaves" ([IDENTIFICADOR MASCARADO]) initiated disconnect process...
-LINHA 206: 21:45:24 | Player "******" ([IDENTIFICADOR MASCARADO]) initiated disconnect process...
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt
-TAMANHO: 15064 bytes
---------------------------------------------------
-LINHA 1: [IDENTIFICADOR MASCARADO] Admin Tools Session [IDENTIFICADOR MASCARADO]
-LINHA 2: Logs Started: 2026-11-16_15-12-50
-LINHA 3: [IDENTIFICADOR MASCARADO]
-LINHA 4: 15:12:50 | [PermissionManager] Perm (DeleteObjectAtCrosshair) has been registered!
-LINHA 5: 15:12:50 | [PermissionManager] Perm (TeleportToCrosshair) has been registered!
-LINHA 6: 15:12:50 | [PermissionManager] Perm (FreeCamera) has been registered!
-LINHA 7: 15:12:50 | [PermissionManager] Perm ([IDENTIFICADOR MASCARADO]) has been registered!
-LINHA 8: 15:12:50 | [PermissionManager] Perm (MenuItemManager) has been registered!
-LINHA 9: 15:12:50 | [PermissionManager] Perm (MenuItemManager:SpawnItem) has been registered!
-LINHA 10: 15:12:50 | [PermissionManager] Perm (MenuItemManager:EditPreset) has been registered!
-LINHA 11: 15:12:50 | [PermissionManager] Perm (MenuItemManager:SpawnPreset) has been registered!
-LINHA 12: 15:12:50 | [PermissionManager] Perm (MenuItemManager:DeletePreset) has been registered!
-LINHA 13: 15:12:50 | [PermissionManager] Perm (MenuItemManager:AddPreset) has been registered!
-LINHA 14: 15:12:50 | [PermissionManager] Perm (MenuServerManager) has been registered!
-LINHA 15: 15:12:50 | [PermissionManager] Perm (ServerManager:RestartServer) has been registered!
-LINHA 16: 15:12:50 | [PermissionManager] Perm (ServerManager:LockServer) has been registered!
-LINHA 17: 15:12:50 | [PermissionManager] Perm (ServerManager:KickAllPlayers) has been registered!
-LINHA 18: 15:12:50 | [PermissionManager] Perm (MenuWeatherManager) has been registered!
-LINHA 19: 15:12:50 | [PermissionManager] Perm (WeatherManager:ApplyWeather) has been registered!
-LINHA 20: 15:12:50 | [PermissionManager] Perm (WeatherManager:ApplyTime) has been registered!
-LINHA 21: 15:12:50 | [PermissionManager] Perm (WeatherManager:SavePreset) has been registered!
-LINHA 22: 15:12:50 | [PermissionManager] Perm (WeatherManager:DeletePreset) has been registered!
-LINHA 23: 15:12:50 | [PermissionManager] Perm (WeatherManager:ApplyPreset) has been registered!
-LINHA 24: 15:12:50 | [PermissionManager] Perm (WeatherManager:ApplyTimePreset) has been registered!
-LINHA 25: 15:12:50 | [PermissionManager] Perm (WeatherManager:SaveTimePreset) has been registered!
-LINHA 26: 15:12:50 | [PermissionManager] Perm (WeatherManager:DeleteTimePreset) has been registered!
-LINHA 27: 15:12:50 | [PermissionManager] Perm (MenuObjectManager) has been registered!
-LINHA 28: 15:12:50 | [PermissionManager] Perm (MenuObjectManager:CreateNewSet) has been registered!
-LINHA 29: 15:12:50 | [PermissionManager] Perm (MenuObjectManager:UpdateSet) has been registered!
-LINHA 30: 15:12:50 | [PermissionManager] Perm (MenuObjectManager:DeleteSet) has been registered!
-LINHA 31: 15:12:50 | [PermissionManager] Perm (MenuObjectManager:EditSet) has been registered!
-LINHA 32: 15:12:50 | [PermissionManager] Perm (MenuPermissionsEditor) has been registered!
-LINHA 33: 15:12:50 | [PermissionManager] Perm (PermissionsEditor:RemoveUser) has been registered!
-LINHA 34: 15:12:50 | [PermissionManager] Perm (PermissionsEditor:AddUser) has been registered!
-LINHA 35: 15:12:50 | [PermissionManager] Perm (PermissionsEditor:CreateUserGroup) has been registered!
-LINHA 36: 15:12:50 | [PermissionManager] Perm (PermissionsEditor:DeleteUserGroup) has been registered!
-LINHA 37: 15:12:50 | [PermissionManager] Perm (PermissionsEditor:ChangePermLevel) has been registered!
-LINHA 38: 15:12:50 | [PermissionManager] Perm (MenuPlayerManager) has been registered!
-LINHA 39: 15:12:50 | [PermissionManager] Perm (PlayerManager:GiveGodmode) has been registered!
-LINHA 40: 15:12:50 | [PermissionManager] Perm (PlayerManager:BanPlayer) has been registered!
-LINHA 41: 15:12:50 | [PermissionManager] Perm (PlayerManager:KickPlayer) has been registered!
-LINHA 42: 15:12:50 | [PermissionManager] Perm (PlayerManager:HealPlayers) has been registered!
-LINHA 43: 15:12:50 | [PermissionManager] Perm (PlayerManager:SetPlayerStats) has been registered!
-LINHA 44: 15:12:50 | [PermissionManager] Perm (PlayerManager:KillPlayers) has been registered!
-LINHA 45: 15:12:50 | [PermissionManager] Perm (PlayerManager:GodMode) has been registered!
-LINHA 46: 15:12:50 | [PermissionManager] Perm (PlayerManager:SpectatePlayer) has been registered!
-LINHA 47: 15:12:50 | [PermissionManager] Perm (PlayerManager:TeleportToPlayer) has been registered!
-LINHA 48: 15:12:50 | [PermissionManager] Perm (PlayerManager:TeleportPlayerTo) has been registered!
-LINHA 49: 15:12:50 | [PermissionManager] Perm (PlayerManager:SetPlayerInvisible) has been registered!
-LINHA 50: 15:12:50 | [PermissionManager] Perm (PlayerManager:SendMessage) has been registered!
-LINHA 51: 15:12:50 | [PermissionManager] Perm (PlayerManager:GiveUnlimitedAmmo) has been registered!
-LINHA 52: 15:12:50 | [PermissionManager] Perm (PlayerManager:MakePlayerVomit) has been registered!
-LINHA 53: 15:12:50 | [PermissionManager] Perm (PlayerManager:FreezePlayers) has been registered!
-LINHA 54: 15:12:50 | [PermissionManager] Perm (PlayerManager:ChangeScale) has been registered!
-LINHA 55: 15:12:50 | [PermissionManager] Perm (PlayerManager:StopBleeding) has been registered!
-LINHA 56: 15:12:50 | [PermissionManager] Perm (PlayerManager:ClearInventory) has been registered!
-LINHA 57: 15:12:50 | [PermissionManager] Perm (PlayerManager:EditModifiers) has been registered!
-LINHA 58: 15:12:50 | [PermissionManager] Perm (MenuBansManager) has been registered!
-LINHA 59: 15:12:50 | [PermissionManager] Perm (BansManager:UnbanPlayer) has been registered!
-LINHA 60: 15:12:50 | [PermissionManager] Perm (BansManager:UpdateBanDuration) has been registered!
-LINHA 61: 15:12:50 | [PermissionManager] Perm (BansManager:UpdateBanReason) has been registered!
-LINHA 62: 15:12:50 | [PermissionManager] Perm (MenuSpectateTools) has been registered!
-LINHA 63: 15:12:50 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-LINHA 64: 15:12:50 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-LINHA 65: 15:12:50 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-LINHA 66: 15:12:50 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-LINHA 67: 15:12:50 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-LINHA 68: 15:12:50 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-LINHA 69: 15:12:50 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-LINHA 70: 15:12:50 | [PermissionManager] Perm (MenuTeleportManager) has been registered!
-LINHA 71: 15:12:50 | [PermissionManager] Perm (TeleportManager:ViewPlayerPositions) has been registered!
-LINHA 72: 15:12:50 | [PermissionManager] Perm (TeleportManager:TPPlayers) has been registered!
-LINHA 73: 15:12:50 | [PermissionManager] Perm (TeleportManager:TPSelf) has been registered!
-LINHA 74: 15:12:50 | [PermissionManager] Perm (TeleportManager:DeletePreset) has been registered!
-LINHA 75: 15:12:50 | [PermissionManager] Perm (TeleportManager:AddNewPreset) has been registered!
-LINHA 76: 15:12:50 | [PermissionManager] Perm (TeleportManager:EditPreset) has been registered!
-LINHA 77: 15:12:50 | [PermissionManager] Perm (TeleportManager:TeleportEntity) has been registered!
-LINHA 78: 15:12:50 | [PermissionManager] Perm (EspToolsMenu) has been registered!
-LINHA 79: 15:12:50 | [PermissionManager] Perm (EspToolsMenu:DeleteObjects) has been registered!
-LINHA 80: 15:12:50 | [PermissionManager] Perm (EspToolsMenu:PlayerESP) has been registered!
-LINHA 81: 15:12:50 | [PermissionManager] Perm (EspToolsMenu:RestPasscodeFence) has been registered!
-LINHA 82: 15:12:50 | [PermissionManager] Perm (EspToolsMenu:RetriveCodeFromObj) has been registered!
-LINHA 83: 15:12:50 | [PermissionManager] Perm (EspToolsMenu:PlayerMeshEsp) has been registered!
-LINHA 84: 15:12:50 | [PermissionManager] Perm (EspToolsMenu:InstantBaseBuild) has been registered!
-LINHA 85: 15:12:50 | [PermissionManager] Perm (MenuXMLEditor) has been registered!
-LINHA 86: 15:12:50 | [PermissionManager] Perm (MenuXMLEditor:EditTypes) has been registered!
-LINHA 87: 15:12:50 | [PermissionManager] Perm (MenuXMLEditor:AddRemoveTypes) has been registered!
-LINHA 88: 15:12:50 | [PermissionManager] Perm (MenuXMLEditor:DistributionMap) has been registered!
-LINHA 89: 15:12:50 | [PermissionManager] Perm (MenuXMLEditor:ViewBackups) has been registered!
-LINHA 90: 15:12:50 | [PermissionManager] Perm (MenuXMLEditor:RestoreBackup) has been registered!
-LINHA 91: 15:12:50 | [PermissionManager] Perm (MenuXMLEditor:DeleteBackup) has been registered!
-LINHA 92: 15:12:50 | [PermissionManager] Perm (MenuXMLEditor:LiveScan) has been registered!
-LINHA 93: 15:12:50 | [PermissionManager] Perm (MenuXMLEditor:DeleteObjects) has been registered!
-LINHA 94: 15:12:50 | [PermissionManager] Perm (MenuXMLEditor:EditMessages) has been registered!
-LINHA 95: 15:12:50 | [PermissionManager] Perm (MenuXMLEditor:EditEvents) has been registered!
-LINHA 96: 15:12:50 | [PermissionManager] Perm (MenuXMLEditor:EditSpawnables) has been registered!
-LINHA 97: 15:12:50 | [PermissionManager] Perm (MenuCommandsConsole) has been registered!
-LINHA 98: 15:12:50 | [PermissionManager] Perm (ContextMenu:ItemHealth) has been registered!
-LINHA 99: 15:12:50 | [PermissionManager] Perm (ContextMenu:WeaponLoad) has been registered!
-LINHA 100: 15:12:50 | [PermissionManager] Perm (ContextMenu:CreatureHeal) has been registered!
-LINHA 101: 15:12:50 | [PermissionManager] Perm (ContextMenu:SpawnAttachment) has been registered!
-LINHA 102: 15:12:50 | [PermissionManager] Perm (ContextMenu:CreatureKill) has been registered!
-LINHA 103: 15:12:50 | [PermissionManager] Perm (ContextMenu:ItemQuantity) has been registered!
-LINHA 104: 15:12:50 | [PermissionManager] Perm (ContextMenu:SetScale) has been registered!
-LINHA 105: 15:12:50 | [PermissionManager] Perm (ContextMenu:VehicleRefuel) has been registered!
-LINHA 106: 15:12:50 | [PermissionManager] Perm (ContextMenu:WeaponRefill) has been registered!
-LINHA 107: 15:12:50 | [PermissionManager] Perm (ContextMenu:Ragdoll) has been registered!
-LINHA 108: 15:12:50 | [PermissionManager] Perm (ContextMenu:WeaponJam) has been registered!
-LINHA 109: 15:12:50 | [PermissionManager] Perm (ContextMenu:WeaponEject) has been registered!
-LINHA 110: 15:12:50 | [PermissionManager] Adding Super Admin (76561198196693358)
-LINHA 111: 15:12:50 | [PermissionManager] Adding Super Admin (76561199508282814)
-LINHA 112: 15:12:50 | [PermissionManager] Loaded UserGroups.json
-LINHA 113: 15:12:50 | [BansManager]:: Load(): Loading ban list Json File $profile:VPPAdminTools/BanList.json
-LINHA 114: 15:12:50 | [PermissionManager] Perm (Chat:StripPlayer) has been registered!
-LINHA 115: 15:12:50 | [PermissionManager] Perm (Chat:KillPlayer) has been registered!
-LINHA 116: 15:12:50 | [PermissionManager] Perm (Chat:HealPlayer) has been registered!
-LINHA 117: 15:12:50 | [PermissionManager] Perm (Chat:BringPlayer) has been registered!
-LINHA 118: 15:12:50 | [PermissionManager] Perm (Chat:ReturnPlayer) has been registered!
-LINHA 119: 15:12:50 | [PermissionManager] Perm (Chat:GotoPlayer) has been registered!
-LINHA 120: 15:12:50 | [PermissionManager] Perm (Chat:UnbanPlayer) has been registered!
-LINHA 121: 15:12:50 | [PermissionManager] Perm (Chat:TeleportToTown) has been registered!
-LINHA 122: 15:12:50 | [PermissionManager] Perm (Chat:TeleportToPoint) has been registered!
-LINHA 123: 15:12:50 | [PermissionManager] Perm (Chat:GiveAmmo) has been registered!
-LINHA 124: 15:12:50 | [PermissionManager] Perm (Chat:SpawnInventory) has been registered!
-LINHA 125: 15:12:50 | [PermissionManager] Perm (Chat:SpawnOnGround) has been registered!
-LINHA 126: 15:12:50 | [PermissionManager] Perm (Chat:SpawnInHands) has been registered!
-LINHA 127: 15:12:50 | [PermissionManager] Perm (Chat:SpawnCar) has been registered!
-LINHA 128: 15:12:50 | [PermissionManager] Perm (Chat:refuelCar) has been registered!
-LINHA 129: 15:12:50 | [WeatherManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 130: 15:12:50 | [TimeManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 131: 15:12:50 | [BuildingSetManager] Journal: 0 set(s) loaded, 0 found by the folder scan, 0 dropped, 0 converted from .vpp, 0 upgraded to format 2
-LINHA 132: 15:12:50 | [SteamAPIManager] WARNING couldn't fetch server IP from configs; using cURL...
-LINHA 133 : [CONTEUDO SENSIVEL MASCARADO]
-LINHA 134: 15:19:56 | Player "******" ([IDENTIFICADOR MASCARADO]) connected to server!
-LINHA 135: 15:20:46 | Player "******" ([IDENTIFICADOR MASCARADO]) initiated disconnect process...
-LINHA 136: 15:22:13 | Player "******" ([IDENTIFICADOR MASCARADO]) connected to server!
-LINHA 137: 15:23:10 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Animal_CanisLatrans)
-LINHA 138: 15:23:11 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Animal_CanisLatrans)
-LINHA 139: 15:23:11 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Animal_CanisLatrans)
-LINHA 140: 15:23:11 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Animal_CanisLatrans)
-LINHA 141: 15:23:11 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Animal_CanisLatrans)
-LINHA 142: 15:23:11 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Animal_CanisLatrans)
-LINHA 143: 15:23:12 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Animal_CanisLatrans)
-LINHA 144: 15:23:12 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Animal_CanisLatrans)
-LINHA 145: 15:23:13 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Animal_CanisLatrans_Sand)
-LINHA 146: 15:23:14 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Animal_CanisLatrans_Sand)
-LINHA 147: 15:23:14 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Animal_CanisLatrans_Sand)
-LINHA 148: 15:23:14 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Animal_CanisLatrans_Sand)
-LINHA 149: 15:23:14 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Animal_CanisLatrans_Sand)
-LINHA 150: 15:23:15 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: ([IDENTIFICADOR MASCARADO])
-LINHA 151: 15:23:15 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: ([IDENTIFICADOR MASCARADO])
-LINHA 152: 15:23:17 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: ([IDENTIFICADOR MASCARADO])
-LINHA 153: 15:23:17 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: ([IDENTIFICADOR MASCARADO])
-LINHA 154: 15:23:17 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: ([IDENTIFICADOR MASCARADO])
-LINHA 155: 15:24:12 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Motorbike_01_Yellow)
-LINHA 156: 15:24:47 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Motorbike_02_Red)
-LINHA 157: 15:25:11 | "******" ([IDENTIFICADOR MASCARADO]) gave godmode to ([IDENTIFICADOR MASCARADO])
-LINHA 158: 15:32:46 | "76561198196693358" ([IDENTIFICADOR MASCARADO]) teleported to (pos=<6646.089844, 189.899002, 5767.490234>)
-LINHA 159: 15:32:46 | "******": ([IDENTIFICADOR MASCARADO]) teleported to (pos=6646.09,189.899,5767.49)
-LINHA 160: 15:32:54 | "76561198196693358" ([IDENTIFICADOR MASCARADO]) teleported to (pos=<6587.359863, 191.811005, 5806.620117>)
-LINHA 161: 15:32:54 | "******": ([IDENTIFICADOR MASCARADO]) teleported to (pos=6587.36,191.811,5806.62)
-LINHA 162: 15:32:56 | "76561198196693358" ([IDENTIFICADOR MASCARADO]) teleported to (pos=<6544.660156, 192.580002, 5822.609863>)
-LINHA 163: 15:32:56 | "******": ([IDENTIFICADOR MASCARADO]) teleported to (pos=6544.66,192.58,5822.61)
-LINHA 164: 15:33:23 | "76561198196693358" ([IDENTIFICADOR MASCARADO]) teleported to (pos=<5762.930176, 244.770004, 5663.569824>)
-LINHA 165: 15:33:23 | "******": ([IDENTIFICADOR MASCARADO]) teleported to (pos=5762.93,244.77,5663.57)
-LINHA 166: 15:33:52 | "76561198196693358" ([IDENTIFICADOR MASCARADO]) teleported to (pos=<5675.720215, 291.765991, 5665.339844>)
-LINHA 167: 15:33:52 | "******": ([IDENTIFICADOR MASCARADO]) teleported to (pos=5675.72,291.766,5665.34)
-LINHA 168: 15:33:54 | "76561198196693358" ([IDENTIFICADOR MASCARADO]) teleported to (pos=<5620.560059, 301.454010, 5643.979980>)
-LINHA 169: 15:33:54 | "******": ([IDENTIFICADOR MASCARADO]) teleported to (pos=5620.56,301.454,5643.98)
-LINHA 170: 15:33:57 | "76561198196693358" ([IDENTIFICADOR MASCARADO]) teleported to (pos=<5375.500000, 244.820007, 5562.250000>)
-LINHA 171: 15:33:57 | "******": ([IDENTIFICADOR MASCARADO]) teleported to (pos=5375.5,244.82,5562.25)
-LINHA 172: 15:34:25 | Player "******" ([IDENTIFICADOR MASCARADO]) initiated disconnect process...
-LINHA 173: 15:34:40 | Player "******" ([IDENTIFICADOR MASCARADO]) disconnected from server.
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-47-49.txt
-TAMANHO: 11314 bytes
---------------------------------------------------
-LINHA 1: [IDENTIFICADOR MASCARADO] Admin Tools Session [IDENTIFICADOR MASCARADO]
-LINHA 2: Logs Started: 2026-11-16_15-47-49
-LINHA 3: [IDENTIFICADOR MASCARADO]
-LINHA 4: 15:47:49 | [PermissionManager] Perm (DeleteObjectAtCrosshair) has been registered!
-LINHA 5: 15:47:49 | [PermissionManager] Perm (TeleportToCrosshair) has been registered!
-LINHA 6: 15:47:49 | [PermissionManager] Perm (FreeCamera) has been registered!
-LINHA 7: 15:47:49 | [PermissionManager] Perm ([IDENTIFICADOR MASCARADO]) has been registered!
-LINHA 8: 15:47:49 | [PermissionManager] Perm (MenuItemManager) has been registered!
-LINHA 9: 15:47:49 | [PermissionManager] Perm (MenuItemManager:SpawnItem) has been registered!
-LINHA 10: 15:47:49 | [PermissionManager] Perm (MenuItemManager:EditPreset) has been registered!
-LINHA 11: 15:47:49 | [PermissionManager] Perm (MenuItemManager:SpawnPreset) has been registered!
-LINHA 12: 15:47:49 | [PermissionManager] Perm (MenuItemManager:DeletePreset) has been registered!
-LINHA 13: 15:47:49 | [PermissionManager] Perm (MenuItemManager:AddPreset) has been registered!
-LINHA 14: 15:47:49 | [PermissionManager] Perm (MenuServerManager) has been registered!
-LINHA 15: 15:47:49 | [PermissionManager] Perm (ServerManager:RestartServer) has been registered!
-LINHA 16: 15:47:49 | [PermissionManager] Perm (ServerManager:LockServer) has been registered!
-LINHA 17: 15:47:49 | [PermissionManager] Perm (ServerManager:KickAllPlayers) has been registered!
-LINHA 18: 15:47:49 | [PermissionManager] Perm (MenuWeatherManager) has been registered!
-LINHA 19: 15:47:49 | [PermissionManager] Perm (WeatherManager:ApplyWeather) has been registered!
-LINHA 20: 15:47:49 | [PermissionManager] Perm (WeatherManager:ApplyTime) has been registered!
-LINHA 21: 15:47:49 | [PermissionManager] Perm (WeatherManager:SavePreset) has been registered!
-LINHA 22: 15:47:49 | [PermissionManager] Perm (WeatherManager:DeletePreset) has been registered!
-LINHA 23: 15:47:49 | [PermissionManager] Perm (WeatherManager:ApplyPreset) has been registered!
-LINHA 24: 15:47:49 | [PermissionManager] Perm (WeatherManager:ApplyTimePreset) has been registered!
-LINHA 25: 15:47:49 | [PermissionManager] Perm (WeatherManager:SaveTimePreset) has been registered!
-LINHA 26: 15:47:49 | [PermissionManager] Perm (WeatherManager:DeleteTimePreset) has been registered!
-LINHA 27: 15:47:49 | [PermissionManager] Perm (MenuObjectManager) has been registered!
-LINHA 28: 15:47:49 | [PermissionManager] Perm (MenuObjectManager:CreateNewSet) has been registered!
-LINHA 29: 15:47:49 | [PermissionManager] Perm (MenuObjectManager:UpdateSet) has been registered!
-LINHA 30: 15:47:49 | [PermissionManager] Perm (MenuObjectManager:DeleteSet) has been registered!
-LINHA 31: 15:47:49 | [PermissionManager] Perm (MenuObjectManager:EditSet) has been registered!
-LINHA 32: 15:47:49 | [PermissionManager] Perm (MenuPermissionsEditor) has been registered!
-LINHA 33: 15:47:49 | [PermissionManager] Perm (PermissionsEditor:RemoveUser) has been registered!
-LINHA 34: 15:47:49 | [PermissionManager] Perm (PermissionsEditor:AddUser) has been registered!
-LINHA 35: 15:47:49 | [PermissionManager] Perm (PermissionsEditor:CreateUserGroup) has been registered!
-LINHA 36: 15:47:49 | [PermissionManager] Perm (PermissionsEditor:DeleteUserGroup) has been registered!
-LINHA 37: 15:47:49 | [PermissionManager] Perm (PermissionsEditor:ChangePermLevel) has been registered!
-LINHA 38: 15:47:49 | [PermissionManager] Perm (MenuPlayerManager) has been registered!
-LINHA 39: 15:47:49 | [PermissionManager] Perm (PlayerManager:GiveGodmode) has been registered!
-LINHA 40: 15:47:49 | [PermissionManager] Perm (PlayerManager:BanPlayer) has been registered!
-LINHA 41: 15:47:49 | [PermissionManager] Perm (PlayerManager:KickPlayer) has been registered!
-LINHA 42: 15:47:49 | [PermissionManager] Perm (PlayerManager:HealPlayers) has been registered!
-LINHA 43: 15:47:49 | [PermissionManager] Perm (PlayerManager:SetPlayerStats) has been registered!
-LINHA 44: 15:47:49 | [PermissionManager] Perm (PlayerManager:KillPlayers) has been registered!
-LINHA 45: 15:47:49 | [PermissionManager] Perm (PlayerManager:GodMode) has been registered!
-LINHA 46: 15:47:49 | [PermissionManager] Perm (PlayerManager:SpectatePlayer) has been registered!
-LINHA 47: 15:47:49 | [PermissionManager] Perm (PlayerManager:TeleportToPlayer) has been registered!
-LINHA 48: 15:47:49 | [PermissionManager] Perm (PlayerManager:TeleportPlayerTo) has been registered!
-LINHA 49: 15:47:49 | [PermissionManager] Perm (PlayerManager:SetPlayerInvisible) has been registered!
-LINHA 50: 15:47:49 | [PermissionManager] Perm (PlayerManager:SendMessage) has been registered!
-LINHA 51: 15:47:49 | [PermissionManager] Perm (PlayerManager:GiveUnlimitedAmmo) has been registered!
-LINHA 52: 15:47:49 | [PermissionManager] Perm (PlayerManager:MakePlayerVomit) has been registered!
-LINHA 53: 15:47:49 | [PermissionManager] Perm (PlayerManager:FreezePlayers) has been registered!
-LINHA 54: 15:47:49 | [PermissionManager] Perm (PlayerManager:ChangeScale) has been registered!
-LINHA 55: 15:47:49 | [PermissionManager] Perm (PlayerManager:StopBleeding) has been registered!
-LINHA 56: 15:47:49 | [PermissionManager] Perm (PlayerManager:ClearInventory) has been registered!
-LINHA 57: 15:47:49 | [PermissionManager] Perm (PlayerManager:EditModifiers) has been registered!
-LINHA 58: 15:47:49 | [PermissionManager] Perm (MenuBansManager) has been registered!
-LINHA 59: 15:47:49 | [PermissionManager] Perm (BansManager:UnbanPlayer) has been registered!
-LINHA 60: 15:47:49 | [PermissionManager] Perm (BansManager:UpdateBanDuration) has been registered!
-LINHA 61: 15:47:49 | [PermissionManager] Perm (BansManager:UpdateBanReason) has been registered!
-LINHA 62: 15:47:49 | [PermissionManager] Perm (MenuSpectateTools) has been registered!
-LINHA 63: 15:47:49 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-LINHA 64: 15:47:49 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-LINHA 65: 15:47:49 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-LINHA 66: 15:47:49 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-LINHA 67: 15:47:49 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-LINHA 68: 15:47:49 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-LINHA 69: 15:47:49 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-LINHA 70: 15:47:49 | [PermissionManager] Perm (MenuTeleportManager) has been registered!
-LINHA 71: 15:47:49 | [PermissionManager] Perm (TeleportManager:ViewPlayerPositions) has been registered!
-LINHA 72: 15:47:49 | [PermissionManager] Perm (TeleportManager:TPPlayers) has been registered!
-LINHA 73: 15:47:49 | [PermissionManager] Perm (TeleportManager:TPSelf) has been registered!
-LINHA 74: 15:47:49 | [PermissionManager] Perm (TeleportManager:DeletePreset) has been registered!
-LINHA 75: 15:47:49 | [PermissionManager] Perm (TeleportManager:AddNewPreset) has been registered!
-LINHA 76: 15:47:49 | [PermissionManager] Perm (TeleportManager:EditPreset) has been registered!
-LINHA 77: 15:47:49 | [PermissionManager] Perm (TeleportManager:TeleportEntity) has been registered!
-LINHA 78: 15:47:49 | [PermissionManager] Perm (EspToolsMenu) has been registered!
-LINHA 79: 15:47:49 | [PermissionManager] Perm (EspToolsMenu:DeleteObjects) has been registered!
-LINHA 80: 15:47:49 | [PermissionManager] Perm (EspToolsMenu:PlayerESP) has been registered!
-LINHA 81: 15:47:49 | [PermissionManager] Perm (EspToolsMenu:RestPasscodeFence) has been registered!
-LINHA 82: 15:47:49 | [PermissionManager] Perm (EspToolsMenu:RetriveCodeFromObj) has been registered!
-LINHA 83: 15:47:49 | [PermissionManager] Perm (EspToolsMenu:PlayerMeshEsp) has been registered!
-LINHA 84: 15:47:49 | [PermissionManager] Perm (EspToolsMenu:InstantBaseBuild) has been registered!
-LINHA 85: 15:47:49 | [PermissionManager] Perm (MenuXMLEditor) has been registered!
-LINHA 86: 15:47:49 | [PermissionManager] Perm (MenuXMLEditor:EditTypes) has been registered!
-LINHA 87: 15:47:49 | [PermissionManager] Perm (MenuXMLEditor:AddRemoveTypes) has been registered!
-LINHA 88: 15:47:49 | [PermissionManager] Perm (MenuXMLEditor:DistributionMap) has been registered!
-LINHA 89: 15:47:49 | [PermissionManager] Perm (MenuXMLEditor:ViewBackups) has been registered!
-LINHA 90: 15:47:49 | [PermissionManager] Perm (MenuXMLEditor:RestoreBackup) has been registered!
-LINHA 91: 15:47:49 | [PermissionManager] Perm (MenuXMLEditor:DeleteBackup) has been registered!
-LINHA 92: 15:47:49 | [PermissionManager] Perm (MenuXMLEditor:LiveScan) has been registered!
-LINHA 93: 15:47:49 | [PermissionManager] Perm (MenuXMLEditor:DeleteObjects) has been registered!
-LINHA 94: 15:47:49 | [PermissionManager] Perm (MenuXMLEditor:EditMessages) has been registered!
-LINHA 95: 15:47:49 | [PermissionManager] Perm (MenuXMLEditor:EditEvents) has been registered!
-LINHA 96: 15:47:49 | [PermissionManager] Perm (MenuXMLEditor:EditSpawnables) has been registered!
-LINHA 97: 15:47:49 | [PermissionManager] Perm (MenuCommandsConsole) has been registered!
-LINHA 98: 15:47:49 | [PermissionManager] Perm (ContextMenu:ItemHealth) has been registered!
-LINHA 99: 15:47:49 | [PermissionManager] Perm (ContextMenu:WeaponLoad) has been registered!
-LINHA 100: 15:47:49 | [PermissionManager] Perm (ContextMenu:CreatureHeal) has been registered!
-LINHA 101: 15:47:49 | [PermissionManager] Perm (ContextMenu:SpawnAttachment) has been registered!
-LINHA 102: 15:47:49 | [PermissionManager] Perm (ContextMenu:CreatureKill) has been registered!
-LINHA 103: 15:47:49 | [PermissionManager] Perm (ContextMenu:ItemQuantity) has been registered!
-LINHA 104: 15:47:49 | [PermissionManager] Perm (ContextMenu:SetScale) has been registered!
-LINHA 105: 15:47:49 | [PermissionManager] Perm (ContextMenu:VehicleRefuel) has been registered!
-LINHA 106: 15:47:49 | [PermissionManager] Perm (ContextMenu:WeaponRefill) has been registered!
-LINHA 107: 15:47:49 | [PermissionManager] Perm (ContextMenu:Ragdoll) has been registered!
-LINHA 108: 15:47:49 | [PermissionManager] Perm (ContextMenu:WeaponJam) has been registered!
-LINHA 109: 15:47:49 | [PermissionManager] Perm (ContextMenu:WeaponEject) has been registered!
-LINHA 110: 15:47:49 | [PermissionManager] Adding Super Admin (76561198196693358)
-LINHA 111: 15:47:49 | [PermissionManager] Adding Super Admin (76561199508282814)
-LINHA 112: 15:47:49 | [PermissionManager] Loaded UserGroups.json
-LINHA 113: 15:47:49 | [BansManager]:: Load(): Loading ban list Json File $profile:VPPAdminTools/BanList.json
-LINHA 114: 15:47:49 | [PermissionManager] Perm (Chat:StripPlayer) has been registered!
-LINHA 115: 15:47:49 | [PermissionManager] Perm (Chat:KillPlayer) has been registered!
-LINHA 116: 15:47:49 | [PermissionManager] Perm (Chat:HealPlayer) has been registered!
-LINHA 117: 15:47:49 | [PermissionManager] Perm (Chat:BringPlayer) has been registered!
-LINHA 118: 15:47:49 | [PermissionManager] Perm (Chat:ReturnPlayer) has been registered!
-LINHA 119: 15:47:49 | [PermissionManager] Perm (Chat:GotoPlayer) has been registered!
-LINHA 120: 15:47:49 | [PermissionManager] Perm (Chat:UnbanPlayer) has been registered!
-LINHA 121: 15:47:49 | [PermissionManager] Perm (Chat:TeleportToTown) has been registered!
-LINHA 122: 15:47:49 | [PermissionManager] Perm (Chat:TeleportToPoint) has been registered!
-LINHA 123: 15:47:49 | [PermissionManager] Perm (Chat:GiveAmmo) has been registered!
-LINHA 124: 15:47:49 | [PermissionManager] Perm (Chat:SpawnInventory) has been registered!
-LINHA 125: 15:47:49 | [PermissionManager] Perm (Chat:SpawnOnGround) has been registered!
-LINHA 126: 15:47:49 | [PermissionManager] Perm (Chat:SpawnInHands) has been registered!
-LINHA 127: 15:47:49 | [PermissionManager] Perm (Chat:SpawnCar) has been registered!
-LINHA 128: 15:47:49 | [PermissionManager] Perm (Chat:refuelCar) has been registered!
-LINHA 129: 15:47:49 | [WeatherManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 130: 15:47:49 | [TimeManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 131: 15:47:49 | [BuildingSetManager] Journal: 0 set(s) loaded, 0 found by the folder scan, 0 dropped, 0 converted from .vpp, 0 upgraded to format 2
-LINHA 132: 15:47:49 | [SteamAPIManager] WARNING couldn't fetch server IP from configs; using cURL...
-LINHA 133 : [CONTEUDO SENSIVEL MASCARADO]
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_18-45-49.txt
-TAMANHO: 11314 bytes
---------------------------------------------------
-LINHA 1: [IDENTIFICADOR MASCARADO] Admin Tools Session [IDENTIFICADOR MASCARADO]
-LINHA 2: Logs Started: 2026-11-16_18-45-49
-LINHA 3: [IDENTIFICADOR MASCARADO]
-LINHA 4: 18:45:49 | [PermissionManager] Perm (DeleteObjectAtCrosshair) has been registered!
-LINHA 5: 18:45:49 | [PermissionManager] Perm (TeleportToCrosshair) has been registered!
-LINHA 6: 18:45:49 | [PermissionManager] Perm (FreeCamera) has been registered!
-LINHA 7: 18:45:49 | [PermissionManager] Perm ([IDENTIFICADOR MASCARADO]) has been registered!
-LINHA 8: 18:45:49 | [PermissionManager] Perm (MenuItemManager) has been registered!
-LINHA 9: 18:45:49 | [PermissionManager] Perm (MenuItemManager:SpawnItem) has been registered!
-LINHA 10: 18:45:49 | [PermissionManager] Perm (MenuItemManager:EditPreset) has been registered!
-LINHA 11: 18:45:49 | [PermissionManager] Perm (MenuItemManager:SpawnPreset) has been registered!
-LINHA 12: 18:45:49 | [PermissionManager] Perm (MenuItemManager:DeletePreset) has been registered!
-LINHA 13: 18:45:49 | [PermissionManager] Perm (MenuItemManager:AddPreset) has been registered!
-LINHA 14: 18:45:49 | [PermissionManager] Perm (MenuServerManager) has been registered!
-LINHA 15: 18:45:49 | [PermissionManager] Perm (ServerManager:RestartServer) has been registered!
-LINHA 16: 18:45:49 | [PermissionManager] Perm (ServerManager:LockServer) has been registered!
-LINHA 17: 18:45:49 | [PermissionManager] Perm (ServerManager:KickAllPlayers) has been registered!
-LINHA 18: 18:45:49 | [PermissionManager] Perm (MenuWeatherManager) has been registered!
-LINHA 19: 18:45:49 | [PermissionManager] Perm (WeatherManager:ApplyWeather) has been registered!
-LINHA 20: 18:45:49 | [PermissionManager] Perm (WeatherManager:ApplyTime) has been registered!
-LINHA 21: 18:45:49 | [PermissionManager] Perm (WeatherManager:SavePreset) has been registered!
-LINHA 22: 18:45:49 | [PermissionManager] Perm (WeatherManager:DeletePreset) has been registered!
-LINHA 23: 18:45:49 | [PermissionManager] Perm (WeatherManager:ApplyPreset) has been registered!
-LINHA 24: 18:45:49 | [PermissionManager] Perm (WeatherManager:ApplyTimePreset) has been registered!
-LINHA 25: 18:45:49 | [PermissionManager] Perm (WeatherManager:SaveTimePreset) has been registered!
-LINHA 26: 18:45:49 | [PermissionManager] Perm (WeatherManager:DeleteTimePreset) has been registered!
-LINHA 27: 18:45:49 | [PermissionManager] Perm (MenuObjectManager) has been registered!
-LINHA 28: 18:45:49 | [PermissionManager] Perm (MenuObjectManager:CreateNewSet) has been registered!
-LINHA 29: 18:45:49 | [PermissionManager] Perm (MenuObjectManager:UpdateSet) has been registered!
-LINHA 30: 18:45:49 | [PermissionManager] Perm (MenuObjectManager:DeleteSet) has been registered!
-LINHA 31: 18:45:49 | [PermissionManager] Perm (MenuObjectManager:EditSet) has been registered!
-LINHA 32: 18:45:49 | [PermissionManager] Perm (MenuPermissionsEditor) has been registered!
-LINHA 33: 18:45:49 | [PermissionManager] Perm (PermissionsEditor:RemoveUser) has been registered!
-LINHA 34: 18:45:49 | [PermissionManager] Perm (PermissionsEditor:AddUser) has been registered!
-LINHA 35: 18:45:49 | [PermissionManager] Perm (PermissionsEditor:CreateUserGroup) has been registered!
-LINHA 36: 18:45:49 | [PermissionManager] Perm (PermissionsEditor:DeleteUserGroup) has been registered!
-LINHA 37: 18:45:49 | [PermissionManager] Perm (PermissionsEditor:ChangePermLevel) has been registered!
-LINHA 38: 18:45:49 | [PermissionManager] Perm (MenuPlayerManager) has been registered!
-LINHA 39: 18:45:49 | [PermissionManager] Perm (PlayerManager:GiveGodmode) has been registered!
-LINHA 40: 18:45:49 | [PermissionManager] Perm (PlayerManager:BanPlayer) has been registered!
-LINHA 41: 18:45:49 | [PermissionManager] Perm (PlayerManager:KickPlayer) has been registered!
-LINHA 42: 18:45:49 | [PermissionManager] Perm (PlayerManager:HealPlayers) has been registered!
-LINHA 43: 18:45:49 | [PermissionManager] Perm (PlayerManager:SetPlayerStats) has been registered!
-LINHA 44: 18:45:49 | [PermissionManager] Perm (PlayerManager:KillPlayers) has been registered!
-LINHA 45: 18:45:49 | [PermissionManager] Perm (PlayerManager:GodMode) has been registered!
-LINHA 46: 18:45:49 | [PermissionManager] Perm (PlayerManager:SpectatePlayer) has been registered!
-LINHA 47: 18:45:49 | [PermissionManager] Perm (PlayerManager:TeleportToPlayer) has been registered!
-LINHA 48: 18:45:49 | [PermissionManager] Perm (PlayerManager:TeleportPlayerTo) has been registered!
-LINHA 49: 18:45:49 | [PermissionManager] Perm (PlayerManager:SetPlayerInvisible) has been registered!
-LINHA 50: 18:45:49 | [PermissionManager] Perm (PlayerManager:SendMessage) has been registered!
-LINHA 51: 18:45:49 | [PermissionManager] Perm (PlayerManager:GiveUnlimitedAmmo) has been registered!
-LINHA 52: 18:45:49 | [PermissionManager] Perm (PlayerManager:MakePlayerVomit) has been registered!
-LINHA 53: 18:45:49 | [PermissionManager] Perm (PlayerManager:FreezePlayers) has been registered!
-LINHA 54: 18:45:49 | [PermissionManager] Perm (PlayerManager:ChangeScale) has been registered!
-LINHA 55: 18:45:49 | [PermissionManager] Perm (PlayerManager:StopBleeding) has been registered!
-LINHA 56: 18:45:49 | [PermissionManager] Perm (PlayerManager:ClearInventory) has been registered!
-LINHA 57: 18:45:49 | [PermissionManager] Perm (PlayerManager:EditModifiers) has been registered!
-LINHA 58: 18:45:49 | [PermissionManager] Perm (MenuBansManager) has been registered!
-LINHA 59: 18:45:49 | [PermissionManager] Perm (BansManager:UnbanPlayer) has been registered!
-LINHA 60: 18:45:49 | [PermissionManager] Perm (BansManager:UpdateBanDuration) has been registered!
-LINHA 61: 18:45:49 | [PermissionManager] Perm (BansManager:UpdateBanReason) has been registered!
-LINHA 62: 18:45:49 | [PermissionManager] Perm (MenuSpectateTools) has been registered!
-LINHA 63: 18:45:49 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-LINHA 64: 18:45:49 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-LINHA 65: 18:45:49 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-LINHA 66: 18:45:49 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-LINHA 67: 18:45:49 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-LINHA 68: 18:45:49 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-LINHA 69: 18:45:49 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-LINHA 70: 18:45:49 | [PermissionManager] Perm (MenuTeleportManager) has been registered!
-LINHA 71: 18:45:49 | [PermissionManager] Perm (TeleportManager:ViewPlayerPositions) has been registered!
-LINHA 72: 18:45:49 | [PermissionManager] Perm (TeleportManager:TPPlayers) has been registered!
-LINHA 73: 18:45:49 | [PermissionManager] Perm (TeleportManager:TPSelf) has been registered!
-LINHA 74: 18:45:49 | [PermissionManager] Perm (TeleportManager:DeletePreset) has been registered!
-LINHA 75: 18:45:49 | [PermissionManager] Perm (TeleportManager:AddNewPreset) has been registered!
-LINHA 76: 18:45:49 | [PermissionManager] Perm (TeleportManager:EditPreset) has been registered!
-LINHA 77: 18:45:49 | [PermissionManager] Perm (TeleportManager:TeleportEntity) has been registered!
-LINHA 78: 18:45:49 | [PermissionManager] Perm (EspToolsMenu) has been registered!
-LINHA 79: 18:45:49 | [PermissionManager] Perm (EspToolsMenu:DeleteObjects) has been registered!
-LINHA 80: 18:45:49 | [PermissionManager] Perm (EspToolsMenu:PlayerESP) has been registered!
-LINHA 81: 18:45:49 | [PermissionManager] Perm (EspToolsMenu:RestPasscodeFence) has been registered!
-LINHA 82: 18:45:49 | [PermissionManager] Perm (EspToolsMenu:RetriveCodeFromObj) has been registered!
-LINHA 83: 18:45:49 | [PermissionManager] Perm (EspToolsMenu:PlayerMeshEsp) has been registered!
-LINHA 84: 18:45:49 | [PermissionManager] Perm (EspToolsMenu:InstantBaseBuild) has been registered!
-LINHA 85: 18:45:49 | [PermissionManager] Perm (MenuXMLEditor) has been registered!
-LINHA 86: 18:45:49 | [PermissionManager] Perm (MenuXMLEditor:EditTypes) has been registered!
-LINHA 87: 18:45:49 | [PermissionManager] Perm (MenuXMLEditor:AddRemoveTypes) has been registered!
-LINHA 88: 18:45:49 | [PermissionManager] Perm (MenuXMLEditor:DistributionMap) has been registered!
-LINHA 89: 18:45:49 | [PermissionManager] Perm (MenuXMLEditor:ViewBackups) has been registered!
-LINHA 90: 18:45:49 | [PermissionManager] Perm (MenuXMLEditor:RestoreBackup) has been registered!
-LINHA 91: 18:45:49 | [PermissionManager] Perm (MenuXMLEditor:DeleteBackup) has been registered!
-LINHA 92: 18:45:49 | [PermissionManager] Perm (MenuXMLEditor:LiveScan) has been registered!
-LINHA 93: 18:45:49 | [PermissionManager] Perm (MenuXMLEditor:DeleteObjects) has been registered!
-LINHA 94: 18:45:49 | [PermissionManager] Perm (MenuXMLEditor:EditMessages) has been registered!
-LINHA 95: 18:45:49 | [PermissionManager] Perm (MenuXMLEditor:EditEvents) has been registered!
-LINHA 96: 18:45:49 | [PermissionManager] Perm (MenuXMLEditor:EditSpawnables) has been registered!
-LINHA 97: 18:45:49 | [PermissionManager] Perm (MenuCommandsConsole) has been registered!
-LINHA 98: 18:45:49 | [PermissionManager] Perm (ContextMenu:ItemHealth) has been registered!
-LINHA 99: 18:45:49 | [PermissionManager] Perm (ContextMenu:WeaponLoad) has been registered!
-LINHA 100: 18:45:49 | [PermissionManager] Perm (ContextMenu:CreatureHeal) has been registered!
-LINHA 101: 18:45:49 | [PermissionManager] Perm (ContextMenu:SpawnAttachment) has been registered!
-LINHA 102: 18:45:49 | [PermissionManager] Perm (ContextMenu:CreatureKill) has been registered!
-LINHA 103: 18:45:49 | [PermissionManager] Perm (ContextMenu:ItemQuantity) has been registered!
-LINHA 104: 18:45:49 | [PermissionManager] Perm (ContextMenu:SetScale) has been registered!
-LINHA 105: 18:45:49 | [PermissionManager] Perm (ContextMenu:VehicleRefuel) has been registered!
-LINHA 106: 18:45:49 | [PermissionManager] Perm (ContextMenu:WeaponRefill) has been registered!
-LINHA 107: 18:45:49 | [PermissionManager] Perm (ContextMenu:Ragdoll) has been registered!
-LINHA 108: 18:45:49 | [PermissionManager] Perm (ContextMenu:WeaponJam) has been registered!
-LINHA 109: 18:45:49 | [PermissionManager] Perm (ContextMenu:WeaponEject) has been registered!
-LINHA 110: 18:45:49 | [PermissionManager] Adding Super Admin (76561198196693358)
-LINHA 111: 18:45:49 | [PermissionManager] Adding Super Admin (76561199508282814)
-LINHA 112: 18:45:49 | [PermissionManager] Loaded UserGroups.json
-LINHA 113: 18:45:49 | [BansManager]:: Load(): Loading ban list Json File $profile:VPPAdminTools/BanList.json
-LINHA 114: 18:45:49 | [PermissionManager] Perm (Chat:StripPlayer) has been registered!
-LINHA 115: 18:45:49 | [PermissionManager] Perm (Chat:KillPlayer) has been registered!
-LINHA 116: 18:45:49 | [PermissionManager] Perm (Chat:HealPlayer) has been registered!
-LINHA 117: 18:45:49 | [PermissionManager] Perm (Chat:BringPlayer) has been registered!
-LINHA 118: 18:45:49 | [PermissionManager] Perm (Chat:ReturnPlayer) has been registered!
-LINHA 119: 18:45:49 | [PermissionManager] Perm (Chat:GotoPlayer) has been registered!
-LINHA 120: 18:45:49 | [PermissionManager] Perm (Chat:UnbanPlayer) has been registered!
-LINHA 121: 18:45:49 | [PermissionManager] Perm (Chat:TeleportToTown) has been registered!
-LINHA 122: 18:45:49 | [PermissionManager] Perm (Chat:TeleportToPoint) has been registered!
-LINHA 123: 18:45:49 | [PermissionManager] Perm (Chat:GiveAmmo) has been registered!
-LINHA 124: 18:45:49 | [PermissionManager] Perm (Chat:SpawnInventory) has been registered!
-LINHA 125: 18:45:49 | [PermissionManager] Perm (Chat:SpawnOnGround) has been registered!
-LINHA 126: 18:45:49 | [PermissionManager] Perm (Chat:SpawnInHands) has been registered!
-LINHA 127: 18:45:49 | [PermissionManager] Perm (Chat:SpawnCar) has been registered!
-LINHA 128: 18:45:49 | [PermissionManager] Perm (Chat:refuelCar) has been registered!
-LINHA 129: 18:45:49 | [WeatherManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 130: 18:45:49 | [TimeManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 131: 18:45:49 | [BuildingSetManager] Journal: 0 set(s) loaded, 0 found by the folder scan, 0 dropped, 0 converted from .vpp, 0 upgraded to format 2
-LINHA 132: 18:45:49 | [SteamAPIManager] WARNING couldn't fetch server IP from configs; using cURL...
-LINHA 133 : [CONTEUDO SENSIVEL MASCARADO]
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-14-38.txt
-TAMANHO: 11314 bytes
---------------------------------------------------
-LINHA 1: [IDENTIFICADOR MASCARADO] Admin Tools Session [IDENTIFICADOR MASCARADO]
-LINHA 2: Logs Started: 2026-11-16_19-14-38
-LINHA 3: [IDENTIFICADOR MASCARADO]
-LINHA 4: 19:14:38 | [PermissionManager] Perm (DeleteObjectAtCrosshair) has been registered!
-LINHA 5: 19:14:38 | [PermissionManager] Perm (TeleportToCrosshair) has been registered!
-LINHA 6: 19:14:38 | [PermissionManager] Perm (FreeCamera) has been registered!
-LINHA 7: 19:14:38 | [PermissionManager] Perm ([IDENTIFICADOR MASCARADO]) has been registered!
-LINHA 8: 19:14:38 | [PermissionManager] Perm (MenuItemManager) has been registered!
-LINHA 9: 19:14:38 | [PermissionManager] Perm (MenuItemManager:SpawnItem) has been registered!
-LINHA 10: 19:14:38 | [PermissionManager] Perm (MenuItemManager:EditPreset) has been registered!
-LINHA 11: 19:14:38 | [PermissionManager] Perm (MenuItemManager:SpawnPreset) has been registered!
-LINHA 12: 19:14:38 | [PermissionManager] Perm (MenuItemManager:DeletePreset) has been registered!
-LINHA 13: 19:14:38 | [PermissionManager] Perm (MenuItemManager:AddPreset) has been registered!
-LINHA 14: 19:14:38 | [PermissionManager] Perm (MenuServerManager) has been registered!
-LINHA 15: 19:14:38 | [PermissionManager] Perm (ServerManager:RestartServer) has been registered!
-LINHA 16: 19:14:38 | [PermissionManager] Perm (ServerManager:LockServer) has been registered!
-LINHA 17: 19:14:38 | [PermissionManager] Perm (ServerManager:KickAllPlayers) has been registered!
-LINHA 18: 19:14:38 | [PermissionManager] Perm (MenuWeatherManager) has been registered!
-LINHA 19: 19:14:38 | [PermissionManager] Perm (WeatherManager:ApplyWeather) has been registered!
-LINHA 20: 19:14:38 | [PermissionManager] Perm (WeatherManager:ApplyTime) has been registered!
-LINHA 21: 19:14:38 | [PermissionManager] Perm (WeatherManager:SavePreset) has been registered!
-LINHA 22: 19:14:38 | [PermissionManager] Perm (WeatherManager:DeletePreset) has been registered!
-LINHA 23: 19:14:38 | [PermissionManager] Perm (WeatherManager:ApplyPreset) has been registered!
-LINHA 24: 19:14:38 | [PermissionManager] Perm (WeatherManager:ApplyTimePreset) has been registered!
-LINHA 25: 19:14:38 | [PermissionManager] Perm (WeatherManager:SaveTimePreset) has been registered!
-LINHA 26: 19:14:38 | [PermissionManager] Perm (WeatherManager:DeleteTimePreset) has been registered!
-LINHA 27: 19:14:38 | [PermissionManager] Perm (MenuObjectManager) has been registered!
-LINHA 28: 19:14:38 | [PermissionManager] Perm (MenuObjectManager:CreateNewSet) has been registered!
-LINHA 29: 19:14:38 | [PermissionManager] Perm (MenuObjectManager:UpdateSet) has been registered!
-LINHA 30: 19:14:38 | [PermissionManager] Perm (MenuObjectManager:DeleteSet) has been registered!
-LINHA 31: 19:14:38 | [PermissionManager] Perm (MenuObjectManager:EditSet) has been registered!
-LINHA 32: 19:14:38 | [PermissionManager] Perm (MenuPermissionsEditor) has been registered!
-LINHA 33: 19:14:38 | [PermissionManager] Perm (PermissionsEditor:RemoveUser) has been registered!
-LINHA 34: 19:14:38 | [PermissionManager] Perm (PermissionsEditor:AddUser) has been registered!
-LINHA 35: 19:14:38 | [PermissionManager] Perm (PermissionsEditor:CreateUserGroup) has been registered!
-LINHA 36: 19:14:38 | [PermissionManager] Perm (PermissionsEditor:DeleteUserGroup) has been registered!
-LINHA 37: 19:14:38 | [PermissionManager] Perm (PermissionsEditor:ChangePermLevel) has been registered!
-LINHA 38: 19:14:38 | [PermissionManager] Perm (MenuPlayerManager) has been registered!
-LINHA 39: 19:14:38 | [PermissionManager] Perm (PlayerManager:GiveGodmode) has been registered!
-LINHA 40: 19:14:38 | [PermissionManager] Perm (PlayerManager:BanPlayer) has been registered!
-LINHA 41: 19:14:38 | [PermissionManager] Perm (PlayerManager:KickPlayer) has been registered!
-LINHA 42: 19:14:38 | [PermissionManager] Perm (PlayerManager:HealPlayers) has been registered!
-LINHA 43: 19:14:38 | [PermissionManager] Perm (PlayerManager:SetPlayerStats) has been registered!
-LINHA 44: 19:14:38 | [PermissionManager] Perm (PlayerManager:KillPlayers) has been registered!
-LINHA 45: 19:14:38 | [PermissionManager] Perm (PlayerManager:GodMode) has been registered!
-LINHA 46: 19:14:38 | [PermissionManager] Perm (PlayerManager:SpectatePlayer) has been registered!
-LINHA 47: 19:14:38 | [PermissionManager] Perm (PlayerManager:TeleportToPlayer) has been registered!
-LINHA 48: 19:14:38 | [PermissionManager] Perm (PlayerManager:TeleportPlayerTo) has been registered!
-LINHA 49: 19:14:38 | [PermissionManager] Perm (PlayerManager:SetPlayerInvisible) has been registered!
-LINHA 50: 19:14:38 | [PermissionManager] Perm (PlayerManager:SendMessage) has been registered!
-LINHA 51: 19:14:38 | [PermissionManager] Perm (PlayerManager:GiveUnlimitedAmmo) has been registered!
-LINHA 52: 19:14:38 | [PermissionManager] Perm (PlayerManager:MakePlayerVomit) has been registered!
-LINHA 53: 19:14:38 | [PermissionManager] Perm (PlayerManager:FreezePlayers) has been registered!
-LINHA 54: 19:14:38 | [PermissionManager] Perm (PlayerManager:ChangeScale) has been registered!
-LINHA 55: 19:14:38 | [PermissionManager] Perm (PlayerManager:StopBleeding) has been registered!
-LINHA 56: 19:14:38 | [PermissionManager] Perm (PlayerManager:ClearInventory) has been registered!
-LINHA 57: 19:14:38 | [PermissionManager] Perm (PlayerManager:EditModifiers) has been registered!
-LINHA 58: 19:14:38 | [PermissionManager] Perm (MenuBansManager) has been registered!
-LINHA 59: 19:14:38 | [PermissionManager] Perm (BansManager:UnbanPlayer) has been registered!
-LINHA 60: 19:14:38 | [PermissionManager] Perm (BansManager:UpdateBanDuration) has been registered!
-LINHA 61: 19:14:38 | [PermissionManager] Perm (BansManager:UpdateBanReason) has been registered!
-LINHA 62: 19:14:38 | [PermissionManager] Perm (MenuSpectateTools) has been registered!
-LINHA 63: 19:14:38 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-LINHA 64: 19:14:38 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-LINHA 65: 19:14:38 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-LINHA 66: 19:14:38 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-LINHA 67: 19:14:38 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-LINHA 68: 19:14:38 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-LINHA 69: 19:14:38 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-LINHA 70: 19:14:38 | [PermissionManager] Perm (MenuTeleportManager) has been registered!
-LINHA 71: 19:14:38 | [PermissionManager] Perm (TeleportManager:ViewPlayerPositions) has been registered!
-LINHA 72: 19:14:38 | [PermissionManager] Perm (TeleportManager:TPPlayers) has been registered!
-LINHA 73: 19:14:38 | [PermissionManager] Perm (TeleportManager:TPSelf) has been registered!
-LINHA 74: 19:14:38 | [PermissionManager] Perm (TeleportManager:DeletePreset) has been registered!
-LINHA 75: 19:14:38 | [PermissionManager] Perm (TeleportManager:AddNewPreset) has been registered!
-LINHA 76: 19:14:38 | [PermissionManager] Perm (TeleportManager:EditPreset) has been registered!
-LINHA 77: 19:14:38 | [PermissionManager] Perm (TeleportManager:TeleportEntity) has been registered!
-LINHA 78: 19:14:38 | [PermissionManager] Perm (EspToolsMenu) has been registered!
-LINHA 79: 19:14:38 | [PermissionManager] Perm (EspToolsMenu:DeleteObjects) has been registered!
-LINHA 80: 19:14:38 | [PermissionManager] Perm (EspToolsMenu:PlayerESP) has been registered!
-LINHA 81: 19:14:38 | [PermissionManager] Perm (EspToolsMenu:RestPasscodeFence) has been registered!
-LINHA 82: 19:14:38 | [PermissionManager] Perm (EspToolsMenu:RetriveCodeFromObj) has been registered!
-LINHA 83: 19:14:38 | [PermissionManager] Perm (EspToolsMenu:PlayerMeshEsp) has been registered!
-LINHA 84: 19:14:38 | [PermissionManager] Perm (EspToolsMenu:InstantBaseBuild) has been registered!
-LINHA 85: 19:14:38 | [PermissionManager] Perm (MenuXMLEditor) has been registered!
-LINHA 86: 19:14:38 | [PermissionManager] Perm (MenuXMLEditor:EditTypes) has been registered!
-LINHA 87: 19:14:38 | [PermissionManager] Perm (MenuXMLEditor:AddRemoveTypes) has been registered!
-LINHA 88: 19:14:38 | [PermissionManager] Perm (MenuXMLEditor:DistributionMap) has been registered!
-LINHA 89: 19:14:38 | [PermissionManager] Perm (MenuXMLEditor:ViewBackups) has been registered!
-LINHA 90: 19:14:38 | [PermissionManager] Perm (MenuXMLEditor:RestoreBackup) has been registered!
-LINHA 91: 19:14:38 | [PermissionManager] Perm (MenuXMLEditor:DeleteBackup) has been registered!
-LINHA 92: 19:14:38 | [PermissionManager] Perm (MenuXMLEditor:LiveScan) has been registered!
-LINHA 93: 19:14:38 | [PermissionManager] Perm (MenuXMLEditor:DeleteObjects) has been registered!
-LINHA 94: 19:14:38 | [PermissionManager] Perm (MenuXMLEditor:EditMessages) has been registered!
-LINHA 95: 19:14:38 | [PermissionManager] Perm (MenuXMLEditor:EditEvents) has been registered!
-LINHA 96: 19:14:38 | [PermissionManager] Perm (MenuXMLEditor:EditSpawnables) has been registered!
-LINHA 97: 19:14:38 | [PermissionManager] Perm (MenuCommandsConsole) has been registered!
-LINHA 98: 19:14:38 | [PermissionManager] Perm (ContextMenu:ItemHealth) has been registered!
-LINHA 99: 19:14:38 | [PermissionManager] Perm (ContextMenu:WeaponLoad) has been registered!
-LINHA 100: 19:14:38 | [PermissionManager] Perm (ContextMenu:CreatureHeal) has been registered!
-LINHA 101: 19:14:38 | [PermissionManager] Perm (ContextMenu:SpawnAttachment) has been registered!
-LINHA 102: 19:14:38 | [PermissionManager] Perm (ContextMenu:CreatureKill) has been registered!
-LINHA 103: 19:14:38 | [PermissionManager] Perm (ContextMenu:ItemQuantity) has been registered!
-LINHA 104: 19:14:38 | [PermissionManager] Perm (ContextMenu:SetScale) has been registered!
-LINHA 105: 19:14:38 | [PermissionManager] Perm (ContextMenu:VehicleRefuel) has been registered!
-LINHA 106: 19:14:38 | [PermissionManager] Perm (ContextMenu:WeaponRefill) has been registered!
-LINHA 107: 19:14:38 | [PermissionManager] Perm (ContextMenu:Ragdoll) has been registered!
-LINHA 108: 19:14:38 | [PermissionManager] Perm (ContextMenu:WeaponJam) has been registered!
-LINHA 109: 19:14:38 | [PermissionManager] Perm (ContextMenu:WeaponEject) has been registered!
-LINHA 110: 19:14:38 | [PermissionManager] Adding Super Admin (76561198196693358)
-LINHA 111: 19:14:38 | [PermissionManager] Adding Super Admin (76561199508282814)
-LINHA 112: 19:14:38 | [PermissionManager] Loaded UserGroups.json
-LINHA 113: 19:14:38 | [BansManager]:: Load(): Loading ban list Json File $profile:VPPAdminTools/BanList.json
-LINHA 114: 19:14:38 | [PermissionManager] Perm (Chat:StripPlayer) has been registered!
-LINHA 115: 19:14:38 | [PermissionManager] Perm (Chat:KillPlayer) has been registered!
-LINHA 116: 19:14:38 | [PermissionManager] Perm (Chat:HealPlayer) has been registered!
-LINHA 117: 19:14:38 | [PermissionManager] Perm (Chat:BringPlayer) has been registered!
-LINHA 118: 19:14:38 | [PermissionManager] Perm (Chat:ReturnPlayer) has been registered!
-LINHA 119: 19:14:38 | [PermissionManager] Perm (Chat:GotoPlayer) has been registered!
-LINHA 120: 19:14:38 | [PermissionManager] Perm (Chat:UnbanPlayer) has been registered!
-LINHA 121: 19:14:38 | [PermissionManager] Perm (Chat:TeleportToTown) has been registered!
-LINHA 122: 19:14:38 | [PermissionManager] Perm (Chat:TeleportToPoint) has been registered!
-LINHA 123: 19:14:38 | [PermissionManager] Perm (Chat:GiveAmmo) has been registered!
-LINHA 124: 19:14:38 | [PermissionManager] Perm (Chat:SpawnInventory) has been registered!
-LINHA 125: 19:14:38 | [PermissionManager] Perm (Chat:SpawnOnGround) has been registered!
-LINHA 126: 19:14:38 | [PermissionManager] Perm (Chat:SpawnInHands) has been registered!
-LINHA 127: 19:14:38 | [PermissionManager] Perm (Chat:SpawnCar) has been registered!
-LINHA 128: 19:14:38 | [PermissionManager] Perm (Chat:refuelCar) has been registered!
-LINHA 129: 19:14:38 | [WeatherManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 130: 19:14:38 | [TimeManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 131: 19:14:38 | [BuildingSetManager] Journal: 0 set(s) loaded, 0 found by the folder scan, 0 dropped, 0 converted from .vpp, 0 upgraded to format 2
-LINHA 132: 19:14:38 | [SteamAPIManager] WARNING couldn't fetch server IP from configs; using cURL...
-LINHA 133 : [CONTEUDO SENSIVEL MASCARADO]
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt
-TAMANHO: 13413 bytes
---------------------------------------------------
-LINHA 1: [IDENTIFICADOR MASCARADO] Admin Tools Session [IDENTIFICADOR MASCARADO]
-LINHA 2: Logs Started: 2026-11-16_19-16-27
-LINHA 3: [IDENTIFICADOR MASCARADO]
-LINHA 4: 19:16:27 | [PermissionManager] Perm (DeleteObjectAtCrosshair) has been registered!
-LINHA 5: 19:16:27 | [PermissionManager] Perm (TeleportToCrosshair) has been registered!
-LINHA 6: 19:16:27 | [PermissionManager] Perm (FreeCamera) has been registered!
-LINHA 7: 19:16:27 | [PermissionManager] Perm ([IDENTIFICADOR MASCARADO]) has been registered!
-LINHA 8: 19:16:27 | [PermissionManager] Perm (MenuItemManager) has been registered!
-LINHA 9: 19:16:27 | [PermissionManager] Perm (MenuItemManager:SpawnItem) has been registered!
-LINHA 10: 19:16:27 | [PermissionManager] Perm (MenuItemManager:EditPreset) has been registered!
-LINHA 11: 19:16:27 | [PermissionManager] Perm (MenuItemManager:SpawnPreset) has been registered!
-LINHA 12: 19:16:27 | [PermissionManager] Perm (MenuItemManager:DeletePreset) has been registered!
-LINHA 13: 19:16:27 | [PermissionManager] Perm (MenuItemManager:AddPreset) has been registered!
-LINHA 14: 19:16:27 | [PermissionManager] Perm (MenuServerManager) has been registered!
-LINHA 15: 19:16:27 | [PermissionManager] Perm (ServerManager:RestartServer) has been registered!
-LINHA 16: 19:16:27 | [PermissionManager] Perm (ServerManager:LockServer) has been registered!
-LINHA 17: 19:16:27 | [PermissionManager] Perm (ServerManager:KickAllPlayers) has been registered!
-LINHA 18: 19:16:27 | [PermissionManager] Perm (MenuWeatherManager) has been registered!
-LINHA 19: 19:16:27 | [PermissionManager] Perm (WeatherManager:ApplyWeather) has been registered!
-LINHA 20: 19:16:27 | [PermissionManager] Perm (WeatherManager:ApplyTime) has been registered!
-LINHA 21: 19:16:27 | [PermissionManager] Perm (WeatherManager:SavePreset) has been registered!
-LINHA 22: 19:16:27 | [PermissionManager] Perm (WeatherManager:DeletePreset) has been registered!
-LINHA 23: 19:16:27 | [PermissionManager] Perm (WeatherManager:ApplyPreset) has been registered!
-LINHA 24: 19:16:27 | [PermissionManager] Perm (WeatherManager:ApplyTimePreset) has been registered!
-LINHA 25: 19:16:27 | [PermissionManager] Perm (WeatherManager:SaveTimePreset) has been registered!
-LINHA 26: 19:16:27 | [PermissionManager] Perm (WeatherManager:DeleteTimePreset) has been registered!
-LINHA 27: 19:16:27 | [PermissionManager] Perm (MenuObjectManager) has been registered!
-LINHA 28: 19:16:27 | [PermissionManager] Perm (MenuObjectManager:CreateNewSet) has been registered!
-LINHA 29: 19:16:27 | [PermissionManager] Perm (MenuObjectManager:UpdateSet) has been registered!
-LINHA 30: 19:16:27 | [PermissionManager] Perm (MenuObjectManager:DeleteSet) has been registered!
-LINHA 31: 19:16:27 | [PermissionManager] Perm (MenuObjectManager:EditSet) has been registered!
-LINHA 32: 19:16:27 | [PermissionManager] Perm (MenuPermissionsEditor) has been registered!
-LINHA 33: 19:16:27 | [PermissionManager] Perm (PermissionsEditor:RemoveUser) has been registered!
-LINHA 34: 19:16:27 | [PermissionManager] Perm (PermissionsEditor:AddUser) has been registered!
-LINHA 35: 19:16:27 | [PermissionManager] Perm (PermissionsEditor:CreateUserGroup) has been registered!
-LINHA 36: 19:16:27 | [PermissionManager] Perm (PermissionsEditor:DeleteUserGroup) has been registered!
-LINHA 37: 19:16:27 | [PermissionManager] Perm (PermissionsEditor:ChangePermLevel) has been registered!
-LINHA 38: 19:16:27 | [PermissionManager] Perm (MenuPlayerManager) has been registered!
-LINHA 39: 19:16:27 | [PermissionManager] Perm (PlayerManager:GiveGodmode) has been registered!
-LINHA 40: 19:16:27 | [PermissionManager] Perm (PlayerManager:BanPlayer) has been registered!
-LINHA 41: 19:16:27 | [PermissionManager] Perm (PlayerManager:KickPlayer) has been registered!
-LINHA 42: 19:16:27 | [PermissionManager] Perm (PlayerManager:HealPlayers) has been registered!
-LINHA 43: 19:16:27 | [PermissionManager] Perm (PlayerManager:SetPlayerStats) has been registered!
-LINHA 44: 19:16:27 | [PermissionManager] Perm (PlayerManager:KillPlayers) has been registered!
-LINHA 45: 19:16:27 | [PermissionManager] Perm (PlayerManager:GodMode) has been registered!
-LINHA 46: 19:16:27 | [PermissionManager] Perm (PlayerManager:SpectatePlayer) has been registered!
-LINHA 47: 19:16:27 | [PermissionManager] Perm (PlayerManager:TeleportToPlayer) has been registered!
-LINHA 48: 19:16:27 | [PermissionManager] Perm (PlayerManager:TeleportPlayerTo) has been registered!
-LINHA 49: 19:16:27 | [PermissionManager] Perm (PlayerManager:SetPlayerInvisible) has been registered!
-LINHA 50: 19:16:27 | [PermissionManager] Perm (PlayerManager:SendMessage) has been registered!
-LINHA 51: 19:16:27 | [PermissionManager] Perm (PlayerManager:GiveUnlimitedAmmo) has been registered!
-LINHA 52: 19:16:27 | [PermissionManager] Perm (PlayerManager:MakePlayerVomit) has been registered!
-LINHA 53: 19:16:27 | [PermissionManager] Perm (PlayerManager:FreezePlayers) has been registered!
-LINHA 54: 19:16:27 | [PermissionManager] Perm (PlayerManager:ChangeScale) has been registered!
-LINHA 55: 19:16:27 | [PermissionManager] Perm (PlayerManager:StopBleeding) has been registered!
-LINHA 56: 19:16:27 | [PermissionManager] Perm (PlayerManager:ClearInventory) has been registered!
-LINHA 57: 19:16:27 | [PermissionManager] Perm (PlayerManager:EditModifiers) has been registered!
-LINHA 58: 19:16:27 | [PermissionManager] Perm (MenuBansManager) has been registered!
-LINHA 59: 19:16:27 | [PermissionManager] Perm (BansManager:UnbanPlayer) has been registered!
-LINHA 60: 19:16:27 | [PermissionManager] Perm (BansManager:UpdateBanDuration) has been registered!
-LINHA 61: 19:16:27 | [PermissionManager] Perm (BansManager:UpdateBanReason) has been registered!
-LINHA 62: 19:16:27 | [PermissionManager] Perm (MenuSpectateTools) has been registered!
-LINHA 63: 19:16:27 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-LINHA 64: 19:16:27 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-LINHA 65: 19:16:27 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-LINHA 66: 19:16:27 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-LINHA 67: 19:16:27 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-LINHA 68: 19:16:27 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-LINHA 69: 19:16:27 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-LINHA 70: 19:16:27 | [PermissionManager] Perm (MenuTeleportManager) has been registered!
-LINHA 71: 19:16:27 | [PermissionManager] Perm (TeleportManager:ViewPlayerPositions) has been registered!
-LINHA 72: 19:16:27 | [PermissionManager] Perm (TeleportManager:TPPlayers) has been registered!
-LINHA 73: 19:16:27 | [PermissionManager] Perm (TeleportManager:TPSelf) has been registered!
-LINHA 74: 19:16:27 | [PermissionManager] Perm (TeleportManager:DeletePreset) has been registered!
-LINHA 75: 19:16:27 | [PermissionManager] Perm (TeleportManager:AddNewPreset) has been registered!
-LINHA 76: 19:16:27 | [PermissionManager] Perm (TeleportManager:EditPreset) has been registered!
-LINHA 77: 19:16:27 | [PermissionManager] Perm (TeleportManager:TeleportEntity) has been registered!
-LINHA 78: 19:16:27 | [PermissionManager] Perm (EspToolsMenu) has been registered!
-LINHA 79: 19:16:27 | [PermissionManager] Perm (EspToolsMenu:DeleteObjects) has been registered!
-LINHA 80: 19:16:27 | [PermissionManager] Perm (EspToolsMenu:PlayerESP) has been registered!
-LINHA 81: 19:16:27 | [PermissionManager] Perm (EspToolsMenu:RestPasscodeFence) has been registered!
-LINHA 82: 19:16:27 | [PermissionManager] Perm (EspToolsMenu:RetriveCodeFromObj) has been registered!
-LINHA 83: 19:16:27 | [PermissionManager] Perm (EspToolsMenu:PlayerMeshEsp) has been registered!
-LINHA 84: 19:16:27 | [PermissionManager] Perm (EspToolsMenu:InstantBaseBuild) has been registered!
-LINHA 85: 19:16:27 | [PermissionManager] Perm (MenuXMLEditor) has been registered!
-LINHA 86: 19:16:27 | [PermissionManager] Perm (MenuXMLEditor:EditTypes) has been registered!
-LINHA 87: 19:16:27 | [PermissionManager] Perm (MenuXMLEditor:AddRemoveTypes) has been registered!
-LINHA 88: 19:16:27 | [PermissionManager] Perm (MenuXMLEditor:DistributionMap) has been registered!
-LINHA 89: 19:16:27 | [PermissionManager] Perm (MenuXMLEditor:ViewBackups) has been registered!
-LINHA 90: 19:16:27 | [PermissionManager] Perm (MenuXMLEditor:RestoreBackup) has been registered!
-LINHA 91: 19:16:27 | [PermissionManager] Perm (MenuXMLEditor:DeleteBackup) has been registered!
-LINHA 92: 19:16:27 | [PermissionManager] Perm (MenuXMLEditor:LiveScan) has been registered!
-LINHA 93: 19:16:27 | [PermissionManager] Perm (MenuXMLEditor:DeleteObjects) has been registered!
-LINHA 94: 19:16:27 | [PermissionManager] Perm (MenuXMLEditor:EditMessages) has been registered!
-LINHA 95: 19:16:27 | [PermissionManager] Perm (MenuXMLEditor:EditEvents) has been registered!
-LINHA 96: 19:16:27 | [PermissionManager] Perm (MenuXMLEditor:EditSpawnables) has been registered!
-LINHA 97: 19:16:27 | [PermissionManager] Perm (MenuCommandsConsole) has been registered!
-LINHA 98: 19:16:27 | [PermissionManager] Perm (ContextMenu:ItemHealth) has been registered!
-LINHA 99: 19:16:27 | [PermissionManager] Perm (ContextMenu:WeaponLoad) has been registered!
-LINHA 100: 19:16:27 | [PermissionManager] Perm (ContextMenu:CreatureHeal) has been registered!
-LINHA 101: 19:16:27 | [PermissionManager] Perm (ContextMenu:SpawnAttachment) has been registered!
-LINHA 102: 19:16:27 | [PermissionManager] Perm (ContextMenu:CreatureKill) has been registered!
-LINHA 103: 19:16:27 | [PermissionManager] Perm (ContextMenu:ItemQuantity) has been registered!
-LINHA 104: 19:16:27 | [PermissionManager] Perm (ContextMenu:SetScale) has been registered!
-LINHA 105: 19:16:27 | [PermissionManager] Perm (ContextMenu:VehicleRefuel) has been registered!
-LINHA 106: 19:16:27 | [PermissionManager] Perm (ContextMenu:WeaponRefill) has been registered!
-LINHA 107: 19:16:27 | [PermissionManager] Perm (ContextMenu:Ragdoll) has been registered!
-LINHA 108: 19:16:27 | [PermissionManager] Perm (ContextMenu:WeaponJam) has been registered!
-LINHA 109: 19:16:27 | [PermissionManager] Perm (ContextMenu:WeaponEject) has been registered!
-LINHA 110: 19:16:27 | [PermissionManager] Adding Super Admin (76561198196693358)
-LINHA 111: 19:16:27 | [PermissionManager] Adding Super Admin (76561199508282814)
-LINHA 112: 19:16:27 | [PermissionManager] Loaded UserGroups.json
-LINHA 113: 19:16:27 | [BansManager]:: Load(): Loading ban list Json File $profile:VPPAdminTools/BanList.json
-LINHA 114: 19:16:27 | [PermissionManager] Perm (Chat:StripPlayer) has been registered!
-LINHA 115: 19:16:27 | [PermissionManager] Perm (Chat:KillPlayer) has been registered!
-LINHA 116: 19:16:27 | [PermissionManager] Perm (Chat:HealPlayer) has been registered!
-LINHA 117: 19:16:27 | [PermissionManager] Perm (Chat:BringPlayer) has been registered!
-LINHA 118: 19:16:27 | [PermissionManager] Perm (Chat:ReturnPlayer) has been registered!
-LINHA 119: 19:16:27 | [PermissionManager] Perm (Chat:GotoPlayer) has been registered!
-LINHA 120: 19:16:27 | [PermissionManager] Perm (Chat:UnbanPlayer) has been registered!
-LINHA 121: 19:16:27 | [PermissionManager] Perm (Chat:TeleportToTown) has been registered!
-LINHA 122: 19:16:27 | [PermissionManager] Perm (Chat:TeleportToPoint) has been registered!
-LINHA 123: 19:16:27 | [PermissionManager] Perm (Chat:GiveAmmo) has been registered!
-LINHA 124: 19:16:27 | [PermissionManager] Perm (Chat:SpawnInventory) has been registered!
-LINHA 125: 19:16:27 | [PermissionManager] Perm (Chat:SpawnOnGround) has been registered!
-LINHA 126: 19:16:27 | [PermissionManager] Perm (Chat:SpawnInHands) has been registered!
-LINHA 127: 19:16:27 | [PermissionManager] Perm (Chat:SpawnCar) has been registered!
-LINHA 128: 19:16:27 | [PermissionManager] Perm (Chat:refuelCar) has been registered!
-LINHA 129: 19:16:27 | [WeatherManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 130: 19:16:27 | [TimeManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 131: 19:16:27 | [BuildingSetManager] Journal: 0 set(s) loaded, 0 found by the folder scan, 0 dropped, 0 converted from .vpp, 0 upgraded to format 2
-LINHA 132: 19:16:27 | [SteamAPIManager] WARNING couldn't fetch server IP from configs; using cURL...
-LINHA 133 : [CONTEUDO SENSIVEL MASCARADO]
-LINHA 134: 19:19:12 | Player "******" ([IDENTIFICADOR MASCARADO]) connected to server!
-LINHA 135: 19:19:36 | "******" ([IDENTIFICADOR MASCARADO]) gave godmode to ([IDENTIFICADOR MASCARADO])
-LINHA 136: 19:19:40 | "******" ([IDENTIFICADOR MASCARADO]) healed player ([IDENTIFICADOR MASCARADO])
-LINHA 137: 19:19:40 | "******" ([IDENTIFICADOR MASCARADO]) healed player ([IDENTIFICADOR MASCARADO])
-LINHA 138: 19:25:20 | "76561198196693358" ([IDENTIFICADOR MASCARADO]) teleported to (pos=<2712.169922, 438.375000, 13246.299805>)
-LINHA 139: 19:25:20 | "******": ([IDENTIFICADOR MASCARADO]) teleported to (pos=2712.17,438.375,13246.3)
-LINHA 140: 19:25:22 | "76561198196693358" ([IDENTIFICADOR MASCARADO]) teleported to (pos=<526.491028, 740.257996, 16050.900391>)
-LINHA 141: 19:25:22 | "******": ([IDENTIFICADOR MASCARADO]) teleported to (pos=526.491,740.258,16050.9)
-LINHA 142: 19:25:23 | "76561198196693358" ([IDENTIFICADOR MASCARADO]) teleported to (pos=<217.018997, 679.737976, 16196.000000>)
-LINHA 143: 19:25:23 | "******": ([IDENTIFICADOR MASCARADO]) teleported to (pos=217.019,679.738,16196)
-LINHA 144: 19:26:29 | "******" ([IDENTIFICADOR MASCARADO]) gave godmode to ([IDENTIFICADOR MASCARADO])
-LINHA 145: 19:26:35 | "******" ([IDENTIFICADOR MASCARADO]) healed player ([IDENTIFICADOR MASCARADO])
-LINHA 146: 19:26:42 | "******" ([IDENTIFICADOR MASCARADO]) executed kill command on: "76561198196693358"
-LINHA 147: 19:27:26 | "******" ([IDENTIFICADOR MASCARADO]) gave godmode to ([IDENTIFICADOR MASCARADO])
-LINHA 148: 19:28:13 | "******" ([IDENTIFICADOR MASCARADO]) just updated a health stat on ([IDENTIFICADOR MASCARADO])
-LINHA 149: 19:28:16 | "******" ([IDENTIFICADOR MASCARADO]) just updated a health stat on ([IDENTIFICADOR MASCARADO])
-LINHA 150: 19:28:27 | "******" ([IDENTIFICADOR MASCARADO]) healed player ([IDENTIFICADOR MASCARADO])
-LINHA 151: 19:28:32 | "******" ([IDENTIFICADOR MASCARADO]) just updated a health stat on ([IDENTIFICADOR MASCARADO])
-LINHA 152: 19:36:42 | "******" ([IDENTIFICADOR MASCARADO]) kicked player: "******"
-LINHA 153: 19:36:42 | Player "******" ([IDENTIFICADOR MASCARADO]) initiated disconnect process...
-LINHA 154: 19:37:35 | Player "******" ([IDENTIFICADOR MASCARADO]) connected to server!
-LINHA 155: 20:8:58 | Player "******" ([IDENTIFICADOR MASCARADO]) initiated disconnect process...
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-40-47.txt
-TAMANHO: 11314 bytes
---------------------------------------------------
-LINHA 1: [IDENTIFICADOR MASCARADO] Admin Tools Session [IDENTIFICADOR MASCARADO]
-LINHA 2: Logs Started: 2026-11-16_19-40-47
-LINHA 3: [IDENTIFICADOR MASCARADO]
-LINHA 4: 19:40:47 | [PermissionManager] Perm (DeleteObjectAtCrosshair) has been registered!
-LINHA 5: 19:40:47 | [PermissionManager] Perm (TeleportToCrosshair) has been registered!
-LINHA 6: 19:40:47 | [PermissionManager] Perm (FreeCamera) has been registered!
-LINHA 7: 19:40:47 | [PermissionManager] Perm ([IDENTIFICADOR MASCARADO]) has been registered!
-LINHA 8: 19:40:47 | [PermissionManager] Perm (MenuItemManager) has been registered!
-LINHA 9: 19:40:47 | [PermissionManager] Perm (MenuItemManager:SpawnItem) has been registered!
-LINHA 10: 19:40:47 | [PermissionManager] Perm (MenuItemManager:EditPreset) has been registered!
-LINHA 11: 19:40:47 | [PermissionManager] Perm (MenuItemManager:SpawnPreset) has been registered!
-LINHA 12: 19:40:47 | [PermissionManager] Perm (MenuItemManager:DeletePreset) has been registered!
-LINHA 13: 19:40:47 | [PermissionManager] Perm (MenuItemManager:AddPreset) has been registered!
-LINHA 14: 19:40:47 | [PermissionManager] Perm (MenuServerManager) has been registered!
-LINHA 15: 19:40:47 | [PermissionManager] Perm (ServerManager:RestartServer) has been registered!
-LINHA 16: 19:40:47 | [PermissionManager] Perm (ServerManager:LockServer) has been registered!
-LINHA 17: 19:40:47 | [PermissionManager] Perm (ServerManager:KickAllPlayers) has been registered!
-LINHA 18: 19:40:47 | [PermissionManager] Perm (MenuWeatherManager) has been registered!
-LINHA 19: 19:40:47 | [PermissionManager] Perm (WeatherManager:ApplyWeather) has been registered!
-LINHA 20: 19:40:47 | [PermissionManager] Perm (WeatherManager:ApplyTime) has been registered!
-LINHA 21: 19:40:47 | [PermissionManager] Perm (WeatherManager:SavePreset) has been registered!
-LINHA 22: 19:40:47 | [PermissionManager] Perm (WeatherManager:DeletePreset) has been registered!
-LINHA 23: 19:40:47 | [PermissionManager] Perm (WeatherManager:ApplyPreset) has been registered!
-LINHA 24: 19:40:47 | [PermissionManager] Perm (WeatherManager:ApplyTimePreset) has been registered!
-LINHA 25: 19:40:47 | [PermissionManager] Perm (WeatherManager:SaveTimePreset) has been registered!
-LINHA 26: 19:40:47 | [PermissionManager] Perm (WeatherManager:DeleteTimePreset) has been registered!
-LINHA 27: 19:40:47 | [PermissionManager] Perm (MenuObjectManager) has been registered!
-LINHA 28: 19:40:47 | [PermissionManager] Perm (MenuObjectManager:CreateNewSet) has been registered!
-LINHA 29: 19:40:47 | [PermissionManager] Perm (MenuObjectManager:UpdateSet) has been registered!
-LINHA 30: 19:40:47 | [PermissionManager] Perm (MenuObjectManager:DeleteSet) has been registered!
-LINHA 31: 19:40:47 | [PermissionManager] Perm (MenuObjectManager:EditSet) has been registered!
-LINHA 32: 19:40:47 | [PermissionManager] Perm (MenuPermissionsEditor) has been registered!
-LINHA 33: 19:40:47 | [PermissionManager] Perm (PermissionsEditor:RemoveUser) has been registered!
-LINHA 34: 19:40:47 | [PermissionManager] Perm (PermissionsEditor:AddUser) has been registered!
-LINHA 35: 19:40:47 | [PermissionManager] Perm (PermissionsEditor:CreateUserGroup) has been registered!
-LINHA 36: 19:40:47 | [PermissionManager] Perm (PermissionsEditor:DeleteUserGroup) has been registered!
-LINHA 37: 19:40:47 | [PermissionManager] Perm (PermissionsEditor:ChangePermLevel) has been registered!
-LINHA 38: 19:40:47 | [PermissionManager] Perm (MenuPlayerManager) has been registered!
-LINHA 39: 19:40:47 | [PermissionManager] Perm (PlayerManager:GiveGodmode) has been registered!
-LINHA 40: 19:40:47 | [PermissionManager] Perm (PlayerManager:BanPlayer) has been registered!
-LINHA 41: 19:40:47 | [PermissionManager] Perm (PlayerManager:KickPlayer) has been registered!
-LINHA 42: 19:40:47 | [PermissionManager] Perm (PlayerManager:HealPlayers) has been registered!
-LINHA 43: 19:40:47 | [PermissionManager] Perm (PlayerManager:SetPlayerStats) has been registered!
-LINHA 44: 19:40:47 | [PermissionManager] Perm (PlayerManager:KillPlayers) has been registered!
-LINHA 45: 19:40:47 | [PermissionManager] Perm (PlayerManager:GodMode) has been registered!
-LINHA 46: 19:40:47 | [PermissionManager] Perm (PlayerManager:SpectatePlayer) has been registered!
-LINHA 47: 19:40:47 | [PermissionManager] Perm (PlayerManager:TeleportToPlayer) has been registered!
-LINHA 48: 19:40:47 | [PermissionManager] Perm (PlayerManager:TeleportPlayerTo) has been registered!
-LINHA 49: 19:40:47 | [PermissionManager] Perm (PlayerManager:SetPlayerInvisible) has been registered!
-LINHA 50: 19:40:47 | [PermissionManager] Perm (PlayerManager:SendMessage) has been registered!
-LINHA 51: 19:40:47 | [PermissionManager] Perm (PlayerManager:GiveUnlimitedAmmo) has been registered!
-LINHA 52: 19:40:47 | [PermissionManager] Perm (PlayerManager:MakePlayerVomit) has been registered!
-LINHA 53: 19:40:47 | [PermissionManager] Perm (PlayerManager:FreezePlayers) has been registered!
-LINHA 54: 19:40:47 | [PermissionManager] Perm (PlayerManager:ChangeScale) has been registered!
-LINHA 55: 19:40:47 | [PermissionManager] Perm (PlayerManager:StopBleeding) has been registered!
-LINHA 56: 19:40:47 | [PermissionManager] Perm (PlayerManager:ClearInventory) has been registered!
-LINHA 57: 19:40:47 | [PermissionManager] Perm (PlayerManager:EditModifiers) has been registered!
-LINHA 58: 19:40:47 | [PermissionManager] Perm (MenuBansManager) has been registered!
-LINHA 59: 19:40:47 | [PermissionManager] Perm (BansManager:UnbanPlayer) has been registered!
-LINHA 60: 19:40:47 | [PermissionManager] Perm (BansManager:UpdateBanDuration) has been registered!
-LINHA 61: 19:40:47 | [PermissionManager] Perm (BansManager:UpdateBanReason) has been registered!
-LINHA 62: 19:40:47 | [PermissionManager] Perm (MenuSpectateTools) has been registered!
-LINHA 63: 19:40:47 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-LINHA 64: 19:40:47 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-LINHA 65: 19:40:47 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-LINHA 66: 19:40:47 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-LINHA 67: 19:40:47 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-LINHA 68: 19:40:47 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-LINHA 69: 19:40:47 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-LINHA 70: 19:40:47 | [PermissionManager] Perm (MenuTeleportManager) has been registered!
-LINHA 71: 19:40:47 | [PermissionManager] Perm (TeleportManager:ViewPlayerPositions) has been registered!
-LINHA 72: 19:40:47 | [PermissionManager] Perm (TeleportManager:TPPlayers) has been registered!
-LINHA 73: 19:40:47 | [PermissionManager] Perm (TeleportManager:TPSelf) has been registered!
-LINHA 74: 19:40:47 | [PermissionManager] Perm (TeleportManager:DeletePreset) has been registered!
-LINHA 75: 19:40:47 | [PermissionManager] Perm (TeleportManager:AddNewPreset) has been registered!
-LINHA 76: 19:40:47 | [PermissionManager] Perm (TeleportManager:EditPreset) has been registered!
-LINHA 77: 19:40:47 | [PermissionManager] Perm (TeleportManager:TeleportEntity) has been registered!
-LINHA 78: 19:40:47 | [PermissionManager] Perm (EspToolsMenu) has been registered!
-LINHA 79: 19:40:47 | [PermissionManager] Perm (EspToolsMenu:DeleteObjects) has been registered!
-LINHA 80: 19:40:47 | [PermissionManager] Perm (EspToolsMenu:PlayerESP) has been registered!
-LINHA 81: 19:40:47 | [PermissionManager] Perm (EspToolsMenu:RestPasscodeFence) has been registered!
-LINHA 82: 19:40:47 | [PermissionManager] Perm (EspToolsMenu:RetriveCodeFromObj) has been registered!
-LINHA 83: 19:40:47 | [PermissionManager] Perm (EspToolsMenu:PlayerMeshEsp) has been registered!
-LINHA 84: 19:40:47 | [PermissionManager] Perm (EspToolsMenu:InstantBaseBuild) has been registered!
-LINHA 85: 19:40:47 | [PermissionManager] Perm (MenuXMLEditor) has been registered!
-LINHA 86: 19:40:47 | [PermissionManager] Perm (MenuXMLEditor:EditTypes) has been registered!
-LINHA 87: 19:40:47 | [PermissionManager] Perm (MenuXMLEditor:AddRemoveTypes) has been registered!
-LINHA 88: 19:40:47 | [PermissionManager] Perm (MenuXMLEditor:DistributionMap) has been registered!
-LINHA 89: 19:40:47 | [PermissionManager] Perm (MenuXMLEditor:ViewBackups) has been registered!
-LINHA 90: 19:40:47 | [PermissionManager] Perm (MenuXMLEditor:RestoreBackup) has been registered!
-LINHA 91: 19:40:47 | [PermissionManager] Perm (MenuXMLEditor:DeleteBackup) has been registered!
-LINHA 92: 19:40:47 | [PermissionManager] Perm (MenuXMLEditor:LiveScan) has been registered!
-LINHA 93: 19:40:47 | [PermissionManager] Perm (MenuXMLEditor:DeleteObjects) has been registered!
-LINHA 94: 19:40:47 | [PermissionManager] Perm (MenuXMLEditor:EditMessages) has been registered!
-LINHA 95: 19:40:47 | [PermissionManager] Perm (MenuXMLEditor:EditEvents) has been registered!
-LINHA 96: 19:40:47 | [PermissionManager] Perm (MenuXMLEditor:EditSpawnables) has been registered!
-LINHA 97: 19:40:47 | [PermissionManager] Perm (MenuCommandsConsole) has been registered!
-LINHA 98: 19:40:47 | [PermissionManager] Perm (ContextMenu:ItemHealth) has been registered!
-LINHA 99: 19:40:47 | [PermissionManager] Perm (ContextMenu:WeaponLoad) has been registered!
-LINHA 100: 19:40:47 | [PermissionManager] Perm (ContextMenu:CreatureHeal) has been registered!
-LINHA 101: 19:40:47 | [PermissionManager] Perm (ContextMenu:SpawnAttachment) has been registered!
-LINHA 102: 19:40:47 | [PermissionManager] Perm (ContextMenu:CreatureKill) has been registered!
-LINHA 103: 19:40:47 | [PermissionManager] Perm (ContextMenu:ItemQuantity) has been registered!
-LINHA 104: 19:40:47 | [PermissionManager] Perm (ContextMenu:SetScale) has been registered!
-LINHA 105: 19:40:47 | [PermissionManager] Perm (ContextMenu:VehicleRefuel) has been registered!
-LINHA 106: 19:40:47 | [PermissionManager] Perm (ContextMenu:WeaponRefill) has been registered!
-LINHA 107: 19:40:47 | [PermissionManager] Perm (ContextMenu:Ragdoll) has been registered!
-LINHA 108: 19:40:47 | [PermissionManager] Perm (ContextMenu:WeaponJam) has been registered!
-LINHA 109: 19:40:47 | [PermissionManager] Perm (ContextMenu:WeaponEject) has been registered!
-LINHA 110: 19:40:47 | [PermissionManager] Adding Super Admin (76561198196693358)
-LINHA 111: 19:40:47 | [PermissionManager] Adding Super Admin (76561199508282814)
-LINHA 112: 19:40:47 | [PermissionManager] Loaded UserGroups.json
-LINHA 113: 19:40:47 | [BansManager]:: Load(): Loading ban list Json File $profile:VPPAdminTools/BanList.json
-LINHA 114: 19:40:47 | [PermissionManager] Perm (Chat:StripPlayer) has been registered!
-LINHA 115: 19:40:47 | [PermissionManager] Perm (Chat:KillPlayer) has been registered!
-LINHA 116: 19:40:47 | [PermissionManager] Perm (Chat:HealPlayer) has been registered!
-LINHA 117: 19:40:47 | [PermissionManager] Perm (Chat:BringPlayer) has been registered!
-LINHA 118: 19:40:47 | [PermissionManager] Perm (Chat:ReturnPlayer) has been registered!
-LINHA 119: 19:40:47 | [PermissionManager] Perm (Chat:GotoPlayer) has been registered!
-LINHA 120: 19:40:47 | [PermissionManager] Perm (Chat:UnbanPlayer) has been registered!
-LINHA 121: 19:40:47 | [PermissionManager] Perm (Chat:TeleportToTown) has been registered!
-LINHA 122: 19:40:47 | [PermissionManager] Perm (Chat:TeleportToPoint) has been registered!
-LINHA 123: 19:40:47 | [PermissionManager] Perm (Chat:GiveAmmo) has been registered!
-LINHA 124: 19:40:47 | [PermissionManager] Perm (Chat:SpawnInventory) has been registered!
-LINHA 125: 19:40:47 | [PermissionManager] Perm (Chat:SpawnOnGround) has been registered!
-LINHA 126: 19:40:47 | [PermissionManager] Perm (Chat:SpawnInHands) has been registered!
-LINHA 127: 19:40:47 | [PermissionManager] Perm (Chat:SpawnCar) has been registered!
-LINHA 128: 19:40:47 | [PermissionManager] Perm (Chat:refuelCar) has been registered!
-LINHA 129: 19:40:47 | [WeatherManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 130: 19:40:47 | [TimeManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 131: 19:40:47 | [BuildingSetManager] Journal: 0 set(s) loaded, 0 found by the folder scan, 0 dropped, 0 converted from .vpp, 0 upgraded to format 2
-LINHA 132: 19:40:47 | [SteamAPIManager] WARNING couldn't fetch server IP from configs; using cURL...
-LINHA 133 : [CONTEUDO SENSIVEL MASCARADO]
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_20-24-6.txt
-TAMANHO: 11260 bytes
---------------------------------------------------
-LINHA 1: [IDENTIFICADOR MASCARADO] Admin Tools Session [IDENTIFICADOR MASCARADO]
-LINHA 2: Logs Started: 2026-11-16_20-24-6
-LINHA 3: [IDENTIFICADOR MASCARADO]
-LINHA 4: 20:24:6 | [PermissionManager] Perm (DeleteObjectAtCrosshair) has been registered!
-LINHA 5: 20:24:6 | [PermissionManager] Perm (TeleportToCrosshair) has been registered!
-LINHA 6: 20:24:6 | [PermissionManager] Perm (FreeCamera) has been registered!
-LINHA 7: 20:24:6 | [PermissionManager] Perm ([IDENTIFICADOR MASCARADO]) has been registered!
-LINHA 8: 20:24:6 | [PermissionManager] Perm (MenuItemManager) has been registered!
-LINHA 9: 20:24:6 | [PermissionManager] Perm (MenuItemManager:SpawnItem) has been registered!
-LINHA 10: 20:24:6 | [PermissionManager] Perm (MenuItemManager:EditPreset) has been registered!
-LINHA 11: 20:24:6 | [PermissionManager] Perm (MenuItemManager:SpawnPreset) has been registered!
-LINHA 12: 20:24:6 | [PermissionManager] Perm (MenuItemManager:DeletePreset) has been registered!
-LINHA 13: 20:24:6 | [PermissionManager] Perm (MenuItemManager:AddPreset) has been registered!
-LINHA 14: 20:24:6 | [PermissionManager] Perm (MenuServerManager) has been registered!
-LINHA 15: 20:24:6 | [PermissionManager] Perm (ServerManager:RestartServer) has been registered!
-LINHA 16: 20:24:6 | [PermissionManager] Perm (ServerManager:LockServer) has been registered!
-LINHA 17: 20:24:6 | [PermissionManager] Perm (ServerManager:KickAllPlayers) has been registered!
-LINHA 18: 20:24:6 | [PermissionManager] Perm (MenuWeatherManager) has been registered!
-LINHA 19: 20:24:6 | [PermissionManager] Perm (WeatherManager:ApplyWeather) has been registered!
-LINHA 20: 20:24:6 | [PermissionManager] Perm (WeatherManager:ApplyTime) has been registered!
-LINHA 21: 20:24:6 | [PermissionManager] Perm (WeatherManager:SavePreset) has been registered!
-LINHA 22: 20:24:6 | [PermissionManager] Perm (WeatherManager:DeletePreset) has been registered!
-LINHA 23: 20:24:6 | [PermissionManager] Perm (WeatherManager:ApplyPreset) has been registered!
-LINHA 24: 20:24:6 | [PermissionManager] Perm (WeatherManager:ApplyTimePreset) has been registered!
-LINHA 25: 20:24:6 | [PermissionManager] Perm (WeatherManager:SaveTimePreset) has been registered!
-LINHA 26: 20:24:6 | [PermissionManager] Perm (WeatherManager:DeleteTimePreset) has been registered!
-LINHA 27: 20:24:6 | [PermissionManager] Perm (MenuObjectManager) has been registered!
-LINHA 28: 20:24:6 | [PermissionManager] Perm (MenuObjectManager:CreateNewSet) has been registered!
-LINHA 29: 20:24:6 | [PermissionManager] Perm (MenuObjectManager:UpdateSet) has been registered!
-LINHA 30: 20:24:6 | [PermissionManager] Perm (MenuObjectManager:DeleteSet) has been registered!
-LINHA 31: 20:24:6 | [PermissionManager] Perm (MenuObjectManager:EditSet) has been registered!
-LINHA 32: 20:24:6 | [PermissionManager] Perm (MenuPermissionsEditor) has been registered!
-LINHA 33: 20:24:6 | [PermissionManager] Perm (PermissionsEditor:RemoveUser) has been registered!
-LINHA 34: 20:24:6 | [PermissionManager] Perm (PermissionsEditor:AddUser) has been registered!
-LINHA 35: 20:24:6 | [PermissionManager] Perm (PermissionsEditor:CreateUserGroup) has been registered!
-LINHA 36: 20:24:6 | [PermissionManager] Perm (PermissionsEditor:DeleteUserGroup) has been registered!
-LINHA 37: 20:24:6 | [PermissionManager] Perm (PermissionsEditor:ChangePermLevel) has been registered!
-LINHA 38: 20:24:6 | [PermissionManager] Perm (MenuPlayerManager) has been registered!
-LINHA 39: 20:24:6 | [PermissionManager] Perm (PlayerManager:GiveGodmode) has been registered!
-LINHA 40: 20:24:6 | [PermissionManager] Perm (PlayerManager:BanPlayer) has been registered!
-LINHA 41: 20:24:6 | [PermissionManager] Perm (PlayerManager:KickPlayer) has been registered!
-LINHA 42: 20:24:6 | [PermissionManager] Perm (PlayerManager:HealPlayers) has been registered!
-LINHA 43: 20:24:6 | [PermissionManager] Perm (PlayerManager:SetPlayerStats) has been registered!
-LINHA 44: 20:24:6 | [PermissionManager] Perm (PlayerManager:KillPlayers) has been registered!
-LINHA 45: 20:24:6 | [PermissionManager] Perm (PlayerManager:GodMode) has been registered!
-LINHA 46: 20:24:6 | [PermissionManager] Perm (PlayerManager:SpectatePlayer) has been registered!
-LINHA 47: 20:24:6 | [PermissionManager] Perm (PlayerManager:TeleportToPlayer) has been registered!
-LINHA 48: 20:24:6 | [PermissionManager] Perm (PlayerManager:TeleportPlayerTo) has been registered!
-LINHA 49: 20:24:6 | [PermissionManager] Perm (PlayerManager:SetPlayerInvisible) has been registered!
-LINHA 50: 20:24:6 | [PermissionManager] Perm (PlayerManager:SendMessage) has been registered!
-LINHA 51: 20:24:6 | [PermissionManager] Perm (PlayerManager:GiveUnlimitedAmmo) has been registered!
-LINHA 52: 20:24:6 | [PermissionManager] Perm (PlayerManager:MakePlayerVomit) has been registered!
-LINHA 53: 20:24:6 | [PermissionManager] Perm (PlayerManager:FreezePlayers) has been registered!
-LINHA 54: 20:24:6 | [PermissionManager] Perm (PlayerManager:ChangeScale) has been registered!
-LINHA 55: 20:24:6 | [PermissionManager] Perm (PlayerManager:StopBleeding) has been registered!
-LINHA 56: 20:24:6 | [PermissionManager] Perm (PlayerManager:ClearInventory) has been registered!
-LINHA 57: 20:24:6 | [PermissionManager] Perm (PlayerManager:EditModifiers) has been registered!
-LINHA 58: 20:24:6 | [PermissionManager] Perm (MenuBansManager) has been registered!
-LINHA 59: 20:24:6 | [PermissionManager] Perm (BansManager:UnbanPlayer) has been registered!
-LINHA 60: 20:24:6 | [PermissionManager] Perm (BansManager:UpdateBanDuration) has been registered!
-LINHA 61: 20:24:6 | [PermissionManager] Perm (BansManager:UpdateBanReason) has been registered!
-LINHA 62: 20:24:6 | [PermissionManager] Perm (MenuSpectateTools) has been registered!
-LINHA 63: 20:24:6 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-LINHA 64: 20:24:6 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-LINHA 65: 20:24:6 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-LINHA 66: 20:24:6 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-LINHA 67: 20:24:6 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-LINHA 68: 20:24:6 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-LINHA 69: 20:24:6 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-LINHA 70: 20:24:6 | [PermissionManager] Perm (MenuTeleportManager) has been registered!
-LINHA 71: 20:24:6 | [PermissionManager] Perm (TeleportManager:ViewPlayerPositions) has been registered!
-LINHA 72: 20:24:6 | [PermissionManager] Perm (TeleportManager:TPPlayers) has been registered!
-LINHA 73: 20:24:6 | [PermissionManager] Perm (TeleportManager:TPSelf) has been registered!
-LINHA 74: 20:24:6 | [PermissionManager] Perm (TeleportManager:DeletePreset) has been registered!
-LINHA 75: 20:24:6 | [PermissionManager] Perm (TeleportManager:AddNewPreset) has been registered!
-LINHA 76: 20:24:6 | [PermissionManager] Perm (TeleportManager:EditPreset) has been registered!
-LINHA 77: 20:24:6 | [PermissionManager] Perm (TeleportManager:TeleportEntity) has been registered!
-LINHA 78: 20:24:6 | [PermissionManager] Perm (EspToolsMenu) has been registered!
-LINHA 79: 20:24:6 | [PermissionManager] Perm (EspToolsMenu:DeleteObjects) has been registered!
-LINHA 80: 20:24:6 | [PermissionManager] Perm (EspToolsMenu:PlayerESP) has been registered!
-LINHA 81: 20:24:6 | [PermissionManager] Perm (EspToolsMenu:RestPasscodeFence) has been registered!
-LINHA 82: 20:24:6 | [PermissionManager] Perm (EspToolsMenu:RetriveCodeFromObj) has been registered!
-LINHA 83: 20:24:6 | [PermissionManager] Perm (EspToolsMenu:PlayerMeshEsp) has been registered!
-LINHA 84: 20:24:6 | [PermissionManager] Perm (EspToolsMenu:InstantBaseBuild) has been registered!
-LINHA 85: 20:24:6 | [PermissionManager] Perm (MenuXMLEditor) has been registered!
-LINHA 86: 20:24:6 | [PermissionManager] Perm (MenuXMLEditor:EditTypes) has been registered!
-LINHA 87: 20:24:6 | [PermissionManager] Perm (MenuXMLEditor:AddRemoveTypes) has been registered!
-LINHA 88: 20:24:6 | [PermissionManager] Perm (MenuXMLEditor:DistributionMap) has been registered!
-LINHA 89: 20:24:6 | [PermissionManager] Perm (MenuXMLEditor:ViewBackups) has been registered!
-LINHA 90: 20:24:6 | [PermissionManager] Perm (MenuXMLEditor:RestoreBackup) has been registered!
-LINHA 91: 20:24:6 | [PermissionManager] Perm (MenuXMLEditor:DeleteBackup) has been registered!
-LINHA 92: 20:24:6 | [PermissionManager] Perm (MenuXMLEditor:LiveScan) has been registered!
-LINHA 93: 20:24:6 | [PermissionManager] Perm (MenuXMLEditor:DeleteObjects) has been registered!
-LINHA 94: 20:24:6 | [PermissionManager] Perm (MenuXMLEditor:EditMessages) has been registered!
-LINHA 95: 20:24:6 | [PermissionManager] Perm (MenuXMLEditor:EditEvents) has been registered!
-LINHA 96: 20:24:6 | [PermissionManager] Perm (MenuXMLEditor:EditSpawnables) has been registered!
-LINHA 97: 20:24:6 | [PermissionManager] Perm (MenuCommandsConsole) has been registered!
-LINHA 98: 20:24:6 | [PermissionManager] Perm (ContextMenu:ItemHealth) has been registered!
-LINHA 99: 20:24:6 | [PermissionManager] Perm (ContextMenu:WeaponLoad) has been registered!
-LINHA 100: 20:24:6 | [PermissionManager] Perm (ContextMenu:CreatureHeal) has been registered!
-LINHA 101: 20:24:6 | [PermissionManager] Perm (ContextMenu:SpawnAttachment) has been registered!
-LINHA 102: 20:24:6 | [PermissionManager] Perm (ContextMenu:CreatureKill) has been registered!
-LINHA 103: 20:24:6 | [PermissionManager] Perm (ContextMenu:ItemQuantity) has been registered!
-LINHA 104: 20:24:6 | [PermissionManager] Perm (ContextMenu:SetScale) has been registered!
-LINHA 105: 20:24:6 | [PermissionManager] Perm (ContextMenu:VehicleRefuel) has been registered!
-LINHA 106: 20:24:6 | [PermissionManager] Perm (ContextMenu:WeaponRefill) has been registered!
-LINHA 107: 20:24:6 | [PermissionManager] Perm (ContextMenu:Ragdoll) has been registered!
-LINHA 108: 20:24:6 | [PermissionManager] Perm (ContextMenu:WeaponJam) has been registered!
-LINHA 109: 20:24:6 | [PermissionManager] Perm (ContextMenu:WeaponEject) has been registered!
-LINHA 110: 20:24:6 | [PermissionManager] Adding Super Admin (76561198196693358)
-LINHA 111: 20:24:6 | [PermissionManager] Adding Super Admin (76561199508282814)
-LINHA 112: 20:24:6 | [PermissionManager] Loaded UserGroups.json
-LINHA 113: 20:24:6 | [BansManager]:: Load(): Loading ban list Json File $profile:VPPAdminTools/BanList.json
-LINHA 114: 20:24:6 | [PermissionManager] Perm (Chat:StripPlayer) has been registered!
-LINHA 115: 20:24:6 | [PermissionManager] Perm (Chat:KillPlayer) has been registered!
-LINHA 116: 20:24:6 | [PermissionManager] Perm (Chat:HealPlayer) has been registered!
-LINHA 117: 20:24:6 | [PermissionManager] Perm (Chat:BringPlayer) has been registered!
-LINHA 118: 20:24:6 | [PermissionManager] Perm (Chat:ReturnPlayer) has been registered!
-LINHA 119: 20:24:6 | [PermissionManager] Perm (Chat:GotoPlayer) has been registered!
-LINHA 120: 20:24:6 | [PermissionManager] Perm (Chat:UnbanPlayer) has been registered!
-LINHA 121: 20:24:6 | [PermissionManager] Perm (Chat:TeleportToTown) has been registered!
-LINHA 122: 20:24:6 | [PermissionManager] Perm (Chat:TeleportToPoint) has been registered!
-LINHA 123: 20:24:6 | [PermissionManager] Perm (Chat:GiveAmmo) has been registered!
-LINHA 124: 20:24:6 | [PermissionManager] Perm (Chat:SpawnInventory) has been registered!
-LINHA 125: 20:24:6 | [PermissionManager] Perm (Chat:SpawnOnGround) has been registered!
-LINHA 126: 20:24:6 | [PermissionManager] Perm (Chat:SpawnInHands) has been registered!
-LINHA 127: 20:24:6 | [PermissionManager] Perm (Chat:SpawnCar) has been registered!
-LINHA 128: 20:24:6 | [PermissionManager] Perm (Chat:refuelCar) has been registered!
-LINHA 129: 20:24:6 | [WeatherManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 130: 20:24:6 | [TimeManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 131: 20:24:6 | [BuildingSetManager] Journal: 0 set(s) loaded, 0 found by the folder scan, 0 dropped, 0 converted from .vpp, 0 upgraded to format 2
-LINHA 132: 20:24:6 | [SteamAPIManager] WARNING couldn't fetch server IP from configs; using cURL...
-LINHA 133 : [CONTEUDO SENSIVEL MASCARADO]
-LINHA 134: 20:27:44 | Player "******" ([IDENTIFICADOR MASCARADO]) connected to server!
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt
-TAMANHO: 21552 bytes
---------------------------------------------------
-LINHA 1: [IDENTIFICADOR MASCARADO] Admin Tools Session [IDENTIFICADOR MASCARADO]
-LINHA 2: Logs Started: 2026-11-16_21-20-20
-LINHA 3: [IDENTIFICADOR MASCARADO]
-LINHA 4: 21:20:20 | [PermissionManager] Perm (DeleteObjectAtCrosshair) has been registered!
-LINHA 5: 21:20:20 | [PermissionManager] Perm (TeleportToCrosshair) has been registered!
-LINHA 6: 21:20:20 | [PermissionManager] Perm (FreeCamera) has been registered!
-LINHA 7: 21:20:20 | [PermissionManager] Perm ([IDENTIFICADOR MASCARADO]) has been registered!
-LINHA 8: 21:20:20 | [PermissionManager] Perm (MenuItemManager) has been registered!
-LINHA 9: 21:20:20 | [PermissionManager] Perm (MenuItemManager:SpawnItem) has been registered!
-LINHA 10: 21:20:20 | [PermissionManager] Perm (MenuItemManager:EditPreset) has been registered!
-LINHA 11: 21:20:20 | [PermissionManager] Perm (MenuItemManager:SpawnPreset) has been registered!
-LINHA 12: 21:20:20 | [PermissionManager] Perm (MenuItemManager:DeletePreset) has been registered!
-LINHA 13: 21:20:20 | [PermissionManager] Perm (MenuItemManager:AddPreset) has been registered!
-LINHA 14: 21:20:20 | [PermissionManager] Perm (MenuServerManager) has been registered!
-LINHA 15: 21:20:20 | [PermissionManager] Perm (ServerManager:RestartServer) has been registered!
-LINHA 16: 21:20:20 | [PermissionManager] Perm (ServerManager:LockServer) has been registered!
-LINHA 17: 21:20:20 | [PermissionManager] Perm (ServerManager:KickAllPlayers) has been registered!
-LINHA 18: 21:20:20 | [PermissionManager] Perm (MenuWeatherManager) has been registered!
-LINHA 19: 21:20:20 | [PermissionManager] Perm (WeatherManager:ApplyWeather) has been registered!
-LINHA 20: 21:20:20 | [PermissionManager] Perm (WeatherManager:ApplyTime) has been registered!
-LINHA 21: 21:20:20 | [PermissionManager] Perm (WeatherManager:SavePreset) has been registered!
-LINHA 22: 21:20:20 | [PermissionManager] Perm (WeatherManager:DeletePreset) has been registered!
-LINHA 23: 21:20:20 | [PermissionManager] Perm (WeatherManager:ApplyPreset) has been registered!
-LINHA 24: 21:20:20 | [PermissionManager] Perm (WeatherManager:ApplyTimePreset) has been registered!
-LINHA 25: 21:20:20 | [PermissionManager] Perm (WeatherManager:SaveTimePreset) has been registered!
-LINHA 26: 21:20:20 | [PermissionManager] Perm (WeatherManager:DeleteTimePreset) has been registered!
-LINHA 27: 21:20:20 | [PermissionManager] Perm (MenuObjectManager) has been registered!
-LINHA 28: 21:20:20 | [PermissionManager] Perm (MenuObjectManager:CreateNewSet) has been registered!
-LINHA 29: 21:20:20 | [PermissionManager] Perm (MenuObjectManager:UpdateSet) has been registered!
-LINHA 30: 21:20:20 | [PermissionManager] Perm (MenuObjectManager:DeleteSet) has been registered!
-LINHA 31: 21:20:20 | [PermissionManager] Perm (MenuObjectManager:EditSet) has been registered!
-LINHA 32: 21:20:20 | [PermissionManager] Perm (MenuPermissionsEditor) has been registered!
-LINHA 33: 21:20:20 | [PermissionManager] Perm (PermissionsEditor:RemoveUser) has been registered!
-LINHA 34: 21:20:20 | [PermissionManager] Perm (PermissionsEditor:AddUser) has been registered!
-LINHA 35: 21:20:20 | [PermissionManager] Perm (PermissionsEditor:CreateUserGroup) has been registered!
-LINHA 36: 21:20:20 | [PermissionManager] Perm (PermissionsEditor:DeleteUserGroup) has been registered!
-LINHA 37: 21:20:20 | [PermissionManager] Perm (PermissionsEditor:ChangePermLevel) has been registered!
-LINHA 38: 21:20:20 | [PermissionManager] Perm (MenuPlayerManager) has been registered!
-LINHA 39: 21:20:20 | [PermissionManager] Perm (PlayerManager:GiveGodmode) has been registered!
-LINHA 40: 21:20:20 | [PermissionManager] Perm (PlayerManager:BanPlayer) has been registered!
-LINHA 41: 21:20:20 | [PermissionManager] Perm (PlayerManager:KickPlayer) has been registered!
-LINHA 42: 21:20:20 | [PermissionManager] Perm (PlayerManager:HealPlayers) has been registered!
-LINHA 43: 21:20:20 | [PermissionManager] Perm (PlayerManager:SetPlayerStats) has been registered!
-LINHA 44: 21:20:20 | [PermissionManager] Perm (PlayerManager:KillPlayers) has been registered!
-LINHA 45: 21:20:20 | [PermissionManager] Perm (PlayerManager:GodMode) has been registered!
-LINHA 46: 21:20:20 | [PermissionManager] Perm (PlayerManager:SpectatePlayer) has been registered!
-LINHA 47: 21:20:20 | [PermissionManager] Perm (PlayerManager:TeleportToPlayer) has been registered!
-LINHA 48: 21:20:20 | [PermissionManager] Perm (PlayerManager:TeleportPlayerTo) has been registered!
-LINHA 49: 21:20:20 | [PermissionManager] Perm (PlayerManager:SetPlayerInvisible) has been registered!
-LINHA 50: 21:20:20 | [PermissionManager] Perm (PlayerManager:SendMessage) has been registered!
-LINHA 51: 21:20:20 | [PermissionManager] Perm (PlayerManager:GiveUnlimitedAmmo) has been registered!
-LINHA 52: 21:20:20 | [PermissionManager] Perm (PlayerManager:MakePlayerVomit) has been registered!
-LINHA 53: 21:20:20 | [PermissionManager] Perm (PlayerManager:FreezePlayers) has been registered!
-LINHA 54: 21:20:20 | [PermissionManager] Perm (PlayerManager:ChangeScale) has been registered!
-LINHA 55: 21:20:20 | [PermissionManager] Perm (PlayerManager:StopBleeding) has been registered!
-LINHA 56: 21:20:20 | [PermissionManager] Perm (PlayerManager:ClearInventory) has been registered!
-LINHA 57: 21:20:20 | [PermissionManager] Perm (PlayerManager:EditModifiers) has been registered!
-LINHA 58: 21:20:20 | [PermissionManager] Perm (MenuBansManager) has been registered!
-LINHA 59: 21:20:20 | [PermissionManager] Perm (BansManager:UnbanPlayer) has been registered!
-LINHA 60: 21:20:20 | [PermissionManager] Perm (BansManager:UpdateBanDuration) has been registered!
-LINHA 61: 21:20:20 | [PermissionManager] Perm (BansManager:UpdateBanReason) has been registered!
-LINHA 62: 21:20:20 | [PermissionManager] Perm (MenuSpectateTools) has been registered!
-LINHA 63: 21:20:20 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-LINHA 64: 21:20:20 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-LINHA 65: 21:20:20 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-LINHA 66: 21:20:20 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-LINHA 67: 21:20:20 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-LINHA 68: 21:20:20 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-LINHA 69: 21:20:20 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-LINHA 70: 21:20:20 | [PermissionManager] Perm (MenuTeleportManager) has been registered!
-LINHA 71: 21:20:20 | [PermissionManager] Perm (TeleportManager:ViewPlayerPositions) has been registered!
-LINHA 72: 21:20:20 | [PermissionManager] Perm (TeleportManager:TPPlayers) has been registered!
-LINHA 73: 21:20:20 | [PermissionManager] Perm (TeleportManager:TPSelf) has been registered!
-LINHA 74: 21:20:20 | [PermissionManager] Perm (TeleportManager:DeletePreset) has been registered!
-LINHA 75: 21:20:20 | [PermissionManager] Perm (TeleportManager:AddNewPreset) has been registered!
-LINHA 76: 21:20:20 | [PermissionManager] Perm (TeleportManager:EditPreset) has been registered!
-LINHA 77: 21:20:20 | [PermissionManager] Perm (TeleportManager:TeleportEntity) has been registered!
-LINHA 78: 21:20:20 | [PermissionManager] Perm (EspToolsMenu) has been registered!
-LINHA 79: 21:20:20 | [PermissionManager] Perm (EspToolsMenu:DeleteObjects) has been registered!
-LINHA 80: 21:20:20 | [PermissionManager] Perm (EspToolsMenu:PlayerESP) has been registered!
-LINHA 81: 21:20:20 | [PermissionManager] Perm (EspToolsMenu:RestPasscodeFence) has been registered!
-LINHA 82: 21:20:20 | [PermissionManager] Perm (EspToolsMenu:RetriveCodeFromObj) has been registered!
-LINHA 83: 21:20:20 | [PermissionManager] Perm (EspToolsMenu:PlayerMeshEsp) has been registered!
-LINHA 84: 21:20:20 | [PermissionManager] Perm (EspToolsMenu:InstantBaseBuild) has been registered!
-LINHA 85: 21:20:20 | [PermissionManager] Perm (MenuXMLEditor) has been registered!
-LINHA 86: 21:20:20 | [PermissionManager] Perm (MenuXMLEditor:EditTypes) has been registered!
-LINHA 87: 21:20:20 | [PermissionManager] Perm (MenuXMLEditor:AddRemoveTypes) has been registered!
-LINHA 88: 21:20:20 | [PermissionManager] Perm (MenuXMLEditor:DistributionMap) has been registered!
-LINHA 89: 21:20:20 | [PermissionManager] Perm (MenuXMLEditor:ViewBackups) has been registered!
-LINHA 90: 21:20:20 | [PermissionManager] Perm (MenuXMLEditor:RestoreBackup) has been registered!
-LINHA 91: 21:20:20 | [PermissionManager] Perm (MenuXMLEditor:DeleteBackup) has been registered!
-LINHA 92: 21:20:20 | [PermissionManager] Perm (MenuXMLEditor:LiveScan) has been registered!
-LINHA 93: 21:20:20 | [PermissionManager] Perm (MenuXMLEditor:DeleteObjects) has been registered!
-LINHA 94: 21:20:20 | [PermissionManager] Perm (MenuXMLEditor:EditMessages) has been registered!
-LINHA 95: 21:20:20 | [PermissionManager] Perm (MenuXMLEditor:EditEvents) has been registered!
-LINHA 96: 21:20:20 | [PermissionManager] Perm (MenuXMLEditor:EditSpawnables) has been registered!
-LINHA 97: 21:20:20 | [PermissionManager] Perm (MenuCommandsConsole) has been registered!
-LINHA 98: 21:20:20 | [PermissionManager] Perm (ContextMenu:ItemHealth) has been registered!
-LINHA 99: 21:20:20 | [PermissionManager] Perm (ContextMenu:WeaponLoad) has been registered!
-LINHA 100: 21:20:20 | [PermissionManager] Perm (ContextMenu:CreatureHeal) has been registered!
-LINHA 101: 21:20:20 | [PermissionManager] Perm (ContextMenu:SpawnAttachment) has been registered!
-LINHA 102: 21:20:20 | [PermissionManager] Perm (ContextMenu:CreatureKill) has been registered!
-LINHA 103: 21:20:20 | [PermissionManager] Perm (ContextMenu:ItemQuantity) has been registered!
-LINHA 104: 21:20:20 | [PermissionManager] Perm (ContextMenu:SetScale) has been registered!
-LINHA 105: 21:20:20 | [PermissionManager] Perm (ContextMenu:VehicleRefuel) has been registered!
-LINHA 106: 21:20:20 | [PermissionManager] Perm (ContextMenu:WeaponRefill) has been registered!
-LINHA 107: 21:20:20 | [PermissionManager] Perm (ContextMenu:Ragdoll) has been registered!
-LINHA 108: 21:20:20 | [PermissionManager] Perm (ContextMenu:WeaponJam) has been registered!
-LINHA 109: 21:20:20 | [PermissionManager] Perm (ContextMenu:WeaponEject) has been registered!
-LINHA 110: 21:20:20 | [PermissionManager] Adding Super Admin (76561198196693358)
-LINHA 111: 21:20:20 | [PermissionManager] Adding Super Admin (76561199508282814)
-LINHA 112: 21:20:20 | [PermissionManager] Loaded UserGroups.json
-LINHA 113: 21:20:20 | [BansManager]:: Load(): Loading ban list Json File $profile:VPPAdminTools/BanList.json
-LINHA 114: 21:20:20 | [PermissionManager] Perm (Chat:StripPlayer) has been registered!
-LINHA 115: 21:20:20 | [PermissionManager] Perm (Chat:KillPlayer) has been registered!
-LINHA 116: 21:20:20 | [PermissionManager] Perm (Chat:HealPlayer) has been registered!
-LINHA 117: 21:20:20 | [PermissionManager] Perm (Chat:BringPlayer) has been registered!
-LINHA 118: 21:20:20 | [PermissionManager] Perm (Chat:ReturnPlayer) has been registered!
-LINHA 119: 21:20:20 | [PermissionManager] Perm (Chat:GotoPlayer) has been registered!
-LINHA 120: 21:20:20 | [PermissionManager] Perm (Chat:UnbanPlayer) has been registered!
-LINHA 121: 21:20:20 | [PermissionManager] Perm (Chat:TeleportToTown) has been registered!
-LINHA 122: 21:20:20 | [PermissionManager] Perm (Chat:TeleportToPoint) has been registered!
-LINHA 123: 21:20:20 | [PermissionManager] Perm (Chat:GiveAmmo) has been registered!
-LINHA 124: 21:20:20 | [PermissionManager] Perm (Chat:SpawnInventory) has been registered!
-LINHA 125: 21:20:20 | [PermissionManager] Perm (Chat:SpawnOnGround) has been registered!
-LINHA 126: 21:20:20 | [PermissionManager] Perm (Chat:SpawnInHands) has been registered!
-LINHA 127: 21:20:20 | [PermissionManager] Perm (Chat:SpawnCar) has been registered!
-LINHA 128: 21:20:20 | [PermissionManager] Perm (Chat:refuelCar) has been registered!
-LINHA 129: 21:20:20 | [WeatherManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 130: 21:20:20 | [TimeManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 131: 21:20:20 | [BuildingSetManager] Journal: 0 set(s) loaded, 0 found by the folder scan, 0 dropped, 0 converted from .vpp, 0 upgraded to format 2
-LINHA 132: 21:20:20 | [SteamAPIManager] WARNING couldn't fetch server IP from configs; using cURL...
-LINHA 133 : [CONTEUDO SENSIVEL MASCARADO]
-LINHA 134: 21:48:9 | Player "******" ([IDENTIFICADOR MASCARADO]) connected to server!
-LINHA 135: 21:48:36 | "76561198196693358" ([IDENTIFICADOR MASCARADO]) teleported to (pos=<14808.200195, 208.455994, 7858.169922>)
-LINHA 136: 21:48:36 | "******": ([IDENTIFICADOR MASCARADO]) teleported to (pos=14808.2,208.456,7858.17)
-LINHA 137: 21:48:43 | "76561198196693358" ([IDENTIFICADOR MASCARADO]) teleported to (pos=<14869.299805, 207.376007, 7777.689941>)
-LINHA 138: 21:48:43 | "******": ([IDENTIFICADOR MASCARADO]) teleported to (pos=14869.3,207.376,7777.69)
-LINHA 139: 21:48:54 | "76561198196693358" ([IDENTIFICADOR MASCARADO]) teleported to (pos=<14834.599609, 205.787003, 7855.160156>)
-LINHA 140: 21:48:54 | "******": ([IDENTIFICADOR MASCARADO]) teleported to (pos=14834.6,205.787,7855.16)
-LINHA 141: 21:49:7 | "76561198196693358" ([IDENTIFICADOR MASCARADO]) teleported to (pos=<14838.200195, 209.001999, 7890.850098>)
-LINHA 142: 21:49:7 | "******": ([IDENTIFICADOR MASCARADO]) teleported to (pos=14838.2,209.002,7890.85)
-LINHA 143: 22:2:20 | "76561198196693358" ([IDENTIFICADOR MASCARADO]) teleported to (pos=<10208.700195, 179.470001, 4109.270020>)
-LINHA 144: 22:2:20 | "******": ([IDENTIFICADOR MASCARADO]) teleported to (pos=10208.7,179.47,4109.27)
-LINHA 145: 22:2:24 | "76561198196693358" ([IDENTIFICADOR MASCARADO]) teleported to (pos=<10198.299805, 179.470001, 4121.129883>)
-LINHA 146: 22:2:24 | "******": ([IDENTIFICADOR MASCARADO]) teleported to (pos=10198.3,179.47,4121.13)
-LINHA 147: 22:2:24 | "76561198196693358" ([IDENTIFICADOR MASCARADO]) teleported to (pos=<10198.299805, 179.470001, 4121.129883>)
-LINHA 148: 22:2:24 | "******": ([IDENTIFICADOR MASCARADO]) teleported to (pos=10198.3,179.47,4121.13)
-LINHA 149: 22:2:26 | "76561198196693358" ([IDENTIFICADOR MASCARADO]) teleported to (pos=<10190.599609, 179.470001, 4062.139893>)
-LINHA 150: 22:2:26 | "******": ([IDENTIFICADOR MASCARADO]) teleported to (pos=10190.6,179.47,4062.14)
-LINHA 151: 22:2:27 | "76561198196693358" ([IDENTIFICADOR MASCARADO]) teleported to (pos=<10190.599609, 179.470001, 4062.139893>)
-LINHA 152: 22:2:27 | "******": ([IDENTIFICADOR MASCARADO]) teleported to (pos=10190.6,179.47,4062.14)
-LINHA 153: 22:2:28 | "76561198196693358" ([IDENTIFICADOR MASCARADO]) teleported to (pos=<10187.200195, 179.470001, 4018.629883>)
-LINHA 154: 22:2:28 | "******": ([IDENTIFICADOR MASCARADO]) teleported to (pos=10187.2,179.47,4018.63)
-LINHA 155: 22:2:29 | "76561198196693358" ([IDENTIFICADOR MASCARADO]) teleported to (pos=<10187.200195, 179.470001, 4018.629883>)
-LINHA 156: 22:2:29 | "******": ([IDENTIFICADOR MASCARADO]) teleported to (pos=10187.2,179.47,4018.63)
-LINHA 157: 22:2:29 | "76561198196693358" ([IDENTIFICADOR MASCARADO]) teleported to (pos=<10187.200195, 179.470001, 4018.629883>)
-LINHA 158: 22:2:29 | "******": ([IDENTIFICADOR MASCARADO]) teleported to (pos=10187.2,179.47,4018.63)
-LINHA 159: 22:3:3 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Motorbike_02_Red)
-LINHA 160: 22:3:9 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Motorbike_02_Red)
-LINHA 161: 22:3:28 | "******" ([IDENTIFICADOR MASCARADO]) gave godmode to ([IDENTIFICADOR MASCARADO])
-LINHA 162: 22:10:37 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Animal_KomodoDragon)
-LINHA 163: 22:11:17 | "******" ([IDENTIFICADOR MASCARADO]) gave godmode to ([IDENTIFICADOR MASCARADO])
-LINHA 164: 22:11:47 | "******" ([IDENTIFICADOR MASCARADO]) healed player ([IDENTIFICADOR MASCARADO])
-LINHA 165: 22:11:49 | "******" ([IDENTIFICADOR MASCARADO]) healed player ([IDENTIFICADOR MASCARADO])
-LINHA 166: 22:11:49 | "******" ([IDENTIFICADOR MASCARADO]) healed player ([IDENTIFICADOR MASCARADO])
-LINHA 167: 22:11:53 | "******" ([IDENTIFICADOR MASCARADO]) just updated a health stat on ([IDENTIFICADOR MASCARADO])
-LINHA 168: 22:11:53 | "******" ([IDENTIFICADOR MASCARADO]) just updated a health stat on ([IDENTIFICADOR MASCARADO])
-LINHA 169: 22:13:5 | "******" ([IDENTIFICADOR MASCARADO]) healed player ([IDENTIFICADOR MASCARADO])
-LINHA 170: 22:13:5 | "******" ([IDENTIFICADOR MASCARADO]) healed player ([IDENTIFICADOR MASCARADO])
-LINHA 171: 22:14:32 | "******" ([IDENTIFICADOR MASCARADO]) stopped bleeding on player ([IDENTIFICADOR MASCARADO])
-LINHA 172: 22:14:34 | "******" ([IDENTIFICADOR MASCARADO]) gave godmode to ([IDENTIFICADOR MASCARADO])
-LINHA 173: 22:14:34 | "******" ([IDENTIFICADOR MASCARADO]) gave godmode to ([IDENTIFICADOR MASCARADO])
-LINHA 174: 22:14:46 | "******" ([IDENTIFICADOR MASCARADO]) just updated a health stat on ([IDENTIFICADOR MASCARADO])
-LINHA 175: 22:14:47 | "******" ([IDENTIFICADOR MASCARADO]) just updated a health stat on ([IDENTIFICADOR MASCARADO])
-LINHA 176: 22:15:23 | "******" ([IDENTIFICADOR MASCARADO]) just updated a health stat on ([IDENTIFICADOR MASCARADO])
-LINHA 177: 22:15:24 | "******" ([IDENTIFICADOR MASCARADO]) just updated a health stat on ([IDENTIFICADOR MASCARADO])
-LINHA 178: 22:15:25 | "******" ([IDENTIFICADOR MASCARADO]) stopped bleeding on player ([IDENTIFICADOR MASCARADO])
-LINHA 179: 22:15:29 | "******" ([IDENTIFICADOR MASCARADO]) Froze player controls ([IDENTIFICADOR MASCARADO])
-LINHA 180: 22:15:30 | "******" ([IDENTIFICADOR MASCARADO]) stopped bleeding on player ([IDENTIFICADOR MASCARADO])
-LINHA 181: 22:15:33 | "******" ([IDENTIFICADOR MASCARADO]) just updated a health stat on ([IDENTIFICADOR MASCARADO])
-LINHA 182: 22:16:0 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Mag_SVD_10Rnd)
-LINHA 183: 22:16:4 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Mag_SVD_10Rnd)
-LINHA 184: 22:16:4 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Mag_SVD_10Rnd)
-LINHA 185: 22:16:24 | Player "Lenner" ([IDENTIFICADOR MASCARADO]) connected to server!
-LINHA 186: 22:16:41 | "******" ([IDENTIFICADOR MASCARADO]) healed player ([IDENTIFICADOR MASCARADO])
-LINHA 187: 22:16:47 | "******" ([IDENTIFICADOR MASCARADO]) deactivated modifier "Shock" on player ([IDENTIFICADOR MASCARADO])
-LINHA 188: 22:16:51 | "******" ([IDENTIFICADOR MASCARADO]) deactivated modifier "Toxicity" on player ([IDENTIFICADOR MASCARADO])
-LINHA 189: 22:16:51 | "******" ([IDENTIFICADOR MASCARADO]) deactivated modifier "BreathVapour" on player ([IDENTIFICADOR MASCARADO])
-LINHA 190: 22:16:52 | "******" ([IDENTIFICADOR MASCARADO]) deactivated modifier "WoundInfectStage1" on player ([IDENTIFICADOR MASCARADO])
-LINHA 191: 22:16:56 | "******" ([IDENTIFICADOR MASCARADO]) healed player ([IDENTIFICADOR MASCARADO])
-LINHA 192: 22:16:56 | "******" ([IDENTIFICADOR MASCARADO]) healed player ([IDENTIFICADOR MASCARADO])
-LINHA 193: 22:16:57 | "******" ([IDENTIFICADOR MASCARADO]) healed player ([IDENTIFICADOR MASCARADO])
-LINHA 194: 22:17:30 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Animal_KomodoDragon)
-LINHA 195: 22:17:31 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Animal_KomodoDragon)
-LINHA 196: 22:17:34 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Animal_KomodoDragon)
-LINHA 197: 22:17:35 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Animal_KomodoDragon)
-LINHA 198: 22:18:42 | "******" ([IDENTIFICADOR MASCARADO]) just updated a health stat on ([IDENTIFICADOR MASCARADO])
-LINHA 199: 22:18:43 | "******" ([IDENTIFICADOR MASCARADO]) just updated a health stat on ([IDENTIFICADOR MASCARADO])
-LINHA 200: 22:18:44 | "******" ([IDENTIFICADOR MASCARADO]) just updated a health stat on ([IDENTIFICADOR MASCARADO])
-LINHA 201: 22:18:46 | "******" ([IDENTIFICADOR MASCARADO]) just updated a health stat on ([IDENTIFICADOR MASCARADO])
-LINHA 202: 22:18:48 | "******" ([IDENTIFICADOR MASCARADO]) just updated a health stat on ([IDENTIFICADOR MASCARADO])
-LINHA 203: 22:18:48 | "******" ([IDENTIFICADOR MASCARADO]) just updated a health stat on ([IDENTIFICADOR MASCARADO])
-LINHA 204: 22:19:14 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Motorbike_02_Red)
-LINHA 205: 22:19:27 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Mag_SVD_10Rnd)
-LINHA 206: 22:19:27 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Mag_SVD_10Rnd)
-LINHA 207: 22:19:27 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Mag_SVD_10Rnd)
-LINHA 208: 22:19:27 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Mag_SVD_10Rnd)
-LINHA 209: 22:19:28 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Mag_SVD_10Rnd)
-LINHA 210: 22:19:28 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Mag_SVD_10Rnd)
-LINHA 211: 22:19:28 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Mag_SVD_10Rnd)
-LINHA 212: 22:19:29 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Mag_SVD_10Rnd)
-LINHA 213: 22:19:29 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Mag_SVD_10Rnd)
-LINHA 214: 22:19:29 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Mag_SVD_10Rnd)
-LINHA 215: 22:19:29 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Mag_SVD_10Rnd)
-LINHA 216: 22:19:30 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Mag_SVD_10Rnd)
-LINHA 217: 22:19:44 | Player "Lenner" ([IDENTIFICADOR MASCARADO]) disconnected from server.
-LINHA 218: 22:19:44 | Player "Lenner" ([IDENTIFICADOR MASCARADO]) initiated disconnect process...
-LINHA 219: 22:20:13 | Player "Lenner" ([IDENTIFICADOR MASCARADO]) connected to server!
-LINHA 220: 22:20:36 | "******" ([IDENTIFICADOR MASCARADO]) Spawned Item: (Animal_CanisLatrans)
-LINHA 221: 22:22:11 | "******" ([IDENTIFICADOR MASCARADO]) gave godmode to ([IDENTIFICADOR MASCARADO])
-LINHA 222: 22:24:20 | "76561198196693358" ([IDENTIFICADOR MASCARADO]) teleported to (pos=<10699.799805, 166.591003, 3289.100098>)
-LINHA 223: 22:24:20 | "******": ([IDENTIFICADOR MASCARADO]) teleported to (pos=10699.8,166.591,3289.1)
-LINHA 224: 22:31:20 | Player "Lenner" ([IDENTIFICADOR MASCARADO]) initiated disconnect process...
-LINHA 225: 22:31:21 | Player "Lenner" ([IDENTIFICADOR MASCARADO]) aborted logout process [canceledLogout]
-LINHA 226: 22:31:23 | Player "Lenner" ([IDENTIFICADOR MASCARADO]) initiated disconnect process...
-LINHA 227: 22:31:26 | Player "Lenner" ([IDENTIFICADOR MASCARADO]) disconnected early from server (EXIT NOW).
-LINHA 228: 22:36:50 | "76561198196693358" ([IDENTIFICADOR MASCARADO]) teleported to (pos=<12020.900391, 165.977997, 2665.340088>)
-LINHA 229: 22:36:50 | "******": ([IDENTIFICADOR MASCARADO]) teleported to (pos=12020.9,165.978,2665.34)
-LINHA 230: 22:37:0 | "76561198196693358" ([IDENTIFICADOR MASCARADO]) teleported to (pos=<12464.599609, 165.867996, 12026.500000>)
-LINHA 231: 22:37:0 | "******": ([IDENTIFICADOR MASCARADO]) teleported to (pos=12464.6,165.868,12026.5)
-LINHA 232: 22:37:2 | "76561198196693358" ([IDENTIFICADOR MASCARADO]) teleported to (pos=<12563.900391, 165.998993, 11545.500000>)
-LINHA 233: 22:37:2 | "******": ([IDENTIFICADOR MASCARADO]) teleported to (pos=12563.9,165.999,11545.5)
-LINHA 234: 22:37:3 | "76561198196693358" ([IDENTIFICADOR MASCARADO]) teleported to (pos=<12563.900391, 165.776001, 11541.099609>)
-LINHA 235: 22:37:3 | "******": ([IDENTIFICADOR MASCARADO]) teleported to (pos=12563.9,165.776,11541.1)
-LINHA 236: 22:37:41 | "******" ([IDENTIFICADOR MASCARADO]) gave godmode to ([IDENTIFICADOR MASCARADO])
-LINHA 237: 22:37:44 | "******" ([IDENTIFICADOR MASCARADO]) gave godmode to ([IDENTIFICADOR MASCARADO])
-LINHA 238: 22:40:52 | Player "******" ([IDENTIFICADOR MASCARADO]) initiated disconnect process...
-LINHA 239: 22:40:53 | Player "******" ([IDENTIFICADOR MASCARADO]) disconnected from server.
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-48.txt
-TAMANHO: 11314 bytes
---------------------------------------------------
-LINHA 1: [IDENTIFICADOR MASCARADO] Admin Tools Session [IDENTIFICADOR MASCARADO]
-LINHA 2: Logs Started: 2026-11-16_21-20-48
-LINHA 3: [IDENTIFICADOR MASCARADO]
-LINHA 4: 21:20:48 | [PermissionManager] Perm (DeleteObjectAtCrosshair) has been registered!
-LINHA 5: 21:20:48 | [PermissionManager] Perm (TeleportToCrosshair) has been registered!
-LINHA 6: 21:20:48 | [PermissionManager] Perm (FreeCamera) has been registered!
-LINHA 7: 21:20:48 | [PermissionManager] Perm ([IDENTIFICADOR MASCARADO]) has been registered!
-LINHA 8: 21:20:48 | [PermissionManager] Perm (MenuItemManager) has been registered!
-LINHA 9: 21:20:48 | [PermissionManager] Perm (MenuItemManager:SpawnItem) has been registered!
-LINHA 10: 21:20:48 | [PermissionManager] Perm (MenuItemManager:EditPreset) has been registered!
-LINHA 11: 21:20:48 | [PermissionManager] Perm (MenuItemManager:SpawnPreset) has been registered!
-LINHA 12: 21:20:48 | [PermissionManager] Perm (MenuItemManager:DeletePreset) has been registered!
-LINHA 13: 21:20:48 | [PermissionManager] Perm (MenuItemManager:AddPreset) has been registered!
-LINHA 14: 21:20:48 | [PermissionManager] Perm (MenuServerManager) has been registered!
-LINHA 15: 21:20:48 | [PermissionManager] Perm (ServerManager:RestartServer) has been registered!
-LINHA 16: 21:20:48 | [PermissionManager] Perm (ServerManager:LockServer) has been registered!
-LINHA 17: 21:20:48 | [PermissionManager] Perm (ServerManager:KickAllPlayers) has been registered!
-LINHA 18: 21:20:48 | [PermissionManager] Perm (MenuWeatherManager) has been registered!
-LINHA 19: 21:20:48 | [PermissionManager] Perm (WeatherManager:ApplyWeather) has been registered!
-LINHA 20: 21:20:48 | [PermissionManager] Perm (WeatherManager:ApplyTime) has been registered!
-LINHA 21: 21:20:48 | [PermissionManager] Perm (WeatherManager:SavePreset) has been registered!
-LINHA 22: 21:20:48 | [PermissionManager] Perm (WeatherManager:DeletePreset) has been registered!
-LINHA 23: 21:20:48 | [PermissionManager] Perm (WeatherManager:ApplyPreset) has been registered!
-LINHA 24: 21:20:48 | [PermissionManager] Perm (WeatherManager:ApplyTimePreset) has been registered!
-LINHA 25: 21:20:48 | [PermissionManager] Perm (WeatherManager:SaveTimePreset) has been registered!
-LINHA 26: 21:20:48 | [PermissionManager] Perm (WeatherManager:DeleteTimePreset) has been registered!
-LINHA 27: 21:20:48 | [PermissionManager] Perm (MenuObjectManager) has been registered!
-LINHA 28: 21:20:48 | [PermissionManager] Perm (MenuObjectManager:CreateNewSet) has been registered!
-LINHA 29: 21:20:48 | [PermissionManager] Perm (MenuObjectManager:UpdateSet) has been registered!
-LINHA 30: 21:20:48 | [PermissionManager] Perm (MenuObjectManager:DeleteSet) has been registered!
-LINHA 31: 21:20:48 | [PermissionManager] Perm (MenuObjectManager:EditSet) has been registered!
-LINHA 32: 21:20:48 | [PermissionManager] Perm (MenuPermissionsEditor) has been registered!
-LINHA 33: 21:20:48 | [PermissionManager] Perm (PermissionsEditor:RemoveUser) has been registered!
-LINHA 34: 21:20:48 | [PermissionManager] Perm (PermissionsEditor:AddUser) has been registered!
-LINHA 35: 21:20:48 | [PermissionManager] Perm (PermissionsEditor:CreateUserGroup) has been registered!
-LINHA 36: 21:20:48 | [PermissionManager] Perm (PermissionsEditor:DeleteUserGroup) has been registered!
-LINHA 37: 21:20:48 | [PermissionManager] Perm (PermissionsEditor:ChangePermLevel) has been registered!
-LINHA 38: 21:20:48 | [PermissionManager] Perm (MenuPlayerManager) has been registered!
-LINHA 39: 21:20:48 | [PermissionManager] Perm (PlayerManager:GiveGodmode) has been registered!
-LINHA 40: 21:20:48 | [PermissionManager] Perm (PlayerManager:BanPlayer) has been registered!
-LINHA 41: 21:20:48 | [PermissionManager] Perm (PlayerManager:KickPlayer) has been registered!
-LINHA 42: 21:20:48 | [PermissionManager] Perm (PlayerManager:HealPlayers) has been registered!
-LINHA 43: 21:20:48 | [PermissionManager] Perm (PlayerManager:SetPlayerStats) has been registered!
-LINHA 44: 21:20:48 | [PermissionManager] Perm (PlayerManager:KillPlayers) has been registered!
-LINHA 45: 21:20:48 | [PermissionManager] Perm (PlayerManager:GodMode) has been registered!
-LINHA 46: 21:20:48 | [PermissionManager] Perm (PlayerManager:SpectatePlayer) has been registered!
-LINHA 47: 21:20:48 | [PermissionManager] Perm (PlayerManager:TeleportToPlayer) has been registered!
-LINHA 48: 21:20:48 | [PermissionManager] Perm (PlayerManager:TeleportPlayerTo) has been registered!
-LINHA 49: 21:20:48 | [PermissionManager] Perm (PlayerManager:SetPlayerInvisible) has been registered!
-LINHA 50: 21:20:48 | [PermissionManager] Perm (PlayerManager:SendMessage) has been registered!
-LINHA 51: 21:20:48 | [PermissionManager] Perm (PlayerManager:GiveUnlimitedAmmo) has been registered!
-LINHA 52: 21:20:48 | [PermissionManager] Perm (PlayerManager:MakePlayerVomit) has been registered!
-LINHA 53: 21:20:48 | [PermissionManager] Perm (PlayerManager:FreezePlayers) has been registered!
-LINHA 54: 21:20:48 | [PermissionManager] Perm (PlayerManager:ChangeScale) has been registered!
-LINHA 55: 21:20:48 | [PermissionManager] Perm (PlayerManager:StopBleeding) has been registered!
-LINHA 56: 21:20:48 | [PermissionManager] Perm (PlayerManager:ClearInventory) has been registered!
-LINHA 57: 21:20:48 | [PermissionManager] Perm (PlayerManager:EditModifiers) has been registered!
-LINHA 58: 21:20:48 | [PermissionManager] Perm (MenuBansManager) has been registered!
-LINHA 59: 21:20:48 | [PermissionManager] Perm (BansManager:UnbanPlayer) has been registered!
-LINHA 60: 21:20:48 | [PermissionManager] Perm (BansManager:UpdateBanDuration) has been registered!
-LINHA 61: 21:20:48 | [PermissionManager] Perm (BansManager:UpdateBanReason) has been registered!
-LINHA 62: 21:20:48 | [PermissionManager] Perm (MenuSpectateTools) has been registered!
-LINHA 63: 21:20:48 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-LINHA 64: 21:20:48 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-LINHA 65: 21:20:48 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-LINHA 66: 21:20:48 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-LINHA 67: 21:20:48 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-LINHA 68: 21:20:48 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-LINHA 69: 21:20:48 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-LINHA 70: 21:20:48 | [PermissionManager] Perm (MenuTeleportManager) has been registered!
-LINHA 71: 21:20:48 | [PermissionManager] Perm (TeleportManager:ViewPlayerPositions) has been registered!
-LINHA 72: 21:20:48 | [PermissionManager] Perm (TeleportManager:TPPlayers) has been registered!
-LINHA 73: 21:20:48 | [PermissionManager] Perm (TeleportManager:TPSelf) has been registered!
-LINHA 74: 21:20:48 | [PermissionManager] Perm (TeleportManager:DeletePreset) has been registered!
-LINHA 75: 21:20:48 | [PermissionManager] Perm (TeleportManager:AddNewPreset) has been registered!
-LINHA 76: 21:20:48 | [PermissionManager] Perm (TeleportManager:EditPreset) has been registered!
-LINHA 77: 21:20:48 | [PermissionManager] Perm (TeleportManager:TeleportEntity) has been registered!
-LINHA 78: 21:20:48 | [PermissionManager] Perm (EspToolsMenu) has been registered!
-LINHA 79: 21:20:48 | [PermissionManager] Perm (EspToolsMenu:DeleteObjects) has been registered!
-LINHA 80: 21:20:48 | [PermissionManager] Perm (EspToolsMenu:PlayerESP) has been registered!
-LINHA 81: 21:20:48 | [PermissionManager] Perm (EspToolsMenu:RestPasscodeFence) has been registered!
-LINHA 82: 21:20:48 | [PermissionManager] Perm (EspToolsMenu:RetriveCodeFromObj) has been registered!
-LINHA 83: 21:20:48 | [PermissionManager] Perm (EspToolsMenu:PlayerMeshEsp) has been registered!
-LINHA 84: 21:20:48 | [PermissionManager] Perm (EspToolsMenu:InstantBaseBuild) has been registered!
-LINHA 85: 21:20:48 | [PermissionManager] Perm (MenuXMLEditor) has been registered!
-LINHA 86: 21:20:48 | [PermissionManager] Perm (MenuXMLEditor:EditTypes) has been registered!
-LINHA 87: 21:20:48 | [PermissionManager] Perm (MenuXMLEditor:AddRemoveTypes) has been registered!
-LINHA 88: 21:20:48 | [PermissionManager] Perm (MenuXMLEditor:DistributionMap) has been registered!
-LINHA 89: 21:20:48 | [PermissionManager] Perm (MenuXMLEditor:ViewBackups) has been registered!
-LINHA 90: 21:20:48 | [PermissionManager] Perm (MenuXMLEditor:RestoreBackup) has been registered!
-LINHA 91: 21:20:48 | [PermissionManager] Perm (MenuXMLEditor:DeleteBackup) has been registered!
-LINHA 92: 21:20:48 | [PermissionManager] Perm (MenuXMLEditor:LiveScan) has been registered!
-LINHA 93: 21:20:48 | [PermissionManager] Perm (MenuXMLEditor:DeleteObjects) has been registered!
-LINHA 94: 21:20:48 | [PermissionManager] Perm (MenuXMLEditor:EditMessages) has been registered!
-LINHA 95: 21:20:48 | [PermissionManager] Perm (MenuXMLEditor:EditEvents) has been registered!
-LINHA 96: 21:20:48 | [PermissionManager] Perm (MenuXMLEditor:EditSpawnables) has been registered!
-LINHA 97: 21:20:48 | [PermissionManager] Perm (MenuCommandsConsole) has been registered!
-LINHA 98: 21:20:48 | [PermissionManager] Perm (ContextMenu:ItemHealth) has been registered!
-LINHA 99: 21:20:48 | [PermissionManager] Perm (ContextMenu:WeaponLoad) has been registered!
-LINHA 100: 21:20:48 | [PermissionManager] Perm (ContextMenu:CreatureHeal) has been registered!
-LINHA 101: 21:20:48 | [PermissionManager] Perm (ContextMenu:SpawnAttachment) has been registered!
-LINHA 102: 21:20:48 | [PermissionManager] Perm (ContextMenu:CreatureKill) has been registered!
-LINHA 103: 21:20:48 | [PermissionManager] Perm (ContextMenu:ItemQuantity) has been registered!
-LINHA 104: 21:20:48 | [PermissionManager] Perm (ContextMenu:SetScale) has been registered!
-LINHA 105: 21:20:48 | [PermissionManager] Perm (ContextMenu:VehicleRefuel) has been registered!
-LINHA 106: 21:20:48 | [PermissionManager] Perm (ContextMenu:WeaponRefill) has been registered!
-LINHA 107: 21:20:48 | [PermissionManager] Perm (ContextMenu:Ragdoll) has been registered!
-LINHA 108: 21:20:48 | [PermissionManager] Perm (ContextMenu:WeaponJam) has been registered!
-LINHA 109: 21:20:48 | [PermissionManager] Perm (ContextMenu:WeaponEject) has been registered!
-LINHA 110: 21:20:48 | [PermissionManager] Adding Super Admin (76561198196693358)
-LINHA 111: 21:20:48 | [PermissionManager] Adding Super Admin (76561199508282814)
-LINHA 112: 21:20:48 | [PermissionManager] Loaded UserGroups.json
-LINHA 113: 21:20:48 | [BansManager]:: Load(): Loading ban list Json File $profile:VPPAdminTools/BanList.json
-LINHA 114: 21:20:48 | [PermissionManager] Perm (Chat:StripPlayer) has been registered!
-LINHA 115: 21:20:48 | [PermissionManager] Perm (Chat:KillPlayer) has been registered!
-LINHA 116: 21:20:48 | [PermissionManager] Perm (Chat:HealPlayer) has been registered!
-LINHA 117: 21:20:48 | [PermissionManager] Perm (Chat:BringPlayer) has been registered!
-LINHA 118: 21:20:48 | [PermissionManager] Perm (Chat:ReturnPlayer) has been registered!
-LINHA 119: 21:20:48 | [PermissionManager] Perm (Chat:GotoPlayer) has been registered!
-LINHA 120: 21:20:48 | [PermissionManager] Perm (Chat:UnbanPlayer) has been registered!
-LINHA 121: 21:20:48 | [PermissionManager] Perm (Chat:TeleportToTown) has been registered!
-LINHA 122: 21:20:48 | [PermissionManager] Perm (Chat:TeleportToPoint) has been registered!
-LINHA 123: 21:20:48 | [PermissionManager] Perm (Chat:GiveAmmo) has been registered!
-LINHA 124: 21:20:48 | [PermissionManager] Perm (Chat:SpawnInventory) has been registered!
-LINHA 125: 21:20:48 | [PermissionManager] Perm (Chat:SpawnOnGround) has been registered!
-LINHA 126: 21:20:48 | [PermissionManager] Perm (Chat:SpawnInHands) has been registered!
-LINHA 127: 21:20:48 | [PermissionManager] Perm (Chat:SpawnCar) has been registered!
-LINHA 128: 21:20:48 | [PermissionManager] Perm (Chat:refuelCar) has been registered!
-LINHA 129: 21:20:48 | [WeatherManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 130: 21:20:48 | [TimeManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 131: 21:20:49 | [BuildingSetManager] Journal: 0 set(s) loaded, 0 found by the folder scan, 0 dropped, 0 converted from .vpp, 0 upgraded to format 2
-LINHA 132: 21:20:49 | [SteamAPIManager] WARNING couldn't fetch server IP from configs; using cURL...
-LINHA 133 : [CONTEUDO SENSIVEL MASCARADO]
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_23-0-3.txt
-TAMANHO: 11299 bytes
---------------------------------------------------
-LINHA 1: [IDENTIFICADOR MASCARADO] Admin Tools Session [IDENTIFICADOR MASCARADO]
-LINHA 2: Logs Started: 2026-11-16_23-0-3
-LINHA 3: [IDENTIFICADOR MASCARADO]
-LINHA 4: 23:0:3 | [PermissionManager] Perm (DeleteObjectAtCrosshair) has been registered!
-LINHA 5: 23:0:3 | [PermissionManager] Perm (TeleportToCrosshair) has been registered!
-LINHA 6: 23:0:3 | [PermissionManager] Perm (FreeCamera) has been registered!
-LINHA 7: 23:0:3 | [PermissionManager] Perm ([IDENTIFICADOR MASCARADO]) has been registered!
-LINHA 8: 23:0:3 | [PermissionManager] Perm (MenuItemManager) has been registered!
-LINHA 9: 23:0:3 | [PermissionManager] Perm (MenuItemManager:SpawnItem) has been registered!
-LINHA 10: 23:0:3 | [PermissionManager] Perm (MenuItemManager:EditPreset) has been registered!
-LINHA 11: 23:0:3 | [PermissionManager] Perm (MenuItemManager:SpawnPreset) has been registered!
-LINHA 12: 23:0:3 | [PermissionManager] Perm (MenuItemManager:DeletePreset) has been registered!
-LINHA 13: 23:0:3 | [PermissionManager] Perm (MenuItemManager:AddPreset) has been registered!
-LINHA 14: 23:0:3 | [PermissionManager] Perm (MenuServerManager) has been registered!
-LINHA 15: 23:0:3 | [PermissionManager] Perm (ServerManager:RestartServer) has been registered!
-LINHA 16: 23:0:3 | [PermissionManager] Perm (ServerManager:LockServer) has been registered!
-LINHA 17: 23:0:3 | [PermissionManager] Perm (ServerManager:KickAllPlayers) has been registered!
-LINHA 18: 23:0:3 | [PermissionManager] Perm (MenuWeatherManager) has been registered!
-LINHA 19: 23:0:3 | [PermissionManager] Perm (WeatherManager:ApplyWeather) has been registered!
-LINHA 20: 23:0:3 | [PermissionManager] Perm (WeatherManager:ApplyTime) has been registered!
-LINHA 21: 23:0:3 | [PermissionManager] Perm (WeatherManager:SavePreset) has been registered!
-LINHA 22: 23:0:3 | [PermissionManager] Perm (WeatherManager:DeletePreset) has been registered!
-LINHA 23: 23:0:3 | [PermissionManager] Perm (WeatherManager:ApplyPreset) has been registered!
-LINHA 24: 23:0:3 | [PermissionManager] Perm (WeatherManager:ApplyTimePreset) has been registered!
-LINHA 25: 23:0:3 | [PermissionManager] Perm (WeatherManager:SaveTimePreset) has been registered!
-LINHA 26: 23:0:3 | [PermissionManager] Perm (WeatherManager:DeleteTimePreset) has been registered!
-LINHA 27: 23:0:3 | [PermissionManager] Perm (MenuObjectManager) has been registered!
-LINHA 28: 23:0:3 | [PermissionManager] Perm (MenuObjectManager:CreateNewSet) has been registered!
-LINHA 29: 23:0:3 | [PermissionManager] Perm (MenuObjectManager:UpdateSet) has been registered!
-LINHA 30: 23:0:3 | [PermissionManager] Perm (MenuObjectManager:DeleteSet) has been registered!
-LINHA 31: 23:0:3 | [PermissionManager] Perm (MenuObjectManager:EditSet) has been registered!
-LINHA 32: 23:0:3 | [PermissionManager] Perm (MenuPermissionsEditor) has been registered!
-LINHA 33: 23:0:3 | [PermissionManager] Perm (PermissionsEditor:RemoveUser) has been registered!
-LINHA 34: 23:0:3 | [PermissionManager] Perm (PermissionsEditor:AddUser) has been registered!
-LINHA 35: 23:0:3 | [PermissionManager] Perm (PermissionsEditor:CreateUserGroup) has been registered!
-LINHA 36: 23:0:3 | [PermissionManager] Perm (PermissionsEditor:DeleteUserGroup) has been registered!
-LINHA 37: 23:0:3 | [PermissionManager] Perm (PermissionsEditor:ChangePermLevel) has been registered!
-LINHA 38: 23:0:3 | [PermissionManager] Perm (MenuPlayerManager) has been registered!
-LINHA 39: 23:0:3 | [PermissionManager] Perm (PlayerManager:GiveGodmode) has been registered!
-LINHA 40: 23:0:3 | [PermissionManager] Perm (PlayerManager:BanPlayer) has been registered!
-LINHA 41: 23:0:3 | [PermissionManager] Perm (PlayerManager:KickPlayer) has been registered!
-LINHA 42: 23:0:3 | [PermissionManager] Perm (PlayerManager:HealPlayers) has been registered!
-LINHA 43: 23:0:3 | [PermissionManager] Perm (PlayerManager:SetPlayerStats) has been registered!
-LINHA 44: 23:0:3 | [PermissionManager] Perm (PlayerManager:KillPlayers) has been registered!
-LINHA 45: 23:0:3 | [PermissionManager] Perm (PlayerManager:GodMode) has been registered!
-LINHA 46: 23:0:3 | [PermissionManager] Perm (PlayerManager:SpectatePlayer) has been registered!
-LINHA 47: 23:0:3 | [PermissionManager] Perm (PlayerManager:TeleportToPlayer) has been registered!
-LINHA 48: 23:0:3 | [PermissionManager] Perm (PlayerManager:TeleportPlayerTo) has been registered!
-LINHA 49: 23:0:3 | [PermissionManager] Perm (PlayerManager:SetPlayerInvisible) has been registered!
-LINHA 50: 23:0:3 | [PermissionManager] Perm (PlayerManager:SendMessage) has been registered!
-LINHA 51: 23:0:3 | [PermissionManager] Perm (PlayerManager:GiveUnlimitedAmmo) has been registered!
-LINHA 52: 23:0:3 | [PermissionManager] Perm (PlayerManager:MakePlayerVomit) has been registered!
-LINHA 53: 23:0:3 | [PermissionManager] Perm (PlayerManager:FreezePlayers) has been registered!
-LINHA 54: 23:0:3 | [PermissionManager] Perm (PlayerManager:ChangeScale) has been registered!
-LINHA 55: 23:0:3 | [PermissionManager] Perm (PlayerManager:StopBleeding) has been registered!
-LINHA 56: 23:0:3 | [PermissionManager] Perm (PlayerManager:ClearInventory) has been registered!
-LINHA 57: 23:0:3 | [PermissionManager] Perm (PlayerManager:EditModifiers) has been registered!
-LINHA 58: 23:0:3 | [PermissionManager] Perm (MenuBansManager) has been registered!
-LINHA 59: 23:0:3 | [PermissionManager] Perm (BansManager:UnbanPlayer) has been registered!
-LINHA 60: 23:0:3 | [PermissionManager] Perm (BansManager:UpdateBanDuration) has been registered!
-LINHA 61: 23:0:3 | [PermissionManager] Perm (BansManager:UpdateBanReason) has been registered!
-LINHA 62: 23:0:3 | [PermissionManager] Perm (MenuSpectateTools) has been registered!
-LINHA 63: 23:0:3 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-LINHA 64: 23:0:3 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-LINHA 65: 23:0:3 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-LINHA 66: 23:0:3 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-LINHA 67: 23:0:3 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-LINHA 68: 23:0:3 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-LINHA 69: 23:0:3 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-LINHA 70: 23:0:3 | [PermissionManager] Perm (MenuTeleportManager) has been registered!
-LINHA 71: 23:0:3 | [PermissionManager] Perm (TeleportManager:ViewPlayerPositions) has been registered!
-LINHA 72: 23:0:3 | [PermissionManager] Perm (TeleportManager:TPPlayers) has been registered!
-LINHA 73: 23:0:3 | [PermissionManager] Perm (TeleportManager:TPSelf) has been registered!
-LINHA 74: 23:0:3 | [PermissionManager] Perm (TeleportManager:DeletePreset) has been registered!
-LINHA 75: 23:0:3 | [PermissionManager] Perm (TeleportManager:AddNewPreset) has been registered!
-LINHA 76: 23:0:3 | [PermissionManager] Perm (TeleportManager:EditPreset) has been registered!
-LINHA 77: 23:0:3 | [PermissionManager] Perm (TeleportManager:TeleportEntity) has been registered!
-LINHA 78: 23:0:3 | [PermissionManager] Perm (EspToolsMenu) has been registered!
-LINHA 79: 23:0:3 | [PermissionManager] Perm (EspToolsMenu:DeleteObjects) has been registered!
-LINHA 80: 23:0:3 | [PermissionManager] Perm (EspToolsMenu:PlayerESP) has been registered!
-LINHA 81: 23:0:3 | [PermissionManager] Perm (EspToolsMenu:RestPasscodeFence) has been registered!
-LINHA 82: 23:0:3 | [PermissionManager] Perm (EspToolsMenu:RetriveCodeFromObj) has been registered!
-LINHA 83: 23:0:3 | [PermissionManager] Perm (EspToolsMenu:PlayerMeshEsp) has been registered!
-LINHA 84: 23:0:3 | [PermissionManager] Perm (EspToolsMenu:InstantBaseBuild) has been registered!
-LINHA 85: 23:0:3 | [PermissionManager] Perm (MenuXMLEditor) has been registered!
-LINHA 86: 23:0:3 | [PermissionManager] Perm (MenuXMLEditor:EditTypes) has been registered!
-LINHA 87: 23:0:3 | [PermissionManager] Perm (MenuXMLEditor:AddRemoveTypes) has been registered!
-LINHA 88: 23:0:3 | [PermissionManager] Perm (MenuXMLEditor:DistributionMap) has been registered!
-LINHA 89: 23:0:3 | [PermissionManager] Perm (MenuXMLEditor:ViewBackups) has been registered!
-LINHA 90: 23:0:3 | [PermissionManager] Perm (MenuXMLEditor:RestoreBackup) has been registered!
-LINHA 91: 23:0:3 | [PermissionManager] Perm (MenuXMLEditor:DeleteBackup) has been registered!
-LINHA 92: 23:0:3 | [PermissionManager] Perm (MenuXMLEditor:LiveScan) has been registered!
-LINHA 93: 23:0:3 | [PermissionManager] Perm (MenuXMLEditor:DeleteObjects) has been registered!
-LINHA 94: 23:0:3 | [PermissionManager] Perm (MenuXMLEditor:EditMessages) has been registered!
-LINHA 95: 23:0:3 | [PermissionManager] Perm (MenuXMLEditor:EditEvents) has been registered!
-LINHA 96: 23:0:3 | [PermissionManager] Perm (MenuXMLEditor:EditSpawnables) has been registered!
-LINHA 97: 23:0:3 | [PermissionManager] Perm (MenuCommandsConsole) has been registered!
-LINHA 98: 23:0:3 | [PermissionManager] Perm (ContextMenu:ItemHealth) has been registered!
-LINHA 99: 23:0:3 | [PermissionManager] Perm (ContextMenu:WeaponLoad) has been registered!
-LINHA 100: 23:0:3 | [PermissionManager] Perm (ContextMenu:CreatureHeal) has been registered!
-LINHA 101: 23:0:3 | [PermissionManager] Perm (ContextMenu:SpawnAttachment) has been registered!
-LINHA 102: 23:0:3 | [PermissionManager] Perm (ContextMenu:CreatureKill) has been registered!
-LINHA 103: 23:0:3 | [PermissionManager] Perm (ContextMenu:ItemQuantity) has been registered!
-LINHA 104: 23:0:3 | [PermissionManager] Perm (ContextMenu:SetScale) has been registered!
-LINHA 105: 23:0:3 | [PermissionManager] Perm (ContextMenu:VehicleRefuel) has been registered!
-LINHA 106: 23:0:3 | [PermissionManager] Perm (ContextMenu:WeaponRefill) has been registered!
-LINHA 107: 23:0:3 | [PermissionManager] Perm (ContextMenu:Ragdoll) has been registered!
-LINHA 108: 23:0:3 | [PermissionManager] Perm (ContextMenu:WeaponJam) has been registered!
-LINHA 109: 23:0:3 | [PermissionManager] Perm (ContextMenu:WeaponEject) has been registered!
-LINHA 110: 23:0:3 | [PermissionManager] Adding Super Admin (76561198196693358)
-LINHA 111: 23:0:3 | [PermissionManager] Adding Super Admin (76561199508282814)
-LINHA 112: 23:0:3 | [PermissionManager] Loaded UserGroups.json
-LINHA 113: 23:0:3 | [BansManager]:: Load(): Loading ban list Json File $profile:VPPAdminTools/BanList.json
-LINHA 114: 23:0:3 | [PermissionManager] Perm (Chat:StripPlayer) has been registered!
-LINHA 115: 23:0:3 | [PermissionManager] Perm (Chat:KillPlayer) has been registered!
-LINHA 116: 23:0:3 | [PermissionManager] Perm (Chat:HealPlayer) has been registered!
-LINHA 117: 23:0:3 | [PermissionManager] Perm (Chat:BringPlayer) has been registered!
-LINHA 118: 23:0:3 | [PermissionManager] Perm (Chat:ReturnPlayer) has been registered!
-LINHA 119: 23:0:3 | [PermissionManager] Perm (Chat:GotoPlayer) has been registered!
-LINHA 120: 23:0:3 | [PermissionManager] Perm (Chat:UnbanPlayer) has been registered!
-LINHA 121: 23:0:3 | [PermissionManager] Perm (Chat:TeleportToTown) has been registered!
-LINHA 122: 23:0:3 | [PermissionManager] Perm (Chat:TeleportToPoint) has been registered!
-LINHA 123: 23:0:3 | [PermissionManager] Perm (Chat:GiveAmmo) has been registered!
-LINHA 124: 23:0:3 | [PermissionManager] Perm (Chat:SpawnInventory) has been registered!
-LINHA 125: 23:0:3 | [PermissionManager] Perm (Chat:SpawnOnGround) has been registered!
-LINHA 126: 23:0:3 | [PermissionManager] Perm (Chat:SpawnInHands) has been registered!
-LINHA 127: 23:0:3 | [PermissionManager] Perm (Chat:SpawnCar) has been registered!
-LINHA 128: 23:0:3 | [PermissionManager] Perm (Chat:refuelCar) has been registered!
-LINHA 129: 23:0:3 | [WeatherManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 130: 23:0:3 | [TimeManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 131: 23:0:3 | [BuildingSetManager] Journal: 0 set(s) loaded, 0 found by the folder scan, 0 dropped, 0 converted from .vpp, 0 upgraded to format 2
-LINHA 132: 23:0:3 | [SteamAPIManager] WARNING couldn't fetch server IP from configs; using cURL...
-LINHA 133 : [CONTEUDO SENSIVEL MASCARADO]
-LINHA 134: 23:10:57 | Player "******" ([IDENTIFICADOR MASCARADO]) connected to server!
-LINHA 135: 23:19:16 | Player "******" ([IDENTIFICADOR MASCARADO]) initiated disconnect process...
-LINHA 136: 23:19:17 | Player "******" ([IDENTIFICADOR MASCARADO]) disconnected from server.
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_16-25-19.txt
-TAMANHO: 11558 bytes
---------------------------------------------------
-LINHA 1: [IDENTIFICADOR MASCARADO] Admin Tools Session [IDENTIFICADOR MASCARADO]
-LINHA 2: Logs Started: 2026-11-17_16-25-19
-LINHA 3: [IDENTIFICADOR MASCARADO]
-LINHA 4: 16:25:19 | [PermissionManager] Perm (DeleteObjectAtCrosshair) has been registered!
-LINHA 5: 16:25:19 | [PermissionManager] Perm (TeleportToCrosshair) has been registered!
-LINHA 6: 16:25:19 | [PermissionManager] Perm (FreeCamera) has been registered!
-LINHA 7: 16:25:19 | [PermissionManager] Perm ([IDENTIFICADOR MASCARADO]) has been registered!
-LINHA 8: 16:25:19 | [PermissionManager] Perm (MenuItemManager) has been registered!
-LINHA 9: 16:25:19 | [PermissionManager] Perm (MenuItemManager:SpawnItem) has been registered!
-LINHA 10: 16:25:19 | [PermissionManager] Perm (MenuItemManager:EditPreset) has been registered!
-LINHA 11: 16:25:19 | [PermissionManager] Perm (MenuItemManager:SpawnPreset) has been registered!
-LINHA 12: 16:25:19 | [PermissionManager] Perm (MenuItemManager:DeletePreset) has been registered!
-LINHA 13: 16:25:19 | [PermissionManager] Perm (MenuItemManager:AddPreset) has been registered!
-LINHA 14: 16:25:19 | [PermissionManager] Perm (MenuServerManager) has been registered!
-LINHA 15: 16:25:19 | [PermissionManager] Perm (ServerManager:RestartServer) has been registered!
-LINHA 16: 16:25:19 | [PermissionManager] Perm (ServerManager:LockServer) has been registered!
-LINHA 17: 16:25:19 | [PermissionManager] Perm (ServerManager:KickAllPlayers) has been registered!
-LINHA 18: 16:25:19 | [PermissionManager] Perm (MenuWeatherManager) has been registered!
-LINHA 19: 16:25:19 | [PermissionManager] Perm (WeatherManager:ApplyWeather) has been registered!
-LINHA 20: 16:25:19 | [PermissionManager] Perm (WeatherManager:ApplyTime) has been registered!
-LINHA 21: 16:25:19 | [PermissionManager] Perm (WeatherManager:SavePreset) has been registered!
-LINHA 22: 16:25:19 | [PermissionManager] Perm (WeatherManager:DeletePreset) has been registered!
-LINHA 23: 16:25:19 | [PermissionManager] Perm (WeatherManager:ApplyPreset) has been registered!
-LINHA 24: 16:25:19 | [PermissionManager] Perm (WeatherManager:ApplyTimePreset) has been registered!
-LINHA 25: 16:25:19 | [PermissionManager] Perm (WeatherManager:SaveTimePreset) has been registered!
-LINHA 26: 16:25:19 | [PermissionManager] Perm (WeatherManager:DeleteTimePreset) has been registered!
-LINHA 27: 16:25:19 | [PermissionManager] Perm (MenuObjectManager) has been registered!
-LINHA 28: 16:25:19 | [PermissionManager] Perm (MenuObjectManager:CreateNewSet) has been registered!
-LINHA 29: 16:25:19 | [PermissionManager] Perm (MenuObjectManager:UpdateSet) has been registered!
-LINHA 30: 16:25:19 | [PermissionManager] Perm (MenuObjectManager:DeleteSet) has been registered!
-LINHA 31: 16:25:19 | [PermissionManager] Perm (MenuObjectManager:EditSet) has been registered!
-LINHA 32: 16:25:19 | [PermissionManager] Perm (MenuPermissionsEditor) has been registered!
-LINHA 33: 16:25:19 | [PermissionManager] Perm (PermissionsEditor:RemoveUser) has been registered!
-LINHA 34: 16:25:19 | [PermissionManager] Perm (PermissionsEditor:AddUser) has been registered!
-LINHA 35: 16:25:19 | [PermissionManager] Perm (PermissionsEditor:CreateUserGroup) has been registered!
-LINHA 36: 16:25:19 | [PermissionManager] Perm (PermissionsEditor:DeleteUserGroup) has been registered!
-LINHA 37: 16:25:19 | [PermissionManager] Perm (PermissionsEditor:ChangePermLevel) has been registered!
-LINHA 38: 16:25:19 | [PermissionManager] Perm (MenuPlayerManager) has been registered!
-LINHA 39: 16:25:19 | [PermissionManager] Perm (PlayerManager:GiveGodmode) has been registered!
-LINHA 40: 16:25:19 | [PermissionManager] Perm (PlayerManager:BanPlayer) has been registered!
-LINHA 41: 16:25:19 | [PermissionManager] Perm (PlayerManager:KickPlayer) has been registered!
-LINHA 42: 16:25:19 | [PermissionManager] Perm (PlayerManager:HealPlayers) has been registered!
-LINHA 43: 16:25:19 | [PermissionManager] Perm (PlayerManager:SetPlayerStats) has been registered!
-LINHA 44: 16:25:19 | [PermissionManager] Perm (PlayerManager:KillPlayers) has been registered!
-LINHA 45: 16:25:19 | [PermissionManager] Perm (PlayerManager:GodMode) has been registered!
-LINHA 46: 16:25:19 | [PermissionManager] Perm (PlayerManager:SpectatePlayer) has been registered!
-LINHA 47: 16:25:19 | [PermissionManager] Perm (PlayerManager:TeleportToPlayer) has been registered!
-LINHA 48: 16:25:19 | [PermissionManager] Perm (PlayerManager:TeleportPlayerTo) has been registered!
-LINHA 49: 16:25:19 | [PermissionManager] Perm (PlayerManager:SetPlayerInvisible) has been registered!
-LINHA 50: 16:25:19 | [PermissionManager] Perm (PlayerManager:SendMessage) has been registered!
-LINHA 51: 16:25:19 | [PermissionManager] Perm (PlayerManager:GiveUnlimitedAmmo) has been registered!
-LINHA 52: 16:25:19 | [PermissionManager] Perm (PlayerManager:MakePlayerVomit) has been registered!
-LINHA 53: 16:25:19 | [PermissionManager] Perm (PlayerManager:FreezePlayers) has been registered!
-LINHA 54: 16:25:19 | [PermissionManager] Perm (PlayerManager:ChangeScale) has been registered!
-LINHA 55: 16:25:19 | [PermissionManager] Perm (PlayerManager:StopBleeding) has been registered!
-LINHA 56: 16:25:19 | [PermissionManager] Perm (PlayerManager:ClearInventory) has been registered!
-LINHA 57: 16:25:19 | [PermissionManager] Perm (PlayerManager:EditModifiers) has been registered!
-LINHA 58: 16:25:19 | [PermissionManager] Perm (MenuBansManager) has been registered!
-LINHA 59: 16:25:19 | [PermissionManager] Perm (BansManager:UnbanPlayer) has been registered!
-LINHA 60: 16:25:19 | [PermissionManager] Perm (BansManager:UpdateBanDuration) has been registered!
-LINHA 61: 16:25:19 | [PermissionManager] Perm (BansManager:UpdateBanReason) has been registered!
-LINHA 62: 16:25:19 | [PermissionManager] Perm (MenuSpectateTools) has been registered!
-LINHA 63: 16:25:19 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-LINHA 64: 16:25:19 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-LINHA 65: 16:25:19 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-LINHA 66: 16:25:19 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-LINHA 67: 16:25:19 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-LINHA 68: 16:25:19 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-LINHA 69: 16:25:19 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-LINHA 70: 16:25:19 | [PermissionManager] Perm (MenuTeleportManager) has been registered!
-LINHA 71: 16:25:19 | [PermissionManager] Perm (TeleportManager:ViewPlayerPositions) has been registered!
-LINHA 72: 16:25:19 | [PermissionManager] Perm (TeleportManager:TPPlayers) has been registered!
-LINHA 73: 16:25:19 | [PermissionManager] Perm (TeleportManager:TPSelf) has been registered!
-LINHA 74: 16:25:19 | [PermissionManager] Perm (TeleportManager:DeletePreset) has been registered!
-LINHA 75: 16:25:19 | [PermissionManager] Perm (TeleportManager:AddNewPreset) has been registered!
-LINHA 76: 16:25:19 | [PermissionManager] Perm (TeleportManager:EditPreset) has been registered!
-LINHA 77: 16:25:19 | [PermissionManager] Perm (TeleportManager:TeleportEntity) has been registered!
-LINHA 78: 16:25:19 | [PermissionManager] Perm (EspToolsMenu) has been registered!
-LINHA 79: 16:25:19 | [PermissionManager] Perm (EspToolsMenu:DeleteObjects) has been registered!
-LINHA 80: 16:25:19 | [PermissionManager] Perm (EspToolsMenu:PlayerESP) has been registered!
-LINHA 81: 16:25:19 | [PermissionManager] Perm (EspToolsMenu:RestPasscodeFence) has been registered!
-LINHA 82: 16:25:19 | [PermissionManager] Perm (EspToolsMenu:RetriveCodeFromObj) has been registered!
-LINHA 83: 16:25:19 | [PermissionManager] Perm (EspToolsMenu:PlayerMeshEsp) has been registered!
-LINHA 84: 16:25:19 | [PermissionManager] Perm (EspToolsMenu:InstantBaseBuild) has been registered!
-LINHA 85: 16:25:19 | [PermissionManager] Perm (MenuXMLEditor) has been registered!
-LINHA 86: 16:25:19 | [PermissionManager] Perm (MenuXMLEditor:EditTypes) has been registered!
-LINHA 87: 16:25:19 | [PermissionManager] Perm (MenuXMLEditor:AddRemoveTypes) has been registered!
-LINHA 88: 16:25:19 | [PermissionManager] Perm (MenuXMLEditor:DistributionMap) has been registered!
-LINHA 89: 16:25:19 | [PermissionManager] Perm (MenuXMLEditor:ViewBackups) has been registered!
-LINHA 90: 16:25:19 | [PermissionManager] Perm (MenuXMLEditor:RestoreBackup) has been registered!
-LINHA 91: 16:25:19 | [PermissionManager] Perm (MenuXMLEditor:DeleteBackup) has been registered!
-LINHA 92: 16:25:19 | [PermissionManager] Perm (MenuXMLEditor:LiveScan) has been registered!
-LINHA 93: 16:25:19 | [PermissionManager] Perm (MenuXMLEditor:DeleteObjects) has been registered!
-LINHA 94: 16:25:19 | [PermissionManager] Perm (MenuXMLEditor:EditMessages) has been registered!
-LINHA 95: 16:25:19 | [PermissionManager] Perm (MenuXMLEditor:EditEvents) has been registered!
-LINHA 96: 16:25:19 | [PermissionManager] Perm (MenuXMLEditor:EditSpawnables) has been registered!
-LINHA 97: 16:25:19 | [PermissionManager] Perm (MenuCommandsConsole) has been registered!
-LINHA 98: 16:25:19 | [PermissionManager] Perm (ContextMenu:ItemHealth) has been registered!
-LINHA 99: 16:25:19 | [PermissionManager] Perm (ContextMenu:WeaponLoad) has been registered!
-LINHA 100: 16:25:19 | [PermissionManager] Perm (ContextMenu:CreatureHeal) has been registered!
-LINHA 101: 16:25:19 | [PermissionManager] Perm (ContextMenu:SpawnAttachment) has been registered!
-LINHA 102: 16:25:19 | [PermissionManager] Perm (ContextMenu:CreatureKill) has been registered!
-LINHA 103: 16:25:19 | [PermissionManager] Perm (ContextMenu:ItemQuantity) has been registered!
-LINHA 104: 16:25:19 | [PermissionManager] Perm (ContextMenu:SetScale) has been registered!
-LINHA 105: 16:25:19 | [PermissionManager] Perm (ContextMenu:VehicleRefuel) has been registered!
-LINHA 106: 16:25:19 | [PermissionManager] Perm (ContextMenu:WeaponRefill) has been registered!
-LINHA 107: 16:25:19 | [PermissionManager] Perm (ContextMenu:Ragdoll) has been registered!
-LINHA 108: 16:25:19 | [PermissionManager] Perm (ContextMenu:WeaponJam) has been registered!
-LINHA 109: 16:25:19 | [PermissionManager] Perm (ContextMenu:WeaponEject) has been registered!
-LINHA 110: 16:25:19 | [PermissionManager] Adding Super Admin (76561198196693358)
-LINHA 111: 16:25:19 | [PermissionManager] Adding Super Admin (76561199508282814)
-LINHA 112: 16:25:19 | [PermissionManager] Loaded UserGroups.json
-LINHA 113: 16:25:19 | [BansManager]:: Load(): Loading ban list Json File $profile:VPPAdminTools/BanList.json
-LINHA 114: 16:25:19 | [PermissionManager] Perm (Chat:StripPlayer) has been registered!
-LINHA 115: 16:25:19 | [PermissionManager] Perm (Chat:KillPlayer) has been registered!
-LINHA 116: 16:25:19 | [PermissionManager] Perm (Chat:HealPlayer) has been registered!
-LINHA 117: 16:25:19 | [PermissionManager] Perm (Chat:BringPlayer) has been registered!
-LINHA 118: 16:25:19 | [PermissionManager] Perm (Chat:ReturnPlayer) has been registered!
-LINHA 119: 16:25:19 | [PermissionManager] Perm (Chat:GotoPlayer) has been registered!
-LINHA 120: 16:25:19 | [PermissionManager] Perm (Chat:UnbanPlayer) has been registered!
-LINHA 121: 16:25:19 | [PermissionManager] Perm (Chat:TeleportToTown) has been registered!
-LINHA 122: 16:25:19 | [PermissionManager] Perm (Chat:TeleportToPoint) has been registered!
-LINHA 123: 16:25:19 | [PermissionManager] Perm (Chat:GiveAmmo) has been registered!
-LINHA 124: 16:25:19 | [PermissionManager] Perm (Chat:SpawnInventory) has been registered!
-LINHA 125: 16:25:19 | [PermissionManager] Perm (Chat:SpawnOnGround) has been registered!
-LINHA 126: 16:25:19 | [PermissionManager] Perm (Chat:SpawnInHands) has been registered!
-LINHA 127: 16:25:19 | [PermissionManager] Perm (Chat:SpawnCar) has been registered!
-LINHA 128: 16:25:19 | [PermissionManager] Perm (Chat:refuelCar) has been registered!
-LINHA 129: 16:25:19 | [WeatherManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 130: 16:25:19 | [TimeManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 131: 16:25:19 | [BuildingSetManager] Journal: 0 set(s) loaded, 0 found by the folder scan, 0 dropped, 0 converted from .vpp, 0 upgraded to format 2
-LINHA 132: 16:25:19 | [SteamAPIManager] WARNING couldn't fetch server IP from configs; using cURL...
-LINHA 133 : [CONTEUDO SENSIVEL MASCARADO]
-LINHA 134: 16:57:4 | Player "******" ([IDENTIFICADOR MASCARADO]) connected to server!
-LINHA 135: 18:9:11 | Player "******" ([IDENTIFICADOR MASCARADO]) initiated disconnect process...
-LINHA 136: 18:9:11 | Player "******" ([IDENTIFICADOR MASCARADO]) disconnected from server.
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt
-TAMANHO: 13526 bytes
---------------------------------------------------
-LINHA 1: [IDENTIFICADOR MASCARADO] Admin Tools Session [IDENTIFICADOR MASCARADO]
-LINHA 2: Logs Started: 2026-11-17_19-28-51
-LINHA 3: [IDENTIFICADOR MASCARADO]
-LINHA 4: 19:28:51 | [PermissionManager] Perm (DeleteObjectAtCrosshair) has been registered!
-LINHA 5: 19:28:51 | [PermissionManager] Perm (TeleportToCrosshair) has been registered!
-LINHA 6: 19:28:51 | [PermissionManager] Perm (FreeCamera) has been registered!
-LINHA 7: 19:28:51 | [PermissionManager] Perm ([IDENTIFICADOR MASCARADO]) has been registered!
-LINHA 8: 19:28:51 | [PermissionManager] Perm (MenuItemManager) has been registered!
-LINHA 9: 19:28:51 | [PermissionManager] Perm (MenuItemManager:SpawnItem) has been registered!
-LINHA 10: 19:28:51 | [PermissionManager] Perm (MenuItemManager:EditPreset) has been registered!
-LINHA 11: 19:28:51 | [PermissionManager] Perm (MenuItemManager:SpawnPreset) has been registered!
-LINHA 12: 19:28:51 | [PermissionManager] Perm (MenuItemManager:DeletePreset) has been registered!
-LINHA 13: 19:28:51 | [PermissionManager] Perm (MenuItemManager:AddPreset) has been registered!
-LINHA 14: 19:28:51 | [PermissionManager] Perm (MenuServerManager) has been registered!
-LINHA 15: 19:28:51 | [PermissionManager] Perm (ServerManager:RestartServer) has been registered!
-LINHA 16: 19:28:51 | [PermissionManager] Perm (ServerManager:LockServer) has been registered!
-LINHA 17: 19:28:51 | [PermissionManager] Perm (ServerManager:KickAllPlayers) has been registered!
-LINHA 18: 19:28:51 | [PermissionManager] Perm (MenuWeatherManager) has been registered!
-LINHA 19: 19:28:51 | [PermissionManager] Perm (WeatherManager:ApplyWeather) has been registered!
-LINHA 20: 19:28:51 | [PermissionManager] Perm (WeatherManager:ApplyTime) has been registered!
-LINHA 21: 19:28:51 | [PermissionManager] Perm (WeatherManager:SavePreset) has been registered!
-LINHA 22: 19:28:51 | [PermissionManager] Perm (WeatherManager:DeletePreset) has been registered!
-LINHA 23: 19:28:51 | [PermissionManager] Perm (WeatherManager:ApplyPreset) has been registered!
-LINHA 24: 19:28:51 | [PermissionManager] Perm (WeatherManager:ApplyTimePreset) has been registered!
-LINHA 25: 19:28:51 | [PermissionManager] Perm (WeatherManager:SaveTimePreset) has been registered!
-LINHA 26: 19:28:51 | [PermissionManager] Perm (WeatherManager:DeleteTimePreset) has been registered!
-LINHA 27: 19:28:51 | [PermissionManager] Perm (MenuObjectManager) has been registered!
-LINHA 28: 19:28:51 | [PermissionManager] Perm (MenuObjectManager:CreateNewSet) has been registered!
-LINHA 29: 19:28:51 | [PermissionManager] Perm (MenuObjectManager:UpdateSet) has been registered!
-LINHA 30: 19:28:51 | [PermissionManager] Perm (MenuObjectManager:DeleteSet) has been registered!
-LINHA 31: 19:28:51 | [PermissionManager] Perm (MenuObjectManager:EditSet) has been registered!
-LINHA 32: 19:28:51 | [PermissionManager] Perm (MenuPermissionsEditor) has been registered!
-LINHA 33: 19:28:51 | [PermissionManager] Perm (PermissionsEditor:RemoveUser) has been registered!
-LINHA 34: 19:28:51 | [PermissionManager] Perm (PermissionsEditor:AddUser) has been registered!
-LINHA 35: 19:28:51 | [PermissionManager] Perm (PermissionsEditor:CreateUserGroup) has been registered!
-LINHA 36: 19:28:51 | [PermissionManager] Perm (PermissionsEditor:DeleteUserGroup) has been registered!
-LINHA 37: 19:28:51 | [PermissionManager] Perm (PermissionsEditor:ChangePermLevel) has been registered!
-LINHA 38: 19:28:51 | [PermissionManager] Perm (MenuPlayerManager) has been registered!
-LINHA 39: 19:28:51 | [PermissionManager] Perm (PlayerManager:GiveGodmode) has been registered!
-LINHA 40: 19:28:51 | [PermissionManager] Perm (PlayerManager:BanPlayer) has been registered!
-LINHA 41: 19:28:51 | [PermissionManager] Perm (PlayerManager:KickPlayer) has been registered!
-LINHA 42: 19:28:51 | [PermissionManager] Perm (PlayerManager:HealPlayers) has been registered!
-LINHA 43: 19:28:51 | [PermissionManager] Perm (PlayerManager:SetPlayerStats) has been registered!
-LINHA 44: 19:28:51 | [PermissionManager] Perm (PlayerManager:KillPlayers) has been registered!
-LINHA 45: 19:28:51 | [PermissionManager] Perm (PlayerManager:GodMode) has been registered!
-LINHA 46: 19:28:51 | [PermissionManager] Perm (PlayerManager:SpectatePlayer) has been registered!
-LINHA 47: 19:28:51 | [PermissionManager] Perm (PlayerManager:TeleportToPlayer) has been registered!
-LINHA 48: 19:28:51 | [PermissionManager] Perm (PlayerManager:TeleportPlayerTo) has been registered!
-LINHA 49: 19:28:51 | [PermissionManager] Perm (PlayerManager:SetPlayerInvisible) has been registered!
-LINHA 50: 19:28:51 | [PermissionManager] Perm (PlayerManager:SendMessage) has been registered!
-LINHA 51: 19:28:51 | [PermissionManager] Perm (PlayerManager:GiveUnlimitedAmmo) has been registered!
-LINHA 52: 19:28:51 | [PermissionManager] Perm (PlayerManager:MakePlayerVomit) has been registered!
-LINHA 53: 19:28:51 | [PermissionManager] Perm (PlayerManager:FreezePlayers) has been registered!
-LINHA 54: 19:28:51 | [PermissionManager] Perm (PlayerManager:ChangeScale) has been registered!
-LINHA 55: 19:28:51 | [PermissionManager] Perm (PlayerManager:StopBleeding) has been registered!
-LINHA 56: 19:28:51 | [PermissionManager] Perm (PlayerManager:ClearInventory) has been registered!
-LINHA 57: 19:28:51 | [PermissionManager] Perm (PlayerManager:EditModifiers) has been registered!
-LINHA 58: 19:28:51 | [PermissionManager] Perm (MenuBansManager) has been registered!
-LINHA 59: 19:28:51 | [PermissionManager] Perm (BansManager:UnbanPlayer) has been registered!
-LINHA 60: 19:28:51 | [PermissionManager] Perm (BansManager:UpdateBanDuration) has been registered!
-LINHA 61: 19:28:51 | [PermissionManager] Perm (BansManager:UpdateBanReason) has been registered!
-LINHA 62: 19:28:51 | [PermissionManager] Perm (MenuSpectateTools) has been registered!
-LINHA 63: 19:28:51 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-LINHA 64: 19:28:51 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-LINHA 65: 19:28:51 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-LINHA 66: 19:28:51 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-LINHA 67: 19:28:51 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-LINHA 68: 19:28:51 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-LINHA 69: 19:28:51 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-LINHA 70: 19:28:51 | [PermissionManager] Perm (MenuTeleportManager) has been registered!
-LINHA 71: 19:28:51 | [PermissionManager] Perm (TeleportManager:ViewPlayerPositions) has been registered!
-LINHA 72: 19:28:51 | [PermissionManager] Perm (TeleportManager:TPPlayers) has been registered!
-LINHA 73: 19:28:51 | [PermissionManager] Perm (TeleportManager:TPSelf) has been registered!
-LINHA 74: 19:28:51 | [PermissionManager] Perm (TeleportManager:DeletePreset) has been registered!
-LINHA 75: 19:28:51 | [PermissionManager] Perm (TeleportManager:AddNewPreset) has been registered!
-LINHA 76: 19:28:51 | [PermissionManager] Perm (TeleportManager:EditPreset) has been registered!
-LINHA 77: 19:28:51 | [PermissionManager] Perm (TeleportManager:TeleportEntity) has been registered!
-LINHA 78: 19:28:51 | [PermissionManager] Perm (EspToolsMenu) has been registered!
-LINHA 79: 19:28:51 | [PermissionManager] Perm (EspToolsMenu:DeleteObjects) has been registered!
-LINHA 80: 19:28:51 | [PermissionManager] Perm (EspToolsMenu:PlayerESP) has been registered!
-LINHA 81: 19:28:51 | [PermissionManager] Perm (EspToolsMenu:RestPasscodeFence) has been registered!
-LINHA 82: 19:28:51 | [PermissionManager] Perm (EspToolsMenu:RetriveCodeFromObj) has been registered!
-LINHA 83: 19:28:51 | [PermissionManager] Perm (EspToolsMenu:PlayerMeshEsp) has been registered!
-LINHA 84: 19:28:51 | [PermissionManager] Perm (EspToolsMenu:InstantBaseBuild) has been registered!
-LINHA 85: 19:28:51 | [PermissionManager] Perm (MenuXMLEditor) has been registered!
-LINHA 86: 19:28:51 | [PermissionManager] Perm (MenuXMLEditor:EditTypes) has been registered!
-LINHA 87: 19:28:51 | [PermissionManager] Perm (MenuXMLEditor:AddRemoveTypes) has been registered!
-LINHA 88: 19:28:51 | [PermissionManager] Perm (MenuXMLEditor:DistributionMap) has been registered!
-LINHA 89: 19:28:51 | [PermissionManager] Perm (MenuXMLEditor:ViewBackups) has been registered!
-LINHA 90: 19:28:51 | [PermissionManager] Perm (MenuXMLEditor:RestoreBackup) has been registered!
-LINHA 91: 19:28:51 | [PermissionManager] Perm (MenuXMLEditor:DeleteBackup) has been registered!
-LINHA 92: 19:28:51 | [PermissionManager] Perm (MenuXMLEditor:LiveScan) has been registered!
-LINHA 93: 19:28:51 | [PermissionManager] Perm (MenuXMLEditor:DeleteObjects) has been registered!
-LINHA 94: 19:28:51 | [PermissionManager] Perm (MenuXMLEditor:EditMessages) has been registered!
-LINHA 95: 19:28:51 | [PermissionManager] Perm (MenuXMLEditor:EditEvents) has been registered!
-LINHA 96: 19:28:51 | [PermissionManager] Perm (MenuXMLEditor:EditSpawnables) has been registered!
-LINHA 97: 19:28:51 | [PermissionManager] Perm (MenuCommandsConsole) has been registered!
-LINHA 98: 19:28:51 | [PermissionManager] Perm (ContextMenu:ItemHealth) has been registered!
-LINHA 99: 19:28:51 | [PermissionManager] Perm (ContextMenu:WeaponLoad) has been registered!
-LINHA 100: 19:28:51 | [PermissionManager] Perm (ContextMenu:CreatureHeal) has been registered!
-LINHA 101: 19:28:51 | [PermissionManager] Perm (ContextMenu:SpawnAttachment) has been registered!
-LINHA 102: 19:28:51 | [PermissionManager] Perm (ContextMenu:CreatureKill) has been registered!
-LINHA 103: 19:28:51 | [PermissionManager] Perm (ContextMenu:ItemQuantity) has been registered!
-LINHA 104: 19:28:51 | [PermissionManager] Perm (ContextMenu:SetScale) has been registered!
-LINHA 105: 19:28:51 | [PermissionManager] Perm (ContextMenu:VehicleRefuel) has been registered!
-LINHA 106: 19:28:51 | [PermissionManager] Perm (ContextMenu:WeaponRefill) has been registered!
-LINHA 107: 19:28:51 | [PermissionManager] Perm (ContextMenu:Ragdoll) has been registered!
-LINHA 108: 19:28:51 | [PermissionManager] Perm (ContextMenu:WeaponJam) has been registered!
-LINHA 109: 19:28:51 | [PermissionManager] Perm (ContextMenu:WeaponEject) has been registered!
-LINHA 110: 19:28:51 | [PermissionManager] Adding Super Admin (76561198196693358)
-LINHA 111: 19:28:51 | [PermissionManager] Adding Super Admin (76561199508282814)
-LINHA 112: 19:28:51 | [PermissionManager] Loaded UserGroups.json
-LINHA 113: 19:28:51 | [BansManager]:: Load(): Loading ban list Json File $profile:VPPAdminTools/BanList.json
-LINHA 114: 19:28:51 | [PermissionManager] Perm (Chat:StripPlayer) has been registered!
-LINHA 115: 19:28:51 | [PermissionManager] Perm (Chat:KillPlayer) has been registered!
-LINHA 116: 19:28:51 | [PermissionManager] Perm (Chat:HealPlayer) has been registered!
-LINHA 117: 19:28:51 | [PermissionManager] Perm (Chat:BringPlayer) has been registered!
-LINHA 118: 19:28:51 | [PermissionManager] Perm (Chat:ReturnPlayer) has been registered!
-LINHA 119: 19:28:51 | [PermissionManager] Perm (Chat:GotoPlayer) has been registered!
-LINHA 120: 19:28:51 | [PermissionManager] Perm (Chat:UnbanPlayer) has been registered!
-LINHA 121: 19:28:51 | [PermissionManager] Perm (Chat:TeleportToTown) has been registered!
-LINHA 122: 19:28:51 | [PermissionManager] Perm (Chat:TeleportToPoint) has been registered!
-LINHA 123: 19:28:51 | [PermissionManager] Perm (Chat:GiveAmmo) has been registered!
-LINHA 124: 19:28:51 | [PermissionManager] Perm (Chat:SpawnInventory) has been registered!
-LINHA 125: 19:28:51 | [PermissionManager] Perm (Chat:SpawnOnGround) has been registered!
-LINHA 126: 19:28:51 | [PermissionManager] Perm (Chat:SpawnInHands) has been registered!
-LINHA 127: 19:28:51 | [PermissionManager] Perm (Chat:SpawnCar) has been registered!
-LINHA 128: 19:28:51 | [PermissionManager] Perm (Chat:refuelCar) has been registered!
-LINHA 129: 19:28:51 | [WeatherManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 130: 19:28:51 | [TimeManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 131: 19:28:51 | [BuildingSetManager] Journal: 0 set(s) loaded, 0 found by the folder scan, 0 dropped, 0 converted from .vpp, 0 upgraded to format 2
-LINHA 132: 19:28:51 | [SteamAPIManager] WARNING couldn't fetch server IP from configs; using cURL...
-LINHA 133 : [CONTEUDO SENSIVEL MASCARADO]
-LINHA 134: 20:23:32 | Player "******" ([IDENTIFICADOR MASCARADO]) connected to server!
-LINHA 135: 21:3:9 | Player "Morpheus" ([IDENTIFICADOR MASCARADO]) connected to server!
-LINHA 136: 22:4:45 | Player "johnnybrad" ([IDENTIFICADOR MASCARADO]) connected to server!
-LINHA 137: 22:28:15 | Player "johnnybrad" ([IDENTIFICADOR MASCARADO]) initiated disconnect process...
-LINHA 138: 22:28:30 | Player "johnnybrad" ([IDENTIFICADOR MASCARADO]) disconnected from server.
-LINHA 139: 22:33:6 | Player "Logan Reed" ([IDENTIFICADOR MASCARADO]) connected to server!
-LINHA 140: 22:38:6 | Player "johnnybrad" ([IDENTIFICADOR MASCARADO]) connected to server!
-LINHA 141: 23:13:1 | Player "johnnybrad" ([IDENTIFICADOR MASCARADO]) initiated disconnect process...
-LINHA 142: 23:13:16 | Player "johnnybrad" ([IDENTIFICADOR MASCARADO]) disconnected from server.
-LINHA 143: 23:19:33 | Player "johnnybrad" ([IDENTIFICADOR MASCARADO]) connected to server!
-LINHA 144: 23:27:32 | Player "johnnybrad" ([IDENTIFICADOR MASCARADO]) initiated disconnect process...
-LINHA 145: 23:27:47 | Player "johnnybrad" ([IDENTIFICADOR MASCARADO]) disconnected from server.
-LINHA 146: 0:0:44 | Player "Logan Reed" ([IDENTIFICADOR MASCARADO]) initiated disconnect process...
-LINHA 147: 0:0:46 | Player "Logan Reed" ([IDENTIFICADOR MASCARADO]) disconnected early from server (EXIT NOW).
-LINHA 148: 0:5:8 | Player "johnnybrad" ([IDENTIFICADOR MASCARADO]) connected to server!
-LINHA 149: 0:27:57 | Player "Chaves" ([IDENTIFICADOR MASCARADO]) connected to server!
-LINHA 150: 0:52:9 | Player "Chaves" ([IDENTIFICADOR MASCARADO]) initiated disconnect process...
-LINHA 151: 1:5:52 | Player "******" ([IDENTIFICADOR MASCARADO]) initiated disconnect process...
-LINHA 152: 1:5:53 | Player "******" ([IDENTIFICADOR MASCARADO]) disconnected early from server (EXIT NOW).
-LINHA 153: 1:10:9 | Player "Chaves" ([IDENTIFICADOR MASCARADO]) connected to server!
-LINHA 154: 1:10:42 | Player "Morpheus" ([IDENTIFICADOR MASCARADO]) initiated disconnect process...
-LINHA 155: 1:10:57 | Player "Morpheus" ([IDENTIFICADOR MASCARADO]) disconnected from server.
-LINHA 156: 1:25:0 | Player "johnnybrad" ([IDENTIFICADOR MASCARADO]) initiated disconnect process...
-LINHA 157: 1:25:15 | Player "johnnybrad" ([IDENTIFICADOR MASCARADO]) disconnected from server.
-LINHA 158: 1:34:33 | Player "johnny brad" ([IDENTIFICADOR MASCARADO]) connected to server!
-LINHA 159: 1:42:11 | Player "Chaves" ([IDENTIFICADOR MASCARADO]) initiated disconnect process...
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-18_15-31-56.txt
-TAMANHO: 11314 bytes
---------------------------------------------------
-LINHA 1: [IDENTIFICADOR MASCARADO] Admin Tools Session [IDENTIFICADOR MASCARADO]
-LINHA 2: Logs Started: 2026-11-18_15-31-56
-LINHA 3: [IDENTIFICADOR MASCARADO]
-LINHA 4: 15:31:56 | [PermissionManager] Perm (DeleteObjectAtCrosshair) has been registered!
-LINHA 5: 15:31:56 | [PermissionManager] Perm (TeleportToCrosshair) has been registered!
-LINHA 6: 15:31:56 | [PermissionManager] Perm (FreeCamera) has been registered!
-LINHA 7: 15:31:56 | [PermissionManager] Perm ([IDENTIFICADOR MASCARADO]) has been registered!
-LINHA 8: 15:31:56 | [PermissionManager] Perm (MenuItemManager) has been registered!
-LINHA 9: 15:31:56 | [PermissionManager] Perm (MenuItemManager:SpawnItem) has been registered!
-LINHA 10: 15:31:56 | [PermissionManager] Perm (MenuItemManager:EditPreset) has been registered!
-LINHA 11: 15:31:56 | [PermissionManager] Perm (MenuItemManager:SpawnPreset) has been registered!
-LINHA 12: 15:31:56 | [PermissionManager] Perm (MenuItemManager:DeletePreset) has been registered!
-LINHA 13: 15:31:56 | [PermissionManager] Perm (MenuItemManager:AddPreset) has been registered!
-LINHA 14: 15:31:56 | [PermissionManager] Perm (MenuServerManager) has been registered!
-LINHA 15: 15:31:56 | [PermissionManager] Perm (ServerManager:RestartServer) has been registered!
-LINHA 16: 15:31:56 | [PermissionManager] Perm (ServerManager:LockServer) has been registered!
-LINHA 17: 15:31:56 | [PermissionManager] Perm (ServerManager:KickAllPlayers) has been registered!
-LINHA 18: 15:31:56 | [PermissionManager] Perm (MenuWeatherManager) has been registered!
-LINHA 19: 15:31:56 | [PermissionManager] Perm (WeatherManager:ApplyWeather) has been registered!
-LINHA 20: 15:31:56 | [PermissionManager] Perm (WeatherManager:ApplyTime) has been registered!
-LINHA 21: 15:31:56 | [PermissionManager] Perm (WeatherManager:SavePreset) has been registered!
-LINHA 22: 15:31:56 | [PermissionManager] Perm (WeatherManager:DeletePreset) has been registered!
-LINHA 23: 15:31:56 | [PermissionManager] Perm (WeatherManager:ApplyPreset) has been registered!
-LINHA 24: 15:31:56 | [PermissionManager] Perm (WeatherManager:ApplyTimePreset) has been registered!
-LINHA 25: 15:31:56 | [PermissionManager] Perm (WeatherManager:SaveTimePreset) has been registered!
-LINHA 26: 15:31:56 | [PermissionManager] Perm (WeatherManager:DeleteTimePreset) has been registered!
-LINHA 27: 15:31:56 | [PermissionManager] Perm (MenuObjectManager) has been registered!
-LINHA 28: 15:31:56 | [PermissionManager] Perm (MenuObjectManager:CreateNewSet) has been registered!
-LINHA 29: 15:31:56 | [PermissionManager] Perm (MenuObjectManager:UpdateSet) has been registered!
-LINHA 30: 15:31:56 | [PermissionManager] Perm (MenuObjectManager:DeleteSet) has been registered!
-LINHA 31: 15:31:56 | [PermissionManager] Perm (MenuObjectManager:EditSet) has been registered!
-LINHA 32: 15:31:56 | [PermissionManager] Perm (MenuPermissionsEditor) has been registered!
-LINHA 33: 15:31:56 | [PermissionManager] Perm (PermissionsEditor:RemoveUser) has been registered!
-LINHA 34: 15:31:56 | [PermissionManager] Perm (PermissionsEditor:AddUser) has been registered!
-LINHA 35: 15:31:56 | [PermissionManager] Perm (PermissionsEditor:CreateUserGroup) has been registered!
-LINHA 36: 15:31:56 | [PermissionManager] Perm (PermissionsEditor:DeleteUserGroup) has been registered!
-LINHA 37: 15:31:56 | [PermissionManager] Perm (PermissionsEditor:ChangePermLevel) has been registered!
-LINHA 38: 15:31:56 | [PermissionManager] Perm (MenuPlayerManager) has been registered!
-LINHA 39: 15:31:56 | [PermissionManager] Perm (PlayerManager:GiveGodmode) has been registered!
-LINHA 40: 15:31:56 | [PermissionManager] Perm (PlayerManager:BanPlayer) has been registered!
-LINHA 41: 15:31:56 | [PermissionManager] Perm (PlayerManager:KickPlayer) has been registered!
-LINHA 42: 15:31:56 | [PermissionManager] Perm (PlayerManager:HealPlayers) has been registered!
-LINHA 43: 15:31:56 | [PermissionManager] Perm (PlayerManager:SetPlayerStats) has been registered!
-LINHA 44: 15:31:56 | [PermissionManager] Perm (PlayerManager:KillPlayers) has been registered!
-LINHA 45: 15:31:56 | [PermissionManager] Perm (PlayerManager:GodMode) has been registered!
-LINHA 46: 15:31:56 | [PermissionManager] Perm (PlayerManager:SpectatePlayer) has been registered!
-LINHA 47: 15:31:56 | [PermissionManager] Perm (PlayerManager:TeleportToPlayer) has been registered!
-LINHA 48: 15:31:56 | [PermissionManager] Perm (PlayerManager:TeleportPlayerTo) has been registered!
-LINHA 49: 15:31:56 | [PermissionManager] Perm (PlayerManager:SetPlayerInvisible) has been registered!
-LINHA 50: 15:31:56 | [PermissionManager] Perm (PlayerManager:SendMessage) has been registered!
-LINHA 51: 15:31:56 | [PermissionManager] Perm (PlayerManager:GiveUnlimitedAmmo) has been registered!
-LINHA 52: 15:31:56 | [PermissionManager] Perm (PlayerManager:MakePlayerVomit) has been registered!
-LINHA 53: 15:31:56 | [PermissionManager] Perm (PlayerManager:FreezePlayers) has been registered!
-LINHA 54: 15:31:56 | [PermissionManager] Perm (PlayerManager:ChangeScale) has been registered!
-LINHA 55: 15:31:56 | [PermissionManager] Perm (PlayerManager:StopBleeding) has been registered!
-LINHA 56: 15:31:56 | [PermissionManager] Perm (PlayerManager:ClearInventory) has been registered!
-LINHA 57: 15:31:56 | [PermissionManager] Perm (PlayerManager:EditModifiers) has been registered!
-LINHA 58: 15:31:56 | [PermissionManager] Perm (MenuBansManager) has been registered!
-LINHA 59: 15:31:56 | [PermissionManager] Perm (BansManager:UnbanPlayer) has been registered!
-LINHA 60: 15:31:56 | [PermissionManager] Perm (BansManager:UpdateBanDuration) has been registered!
-LINHA 61: 15:31:56 | [PermissionManager] Perm (BansManager:UpdateBanReason) has been registered!
-LINHA 62: 15:31:56 | [PermissionManager] Perm (MenuSpectateTools) has been registered!
-LINHA 63: 15:31:56 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-LINHA 64: 15:31:56 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-LINHA 65: 15:31:56 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-LINHA 66: 15:31:56 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-LINHA 67: 15:31:56 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-LINHA 68: 15:31:56 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-LINHA 69: 15:31:56 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-LINHA 70: 15:31:56 | [PermissionManager] Perm (MenuTeleportManager) has been registered!
-LINHA 71: 15:31:56 | [PermissionManager] Perm (TeleportManager:ViewPlayerPositions) has been registered!
-LINHA 72: 15:31:56 | [PermissionManager] Perm (TeleportManager:TPPlayers) has been registered!
-LINHA 73: 15:31:56 | [PermissionManager] Perm (TeleportManager:TPSelf) has been registered!
-LINHA 74: 15:31:56 | [PermissionManager] Perm (TeleportManager:DeletePreset) has been registered!
-LINHA 75: 15:31:56 | [PermissionManager] Perm (TeleportManager:AddNewPreset) has been registered!
-LINHA 76: 15:31:56 | [PermissionManager] Perm (TeleportManager:EditPreset) has been registered!
-LINHA 77: 15:31:56 | [PermissionManager] Perm (TeleportManager:TeleportEntity) has been registered!
-LINHA 78: 15:31:56 | [PermissionManager] Perm (EspToolsMenu) has been registered!
-LINHA 79: 15:31:56 | [PermissionManager] Perm (EspToolsMenu:DeleteObjects) has been registered!
-LINHA 80: 15:31:56 | [PermissionManager] Perm (EspToolsMenu:PlayerESP) has been registered!
-LINHA 81: 15:31:56 | [PermissionManager] Perm (EspToolsMenu:RestPasscodeFence) has been registered!
-LINHA 82: 15:31:56 | [PermissionManager] Perm (EspToolsMenu:RetriveCodeFromObj) has been registered!
-LINHA 83: 15:31:56 | [PermissionManager] Perm (EspToolsMenu:PlayerMeshEsp) has been registered!
-LINHA 84: 15:31:56 | [PermissionManager] Perm (EspToolsMenu:InstantBaseBuild) has been registered!
-LINHA 85: 15:31:56 | [PermissionManager] Perm (MenuXMLEditor) has been registered!
-LINHA 86: 15:31:56 | [PermissionManager] Perm (MenuXMLEditor:EditTypes) has been registered!
-LINHA 87: 15:31:56 | [PermissionManager] Perm (MenuXMLEditor:AddRemoveTypes) has been registered!
-LINHA 88: 15:31:56 | [PermissionManager] Perm (MenuXMLEditor:DistributionMap) has been registered!
-LINHA 89: 15:31:56 | [PermissionManager] Perm (MenuXMLEditor:ViewBackups) has been registered!
-LINHA 90: 15:31:56 | [PermissionManager] Perm (MenuXMLEditor:RestoreBackup) has been registered!
-LINHA 91: 15:31:56 | [PermissionManager] Perm (MenuXMLEditor:DeleteBackup) has been registered!
-LINHA 92: 15:31:56 | [PermissionManager] Perm (MenuXMLEditor:LiveScan) has been registered!
-LINHA 93: 15:31:56 | [PermissionManager] Perm (MenuXMLEditor:DeleteObjects) has been registered!
-LINHA 94: 15:31:56 | [PermissionManager] Perm (MenuXMLEditor:EditMessages) has been registered!
-LINHA 95: 15:31:56 | [PermissionManager] Perm (MenuXMLEditor:EditEvents) has been registered!
-LINHA 96: 15:31:56 | [PermissionManager] Perm (MenuXMLEditor:EditSpawnables) has been registered!
-LINHA 97: 15:31:56 | [PermissionManager] Perm (MenuCommandsConsole) has been registered!
-LINHA 98: 15:31:56 | [PermissionManager] Perm (ContextMenu:ItemHealth) has been registered!
-LINHA 99: 15:31:56 | [PermissionManager] Perm (ContextMenu:WeaponLoad) has been registered!
-LINHA 100: 15:31:56 | [PermissionManager] Perm (ContextMenu:CreatureHeal) has been registered!
-LINHA 101: 15:31:56 | [PermissionManager] Perm (ContextMenu:SpawnAttachment) has been registered!
-LINHA 102: 15:31:56 | [PermissionManager] Perm (ContextMenu:CreatureKill) has been registered!
-LINHA 103: 15:31:56 | [PermissionManager] Perm (ContextMenu:ItemQuantity) has been registered!
-LINHA 104: 15:31:56 | [PermissionManager] Perm (ContextMenu:SetScale) has been registered!
-LINHA 105: 15:31:56 | [PermissionManager] Perm (ContextMenu:VehicleRefuel) has been registered!
-LINHA 106: 15:31:56 | [PermissionManager] Perm (ContextMenu:WeaponRefill) has been registered!
-LINHA 107: 15:31:56 | [PermissionManager] Perm (ContextMenu:Ragdoll) has been registered!
-LINHA 108: 15:31:56 | [PermissionManager] Perm (ContextMenu:WeaponJam) has been registered!
-LINHA 109: 15:31:56 | [PermissionManager] Perm (ContextMenu:WeaponEject) has been registered!
-LINHA 110: 15:31:57 | [PermissionManager] Adding Super Admin (76561198196693358)
-LINHA 111: 15:31:57 | [PermissionManager] Adding Super Admin (76561199508282814)
-LINHA 112: 15:31:57 | [PermissionManager] Loaded UserGroups.json
-LINHA 113: 15:31:57 | [BansManager]:: Load(): Loading ban list Json File $profile:VPPAdminTools/BanList.json
-LINHA 114: 15:31:57 | [PermissionManager] Perm (Chat:StripPlayer) has been registered!
-LINHA 115: 15:31:57 | [PermissionManager] Perm (Chat:KillPlayer) has been registered!
-LINHA 116: 15:31:57 | [PermissionManager] Perm (Chat:HealPlayer) has been registered!
-LINHA 117: 15:31:57 | [PermissionManager] Perm (Chat:BringPlayer) has been registered!
-LINHA 118: 15:31:57 | [PermissionManager] Perm (Chat:ReturnPlayer) has been registered!
-LINHA 119: 15:31:57 | [PermissionManager] Perm (Chat:GotoPlayer) has been registered!
-LINHA 120: 15:31:57 | [PermissionManager] Perm (Chat:UnbanPlayer) has been registered!
-LINHA 121: 15:31:57 | [PermissionManager] Perm (Chat:TeleportToTown) has been registered!
-LINHA 122: 15:31:57 | [PermissionManager] Perm (Chat:TeleportToPoint) has been registered!
-LINHA 123: 15:31:57 | [PermissionManager] Perm (Chat:GiveAmmo) has been registered!
-LINHA 124: 15:31:57 | [PermissionManager] Perm (Chat:SpawnInventory) has been registered!
-LINHA 125: 15:31:57 | [PermissionManager] Perm (Chat:SpawnOnGround) has been registered!
-LINHA 126: 15:31:57 | [PermissionManager] Perm (Chat:SpawnInHands) has been registered!
-LINHA 127: 15:31:57 | [PermissionManager] Perm (Chat:SpawnCar) has been registered!
-LINHA 128: 15:31:57 | [PermissionManager] Perm (Chat:refuelCar) has been registered!
-LINHA 129: 15:31:57 | [WeatherManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 130: 15:31:57 | [TimeManager] Loading Json File $profile:[IDENTIFICADOR MASCARADO].json
-LINHA 131: 15:31:57 | [BuildingSetManager] Journal: 0 set(s) loaded, 0 found by the folder scan, 0 dropped, 0 converted from .vpp, 0 upgraded to format 2
-LINHA 132: 15:31:57 | [SteamAPIManager] WARNING couldn't fetch server IP from configs; using cURL...
-LINHA 133 : [CONTEUDO SENSIVEL MASCARADO]
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Permissions\credentials.txt
-TAMANHO: 247 bytes
---------------------------------------------------
-LINHA 1: [IDENTIFICADOR MASCARADO]
-LINHA 2 : [CONTEUDO SENSIVEL MASCARADO]
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Permissions\webhooks_perms_v1.txt
-TAMANHO: 1 bytes
---------------------------------------------------
-LINHA 1: 1
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Permissions\xmleditor_perms_v1.txt
-TAMANHO: 1 bytes
---------------------------------------------------
-LINHA 1: 1
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Permissions\xmleditor_perms_v2.txt
-TAMANHO: 1 bytes
---------------------------------------------------
-LINHA 1: 1
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Permissions\xmleditor_perms_v3.txt
-TAMANHO: 1 bytes
---------------------------------------------------
-LINHA 1: 1
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Permissions\xmleditor_perms_v4.txt
-TAMANHO: 1 bytes
---------------------------------------------------
-LINHA 1: 1
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Permissions\SuperAdmins\SuperAdmins.txt
-TAMANHO: 36 bytes
---------------------------------------------------
-LINHA 1: 76561198196693358
-LINHA 2: 76561199508282814
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json
-TAMANHO: 4649 bytes
---------------------------------------------------
-LINHA 1: [
-LINHA 2:     {
-LINHA 3:         "m_groupName": "Admins",
-LINHA 4:         "m_permissionLevel": 1,
-LINHA 5:         "m_GroupMembers": [
-LINHA 6:             {
-LINHA 7:                 "m_UserName": "Example User",
-LINHA 8:                 "m_Steam64ID": "26561198420222028",
-LINHA 9:                 "m_SessionId": -1
-LINHA 10:             }
-LINHA 11:         ],
-LINHA 12:         "m_Permissions": [
-LINHA 13:             "DeleteObjectAtCrosshair",
-LINHA 14:             "TeleportToCrosshair",
-LINHA 15:             "FreeCamera",
-LINHA 16:             "[IDENTIFICADOR MASCARADO]",
-LINHA 17:             "MenuItemManager",
-LINHA 18:             "MenuItemManager:SpawnItem",
-LINHA 19:             "MenuItemManager:EditPreset",
-LINHA 20:             "MenuItemManager:SpawnPreset",
-LINHA 21:             "MenuItemManager:DeletePreset",
-LINHA 22:             "MenuItemManager:AddPreset",
-LINHA 23:             "MenuServerManager",
-LINHA 24:             "ServerManager:RestartServer",
-LINHA 25:             "ServerManager:LockServer",
-LINHA 26:             "ServerManager:KickAllPlayers",
-LINHA 27:             "MenuWeatherManager",
-LINHA 28:             "WeatherManager:ApplyWeather",
-LINHA 29:             "WeatherManager:ApplyTime",
-LINHA 30:             "WeatherManager:SavePreset",
-LINHA 31:             "WeatherManager:DeletePreset",
-LINHA 32:             "WeatherManager:ApplyPreset",
-LINHA 33:             "WeatherManager:ApplyTimePreset",
-LINHA 34:             "WeatherManager:SaveTimePreset",
-LINHA 35:             "WeatherManager:DeleteTimePreset",
-LINHA 36:             "MenuObjectManager",
-LINHA 37:             "MenuObjectManager:CreateNewSet",
-LINHA 38:             "MenuObjectManager:UpdateSet",
-LINHA 39:             "MenuObjectManager:DeleteSet",
-LINHA 40:             "MenuObjectManager:EditSet",
-LINHA 41:             "MenuPermissionsEditor",
-LINHA 42:             "PermissionsEditor:RemoveUser",
-LINHA 43:             "PermissionsEditor:AddUser",
-LINHA 44:             "PermissionsEditor:CreateUserGroup",
-LINHA 45:             "PermissionsEditor:DeleteUserGroup",
-LINHA 46:             "PermissionsEditor:ChangePermLevel",
-LINHA 47:             "MenuPlayerManager",
-LINHA 48:             "PlayerManager:GiveGodmode",
-LINHA 49:             "PlayerManager:BanPlayer",
-LINHA 50:             "PlayerManager:KickPlayer",
-LINHA 51:             "PlayerManager:HealPlayers",
-LINHA 52:             "PlayerManager:SetPlayerStats",
-LINHA 53:             "PlayerManager:KillPlayers",
-LINHA 54:             "PlayerManager:GodMode",
-LINHA 55:             "PlayerManager:SpectatePlayer",
-LINHA 56:             "PlayerManager:TeleportToPlayer",
-LINHA 57:             "PlayerManager:TeleportPlayerTo",
-LINHA 58:             "PlayerManager:SetPlayerInvisible",
-LINHA 59:             "PlayerManager:SendMessage",
-LINHA 60:             "PlayerManager:GiveUnlimitedAmmo",
-LINHA 61:             "PlayerManager:MakePlayerVomit",
-LINHA 62:             "PlayerManager:FreezePlayers",
-LINHA 63:             "PlayerManager:ChangeScale",
-LINHA 64:             "PlayerManager:StopBleeding",
-LINHA 65:             "PlayerManager:ClearInventory",
-LINHA 66:             "PlayerManager:EditModifiers",
-LINHA 67:             "MenuBansManager",
-LINHA 68:             "BansManager:UnbanPlayer",
-LINHA 69:             "BansManager:UpdateBanDuration",
-LINHA 70:             "BansManager:UpdateBanReason",
-LINHA 71:             "MenuSpectateTools",
-LINHA 72:             "MenuWebHooks",
-LINHA 73:             "MenuWebHooks:Create",
-LINHA 74:             "MenuWebHooks:Edit",
-LINHA 75:             "MenuWebHooks:Delete",
-LINHA 76:             "MenuWebHooks:EditTemplates",
-LINHA 77:             "MenuWebHooks:TestSend",
-LINHA 78:             "MenuWebHooks:ViewURL",
-LINHA 79:             "MenuTeleportManager",
-LINHA 80:             "TeleportManager:ViewPlayerPositions",
-LINHA 81:             "TeleportManager:TPPlayers",
-LINHA 82:             "TeleportManager:TPSelf",
-LINHA 83:             "TeleportManager:DeletePreset",
-LINHA 84:             "TeleportManager:AddNewPreset",
-LINHA 85:             "TeleportManager:EditPreset",
-LINHA 86:             "TeleportManager:TeleportEntity",
-LINHA 87:             "EspToolsMenu",
-LINHA 88:             "EspToolsMenu:DeleteObjects",
-LINHA 89:             "EspToolsMenu:PlayerESP",
-LINHA 90:             "EspToolsMenu:RestPasscodeFence",
-LINHA 91:             "EspToolsMenu:RetriveCodeFromObj",
-LINHA 92:             "EspToolsMenu:PlayerMeshEsp",
-LINHA 93:             "EspToolsMenu:InstantBaseBuild",
-LINHA 94:             "MenuXMLEditor",
-LINHA 95:             "MenuXMLEditor:EditTypes",
-LINHA 96:             "MenuXMLEditor:AddRemoveTypes",
-LINHA 97:             "MenuXMLEditor:DistributionMap",
-LINHA 98:             "MenuXMLEditor:ViewBackups",
-LINHA 99:             "MenuXMLEditor:RestoreBackup",
-LINHA 100:             "MenuXMLEditor:DeleteBackup",
-LINHA 101:             "MenuXMLEditor:LiveScan",
-LINHA 102:             "MenuXMLEditor:DeleteObjects",
-LINHA 103:             "MenuXMLEditor:EditMessages",
-LINHA 104:             "MenuXMLEditor:EditEvents",
-LINHA 105:             "MenuXMLEditor:EditSpawnables",
-LINHA 106:             "MenuCommandsConsole",
-LINHA 107:             "ContextMenu:ItemHealth",
-LINHA 108:             "ContextMenu:WeaponLoad",
-LINHA 109:             "ContextMenu:CreatureHeal",
-LINHA 110:             "ContextMenu:SpawnAttachment",
-LINHA 111:             "ContextMenu:CreatureKill",
-LINHA 112:             "ContextMenu:ItemQuantity",
-LINHA 113:             "ContextMenu:SetScale",
-LINHA 114:             "ContextMenu:VehicleRefuel",
-LINHA 115:             "ContextMenu:WeaponRefill",
-LINHA 116:             "ContextMenu:Ragdoll",
-LINHA 117:             "ContextMenu:WeaponJam",
-LINHA 118:             "ContextMenu:WeaponEject"
-LINHA 119:         ],
-LINHA 120:         "m_ForceSavedName": 0
-LINHA 121:     }
-LINHA 122: ]
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\XMLEditor\XMLEditorSettings.json
-TAMANHO: 328 bytes
---------------------------------------------------
-LINHA 1: {
-LINHA 2:     "BackupMaxPerFile": 30,
-LINHA 3:     "BackupMaxAgeDays": 30,
-LINHA 4:     "BackupMaxTotalMB": 250,
-LINHA 5:     "CacheIdleMinutes": 15,
-LINHA 6:     "LiveScanMaxResults": 2000,
-LINHA 7:     "LiveScanCooldownSec": 10,
-LINHA 8:     "EnableAreaFlags": 1,
-LINHA 9:     "JobBudgetMs": 4,
-LINHA 10:     "JobBoostMs": 8,
-LINHA 11:     "BackgroundSharePct": 25,
-LINHA 12:     "NetChunksPer100ms": 3,
-LINHA 13:     "PrewarmTypes": 1
-LINHA 14: }
-
---------------------------------------------------
-ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\XMLEditor\Cache\eol_probe.txt
-TAMANHO: 6 bytes
---------------------------------------------------
-LINHA 1: A
-LINHA 2: B
-LINHA 3: C
-
-==================================================
-5. ARQUIVOS EM FORMATO PROPRIO
-==================================================
-
-
-Arquivo      : C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\ItemManager\SavedItemPresets.vpp
-Extensao     : .vpp
-Tamanho      : 561
-CabecalhoHex : 02-00-00-00-02-00-00-00-12-00-00-00-43-69-76-69-6C-69-61-6E-20-53-65-64-61-6E-20-43-61-72-0D-00
-
-
+PBOs encontrados: 188
+Modo: leitura binaria, sem extracao ou alteracao.
+
+================================================================================
+PBO: C:\DayZServer\@A_BeautifulCoyote\addons\ABeautiful_Coyote.pbo
+Tamanho: 23,699,765 bytes
+  TERMO: GetPlayer | ocorrencias: 4
+    Offset: 19841349 | Contexto: t()..{...array<Man> players = new array<Man>;...g_Game.GetPlayers(players);...PlayerBase best;...float bestD2 = float.MAX;...vector me = GetPosition();...foreach (
+    Offset: 19841867 | Contexto: os)..{...array<Man> players = new array<Man>;...g_Game.GetPlayers(players);...PlayerBase best;...float bestD2 = float.MAX;...foreach (Man m : players)...{....Playe
+    Offset: 19842380 | Contexto: e()..{...array<Man> players = new array<Man>;...g_Game.GetPlayers(players);...vector me = GetPosition();...foreach (Man m : players)...{....PlayerBase p = PlayerBa
+  TERMO: slot | ocorrencias: 18
+    Offset: 24041 | Contexto: h.......proximityAttackRange... @..attackCooldown......SlotCowering.jB...SlotCalmGrazing..B...SlotSiege..F...SlotEating..K...SlotHunting..P...SlotCalmRes
+    Offset: 24059 | Contexto: ttackRange... @..attackCooldown......SlotCowering.jB...SlotCalmGrazing..B...SlotSiege..F...SlotEating..K...SlotHunting..P...SlotCalmResting..T...SlotCalm
+    Offset: 24080 | Contexto: ckCooldown......SlotCowering.jB...SlotCalmGrazing..B...SlotSiege..F...SlotEating..K...SlotHunting..P...SlotCalmResting..T...SlotCalmTravelling..X...SlotA
+================================================================================
+PBO: C:\DayZServer\@A_BeautifulKomodoDragon\addons\Beautiful_Komodo.pbo
+Tamanho: 2,877,647 bytes
+  TERMO: GetIdentity | ocorrencias: 2
+    Offset: 2807895 | Contexto: ..{...PlayerBase p = PlayerBase.Cast(e);....if (p && p.GetIdentity())....return "\"" + p.GetIdentity().GetName() + "\"";....return e.GetType();..}...// Why NLZ_IsTarge
+    Offset: 2807929 | Contexto: st(e);....if (p && p.GetIdentity())....return "\"" + p.GetIdentity().GetName() + "\"";....return e.GetType();..}...// Why NLZ_IsTarget turned a player down...protected
+  TERMO: GetPlayer | ocorrencias: 1
+    Offset: 2817087 | Contexto:  NLZ_CollectPlayers(array<Man> players)..{...GetGame().GetPlayers(players);..}...// The infected within INFECTED_SCAN_RADIUS, looked up at most every..// INFECTED_
+  TERMO: queue | ocorrencias: 1
+    Offset: 2825801 | Contexto: Z_KomodoSickness.Infect(p);...else....GetGame().GetCallQueue(CALL_CATEGORY_GAMEPLAY).CallLater(NLZ_KomodoSickness.Infect, delay, false, p);..}...// A bite
+  TERMO: slot | ocorrencias: 1
+    Offset: 2815274 | Contexto: ull;....if (!ctrl)....return;....ctrl.OverrideBehaviourSlot(false, 0);...ctrl.OverrideBehaviourAction(false, 0);...ctrl.OverrideTurnSpeed(false, 0);...ct
+================================================================================
+PBO: C:\DayZServer\@A_BeautifulMotorbikePassenger\addons\BikesSeat2.pbo
+Tamanho: 1,136,037 bytes
+  TERMO: queue | ocorrencias: 1
+    Offset: 1132132 | Contexto: cWeapon();....PlayerBase self = this;....g_Game.GetCallQueue(CALL_CATEGORY_GAMEPLAY).CallLater(self.BSP_ResyncWeapon, 600, false);...}..}.../*...The instan
+  TERMO: reserved | ocorrencias: 1
+    Offset: 1124139 | Contexto: r, il, true, 10000, action_data))...{....action_data.m_ReservedInventoryLocations.Insert(il);....return true;...}....return false;..}.}.modded class ActionConstr
+  TERMO: slot | ocorrencias: 4
+    Offset: 1121292 | Contexto: the seat the player looks at, and on..a bike both crew slots share the one "seat_driver" selection, so it can only ever offer the driver seat. This one..
+    Offset: 1121438 | Contexto: s one..targets the bike itself and takes the passenger slot when the rider is already on..*/.class ActionGetInBikePassenger: ActionBase.{..void ActionGet
+    Offset: 1124436 | Contexto: senger);..}.}..//! never put anyone into the passenger slot from the driver's get in.modded class ActionGetInTransport.{..override bool ActionCondition(P
+================================================================================
+PBO: C:\DayZServer\@A_BeautifulNasdaraCactusHurts\addons\Nasdara_Cactus.pbo
+Tamanho: 5,092 bytes
+  TERMO: slot | ocorrencias: 1
+    Offset: 4567 | Contexto: )..{...ItemBase gloves = ItemBase.Cast(FindAttachmentBySlotName("Gloves"));...if (gloves && !gloves.IsDamageDestroyed())....return false;....if (!GetBlee
+================================================================================
+PBO: C:\DayZServer\@BuildingFortifications\Addons\BuildingFortifications.pbo
+Tamanho: 161,106,427 bytes
+  TERMO: OnConnect | ocorrencias: 2
+    Offset: 160953604 | Contexto: icationsConfig();...#endif...}.....override void InvokeOnConnect(PlayerBase player, PlayerIdentity identity)...{....super.InvokeOnConnect(player, identity);.....#i
+    Offset: 160953677 | Contexto: se player, PlayerIdentity identity)...{....super.InvokeOnConnect(player, identity);.....#ifdef SERVER....//! Request building fortifications server configuration o
+  TERMO: GetPlainId | ocorrencias: 1
+    Offset: 160812109 | Contexto: CLPermissionManager().UserIsAdmin(player.GetIdentity().GetPlainId())) {..                        lockState = "Admin Lock";..                        return true;..
+  TERMO: GetIdentity | ocorrencias: 16
+    Offset: 160797562 | Contexto: {.....PlayerBase player;.....string Firsthalf = player.GetIdentity().GetName() + " (GUID: " +  player.GetIdentity().GetId() + ") " + " Destroyed" + action_data.m_Targe
+    Offset: 160797609 | Contexto:  player.GetIdentity().GetName() + " (GUID: " +  player.GetIdentity().GetId() + ") " + " Destroyed" + action_data.m_Target.GetObject().GetDisplayName();.....string Seco
+    Offset: 160808574 | Contexto:               bool isOwner = codelockRS.IsOwner(player.GetIdentity().GetId());..                bool isGuest = codelockRS.IsGuest(player.GetIdentity().GetId());..
+  TERMO: GetPlayer | ocorrencias: 3
+    Offset: 160795365 | Contexto: ...{....PlayerBase player = PlayerBase.Cast( GetGame().GetPlayer() );....int DisableDestory = GetBuildingFortificationsConfig().Disable_Raiding_Tool;....if ( playe
+    Offset: 160827057 | Contexto: ...{.....PlayerBase player = PlayerBase.Cast(GetGame().GetPlayer());....if(IsPlayerInside(player,"") == true)....{.....if (category_name == "Base" && !HasBase())..
+    Offset: 160893896 | Contexto: ...{.....PlayerBase player = PlayerBase.Cast(GetGame().GetPlayer());.....if (player).....{......ConstructionActionData construction_action_data = player.GetConstru
+  TERMO: PlayerIdentity | ocorrencias: 8
+    Offset: 160792959 | Contexto: ;....modded class DayZGame..{..    override void OnRPC(PlayerIdentity sender, Object target, int rpc_type, ParamsReadContext ctx)..    {..        super.OnRPC(sender, target,
+    Offset: 160809254 | Contexto:     PlayerBase player = action_data.m_Player;..        PlayerIdentity identity = player.GetIdentity();..        BuildingFortficationsCore fence = BuildingFortficationsCore.C
+    Offset: 160811375 | Contexto: sCore.Cast(action_data.m_Target.GetObject());..        PlayerIdentity playerId = action_data.m_Player.GetIdentity();....        if (fence) {..            GetCodeLockLogger()
+  TERMO: queue | ocorrencias: 25
+    Offset: 160834372 | Contexto: e);..........//regenerate navmesh.....GetGame().GetCallQueue(CALL_CATEGORY_GAMEPLAY).CallLater(UpdateNavmesh, GATE_ROTATION_TIME_APPROX, false);........../
+    Offset: 160834757 | Contexto: agePos(0,true);........//add check....GetGame().GetCallQueue(CALL_CATEGORY_GAMEPLAY).Remove(CheckFenceClosed);....GetGame().GetCallQueue(CALL_CATEGORY_GAME
+    Offset: 160834833 | Contexto: AMEPLAY).Remove(CheckFenceClosed);....GetGame().GetCallQueue(CALL_CATEGORY_GAMEPLAY).CallLater(CheckFenceOpened, 0, true);...}.....override void CloseFence
+  TERMO: connection | ocorrencias: 35
+    Offset: 67099503 | Contexto: dcontact.canclimb.0.ignorecomponents.1.generateoffmesshconnections.0...............(..;...5....?............7.5.7.55............5......................@.............
+    Offset: 67189095 | Contexto: slopelandcontact.canclimb.0.damage.wall.generateoffmeshconnections.0...............(...........?............7.5.7.5.................(I(.*..=.3..r7..*..=.3..(I(.s..@.
+    Offset: 67210335 | Contexto: slopelandcontact.canclimb.0.damage.wall.generateoffmeshconnections.0...............(...........?............7.5.7.5.................&`.....<."u.|_.>...<."u.&`... .?.
+  TERMO: connect | ocorrencias: 51
+    Offset: 67099503 | Contexto: dcontact.canclimb.0.ignorecomponents.1.generateoffmesshconnections.0...............(..;...5....?............7.5.7.55............5......................@.......
+    Offset: 67189095 | Contexto: slopelandcontact.canclimb.0.damage.wall.generateoffmeshconnections.0...............(...........?............7.5.7.5.................(I(.*..=.3..r7..*..=.3..(I(
+    Offset: 67210335 | Contexto: slopelandcontact.canclimb.0.damage.wall.generateoffmeshconnections.0...............(...........?............7.5.7.5.................&`.....<."u.|_.>...<."u.&`.
+  TERMO: slot | ocorrencias: 355
+    Offset: 15439 | Contexto: ...scripts\4_World\BuildingFortifications\Recipes\CraftSlottedPlank.c.............%C[g....scripts\4_World\BuildingFortifications\Recipes\CraftWindowBarri
+    Offset: 160779499 | Contexto: Name = partName;..    }....    void AddMaterial(string slotName, int quantity)..    {..        BFConstructionMaterial mat = new BFConstructionMaterial(sl
+    Offset: 160779595 | Contexto: FConstructionMaterial mat = new BFConstructionMaterial(slotName, quantity);..        Materials.Insert(mat);..    }....    array<ref BFConstructionMateria
+================================================================================
+PBO: C:\DayZServer\@CF\addons\gui.pbo
+Tamanho: 97,235 bytes
+  TERMO: priority | ocorrencias: 6
+    Offset: 591 | Contexto: {.. size 1 1.. halign center_ref.. valign center_ref.. priority 995.. {..  WrapSpacerWidgetClass Licensing {..   clipchildren 0..   position 0.05 0.062..   size
+    Offset: 797 | Contexto: ..   vexactpos 0..   hexactsize 0..   vexactsize 1..   priority 5..   Padding 8..   Margin 0..   "Size To Content H" 1..   "Size To Content V" 1..   content_vali
+    Offset: 1151 | Contexto: exactpos 1..     hexactsize 0..     vexactsize 0..     priority 2..     text "#main_menu_version"..     font "gui/fonts/sdf_MetronLight24"..     "exact text" 0..
+================================================================================
+PBO: C:\DayZServer\@CF\addons\scripts.pbo
+Tamanho: 438,303 bytes
+  TERMO: OnClientNewEvent | ocorrencias: 5
+    Offset: 370443 | Contexto: ne, not exposed in script)... * 4) 14 s MissionServer::OnClientNewEvent... * 5) PlayerBase::OnSelectPlayer... * 6) MissionServer::InvokeOnConnect... * ... * On connect (existing
+    Offset: 371280 | Contexto: ne, not exposed in script)... * 3) -- s MissionServer::OnClientNewEvent (time varies based on respawnTime)... * 4) PlayerBase::OnSelectPlayer... * 5) MissionServer::InvokeOnConn
+    Offset: 431616 | Contexto: ( player, identity, uid );...}.....override PlayerBase OnClientNewEvent( PlayerIdentity identity, vector pos, ParamsReadContext ctx )...{....CF_Log.Debug("[CF] MissionServer::On
+  TERMO: OnClientReadyEvent | ocorrencias: 4
+    Offset: 371035 | Contexto: ntity (for each item on player)... * 6) MissionServer::OnClientReadyEvent... * 7) PlayerBase::OnSelectPlayer... * 8) MissionServer::InvokeOnConnect... * ... * On respawn:... * 1) Mi
+    Offset: 429061 | Contexto: new CF_EventPlayerArgs(player));...}.....override void OnClientReadyEvent( PlayerIdentity identity, PlayerBase player )...{....CF_Log.Debug("[CF] MissionServer::OnClientReadyEvent -
+    Offset: 429167 | Contexto: Base player )...{....CF_Log.Debug("[CF] MissionServer::OnClientReadyEvent - %1 %2 - ID '%3' - player.GetIdentity() = %4", "" + identity, "" + player, identity.GetId(), "" + player.G
+  TERMO: OnClientDisconnected | ocorrencias: 4
+    Offset: 371451 | Contexto: OnConnect... * ... * On logout:... * 1) MissionServer::OnClientDisconnectedEvent (calls OnClientLogout for CF modules)... * 2) MissionServer::OnEvent LogoutCancelEventTypeID (if player
+    Offset: 430141 | Contexto: tPlayerArgs(player, identity));...}......override void OnClientDisconnectedEvent( PlayerIdentity identity, PlayerBase player, int logoutTime, bool authFailed )...{....CF_Log.Debug("[CF]
+    Offset: 430287 | Contexto:  authFailed )...{....CF_Log.Debug("[CF] MissionServer::OnClientDisconnectedEvent - %1 %2 - ID '%3' - player.GetIdentity() = %4", "" + identity, "" + player, identity.GetId(), "" + playe
+  TERMO: OnEvent | ocorrencias: 5
+    Offset: 230381 | Contexto: (sender, target, rpc_type, ctx);...}.....override void OnEvent(EventType eventTypeId, Param params)...{....super.OnEvent(eventTypeId, params);......switch (eve
+    Offset: 230439 | Contexto: vent(EventType eventTypeId, Param params)...{....super.OnEvent(eventTypeId, params);......switch (eventTypeId)....{....case MPSessionStartEventTypeID:....{....
+    Offset: 371538 | Contexto:  OnClientLogout for CF modules)... * 2) MissionServer::OnEvent LogoutCancelEventTypeID (if player cancels logout countdown, calls OnClientLogoutCancelled for C
+  TERMO: OnConnect | ocorrencias: 7
+    Offset: 370524 | Contexto: layerBase::OnSelectPlayer... * 6) MissionServer::InvokeOnConnect... * ... * On connect (existing character):... * 1) MissionServer::OnClientPrepareEvent... * 2) EO
+    Offset: 371118 | Contexto: layerBase::OnSelectPlayer... * 8) MissionServer::InvokeOnConnect... * ... * On respawn:... * 1) MissionServer::OnClientPrepareEvent... * 2) EOnClientPrepare (engin
+    Offset: 371396 | Contexto: layerBase::OnSelectPlayer... * 5) MissionServer::InvokeOnConnect... * ... * On logout:... * 1) MissionServer::OnClientDisconnectedEvent (calls OnClientLogout for C
+  TERMO: OnDisconnect | ocorrencias: 5
+    Offset: 371851 | Contexto: isconnect for CF modules)... * 2) MissionServer::InvokeOnDisconnect (called by PlayerDisconnected, only if player character not yet deleted)... * 3) PlayerBase::OnStoreS
+    Offset: 383661 | Contexto: s args);...../**... * @brief See: MissionServer::InvokeOnDisconnect... */...void OnInvokeDisconnect(Class sender, CF_EventArgs args);...../**... * @brief See: ClientNewE
+    Offset: 428800 | Contexto: erArgs(player, identity));...}.....override void InvokeOnDisconnect( PlayerBase player )...{....CF_Log.Debug("[CF] MissionServer::InvokeOnDisconnect %1", "" + player);..
+  TERMO: GetPlainId | ocorrencias: 1
+    Offset: 298620 | Contexto: der!");......return;.....}.......recievedFrom = sender.GetPlainId();....}........map< string, ref RPCMetaWrapper > functions;....if ( m_RPCActions.Find( modName, fun
+  TERMO: GetIdentity | ocorrencias: 17
+    Offset: 362861 | Contexto: a queued ID at that point....PlayerIdentity identity = GetIdentity();....if (identity)....{.....string id = identity.GetId();.....if (m_CF_IdentityID != id).....{.....
+    Offset: 363589 | Contexto: nected"})).....m_CF_IdentityID = id;...}.....string CF_GetIdentityId(bool fallBackToQueue=true)...{....PlayerIdentity currentIdentity = GetIdentity();....string id;...
+    Offset: 363670 | Contexto: kToQueue=true)...{....PlayerIdentity currentIdentity = GetIdentity();....string id;......//! Always prefer current identity when it is available....if (currentIdentity
+  TERMO: PlayerIdentity | ocorrencias: 41
+    Offset: 181157 | Contexto: e2;...}..};..class CF_EventRPCArgs : CF_EventArgs..{...PlayerIdentity Sender;...Object Target;...int ID;...Serializer Context;..};..class CF_Expression..{...protected string
+    Offset: 228994 | Contexto: ate(timeslice);.....}....}...}.....override void OnRPC(PlayerIdentity sender, Object target, int rpc_type, ParamsReadContext ctx)...{..#ifdef CF_TRACE_ENABLED....auto trace
+    Offset: 269510 | Contexto: onLoaded(this, CF_EventArgs.Empty);...}.....void OnRPC(PlayerIdentity sender, Object target, int rpc_type, ParamsReadContext ctx)...{....auto args = new CF_EventRPCArgs();..
+  TERMO: queue | ocorrencias: 2
+    Offset: 362808 | Contexto: ty will already be removed) and we don't want to use a queued ID at that point....PlayerIdentity identity = GetIdentity();....if (identity)....{.....string
+    Offset: 363618 | Contexto: D = id;...}.....string CF_GetIdentityId(bool fallBackToQueue=true)...{....PlayerIdentity currentIdentity = GetIdentity();....string id;......//! Always pre
+  TERMO: connection | ocorrencias: 20
+    Offset: 96947 | Contexto: nager.s_MPConnectAbort.Add(this);...}.....void EnableMPConnectionLost()...{....CF_ModuleCoreManager.s_MPConnectionLost.Add(this);...}.....void EnableRespawn()...{...
+    Offset: 96996 | Contexto: ableMPConnectionLost()...{....CF_ModuleCoreManager.s_MPConnectionLost.Add(this);...}.....void EnableRespawn()...{....CF_ModuleCoreManager.s_Respawn.Add(this);...}...
+    Offset: 98506 | Contexto: sender, CF_EventArgs args);...../**... * @brief See: MPConnectionLostEventTypeID... */...void OnMPConnectionLost(Class sender, CF_EventArgs args);...../**... * @brie
+  TERMO: connect | ocorrencias: 155
+    Offset: 96855 | Contexto: Manager.s_MPSessionEnd.Add(this);...}.....void EnableMPConnectAbort()...{....CF_ModuleCoreManager.s_MPConnectAbort.Add(this);...}.....void EnableMPConnectionLo
+    Offset: 96902 | Contexto: EnableMPConnectAbort()...{....CF_ModuleCoreManager.s_MPConnectAbort.Add(this);...}.....void EnableMPConnectionLost()...{....CF_ModuleCoreManager.s_MPConnection
+    Offset: 96947 | Contexto: nager.s_MPConnectAbort.Add(this);...}.....void EnableMPConnectionLost()...{....CF_ModuleCoreManager.s_MPConnectionLost.Add(this);...}.....void EnableRespawn().
+  TERMO: login | ocorrencias: 37
+    Offset: 5038 | Contexto: .....Jb"...3_Game\CommunityFramework\EventArgs\CF_EventLoginArgs.c...............Jb....3_Game\CommunityFramework\EventArgs\CF_EventRPCArgs.c.....w.........
+    Offset: 97119 | Contexto: uleCoreManager.s_Respawn.Add(this);...}.....void EnableLoginTime()...{....CF_ModuleCoreManager.s_LoginTime.Add(this);...}.....void EnableLoginStatus()...{.
+    Offset: 97161 | Contexto: ..void EnableLoginTime()...{....CF_ModuleCoreManager.s_LoginTime.Add(this);...}.....void EnableLoginStatus()...{....CF_ModuleCoreManager.s_LoginStatus.Add(
+  TERMO: slot | ocorrencias: 4
+    Offset: 417459 | Contexto: )....{.....location.SetAttachment(this, NULL, InventorySlots.MAGAZINE);.....success = Class.CastTo(magazine, SpawnEntity(magazineType, location, ECE_IN_I
+    Offset: 419286 | Contexto: ..}......// Magazine has to attach into the attachment slot....if (isMagazine)....{.....InventoryLocation srcLocation();.....magazine.GetInventory().GetC
+    Offset: 419516 | Contexto: ....dstLocation.SetAttachment(this, magazine, InventorySlots.MAGAZINE);.......// If false, then the magazine is already properly attached to the desired
+  TERMO: servermod | ocorrencias: 1
+    Offset: 437614 | Contexto: "", {"ResourceManager", "ScriptEditor"})]..class LaunchServerModTool: DayZProjectManager..{...override void Run()...{....RunDayZBat(string.Format("P:\\%1\\Workbenc
+================================================================================
+PBO: C:\DayZServer\@CodeLock\Addons\CodeLock.pbo
+Tamanho: 10,312,938 bytes
+  TERMO: queue | ocorrencias: 1
+    Offset: 10290496 | Contexto: , null,.6"._.].W..._.t.c. shi.{.l...`...StS`3/](.`C.allQueue.(CALL_CA.TEGORY_G.AMEPLAY)u.".L.`r(H.`...Ur..*.[.[.[.[..ShowAttacch.._.fp e~..........q.......
+  TERMO: reserved | ocorrencias: 12
+    Offset: 10119071 | Contexto: .t. ... .D.a.t.t.o.,. .I.n.c... .A.l.l. .r.i.g.h.t.s. .r.e.s.e.r.v.e.d....Copyright . Datto, Inc. All rights reserved...D.-.D.I.N..D-DIN..R.e.g.u.l.a.r..Regular.
+    Offset: 10119125 | Contexto: .r.e.s.e.r.v.e.d....Copyright . Datto, Inc. All rights reserved...D.-.D.I.N..D-DIN..R.e.g.u.l.a.r..Regular..D.-.D.I.N. .B.u.i.l.d. .1.0.0..D-DIN Build 100..D.-.D
+    Offset: 10119654 | Contexto: .c... .(.f.o.n.t.s.@.d.a.t.t.o...c.o.m.).,...w.i.t.h. .R.e.s.e.r.v.e.d. .F.o.n.t. .N.a.m.e. .D.-.D.I.N.......T.h.i.s. .F.o.n.t. .S.o.f.t.w.a.r.e. .i.s. .l.i.c.e.
+  TERMO: connection | ocorrencias: 1
+    Offset: 10275671 | Contexto: ONTRACT, TORT OR OTHERWISE, ARISING FROM,.OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE.SOFTWARE..# CodeLock.CodeLock modification av
+  TERMO: connect | ocorrencias: 1
+    Offset: 10275671 | Contexto: ONTRACT, TORT OR OTHERWISE, ARISING FROM,.OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE.SOFTWARE..# CodeLock.CodeLock modificat
+  TERMO: slot | ocorrencias: 3
+    Offset: 10288263 | Contexto: -]5.._0@..#.P"..Clear.Inv.0oryR.eserva.AE.xw.././."nt ?slotID.0W..S..s.!..IdF.romS.2(CL..".cl}Cm.@.+.fA..er.Pre.di.@veTak.eEntityT.o$CM...`2,..M.ai}B,..C
+    Offset: 10292363 | Contexto: per.l.1.-......Receive.Attachme.nt(Entit.yAI a.., .int slot3Id..'..T.....==........!H.asFullyC.onstruct.edGat*.||. (GetDay;ZG..()....../.figP.&& a!&.&...
+    Offset: 10294077 | Contexto: g90y9.,9.9..!...To.1s@*.6;/.......d?d?d1<.a7.aP., int ?slotIds>UK.5.)=.=.Y?;.;.;..;.0.k<.......MhU..Q.E.VuSAc.QT.eAt t...ZOb'jec....=).L!. .8Jarray<N.#>
+================================================================================
+PBO: C:\DayZServer\@CookZ\addons\CookZ.pbo
+Tamanho: 65,861,838 bytes
+  TERMO: OnConnect | ocorrencias: 2
+    Offset: 65526902 | Contexto: onfig(cookz_config);..    }....    override void InvokeOnConnect(PlayerBase player, PlayerIdentity identity)..    {..        super.InvokeOnConnect(player, identity
+    Offset: 65526984 | Contexto: , PlayerIdentity identity)..    {..        super.InvokeOnConnect(player, identity);..        auto configParams = new Param1<CookZ_Config>(GetDayZGame().GetCookZ_Co
+  TERMO: GetPlayer | ocorrencias: 2
+    Offset: 65535593 | Contexto: ffectSound = SEffectManager.PlaySound(sound, GetGame().GetPlayer().GetPosition());..        effectSound.SetSoundAutodestroy(true);..    }..}..// all here is meant
+    Offset: 65540764 | Contexto: ..        PlayerBase pBase = PlayerBase.Cast(GetGame().GetPlayer());..        if (pBase && pBase.IsReadingCookbook())..        {..            pBase.ToggleCookbookR
+  TERMO: PlayerIdentity | ocorrencias: 2
+    Offset: 65490616 | Contexto: n isReadingCookbook;..    }....    override void OnRPC(PlayerIdentity sender, int rpc_type, ParamsReadContext ctx)..    {..        super.OnRPC(sender, rpc_type, ctx);....
+    Offset: 65526931 | Contexto: ..    override void InvokeOnConnect(PlayerBase player, PlayerIdentity identity)..    {..        super.InvokeOnConnect(player, identity);..        auto configParams = new Par
+  TERMO: priority | ocorrencias: 1
+    Offset: 65335441 | Contexto:  hexactpos 0. vexactpos 0. hexactsize 0. vexactsize 0. priority 50. {.  WindowWidgetClass WindowWidget {.   color 1 0.7843 1 1.   position 0 0.   size 1 1.   hal
+  TERMO: connect | ocorrencias: 2
+    Offset: 65526904 | Contexto: fig(cookz_config);..    }....    override void InvokeOnConnect(PlayerBase player, PlayerIdentity identity)..    {..        super.InvokeOnConnect(player, identi
+    Offset: 65526986 | Contexto: PlayerIdentity identity)..    {..        super.InvokeOnConnect(player, identity);..        auto configParams = new Param1<CookZ_Config>(GetDayZGame().GetCookZ_
+  TERMO: slot | ocorrencias: 28
+    Offset: 11492 | Contexto: .....raP........L......CfgPatches.R....CfgMods......CfgSlots......CfgVehicles.....L......CookZ.c..........requiredAddons...DZ_Data..DZ_Gear_Medical..DZ_G
+    Offset: 12096 | Contexto: et..CookZ\GUI\ImageSets\empty_can_icon.imageset........Slot_CookZ_EmptyCans......Slot_CookZ_EmptyBoxes.@...........name.CookZ_EmptyCans...displayName.$ST
+    Offset: 12122 | Contexto: pty_can_icon.imageset........Slot_CookZ_EmptyCans......Slot_CookZ_EmptyBoxes.@...........name.CookZ_EmptyCans...displayName.$STR_CookZ_Slot_EmptyCans...g
+================================================================================
+PBO: C:\DayZServer\@Coyote\addons\ABeautiful_Coyote.pbo
+Tamanho: 23,699,765 bytes
+  TERMO: GetPlayer | ocorrencias: 4
+    Offset: 19841349 | Contexto: t()..{...array<Man> players = new array<Man>;...g_Game.GetPlayers(players);...PlayerBase best;...float bestD2 = float.MAX;...vector me = GetPosition();...foreach (
+    Offset: 19841867 | Contexto: os)..{...array<Man> players = new array<Man>;...g_Game.GetPlayers(players);...PlayerBase best;...float bestD2 = float.MAX;...foreach (Man m : players)...{....Playe
+    Offset: 19842380 | Contexto: e()..{...array<Man> players = new array<Man>;...g_Game.GetPlayers(players);...vector me = GetPosition();...foreach (Man m : players)...{....PlayerBase p = PlayerBa
+  TERMO: slot | ocorrencias: 18
+    Offset: 24041 | Contexto: h.......proximityAttackRange... @..attackCooldown......SlotCowering.jB...SlotCalmGrazing..B...SlotSiege..F...SlotEating..K...SlotHunting..P...SlotCalmRes
+    Offset: 24059 | Contexto: ttackRange... @..attackCooldown......SlotCowering.jB...SlotCalmGrazing..B...SlotSiege..F...SlotEating..K...SlotHunting..P...SlotCalmResting..T...SlotCalm
+    Offset: 24080 | Contexto: ckCooldown......SlotCowering.jB...SlotCalmGrazing..B...SlotSiege..F...SlotEating..K...SlotHunting..P...SlotCalmResting..T...SlotCalmTravelling..X...SlotA
+================================================================================
+PBO: C:\DayZServer\@DabsFramework\addons\GUI.pbo
+Tamanho: 33,431,015 bytes
+  TERMO: priority | ocorrencias: 14
+    Offset: 33237770 | Contexto: actpos 1.. vexactpos 1.. hexactsize 0.. vexactsize 0.. priority 998.. scriptclass "".. style Outline_1px_BlackBackground.. "Ignore invisible" 0.. Padding 5.. Mar
+    Offset: 33240262 | Contexto:          hexactsize 0..         vexactsize 0..         priority 5..         scriptclass "ViewBinding"..         style Default..         "no focus" 1..         te
+    Offset: 33240814 | Contexto: s 0..   hexactsize 0..   vexactsize 1..   scaled 1..   priority 3..   scriptclass "ViewBinding"..   style Empty..   Padding 5..   Margin 0..   content_halign cen
+  TERMO: connect | ocorrencias: 2
+    Offset: 1210356 | Contexto: 92.....Size 64 64.....Flags 0....}....ImageSetDefClass connectdevelop {.....Name "connectdevelop".....Pos 640 192.....Size 64 64.....Flags 0....}....ImageSetDe
+    Offset: 1210383 | Contexto:  0....}....ImageSetDefClass connectdevelop {.....Name "connectdevelop".....Pos 640 192.....Size 64 64.....Flags 0....}....ImageSetDefClass contao {.....Name "c
+  TERMO: slot | ocorrencias: 32
+    Offset: 9363891 | Contexto: ze 64 64.....Flags 0....}....ImageSetDefClass check_to_slot {.....Name "check_to_slot".....Pos 3200 640.....Size 64 64.....Flags 0....}....ImageSetDefCla
+    Offset: 9363917 | Contexto: ...ImageSetDefClass check_to_slot {.....Name "check_to_slot".....Pos 3200 640.....Size 64 64.....Flags 0....}....ImageSetDefClass check {.....Name "check
+    Offset: 9372363 | Contexto: .....Flags 0....}....ImageSetDefClass circle_dollar_to_slot {.....Name "circle_dollar_to_slot".....Pos 896 768.....Size 64 64.....Flags 0....}....ImageSe
+================================================================================
+PBO: C:\DayZServer\@DabsFramework\addons\Scripts.pbo
+Tamanho: 781,331 bytes
+  TERMO: OnClientDisconnected | ocorrencias: 2
+    Offset: 699136 | Contexto: Destroyed(identity, uid);....}...}.......override void OnClientDisconnectedEvent(PlayerIdentity identity, PlayerBase player, int logoutTime, bool authFailed)...{....super.OnClientDiscon
+    Offset: 699252 | Contexto:  player, int logoutTime, bool authFailed)...{....super.OnClientDisconnectedEvent(identity, player, logoutTime, authFailed);........if (m_JoinedPlayers.Find(identity.GetId()) != -1) {...
+  TERMO: OnEvent | ocorrencias: 12
+    Offset: 312136 | Contexto:  the init of event manager for clients...override void OnEvent(EventType eventTypeId, Param params)...{..#ifdef DIAG_DEVELOPER....if (m_EventLogging) {.......s
+    Offset: 312695 | Contexto: r.UnsuppressAll();......break;.....}....}........super.OnEvent(eventTypeId, params);...}........DayZPlayer GetPlayerByIdentity(PlayerIdentity identity)...{....
+    Offset: 318678 | Contexto: peID: return "SetPausedEventTypeID";.....case TerminationEventTypeID: return "TerminationEventTypeID";.....case UserSettingsChangedEventTypeID: return "UserSet
+  TERMO: OnConnect | ocorrencias: 2
+    Offset: 698279 | Contexto: ..// load client info first hand...override void InvokeOnConnect(PlayerBase player, PlayerIdentity identity)...{....super.InvokeOnConnect(player, identity);....if
+    Offset: 698352 | Contexto: se player, PlayerIdentity identity)...{....super.InvokeOnConnect(player, identity);....if (m_JoinedPlayers.Find(identity.GetId()) == -1) {.....OnPlayerJoined(playe
+  TERMO: GetPlainId | ocorrencias: 2
+    Offset: 340850 | Contexto:  }........return null;...}......// use PlayerIdentity::GetPlainId()...static PlayerIdentity FindByPlainId(string plain_id)...{....array<PlayerIdentity> player_identi
+    Offset: 341133 | Contexto:  i++)..        {..            if (player_identities[i].GetPlainId() == plain_id)..            {..                return player_identities[i];..            }..
+  TERMO: GetIdentity | ocorrencias: 1
+    Offset: 482117 | Contexto: inue;......}............event_base.SyncToClient(player.GetIdentity());.....}....}...}.........bool IsEventActive(typename event_type)...{....return (m_ActiveEvents[eve
+  TERMO: GetPlayer | ocorrencias: 7
+    Offset: 312747 | Contexto: er.OnEvent(eventTypeId, params);...}........DayZPlayer GetPlayerByIdentity(PlayerIdentity identity)...{......int high, low;....if (!IsMultiplayer()) {.....return G
+    Offset: 312854 | Contexto: ..int high, low;....if (!IsMultiplayer()) {.....return GetPlayer();....}........if (!identity) {.....return null;....}........GetPlayerNetworkIDByIdentityID(identi
+    Offset: 312925 | Contexto: }........if (!identity) {.....return null;....}........GetPlayerNetworkIDByIdentityID(identity.GetPlayerId(), low, high);....return DayZPlayer.Cast(GetObjectByNetw
+  TERMO: SteamID | ocorrencias: 3
+    Offset: 329494 | Contexto: ..    }......// todo base64 encoding so we can convert Steamid64 to DayZ ID..}class EnScriptVar<Class T>..{....static T Get(Class instance, string variable_nam
+    Offset: 413838 | Contexto: t Version = 8;...string MapName;...string AuthorId; // Steamid64 of original author...ref array<string> CreditIds = {}; // SteamId64 of all users that have edi
+    Offset: 413906 | Contexto: original author...ref array<string> CreditIds = {}; // SteamId64 of all users that have edited / saved this build...DateTime LastModified;...DateTime CreationD
+  TERMO: PlayerIdentity | ocorrencias: 28
+    Offset: 3589 | Contexto: Plane.c.....#..........j#...3_Game\DabsFramework\!Core\PlayerIdentity.c................j....3_Game\DabsFramework\!Core\PositionWithRadius2D.c.....+..........j+...3_Game\Dabs
+    Offset: 311802 | Contexto: ..}...}....#ifdef DIAG_DEVELOPER...override void OnRPC(PlayerIdentity sender, Object target, int rpc_type, ParamsReadContext ctx)...{....super.OnRPC(sender, target, rpc_type
+    Offset: 312767 | Contexto: Id, params);...}........DayZPlayer GetPlayerByIdentity(PlayerIdentity identity)...{......int high, low;....if (!IsMultiplayer()) {.....return GetPlayer();....}........if (!i
+  TERMO: PriorityQueue | ocorrencias: 3
+    Offset: 3723 | Contexto: ius2D.c.....+..........j+...3_Game\DabsFramework\!Core\PriorityQueue.c.............7W.j....3_Game\DabsFramework\!Core\Queue.c.....9.......7W.j9...3_Game\DabsFramework\!Cor
+    Offset: 344530 | Contexto: DrawSphere(Position, 0.25, color);...}..#endif..}class PriorityQueue<Class TElement, Class TPriority>..{...static const TElement ELEMENT_DEFAULT;...static const TPriority
+    Offset: 344956 | Contexto: nvoker Event_OnDequeue = new ScriptInvoker();.....void PriorityQueue(int capacity = 0)...{....m_Capacity = capacity;......if (capacity > 0) {.....// resize the queue array
+  TERMO: priority | ocorrencias: 56
+    Offset: 3723 | Contexto: ius2D.c.....+..........j+...3_Game\DabsFramework\!Core\PriorityQueue.c.............7W.j....3_Game\DabsFramework\!Core\Queue.c.....9.......7W.j9...3_Game\DabsFram
+    Offset: 344530 | Contexto: DrawSphere(Position, 0.25, color);...}..#endif..}class PriorityQueue<Class TElement, Class TPriority>..{...static const TElement ELEMENT_DEFAULT;...static const
+    Offset: 344567 | Contexto: }..#endif..}class PriorityQueue<Class TElement, Class TPriority>..{...static const TElement ELEMENT_DEFAULT;...static const TPriority PRIORITY_DEFAULT;.....prote
+  TERMO: queue | ocorrencias: 77
+    Offset: 3731 | Contexto: ....+..........j+...3_Game\DabsFramework\!Core\PriorityQueue.c.............7W.j....3_Game\DabsFramework\!Core\Queue.c.....9.......7W.j9...3_Game\DabsFramew
+    Offset: 3786 | Contexto: Queue.c.............7W.j....3_Game\DabsFramework\!Core\Queue.c.....9.......7W.j9...3_Game\DabsFramework\!Core\Ray.c................j....3_Game\DabsFramewor
+    Offset: 315997 | Contexto: turn "NetworkManagerServerEventTypeID";.....case DialogQueuedEventTypeID: return "DialogQueuedEventTypeID";.....case ChatMessageEventTypeID: return "ChatMe
+  TERMO: connection | ocorrencias: 8
+    Offset: 315611 | Contexto: return "MPSessionPlayerReadyEventTypeID";.....//case MPConnectionLostEventTypeID: return "MPConnectionLostEventTypeID";.....case MPConnectionCloseEventTypeID: return
+    Offset: 315648 | Contexto: ID";.....//case MPConnectionLostEventTypeID: return "MPConnectionLostEventTypeID";.....case MPConnectionCloseEventTypeID: return "MPConnectionCloseEventTypeID";.....
+    Offset: 315687 | Contexto: peID: return "MPConnectionLostEventTypeID";.....case MPConnectionCloseEventTypeID: return "MPConnectionCloseEventTypeID";.....case ProgressEventTypeID: return "Progr
+  TERMO: connect | ocorrencias: 32
+    Offset: 67500 | Contexto: CONFLUENCE = "image:confluence";...static const Brands CONNECTDEVELOP = "image:connectdevelop";...static const Brands CONTAO = "image:contao";...static const B
+    Offset: 67524 | Contexto: luence";...static const Brands CONNECTDEVELOP = "image:connectdevelop";...static const Brands CONTAO = "image:contao";...static const Brands COTTON_BUREAU = "i
+    Offset: 315611 | Contexto: return "MPSessionPlayerReadyEventTypeID";.....//case MPConnectionLostEventTypeID: return "MPConnectionLostEventTypeID";.....case MPConnectionCloseEventTypeID:
+  TERMO: login | ocorrencias: 7
+    Offset: 317075 | Contexto: ventTypeID: return "LogoutCancelEventTypeID";.....case LoginTimeEventTypeID: return "LoginTimeEventTypeID";.....case RespawnEventTypeID: return "RespawnEve
+    Offset: 317105 | Contexto: elEventTypeID";.....case LoginTimeEventTypeID: return "LoginTimeEventTypeID";.....case RespawnEventTypeID: return "RespawnEventTypeID";.....case PreloadEve
+    Offset: 317309 | Contexto: ogoutEventTypeID: return "LogoutEventTypeID";.....case LoginStatusEventTypeID: return "LoginStatusEventTypeID";.....case SelectedUserChangedEventTypeID: re
+  TERMO: slot | ocorrencias: 15
+    Offset: 128221 | Contexto:  "image:check_double";...static const Symbols CHECK_TO_SLOT = "image:check_to_slot";...static const Symbols CHECK = "image:check";...static const Symbols
+    Offset: 128244 | Contexto: ..static const Symbols CHECK_TO_SLOT = "image:check_to_slot";...static const Symbols CHECK = "image:check";...static const Symbols CHEESE_SWISS = "image:
+    Offset: 132465 | Contexto: ircle_divide";...static const Symbols CIRCLE_DOLLAR_TO_SLOT = "image:circle_dollar_to_slot";...static const Symbols CIRCLE_DOLLAR = "image:circle_dollar"
+  TERMO: servermod | ocorrencias: 6
+    Offset: 754587 | Contexto: ppend prefix of current mod....if (!m_ProjectSettings["ServerMod"].ToInt() && !launch_settings.DisableMod) {........m_ProjectSettings["Mods"] = m_ProjectSettings["
+    Offset: 754758 | Contexto:  ";@" + mod_prefix;....} else {.....m_ProjectSettings["ServerMod"] = m_ProjectSettings["ServerMod"];....}........if (launch_settings.LaunchType & 16) {.....m_Proje
+    Offset: 754791 | Contexto: ...m_ProjectSettings["ServerMod"] = m_ProjectSettings["ServerMod"];....}........if (launch_settings.LaunchType & 16) {.....m_ProjectSettings["Mods"] = m_ProjectSet
+================================================================================
+PBO: C:\DayZServer\@KomodoDragon\addons\Beautiful_Komodo.pbo
+Tamanho: 2,877,647 bytes
+  TERMO: GetIdentity | ocorrencias: 2
+    Offset: 2807895 | Contexto: ..{...PlayerBase p = PlayerBase.Cast(e);....if (p && p.GetIdentity())....return "\"" + p.GetIdentity().GetName() + "\"";....return e.GetType();..}...// Why NLZ_IsTarge
+    Offset: 2807929 | Contexto: st(e);....if (p && p.GetIdentity())....return "\"" + p.GetIdentity().GetName() + "\"";....return e.GetType();..}...// Why NLZ_IsTarget turned a player down...protected
+  TERMO: GetPlayer | ocorrencias: 1
+    Offset: 2817087 | Contexto:  NLZ_CollectPlayers(array<Man> players)..{...GetGame().GetPlayers(players);..}...// The infected within INFECTED_SCAN_RADIUS, looked up at most every..// INFECTED_
+  TERMO: queue | ocorrencias: 1
+    Offset: 2825801 | Contexto: Z_KomodoSickness.Infect(p);...else....GetGame().GetCallQueue(CALL_CATEGORY_GAMEPLAY).CallLater(NLZ_KomodoSickness.Infect, delay, false, p);..}...// A bite
+  TERMO: slot | ocorrencias: 1
+    Offset: 2815274 | Contexto: ull;....if (!ctrl)....return;....ctrl.OverrideBehaviourSlot(false, 0);...ctrl.OverrideBehaviourAction(false, 0);...ctrl.OverrideTurnSpeed(false, 0);...ct
+================================================================================
+PBO: C:\DayZServer\@MotorbikePassenger\addons\BikesSeat2.pbo
+Tamanho: 1,136,037 bytes
+  TERMO: queue | ocorrencias: 1
+    Offset: 1132132 | Contexto: cWeapon();....PlayerBase self = this;....g_Game.GetCallQueue(CALL_CATEGORY_GAMEPLAY).CallLater(self.BSP_ResyncWeapon, 600, false);...}..}.../*...The instan
+  TERMO: reserved | ocorrencias: 1
+    Offset: 1124139 | Contexto: r, il, true, 10000, action_data))...{....action_data.m_ReservedInventoryLocations.Insert(il);....return true;...}....return false;..}.}.modded class ActionConstr
+  TERMO: slot | ocorrencias: 4
+    Offset: 1121292 | Contexto: the seat the player looks at, and on..a bike both crew slots share the one "seat_driver" selection, so it can only ever offer the driver seat. This one..
+    Offset: 1121438 | Contexto: s one..targets the bike itself and takes the passenger slot when the rider is already on..*/.class ActionGetInBikePassenger: ActionBase.{..void ActionGet
+    Offset: 1124436 | Contexto: senger);..}.}..//! never put anyone into the passenger slot from the driver's get in.modded class ActionGetInTransport.{..override bool ActionCondition(P
+================================================================================
+PBO: C:\DayZServer\@NasdaraCactus\addons\Nasdara_Cactus.pbo
+Tamanho: 5,092 bytes
+  TERMO: slot | ocorrencias: 1
+    Offset: 4567 | Contexto: )..{...ItemBase gloves = ItemBase.Cast(FindAttachmentBySlotName("Gloves"));...if (gloves && !gloves.IsDamageDestroyed())....return false;....if (!GetBlee
+================================================================================
+PBO: C:\DayZServer\@SimpleWhistle\Addons\Whistle.pbo
+Tamanho: 100,893 bytes
+  TERMO: PlayerIdentity | ocorrencias: 2
+    Offset: 7347 | Contexto: eConfig( CallType type, ref ParamsReadContext ctx, ref PlayerIdentity sender, ref Object target ) ..    {..        Param1< Buddys_Whistle_Config > data;....        if ( !ctx
+    Offset: 8072 | Contexto: eConfig( CallType type, ref ParamsReadContext ctx, ref PlayerIdentity sender, ref Object target ) ..    {..        if (sender)..        {..            GetRPCManager().SendRP
+  TERMO: slot | ocorrencias: 2
+    Offset: 4103 | Contexto: ...return !player.GetItemInHands() && !player.GetItemOnSlot("Gloves") && !player.GetItemOnSlot("Mask") && player.GetStaminaHandler().GetStamina() >= 25;.
+    Offset: 4138 | Contexto: && !player.GetItemOnSlot("Gloves") && !player.GetItemOnSlot("Mask") && player.GetStaminaHandler().GetStamina() >= 25;...}......override void OnEndServer(
+================================================================================
+PBO: C:\DayZServer\@SuppressionMod\addons\Scripts.pbo
+Tamanho: 28,694 bytes
+  TERMO: OnConnect | ocorrencias: 3
+    Offset: 21429 | Contexto:  }..    //     }..    // };....    override void InvokeOnConnect(PlayerBase player, PlayerIdentity identity)..    {..        super.InvokeOnConnect(player, identity
+    Offset: 21511 | Contexto: , PlayerIdentity identity)..    {..        super.InvokeOnConnect(player, identity);..        //Print("[Suppression Config] :: MissionServer.c :: InvokeOnConnect");
+    Offset: 21607 | Contexto: rint("[Suppression Config] :: MissionServer.c :: InvokeOnConnect");..        GetRPCManager().SendRPC("Suppression", "GetEarProtectionConfig", new Param1<TStringArr
+  TERMO: GetIdentity | ocorrencias: 1
+    Offset: 24768 | Contexto: yer.GetSuppressionLevel());.                if (player.GetIdentity()).                {.                    player.SpawnShockEffect( 0.7 );.                    player.
+  TERMO: GetPlayer | ocorrencias: 3
+    Offset: 9751 | Contexto: Fire(this);.......PlayerBase currentPlayer = GetGame().GetPlayer();.....if (currentPlayer && IsCurrentPlayerSuppressed()).....{......currentPlayer.OnSuppressedClie
+    Offset: 11875 | Contexto: ppressed()...{....PlayerBase currentPlayer = GetGame().GetPlayer();....if (!currentPlayer)..        {..            return false;..        }........PlayerBase shoot
+    Offset: 20091 | Contexto: .        PlayerBase player = PlayerBase.Cast(GetGame().GetPlayer());....        if (player)..        {..            player.earProtectionItems = data.param1;..
+  TERMO: PlayerIdentity | ocorrencias: 8
+    Offset: 1742 | Contexto: ----....modded class DayZGame..{...override void OnRPC(PlayerIdentity sender, Object target, int rpc_type, ParamsReadContext ctx)..    {..        super.OnRPC(sender, target,
+    Offset: 3747 | Contexto: ion_Tinnitus_Start;...}.......static void SyncDataSend(PlayerIdentity identity)...{....ScriptRPC rpc = new ScriptRPC();....rpc.Write(s_Instance);....rpc.Send(null, Suppressi
+    Offset: 14139 | Contexto: ession(suppressionAmount);...}.....override void OnRPC(PlayerIdentity sender, int rpc_type, ParamsReadContext ctx)...{....super.OnRPC(sender, rpc_type, ctx);......if (GetGam
+  TERMO: connect | ocorrencias: 3
+    Offset: 21431 | Contexto: ..    //     }..    // };....    override void InvokeOnConnect(PlayerBase player, PlayerIdentity identity)..    {..        super.InvokeOnConnect(player, identi
+    Offset: 21513 | Contexto: PlayerIdentity identity)..    {..        super.InvokeOnConnect(player, identity);..        //Print("[Suppression Config] :: MissionServer.c :: InvokeOnConnect"
+    Offset: 21609 | Contexto: nt("[Suppression Config] :: MissionServer.c :: InvokeOnConnect");..        GetRPCManager().SendRPC("Suppression", "GetEarProtectionConfig", new Param1<TStringA
+  TERMO: slot | ocorrencias: 4
+    Offset: 18182 | Contexto: ....override void EEItemAttached(EntityAI item, string slot_name)...{....super.EEItemAttached(item, slot_name);......CheckHearingProtection(item);...}...
+    Offset: 18227 | Contexto: m, string slot_name)...{....super.EEItemAttached(item, slot_name);......CheckHearingProtection(item);...}...override void EEItemDetached(EntityAI item, s
+    Offset: 18331 | Contexto: }...override void EEItemDetached(EntityAI item, string slot_name)...{....super.EEItemDetached(item, slot_name);......CheckHearingProtection(item);...}..}
+================================================================================
+PBO: C:\DayZServer\@SurvivorAnimations\Addons\player_main.pbo
+Tamanho: 2,531,459 bytes
+  TERMO: queue | ocorrencias: 52
+    Offset: 263425 | Contexto: Suicide".     Column "farminghoe".    }.    AnimSrcNodeQueue SuicideFireQ {.     EditorPos 256.1 -28.9.     Child "SuicideSTM".     QueueItems {.      Anim
+    Offset: 263502 | Contexto:     EditorPos 256.1 -28.9.     Child "SuicideSTM".     QueueItems {.      AnimSrcNodeQueueItem "{6930A8DE269909CE}" {.       Child "WeaponStanceMaster".
+    Offset: 263532 | Contexto:  Child "SuicideSTM".     QueueItems {.      AnimSrcNodeQueueItem "{6930A8DE269909CE}" {.       Child "WeaponStanceMaster".       StartExpr "GetCommandI(CMD
+  TERMO: slot | ocorrencias: 190
+    Offset: 410022 | Contexto: ditorPos -24 -4.6.     Source "WeaponChange.1HDLeftBackSlotHide".     Looptype "No Loop".    }.    AnimSrcNodeSource "1hdBackLShowAnim" {.     EditorPos
+    Offset: 410168 | Contexto: torPos -25.2 -3.9.     Source "WeaponChange.1HDLeftBackSlotShow".     Looptype "No Loop".    }.    AnimSrcNodeSource "1hdBackRHideAnim" {.     EditorPos
+    Offset: 410315 | Contexto: orPos -15.2 -4.6.     Source "WeaponChange.1HDRightBackSlotHide".     Looptype "No Loop".    }.    AnimSrcNodeSource "1hdBackRShowAnim" {.     EditorPos
+================================================================================
+PBO: C:\DayZServer\@SurvivorAnimations\Addons\SurvivorAnims.pbo
+Tamanho: 97,994,168 bytes
+  TERMO: OnEvent | ocorrencias: 34
+    Offset: 998140 | Contexto: EVNT...@..........Sound......)#..c.......ParticlexplosionEvent..........MetaFileClass {. Name "{37E35919A8E94F87}SurvivorAnims/animations/emotes/JUTSU.anm". Au
+    Offset: 97903800 | Contexto: ....super.InitActionComponent();........RegisterAnimationEvent("CraftingAction", UA_IN_CRAFTING);...}...*/..};....class ActionSearchPlayerAtWall: ActionContinu
+    Offset: 97905021 | Contexto: UREFB_HandsOnWall).....{......//GetGame().GetMission().OnEvent(ChatMessageEventTypeID, new ChatMessageEventParams(CCDirect, "", "Callback EMOTE " + em.m_Callba
+  TERMO: GetIdentity | ocorrencias: 2
+    Offset: 97904735 | Contexto: );....if ( body_EAI &&  body_EAI.IsAlive() && body_EAI.GetIdentity()) // && body_EAI.GetIdentity().GetName())....{.....return false; //disabled until finished.........
+    Offset: 97904765 | Contexto: AI.IsAlive() && body_EAI.GetIdentity()) // && body_EAI.GetIdentity().GetName())....{.....return false; //disabled until finished..........EmoteManager em = body_EAI.Ge
+  TERMO: queue | ocorrencias: 13
+    Offset: 16613448 | Contexto: torPos 209.8000031 32.6000023....}...}...$Node AnimNodeQueue {.... "SuicideFireQ" "" "SuicideSTM"....$items 1 {.....$item {...... "WeaponStanceMaster" "Get
+    Offset: 16670821 | Contexto: ...#EditorPos -5.0 17.2000008....}...}...$Node AnimNodeQueue {.... "MeleeMasterQ" "" "MeleeRotNode"....$items 1 {.....$item {...... "DamageMaster" "IsComma
+    Offset: 16735407 | Contexto: itorPos 4.3000002 -57.9000015....}...}...$Node AnimNodeQueue {.... "HitQ" "" "SickIK"....$items 1 {.....$item {...... "DamageMaster" "IsCommand(CMD_Damage)
+  TERMO: slot | ocorrencias: 196
+    Offset: 16702925 | Contexto: e {.... "1hdBackLHideAnim" "" "WeaponChange.1HDLeftBackSlotHide" "noloop"....$Predictions {....}....$EditorData {.....#EditorPos -24.0 4.5999999....}...}
+    Offset: 16703100 | Contexto: e {.... "1hdBackLShowAnim" "" "WeaponChange.1HDLeftBackSlotShow" "noloop"....$Predictions {....}....$EditorData {.....#EditorPos -25.2000008 3.9000001...
+    Offset: 16703282 | Contexto:  {.... "1hdBackRHideAnim" "" "WeaponChange.1HDRightBackSlotHide" "noloop"....$Predictions {....}....$EditorData {.....#EditorPos -15.1999998 4.5999999...
+================================================================================
+PBO: C:\DayZServer\@VPPAdminTools\addons\assets.pbo
+Tamanho: 1,179,261 bytes
+  TERMO: SteamID | ocorrencias: 1
+    Offset: 258139 | Contexto: Nom:","......:","......:","Nome:","......:".."VSTR_LBL_STEAMID","Steam ID:","Steam ID:","Steam ID:","Steam ID:","Steam ID:","Steam ID:","Steam ID:","Steam ID:"
+  TERMO: Steam64 | ocorrencias: 14
+    Offset: 403840 | Contexto: ntemente","............".."VSTR_CTX_PLR_COPY_ID","Copy Steam64 ID","Copy Steam64 ID","Kop..rovat Steam64 ID","Steam64-ID kopieren",".................... Steam6
+    Offset: 403858 | Contexto: .....".."VSTR_CTX_PLR_COPY_ID","Copy Steam64 ID","Copy Steam64 ID","Kop..rovat Steam64 ID","Steam64-ID kopieren",".................... Steam64 ID","Kopiuj Stea
+    Offset: 403882 | Contexto: PY_ID","Copy Steam64 ID","Copy Steam64 ID","Kop..rovat Steam64 ID","Steam64-ID kopieren",".................... Steam64 ID","Kopiuj Steam64 ID","Steam64 ID m..s
+  TERMO: priority | ocorrencias: 4
+    Offset: 249994 | Contexto: rags","........................rags".."VSTR_XML_COST","Priority for CE (higher value should be prioritized by the spawner)","Priority for CE (higher value should
+    Offset: 250064 | Contexto:  (higher value should be prioritized by the spawner)","Priority for CE (higher value should be prioritized by the spawner)","Priorita pro CE (vy...... hodnota m.
+    Offset: 447194 | Contexto: 0 .....................".."VSTR_XMLE_HELP_COST","Spawn priority. Higher values are preferred by the spawner. Vanilla uses 100.","Spawn priority. Higher values ar
+  TERMO: queue | ocorrencias: 1
+    Offset: 407750 | Contexto: ..:","Acoplado:",".........:".."VSTR_CTX_RESULT_ATTACH_QUEUED","Replacing attachment:","Replacing attachment:","Nahrazov..n.. p....slu..enstv..:","Anbautei
+  TERMO: connection | ocorrencias: 4
+    Offset: 659163 | Contexto: ely to each player %1 min after they connect (once per connection).","Sent privately to each player %1 min after they connect (once per connection).","Ode..le se sou
+    Offset: 659244 | Contexto: ely to each player %1 min after they connect (once per connection).","Ode..le se soukrom.. ka..d..mu hr....i %1 min po p..ipojen.. (jednou za p..ipojen..).","Wird je
+    Offset: 660504 | Contexto: tely to each player right after they connect (once per connection).","Sent privately to each player right after they connect (once per connection).","Ode..le se souk
+  TERMO: connect | ocorrencias: 44
+    Offset: 91151 | Contexto: + AdminTools","Vanilla++ AdminTools".."VSTR_SESSION_DISCONNECT","Session Disconnect","Session Disconnect","Odpojen.. relace","Sitzung getrennt","..............
+    Offset: 91172 | Contexto: a++ AdminTools".."VSTR_SESSION_DISCONNECT","Session Disconnect","Session Disconnect","Odpojen.. relace","Sitzung getrennt",".................... ............",
+    Offset: 91193 | Contexto: R_SESSION_DISCONNECT","Session Disconnect","Session Disconnect","Odpojen.. relace","Sitzung getrennt",".................... ............","Roz....czenie sesji"
+  TERMO: login | ocorrencias: 33
+    Offset: 293104 | Contexto: ,"......","......","Liberar","......".."VSTR_LBL_ADMIN_LOGIN","Admin Login","Admin Login","P..ihl....en.. admina","Admin-Login","........ .................
+    Offset: 293118 | Contexto: ...","Liberar","......".."VSTR_LBL_ADMIN_LOGIN","Admin Login","Admin Login","P..ihl....en.. admina","Admin-Login","........ ............................","
+    Offset: 293132 | Contexto: ,"......".."VSTR_LBL_ADMIN_LOGIN","Admin Login","Admin Login","P..ihl....en.. admina","Admin-Login","........ ............................","Logowanie admi
+  TERMO: slot | ocorrencias: 55
+    Offset: 383475 | Contexto: ..................","Objeto","......".."VSTR_CTX_EMPTY_SLOT","Empty","Empty","Pr..zdn..","Leer","..........","Pusty","..res","Vuoto","Vac..o","Vide","...
+    Offset: 407151 | Contexto: ..vel",".....................".."VSTR_CTX_ATT_LOCKED","Slot is locked","Slot is locked","Slot je zam..en..","Slot ist gesperrt","........ ...............
+    Offset: 407168 | Contexto: ............".."VSTR_CTX_ATT_LOCKED","Slot is locked","Slot is locked","Slot je zam..en..","Slot ist gesperrt","........ ........................","Slot
+================================================================================
+PBO: C:\DayZServer\@VPPAdminTools\addons\VPPAdminTools.pbo
+Tamanho: 79,657,389 bytes
+  TERMO: OnClientDisconnected | ocorrencias: 4
+    Offset: 3303441 | Contexto: _LogoutQueueInital"..                    ScriptInvoker onClientDisconnectedEvent = VPPATGetEventHandler().GetEventInvoker("OnPlayerDisconnected");..                    onClientDisconnec
+    Offset: 3303554 | Contexto: tInvoker("OnPlayerDisconnected");..                    onClientDisconnectedEvent.Invoke(player, identity, false);..                }..                else if (!IsLogoutTimeExpired(playe
+    Offset: 3306082 | Contexto: ntry ... " + uid);..        }....        ScriptInvoker onClientDisconnectedEvent = VPPATGetEventHandler().GetEventInvoker("OnPlayerDisconnected");    ..        onClientDisconnectedEvent
+  TERMO: OnEvent | ocorrencias: 49
+    Offset: 22576 | Contexto: ..a....5_Mission\VPPAdminTools\GUI\UIHelpers\ConfirmationEventHandler.c.....O.......m".cO...5_Mission\VPPAdminTools\GUI\UIHelpers\ContextMenu\VPPContextMenuBri
+    Offset: 685476 | Contexto: w)..{...if (!w)....return true;....if (w.CanProcessWeaponEvents() && !w.IsIdle())....return true;....if (GetGame().HasInventoryJunctureItem(w))....return true;
+    Offset: 1222978 | Contexto: hunk chunk)..{...ScriptRPC netRpc = VPPXENet.Begin("XE_OnEventsChunk");...Param1<ref VPPXEEventsChunk> netPayload = new Param1<ref VPPXEEventsChunk>(chunk);...
+  TERMO: OnConnect | ocorrencias: 28
+    Offset: 347164 | Contexto: duler:.// - a <message> reads delay, repeat, deadline, onconnect and shutdown (integers, minutes; anything unreadable is 0),.//   time and text. Text longer than 1
+    Offset: 347358 | Contexto: server skips a message without text or without a mode: onconnect = 1, repeat > 0, deadline > 0 or a time..//   shutdown = 1 only counts together with a deadline or
+    Offset: 347480 | Contexto: 1 only counts together with a deadline or a time..// - onconnect: sent once, privately, `delay` minutes after each player connects (delay 0 = 1 second)..// - repea
+  TERMO: GetPlainId | ocorrencias: 339
+    Offset: 41888 | Contexto:  must have a valid sender........recievedFrom = sender.GetPlainId();.......Param3<string, string, string> serverMetaData;.....if (!ctx.Read(serverMetaData))......ret
+    Offset: 71155 | Contexto: T.Insert(uid, new VPPUser(identity.GetName(), identity.GetPlainId(), identity.GetPlayerId()));....}...}...../*...* Sends entire Sync list to a specified client via R
+    Offset: 387553 | Contexto: ...string plainId = action_data.m_Player.GetIdentity().GetPlainId();....if (!GetPermissionManager().VerifyPermission(plainId, "EspToolsMenu:InstantBaseBuild")).....r
+  TERMO: GetIdentity | ocorrencias: 87
+    Offset: 70738 | Contexto: i])..       ....continue;....       ...if (!players[i].GetIdentity())..       ....continue;....       ...PLAYERS.Insert(players[i].GetIdentity().GetId(), players[i].Ge
+    Offset: 70814 | Contexto:   ....continue;....       ...PLAYERS.Insert(players[i].GetIdentity().GetId(), players[i].GetIdentity());..       ..}....}......PLAYERS_CLIENT.Clear();....foreach(strin
+    Offset: 70848 | Contexto: RS.Insert(players[i].GetIdentity().GetId(), players[i].GetIdentity());..       ..}....}......PLAYERS_CLIENT.Clear();....foreach(string uid, PlayerIdentity identity : P
+  TERMO: GetPlayer | ocorrencias: 381
+    Offset: 67862 | Contexto: layers = new array<Man>;..       .GetGame().GetWorld().GetPlayerList(players);..       .return players.Count();...}.....int GetCount()...{....if (GetGame().IsDedic
+    Offset: 70571 | Contexto: ayers = new array<Man>;..       ..GetGame().GetWorld().GetPlayerList(players);..       ..for (int i = 0; i < players.Count(); ++i)..       ..{..       ...if (!play
+    Offset: 71178 | Contexto: er(identity.GetName(), identity.GetPlainId(), identity.GetPlayerId()));....}...}...../*...* Sends entire Sync list to a specified client via RPC...*/...static void
+  TERMO: SteamID | ocorrencias: 194
+    Offset: 74530 | Contexto: meServer..{...string addr;...int    gameport;...string steamid;...string name;...int    appid;...string gamedir;...string version;...string product;...int    r
+    Offset: 388588 | Contexto: ....GetSimpleLogger().Log(string.Format("Admin \"%1\" (steamId=%2) built part %3 at position: %4", action_data.m_Player.GetIdentity().GetName(), plainId, part_
+    Offset: 396787 | Contexto: .if (!GetPermissionManager().HasUserGroup(pb.VPlayerGetSteamId()))......continue;.......GetGame().RPCSingleParam(player, VPPATRPCs.RPC_SYNC_TRANSFER_VALUES, ne
+  TERMO: Steam64 | ocorrencias: 93
+    Offset: 73663 | Contexto: ser..{...private string m_UserName;...private string m_Steam64ID;...private int    m_SessionId;......void VPPUser(string name, string id, int sessionId = -1)..
+    Offset: 73798 | Contexto: d, int sessionId = -1)...{....m_UserName  = name;....m_Steam64ID = id;....m_SessionId = sessionId;...}.......string GetUserId()...{....return m_Steam64ID;...}.
+    Offset: 73887 | Contexto: essionId;...}.......string GetUserId()...{....return m_Steam64ID;...}......string GetUserName()...{....return m_UserName;...}.....int GetSessionId()...{....ret
+  TERMO: PlayerIdentity | ocorrencias: 381
+    Offset: 41019 | Contexto: ........modded class DayZGame..{...override void OnRPC(PlayerIdentity sender, Object target, int rpc_type, ParamsReadContext ctx)...{....if (rpc_type == RPCManager.VPPAT_FRA
+    Offset: 41475 | Contexto: = 10420;.....void RPCManager()...{...}.....void VOnRPC(PlayerIdentity sender, Object target, int rpc_type, ParamsReadContext ctx)...{....if (rpc_type != VPPAT_FRAMEWORK_RPC_
+    Offset: 43778 | Contexto: ionCallData = new Param4< CallType, ParamsReadContext, PlayerIdentity, Object >( CallType.Server, ctx, sender, target );.............if ( ( GetGame().IsServer() && GetGame()
+  TERMO: priority | ocorrencias: 40
+    Offset: 432057 | Contexto: ---------..// ADS sight resolution (mode-aware vanilla priority, all off the REMOTE target)..//------------------------------------------------------------------
+    Offset: 2030968 | Contexto: g true keeps the HUD select box and the generic window-priority path out of it....*/...override bool OnMouseButtonDown(Widget w, int x, int y, int button)...{...
+    Offset: 2239527 | Contexto: ble: keep it hidden while another admin window has the priority....if (m_BrokenHidden)....{.....m_MapTab.SetMapVisible(false);....}...}..}...protected void Apply
+  TERMO: queue | ocorrencias: 489
+    Offset: 2152 | Contexto: C.......l..jC...3_Game\VPPAdminTools\XMLEditor\VPPXEJobQueue.c.....`8.........j`8..3_Game\VPPAdminTools\XMLEditor\VPPXEMessages.c......!......J..j.!..3_Gam
+    Offset: 74741 | Contexto:     bots;...string Map;...string gametype;......int GetQueuedPlayers()...{....string temp = gametype;....temp.Replace("battleye,external,privHive,shard,",
+    Offset: 127553 | Contexto: E_SPLIT;..}...// Splits, then tokenizes, while VPPXEJobQueue.BudgetOk(); true when done (ok or error)...bool Step()..{...if (m_Phase == PHASE_DONE)...{....
+  TERMO: reserved | ocorrencias: 4
+    Offset: 703228 | Contexto: name (e.g. mylocks.vehicle.unlock). The vpp. prefix is reserved....Rules (frozen, contract section 4):..A1 Actions are stateless singletons shared by every reque
+    Offset: 711912 | Contexto: wercase <modtag>.<category>.<name>; the vpp. prefix is reserved..string GetId()..{...return "";..}...//empty = root page, otherwise the id of a SUBMENU action..s
+    Offset: 2687182 | Contexto: int TIER_DEFAULT_COUNT = 5;..const static int TIER_BAR_RESERVED = 128;..const static int LAYER_TOTAL = 8;..const static int ALL_TIERS = 255;..const static int CH
+  TERMO: connect | ocorrencias: 158
+    Offset: 45489 | Contexto: er() && !GetGame().IsDedicatedServer();  //Diag client connected to a MP session......auto sendData = new array<ref Param>;......//Diag client connected to a M
+    Offset: 45577 | Contexto: to sendData = new array<ref Param>;......//Diag client connected to a MP session....if (isDiagMPClient)....{.....string pw = string.Empty;.....EnScript.GetClas
+    Offset: 61868 | Contexto: w map<string, ref ScriptInvoker>;....AddEvent("OnPlayerConnect");....AddEvent("OnPlayerDisconnected");....AddEvent("OnClientDisconnectCancel");...}...../*...vo
+  TERMO: login | ocorrencias: 90
+    Offset: 41348 | Contexto:  class RPCManager..{...protected ref map<string,int> m_LoginAttempts = new map<string,int>;...const int VPPAT_FRAMEWORK_RPC_ID = 10420;.....void RPCManager
+    Offset: 42676 | Contexto: ls.txt");.......VSendRPC("RPC_MissionGameplay", "ServerLoginError", NULL, true, sender, NULL);.......return;......}........if (m_LoginAttempts[recievedFrom
+    Offset: 42750 | Contexto: true, sender, NULL);.......return;......}........if (m_LoginAttempts[recievedFrom] >= 6).......return;........string hash = VSHA256.ComputeString(pw);.....
+  TERMO: slot | ocorrencias: 535
+    Offset: 951 | Contexto: ......]..i.2..3_Game\VPPAdminTools\utils\VPPATInventorySlots.c.....A ......5w.jA ..3_Game\VPPAdminTools\utils\VPPPlayerData.c................a....3_Game\
+    Offset: 93648 | Contexto:  game inventory objects types..*/..class VPPATInventorySlots..{...static ref map<string, ref array<string>> SlotsItems = new map <string, ref array<strin
+    Offset: 93701 | Contexto: rySlots..{...static ref map<string, ref array<string>> SlotsItems = new map <string, ref array<string>>;.....//context-menu spawnable index: separate fro
+  TERMO: servermod | ocorrencias: 1
+    Offset: 709126 | Contexto: ride above),..and a server-side-only PBO (loaded with -serverMod) adds the logic, keeping it out of the client download:...modded class MyLocks_CA_Unlock..{...over
+================================================================================
+PBO: C:\DayZServer\@ZensCoreMod\addons\ZenModCore.pbo
+Tamanho: 2,430,897 bytes
+  TERMO: OnEvent | ocorrencias: 4
+    Offset: 2359610 | Contexto: ..if (g_Game.GetPlayer())....{.....g_Game.GetMission().OnEvent(ChatMessageEventTypeID, new ChatMessageEventParams(CCDirect, "", message, ""));....}...}..}class
+    Offset: 2371719 | Contexto: ..if (g_Game.GetPlayer())....{.....g_Game.GetMission().OnEvent(ChatMessageEventTypeID, new ChatMessageEventParams(CCDirect, "", message, ""));....}..#endif...}
+    Offset: 2408168 | Contexto: essage(playerWatchlistMsg);....}...}.....override void OnEvent(EventType eventTypeId, Param params)...{....if (eventTypeId == ChatMessageEventTypeID)....{.....
+  TERMO: OnConnect | ocorrencias: 4
+    Offset: 2406337 | Contexto: ...super.LoadZenConfig();...}......override void InvokeOnConnect(PlayerBase player, PlayerIdentity identity) ...{....super.InvokeOnConnect(player, identity);......
+    Offset: 2406411 | Contexto: e player, PlayerIdentity identity) ...{....super.InvokeOnConnect(player, identity);........ZenInvokeOnConnect(player, identity);...}......void ZenInvokeOnConnect(P
+    Offset: 2406456 | Contexto: per.InvokeOnConnect(player, identity);........ZenInvokeOnConnect(player, identity);...}......void ZenInvokeOnConnect(PlayerBase player, PlayerIdentity identity)...
+  TERMO: OnDisconnect | ocorrencias: 4
+    Offset: 2350751 | Contexto: layerLoadedClientPlayer();....}...}......override void OnDisconnect()...{....super.OnDisconnect();........if (g_Game.IsClient() && IsControlledPlayer())....{.....Zen_OnD
+    Offset: 2350779 | Contexto: ..}...}......override void OnDisconnect()...{....super.OnDisconnect();........if (g_Game.IsClient() && IsControlledPlayer())....{.....Zen_OnDisconnectClientPlayer();....
+    Offset: 2350862 | Contexto: _Game.IsClient() && IsControlledPlayer())....{.....Zen_OnDisconnectClientPlayer();....}...}......void Zen_OnPlayerLoadedClientPlayer() ...{....GetZenConfigRegister().Req
+  TERMO: GetPlainId | ocorrencias: 7
+    Offset: 2236974 | Contexto: in(id.GetId())).....return true;........if (IsAdmin(id.GetPlainId())).....return true;........return false;...}......bool IsModerator(string uid)...{....return ZenCo
+    Offset: 2355471 | Contexto: eedName() + "](" + idLink + playerKiller.GetIdentity().GetPlainId() + ")";.....}..........victimText = "[" + GetZenKillFeedName() + "](http://steamcommunity.com/prof
+    Offset: 2355604 | Contexto: ](http://steamcommunity.com/profiles/" + GetIdentity().GetPlainId() + ")";....}......string weaponText = "";....if (object.GetType() == playerKiller.GetType()).....w
+  TERMO: GetIdentity | ocorrencias: 23
+    Offset: 2346288 | Contexto:  a player, nothing to log...//..if (!player || !player.GetIdentity())..//...return;........//! TODO: We can now check:....// 1. Was the timestamp difference between no
+    Offset: 2351870 | Contexto: feed: No valid webhooks.");.....return;....}......if (!GetIdentity() || Zen_IsAI() || GetType().Contains("_Ghost"))....{.....//ZMPrint("Killfeed: No identity or is AI=
+    Offset: 2353867 | Contexto: }........if (!playerKiller.Zen_IsAI() && !playerKiller.GetIdentity())....{.....//ZMPrint("Killfeed: Killer has no identity.");.....return;....}......ZenKillFeed(player
+  TERMO: GetPlayer | ocorrencias: 21
+    Offset: 2347912 | Contexto: ate PlayerBase m_ZenTrapperPlayer;......PlayerBase Zen_GetPlayerTrapper()...{....return m_ZenTrapperPlayer;...}......override void StartActivate(PlayerBase player)
+    Offset: 2352965 | Contexto: != null).......playerKiller = PlayerBase.Cast(trap.Zen_GetPlayerTrapper());.....}.......// Check for vehicles.....if (!playerKiller).....{......CarScript vehicle =
+    Offset: 2359568 | Contexto: DisplayClientMessage(string message)...{....if (g_Game.GetPlayer())....{.....g_Game.GetMission().OnEvent(ChatMessageEventTypeID, new ChatMessageEventParams(CCDirec
+  TERMO: SteamID | ocorrencias: 7
+    Offset: 2243280 | Contexto: ef array<string> KillfeedWebhooks;...bool DisplayPlayerSteamID;...bool DisplayKillLocation;...bool DisplayKillsByAI;......void ZenKillfeedConfig()...{....Enabl
+    Offset: 2243529 | Contexto: sert killfeed channel webhooks here");....DisplayPlayerSteamID = false;....DisplayKillLocation = false;....DisplayKillsByAI = false;...}..}/*..This is purely f
+    Offset: 2355094 | Contexto: ig().ZenCore_DiscordConfig.KillfeedConfig.DisplayPlayerSteamID)....{.....if (!playerKiller.GetIdentity()).....{......killerText = playerKiller.GetType();.....}
+  TERMO: PlayerIdentity | ocorrencias: 15
+    Offset: 2236850 | Contexto: Config.AdminIDs.Find(uid) != -1;...}......bool IsAdmin(PlayerIdentity id)...{....if (!id).....return false;........if (IsAdmin(id.GetId())).....return true;........if (IsAdm
+    Offset: 2259918 | Contexto: ot implemented"; return false; }.....void SyncToClient(PlayerIdentity identity = null)...{....string payload, err;....if (!BuildSyncPayload(payload, err))....{.....ErrorEx("
+    Offset: 2267371 | Contexto: ConfigIfOutdated(CallType type, ParamsReadContext ctx, PlayerIdentity sender, Object target)...{....if (type != CallType.Server).....return;.......Param2<string, string> msg
+  TERMO: priority | ocorrencias: 31
+    Offset: 2276417 | Contexto: ex;...int SavedIndex;...int PendingIndex;...int DisplayPriority;.....void ZenModSetting(string id, string categoryId, string title, array<string> options, int de
+    Offset: 2276575 | Contexto:  defaultIndex = 0, string description = "", int displayPriority = 0)...{....Id = id;....CategoryId = categoryId;....Title = title;....Description = description;.
+    Offset: 2276691 | Contexto: Title = title;....Description = description;....DisplayPriority = displayPriority;......Options = new array<string>;....if (options)....{.....for (int i = 0; i <
+  TERMO: queue | ocorrencias: 16
+    Offset: 2270608 | Contexto:  true);....cfg.AfterConfigReceived();....g_Game.GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(DeferredInvokeAfterSync, 0, false, cfg);...}......void Deferre
+    Offset: 2302381 | Contexto: CanAffectPathgraph()) ...    {...        g_Game.GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(g_Game.UpdatePathgraphRegionByObject, 100, false, obj);...
+    Offset: 2321285 | Contexto: int MAX_BUFFER_LINES  = 50;     // or when >= 50 lines queued.....protected static ref map<string, ref TStringArray> s_Buffers = new map<string, ref TStrin
+  TERMO: connect | ocorrencias: 19
+    Offset: 2223301 | Contexto: ............................",.."STR_ZenWatchlistPlayerConnected","A player on your watchlist just connected to your server:","A player on your watchlist just
+    Offset: 2223345 | Contexto: hlistPlayerConnected","A player on your watchlist just connected to your server:","A player on your watchlist just connected to your server:","Hr.... z va..eho
+    Offset: 2223405 | Contexto: cted to your server:","A player on your watchlist just connected to your server:","Hr.... z va..eho seznamu sledovan..ch se pr..v.. p..ipojil k va..emu serveru
+  TERMO: slot | ocorrencias: 23
+    Offset: 2369356 | Contexto: ..isRuined = true;........}........if (child.IsLockedInSlot())......{.......isLocked = true;......}........InventoryLocation child_src = new InventoryLoc
+    Offset: 2381285 | Contexto: nd;...}.....//! Get the EntityAI attached to the given slot NAME on the given entity ...static EntityAI GetItemOnSlotBySlotName(notnull EntityAI entityAI
+    Offset: 2381343 | Contexto: t NAME on the given entity ...static EntityAI GetItemOnSlotBySlotName(notnull EntityAI entityAI, string slot_type)...{....return GetItemOnSlotBySlotID(en
+================================================================================
+PBO: C:\DayZServer\@ZensNotes\addons\ZenNotes.pbo
+Tamanho: 5,196,442 bytes
+  TERMO: OnEvent | ocorrencias: 1
+    Offset: 5188448 | Contexto: Msg(string msg)..{...Print(msg);...g_Game.GetMission().OnEvent(ChatMessageEventTypeID, new ChatMessageEventParams(CCDirect, "", msg, ""));..}.}modded class Mis
+  TERMO: GetPlainId | ocorrencias: 1
+    Offset: 5148092 | Contexto: tity.GetId()) != -1 || SteamIDsBlacklist.Find(identity.GetPlainId()) != -1;....}......return false;...}.....// Check if the given message contains a blacklisted word
+  TERMO: GetIdentity | ocorrencias: 6
+    Offset: 5155986 | Contexto: RECEIVE_WRITTEN_NOTE, data, true, action_data.m_Player.GetIdentity());....note.IncreaseLifetime();...}..}...// For compatibility with @ZenCraftingSounds..override stri
+    Offset: 5157068 | Contexto: RECEIVE_WRITTEN_NOTE, data, true, action_data.m_Player.GetIdentity());....note.IncreaseLifetime();...}..}.}.class ActionZenWritePaperCB : ActionContinuousBaseCB {}..cl
+    Offset: 5160277 | Contexto: Cs.RECEIVE_NOTE_DATE, data, true, action_data.m_Player.GetIdentity());..}...// Get the ARGB colour integer for the given pen..static int GetPenColour(Pen_ColorBase pen
+  TERMO: GetPlayer | ocorrencias: 2
+    Offset: 5162323 | Contexto:        {....PlayerBase player = PlayerBase.Cast(sender.GetPlayer());..            if (!player || !sender) // If we can't identify the player who sent this note dat
+    Offset: 5187346 | Contexto: enNoteData>(note_data);.....if (msgTxt != "" && g_Game.GetPlayer())....{.....m_Paper.RPCSingleParam(ZenNotesRPCs.SEND_WRITTEN_NOTE, params, true, NULL);....}...../
+  TERMO: SteamID | ocorrencias: 4
+    Offset: 5146314 | Contexto: lNotes;...string BlacklistMessage;...ref array<string> SteamIDsBlacklist = new array<string>;.....// Load config file or create default file if config doesn't
+    Offset: 5147963 | Contexto: sPlayerBlacklisted(PlayerIdentity identity)...{....if (SteamIDsBlacklist.Count() > 0)....{.....return SteamIDsBlacklist.Find(identity.GetId()) != -1 || SteamID
+    Offset: 5148010 | Contexto: ....if (SteamIDsBlacklist.Count() > 0)....{.....return SteamIDsBlacklist.Find(identity.GetId()) != -1 || SteamIDsBlacklist.Find(identity.GetPlainId()) != -1;..
+  TERMO: PlayerIdentity | ocorrencias: 5
+    Offset: 5147927 | Contexto: n player ID is blacklisted ...bool IsPlayerBlacklisted(PlayerIdentity identity)...{....if (SteamIDsBlacklist.Count() > 0)....{.....return SteamIDsBlacklist.Find(identity.Get
+    Offset: 5161299 | Contexto:  {.        m_Pen = pen;.    }..    override void OnRPC(PlayerIdentity sender, int rpc_type, ParamsReadContext ctx).    {.        super.OnRPC(sender, rpc_type, ctx);..
+    Offset: 5163023 | Contexto:                   NotificationSystem.SendNotificationToPlayerIdentityExtended(player.GetIdentity(), 10.0, "#layout_notification_info_warning", GetZenNotesConfig().BlacklistM
+  TERMO: priority | ocorrencias: 1
+    Offset: 2237153 | Contexto: os 1.   vexactpos 1.   hexactsize 1.   vexactsize 1.   priority 1.   image0 "ZenNotes/data/gui/layouts/notes/notebg.edds".   imageTexture "{7819C907890D2FF0}ZenN
+  TERMO: queue | ocorrencias: 4
+    Offset: 5162031 | Contexto: t after data is received.                g_Game.GetCallQueue(CALL_CATEGORY_GAMEPLAY).CallLater(UpdateGUI, 50, false);.            }..            return;.
+    Offset: 5168050 | Contexto: m the ground.                            g_Game.GetCallQueue(CALL_CATEGORY_GAMEPLAY).CallLater(TakeNoteToHands, 200, true, player, noteGround);.
+    Offset: 5170210 | Contexto: ries >= 5).            {.                g_Game.GetCallQueue(CALL_CATEGORY_GAMEPLAY).Remove(TakeNoteToHands);.            }.        }.        else.
+  TERMO: reserved | ocorrencias: 8
+    Offset: 5166323 | Contexto:                     // Put the paper stack back in its reserved location, and place note into player's hands.                            HumanInventory inventory
+    Offset: 5166580 | Contexto:            return;..                            // Get reserved paper location in inventory (dst).                            InventoryLocation loc_dst = new Inv
+    Offset: 5166734 | Contexto: new InventoryLocation;.                            int reservedIndex = inventory.FindUserReservedLocationIndex(this);.                            inventory.GetUs
+  TERMO: connect | ocorrencias: 3
+    Offset: 5169131 | Contexto: ive() && !player.IsUnconscious() && !player.IsPlayerDisconnected()).        {.            // For some reason this approach bugs the player's hands?? Seems to w
+    Offset: 5170415 | Contexto: ject, or they're dead, or they're uncon, or they're disconnected, stop trying to pick it up and leave note on ground..            g_Game.GetCallQueue(CALL_CATE
+    Offset: 5171233 | Contexto: MessageParam && player.IsAlive() && !player.IsPlayerDisconnected() && message != "").        {.            m_MessageParam.param1 = message;.            g_Game.
+  TERMO: slot | ocorrencias: 2
+    Offset: 7813 | Contexto: QuantityMax.d.....stackedUnit.percentage......inventorySlot...ZenJournal_Pen.....Pen_ColorBase....scope.......displayName.$STR_ZenPen_Black..penColor....
+    Offset: 5167205 | Contexto:  If player has moved an item into the paper's reserved slot, or ServerTakeToDst fails, just take paper to anywhere in inventory..
+================================================================================
+PBO: C:\DayZServer\addons\ai.pbo
+Tamanho: 119,965 bytes
+  TERMO: slot | ocorrencias: 152
+    Offset: 1371 | Contexto: .A..agentPathUpdateDelta....@..agentPathMinLength... @.SlotCowering......SlotCalm.P....SlotNonSpecificThreat......SlotAlerted.u....AlertSystem.....-.....
+    Offset: 1389 | Contexto: eDelta....@..agentPathMinLength... @.SlotCowering......SlotCalm.P....SlotNonSpecificThreat......SlotAlerted.u....AlertSystem.....-......BehaviourCowering
+    Offset: 1403 | Contexto: gentPathMinLength... @.SlotCowering......SlotCalm.P....SlotNonSpecificThreat......SlotAlerted.u....AlertSystem.....-......BehaviourCowering.7...P.......p
+================================================================================
+PBO: C:\DayZServer\addons\ai_bliss.pbo
+Tamanho: 10,843 bytes
+  TERMO: slot | ocorrencias: 10
+    Offset: 899 | Contexto: e....A..annoyanceTimerMin....A..annoyanceTimerMax...@A.SlotCowering......SlotCalmResting......SlotCalmGrazing.@....SlotCalmTravelling......SlotDrinking..
+    Offset: 917 | Contexto: imerMin....A..annoyanceTimerMax...@A.SlotCowering......SlotCalmResting......SlotCalmGrazing.@....SlotCalmTravelling......SlotDrinking......SlotNonSpecifi
+    Offset: 938 | Contexto: ceTimerMax...@A.SlotCowering......SlotCalmResting......SlotCalmGrazing.@....SlotCalmTravelling......SlotDrinking......SlotNonSpecificThreat.u....SlotSpec
+================================================================================
+PBO: C:\DayZServer\addons\animals.pbo
+Tamanho: 67,075,644 bytes
+  TERMO: priority | ocorrencias: 40
+    Offset: 66266802 | Contexto: lds..!......MoveCompleted.K....TimeElapsed.............priority.......to.SetRandom3..Condition......Action.............function.moveCompleted..parameters....thre
+    Offset: 66266977 | Contexto: ....function.nothing..parameters...thresholds..........priority.......to.SetRandom2..Condition.:....Action.t...........function.timeElapsed..parameters....thresh
+    Offset: 66267278 | Contexto: ..L?......thresholds.........WaitCompleted.'...........priority.......to.SetTimerRandom..Condition.k....Action.............function.waitCompleted..parameters....
+  TERMO: queue | ocorrencias: 27
+    Offset: 271209 | Contexto:  {.     EditorPos 0 -37.3.     Child "SecondaryActions_Queue".     Expression "clamp(lookYAngle,-90.0, 90.0)   * 0.01745329251994329576923690768489".     B
+    Offset: 272567 | Contexto:      EditorPos -4.7 -37.2.     Child "SecondaryActions_Queue".     Expression "clamp(lookYAngle,-90.0, 90.0)   * 0.01745329251994329576923690768489".     B
+    Offset: 275845 | Contexto: .     EditorPos 3.9 -37.4.     Child "SecondaryActions_Queue".     Expression "clamp(lookYAngle,-90.0, 90.0)   * 0.01745329251994329576923690768489".     B
+  TERMO: connect | ocorrencias: 14
+    Offset: 65610733 | Contexto: valentTo" value="" />..                <variable name="connectAs" value="" />..                <array name="variantAfter">..                    <variable value
+    Offset: 65610991 | Contexto:                 </array>..                <array name="connectFrom" />..                <array name="connectTo" />..                <array name="interpolateWit
+    Offset: 65611037 | Contexto: ay name="connectFrom" />..                <array name="connectTo" />..                <array name="interpolateWith" />..                <array name="interpolat
+  TERMO: slot | ocorrencias: 3
+    Offset: 92721 | Contexto: alue 0.    MaxValue 2.   }.   AnimSrcGCTVarInt behaviorSlotID {.    DefaultValue 0.    MinValue 0.    MaxValue 31.   }.   AnimSrcGCTVarInt AnimalType {.
+    Offset: 229195 | Contexto: alue 0.    MaxValue 2.   }.   AnimSrcGCTVarInt behaviorSlotID {.    DefaultValue 0.    MinValue 0.    MaxValue 31.   }.   AnimSrcGCTVarInt AnimalType {.
+    Offset: 3916886 | Contexto: alue 0.    MaxValue 2.   }.   AnimSrcGCTVarInt behaviorSlotID {.    DefaultValue 0.    MinValue 0.    MaxValue 31.   }.   AnimSrcGCTVarInt AnimalType {.
+================================================================================
+PBO: C:\DayZServer\addons\animals_bliss.pbo
+Tamanho: 8,347,335 bytes
+  TERMO: queue | ocorrencias: 20
+    Offset: 80667 | Contexto: r_Y_rot {.     EditorPos -2.5 -38.     Child "LookRoll_Queue".     Expression "clamp(lookYAngle,-1.0, 1.0)   * 0.01745329251994329576923690768489".     Bon
+    Offset: 81255 | Contexto:        Amount 0.25.      }.     }.    }.    AnimSrcNodeQueue LookRoll_Queue {.     EditorPos -2.5 -36.6.     Child "Roars_Queue".     QueueItems {.      An
+    Offset: 81270 | Contexto: .25.      }.     }.    }.    AnimSrcNodeQueue LookRoll_Queue {.     EditorPos -2.5 -36.6.     Child "Roars_Queue".     QueueItems {.      AnimSrcNodeQueueI
+  TERMO: slot | ocorrencias: 4
+    Offset: 20465 | Contexto: alue 0.    MaxValue 2.   }.   AnimSrcGCTVarInt behaviorSlotID {.    DefaultValue 0.    MinValue 0.    MaxValue 17.   }.   AnimSrcGCTVarInt AnimalType {.
+    Offset: 104437 | Contexto: I(CMD_AnimCallBack) == 30 && RandomPerc(50) && behaviorSlotID != 9".       InterruptExpr "".       StartTime "".       BlendInTime 0.3.       BlendOutTim
+    Offset: 108679 | Contexto: riggerOn "".     TriggerOff "".     Condition "behaviorSlotID == 14".     Child0 "Run_Intimidate_BlendT".     Child1 "Run_Enraged_BlendT".     OptimizeMi
+================================================================================
+PBO: C:\DayZServer\addons\anims_anm_player.pbo
+Tamanho: 356,687,985 bytes
+  TERMO: slot | ocorrencias: 76
+    Offset: 484164 | Contexto: g_poses.anm.............CP.j.A..weaponswitch\p_1hd_erc_slot_backL_hide.anm.............CP.j....weaponswitch\p_1hd_erc_slot_backL_show.anm.............CP.
+    Offset: 484227 | Contexto: kL_hide.anm.............CP.j....weaponswitch\p_1hd_erc_slot_backL_show.anm.............CP.j....weaponswitch\p_1hd_erc_slot_backR_hide.anm.............CP.
+    Offset: 484290 | Contexto: kL_show.anm.............CP.j....weaponswitch\p_1hd_erc_slot_backR_hide.anm.............CP.j....weaponswitch\p_1hd_erc_slot_backR_show.anm.............CP.
+================================================================================
+PBO: C:\DayZServer\addons\anims_workspaces.pbo
+Tamanho: 4,780,932 bytes
+  TERMO: queue | ocorrencias: 56
+    Offset: 110866 | Contexto: Hit Left".     Looptype "No Loop".    }.    AnimSrcNodeQueue CrawlHitQ {.     EditorPos -5.1 -20.3.     Child "CrawlSTM".     QueueItems {.      AnimSrcNod
+    Offset: 110937 | Contexto: {.     EditorPos -5.1 -20.3.     Child "CrawlSTM".     QueueItems {.      AnimSrcNodeQueueItem "{6930A8DE2FA4C82E}" {.       Child "CrawlHitSTM".       Sta
+    Offset: 110967 | Contexto:    Child "CrawlSTM".     QueueItems {.      AnimSrcNodeQueueItem "{6930A8DE2FA4C82E}" {.       Child "CrawlHitSTM".       StartExpr "IsCommand(CMD_HIT_LIGH
+  TERMO: slot | ocorrencias: 190
+    Offset: 2250390 | Contexto: ditorPos -24 -4.6.     Source "WeaponChange.1HDLeftBackSlotHide".     Looptype "No Loop".    }.    AnimSrcNodeSource "1hdBackLShowAnim" {.     EditorPos
+    Offset: 2250536 | Contexto: torPos -25.2 -3.9.     Source "WeaponChange.1HDLeftBackSlotShow".     Looptype "No Loop".    }.    AnimSrcNodeSource "1hdBackRHideAnim" {.     EditorPos
+    Offset: 2250683 | Contexto: orPos -15.2 -4.6.     Source "WeaponChange.1HDRightBackSlotHide".     Looptype "No Loop".    }.    AnimSrcNodeSource "1hdBackRShowAnim" {.     EditorPos
+================================================================================
+PBO: C:\DayZServer\addons\characters_backpacks.pbo
+Tamanho: 5,651,934 bytes
+  TERMO: slot | ocorrencias: 25
+    Offset: 2452268 | Contexto: kpacks\taloon_g.p3d...debug_ItemCategory......inventorySlot...Back..attachments...Chemlight..WalkieTalkie..Backpack_1..NBCBag..itemInfo...Clothing..Back.
+    Offset: 2454540 | Contexto: acks\tortilla_g.p3d...debug_ItemCategory......inventorySlot...Back..attachments...Chemlight..WalkieTalkie..Backpack_1..NBCBag..itemInfo...Clothing..Back.
+    Offset: 2456349 | Contexto: ImpCourierBag_g.p3d...debug_ItemCategory......inventorySlot...Back..attachments...WalkieTalkie..Backpack_1..itemInfo...Clothing..Back...rotationFlags....
+================================================================================
+PBO: C:\DayZServer\addons\characters_belts.pbo
+Tamanho: 423,354 bytes
+  TERMO: slot | ocorrencias: 10
+    Offset: 64649 | Contexto: .vehicleClass.Clothing...simulation.clothing..inventorySlot...Hips..itemInfo...Clothing..Hips...quickBarBonus......itemSize..............weight......repa
+    Offset: 65988 | Contexto: .vehicleClass.Clothing...simulation.clothing..inventorySlot...Hips..itemInfo...Clothing..Hips...quickBarBonus......itemSize..............weight......repa
+    Offset: 67230 | Contexto: s\belts\Rope_Belt_g.p3d..attachments...Knife..inventorySlot...Hips..itemInfo...Clothing..Hips...quickBarBonus......itemSize..............weight......Dama
+================================================================================
+PBO: C:\DayZServer\addons\characters_bodies.pbo
+Tamanho: 540,281 bytes
+  TERMO: slot | ocorrencias: 8
+    Offset: 85113 | Contexto: aracters\proxies\rpg7_proxy.002........................slot_melee_rifle............................slot_shoulder_rifle............................slot_sh
+    Offset: 85157 | Contexto: ...........slot_melee_rifle............................slot_shoulder_rifle............................slot_shoulder_melee............................spin
+    Offset: 85204 | Contexto: ........slot_shoulder_rifle............................slot_shoulder_melee............................spine2........................decay_preload........
+================================================================================
+PBO: C:\DayZServer\addons\characters_data.pbo
+Tamanho: 198,584 bytes
+  TERMO: slot | ocorrencias: 125
+    Offset: 4451 | Contexto: nBone.RightHand...weaponBone.RightHand_Dummy..inventorySlot...Driver..attachments...Head..Shoulder..Melee..Headgear..Mask..Eyewear..Hands..LeftHand..Glov
+    Offset: 8212 | Contexto: ?O.......ammo.MeleeFist_Heavy...range.33.@x......playerSlots...Slot_Shoulder..Slot_Melee..Slot_Vest..Slot_Body..Slot_Hips..Slot_Legs..Slot_Back..Slot_Hea
+    Offset: 8220 | Contexto: .ammo.MeleeFist_Heavy...range.33.@x......playerSlots...Slot_Shoulder..Slot_Melee..Slot_Vest..Slot_Body..Slot_Hips..Slot_Legs..Slot_Back..Slot_Headgear..S
+================================================================================
+PBO: C:\DayZServer\addons\characters_glasses.pbo
+Tamanho: 611,507 bytes
+  TERMO: slot | ocorrencias: 12
+    Offset: 23086 | Contexto: .vehicleClass.Clothing...simulation.clothing..inventorySlot...Eyewear..itemInfo...Clothing..Eyewear...rotationFlags......itemSize..............weight....
+    Offset: 25108 | Contexto: .vehicleClass.Clothing...simulation.clothing..inventorySlot...Eyewear..itemInfo...Clothing..Eyewear...rotationFlags.......weight.$....itemSize...........
+    Offset: 26307 | Contexto: .vehicleClass.Clothing...simulation.clothing..inventorySlot...Eyewear..itemInfo...Clothing..Eyewear...rotationFlags.......weight.(....itemSize...........
+================================================================================
+PBO: C:\DayZServer\addons\characters_gloves.pbo
+Tamanho: 5,505,207 bytes
+  TERMO: slot | ocorrencias: 13
+    Offset: 10163 | Contexto: s...model.\DZ\characters\gloves\hands3_m.p3d..inventorySlot...Gloves..hiddenSelections...personality..hiddenSelectionsTextures...#(argb,8,8,3)color(0.843
+    Offset: 14581 | Contexto: s...model.\DZ\characters\gloves\hands3_f.p3d..inventorySlot...Gloves..hiddenSelections...personality..hiddenSelectionsTextures...#(argb,8,8,3)color(0.843
+    Offset: 23992 | Contexto: l.\DZ\characters\gloves\working_gloves_g.p3d..inventorySlot...Gloves...simulation.clothing..itemInfo...Clothing..Gloves...rotationFlags."....repairableWi
+================================================================================
+PBO: C:\DayZServer\addons\characters_headgear.pbo
+Tamanho: 4,640,361 bytes
+  TERMO: priority | ocorrencias: 6
+    Offset: 1226573 | Contexto: ..c...AnimEvents.Kc....soundVoiceType.none...soundVoicePriority......c.....GlobalHealth.Ba...b.....Health.Ta...b......hitpoints.2....healthLevels........?...DZ\c
+    Offset: 1232925 | Contexto: ..}...Protection..~....soundVoiceType.none...soundVoicePriority......~.....Beam..z...z.....color......?....?.........?..brightness....?..radius.......angle.F....
+    Offset: 1234842 | Contexto: AnimEvents.[.....soundVoiceType.motohelmet...soundVoicePriority.............male.\DZ\characters\headgear\MotoHelmet.p3d...female.\DZ\characters\headgear\MotoHelm
+  TERMO: slot | ocorrencias: 64
+    Offset: 1208584 | Contexto: .repairableWithKits........repairCosts......A.inventorySlot...Headgear...simulation.clothing...vehicleClass.Clothing..itemInfo...Clothing..Headgear...vis
+    Offset: 1215158 | Contexto: adCover_improvised_g.p3d...rotationFlags......inventorySlot...Headgear...simulation.clothing...vehicleClass.Clothing..itemInfo...Clothing..Headgear...vis
+    Offset: 1216654 | Contexto: Z\characters\headgear\BaseballCap_ground.p3d..inventorySlot...Headgear...simulation.clothing...vehicleClass.Clothing..itemInfo...Clothing..Headgear...vis
+================================================================================
+PBO: C:\DayZServer\addons\characters_heads.pbo
+Tamanho: 1,539,091 bytes
+  TERMO: slot | ocorrencias: 1
+    Offset: 80580 | Contexto: ame.head...descriptionShort.engine head base..inventorySlot...Head...simulation.head.hU..Head....scope.......displayName.face...descriptionShort.for test
+================================================================================
+PBO: C:\DayZServer\addons\characters_masks.pbo
+Tamanho: 1,195,258 bytes
+  TERMO: priority | ocorrencias: 7
+    Offset: 309947 | Contexto: mpactType.plastic...soundVoiceType.gasmask...soundVoicePriority............GlobalHealth.....E......Health.....E.......hitpoints.x....healthLevels........?...DZ\c
+    Offset: 311609 | Contexto: .L....AnimEvents.~.....soundVoiceType.none...soundVoicePriority............GlobalHealth............Health.............hitpoints.2....healthLevels........?...DZ\c
+    Offset: 321284 | Contexto: ...AnimEvents.!6....soundVoiceType.gasmask...soundVoicePriority......6.....GlobalHealth.N4...5.....Health.`4...5......hitpoints.P....healthLevels........?...DZ\c
+  TERMO: slot | ocorrencias: 16
+    Offset: 309125 | Contexto: 1...model.\DZ\characters\masks\GasMask_g.p3d..inventorySlot...Mask...simulation.clothing...vehicleClass.Clothing..itemInfo...Clothing..Mask..repairableWi
+    Offset: 311091 | Contexto: del.\DZ\characters\masks\NioshFaceMask_g.p3d..inventorySlot...Mask..itemInfo...Clothing..Mask...rotationFlags.......weight......itemSize..............var
+    Offset: 312488 | Contexto: ..model.\DZ\characters\masks\Balaclava_g.p3d..inventorySlot...Mask..itemInfo...Clothing..Mask...rotationFlags.......weight......itemSize..............rag
+================================================================================
+PBO: C:\DayZServer\addons\characters_pants.pbo
+Tamanho: 4,402,342 bytes
+  TERMO: slot | ocorrencias: 28
+    Offset: 1106523 | Contexto: se0...model.\DZ\characters\pants\legs3_m.p3d..inventorySlot...Legs..hiddenSelections...personality..hiddenSelectionsTextures...#(argb,8,8,3)color(0.84313
+    Offset: 1110928 | Contexto: se0...model.\DZ\characters\pants\legs3_f.p3d..inventorySlot...Legs..hiddenSelections...personality..hiddenSelectionsTextures...#(argb,8,8,3)color(0.84313
+    Offset: 1120309 | Contexto: und.p3d..ContinuouActions...AT_WRING_CLOTHES..inventorySlot...Legs...simulation.clothing..itemInfo...Clothing..Legs..itemSize.............itemsCargoSize.
+================================================================================
+PBO: C:\DayZServer\addons\characters_shoes.pbo
+Tamanho: 2,407,099 bytes
+  TERMO: slot | ocorrencias: 21
+    Offset: 842013 | Contexto: se0...model.\DZ\characters\shoes\feet3_m.p3d..inventorySlot...Feet..hiddenSelections...personality..hiddenSelectionsTextures...#(argb,8,8,3)color(0.84313
+    Offset: 846418 | Contexto: se0...model.\DZ\characters\shoes\feet3_f.p3d..inventorySlot...Feet..hiddenSelections...personality..hiddenSelectionsTextures...#(argb,8,8,3)color(0.84313
+    Offset: 855994 | Contexto: DZ\characters\shoes\athleticShoes_ground.p3d..inventorySlot...Feet..itemInfo...Clothing..Feet..itemSize..............weight.J.....durability...L>..varWet
+================================================================================
+PBO: C:\DayZServer\addons\characters_tops.pbo
+Tamanho: 6,204,922 bytes
+  TERMO: slot | ocorrencias: 49
+    Offset: 689344 | Contexto: se0...model.\DZ\characters\tops\torso3_m.p3d..inventorySlot...Body..hiddenSelections...personality..hiddenSelectionsTextures...#(argb,8,8,3)color(0.84313
+    Offset: 693686 | Contexto: se0...model.\DZ\characters\tops\torso3_f.p3d..inventorySlot...Body..hiddenSelections...personality..hiddenSelectionsTextures...#(argb,8,8,3)color(0.84313
+    Offset: 700046 | Contexto: ..model.\DZ\characters\tops\DownJacket_g.p3d..inventorySlot...Body..itemInfo...Clothing..Body...weight......itemSize.............itemsCargoSize..........
+================================================================================
+PBO: C:\DayZServer\addons\characters_vests.pbo
+Tamanho: 1,869,323 bytes
+  TERMO: slot | ocorrencias: 20
+    Offset: 249684 | Contexto: eA..VestGrenadeB..VestGrenadeC..VestGrenadeD..inventorySlot...Vest..itemInfo...Clothing..Vest...weight......itemSize..............quickBarBonus.......var
+    Offset: 254948 | Contexto: eA..VestGrenadeB..VestGrenadeC..VestGrenadeD..inventorySlot...Vest..itemInfo...Clothing..Vest...weight......itemSize.............itemsCargoSize..........
+    Offset: 256398 | Contexto: eA..VestGrenadeB..VestGrenadeC..VestGrenadeD..inventorySlot...Vest..itemInfo...Clothing..Vest...weight.X....itemSize.............itemsCargoSize..........
+================================================================================
+PBO: C:\DayZServer\addons\characters_zombies.pbo
+Tamanho: 3,915,687 bytes
+  TERMO: slot | ocorrencias: 16
+    Offset: 597950 | Contexto: FilterTimeout....?..lookAtFilterSpeed....?.&.....playerSlots...Slot_Vest..Slot_Back..Slot_Headgear..Slot_Eyewear..&.....itemsCargoSize..............allow
+    Offset: 597958 | Contexto: meout....?..lookAtFilterSpeed....?.&.....playerSlots...Slot_Vest..Slot_Back..Slot_Headgear..Slot_Eyewear..&.....itemsCargoSize..............allowOwnedCar
+    Offset: 597969 | Contexto: .lookAtFilterSpeed....?.&.....playerSlots...Slot_Vest..Slot_Back..Slot_Headgear..Slot_Eyewear..&.....itemsCargoSize..............allowOwnedCargoManipulat
+================================================================================
+PBO: C:\DayZServer\addons\dz.pbo
+Tamanho: 2,270,036 bytes
+  TERMO: priority | ocorrencias: 12
+    Offset: 130862 | Contexto: ....OpticsCHAbera3.....,.......type.ColorCorrections...priority......params..............................................?...L>....?...K>..E.?..x.=.............t
+    Offset: 130991 | Contexto: ..?...K>..E.?..x.=.............type.ColorCorrections...priority......params..............................................?...L>...L?...K>....>..x.=.....w.......t
+    Offset: 131113 | Contexto: ...L>...L?...K>....>..x.=.....w.......type.FilmGrain...priority......params.....L=...........33.>..................type.colorInversion...priority......params....
+  TERMO: slot | ocorrencias: 14
+    Offset: 50956 | Contexto:  types..#define PLUG_UNDEFINED 0..#define PLUG_BATTERY_SLOT 1..#define PLUG_COMMON_APPLIANCE 2..#define PLUG_CROCODILE_PINS 3..#define PLUG_CROCODILE_PIN
+    Offset: 51143 | Contexto: CE 5..#define PLUG_BARBED_WIRE 6..#define PLUG_GAS_CAN_SLOT 7..#define PLUG_VEHICLE_BATTERY_PINS 8....// Wetness exposure..#define STOP_WORK_WHEN_DAMP 1.
+    Offset: 136001 | Contexto: .....fragility....=..inventoryCondition.true..inventorySlot......cargoClass....targetCategory...itemInfo....absorbency.......heatIsolation......Environme
+================================================================================
+PBO: C:\DayZServer\addons\gear_camping.pbo
+Tamanho: 4,615,454 bytes
+  TERMO: connection | ocorrencias: 18
+    Offset: 1132809 | Contexto: ocenter.0.canclimb.0.ignorecomponents.1.generateoffmeshconnections.0...............(......G....?............7.5.7.5G............G......;...........;.......;...;...;.
+    Offset: 1147312 | Contexto: placement.slopelandcontact.autocenter.0.generateoffmeshconnections.0.....?T|.?T|...(..c........?............7.5.7.5....................@o...h.M....@o...N3.=.x.?o...N
+    Offset: 1636943 | Contexto: ent.slopelandcontact.ignorecomponents.1.generateoffmeshconnections.0...............(..;...5....?............7.5.7.55............5......................@.............
+  TERMO: connect | ocorrencias: 18
+    Offset: 1132809 | Contexto: ocenter.0.canclimb.0.ignorecomponents.1.generateoffmeshconnections.0...............(......G....?............7.5.7.5G............G......;...........;.......;...
+    Offset: 1147312 | Contexto: placement.slopelandcontact.autocenter.0.generateoffmeshconnections.0.....?T|.?T|...(..c........?............7.5.7.5....................@o...h.M....@o...N3.=.x.
+    Offset: 1636943 | Contexto: ent.slopelandcontact.ignorecomponents.1.generateoffmeshconnections.0...............(..;...5....?............7.5.7.55............5......................@.......
+  TERMO: slot | ocorrencias: 238
+    Offset: 572125 | Contexto: .$STR_attachment_accessories...description...attachmentSlots...CamoNet..Lights...icon.set:dayz_inventory image:cat_fp_tents...view_index............Body.
+    Offset: 580148 | Contexto: .$STR_attachment_accessories...description...attachmentSlots...CamoNet..Lights...icon.set:dayz_inventory image:cat_fp_tents...view_index.....>8.....Body.
+    Offset: 587160 | Contexto: .$STR_attachment_accessories...description...attachmentSlots...CamoNet..Lights...icon.set:dayz_inventory image:cat_fp_tents...view_index......S.....Body.
+================================================================================
+PBO: C:\DayZServer\addons\gear_consumables.pbo
+Tamanho: 871,502 bytes
+  TERMO: slot | ocorrencias: 38
+    Offset: 95857 | Contexto: .....itemSize..............rotationFlags......inventorySlot...Paper...varWetMax....?.DamageSystem......AnimEvents.....^......GlobalHealth............Heal
+    Offset: 97166 | Contexto: d....itemSize..............rotationFlags......inventorySlot...Paper..DamageSystem......AnimEvents.2..........GlobalHealth.....2......Health.....2.......h
+    Offset: 100689 | Contexto: ncy......itemSize..............varWetMax....?.inventorySlot...Rags..ChangeInventorySlot...Mask..ChangeIntoOnAttach.....MouthRag...canBeSplit.......varQua
+================================================================================
+PBO: C:\DayZServer\addons\gear_containers.pbo
+Tamanho: 379,296 bytes
+  TERMO: slot | ocorrencias: 2
+    Offset: 123024 | Contexto: avmesh.......canBeDigged.......heavyItem......inventorySlot...Truck_01_Barrel1..Truck_01_Barrel2..Truck_01_Barrel3..Truck_01_Barrel4...weight..'...itemSi
+    Offset: 130475 | Contexto: characters\vests\plate_carrier_pouches_g.p3d..inventorySlot...VestPouch...weight......itemSize.............itemsCargoSize.............repairableWithKits.
+================================================================================
+PBO: C:\DayZServer\addons\gear_cooking.pbo
+Tamanho: 592,203 bytes
+  TERMO: slot | ocorrencias: 37
+    Offset: 62958 | Contexto: attachment_CookingEquipment0...description...attachmentSlots...CookingTripod..CookingEquipment...icon.set:dayz_inventory image:cat_fp_cooking...view_inde
+    Offset: 63125 | Contexto: name.$STR_attachment_Smoking...description...attachmentSlots...SmokingA..SmokingB..SmokingC..SmokingD...icon.set:dayz_inventory image:cookingequipment...
+    Offset: 63311 | Contexto: attachment_CookingEquipment0...description...attachmentSlots...DirectCookingA..DirectCookingB..DirectCookingC...icon.set:dayz_inventory image:cookingequi
+================================================================================
+PBO: C:\DayZServer\addons\gear_crafting.pbo
+Tamanho: 339,800 bytes
+  TERMO: slot | ocorrencias: 16
+    Offset: 77331 | Contexto: ces_grayscale image:rope...rotationFlags......inventorySlot...Rope..Material_FPole_Rope..Material_Shelter_Rope..RB_LvL1_Rope..RB_LvL2_Rope..Backpack_1..i
+    Offset: 77515 | Contexto: ...soundImpactType.textile..DamageSystem......InventorySlotsOffsets.L....AnimEvents............GlobalHealth.....L......Health.*...L.......hitpoints......
+    Offset: 80281 | Contexto: nFlags......itemSize..............weight......inventorySlot...MetalWire..Material_MetalWire..Material_FPole_MetalWire..RB_LvL1_MetalWire..RB_LvL2_MetalWi
+================================================================================
+PBO: C:\DayZServer\addons\gear_cultivation.pbo
+Tamanho: 453,022 bytes
+  TERMO: slot | ocorrencias: 426
+    Offset: 45696 | Contexto: ......spawnOffset.......lootCategory.Crafted..inventorySlot...SeedBase_1..SeedBase_2..SeedBase_3..SeedBase_4..SeedBase_5..SeedBase_6..SeedBase_7..SeedBas
+    Offset: 54889 | Contexto: odel.\dz\gear\cultivation\plant_material.p3d..inventorySlot...Plant...lootCategory.Crafted..itemSize..............rotationFlags.".....weight.......weight
+    Offset: 55572 | Contexto: material_destruct.rvmat..0......TexId.......AddEnergyToSlot....?..ConsumedQuantity....B..FertilizeLength.....R1.....SoundWeapon.i1...2.....pickUpItem_Lig
+================================================================================
+PBO: C:\DayZServer\addons\gear_drinks.pbo
+Tamanho: 213,231 bytes
+  TERMO: slot | ocorrencias: 8
+    Offset: 12772 | Contexto: \drinks\Canteen.p3d...debug_ItemCategory......inventorySlot...Belt_Left..DirectCookingA..DirectCookingB..DirectCookingC...weight......itemSize...........
+    Offset: 13519 | Contexto: geSystem......MeleeModes.?....AnimEvents......InventorySlotsOffsets............GlobalHealth.....?......Health.'...?.......hitpoints.d....healthLevels....
+    Offset: 15687 | Contexto: .....soundImpactType.plastic..AnimEvents......InventorySlotsOffsets.K...D......GlobalHealth............Health.............hitpoints.2....healthLevels....
+================================================================================
+PBO: C:\DayZServer\addons\gear_food.pbo
+Tamanho: 3,179,679 bytes
+  TERMO: slot | ocorrencias: 90
+    Offset: 532249 | Contexto: ageSystem......Nutrition......AnimEvents.g....InventorySlotsOffsets.j...c......GlobalHealth............Health.............hitpoints......healthLevels....
+    Offset: 534009 | Contexto: ageSystem......Nutrition......AnimEvents.V....InventorySlotsOffsets.J!..C".....GlobalHealth............Health.............hitpoints......healthLevels....
+    Offset: 535718 | Contexto: ......varTemperatureMax.i.....absorbency......inventorySlot...Guts...isMeleeWeapon......DamageSystem..$...MeleeModes.%&...Nutrition..&...NoiseImpact.*'..
+================================================================================
+PBO: C:\DayZServer\addons\gear_medical.pbo
+Tamanho: 460,680 bytes
+  TERMO: slot | ocorrencias: 12
+    Offset: 83375 | Contexto: andage_dressing.p3d...debug_ItemCategory......inventorySlot...MedicalBandage...isMeleeWeapon.......varWetMax....?..quantityBar.......varQuantityDestroyOn
+    Offset: 84687 | Contexto: sinfectantSpray.p3d...debug_ItemCategory......inventorySlot...Disinfectant...quantityBar.......varQuantityInit.......varQuantityMin.......varQuantityMax.
+    Offset: 86664 | Contexto: .....soundImpactType.glass..DamageSystem......inventorySlot...Nutrition.K....AnimEvents.....O......GlobalHealth.+...K......Health.=...K.......hitpoints..
+================================================================================
+PBO: C:\DayZServer\addons\gear_navigation.pbo
+Tamanho: 629,461 bytes
+  TERMO: slot | ocorrencias: 7
+    Offset: 173313 | Contexto: .........weight.......simulation.ItemCompass..inventorySlot...WalkieTalkie..Chemlight..DamageSystem.t....AnimationSources.......soundImpactType.glass..An
+    Offset: 173434 | Contexto: .......soundImpactType.glass..AnimEvents......InventorySlotsOffsets.....T......GlobalHealth............Health.............hitpoints.F....healthLevels....
+    Offset: 174461 | Contexto: .........weight.......simulation.ItemCompass..inventorySlot...WalkieTalkie..Chemlight..DamageSystem......AnimationSources.[.....soundImpactType.plastic..
+================================================================================
+PBO: C:\DayZServer\addons\gear_optics.pbo
+Tamanho: 216,197 bytes
+  TERMO: slot | ocorrencias: 3
+    Offset: 116161 | Contexto: lay/rangefinder_hud_2.layout..OpticsInfo.f....inventorySlot...WalkieTalkie..Chemlight..attachments...BatteryD..DamageSystem......repairableWithKits......
+    Offset: 116324 | Contexto: sts......A.EnergyManager......MeleeModes.c....InventorySlotsOffsets......OpticsModelInfo.......soundImpactType.plastic.........memoryPointCamera.eyeScope
+    Offset: 119344 | Contexto: yEncore.....'...ProxyAttachment....scope......inventorySlot...Pistol...model.\dz\gear\optics\binoculars.p3d.'.......destructengine.....destructdefault...
+================================================================================
+PBO: C:\DayZServer\addons\gear_radio.pbo
+Tamanho: 249,042 bytes
+  TERMO: slot | ocorrencias: 4
+    Offset: 59527 | Contexto: ht.......absorbency....?.itemSize.............inventorySlot...WalkieTalkie..Chemlight...rotationFlags.......oldpower.......isMeleeWeapon......MeleeModes.
+    Offset: 59859 | Contexto: ..DamageSystem.......soundImpactType.plastic..InventorySlotsOffsets.V....AnimEvents.....L......Default......Heavy......Sprint.L...{.......ammo.MeleeLight
+    Offset: 61022 | Contexto: ht..'....absorbency....?.itemSize.............inventorySlot...Back..ClothingTypes.5.....oldpower.......simulation.itemTransmitter...inputRange.......rang
+================================================================================
+PBO: C:\DayZServer\addons\gear_tools.pbo
+Tamanho: 1,354,374 bytes
+  TERMO: slot | ocorrencias: 34
+    Offset: 210367 | Contexto: Weapon......itemSize..............weight......inventorySlot...TriggerAlarmClock...soundImpactType.metal..AnimationSources......NoiseAlarmClock......hidde
+    Offset: 212077 | Contexto: Weapon......itemSize..............weight......inventorySlot...TriggerKitchenTimer..hiddenSelections...camo..hiddenSelectionsTextures...dz\gear\tools\data
+    Offset: 230825 | Contexto: ...........fragility.o..<..itemBehaviour......inventorySlot...Shoulder..Melee...suicideAnim.pitchfork...build_action_type.......dismantle_action_type....
+================================================================================
+PBO: C:\DayZServer\addons\gear_traps.pbo
+Tamanho: 192,898 bytes
+  TERMO: slot | ocorrencias: 4
+    Offset: 56050 | Contexto: .....itemSize..............itemBehaviour......inventorySlot...IEDExplosiveA..IEDExplosiveB...slopeTolerance....>.yawPitchRollLimit...<....<....<....hidde
+    Offset: 62703 | Contexto: ycharge..%..d&..ProxyAttachment....scope......inventorySlot...TrapPrey_1...model.\dz\gear\food\lepus_europaeus_dead.p3d..%..ProxyAttachment....scope.....
+    Offset: 62811 | Contexto: us_dead.p3d..%..ProxyAttachment....scope......inventorySlot...Trap_Bait_2...model.\dz\gear\traps\proxy\bait.p3d..%..ProxyAttachment....scope......invento
+================================================================================
+PBO: C:\DayZServer\addons\sounds_hpp.pbo
+Tamanho: 8,578,378 bytes
+  TERMO: priority | ocorrencias: 2
+    Offset: 6060676 | Contexto: ...?..soundShadersLimit.......spatial.......loop.......priority.....}u\....soundShaders...AnniversaryMusic_Light_SoundShader...volumeFactor.......volumeCurve.Mus
+    Offset: 6061010 | Contexto: ...?..soundShadersLimit.......spatial.......loop.......priority......v\....soundShaders...power_station_switch_up_SoundShader...volumeFactor....?..spatial.......
+================================================================================
+PBO: C:\DayZServer\addons\structures_military.pbo
+Tamanho: 19,243,706 bytes
+  TERMO: connection | ocorrencias: 22
+    Offset: 6912 | Contexto: _smdi.paa................j....Airfield\data\radar_tall_connections.rvmat................jj...Airfield\data\radar_tall_connections_as.paa................j....Airfield
+    Offset: 6975 | Contexto: ons.rvmat................jj...Airfield\data\radar_tall_connections_as.paa................j....Airfield\data\radar_tall_connections_co.paa................j....Airfiel
+    Offset: 7039 | Contexto: ns_as.paa................j....Airfield\data\radar_tall_connections_co.paa................j....Airfield\data\radar_tall_connections_MC.paa................j....Airfiel
+  TERMO: connect | ocorrencias: 22
+    Offset: 6912 | Contexto: _smdi.paa................j....Airfield\data\radar_tall_connections.rvmat................jj...Airfield\data\radar_tall_connections_as.paa................j....Ai
+    Offset: 6975 | Contexto: ons.rvmat................jj...Airfield\data\radar_tall_connections_as.paa................j....Airfield\data\radar_tall_connections_co.paa................j....A
+    Offset: 7039 | Contexto: ns_as.paa................j....Airfield\data\radar_tall_connections_co.paa................j....Airfield\data\radar_tall_connections_MC.paa................j....A
+================================================================================
+PBO: C:\DayZServer\addons\structures_proxy_parts.pbo
+Tamanho: 135,254 bytes
+  TERMO: connection | ocorrencias: 2
+    Offset: 1696 | Contexto: 3d.............%..j....LightningCond\LightningConductorConnection\LightningConductorConnection.p3d.............%..j....LightningCond\LightningConductorCorner\Lightni
+    Offset: 1725 | Contexto: ingCond\LightningConductorConnection\LightningConductorConnection.p3d.............%..j....LightningCond\LightningConductorCorner\LightningConductorCorner.p3d........
+  TERMO: connect | ocorrencias: 2
+    Offset: 1696 | Contexto: 3d.............%..j....LightningCond\LightningConductorConnection\LightningConductorConnection.p3d.............%..j....LightningCond\LightningConductorCorner\L
+    Offset: 1725 | Contexto: ingCond\LightningConductorConnection\LightningConductorConnection.p3d.............%..j....LightningCond\LightningConductorCorner\LightningConductorCorner.p3d..
+================================================================================
+PBO: C:\DayZServer\addons\structures_residential.pbo
+Tamanho: 25,630,439 bytes
+  TERMO: connection | ocorrencias: 16
+    Offset: 20781563 | Contexto: es\proxy_buildingparts\lightningcond\lightningconductorconnection\lightningconductorconnection....?...............?...............?..'.C..@v5......n...........\dz\st
+    Offset: 20781592 | Contexto: ingcond\lightningconductorconnection\lightningconductorconnection....?...............?...............?..'.C..@v5......n...........\dz\structures\proxy_buildingparts\
+    Offset: 20784662 | Contexto: es\proxy_buildingparts\lightningcond\lightningconductorconnection\lightningconductorconnection....................?..................'AC..@.\..................\dz\st
+  TERMO: connect | ocorrencias: 16
+    Offset: 20781563 | Contexto: es\proxy_buildingparts\lightningcond\lightningconductorconnection\lightningconductorconnection....?...............?...............?..'.C..@v5......n...........
+    Offset: 20781592 | Contexto: ingcond\lightningconductorconnection\lightningconductorconnection....?...............?...............?..'.C..@v5......n...........\dz\structures\proxy_building
+    Offset: 20784662 | Contexto: es\proxy_buildingparts\lightningcond\lightningconductorconnection\lightningconductorconnection....................?..................'AC..@.\..................
+  TERMO: slot | ocorrencias: 55
+    Offset: 729184 | Contexto: ..model.DZ\gear\cultivation\tomato_seeds.p3d..inventorySlot...SeedBase_1..SeedBase_2..SeedBase_3..SeedBase_4..SeedBase_5..SeedBase_6..SeedBase_7..SeedBas
+    Offset: 14039073 | Contexto: ase_5..seedbase_6..seedbase_7..seedbase_8..seedbase_9..slotcovered_01..slotcovered_02..slotcovered_03..slotcovered_04..slotcovered_05..slotcovered_06..sl
+    Offset: 14039089 | Contexto: 6..seedbase_7..seedbase_8..seedbase_9..slotcovered_01..slotcovered_02..slotcovered_03..slotcovered_04..slotcovered_05..slotcovered_06..slotcovered_07..sl
+================================================================================
+PBO: C:\DayZServer\addons\structures_ruins_bliss.pbo
+Tamanho: 15,608,718 bytes
+  TERMO: slot | ocorrencias: 1
+    Offset: 762737 | Contexto: @. ..F.#.B..#...).B..G.>.*.2..+.A.E.3..'......K.J.M.R..S.L.O.T..T.O.U..U.X.T..V.T.X..Z.V.X..W.].Y..\.].W..U.[.X..a.^.N..Q._.d.b..`.P.e..c.e.P..e.g.`.._.h
+================================================================================
+PBO: C:\DayZServer\addons\structures_signs.pbo
+Tamanho: 8,371,980 bytes
+  TERMO: priority | ocorrencias: 2
+    Offset: 63061 | Contexto: \sign_pedCrossing.p3d................j.+..Traffic\sign_priority.p3d................j.'..Traffic\sign_priority_new.p3d................jD$..Traffic\sign_railcross_
+    Offset: 63107 | Contexto: fic\sign_priority.p3d................j.'..Traffic\sign_priority_new.p3d................jD$..Traffic\sign_railcross_160m.p3d................j?...Traffic\sign_rail
+================================================================================
+PBO: C:\DayZServer\addons\structures_underground_bliss.pbo
+Tamanho: 11,199,255 bytes
+  TERMO: connect | ocorrencias: 56
+    Offset: 207 | Contexto: ............[8.j._..Corridor\data\underground_corridor_connector_accessories.rvmat.............[8.jh...Corridor\data\underground_corridor_connector_accessories
+    Offset: 290 | Contexto: ............[8.jh...Corridor\data\underground_corridor_connector_accessories_mc.paa.............[8.j....Corridor\data\underground_corridor_connector_building_m
+    Offset: 374 | Contexto: ............[8.j....Corridor\data\underground_corridor_connector_building_mask.paa.............[8.j....Corridor\data\underground_corridor_connector_building_mc
+================================================================================
+PBO: C:\DayZServer\addons\vehicles_parts.pbo
+Tamanho: 1,183,914 bytes
+  TERMO: slot | ocorrencias: 26
+    Offset: 331386 | Contexto: it......itemSize..............absorbency......inventorySlot...TruckBattery..LargeBattery...rotationFlags......repairableWithKits........repairCosts......
+    Offset: 331585 | Contexto: ttach_SoundSet..carbattery_attach_SoundSet..attachSoundSlot...TruckBattery..LargeBattery..detachSoundSet...carbattery_detach_SoundSet..carbattery_detach_
+    Offset: 331704 | Contexto: etach_SoundSet..carbattery_detach_SoundSet..detachSoundSlot...TruckBattery..LargeBattery..EnergyManager......DamageSystem......AnimEvents./...........has
+================================================================================
+PBO: C:\DayZServer\addons\vehicles_singletrack.pbo
+Tamanho: 554,294 bytes
+  TERMO: slot | ocorrencias: 56
+    Offset: 12853 | Contexto: ....damageFromCoolant................?.......engineBeltSlot.EngineBelt...batterySlot.CarBattery...electricPowerResName.power...electricConsumptionIgnitio
+    Offset: 12878 | Contexto: ............?.......engineBeltSlot.EngineBelt...batterySlot.CarBattery...electricPowerResName.power...electricConsumptionIgnition.......electricConsumpti
+    Offset: 13750 | Contexto: Wheels.....%......Front.,....Rear.....%.......inventorySlot....animTurn.turnfront...animRotation.wheelfront...animDamper.damperfront...wheelHub.wheel_1_d
+================================================================================
+PBO: C:\DayZServer\addons\vehicles_water.pbo
+Tamanho: 56,337 bytes
+  TERMO: slot | ocorrencias: 11
+    Offset: 51063 | Contexto: componentNames...dmgZone_chassis..Health......inventorySlots...inventorySlotsCoefs..........hitpoints.X.....transferToGlobalCoef.............displayName.
+    Offset: 51080 | Contexto: dmgZone_chassis..Health......inventorySlots...inventorySlotsCoefs..........hitpoints.X.....transferToGlobalCoef.............displayName.$STR_CfgVehicleDm
+    Offset: 51334 | Contexto: mgZone_engine..dmgZone_propeller..Health......inventorySlots...Sparkplug..inventorySlotsCoefs......?........hitpoints.,.....transferToGlobalCoef......hea
+================================================================================
+PBO: C:\DayZServer\addons\vehicles_wheeled.pbo
+Tamanho: 18,609,483 bytes
+  TERMO: slot | ocorrencias: 300
+    Offset: 3605756 | Contexto: Names...dmgZone_window...fatalInjuryCoef......inventorySlots..=.......hitpoints.F.....transferToGlobalCoef......healthLevels........?.....333?........?..
+    Offset: 3605956 | Contexto: tNames...dmgZone_doors...fatalInjuryCoef......inventorySlots..........hitpoints.......transferToGlobalCoef......healthLevels........?.....333?........?..
+    Offset: 3606669 | Contexto: ....damageFromCoolant................?.......engineBeltSlot.EngineBelt...batterySlot.CarBattery...electricPowerResName.power...electricConsumptionIgnitio
+================================================================================
+PBO: C:\DayZServer\addons\weapon_lights.pbo
+Tamanho: 119,228 bytes
+  TERMO: slot | ocorrencias: 5
+    Offset: 269 | Contexto: t_TLR.p3d.............M..j....weaponlight_TLR_Mich2001_slothelper.p3d.............M..j....weaponlight_universal.p3d.............M..j"....................
+    Offset: 918 | Contexto: versed.......weight.P....itemSize.............inventorySlot...weaponFlashlight..helmetFlashlight..DamageSystem......repairableWithKits........repairCosts
+    Offset: 2415 | Contexto: versed.......weight.v....itemSize.............inventorySlot...pistolFlashlight..DamageSystem.^....repairableWithKits........repairCosts......A.hiddenSele
+================================================================================
+PBO: C:\DayZServer\addons\weapon_magazines.pbo
+Tamanho: 1,628,581 bytes
+  TERMO: slot | ocorrencias: 49
+    Offset: 204723 | Contexto: debug_ItemCategory.......storageCategory......inventorySlot...magazine..magazine2..magazine3..repairableWithKits........repairCosts......A..handheld.true
+    Offset: 327223 | Contexto: _20rnd.........ProxyAttachment....scope.......inventorySlot.magazine...model.\dz\weapons\attachments\magazine\magazine_STANAG30.p3d.T...ProxyAttachment..
+    Offset: 327344 | Contexto: ANAG30.p3d.T...ProxyAttachment....scope.......inventorySlot.magazine...model.\dz\weapons\attachments\magazine\magazine_pmag_10.p3d.....ProxyAttachment...
+================================================================================
+PBO: C:\DayZServer\addons\weapon_muzzles.pbo
+Tamanho: 336,685 bytes
+  TERMO: slot | ocorrencias: 29
+    Offset: 181411 | Contexto: y_Base....scope.......debug_ItemCategory......inventorySlot...weaponMuzzle...simulation.ItemSuppressor..itemSize..............selectionFireAnim.zasleh...
+    Offset: 182213 | Contexto: y.Attachments..openItemSpillRange.............inventorySlot...weaponBayonetAK..Knife..recoilModifier..................swayModifier..................itemI
+    Offset: 182391 | Contexto: .v....MeleeModes.......soundImpactType.metal..InventorySlotsOffsets......AnimEvents............GlobalHealth............Health.............hitpoints......
+================================================================================
+PBO: C:\DayZServer\addons\weapon_optics.pbo
+Tamanho: 4,559,897 bytes
+  TERMO: slot | ocorrencias: 38
+    Offset: 32991 | Contexto: ................swayModifier..................inventorySlot...weaponOptics...simulation.itemoptics...memoryPointCamera.eyeScope...cameraDir.cameraDir..hi
+    Offset: 34406 | Contexto: ................swayModifier..................inventorySlot...weaponOptics..hiddenSelections...camo..hiddenSelectionsTextures...dz\weapons\attachments\da
+    Offset: 35622 | Contexto: animClass.Binoculars...simulation.itemoptics..inventorySlot...weaponOptics...selectionFireAnim.zasleh...memoryPointCamera.eyeScope...cameraDir.cameraDir.
+================================================================================
+PBO: C:\DayZServer\addons\weapon_supports.pbo
+Tamanho: 1,708,728 bytes
+  TERMO: slot | ocorrencias: 61
+    Offset: 583632 | Contexto: m4_oe.p3d...rotationFlags.......reversed......inventorySlot...weaponButtstockM4...weight.b....itemSize.............recoilModifier.....L?...L?...L?.swayMo
+    Offset: 584908 | Contexto: m4_mp.p3d...rotationFlags.......reversed......inventorySlot...weaponButtstockM4...weight.J....itemSize.............recoilModifier...fff?.fff?.fff?.swayMo
+    Offset: 586192 | Contexto: 4_cqb.p3d...rotationFlags.......reversed......inventorySlot...weaponButtstockM4...weight......itemSize.............recoilModifier...333?.333?.333?.swayMo
+================================================================================
+PBO: C:\DayZServer\addons\weapons_ammunition.pbo
+Tamanho: 797,143 bytes
+  TERMO: slot | ocorrencias: 1
+    Offset: 574233 | Contexto: ight.......count.......ammo.Bullet_40mm_Base..inventorySlot...IEDExplosiveA..IEDExplosiveB..VestGrenadeA..VestGrenadeB..VestGrenadeC..VestGrenadeD...muzz
+================================================================================
+PBO: C:\DayZServer\addons\weapons_archery.pbo
+Tamanho: 357,220 bytes
+  TERMO: slot | ocorrencias: 2
+    Offset: 156690 | Contexto: ..Single......NoiseShoot......OpticsInfo......InventorySlotsOffsets.......weaponStateAnim.dz\anims\anm\player\reloads\Crossbow\w_crossbow_states.anm..bon
+    Offset: 157468 | Contexto: recoilProne.recoil_crossbow...dispersion...D:..magazineSlot..........strength....@..type.shot.....OpticsInfoRifle....memoryPointCamera.eye..discreteDista
+================================================================================
+PBO: C:\DayZServer\addons\weapons_explosives.pbo
+Tamanho: 290,624 bytes
+  TERMO: slot | ocorrencias: 8
+    Offset: 39290 | Contexto: enade_Ammo...weight......itemSize.............inventorySlot...IEDExplosiveA..IEDExplosiveB..hiddenSelections...camo..hiddenSelectionsTextures...hiddenSel
+    Offset: 42052 | Contexto: inePlacing..itemSize..............weight......inventorySlot...hiddenSelections...LED..hiddenSelectionsTextures...dz\weapons\explosives\data\claymore_co.p
+    Offset: 43679 | Contexto: aviour......itemSize..............weight......inventorySlot....slopeTolerance....?..alignHologramToTerain......yawPitchRollLimit...................hologr
+================================================================================
+PBO: C:\DayZServer\addons\weapons_firearms.pbo
+Tamanho: 10,609,341 bytes
+  TERMO: slot | ocorrencias: 99
+    Offset: 292873 | Contexto: ..SemiAuto......FullAuto......OpticsInfo.<....InventorySlotsOffsets.Q....Particles.......weaponStateAnim.dz\anims\anm\player\reloads\AK101\w_AK101_states
+    Offset: 293523 | Contexto: oilProne.recoil_AK101_prone...dispersion.o..;..magazineSlot.magazine.....Mode_FullAuto...soundSetShot1st...AK74_Shot_1st_SoundSet..AK74_Shot_1st_iterior_
+    Offset: 294198 | Contexto: oilProne.recoil_AK101_prone...dispersion.o..;..magazineSlot.magazine.<...OpticsInfoRifle..Q......Shoulder.p....Melee............position..........u....#.
+================================================================================
+PBO: C:\DayZServer\addons\weapons_launchers.pbo
+Tamanho: 1,168,652 bytes
+  TERMO: slot | ocorrencias: 5
+    Offset: 221670 | Contexto: Prone.recoil_flaregun_prone...dispersion....<..magazineSlot.magazine.....LAWBase....scope.......displayName.$STR_cfgWeapons_LAW0...descriptionShort.$STR_
+    Offset: 846554 | Contexto: ..modes...Single..Single......OpticsInfo......InventorySlotsOffsets......Particles.G.....weaponStateAnim.dz\anims\anm\player\reloads\M79\w_m79_states.anm
+    Offset: 849158 | Contexto: nchers\m79\proxy\dummyscope.p3d...weight......inventorySlot...weaponOpticsAug...reversed......OpticsInfo.............memoryPointCamera.eyeScope...cameraD
+================================================================================
+PBO: C:\DayZServer\addons\weapons_melee.pbo
+Tamanho: 3,810,804 bytes
+  TERMO: slot | ocorrencias: 33
+    Offset: 79458 | Contexto: ...........itemBehaviour.......fragility...#<.inventorySlot...Shoulder..Melee...lootCategory.Tools..lootTag...Work..Forester..Camping...dismantle_action_
+    Offset: 79680 | Contexto: on.......suicideAnim.woodaxe..MeleeModes.W....InventorySlotsOffsets......DamageSystem.......soundImpactType.metal..AnimEvents............Default......Hea
+    Offset: 82296 | Contexto: ag...Work..Forester..Camping..itemInfo...Axe..inventorySlot...Backpack_1..openItemSpillRange........(....DamageSystem......MeleeModes.S.....isMeleeWeapon
+================================================================================
+PBO: C:\DayZServer\addons\weapons_nonlethal.pbo
+Tamanho: 265,974 bytes
+  TERMO: slot | ocorrencias: 6
+    Offset: 1978 | Contexto: it....?..opticsZoomMax..A3?..barrelArmor.......magazineSlot.magazine.....Mode_SemiAuto..c.......strength... A..type.shot.....NonlethalCore...itemSize....
+    Offset: 2137 | Contexto: ....cursor.aimGunGhost...cursorAim.aimPistol..inventorySlot...Pistol...animClass.Pistol...armAction.HandGun.....NonlethalCore...itemSize..............cur
+    Offset: 2282 | Contexto: .....cursor.aimGunGhost...cursorAim.aimRifle..inventorySlot...Shoulder...animClass.Rifle.........destructengine.....destructdefault.....destructwreck....
+================================================================================
+PBO: C:\DayZServer\addons\weapons_pistols.pbo
+Tamanho: 1,262,898 bytes
+  TERMO: slot | ocorrencias: 32
+    Offset: 28614 | Contexto: coilProne.recoil_1911_prone...dispersion..t.;..magazineSlot.magazine.....OpticsInfoPistol....memoryPointCamera.eye..discreteDistance.........discreteDist
+    Offset: 31199 | Contexto: xy1911.....T...ProxyAttachment....scope.......inventorySlot.pistol...model.\dz\weapons\pistols\1911\1911.p3d.T.......destructengine.....destructdefault..
+    Offset: 44138 | Contexto: coilProne.recoil_cz75_prone...dispersion..t.;..magazineSlot.magazine.....OpticsInfoPistol....memoryPointCamera.eye..discreteDistance.........discreteDist
+================================================================================
+PBO: C:\DayZServer\addons\weapons_shotguns.pbo
+Tamanho: 912,414 bytes
+  TERMO: slot | ocorrencias: 17
+    Offset: 4774 | Contexto: e.......dispersion...#<..firespreadangle....?..magazineSlot.magazine.....OpticsInfoShotgun.........OnFire......OnBulletCasingEject.....u......SmokeCloud.
+    Offset: 7133 | Contexto: 8Shotgun.rvmat..DamageSystem......Single.y....InventorySlotsOffsets.{..........GlobalHealth.....y......Health.....y.......hitpoints.,....healthLevels....
+    Offset: 47333 | Contexto: .#....Single.D....Double.J....OpticsInfo.u....InventorySlotsOffsets......SecondMuzzle.%....Particles.......weaponStateAnim.dz\anims\anm\player\reloads\IZ
+================================================================================
+PBO: C:\DayZServer\addons\worlds_chernarusplus.pbo
+Tamanho: 235,159,991 bytes
+  TERMO: priority | ocorrencias: 2
+    Offset: 18115055 | Contexto: es\bridge_wood_50.p3d.dz\structures\signs\traffic\sign_priority_new.p3d.dz\structures\roads\parts\asf3_7 100.p3d.dz\structures\wrecks\vehicles\wreck_sed02_aban2_
+    Offset: 18130178 | Contexto: er_pole_conc1_amp.p3d.dz\structures\signs\traffic\sign_priority.p3d.dz\structures\walls\wall_railing_endr.p3d.dz\structures\walls\wall_railing_2_slope.p3d.dz\str
+  TERMO: queue | ocorrencias: 2
+    Offset: 648146 | Contexto: ."...UER$DAT.RQED.4..T.|.P.."RUUUDDTURDADC.33#v.33...QEQUEUETDEL.h..333213#33]..M.EJ.E%f.TEu.5@...!u.!L..UUQ"UTUDU|...D3....3a.bH..UUE..LS.R.DUz.DD...&3a.&
+    Offset: 1020159 | Contexto: ..\..DT.TTU.l.L..""%.QUU%..!RE|..U.43U33"3"&U|.Y..`..!RQUEUEDTQUU\..#3"%V.EDUx.H.."U.ATQ.RU@..5SE3Q!.eV.ED%v.!"Y..T...RU"DUC3E"~.TQ\.x....Q%ReVUDDT.QU%.4CU
+================================================================================
+PBO: C:\DayZServer\addons\worlds_chernarusplus_ce.pbo
+Tamanho: 108,738,678 bytes
+  TERMO: login | ocorrencias: 1
+    Offset: 84377718 | Contexto: "TimeHopping" type="0" value="60"/>.    <var name="TimeLogin" type="0" value="15"/>.    <var name="TimeLogout" type="0" value="15"/>.    <var name="TimePen
+  TERMO: slot | ocorrencias: 3
+    Offset: 84138938 | Contexto: age"> <!--was chance="0.30"; removed coz of attachment slot is missing -->....<item name="ThickFramesGlasses" chance="0.10" />....<item name="ThinFramesG
+    Offset: 84140499 | Contexto: ity"> <!--was chance="0.20"; removed coz of attachment slot is missing -->....<item name="ThickFramesGlasses" chance="0.10" />....<item name="ThinFramesG
+    Offset: 84144053 | Contexto: rmy"> <!--was chance="0.10"; removed coz of attachment slot is missing -->....<item name="TacticalGoggles" chance="0.10" />....<item name="AviatorGlasses
+================================================================================
+PBO: C:\DayZServer\addons\worlds_enoch.pbo
+Tamanho: 237,282,216 bytes
+  TERMO: priority | ocorrencias: 2
+    Offset: 18863907 | Contexto: k_cncblocks_short.p3d.dz\structures\signs\traffic\sign_priority_new.p3d.dz\structures\signs\misc\sign_roadblock_stop.p3d.dz\structures_bliss\roads\parts\asf1enoc
+    Offset: 18895890 | Contexto: ral\statue_enoch1.p3d.dz\structures\signs\traffic\sign_priority.p3d.dz\structures\walls\wall_indvar1_5_d_2.p3d.dz\structures_bliss\residential\slums\slum_house4.
+  TERMO: queue | ocorrencias: 1
+    Offset: 1520832 | Contexto: 3L....%.""bf"..O.U.S|..""UR...55.U%R"`...1SSUU.QUET..!UQUeUe51..\.@.."".SU5..1.S%R.".X....S.QU@...B..Q3...x.X...D.@...QUU3U.3@.T.T....UU.VU"."|..UUU.33..2"
+  TERMO: connect | ocorrencias: 18
+    Offset: 18865984 | Contexto: ctures_bliss\underground\corridor\underground_corridor_connector.p3d.dz\structures\ruins\rubble_dirtpile_large.p3d.dz\structures_bliss\underground\tunnel\under
+    Offset: 18871485 | Contexto: ctures_bliss\underground\corridor\underground_corridor_connector_inv.p3d.dz\structures_bliss\underground\water\underground_watermaintenance.p3d.dz\structures_b
+    Offset: 18971916 | Contexto: ower.p3d.#..D...D.{.D........Land_underground_corridor_connector.dz\structures_bliss\underground\corridor\underground_corridor_connector.p3d..W.D...D...D. ....
+================================================================================
+PBO: C:\DayZServer\addons\worlds_enoch_ce.pbo
+Tamanho: 100,539,910 bytes
+  TERMO: login | ocorrencias: 1
+    Offset: 75918952 | Contexto: "TimeHopping" type="0" value="60"/>.    <var name="TimeLogin" type="0" value="15"/>.    <var name="TimeLogout" type="0" value="15"/>.    <var name="TimePen
+  TERMO: slot | ocorrencias: 3
+    Offset: 75679365 | Contexto: age"> <!--was chance="0.30"; removed coz of attachment slot is missing -->....<item name="ThickFramesGlasses" chance="0.10" />....<item name="ThinFramesG
+    Offset: 75680926 | Contexto: ity"> <!--was chance="0.20"; removed coz of attachment slot is missing -->....<item name="ThickFramesGlasses" chance="0.10" />....<item name="ThinFramesG
+    Offset: 75684628 | Contexto: rmy"> <!--was chance="0.10"; removed coz of attachment slot is missing -->....<item name="TacticalGoggles" chance="0.10" />....<item name="AviatorGlasses
+================================================================================
+PBO: C:\DayZServer\dta\bin.pbo
+Tamanho: 294,513 bytes
+  TERMO: connection | ocorrencias: 1
+    Offset: 43851 | Contexto: at......Actions......DefaultAction......GroupInfo.%....ConnectionLost......Cursor......PeripheralVision......HitZones............ColNone......ColWhite......ColRed...
+  TERMO: connect | ocorrencias: 4
+    Offset: 43851 | Contexto: at......Actions......DefaultAction......GroupInfo.%....ConnectionLost......Cursor......PeripheralVision......HitZones............ColNone......ColWhite......Col
+    Offset: 55089 | Contexto: playerBriefUnknown.#(argb,8,8,3)color(0,0,0,1)...playerConnecting.#(argb,8,8,3)color(0,0,0,1)........CfgInGameUI......CfgCloudletShapes.............imageCorner
+    Offset: 292637 | Contexto: xclude>..  ..  <!-- Inputs excluded when in gamepad disconnect warning screen -->..  <exclude name="gamepaddisconnect">..    <include name="menu" />..  </exclu
+  TERMO: slot | ocorrencias: 114
+    Offset: 7542 | Contexto: ..model....reversed.......displayWeight.......inventorySlot...attachments....displayName....cargoClass...itemSize..............clothingType....destrType.
+    Offset: 8580 | Contexto: Base......DefaultWeapon......DefaultWeapon....inventorySlot.Shoulder..itemSize............. ..DefaultWeapon....inventorySlot.Shoulder..itemSize..........
+    Offset: 8645 | Contexto: der..itemSize............. ..DefaultWeapon....inventorySlot.Shoulder..itemSize............] ......access......DefaultAmmo.. ...BulletCore..'...ShotgunCor
+================================================================================
+PBO: C:\DayZServer\dta\graphics.pbo
+Tamanho: 128,013,134 bytes
+  TERMO: queue | ocorrencias: 1
+    Offset: 58243568 | Contexto: ..... . ."r...0..%"'"i"."....R.Q.....@..@."7...1..o`..;QUeUee.@ ..'@mfCd...............@`...^5U3%2#.@`.. @......0.......@&.%^.%....0..?3$...t...Q.1...".Dp.
+================================================================================
+PBO: C:\DayZServer\dta\gui.pbo
+Tamanho: 149,223,513 bytes
+  TERMO: OnEvent | ocorrencias: 3
+    Offset: 64323555 | Contexto: etelkatextpro14".        }.        TextWidgetClass ActionEventV {.         position 0.26344 0.96751.         size 0.7039 0.025.         hexactpos 0.         ve
+    Offset: 64323772 | Contexto:      text "Test".        }.        TextWidgetClass ActionEventT {.         position 0.02901 0.9669.         size 0.222 0.025.         hexactpos 0.         vexa
+    Offset: 64330932 | Contexto: xt "Actions".        }.        TextWidgetClass WeapActionEvents {.         position 4.35675 534.409.         size 0.94581 0.03012.         hexactpos 1.
+  TERMO: LoginQueue | ocorrencias: 1
+    Offset: 64251422 | Contexto:      "text valign" center.    }.    TextWidgetClass TX_LoginQueue {.     position 0.8071 0.27.     size 0.0892 0.115.     hexactpos 0.     vexactpos 0.     hexactsiz
+  TERMO: priority | ocorrencias: 1671
+    Offset: 63869187 | Contexto:  hexactpos 1. vexactpos 1. hexactsize 0. vexactsize 0. priority 10. {.  GridSpacerWidgetClass left_panel_spacer {.   ignorepointer 1.   position 40 0.   size 0.2
+    Offset: 63869385 | Contexto: os 1.   vexactpos 1.   hexactsize 0.   vexactsize 0.   priority 2.   "no focus" 1.   Padding 10.   Margin 0.   "Size To Content V" 1.   content_halign center.
+    Offset: 63884013 | Contexto: os 1.   vexactpos 1.   hexactsize 1.   vexactsize 1.   priority 2.   "no focus" 1.   Padding 8.   Margin 0.   "Size To Content H" 1.   content_halign center.   {
+  TERMO: queue | ocorrencias: 4
+    Offset: 24956 | Contexto: g_login_time.layout.............;${jS0..layouts\dialog_queue_position.layout.............;${j.+..layouts\examples\ButtonTemplate.layout.............;${j...
+    Offset: 64251427 | Contexto: "text valign" center.    }.    TextWidgetClass TX_LoginQueue {.     position 0.8071 0.27.     size 0.0892 0.115.     hexactpos 0.     vexactpos 0.     hexa
+    Offset: 64385454 | Contexto: xactsize 0.     style Bold.     text "#str_position_in_queue:".     font "gui/fonts/sdf_MetronBook72".     "exact text" 1.     "exact text size" 32.     "t
+  TERMO: reserved | ocorrencias: 33
+    Offset: 28101 | Contexto: _area.layout.............;${j....layouts\inventory_new\reserved_icon.layout.............<${j....layouts\inventory_new\wide\cargo_container.layout.............<${
+    Offset: 41991 | Contexto: er_reticle_e_ca.edds.meta.............X${j....textures\reserved.edds.............L${jB...textures\reserved.edds.meta.............L${j'...textures\reserved@2x.edd
+    Offset: 42034 | Contexto: ...textures\reserved.edds.............L${jB...textures\reserved.edds.meta.............L${j'...textures\reserved@2x.edds.............X${j....textures\reserved@2x.
+  TERMO: whitelist | ocorrencias: 14
+    Offset: 65965079 | Contexto:        }.         }.        }.        FrameWidgetClass whitelist_setting_container {.         ignorepointer 0.         position 0 0.         size 1 30.         hex
+    Offset: 65965304 | Contexto: exactsize 1.         {.          GridSpacerWidgetClass whitelist_setting {.           ignorepointer 0.           position 0 0.           size 1 30.           hexac
+    Offset: 65965669 | Contexto:       Rows 1.           {.            FrameWidgetClass whitelist_setting_panel {.             ignorepointer 1.             position 0 0.             size 0.5 0.6.
+  TERMO: connection | ocorrencias: 6
+    Offset: 22571 | Contexto: y_z_chat_item.layout.............;${j....layouts\day_z_connection_dialogue.layout.............:${j5...layouts\day_z_connection_lost.layout.............;${j....layout
+    Offset: 22632 | Contexto: tion_dialogue.layout.............:${j5...layouts\day_z_connection_lost.layout.............;${j....layouts\day_z_digital_lock.layout.............;${j....layouts\day_z
+    Offset: 63908136 | Contexto: ctsize 0.     style Bold.     text "#str_layout_dialog_connection_title".     font "gui/fonts/sdf_MetronBook72".     "text color" 1 1 1 1.     "exact text" 1.     "e
+  TERMO: connect | ocorrencias: 118
+    Offset: 22571 | Contexto: y_z_chat_item.layout.............;${j....layouts\day_z_connection_dialogue.layout.............:${j5...layouts\day_z_connection_lost.layout.............;${j....
+    Offset: 22632 | Contexto: tion_dialogue.layout.............:${j5...layouts\day_z_connection_lost.layout.............;${j....layouts\day_z_digital_lock.layout.............;${j....layouts
+    Offset: 36917 | Contexto: .layout.............:${j.0..layouts\xbox\day_z_gamepad_connect.layout.............:${j....layouts\xbox\day_z_ingamemenu_xbox.layout.............:${j....layouts
+  TERMO: login | ocorrencias: 3
+    Offset: 24903 | Contexto: g_input_text.layout.............;${j....layouts\dialog_login_time.layout.............;${jS0..layouts\dialog_queue_position.layout.............;${j.+..layou
+    Offset: 64251422 | Contexto:      "text valign" center.    }.    TextWidgetClass TX_LoginQueue {.     position 0.8071 0.27.     size 0.0892 0.115.     hexactpos 0.     vexactpos 0.
+    Offset: 64374950 | Contexto: .     hexactsize 1.     vexactsize 1.     text "dialog_login_time.layout".     font "gui/fonts/sdf_MetronLight24".     "exact text" 1.    }.   }.  }.  Pane
+  TERMO: slot | ocorrencias: 108
+    Offset: 26693 | Contexto: j.+..layouts\inventory_new\day_z_inventory_new_tooltip_slot.layout.............<${j{...layouts\inventory_new\day_z_inventory_new_tooltip_slot_xbox.layout
+    Offset: 26775 | Contexto: j{...layouts\inventory_new\day_z_inventory_new_tooltip_slot_xbox.layout.............<${jm...layouts\inventory_new\day_z_inventory_new_tooltip_xbox.layout
+    Offset: 27403 | Contexto: ........;${jB...layouts\inventory_new\medium\inventory_slots_container.layout.............;${jJ...layouts\inventory_new\medium\left_area.layout..........
+================================================================================
+PBO: C:\DayZServer\dta\languagecore.pbo
+Tamanho: 5,032,814 bytes
+  TERMO: SteamID | ocorrencias: 14
+    Offset: 1184978 | Contexto: request","A ticket has already been submitted for this SteamID.","A ticket has already been submitted for this SteamID.","L..stek pro toto SteamID u.. byl odes
+    Offset: 1185034 | Contexto: teamID.","A ticket has already been submitted for this SteamID.","L..stek pro toto SteamID u.. byl odesl..n.","Es wurde bereits ein Ticket f..r diese SteamID e
+    Offset: 1185062 | Contexto: dy been submitted for this SteamID.","L..stek pro toto SteamID u.. byl odesl..n.","Es wurde bereits ein Ticket f..r diese SteamID eingereicht.",".... ........
+  TERMO: queue | ocorrencias: 12
+    Offset: 167380 | Contexto: da para a esquerda","L............",.."str_position_in_queue","Position in queue","Position in queue","Pozice ve front..","Position in Warteschlange","....
+    Offset: 167400 | Contexto: "L............",.."str_position_in_queue","Position in queue","Position in queue","Pozice ve front..","Position in Warteschlange",".............. .. ......
+    Offset: 167420 | Contexto: tr_position_in_queue","Position in queue","Position in queue","Pozice ve front..","Position in Warteschlange",".............. .. ..............","Miejsce w
+  TERMO: reserved | ocorrencias: 6
+    Offset: 444903 | Contexto: er","Copyright .. 2025 Bohemia Interactive. All rights reserved. Powered by ENFUSION... game engine.","Copyright .. 2025 Bohemia Interactive. All rights reserved
+    Offset: 445001 | Contexto: e.","Copyright .. 2025 Bohemia Interactive. All rights reserved. Powered by ENFUSION... game engine.","Copyright .. 2025 Bohemia Interactive. V..echna pr..va vyh
+    Offset: 445537 | Contexto: ..","Copyright .. 2025 Bohemia Interactive. All rights reserved. Powered by ENFUSION... game engine.","Copyright .. 2025 Bohemia Interactive. Tutti i diritti ris
+  TERMO: whitelist | ocorrencias: 11
+    Offset: 520428 | Contexto: ............","JOGADORES","......",.."multi_server_not_whitelisted_message","You are not whitelisted on this server.","You are not whitelisted on this server.","Na
+    Offset: 520462 | Contexto: ,.."multi_server_not_whitelisted_message","You are not whitelisted on this server.","You are not whitelisted on this server.","Na tomto serveru nejsi na seznamu po
+    Offset: 520504 | Contexto: "You are not whitelisted on this server.","You are not whitelisted on this server.","Na tomto serveru nejsi na seznamu povolen..ch.","Du stehst nicht auf der White
+  TERMO: connection | ocorrencias: 49
+    Offset: 412892 | Contexto: ETOR DO QUADRANTE","............",.."str_layout_dialog_connection_text","Controls have been disabled until the network connection is restored. Please restore the net
+    Offset: 412956 | Contexto: n_text","Controls have been disabled until the network connection is restored. Please restore the network connection or exit to the main menu.","Controls have been d
+    Offset: 413007 | Contexto: ork connection is restored. Please restore the network connection or exit to the main menu.","Controls have been disabled until the network connection is restored. P
+  TERMO: connect | ocorrencias: 293
+    Offset: 49265 | Contexto: ar","......",.."str_titlescreenlayout_text0","Please reconnect and press","Please reconnect and press","Ovlada.. znovu p..ipoj a stisknut..m","Bitte verbinde d
+    Offset: 49294 | Contexto: enlayout_text0","Please reconnect and press","Please reconnect and press","Ovlada.. znovu p..ipoj a stisknut..m","Bitte verbinde den Controller erneut und dr..
+    Offset: 49511 | Contexto: .......","Po....cz si.. ponownie i wci..nij","Please reconnect and press","Riconnetti il controller e premi","Vuelve a conectarlo y pulsa","Reconnectez-la et a
+  TERMO: login | ocorrencias: 11
+    Offset: 1169467 | Contexto: .......................",.."STR_player_state_timeout","Login timed out.","Login timed out.","Konec platnosti p..ihl....en...","Zeit..berschreitung beim Log
+    Offset: 1169486 | Contexto: ....",.."STR_player_state_timeout","Login timed out.","Login timed out.","Konec platnosti p..ihl....en...","Zeit..berschreitung beim Login.",".......... ..
+    Offset: 1169564 | Contexto: c platnosti p..ihl....en...","Zeit..berschreitung beim Login.",".......... ...................... ...............","Up..yn.... limit czasu logowania.","Log
+  TERMO: slot | ocorrencias: 204
+    Offset: 52179 | Contexto: .........","CONECTADO","......",.."nsw2_inventory_quickslot","Hold in inventory to assign to quickslot","Hold in inventory to assign to quickslot","Podr.
+    Offset: 52222 | Contexto: entory_quickslot","Hold in inventory to assign to quickslot","Hold in inventory to assign to quickslot","Podr..en..m v invent....i p..i..adit rychlou poz
+    Offset: 52265 | Contexto: ign to quickslot","Hold in inventory to assign to quickslot","Podr..en..m v invent....i p..i..adit rychlou pozici","Im Inventar gedr..ckt halten, um Quic
+  TERMO: servermod | ocorrencias: 1
+    Offset: 1258372 | Contexto: rveru je nejsp.... po..kozen...","Die Installation des Servermods k..nnte besch..digt sein.",".................. ........ .... .............. .......... ........ .
+================================================================================
+PBO: C:\DayZServer\dta\scripts.pbo
+Tamanho: 14,401,120 bytes
+  TERMO: LoginQueueBase | ocorrencias: 8
+    Offset: 851534 | Contexto: layerDeathEvent()...{....return false;...}..}....class LoginQueueBase extends LoginScreenBase..{...protected TextWidget m_txtPosition;...protected TextWidget m_txtNote;...pr
+    Offset: 851729 | Contexto: _btnLeave;...protected int m_iPosition = -1;......void LoginQueueBase()...{......g_Game.SetKeyboardHandle(this);....}.....void ~LoginQueueBase()...{....g_Game.SetKeyboardHan
+    Offset: 851802 | Contexto: .{......g_Game.SetKeyboardHandle(this);....}.....void ~LoginQueueBase()...{....g_Game.SetKeyboardHandle(NULL);....}......override Widget Init()...{......layoutRoot ..= g_Gam
+  TERMO: OnClientNewEvent | ocorrencias: 2
+    Offset: 14143044 | Contexto: ams;.....Class.CastTo(newParams, params);.....player = OnClientNewEvent(newParams.param1, newParams.param2, newParams.param3);.....if (!player).....{......Debug.Log("ClientNewEv
+    Offset: 14149694 | Contexto: ot_ID).Find(attachment_type) > -1;...}......PlayerBase OnClientNewEvent(PlayerIdentity identity, vector pos, ParamsReadContext ctx)...{....string characterType = g_Game.CreateRa
+  TERMO: OnClientReadyEvent | ocorrencias: 2
+    Offset: 14143751 | Contexto: yEvent: Player is empty");......return;.....}..........OnClientReadyEvent(identity, player);.....InvokeOnConnect(player, identity);.....// Send list of players at all clients.....Sy
+    Offset: 14151343 | Contexto: terData());....}........return m_player;...}......void OnClientReadyEvent(PlayerIdentity identity, PlayerBase player)...{....g_Game.SelectPlayer(identity, player);........#ifdef DIA
+  TERMO: OnClientDisconnected | ocorrencias: 2
+    Offset: 14145207 | Contexto: nEvent: Player is empty");......return;.....}..........OnClientDisconnectedEvent(identity, player, logoutTime, authFailed);.....break;.........case LogoutCancelEventTypeID:.....LogoutCa
+    Offset: 14152390 | Contexto: er)....{.....player.OnReconnect();....}...}.......void OnClientDisconnectedEvent(PlayerIdentity identity, PlayerBase player, int logoutTime, bool authFailed)...{....bool disconnectNow =
+  TERMO: OnEvent | ocorrencias: 1492
+    Offset: 286396 | Contexto: age example:...@code...int m_DbgEventCount = 0;...void OnEvent(EventType eventTypeId, Param params)...{....m_DbgEventCount++;......DbgUI.BeginCleanupScope();..
+    Offset: 509645 | Contexto: et w, Widget child);...bool OnUpdate(Widget w);...bool OnEvent(EventType eventType, Widget target, int parameter0, int parameter1);..};....//Common Widget API.
+    Offset: 575410 | Contexto: ss to get parameters for particular event....*/...void OnEvent(EventType eventTypeId, Param params)...{....Print("OnEvent");...}...../**...\brief Called after
+  TERMO: OnConnect | ocorrencias: 14
+    Offset: 895514 | Contexto: level != m_ConnectivityStatsStates[type])....{.....if (OnConnectivityStatChange(type, level, m_ConnectivityStatsStates[type]))//before setting the prev. level to b
+    Offset: 895780 | Contexto: ates[type] = level;.....}....}...}......protected bool OnConnectivityStatChange(EConnectivityStatType type, EConnectivityStatLevel newLevel, EConnectivityStatLevel
+    Offset: 10184527 | Contexto: ...}......m_PlayerOldPos = GetPosition();...}.....void OnConnect()...{....Debug.Log("Player connected:"+this.ToString(),"Connect");......// analytics....g_Game.Get
+  TERMO: OnDisconnect | ocorrencias: 5
+    Offset: 10185063 | Contexto: ta........ResetConstructionActionData();...}......void OnDisconnect()...{....Debug.Log("Player disconnected:"+this.ToString(),"Connect");........// analytics....// force
+    Offset: 14146067 | Contexto: if (player).....player.OnConnect();...}.....void InvokeOnDisconnect(PlayerBase player)...{....Debug.Log("InvokeOnDisconnect:"+this.ToString(),"Connect");....if (player).
+    Offset: 14146123 | Contexto: nDisconnect(PlayerBase player)...{....Debug.Log("InvokeOnDisconnect:"+this.ToString(),"Connect");....if (player).....player.OnDisconnect();...}.....void OnClientPrepareE
+  TERMO: GetPlainId | ocorrencias: 5
+    Offset: 737874 | Contexto: ....continue;.....}.......sync_player.m_UID = identity.GetPlainId();.....sync_player.m_PlayerName = identity.GetPlainName();....}...}.....static void SyncEvent_OnRec
+    Offset: 780578 | Contexto: Identity = identity;......sync_player.m_UID = identity.GetPlainId();......sync_player.m_PlayerName = identity.GetPlainName();......m_PlayerList.Insert(sync_player);.
+    Offset: 934701 | Contexto: ute_list.GetElement(i);.........MutePlayer(uid, sender.GetPlainId(), mute);........}.......}.......break;......}............/*......case ERPCs.RPC_SERVER_RESPAWN_MOD
+  TERMO: GetIdentity | ocorrencias: 105
+    Offset: 704991 | Contexto: YNC, new Param1<CfgGameplayJson>(m_Data), true, player.GetIdentity());...}......//-------------------------------------------------------------------------------------
+    Offset: 745719 | Contexto: .{.....SendNotificationToPlayerIdentityExtended(player.GetIdentity(), show_time, title_text, detail_text, icon);....}...}....../**...\brief Send custom notification to
+    Offset: 747337 | Contexto: ayer)....{.....SendNotificationToPlayerIdentity(player.GetIdentity(), type, show_time, detail_text);....}...}....../**...\brief Send notification from default types to
+  TERMO: GetPlayer | ocorrencias: 973
+    Offset: 327307 | Contexto: ..4] matrix to be get....@code.....Man player = g_Game.GetPlayer();........vector mat[4];.....player.GetTransform(mat);.....Print( mat );........>> <0.989879,-0,0.
+    Offset: 327722 | Contexto: r[4] matrix to be get....@code.....Man player = g_Game.GetPlayer();........vector mat[4];.....player.GetRenderTransform(mat);.....Print( mat );........>> <0.989879
+    Offset: 328164 | Contexto: ..4] matrix to be get....@code.....Man player = g_Game.GetPlayer();........vector mat[4];.....player.GetTransform(mat);.....Print( mat );........>> <0.989879,-0,0.
+  TERMO: SteamID | ocorrencias: 2
+    Offset: 1514638 | Contexto: tring GetFullName();...//! unique id of player (hashed steamID, database Xbox id...) can be used in database or logs...proto string GetId();...//! plaintext un
+    Offset: 1573800 | Contexto: T,.....// A ticket has already been submitted for this steamID...AUTH_INVALID_VERSION,.....// Ticket is from an incompatible interface version...AUTH_GAME_MISM
+  TERMO: PlayerIdentity | ocorrencias: 121
+    Offset: 638217 | Contexto: .static bool ActivateBillboardSet(string setClassName, PlayerIdentity identity)...{....if (!g_Game).....return false;........if (m_SetIndexCached == -1)....{.....int setCoun
+    Offset: 678077 | Contexto: nBunker(proxySpawn);...}......static void SyncDataSend(PlayerIdentity identity)...{....GetGame().RPCSingleParam(null, ERPCs.RPC_BUNKERBROADCAST_CONFIG_SYNC, new Param1<Bunke
+    Offset: 705143 | Contexto: -----------------...static void SyncDataSendEx(notnull PlayerIdentity identity)...{....//Debug.Log("SyncDataSendEx");....g_Game.RPCSingleParam(null, ERPCs.RPC_CFG_GAMEPLAY_S
+  TERMO: LoginQueue | ocorrencias: 38
+    Offset: 851534 | Contexto: layerDeathEvent()...{....return false;...}..}....class LoginQueueBase extends LoginScreenBase..{...protected TextWidget m_txtPosition;...protected TextWidget m_txtNo
+    Offset: 851729 | Contexto: _btnLeave;...protected int m_iPosition = -1;......void LoginQueueBase()...{......g_Game.SetKeyboardHandle(this);....}.....void ~LoginQueueBase()...{....g_Game.SetKey
+    Offset: 851802 | Contexto: .{......g_Game.SetKeyboardHandle(this);....}.....void ~LoginQueueBase()...{....g_Game.SetKeyboardHandle(NULL);....}......override Widget Init()...{......layoutRoot .
+  TERMO: priority | ocorrencias: 318
+    Offset: 233157 | Contexto: rnal int GetBackgroundColor();...proto external int GetPriority();...proto external void SetText(string text);...proto external void SetTextColor(int color);...p
+    Offset: 233381 | Contexto: id SetBackgroundColor(int color);.../*!...Sets Z order priority....\note Texts with background are always rendered under texts without background....*/...proto e
+    Offset: 233503 | Contexto: exts without background....*/...proto external void SetPriority(int priority);..}..../*!..\}..*/..../*!..\addtogroup Debug..\{..*/....enum DebugTextFlags..{...DE
+  TERMO: queue | ocorrencias: 930
+    Offset: 591498 | Contexto: -;....return false;...}..}..*/../**.. \brief ScriptCallQueue Class provide "lazy" calls - when we don't want to execute function immediately but later duri
+    Offset: 591705 | Contexto: ode...class Arkanoid extends Game...{....ref ScriptCallQueue m_CallQueue = new ScriptCallQueue();.......ScriptCallQueue GetCallQueue() { .....return m_Call
+    Offset: 591717 | Contexto: Arkanoid extends Game...{....ref ScriptCallQueue m_CallQueue = new ScriptCallQueue();.......ScriptCallQueue GetCallQueue() { .....return m_CallQueue;....}.
+  TERMO: reserved | ocorrencias: 228
+    Offset: 518774 | Contexto:  must have all flags set.........it is possible to use reserved flags like EntityFlags.USER1, EntityFlags.USER2, EntityFlags.USER6 for fast finding of entities i
+    Offset: 1236450 | Contexto: exChanged;...//Called when an location in this item is reserved (EntityAI item) - cargo...protected ref ScriptInvoker..m_OnSetLock;...//Called when this item is
+    Offset: 1236558 | Contexto: ptInvoker..m_OnSetLock;...//Called when this item is unreserved (EntityAI item) - cargo...protected ref ScriptInvoker..m_OnReleaseLock;...//Called when an locati
+  TERMO: whitelist | ocorrencias: 28
+    Offset: 1568690 | Contexto: hutting down and therefore kicks all players.......NOT_WHITELISTED,.// Player is not whitelisted...NO_IDENTITY,..// No identity received while creating identity...
+    Offset: 1568720 | Contexto: ks all players.......NOT_WHITELISTED,.// Player is not whitelisted...NO_IDENTITY,..// No identity received while creating identity...NO_INPUT_INTERFACE, // No inpu
+    Offset: 1577983 | Contexto: ;......InsertDialogueErrorProperties(EClientKicked.NOT_WHITELISTED,....."#multi_server_not_whitelisted_message");....InsertDialogueErrorProperties(EClientKicked.NO
+  TERMO: connection | ocorrencias: 66
+    Offset: 213852 | Contexto: \GUI\Chat\ChatLine.c..............#{j....5_Mission\GUI\ConnectionDialogue.c..............#{jp...5_Mission\GUI\ContinuousActionProgress.c..............#{j....5_Missio
+    Offset: 789866 | Contexto: nst int MENU_MISSION_LOADER......= 45;..const int MENU_CONNECTION_DIALOGUE.....= 46;..const int MENU_DIGITAL_CODELOCK......= 47;..const int MENU_UNDERGROUND_TRIGGER_
+    Offset: 857754 | Contexto: ......void ~LoginTimeStatic()...{...}..};........class ConnectionLost..{...private ref Widget m_WidgetRoot;...private TextWidget m_TextWidgetTitle;...private float m
+  TERMO: connect | ocorrencias: 985
+    Offset: 14175 | Contexto: c..............#{jW[..3_Game\Global\ErrorModuleHandler\ConnectErrorClientModule.c..............#{j....3_Game\Global\ErrorModuleHandler\ConnectErrorScriptModule
+    Offset: 14255 | Contexto: c..............#{j....3_Game\Global\ErrorModuleHandler\ConnectErrorScriptModule.c..............#{j....3_Game\Global\ErrorModuleHandler\ConnectErrorServerModule
+    Offset: 14335 | Contexto: c..............#{j....3_Game\Global\ErrorModuleHandler\ConnectErrorServerModule.c..............#{jM...3_Game\Global\ErrorModuleHandler\ErrorHandlerModule.c....
+  TERMO: login | ocorrencias: 204
+    Offset: 789186 | Contexto: st int MENU_RADIAL_QUICKBAR......= 29;..const int MENU_LOGIN_QUEUE.......= 30;..const int MENU_SERVER_BROWSER......= 31;..const int MENU_CAMERA_TOOLS......
+    Offset: 789500 | Contexto: onst int MENU_INVITE_TIMER.......= 37;..const int MENU_LOGIN_TIME.......= 38;..const int MENU_WARNING_ITEMDROP......= 39;..const int MENU_RESPAWN_DIALOGUE.
+    Offset: 850638 | Contexto: sh,sound_set);....return sound_set;...}..};......class LoginScreenBase extends UIScriptedMenu..{...protected ref UiHintPanelLoading m_HintPanel;...protecte
+  TERMO: slot | ocorrencias: 6880
+    Offset: 26895 | Contexto: ..............#{jpS..3_Game\Systems\Inventory\InventorySlots.c..............#{j~...3_Game\Systems\Inventory\Junctures.c..............#{j. ..3_Game\System
+    Offset: 74449 | Contexto: sComponent\ActionComponents\CAContinuousFertilizeGardenSlot.c..............#{j....4_World\Classes\UserActionsComponent\ActionComponents\CAContinuousFill.
+    Offset: 76858 | Contexto: UserActionsComponent\ActionComponents\CAContinuousWaterSlot.c..............#{j....4_World\Classes\UserActionsComponent\ActionComponents\CAContinuousWring
+  TERMO: servermod | ocorrencias: 59
+    Offset: 14347 | Contexto: ...#{j....3_Game\Global\ErrorModuleHandler\ConnectErrorServerModule.c..............#{jM...3_Game\Global\ErrorModuleHandler\ErrorHandlerModule.c..............#{j=+.
+    Offset: 760711 | Contexto:  // DEPRECATED...static ref ScriptInvoker............m_ServerModLoadAsyncInvoker.= new ScriptInvoker();......static BiosClientServices............m_ClientServices;
+    Offset: 766692 | Contexto: /EBiosError er = m_ClientServices.GetLobbyService().GetServerModList(re.m_Id);......//Print("OnLoadServersAsync GetServerModList returns:" + er);.....//}..........
+================================================================================
+PBO: C:\DayZServer\dta\system.pbo
+Tamanho: 16,042,964 bytes
+  TERMO: OnEvent | ocorrencias: 1
+    Offset: 13845581 | Contexto:  "&quot;&quot;"/>...</event>...<event name = "AIAnimationEvent">....<arg type = "string" default = "&quot;&quot;"/>...</event>...<event name = "PlaySound">....
+================================================================================
+PBO: C:\DayZServer\nasdara\addons\ai_nasdara.pbo
+Tamanho: 35,742 bytes
+  TERMO: slot | ocorrencias: 41
+    Offset: 720 | Contexto: h.......proximityAttackRange... @..attackCooldown...@@.SlotCowering......SlotCalmGrazing.$....SlotSiege.f....SlotEating......SlotHunting......SlotCalmRes
+    Offset: 738 | Contexto: ttackRange... @..attackCooldown...@@.SlotCowering......SlotCalmGrazing.$....SlotSiege.f....SlotEating......SlotHunting......SlotCalmResting......SlotCalm
+    Offset: 759 | Contexto: ckCooldown...@@.SlotCowering......SlotCalmGrazing.$....SlotSiege.f....SlotEating......SlotHunting......SlotCalmResting......SlotCalmTravelling......SlotA
+================================================================================
+PBO: C:\DayZServer\nasdara\addons\characters_nasdara.pbo
+Tamanho: 5,310,747 bytes
+  TERMO: slot | ocorrencias: 30
+    Offset: 47668 | Contexto: eatherhippack_g.p3d..attachments...Belt_Left..inventorySlot...Hips..itemInfo...Clothing..Hips...quickBarBonus.......weight.T....itemSize.............item
+    Offset: 49736 | Contexto: t_proxy.........ProxyAttachment....scope......inventorySlot...Belt_Back...model.\DZ\characters\belts\proxies\belt_back_proxy.p3d.-...ProxyAttachment....s
+    Offset: 49853 | Contexto: k_proxy.p3d.-...ProxyAttachment....scope......inventorySlot...Belt_Right...model.\DZ\characters\belts\proxies\belt_right_proxy.p3d.....ProxyAttachment...
+================================================================================
+PBO: C:\DayZServer\nasdara\addons\gear_nasdara.pbo
+Tamanho: 685,613 bytes
+  TERMO: slot | ocorrencias: 26
+    Offset: 44788 | Contexto: at...soundImpactType.metal..DamageSystem......inventorySlot...Att_CodeLock..Att_CodeLock1_Wood..Att_CodeLock1_Metal..Att_CodeLock2_Wood..Att_CodeLock2_Me
+    Offset: 45882 | Contexto: tach_SoundSet..digitallock_Attach_SoundSet..attachSoundSlot...Att_CodeLock..Att_CodeLock1_Wood..Att_CodeLock1_Metal..Att_CodeLock2_Wood..Att_CodeLock2_Me
+    Offset: 46952 | Contexto: tach_SoundSet..digitalLock_Detach_SoundSet..detachSoundSlot...Att_CodeLock..Att_CodeLock1_Wood..Att_CodeLock1_Metal..Att_CodeLock2_Wood..Att_CodeLock2_Me
+================================================================================
+PBO: C:\DayZServer\nasdara\addons\sounds_nasdara.pbo
+Tamanho: 18,073,807 bytes
+  TERMO: priority | ocorrencias: 2
+    Offset: 7032983 | Contexto: ...?..soundShadersLimit.......spatial.......loop.......priority......6_....soundShaders...AnniversaryMusic_Light_SoundShader...volumeFactor.......volumeCurve.Mus
+    Offset: 7033317 | Contexto: ...?..soundShadersLimit.......spatial.......loop.......priority.....)8_....soundShaders...power_station_switch_up_SoundShader...volumeFactor....?..spatial.......
+================================================================================
+PBO: C:\DayZServer\nasdara\addons\structures_industrial_nasdara.pbo
+Tamanho: 23,192,523 bytes
+  TERMO: connect | ocorrencias: 3
+    Offset: 16109 | Contexto: ock_Base.p3d..............V.j....Dam\KirovDam_Penstock_Connector.p3d..............V.j.f..Dam\KirovDam_Penstock_Curved.p3d..............V.j_...Dam\KirovDam_Pens
+    Offset: 54201 | Contexto: Obj_KirovDam_Penstock_Base..c...Land_KirovDam_Penstock_Connector..d...StaticObj_KirovDam_Penstock_Curved.~d...StaticObj_KirovDam_Penstock_Manifold..d...StaticO
+    Offset: 78062 | Contexto: Z\structures_takistan\Industrial\Dam\KirovDam_Penstock_Connector.p3d.~d..HouseNoDestruct....scope.......model.\DZ\structures_takistan\Industrial\Dam\KirovDam_P
+  TERMO: slot | ocorrencias: 12
+    Offset: 60522 | Contexto: .d ...!......name.$STR_Rebuilding_Materials..attachmentSlots...RB_LvL1_Rope..RB_LvL1_Stick...icon.set:dayz_inventory_additional image:rope_ladder...selec
+    Offset: 60635 | Contexto: ory_additional image:rope_ladder...selection.materials_slot_1.d ......name.$STR_Rebuilding_Materials..attachmentSlots...RB_LvL2_Rope..RB_LvL2_Stick...ico
+    Offset: 60692 | Contexto: ot_1.d ......name.$STR_Rebuilding_Materials..attachmentSlots...RB_LvL2_Rope..RB_LvL2_Stick...icon.set:dayz_inventory_additional image:rope_ladder...selec
+================================================================================
+PBO: C:\DayZServer\nasdara\addons\structures_props_nasdara.pbo
+Tamanho: 3,377,496 bytes
+  TERMO: slot | ocorrencias: 11
+    Offset: 460441 | Contexto: .s#..S$......name.$STR_Rebuilding_Materials..attachmentSlots...RB_LvL1_Log..RB_LvL1_Plank..RB_LvL1_Nail..RB_LvL1_Rope..RB_LvL1_Brick..RB_LvL1_MortarMix..
+    Offset: 460608 | Contexto: _inventory_additional image:well...selection.materials_slot_1.S$......can_decay_general......rebuild_rubble..$...rebuild_well..'...rebuild_roof..*..m....
+    Offset: 461267 | Contexto: ...'.....related_parts...animation_sources...materials_slot_1..animation_source_behaviors_invert........'.....Material1.Q'...Material2.y'...Material3..'.
+================================================================================
+PBO: C:\DayZServer\nasdara\addons\structures_residential_nasdara.pbo
+Tamanho: 46,958,858 bytes
+  TERMO: slot | ocorrencias: 2278
+    Offset: 84564 | Contexto: ..soundOpenABit.doorWoodSmallOpenABit..relatedInventorySlots...Att_CodeLock1_Wood..Att_CombinationLock1_Wood...lockCompatibilityBitMask.......doorConstru
+    Offset: 85024 | Contexto: .soundOpenABit.doorMetalSmallOpenABit..relatedInventorySlots...Att_CodeLock1_Metal..Att_CombinationLock1_Metal...lockCompatibilityBitMask.......doorConst
+    Offset: 92725 | Contexto: .x1..42......name.$STR_Rebuilding_Materials..attachmentSlots...RB_LvL1_Log..RB_LvL1_Plank..RB_LvL1_Nail..RB_LvL1_MetalSheet..RB_LvL1_MetalWire...icon.set
+================================================================================
+PBO: C:\DayZServer\nasdara\addons\structures_roads_nasdara.pbo
+Tamanho: 80,652,105 bytes
+  TERMO: connect | ocorrencias: 282
+    Offset: 31803 | Contexto: sed_multi.rvmat..............c.j....Tunnel\data\tunnel_connected_mc.paa..............c.j....Tunnel\data\tunnel_connector_details.rvmat..............c.j....Tunn
+    Offset: 31859 | Contexto: onnected_mc.paa..............c.j....Tunnel\data\tunnel_connector_details.rvmat..............c.j....Tunnel\data\tunnel_connector_details_as.paa..............c.j
+    Offset: 31922 | Contexto: r_details.rvmat..............c.j....Tunnel\data\tunnel_connector_details_as.paa..............c.j....Tunnel\data\tunnel_connector_details_mask.paa..............
+================================================================================
+PBO: C:\DayZServer\nasdara\addons\weapons_nasdara.pbo
+Tamanho: 1,039,827 bytes
+  TERMO: slot | ocorrencias: 22
+    Offset: 20121 | Contexto: _10Rnd..!..."..ProxyAttachment....scope.......inventorySlot.magazine...model.\DZ\weapons_takistan\attachments\magazine\magazine_mp18_drum.p3d..!..ProxyAt
+    Offset: 20252 | Contexto: 8_drum.p3d..!..ProxyAttachment....scope.......inventorySlot.magazine...model.\DZ\weapons_takistan\attachments\magazine\magazine_luger_8rnd.p3d..!..ProxyA
+    Offset: 20384 | Contexto: r_8rnd.p3d..!..ProxyAttachment....scope.......inventorySlot.magazine...model.\DZ\weapons_takistan\attachments\magazine\magazine_leeEnfield_10Rnd.p3d.."..
+================================================================================
+PBO: C:\DayZServer\nasdara\addons\worlds_nasdara_ce.pbo
+Tamanho: 101,196,419 bytes
+  TERMO: OnConnect | ocorrencias: 4
+    Offset: 85487614 | Contexto: elay>10</delay>..        <repeat>50</repeat>..        <onconnect>1</onconnect>..        <text>Check our web page at www.dayz.com</text>..    </message>......4) fol
+    Offset: 85487627 | Contexto: y>..        <repeat>50</repeat>..        <onconnect>1</onconnect>..        <text>Check our web page at www.dayz.com</text>..    </message>......4) following messag
+    Offset: 85487853 | Contexto: t....    <message>..        <delay>2</delay>..        <onconnect>1</onconnect>..        <text>Welcome to my server #name</text>..    </message>..    -->....</messa
+  TERMO: connect | ocorrencias: 8
+    Offset: 84263218 | Contexto:        {.            "Comment": "HWTunnel_EastEntrance_Connector_Outter",.            "CustomSpawn": 0,.            "Position": [.                5414.714,.
+    Offset: 84290752 | Contexto:  ].        },.        {.            "Comment": "Palace_Connector",.            "CustomSpawn": 0,.            "Position": [.                10101.629,.
+    Offset: 85487523 | Contexto: nutes to every player..    and 10 minutes after player connect....    <message>..        <delay>10</delay>..        <repeat>50</repeat>..        <onconnect>1</
+  TERMO: login | ocorrencias: 4
+    Offset: 84033197 | Contexto: filled in, the group will only be active for that many logins..                The system will choose a new group once this counter has reached 0..
+    Offset: 84042099 | Contexto: filled in, the group will only be active for that many logins..                The system will choose a new group once this counter has reached 0..
+    Offset: 84050998 | Contexto: filled in, the group will only be active for that many logins..                The system will choose a new group once this counter has reached 0..
+  TERMO: slot | ocorrencias: 3
+    Offset: 84067081 | Contexto: age"> <!--was chance="0.30"; removed coz of attachment slot is missing -->....<item name="ThickFramesGlasses" chance="0.10" />....<item name="ThinFramesG
+    Offset: 84068464 | Contexto: ity"> <!--was chance="0.20"; removed coz of attachment slot is missing -->....<item name="ThickFramesGlasses" chance="0.10" />....<item name="ThinFramesG
+    Offset: 84071466 | Contexto: rmy"> <!--was chance="0.10"; removed coz of attachment slot is missing -->....<item name="TacticalGoggles" chance="0.10" />....<item name="AviatorGlasses
+================================================================================
+PBO: C:\DayZServer\sakhal\addons\structures_sakhal.pbo
+Tamanho: 34,823,592 bytes
+  TERMO: connection | ocorrencias: 16
+    Offset: 25075611 | Contexto: es\proxy_buildingparts\lightningcond\lightningconductorconnection\lightningconductorconnection....?...............?...............?..'.C..@v5......n...........\dz\st
+    Offset: 25075640 | Contexto: ingcond\lightningconductorconnection\lightningconductorconnection....?...............?...............?..'.C..@v5......n...........\dz\structures\proxy_buildingparts\
+    Offset: 25078710 | Contexto: es\proxy_buildingparts\lightningcond\lightningconductorconnection\lightningconductorconnection....................?..................'AC..@.\..................\dz\st
+  TERMO: connect | ocorrencias: 16
+    Offset: 25075611 | Contexto: es\proxy_buildingparts\lightningcond\lightningconductorconnection\lightningconductorconnection....?...............?...............?..'.C..@v5......n...........
+    Offset: 25075640 | Contexto: ingcond\lightningconductorconnection\lightningconductorconnection....?...............?...............?..'.C..@v5......n...........\dz\structures\proxy_building
+    Offset: 25078710 | Contexto: es\proxy_buildingparts\lightningcond\lightningconductorconnection\lightningconductorconnection....................?..................'AC..@.\..................
+  TERMO: slot | ocorrencias: 1
+    Offset: 199798 | Contexto: ........name.Generator parts...description...attachmentSlots...GlowPlug...icon.set:dayz_inventory image:glowplug...view_index.............hasIcon.......a
+================================================================================
+PBO: C:\DayZServer\sakhal\addons\worlds_sakhal_ce.pbo
+Tamanho: 93,011,396 bytes
+  TERMO: login | ocorrencias: 4
+    Offset: 83963272 | Contexto: filled in, the group will only be active for that many logins..                The system will choose a new group once this counter has reached 0..
+    Offset: 83973120 | Contexto: filled in, the group will only be active for that many logins..                The system will choose a new group once this counter has reached 0..
+    Offset: 83982970 | Contexto: filled in, the group will only be active for that many logins..                The system will choose a new group once this counter has reached 0..
+  TERMO: slot | ocorrencias: 3
+    Offset: 83999456 | Contexto: age"> <!--was chance="0.30"; removed coz of attachment slot is missing -->....<item name="ThickFramesGlasses" chance="0.10" />....<item name="ThinFramesG
+    Offset: 84001067 | Contexto: ity"> <!--was chance="0.20"; removed coz of attachment slot is missing -->....<item name="ThickFramesGlasses" chance="0.10" />....<item name="ThinFramesG
+    Offset: 84004367 | Contexto: rmy"> <!--was chance="0.10"; removed coz of attachment slot is missing -->....<item name="TacticalGoggles" chance="0.10" />....<item name="AviatorGlasses
+
+================================================================================
+RESUMO
+================================================================================
+Total de PBOs encontrados: 188
+PBOs com termos reconheciveis: 105
+Erros de leitura: 0
+Nenhum PBO foi extraido ou modificado.
 
 
 ==================================================
-6. RESUMO FINAL
+3. FIM DA AUDITORIA
 ==================================================
-Total de arquivos: 51
-Arquivos de configuracao/texto: 50
-Outros arquivos: 1
-
-AUDITORIA DE CONFIGURACOES VPP CONCLUIDA
-SOMENTE LEITURA
-NENHUM SERVICO INICIADO
-NENHUM ARQUIVO ALTERADO
-**********************
-Fim da transcrição do Windows PowerShell
-Hora de término: 20261119131224
-**********************
+Nenhum arquivo foi criado ou alterado.
