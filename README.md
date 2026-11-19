@@ -1,2165 +1,3004 @@
-AUDITORIA CONCLUIDA
-Relatorio: C:\Users\Nasdara\Desktop\RAVEN_PATH_REFERENCES_AUDIT.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 24 | DIRETORIO: C:\DayZServer\profiles\VPPAdminTools
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 32 | C:\DayZServer\profiles\VPPAdminTools\Backups                                                                 True        15/11/2026 13:06:09
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 33 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins                                                     True        15/11/2026 13:06:10
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 34 | C:\DayZServer\profiles\VPPAdminTools\Exports                                                                 True        15/11/2026 13:06:09
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 35 | C:\DayZServer\profiles\VPPAdminTools\Logging                                                                 True        18/11/2026 12:31:56
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 36 | C:\DayZServer\profiles\VPPAdminTools\Permissions                                                             True        17/11/2026 13:25:19
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 37 | C:\DayZServer\profiles\VPPAdminTools\XMLEditor                                                               True        15/11/2026 13:06:10
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 38 | C:\DayZServer\profiles\VPPAdminTools\BanList.json                                                           False 457    15/11/2026 13:06:10
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 39 | C:\DayZServer\profiles\VPPAdminTools\LogOptions.json                                                        False 50     15/11/2026 13:06:10
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 40 | C:\DayZServer\profiles\VPPAdminTools\SpectateRecovery.json                                                  False 23     15/11/2026 14:49:09
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 41 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\BuildingSetManager                                  True        15/11/2026 13:06:10
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 42 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\ItemManager                                         True        15/11/2026 13:06:10
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 43 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TeleportManager                                     True        15/11/2026 13:06:10
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 44 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TimeManager                                         True        15/11/2026 13:06:10
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 45 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WeatherManager                                      True        15/11/2026 13:06:10
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 46 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager                                     True        15/11/2026 13:06:10
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 47 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\SteamAPI.json                                      False 102    15/11/2026 13:06:10
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 48 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\BuildingSetManager\BuildingSetJournal.json         False 55     15/11/2026 13:06:10
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 49 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\ItemManager\SavedItemPresets.vpp                   False 561    15/11/2026 13:06:10
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 50 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TeleportManager\TeleportLocation.json              False 4316   15/11/2026 13:06:10
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 51 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TimeManager\TimeSettingsPresets.json               False 212    15/11/2026 14:58:16
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 52 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WeatherManager\WeatherSettingsPresets.json         False 29     15/11/2026 13:06:10
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 53 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates                           True        15/11/2026 13:06:10
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 54 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt               False 6496   18/11/2026 12:31:57
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 55 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-10-22.txt                                    False 11419  15/11/2026 13:10:22
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 56 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-20-40.txt                                    False 11419  15/11/2026 13:20:41
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 57 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-27-35.txt                                    False 11419  15/11/2026 13:27:35
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 58 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-38-30.txt                                    False 11354  15/11/2026 13:38:30
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 59 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-41-45.txt                                    False 11616  15/11/2026 14:03:59
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 60 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-6-10.txt                                     False 11896  15/11/2026 13:06:10
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 61 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-7-43.txt                                     False 11288  15/11/2026 13:07:43
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 62 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-20-59.txt                                    False 11682  15/11/2026 14:36:04
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 63 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                    False 26007  15/11/2026 15:46:50
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 64 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-6-39.txt                                     False 11223  15/11/2026 14:06:40
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 65 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-9-38.txt                                     False 11470  15/11/2026 14:18:30
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 66 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_18-57-45.txt                                    False 11314  15/11/2026 15:57:45
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 67 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-1-1.txt                                      False 11052  15/11/2026 16:01:01
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 68 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-14-54.txt                                    False 11314  15/11/2026 16:14:54
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 69 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-3-27.txt                                     False 11183  15/11/2026 16:03:27
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 70 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-10-24.txt                                    False 11314  15/11/2026 17:10:24
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 71 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-58-45.txt                                    False 11314  15/11/2026 17:58:45
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 72 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                     False 18701  15/11/2026 18:45:24
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 73 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                    False 15064  16/11/2026 12:34:40
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 74 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-47-49.txt                                    False 11314  16/11/2026 12:47:49
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 75 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_18-45-49.txt                                    False 11314  16/11/2026 15:45:49
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 76 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-14-38.txt                                    False 11314  16/11/2026 16:14:38
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 77 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                    False 13413  16/11/2026 17:08:58
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 78 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-40-47.txt                                    False 11314  16/11/2026 16:40:47
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 79 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_20-24-6.txt                                     False 11260  16/11/2026 17:27:44
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 80 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                    False 21552  16/11/2026 19:40:53
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 81 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-48.txt                                    False 11314  16/11/2026 18:20:49
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 82 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_23-0-3.txt                                      False 11299  16/11/2026 20:19:17
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 83 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_16-25-19.txt                                    False 11558  17/11/2026 15:09:11
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 84 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                    False 13526  17/11/2026 22:42:11
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 85 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-18_15-31-56.txt                                    False 11314  18/11/2026 12:31:57
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 86 | C:\DayZServer\profiles\VPPAdminTools\Permissions\SuperAdmins                                                 True        15/11/2026 13:06:10
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 87 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups                                                  True        15/11/2026 13:06:10
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 88 | C:\DayZServer\profiles\VPPAdminTools\Permissions\credentials.txt                                            False 247    17/11/2026 13:25:19
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 89 | C:\DayZServer\profiles\VPPAdminTools\Permissions\webhooks_perms_v1.txt                                      False 1      15/11/2026 13:06:10
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 90 | C:\DayZServer\profiles\VPPAdminTools\Permissions\xmleditor_perms_v1.txt                                     False 1      15/11/2026 13:06:10
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 91 | C:\DayZServer\profiles\VPPAdminTools\Permissions\xmleditor_perms_v2.txt                                     False 1      15/11/2026 13:06:10
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 92 | C:\DayZServer\profiles\VPPAdminTools\Permissions\xmleditor_perms_v3.txt                                     False 1      15/11/2026 13:06:10
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 93 | C:\DayZServer\profiles\VPPAdminTools\Permissions\xmleditor_perms_v4.txt                                     False 1      15/11/2026 13:06:10
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 94 | C:\DayZServer\profiles\VPPAdminTools\Permissions\SuperAdmins\SuperAdmins.txt                                False 36     15/11/2026 15:28:07
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 95 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json                                 False 4649   15/11/2026 13:06:10
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 96 | C:\DayZServer\profiles\VPPAdminTools\XMLEditor\Backups                                                       True        15/11/2026 13:06:10
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 97 | C:\DayZServer\profiles\VPPAdminTools\XMLEditor\Cache                                                         True        15/11/2026 13:22:08
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 98 | C:\DayZServer\profiles\VPPAdminTools\XMLEditor\XMLEditorSettings.json                                       False 328    15/11/2026 13:06:10
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 99 | C:\DayZServer\profiles\VPPAdminTools\XMLEditor\Cache\eol_probe.txt                                          False 6      18/11/2026 12:33:44
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 109 | C:\DayZServer\profiles\VPPAdminTools\Backups
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 110 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 111 | C:\DayZServer\profiles\VPPAdminTools\Exports
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 112 | C:\DayZServer\profiles\VPPAdminTools\Logging
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 113 | C:\DayZServer\profiles\VPPAdminTools\Permissions
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 114 | C:\DayZServer\profiles\VPPAdminTools\XMLEditor
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 115 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\BuildingSetManager
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 116 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\ItemManager
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 117 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TeleportManager
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 118 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TimeManager
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 119 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WeatherManager
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 120 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 121 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 122 | C:\DayZServer\profiles\VPPAdminTools\Permissions\SuperAdmins
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 123 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 124 | C:\DayZServer\profiles\VPPAdminTools\XMLEditor\Backups
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 125 | C:\DayZServer\profiles\VPPAdminTools\XMLEditor\Cache
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 135 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\BanList.json
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 159 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\LogOptions.json
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 168 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\SpectateRecovery.json
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 176 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\SteamAPI.json
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 187 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\BuildingSetManager\BuildingSetJournal.json
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 197 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TeleportManager\TeleportLocation.json
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 382 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TimeManager\TimeSettingsPresets.json
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 399 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WeatherManager\WeatherSettingsPresets.json
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 407 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 582 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-10-22.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 720 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-20-40.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 858 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-27-35.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 996 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-38-30.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 1134 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-41-45.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 1275 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-6-10.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 1419 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-7-43.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 1557 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-20-59.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 1699 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 2013 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-6-39.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 2151 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-9-38.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 2292 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_18-57-45.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 2430 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-1-1.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 2568 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-14-54.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 2706 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-3-27.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 2844 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-10-24.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 2982 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-58-45.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 3120 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 3331 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 3509 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-47-49.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 3647 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_18-45-49.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 3785 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-14-38.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 3923 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 4083 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-40-47.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 4221 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_20-24-6.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 4360 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 4604 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-48.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 4742 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_23-0-3.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 4883 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_16-25-19.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 5024 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 5188 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-18_15-31-56.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 5326 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Permissions\credentials.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 5333 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Permissions\webhooks_perms_v1.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 5339 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Permissions\xmleditor_perms_v1.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 5345 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Permissions\xmleditor_perms_v2.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 5351 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Permissions\xmleditor_perms_v3.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 5357 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Permissions\xmleditor_perms_v4.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 5363 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Permissions\SuperAdmins\SuperAdmins.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 5370 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 5497 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\XMLEditor\XMLEditorSettings.json
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 5516 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\XMLEditor\Cache\eol_probe.txt
-C:\RavenRP\VPP_Auditoria_Configuracoes.txt | Linha 5528 | Arquivo      : C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\ItemManager\SavedItemPresets.vpp
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Config_WebHooks_VPP.txt | Linha 24 | Diretorio VPP: C:\DayZServer\profiles\VPPAdminTools
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Config_WebHooks_VPP.txt | Linha 25 | WebHooksManager: C:\DayZServer\profiles\VPPAdminTools\WebHooksManager
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Config_WebHooks_VPP.txt | Linha 34 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt .txt        6496 18/11/2026 12:31:57
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Config_WebHooks_VPP.txt | Linha 35 | C:\DayZServer\profiles\VPPAdminTools\Permissions\webhooks_perms_v1.txt                        .txt           1 15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Config_WebHooks_VPP.txt | Linha 44 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Config_WebHooks_VPP.txt | Linha 232 | ARQUIVO: C:\DayZServer\profiles\VPPAdminTools\Permissions\webhooks_perms_v1.txt
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 27 | C:\DayZServer\profiles\VPPAdminTools\Permissions\webhooks_perms_v1.txt      1 15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 37 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt     1 VPP Admin Tools webhook templates
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 38 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt     4 Each webhook has a folder named after its id with one <event>.tpl per event: the request body sent for it.
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 39 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt     5 Edit them here or in the WebHooks menu; the server reads them at start (or on Reload in the menu).
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 40 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt     6 Delete a file to get the webhook's preset template back.
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 41 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt     9   {{victim.name}}                        a variable (JSON-escaped for JSON webhooks)
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 42 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt    15   {{hook.<name>}}                        a custom variable of the webhook (username, avatar, chat_id, ...)
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 43 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt    17 Webhooks:
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 44 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json                      72             "MenuWebHooks",
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 45 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json                      73             "MenuWebHooks:Create",
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 46 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json                      74             "MenuWebHooks:Edit",
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 47 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json                      75             "MenuWebHooks:Delete",
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 48 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json                      76             "MenuWebHooks:EditTemplates",
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 49 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json                      77             "MenuWebHooks:TestSend",
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 50 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json                      78             "MenuWebHooks:ViewURL",
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 51 | C:\DayZServer\profiles\Zenarchist\Core\ZenCoreConfig.json                                        36         "AdminWebhooks": [
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 52 | C:\DayZServer\profiles\Zenarchist\Core\ZenCoreConfig.json                                        37             "Insert admin channel webhooks here"
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 53 | C:\DayZServer\profiles\Zenarchist\Core\ZenCoreConfig.json                                        41             "KillfeedWebhooks": [
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 54 | C:\DayZServer\profiles\Zenarchist\Core\ZenCoreConfig.json                                        42                 "Insert killfeed channel webhooks here"
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 64 | C:\DayZServer\profiles\BattlEye\BEServer_x64.cfg                                                    .cfg          59 15/11/2026 13:24:31
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 65 | C:\DayZServer\profiles\Buddys_Whistle\Buddys_Whistle_Config.json                                    .json        123 16/11/2026 12:47:49
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 66 | C:\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                          .json      16497 15/11/2026 17:58:45
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 67 | C:\DayZServer\profiles\CodeLock\CodeLockConfig.json                                                 .json        439 18/11/2026 12:31:57
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 68 | C:\DayZServer\profiles\CodeLock\CodeLockPerms.json                                                  .json        416 18/11/2026 18:34:41
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 69 | C:\DayZServer\profiles\KomodoDragon\KomodoDragon.json                                               .json        191 18/11/2026 12:31:57
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 70 | C:\DayZServer\profiles\KomodoDragon\ReadMe.txt                                                      .txt        2920 18/11/2026 12:31:57
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 71 | C:\DayZServer\profiles\Suppression\EarProtectionItems.txt                                           .txt          14 16/11/2026 12:12:50
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 72 | C:\DayZServer\profiles\Suppression\SuppressionSettings.json                                         .json        192 16/11/2026 15:45:48
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 73 | C:\DayZServer\profiles\Users\Server\DayZ.cfg                                                        .cfg          80 15/11/2026 13:03:18
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 74 | C:\DayZServer\profiles\Users\Survivor\Server.core.xml                                               .xml         583 18/11/2026 12:30:42
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 75 | C:\DayZServer\profiles\Users\Survivor\Server.dayz_preset_User.xml                                   .xml       33827 18/11/2026 12:30:42
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 76 | C:\DayZServer\profiles\VPPAdminTools\BanList.json                                                   .json        457 15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 77 | C:\DayZServer\profiles\VPPAdminTools\LogOptions.json                                                .json         50 15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 78 | C:\DayZServer\profiles\VPPAdminTools\SpectateRecovery.json                                          .json         23 15/11/2026 14:49:09
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 79 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\BuildingSetManager\BuildingSetJournal.json .json         55 15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 80 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TeleportManager\TeleportLocation.json      .json       4316 15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 81 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TimeManager\TimeSettingsPresets.json       .json        212 15/11/2026 14:58:16
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 82 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WeatherManager\WeatherSettingsPresets.json .json         29 15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 83 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt       .txt        6496 18/11/2026 12:31:57
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 84 | C:\DayZServer\profiles\VPPAdminTools\Permissions\webhooks_perms_v1.txt                              .txt           1 15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 85 | C:\DayZServer\profiles\VPPAdminTools\Permissions\xmleditor_perms_v1.txt                             .txt           1 15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 86 | C:\DayZServer\profiles\VPPAdminTools\Permissions\xmleditor_perms_v2.txt                             .txt           1 15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 87 | C:\DayZServer\profiles\VPPAdminTools\Permissions\xmleditor_perms_v3.txt                             .txt           1 15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 88 | C:\DayZServer\profiles\VPPAdminTools\Permissions\xmleditor_perms_v4.txt                             .txt           1 15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 89 | C:\DayZServer\profiles\VPPAdminTools\Permissions\SuperAdmins\SuperAdmins.txt                        .txt          36 15/11/2026 15:28:07
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 90 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json                         .json       4649 15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 91 | C:\DayZServer\profiles\VPPAdminTools\XMLEditor\XMLEditorSettings.json                               .json        328 15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 92 | C:\DayZServer\profiles\VPPAdminTools\XMLEditor\Cache\eol_probe.txt                                  .txt           6 18/11/2026 12:33:44
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 93 | C:\DayZServer\profiles\Zenarchist\ZenNotesConfig.json                                               .json        889 16/11/2026 12:12:50
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Global_WebHooks_Profiles.txt | Linha 94 | C:\DayZServer\profiles\Zenarchist\Core\ZenCoreConfig.json                                           .json       1540 16/11/2026 12:12:50
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 27 | C:\DayZServer\profiles\VPPAdminTools\Backups                                       15/11/2026 13:06:09
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 28 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins                           15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 29 | C:\DayZServer\profiles\VPPAdminTools\Exports                                       15/11/2026 13:06:09
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 30 | C:\DayZServer\profiles\VPPAdminTools\Logging                                       18/11/2026 12:31:56
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 31 | C:\DayZServer\profiles\VPPAdminTools\Permissions                                   17/11/2026 13:25:19
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 32 | C:\DayZServer\profiles\VPPAdminTools\XMLEditor                                     15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 33 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\BuildingSetManager        15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 34 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\ItemManager               15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 35 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TeleportManager           15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 36 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TimeManager               15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 37 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WeatherManager            15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 38 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager           15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 39 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates 15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 40 | C:\DayZServer\profiles\VPPAdminTools\Permissions\SuperAdmins                       15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 41 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups                        15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 42 | C:\DayZServer\profiles\VPPAdminTools\XMLEditor\Backups                             15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 43 | C:\DayZServer\profiles\VPPAdminTools\XMLEditor\Cache                               15/11/2026 13:22:08
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 53 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\SteamAPI.json                              .json        102 15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 54 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\BuildingSetManager\BuildingSetJournal.json .json         55 15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 55 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\ItemManager\SavedItemPresets.vpp           .vpp         561 15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 56 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TeleportManager\TeleportLocation.json      .json       4316 15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 57 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TimeManager\TimeSettingsPresets.json       .json        212 15/11/2026 14:58:16
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 58 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WeatherManager\WeatherSettingsPresets.json .json         29 15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 59 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt       .txt        6496 18/11/2026 12:31:57
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 60 | C:\DayZServer\profiles\VPPAdminTools\Permissions\webhooks_perms_v1.txt                              .txt           1 15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 70 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt     1 VPP Admin Tools webhook templates
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 71 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt     4 Each webhook has a folder named after its id with one <event>.tpl per event: the request body sent for it.
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 72 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt     5 Edit them here or in the WebHooks menu; the server reads them at start (or on Reload in the menu).
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 73 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt     6 Delete a file to get the webhook's preset template back.
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 74 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt     9   {{victim.name}}                        a variable (JSON-escaped for JSON webhooks)
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 75 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt    15   {{hook.<name>}}                        a custom variable of the webhook (username, avatar, chat_id, ...)
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 76 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt    17 Webhooks:
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 77 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-10-22.txt                         63 16:10:22 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 78 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-10-22.txt                         64 16:10:22 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 79 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-10-22.txt                         65 16:10:22 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 80 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-10-22.txt                         66 16:10:22 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 81 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-10-22.txt                         67 16:10:22 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 82 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-10-22.txt                         68 16:10:22 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 83 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-10-22.txt                         69 16:10:22 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 84 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-20-40.txt                         63 16:20:41 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 85 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-20-40.txt                         64 16:20:41 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 86 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-20-40.txt                         65 16:20:41 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 87 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-20-40.txt                         66 16:20:41 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 88 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-20-40.txt                         67 16:20:41 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 89 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-20-40.txt                         68 16:20:41 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 90 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-20-40.txt                         69 16:20:41 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 91 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-27-35.txt                         63 16:27:35 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 92 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-27-35.txt                         64 16:27:35 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 93 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-27-35.txt                         65 16:27:35 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 94 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-27-35.txt                         66 16:27:35 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 95 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-27-35.txt                         67 16:27:35 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 96 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-27-35.txt                         68 16:27:35 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 97 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-27-35.txt                         69 16:27:35 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 98 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-38-30.txt                         63 16:38:30 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 99 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-38-30.txt                         64 16:38:30 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 100 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-38-30.txt                         65 16:38:30 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 101 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-38-30.txt                         66 16:38:30 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 102 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-38-30.txt                         67 16:38:30 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 103 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-38-30.txt                         68 16:38:30 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 104 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-38-30.txt                         69 16:38:30 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 105 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-41-45.txt                         63 16:41:45 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 106 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-41-45.txt                         64 16:41:45 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 107 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-41-45.txt                         65 16:41:45 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 108 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-41-45.txt                         66 16:41:45 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 109 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-41-45.txt                         67 16:41:45 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 110 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-41-45.txt                         68 16:41:45 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 111 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-41-45.txt                         69 16:41:45 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 112 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-6-10.txt                          63 16:6:10 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 113 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-6-10.txt                          64 16:6:10 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 114 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-6-10.txt                          65 16:6:10 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 115 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-6-10.txt                          66 16:6:10 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 116 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-6-10.txt                          67 16:6:10 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 117 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-6-10.txt                          68 16:6:10 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 118 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-6-10.txt                          69 16:6:10 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 119 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-6-10.txt                         118 16:6:10 | [WebHooksManager] Permission migration v1 (EditTemplates, TestSend, ViewURL) done: 0 user group(s) updated
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 120 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-7-43.txt                          63 16:7:43 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 121 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-7-43.txt                          64 16:7:43 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 122 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-7-43.txt                          65 16:7:43 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 123 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-7-43.txt                          66 16:7:43 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 124 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-7-43.txt                          67 16:7:43 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 125 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-7-43.txt                          68 16:7:43 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 126 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-7-43.txt                          69 16:7:43 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 127 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-20-59.txt                         63 17:20:59 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 128 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-20-59.txt                         64 17:20:59 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 129 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-20-59.txt                         65 17:20:59 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 130 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-20-59.txt                         66 17:20:59 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 131 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-20-59.txt                         67 17:20:59 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 132 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-20-59.txt                         68 17:20:59 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 133 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-20-59.txt                         69 17:20:59 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 134 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                         63 17:37:47 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 135 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                         64 17:37:47 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 136 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                         65 17:37:47 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 137 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                         66 17:37:47 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 138 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                         67 17:37:47 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 139 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                         68 17:37:47 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 140 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                         69 17:37:47 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 141 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-6-39.txt                          63 17:6:39 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 142 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-6-39.txt                          64 17:6:39 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 143 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-6-39.txt                          65 17:6:39 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 144 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-6-39.txt                          66 17:6:39 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 145 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-6-39.txt                          67 17:6:39 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 146 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-6-39.txt                          68 17:6:39 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 147 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-6-39.txt                          69 17:6:39 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 148 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-9-38.txt                          63 17:9:38 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 149 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-9-38.txt                          64 17:9:38 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 150 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-9-38.txt                          65 17:9:38 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 151 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-9-38.txt                          66 17:9:38 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 152 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-9-38.txt                          67 17:9:38 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 153 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-9-38.txt                          68 17:9:38 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 154 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-9-38.txt                          69 17:9:38 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 155 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_18-57-45.txt                         63 18:57:45 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 156 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_18-57-45.txt                         64 18:57:45 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 157 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_18-57-45.txt                         65 18:57:45 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 158 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_18-57-45.txt                         66 18:57:45 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 159 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_18-57-45.txt                         67 18:57:45 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 160 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_18-57-45.txt                         68 18:57:45 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 161 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_18-57-45.txt                         69 18:57:45 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 162 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-1-1.txt                           63 19:1:1 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 163 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-1-1.txt                           64 19:1:1 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 164 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-1-1.txt                           65 19:1:1 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 165 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-1-1.txt                           66 19:1:1 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 166 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-1-1.txt                           67 19:1:1 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 167 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-1-1.txt                           68 19:1:1 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 168 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-1-1.txt                           69 19:1:1 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 169 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-14-54.txt                         63 19:14:54 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 170 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-14-54.txt                         64 19:14:54 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 171 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-14-54.txt                         65 19:14:54 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 172 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-14-54.txt                         66 19:14:54 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 173 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-14-54.txt                         67 19:14:54 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 174 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-14-54.txt                         68 19:14:54 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 175 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-14-54.txt                         69 19:14:54 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 176 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-3-27.txt                          63 19:3:27 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 177 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-3-27.txt                          64 19:3:27 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 178 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-3-27.txt                          65 19:3:27 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 179 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-3-27.txt                          66 19:3:27 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 180 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-3-27.txt                          67 19:3:27 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 181 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-3-27.txt                          68 19:3:27 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 182 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_19-3-27.txt                          69 19:3:27 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 183 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-10-24.txt                         63 20:10:24 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 184 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-10-24.txt                         64 20:10:24 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 185 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-10-24.txt                         65 20:10:24 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 186 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-10-24.txt                         66 20:10:24 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 187 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-10-24.txt                         67 20:10:24 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 188 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-10-24.txt                         68 20:10:24 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 189 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-10-24.txt                         69 20:10:24 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 190 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-58-45.txt                         63 20:58:45 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 191 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-58-45.txt                         64 20:58:45 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 192 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-58-45.txt                         65 20:58:45 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 193 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-58-45.txt                         66 20:58:45 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 194 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-58-45.txt                         67 20:58:45 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 195 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-58-45.txt                         68 20:58:45 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 196 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_20-58-45.txt                         69 20:58:45 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 197 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                          63 21:7:54 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 198 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                          64 21:7:54 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 199 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                          65 21:7:54 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 200 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                          66 21:7:54 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 201 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                          67 21:7:54 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 202 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                          68 21:7:54 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 203 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                          69 21:7:54 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 204 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                         63 15:12:50 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 205 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                         64 15:12:50 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 206 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                         65 15:12:50 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 207 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                         66 15:12:50 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 208 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                         67 15:12:50 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 209 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                         68 15:12:50 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 210 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                         69 15:12:50 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 211 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-47-49.txt                         63 15:47:49 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 212 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-47-49.txt                         64 15:47:49 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 213 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-47-49.txt                         65 15:47:49 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 214 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-47-49.txt                         66 15:47:49 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 215 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-47-49.txt                         67 15:47:49 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 216 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-47-49.txt                         68 15:47:49 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 217 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-47-49.txt                         69 15:47:49 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 218 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_18-45-49.txt                         63 18:45:49 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 219 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_18-45-49.txt                         64 18:45:49 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 220 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_18-45-49.txt                         65 18:45:49 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 221 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_18-45-49.txt                         66 18:45:49 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 222 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_18-45-49.txt                         67 18:45:49 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 223 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_18-45-49.txt                         68 18:45:49 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 224 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_18-45-49.txt                         69 18:45:49 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 225 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-14-38.txt                         63 19:14:38 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 226 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-14-38.txt                         64 19:14:38 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 227 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-14-38.txt                         65 19:14:38 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 228 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-14-38.txt                         66 19:14:38 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 229 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-14-38.txt                         67 19:14:38 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 230 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-14-38.txt                         68 19:14:38 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 231 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-14-38.txt                         69 19:14:38 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 232 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                         63 19:16:27 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 233 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                         64 19:16:27 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 234 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                         65 19:16:27 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 235 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                         66 19:16:27 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 236 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                         67 19:16:27 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 237 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                         68 19:16:27 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 238 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                         69 19:16:27 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 239 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-40-47.txt                         63 19:40:47 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 240 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-40-47.txt                         64 19:40:47 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 241 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-40-47.txt                         65 19:40:47 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 242 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-40-47.txt                         66 19:40:47 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 243 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-40-47.txt                         67 19:40:47 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 244 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-40-47.txt                         68 19:40:47 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 245 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-40-47.txt                         69 19:40:47 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 246 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_20-24-6.txt                          63 20:24:6 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 247 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_20-24-6.txt                          64 20:24:6 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 248 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_20-24-6.txt                          65 20:24:6 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 249 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_20-24-6.txt                          66 20:24:6 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 250 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_20-24-6.txt                          67 20:24:6 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 251 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_20-24-6.txt                          68 20:24:6 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 252 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_20-24-6.txt                          69 20:24:6 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 253 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                         63 21:20:20 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 254 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                         64 21:20:20 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 255 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                         65 21:20:20 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 256 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                         66 21:20:20 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 257 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                         67 21:20:20 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 258 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                         68 21:20:20 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 259 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                         69 21:20:20 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 260 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-48.txt                         63 21:20:48 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 261 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-48.txt                         64 21:20:48 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 262 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-48.txt                         65 21:20:48 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 263 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-48.txt                         66 21:20:48 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 264 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-48.txt                         67 21:20:48 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 265 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-48.txt                         68 21:20:48 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 266 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-48.txt                         69 21:20:48 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 267 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_23-0-3.txt                           63 23:0:3 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 268 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_23-0-3.txt                           64 23:0:3 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 269 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_23-0-3.txt                           65 23:0:3 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 270 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_23-0-3.txt                           66 23:0:3 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 271 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_23-0-3.txt                           67 23:0:3 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 272 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_23-0-3.txt                           68 23:0:3 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 273 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_23-0-3.txt                           69 23:0:3 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 274 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_16-25-19.txt                         63 16:25:19 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 275 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_16-25-19.txt                         64 16:25:19 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 276 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_16-25-19.txt                         65 16:25:19 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 277 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_16-25-19.txt                         66 16:25:19 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 278 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_16-25-19.txt                         67 16:25:19 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 279 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_16-25-19.txt                         68 16:25:19 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 280 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_16-25-19.txt                         69 16:25:19 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 281 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                         63 19:28:51 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 282 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                         64 19:28:51 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 283 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                         65 19:28:51 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 284 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                         66 19:28:51 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 285 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                         67 19:28:51 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 286 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                         68 19:28:51 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 287 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                         69 19:28:51 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 288 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-18_15-31-56.txt                         63 15:31:56 | [PermissionManager] Perm (MenuWebHooks) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 289 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-18_15-31-56.txt                         64 15:31:56 | [PermissionManager] Perm (MenuWebHooks:Create) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 290 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-18_15-31-56.txt                         65 15:31:56 | [PermissionManager] Perm (MenuWebHooks:Edit) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 291 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-18_15-31-56.txt                         66 15:31:56 | [PermissionManager] Perm (MenuWebHooks:Delete) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 292 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-18_15-31-56.txt                         67 15:31:56 | [PermissionManager] Perm (MenuWebHooks:EditTemplates) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 293 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-18_15-31-56.txt                         68 15:31:56 | [PermissionManager] Perm (MenuWebHooks:TestSend) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 294 | C:\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-18_15-31-56.txt                         69 15:31:56 | [PermissionManager] Perm (MenuWebHooks:ViewURL) has been registered!
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 295 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json                      72             "MenuWebHooks",
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 296 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json                      73             "MenuWebHooks:Create",
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 297 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json                      74             "MenuWebHooks:Edit",
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 298 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json                      75             "MenuWebHooks:Delete",
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 299 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json                      76             "MenuWebHooks:EditTemplates",
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 300 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json                      77             "MenuWebHooks:TestSend",
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 301 | C:\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json                      78             "MenuWebHooks:ViewURL",
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 311 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\BuildingSetManager                                  True        15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 312 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\ItemManager                                         True        15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 313 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TeleportManager                                     True        15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 314 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TimeManager                                         True        15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 315 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WeatherManager                                      True        15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 316 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager                                     True        15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 317 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\SteamAPI.json                                      False 102    15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 318 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\BuildingSetManager\BuildingSetJournal.json         False 55     15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 319 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\ItemManager\SavedItemPresets.vpp                   False 561    15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 320 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TeleportManager\TeleportLocation.json              False 4316   15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 321 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\TimeManager\TimeSettingsPresets.json               False 212    15/11/2026 14:58:16
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 322 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WeatherManager\WeatherSettingsPresets.json         False 29     15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 323 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates                           True        15/11/2026 13:06:10
-C:\RavenRP\Auditorias\Bloco5_Auditoria_Localizacao_WebHooks_VPP.txt | Linha 324 | C:\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt               False 6496   18/11/2026 12:31:57
-C:\RavenRP\Auditorias\Bloco5_Padroes_Eventos_VPP.txt | Linha 24 | Diretorio: C:\DayZServer\profiles\VPPAdminTools\Logging
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 25 | Servidor DayZ: C:\RavenRP\DayZServer
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 31 | [NAO ENCONTRADO] C:\RavenRP\DayZServer\priority.txt
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 272 | Destino calculado: C:\RavenRP\DayZServer
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 2077 | $Server = "C:\RavenRP\DayZServer"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 2187 | $Server = "C:\RavenRP\DayZServer"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3329 | $Root = "C:\RavenRP\DayZServer"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3489 | @A_BeautifulCoyote             C:\RavenRP\DayZServer\@A_BeautifulCoyote
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3490 | @A_BeautifulKomodoDragon       C:\RavenRP\DayZServer\@A_BeautifulKomodoDragon
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3491 | @A_BeautifulMotorbikePassenger C:\RavenRP\DayZServer\@A_BeautifulMotorbikePassenger
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3492 | @A_BeautifulNasdaraCactusHurts C:\RavenRP\DayZServer\@A_BeautifulNasdaraCactusHurts
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3493 | @BuildingFortifications        C:\RavenRP\DayZServer\@BuildingFortifications
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3494 | @CF                            C:\RavenRP\DayZServer\@CF
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3495 | @CodeLock                      C:\RavenRP\DayZServer\@CodeLock
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3496 | @CookZ                         C:\RavenRP\DayZServer\@CookZ
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3497 | @Coyote                        C:\RavenRP\DayZServer\@Coyote
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3498 | @CustomFlagArmband             C:\RavenRP\DayZServer\@CustomFlagArmband
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3499 | @DabsFramework                 C:\RavenRP\DayZServer\@DabsFramework
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3500 | @Earplugs                      C:\RavenRP\DayZServer\@Earplugs
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3501 | @KomodoDragon                  C:\RavenRP\DayZServer\@KomodoDragon
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3502 | @MotorbikePassenger            C:\RavenRP\DayZServer\@MotorbikePassenger
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3503 | @NasdaraCactus                 C:\RavenRP\DayZServer\@NasdaraCactus
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3504 | @SimpleWhistle                 C:\RavenRP\DayZServer\@SimpleWhistle
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3505 | @SuppressionMod                C:\RavenRP\DayZServer\@SuppressionMod
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3506 | @SurvivorAnimations            C:\RavenRP\DayZServer\@SurvivorAnimations
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3507 | @VPPAdminTools                 C:\RavenRP\DayZServer\@VPPAdminTools
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3508 | @ZensCoreMod                   C:\RavenRP\DayZServer\@ZensCoreMod
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3509 | @ZensNotes                     C:\RavenRP\DayZServer\@ZensNotes
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3510 | addons                         C:\RavenRP\DayZServer\addons
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3511 | appcache                       C:\RavenRP\DayZServer\appcache
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3512 | backups                        C:\RavenRP\DayZServer\backups
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3513 | battleye                       C:\RavenRP\DayZServer\battleye
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3514 | config                         C:\RavenRP\DayZServer\config
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3515 | docs                           C:\RavenRP\DayZServer\docs
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3516 | dta                            C:\RavenRP\DayZServer\dta
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3517 | DuckDNS                        C:\RavenRP\DayZServer\DuckDNS
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3518 | keys                           C:\RavenRP\DayZServer\keys
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3519 | logs                           C:\RavenRP\DayZServer\logs
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3520 | mpmissions                     C:\RavenRP\DayZServer\mpmissions
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3521 | nasdara                        C:\RavenRP\DayZServer\nasdara
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3522 | profiles                       C:\RavenRP\DayZServer\profiles
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3523 | sakhal                         C:\RavenRP\DayZServer\sakhal
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3524 | server_manager                 C:\RavenRP\DayZServer\server_manager
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3525 | steamapps                      C:\RavenRP\DayZServer\steamapps
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3526 | update_logs                    C:\RavenRP\DayZServer\update_logs
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3527 | _CommonRedist                  C:\RavenRP\DayZServer\_CommonRedist
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3535 | atualiza_mods.bat    8804 16/11/2026 19:45:21 C:\RavenRP\DayZServer\atualiza_mods.bat
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3536 | ban.txt               599 15/11/2026 00:50:04 C:\RavenRP\DayZServer\ban.txt
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3537 | dayzsetting.xml      1106 15/11/2026 00:50:10 C:\RavenRP\DayZServer\dayzsetting.xml
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3538 | restart_server.bat    737 15/11/2026 13:33:13 C:\RavenRP\DayZServer\restart_server.bat
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3539 | serverDZ.cfg         1164 16/11/2026 20:30:58 C:\RavenRP\DayZServer\serverDZ.cfg
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3540 | start-killfeed.bat    340 16/11/2026 16:38:20 C:\RavenRP\DayZServer\start-killfeed.bat
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3541 | start.bat           10547 17/11/2026 13:23:51 C:\RavenRP\DayZServer\start.bat
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3542 | steam_appid.txt         6 15/11/2026 00:51:46 C:\RavenRP\DayZServer\steam_appid.txt
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3543 | whitelist.txt         766 15/11/2026 00:51:46 C:\RavenRP\DayZServer\whitelist.txt
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3544 | wipe.bat             4195 17/11/2026 13:09:05 C:\RavenRP\DayZServer\wipe.bat
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3555 | C:\RavenRP\DayZServer\dayzsetting.xml                                                                             13
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3556 | C:\RavenRP\DayZServer\dayzsetting.xml                                                                             14
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3557 | C:\RavenRP\DayZServer\serverDZ.cfg                                                                                 7
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3558 | C:\RavenRP\DayZServer\serverDZ.cfg                                                                                29
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3559 | C:\RavenRP\DayZServer\serverDZ.cfg                                                                                30
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3560 | C:\RavenRP\DayZServer\whitelist.txt                                                                                1
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3561 | C:\RavenRP\DayZServer\whitelist.txt                                                                                4
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3562 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\Fortifications Settings.txt                                 25
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3563 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\Fortifications Settings.txt                                 29
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3564 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\Fortifications Settings.txt                                 39
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3565 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\Fortifications Settings.txt                                 43
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3566 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json         22
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3567 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json         26
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3568 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json         36
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3569 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json         40
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3570 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json         50
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3571 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json         54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3572 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json         64
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3573 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json         68
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3574 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json         78
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3575 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json         82
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3576 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json         92
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3577 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json         96
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3578 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        106
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3579 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        110
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3580 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        120
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3581 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        124
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3582 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        134
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3583 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        138
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3584 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        148
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3585 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        152
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3586 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        162
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3587 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        166
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3588 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        176
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3589 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        186
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3590 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        190
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3591 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        200
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3592 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        204
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3593 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        214
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3594 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        218
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3595 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        228
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3596 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        232
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3597 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        242
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3598 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        246
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3599 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        256
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3600 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        260
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3601 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        270
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3602 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        274
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3603 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        284
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3604 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        288
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3605 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        298
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3606 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        302
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3607 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        312
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3608 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        316
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3609 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        326
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3610 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        330
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3611 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        340
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3612 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        344
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3613 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        354
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3614 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        364
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3615 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        368
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3616 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        378
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3617 | C:\RavenRP\DayZServer\@BuildingFortifications\Configs\BuildingFortifications\Fortifications Settings.json        382
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3618 | C:\RavenRP\DayZServer\@BuildingFortifications\Types.Xml\Types.XML                                                 31
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3619 | C:\RavenRP\DayZServer\@ZensNotes\extras\readme.txt                                                                 7
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3620 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                                   78
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3621 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                                  153
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3622 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                                  154
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3623 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                                  164
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3624 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                                  165
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3625 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                                  469
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3626 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                                  506
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3627 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                                  508
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3628 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                                  516
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3629 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                                  517
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3630 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                                  518
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3631 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                                  525
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3632 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                                  558
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3633 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                                  563
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3634 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                                  769
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3635 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                                  772
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3636 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                                  773
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3637 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                                  774
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3638 | C:\RavenRP\DayZServer\battleye\Bec\LICENSE.txt                                                                     4
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3639 | C:\RavenRP\DayZServer\battleye\Bec\Config\Commands.xml                                                           111
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3640 | C:\RavenRP\DayZServer\battleye\Bec\Config\Commands.xml                                                           121
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3641 | C:\RavenRP\DayZServer\battleye\Bec\Config\Commands.xml                                                           126
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3642 | C:\RavenRP\DayZServer\battleye\Bec\Config\Commands.xml                                                           127
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3643 | C:\RavenRP\DayZServer\battleye\Bec\Config\Commands.xml                                                           137
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3644 | C:\RavenRP\DayZServer\battleye\EULA\nl.txt                                                                         4
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3645 | C:\RavenRP\DayZServer\battleye\EULA\nl.txt                                                                        20
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3646 | C:\RavenRP\DayZServer\docs\LegalNotices.txt                                                                       48
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3647 | C:\RavenRP\DayZServer\docs\LegalNotices.txt                                                                       50
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3648 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.chernarusplus\cfgrandompresets.xml                                  308
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3649 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.chernarusplus\cfgrandompresets.xml                                  342
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3650 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.chernarusplus\cfgrandompresets.xml                                  421
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3651 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.chernarusplus\init.c                                                 62
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3652 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.chernarusplus\init.c                                                 87
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3653 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.chernarusplus\init.c                                                 91
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3654 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.enoch\cfgrandompresets.xml                                          306
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3655 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.enoch\cfgrandompresets.xml                                          340
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3656 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.enoch\cfgrandompresets.xml                                          422
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3657 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.enoch\init.c                                                         62
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3658 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.enoch\init.c                                                         77
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3659 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.enoch\init.c                                                         81
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3660 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.nasdara\cfgrandompresets.xml                                        327
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3661 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.nasdara\cfgrandompresets.xml                                        357
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3662 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.nasdara\cfgrandompresets.xml                                        425
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3663 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgrandompresets.xml                                 327
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3664 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgrandompresets.xml                                 357
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3665 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgrandompresets.xml                                 425
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3666 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.sakhal\cfgrandompresets.xml                                         311
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3667 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.sakhal\cfgrandompresets.xml                                         346
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3668 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.sakhal\cfgrandompresets.xml                                         420
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3669 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.sakhal\init.c                                                        80
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3670 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.sakhal\init.c                                                        98
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3671 | C:\RavenRP\DayZServer\mpmissions\dayzOffline.sakhal\init.c                                                       102
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3672 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                                22
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3673 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                                26
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3674 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                                36
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3675 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                                40
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3676 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                                50
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3677 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                                54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3678 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                                64
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3679 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                                68
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3680 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                                78
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3681 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                                82
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3682 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                                92
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3683 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                                96
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3684 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               106
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3685 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               110
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3686 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               120
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3687 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               124
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3688 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               134
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3689 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               138
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3690 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               148
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3691 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               152
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3692 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               162
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3693 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               166
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3694 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               176
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3695 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               186
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3696 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               190
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3697 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               200
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3698 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               204
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3699 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               214
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3700 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               218
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3701 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               228
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3702 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               232
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3703 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               242
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3704 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               246
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3705 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               256
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3706 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               260
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3707 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               270
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3708 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               274
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3709 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               284
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3710 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               288
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3711 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               298
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3712 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               302
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3713 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               312
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3714 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               316
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3715 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               326
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3716 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               330
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3717 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               340
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3718 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               344
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3719 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               354
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3720 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               364
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3721 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               368
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3722 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               378
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3723 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               382
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3724 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               392
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3725 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               402
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3726 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               406
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3727 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               416
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3728 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               420
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3729 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               430
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3730 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               434
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3731 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               444
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3732 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               448
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3733 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               458
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3734 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               462
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3735 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               472
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3736 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               476
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3737 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               486
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3738 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               490
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3739 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               500
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3740 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               504
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3741 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               514
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3742 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               518
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3743 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               528
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3744 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               532
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3745 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               542
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3746 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               546
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3747 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               556
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3748 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               560
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3749 | C:\RavenRP\DayZServer\profiles\BuildingFortifications\Fortifications Settings.json                               570
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3750 | C:\RavenRP\DayZServer\profiles\Users\Survivor\Server.dayz_preset_User.xml                                        326
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3751 | C:\RavenRP\DayZServer\profiles\Users\Survivor\Server.dayz_preset_User.xml                                        329
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3752 | C:\RavenRP\DayZServer\profiles\Users\Survivor\Server.dayz_preset_User.xml                                        332
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3753 | C:\RavenRP\DayZServer\profiles\Users\Survivor\Server.dayz_preset_User.xml                                        335
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3754 | C:\RavenRP\DayZServer\profiles\Users\Survivor\Server.dayz_preset_User.xml                                        338
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3755 | C:\RavenRP\DayZServer\profiles\Users\Survivor\Server.dayz_preset_User.xml                                        341
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3756 | C:\RavenRP\DayZServer\profiles\Users\Survivor\Server.dayz_preset_User.xml                                        344
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3757 | C:\RavenRP\DayZServer\profiles\Users\Survivor\Server.dayz_preset_User.xml                                        347
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3758 | C:\RavenRP\DayZServer\profiles\Users\Survivor\Server.dayz_preset_User.xml                                        350
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3759 | C:\RavenRP\DayZServer\profiles\Users\Survivor\Server.dayz_preset_User.xml                                        353
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3760 | C:\RavenRP\DayZServer\profiles\Users\Survivor\Server.dayz_preset_User.xml                                        356
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3761 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\BanList.json                                                          5
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3762 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-10-22.txt                                 111
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3763 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-20-40.txt                                 111
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3764 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-27-35.txt                                 111
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3765 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-41-45.txt                                 134
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3766 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-41-45.txt                                 135
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3767 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-41-45.txt                                 136
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3768 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_16-7-43.txt                                  111
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3769 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-20-59.txt                                 134
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3770 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-20-59.txt                                 135
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3771 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-20-59.txt                                 136
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3772 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-20-59.txt                                 137
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3773 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 133
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3774 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 134
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3775 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 135
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3776 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 136
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3777 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 137
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3778 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 138
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3779 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 139
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3780 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 140
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3781 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 141
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3782 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 142
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3783 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 143
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3784 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 144
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3785 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 145
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3786 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 146
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3787 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 147
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3788 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 148
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3789 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 149
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3790 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 150
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3791 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 151
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3792 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 152
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3793 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 158
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3794 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 159
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3795 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 160
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3796 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 161
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3797 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 162
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3798 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 163
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3799 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 164
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3800 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 165
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3801 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 166
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3802 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 167
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3803 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 168
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3804 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 169
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3805 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 170
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3806 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 171
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3807 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 172
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3808 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 173
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3809 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 174
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3810 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 175
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3811 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 176
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3812 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 177
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3813 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 178
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3814 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 179
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3815 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 180
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3816 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 181
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3817 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 182
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3818 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 183
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3819 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 184
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3820 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 185
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3821 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 186
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3822 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 187
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3823 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 188
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3824 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 189
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3825 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 190
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3826 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 191
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3827 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 192
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3828 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 193
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3829 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 194
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3830 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 195
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3831 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 196
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3832 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 197
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3833 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 198
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3834 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 199
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3835 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 200
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3836 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 201
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3837 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 202
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3838 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 203
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3839 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 204
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3840 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 205
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3841 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 206
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3842 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 207
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3843 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 208
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3844 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 209
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3845 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 210
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3846 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 211
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3847 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 212
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3848 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 213
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3849 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 214
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3850 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 215
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3851 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 216
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3852 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 217
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3853 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 218
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3854 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 219
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3855 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 220
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3856 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 221
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3857 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 222
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3858 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 223
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3859 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 224
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3860 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 225
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3861 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 226
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3862 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 227
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3863 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 228
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3864 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 229
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3865 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 230
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3866 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 231
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3867 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 232
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3868 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 233
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3869 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 234
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3870 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 235
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3871 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 236
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3872 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 237
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3873 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 238
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3874 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 239
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3875 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 240
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3876 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 241
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3877 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 242
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3878 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 243
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3879 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 244
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3880 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 245
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3881 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 246
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3882 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 247
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3883 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 248
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3884 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 249
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3885 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 250
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3886 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 251
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3887 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 252
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3888 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 253
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3889 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 254
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3890 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 255
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3891 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 256
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3892 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 257
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3893 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 258
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3894 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 259
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3895 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 260
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3896 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 261
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3897 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 262
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3898 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 263
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3899 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 264
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3900 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 265
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3901 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 266
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3902 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 267
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3903 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 268
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3904 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 269
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3905 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 270
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3906 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 271
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3907 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 272
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3908 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 273
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3909 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 274
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3910 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 275
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3911 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 276
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3912 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 277
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3913 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 278
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3914 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 279
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3915 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 280
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3916 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 281
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3917 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 282
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3918 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 283
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3919 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 284
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3920 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 285
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3921 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 286
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3922 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 287
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3923 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 288
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3924 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 289
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3925 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 290
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3926 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 291
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3927 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 292
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3928 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 293
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3929 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 294
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3930 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 295
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3931 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 296
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3932 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 297
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3933 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 298
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3934 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 299
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3935 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 300
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3936 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 301
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3937 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 302
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3938 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 303
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3939 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 304
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3940 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 305
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3941 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 306
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3942 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 307
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3943 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 308
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3944 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-37-47.txt                                 309
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3945 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-9-38.txt                                  134
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3946 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-9-38.txt                                  135
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3947 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_17-9-38.txt                                  136
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3948 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  134
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3949 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  135
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3950 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  136
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3951 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  137
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3952 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  138
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3953 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  139
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3954 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  140
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3955 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  141
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3956 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  142
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3957 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  143
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3958 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  144
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3959 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  145
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3960 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  146
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3961 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  147
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3962 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  148
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3963 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  149
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3964 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  150
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3965 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  151
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3966 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  152
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3967 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  153
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3968 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  154
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3969 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  155
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3970 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  156
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3971 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  157
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3972 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  158
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3973 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  159
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3974 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  160
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3975 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  161
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3976 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  162
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3977 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  163
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3978 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  164
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3979 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  165
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3980 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  166
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3981 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  167
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3982 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  168
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3983 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  169
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3984 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  170
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3985 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  171
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3986 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  172
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3987 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  173
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3988 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  174
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3989 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  175
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3990 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  176
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3991 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  177
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3992 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  178
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3993 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  179
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3994 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  180
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3995 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  181
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3996 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  182
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3997 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  183
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3998 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  184
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 3999 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  185
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4000 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  186
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4001 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  187
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4002 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  188
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4003 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  189
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4004 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  190
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4005 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  191
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4006 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  192
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4007 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  193
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4008 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  194
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4009 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  195
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4010 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  196
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4011 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  197
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4012 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  198
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4013 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  199
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4014 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  200
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4015 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  203
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4016 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  204
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4017 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  205
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4018 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-15_21-7-54.txt                                  206
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4019 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 134
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4020 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 135
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4021 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 136
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4022 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 137
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4023 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 138
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4024 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 139
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4025 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 140
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4026 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 141
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4027 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 142
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4028 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 143
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4029 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 144
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4030 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 145
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4031 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 146
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4032 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 147
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4033 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 148
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4034 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 149
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4035 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 150
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4036 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 151
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4037 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 152
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4038 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 153
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4039 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 154
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4040 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 155
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4041 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 156
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4042 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 157
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4043 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 158
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4044 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 159
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4045 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 160
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4046 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 161
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4047 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 162
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4048 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 163
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4049 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 164
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4050 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 165
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4051 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 166
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4052 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 167
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4053 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 168
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4054 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 169
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4055 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 170
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4056 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 171
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4057 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 172
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4058 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_15-12-50.txt                                 173
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4059 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 134
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4060 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 135
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4061 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 136
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4062 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 137
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4063 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 138
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4064 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 139
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4065 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 140
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4066 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 141
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4067 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 142
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4068 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 143
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4069 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 144
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4070 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 145
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4071 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 146
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4072 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 147
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4073 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 148
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4074 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 149
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4075 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 150
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4076 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 151
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4077 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 152
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4078 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 153
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4079 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 154
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4080 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_19-16-27.txt                                 155
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4081 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_20-24-6.txt                                  134
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4082 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 134
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4083 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 135
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4084 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 136
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4085 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 137
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4086 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 138
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4087 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 139
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4088 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 140
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4089 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 141
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4090 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 142
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4091 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 143
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4092 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 144
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4093 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 145
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4094 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 146
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4095 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 147
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4096 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 148
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4097 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 149
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4098 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 150
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4099 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 151
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4100 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 152
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4101 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 153
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4102 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 154
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4103 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 155
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4104 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 156
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4105 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 157
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4106 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 158
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4107 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 159
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4108 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 160
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4109 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 161
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4110 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 162
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4111 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 163
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4112 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 164
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4113 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 165
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4114 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 166
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4115 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 167
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4116 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 168
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4117 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 169
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4118 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 170
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4119 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 171
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4120 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 172
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4121 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 173
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4122 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 174
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4123 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 175
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4124 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 176
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4125 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 177
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4126 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 178
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4127 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 179
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4128 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 180
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4129 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 181
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4130 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 182
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4131 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 183
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4132 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 184
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4133 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 185
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4134 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 186
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4135 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 187
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4136 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 188
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4137 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 189
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4138 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 190
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4139 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 191
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4140 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 192
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4141 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 193
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4142 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 194
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4143 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 195
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4144 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 196
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4145 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 197
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4146 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 198
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4147 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 199
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4148 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 200
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4149 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 201
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4150 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 202
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4151 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 203
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4152 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 204
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4153 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 205
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4154 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 206
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4155 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 207
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4156 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 208
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4157 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 209
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4158 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 210
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4159 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 211
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4160 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 212
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4161 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 213
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4162 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 214
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4163 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 215
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4164 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 216
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4165 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 217
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4166 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 218
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4167 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 219
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4168 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 220
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4169 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 221
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4170 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 222
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4171 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 223
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4172 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 224
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4173 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 225
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4174 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 226
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4175 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 227
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4176 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 228
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4177 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 229
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4178 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 230
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4179 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 231
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4180 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 232
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4181 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 233
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4182 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 234
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4183 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 235
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4184 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 236
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4185 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 237
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4186 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 238
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4187 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_21-20-20.txt                                 239
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4188 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_23-0-3.txt                                   134
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4189 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_23-0-3.txt                                   135
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4190 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-16_23-0-3.txt                                   136
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4191 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_16-25-19.txt                                 134
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4192 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_16-25-19.txt                                 135
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4193 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_16-25-19.txt                                 136
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4194 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 134
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4195 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 135
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4196 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 136
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4197 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 137
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4198 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 138
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4199 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 139
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4200 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 140
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4201 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 141
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4202 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 142
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4203 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 143
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4204 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 144
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4205 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 145
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4206 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 146
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4207 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 147
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4208 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 148
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4209 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 149
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4210 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 150
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4211 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 151
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4212 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 152
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4213 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 153
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4214 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 154
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4215 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 155
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4216 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 156
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4217 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 157
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4218 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 158
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4219 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Logging\Log_2026-11-17_19-28-51.txt                                 159
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4220 | C:\RavenRP\DayZServer\profiles\VPPAdminTools\Permissions\UserGroups\UserGroups.json                                8
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4221 | C:\RavenRP\DayZServer\profiles\Zenarchist\ZenNotesConfig.json                                                     35
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4222 | C:\RavenRP\DayZServer\profiles\Zenarchist\Core\ZenCoreConfig.json                                                 44
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4223 | C:\RavenRP\DayZServer\server_manager\readme.txt                                                                   66
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4224 | C:\RavenRP\DayZServer\server_manager\Server_manager.ps1                                                          711
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4225 | C:\RavenRP\DayZServer\server_manager\Server_manager.ps1                                                          718
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4226 | C:\RavenRP\DayZServer\server_manager\Server_manager.ps1                                                          735
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4227 | C:\RavenRP\DayZServer\server_manager\Server_manager.ps1                                                          806
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4235 | C:\RavenRP\DayZServer\atualiza_mods.bat                                               8804 16/11/2026 19:45:21
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4236 | C:\RavenRP\DayZServer\restart_server.bat                                               737 15/11/2026 13:33:13
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4237 | C:\RavenRP\DayZServer\start-killfeed.bat                                               340 16/11/2026 16:38:20
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4238 | C:\RavenRP\DayZServer\start.bat                                                      10547 17/11/2026 13:23:51
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4239 | C:\RavenRP\DayZServer\wipe.bat                                                        4195 17/11/2026 13:09:05
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4240 | C:\RavenRP\DayZServer\DuckDNS\update-duckdns.ps1                                      2292 17/11/2026 13:44:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4241 | C:\RavenRP\DayZServer\server_manager\Server_manager.ps1                              60755 15/11/2026 00:51:46
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4242 | C:\RavenRP\DayZServer\_CommonRedist\DotNet\4.5.2\Microsoft .NET Framework 4.5.2.cmd    142 15/11/2026 00:48:29
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4243 | C:\RavenRP\DayZServer\_CommonRedist\DotNet\4.5.2\noop.cmd                               22 15/11/2026 00:48:35
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4244 | C:\RavenRP\DayZServer\_CommonRedist\vcredist\2019\Microsoft Visual C++ 2019 x64.cmd    121 15/11/2026 00:48:27
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 4245 | C:\RavenRP\DayZServer\_CommonRedist\vcredist\2019\Microsoft Visual C++ 2019 x86.cmd    121 15/11/2026 00:48:27
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 14618 | --- C:\RavenRP\DayZServer\atualiza_mods.bat ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 14631 | 13: set "SERVER_DIR=C:\DayZServer"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 14914 | --- C:\RavenRP\DayZServer\restart_server.bat ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 14925 | 11: call "C:\DayZServer\start.bat"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 14939 | --- C:\RavenRP\DayZServer\start-killfeed.bat ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 14956 | --- C:\RavenRP\DayZServer\start.bat ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 14966 | 10: set "SERVER_DIR=C:\DayZServer"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 15311 | --- C:\RavenRP\DayZServer\wipe.bat ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 15317 | 6: set "SERVER_DIR=C:\DayZServer"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 15484 | --- C:\RavenRP\DayZServer\DuckDNS\update-duckdns.ps1 ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 15493 | 9: $LogDir = "C:\DayZServer\logs"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 15565 | --- C:\RavenRP\DayZServer\server_manager\Server_manager.ps1 ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 17422 | --- C:\RavenRP\DayZServer\_CommonRedist\DotNet\4.5.2\Microsoft .NET Framework 4.5.2.cmd ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 17428 | --- C:\RavenRP\DayZServer\_CommonRedist\DotNet\4.5.2\noop.cmd ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 17432 | --- C:\RavenRP\DayZServer\_CommonRedist\vcredist\2019\Microsoft Visual C++ 2019 x64.cmd ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 17438 | --- C:\RavenRP\DayZServer\_CommonRedist\vcredist\2019\Microsoft Visual C++ 2019 x86.cmd ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 18743 | --- C:\RavenRP\DayZServer\restart_server.bat ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 18754 | 11: call "C:\DayZServer\start.bat"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 18768 | --- C:\RavenRP\DayZServer\serverDZ.cfg ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 18820 | --- C:\RavenRP\DayZServer\whitelist.txt ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 18830 | --- C:\RavenRP\DayZServer\@ZensNotes\extras\ZenNotesConfig.json ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 18865 | --- C:\RavenRP\DayZServer\battleye\BEServer_x64.cfg ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 18868 | --- C:\RavenRP\DayZServer\battleye\Bec\Config\Config.cfg ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 18872 | 4: BePath = C:\DayZServer\Battleye
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 18880 | --- C:\RavenRP\DayZServer\battleye\Bec\Config\WhiteList.txt ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 18882 | --- C:\RavenRP\DayZServer\profiles\BattlEye\BEServer_x64.cfg ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 18887 | --- C:\RavenRP\DayZServer\profiles\Buddys_Whistle\Buddys_Whistle_Config.json ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 18897 | --- C:\RavenRP\DayZServer\profiles\CodeLock\CodeLockConfig.json ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 18916 | --- C:\RavenRP\DayZServer\profiles\Users\Survivor\Server.core.xml ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 18931 | --- C:\RavenRP\DayZServer\profiles\Users\Survivor\Server.dayz_preset_User.xml ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 20124 | --- C:\RavenRP\DayZServer\profiles\Zenarchist\ZenNotesConfig.json ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 20162 | --- C:\RavenRP\DayZServer\profiles\Zenarchist\Core\ZenCoreConfig.json ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 20216 | --- C:\RavenRP\DayZServer\server_manager\example_launch_params.txt ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 20219 | --- C:\RavenRP\DayZServer\server_manager\example_server_mod_list.txt ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 20227 | --- C:\RavenRP\DayZServer\server_manager\Server_manager.ps1 ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 22309 | Linha 31: [NAO ENCONTRADO] C:\RavenRP\DayZServer\priority.txt
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 27173 | --- C:\RavenRP\DayZServer\atualiza_mods.bat ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 27186 | 13: set "SERVER_DIR=C:\DayZServer"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 27469 | --- C:\RavenRP\DayZServer\restart_server.bat ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 27480 | 11: call "C:\DayZServer\start.bat"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 27494 | --- C:\RavenRP\DayZServer\start-killfeed.bat ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 27511 | --- C:\RavenRP\DayZServer\start.bat ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 27521 | 10: set "SERVER_DIR=C:\DayZServer"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 27866 | --- C:\RavenRP\DayZServer\wipe.bat ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 27872 | 6: set "SERVER_DIR=C:\DayZServer"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 28039 | --- C:\RavenRP\DayZServer\DuckDNS\update-duckdns.ps1 ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 28048 | 9: $LogDir = "C:\DayZServer\logs"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 28120 | --- C:\RavenRP\DayZServer\server_manager\Server_manager.ps1 ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 29977 | --- C:\RavenRP\DayZServer\_CommonRedist\DotNet\4.5.2\Microsoft .NET Framework 4.5.2.cmd ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 29983 | --- C:\RavenRP\DayZServer\_CommonRedist\DotNet\4.5.2\noop.cmd ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 29987 | --- C:\RavenRP\DayZServer\_CommonRedist\vcredist\2019\Microsoft Visual C++ 2019 x64.cmd ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 29993 | --- C:\RavenRP\DayZServer\_CommonRedist\vcredist\2019\Microsoft Visual C++ 2019 x86.cmd ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 31298 | --- C:\RavenRP\DayZServer\restart_server.bat ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 31309 | 11: call "C:\DayZServer\start.bat"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 31323 | --- C:\RavenRP\DayZServer\serverDZ.cfg ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 31375 | --- C:\RavenRP\DayZServer\whitelist.txt ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 31385 | --- C:\RavenRP\DayZServer\@ZensNotes\extras\ZenNotesConfig.json ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 31420 | --- C:\RavenRP\DayZServer\battleye\BEServer_x64.cfg ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 31423 | --- C:\RavenRP\DayZServer\battleye\Bec\Config\Config.cfg ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 31427 | 4: BePath = C:\DayZServer\Battleye
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 31435 | --- C:\RavenRP\DayZServer\battleye\Bec\Config\WhiteList.txt ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 31437 | --- C:\RavenRP\DayZServer\profiles\BattlEye\BEServer_x64.cfg ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 31442 | --- C:\RavenRP\DayZServer\profiles\Buddys_Whistle\Buddys_Whistle_Config.json ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 31452 | --- C:\RavenRP\DayZServer\profiles\CodeLock\CodeLockConfig.json ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 31471 | --- C:\RavenRP\DayZServer\profiles\Users\Survivor\Server.core.xml ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 31486 | --- C:\RavenRP\DayZServer\profiles\Users\Survivor\Server.dayz_preset_User.xml ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 32679 | --- C:\RavenRP\DayZServer\profiles\Zenarchist\ZenNotesConfig.json ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 32717 | --- C:\RavenRP\DayZServer\profiles\Zenarchist\Core\ZenCoreConfig.json ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 32771 | --- C:\RavenRP\DayZServer\server_manager\example_launch_params.txt ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 32774 | --- C:\RavenRP\DayZServer\server_manager\example_server_mod_list.txt ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 32782 | --- C:\RavenRP\DayZServer\server_manager\Server_manager.ps1 ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 34864 | Linha 31: [NAO ENCONTRADO] C:\RavenRP\DayZServer\priority.txt
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 39728 | --- C:\RavenRP\DayZServer\atualiza_mods.bat ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 39741 | 13: set "SERVER_DIR=C:\DayZServer"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 40024 | --- C:\RavenRP\DayZServer\restart_server.bat ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 40035 | 11: call "C:\DayZServer\start.bat"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 40049 | --- C:\RavenRP\DayZServer\start-killfeed.bat ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 40066 | --- C:\RavenRP\DayZServer\start.bat ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 40076 | 10: set "SERVER_DIR=C:\DayZServer"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 40421 | --- C:\RavenRP\DayZServer\wipe.bat ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 40427 | 6: set "SERVER_DIR=C:\DayZServer"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 40594 | --- C:\RavenRP\DayZServer\DuckDNS\update-duckdns.ps1 ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 40603 | 9: $LogDir = "C:\DayZServer\logs"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 40675 | --- C:\RavenRP\DayZServer\server_manager\Server_manager.ps1 ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 42532 | --- C:\RavenRP\DayZServer\_CommonRedist\DotNet\4.5.2\Microsoft .NET Framework 4.5.2.cmd ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 42538 | --- C:\RavenRP\DayZServer\_CommonRedist\DotNet\4.5.2\noop.cmd ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 42542 | --- C:\RavenRP\DayZServer\_CommonRedist\vcredist\2019\Microsoft Visual C++ 2019 x64.cmd ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 42548 | --- C:\RavenRP\DayZServer\_CommonRedist\vcredist\2019\Microsoft Visual C++ 2019 x86.cmd ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 43853 | --- C:\RavenRP\DayZServer\restart_server.bat ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 43864 | 11: call "C:\DayZServer\start.bat"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 43878 | --- C:\RavenRP\DayZServer\serverDZ.cfg ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 43930 | --- C:\RavenRP\DayZServer\whitelist.txt ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 43940 | --- C:\RavenRP\DayZServer\@ZensNotes\extras\ZenNotesConfig.json ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 43975 | --- C:\RavenRP\DayZServer\battleye\BEServer_x64.cfg ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 43978 | --- C:\RavenRP\DayZServer\battleye\Bec\Config\Config.cfg ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 43982 | 4: BePath = C:\DayZServer\Battleye
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 43990 | --- C:\RavenRP\DayZServer\battleye\Bec\Config\WhiteList.txt ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 43992 | --- C:\RavenRP\DayZServer\profiles\BattlEye\BEServer_x64.cfg ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 43997 | --- C:\RavenRP\DayZServer\profiles\Buddys_Whistle\Buddys_Whistle_Config.json ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 44007 | --- C:\RavenRP\DayZServer\profiles\CodeLock\CodeLockConfig.json ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 44026 | --- C:\RavenRP\DayZServer\profiles\Users\Survivor\Server.core.xml ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 44041 | --- C:\RavenRP\DayZServer\profiles\Users\Survivor\Server.dayz_preset_User.xml ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 45234 | --- C:\RavenRP\DayZServer\profiles\Zenarchist\ZenNotesConfig.json ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 45272 | --- C:\RavenRP\DayZServer\profiles\Zenarchist\Core\ZenCoreConfig.json ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 45326 | --- C:\RavenRP\DayZServer\server_manager\example_launch_params.txt ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 45329 | --- C:\RavenRP\DayZServer\server_manager\example_server_mod_list.txt ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 45337 | --- C:\RavenRP\DayZServer\server_manager\Server_manager.ps1 ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 47419 | Linha 31: [NAO ENCONTRADO] C:\RavenRP\DayZServer\priority.txt
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 52951 | $DayZ = "C:\RavenRP\DayZServer"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 53006 | 10: set "SERVER_DIR=C:\DayZServer"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 53364 | 11: call "C:\DayZServer\start.bat"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 53393 | 13: set "SERVER_DIR=C:\DayZServer"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 53757 | 6: set "SERVER_DIR=C:\DayZServer"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 53936 | "C:\DayZServer",
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 53937 | "C:\RavenRP\DayZServer"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54078 | --- C:\DayZServer ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54082 | --- C:\RavenRP\DayZServer ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54090 | C:\DayZServer         17/11/2026 15:13:29 17/11/2026 15:13:29
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54091 | C:\RavenRP\DayZServer 15/11/2026 00:47:17 18/11/2026 12:30:18
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54096 | Caminho    : C:\DayZServer\DayZServer_x64.exe
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54105 | Caminho    : C:\RavenRP\DayZServer\DayZServer_x64.exe
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54116 | Caminho    : C:\DayZServer\serverDZ.cfg
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54125 | Caminho    : C:\RavenRP\DayZServer\serverDZ.cfg
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54136 | Caminho    : C:\DayZServer\start.bat
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54145 | Caminho    : C:\RavenRP\DayZServer\start.bat
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54154 | C:\DayZServer\priority.txt : AUSENTE
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54155 | C:\RavenRP\DayZServer\priority.txt : AUSENTE
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54159 | --- C:\DayZServer\BEC ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54162 | --- C:\RavenRP\DayZServer\BEC ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54169 | --- C:\DayZServer ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54171 | --- C:\RavenRP\DayZServer ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54186 | "C:\DayZServer",
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54272 | --- C:\DayZServer ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54276 | C:\DayZServer\battleye\Bec\Bec.exe 333312 09/04/2022 22:00:36
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54284 | C:\RavenRP\DayZServer\battleye\Bec\Bec.exe 333312 09/04/2022 22:00:36
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54292 | --- C:\DayZServer ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54296 | C:\DayZServer\serverDZ.cfg                       7 Referencia a whitelist
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54297 | C:\DayZServer\whitelist.txt                      1 Referencia a whitelist
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54298 | C:\DayZServer\whitelist.txt                      4 Referencia a whitelist
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54299 | C:\DayZServer\battleye\Bec\BecGuide.txt         78 Referencia a whitelist
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54300 | C:\DayZServer\battleye\Bec\BecGuide.txt        153 Referencia a whitelist
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54301 | C:\DayZServer\battleye\Bec\BecGuide.txt        154 Referencia a whitelist
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54302 | C:\DayZServer\battleye\Bec\BecGuide.txt        506 Referencia a whitelist
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54303 | C:\DayZServer\battleye\Bec\BecGuide.txt        508 Referencia a whitelist
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54304 | C:\DayZServer\battleye\Bec\BecGuide.txt        516 Referencia a whitelist
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54305 | C:\DayZServer\battleye\Bec\BecGuide.txt        517 Referencia a whitelist
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54306 | C:\DayZServer\battleye\Bec\BecGuide.txt        518 Referencia a whitelist
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54307 | C:\DayZServer\battleye\Bec\BecGuide.txt        525 Referencia a whitelist
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54502 | C:\RavenRP\DayZServer\serverDZ.cfg                                                                   7 Referencia a whitelist
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54503 | C:\RavenRP\DayZServer\whitelist.txt                                                                  1 Referencia a whitelist
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54504 | C:\RavenRP\DayZServer\whitelist.txt                                                                  4 Referencia a whitelist
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54505 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                     78 Referencia a whitelist
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54506 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                    153 Referencia a whitelist
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54507 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                    154 Referencia a whitelist
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54508 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                    506 Referencia a whitelist
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54509 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                    508 Referencia a whitelist
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54510 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                    516 Referencia a whitelist
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54511 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                    517 Referencia a whitelist
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54512 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                    518 Referencia a whitelist
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54513 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                                                    525 Referencia a whitelist
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54606 | "C:\DayZServer\battleye\Bec",
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54607 | "C:\RavenRP\DayZServer\battleye\Bec"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54709 | BEC: C:\DayZServer\battleye\Bec
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54716 | Diretorio C:\DayZServer\battleye\Bec\Config                                           15/11/2026 13:10:29
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54717 | Diretorio C:\DayZServer\battleye\Bec\Log                                              15/11/2026 13:13:21
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54718 | Arquivo   C:\DayZServer\battleye\Bec\.gitattributes                           66      09/04/2022 22:00:36
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54719 | Arquivo   C:\DayZServer\battleye\Bec\Bec.exe                                  333312  09/04/2022 22:00:36
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54720 | Arquivo   C:\DayZServer\battleye\Bec\Bec.lib                                  5310706 09/04/2022 22:00:36
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54721 | Arquivo   C:\DayZServer\battleye\Bec\BecGuide.txt                             28237   09/04/2022 22:00:36
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54722 | Arquivo   C:\DayZServer\battleye\Bec\Credits.txt                              650     09/04/2022 22:00:36
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54723 | Arquivo   C:\DayZServer\battleye\Bec\How to edit hosts file.txt               220     09/04/2022 22:00:36
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54724 | Arquivo   C:\DayZServer\battleye\Bec\LICENSE.txt                              2569    09/04/2022 22:00:36
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54725 | Arquivo   C:\DayZServer\battleye\Bec\README.md                                4086    09/04/2022 22:00:36
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54726 | Arquivo   C:\DayZServer\battleye\Bec\Config\Admins.xml                        317     15/11/2026 13:16:18
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54727 | Arquivo   C:\DayZServer\battleye\Bec\Config\BadNames.txt                      178     09/04/2022 22:00:36
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54728 | Arquivo   C:\DayZServer\battleye\Bec\Config\BadWords.txt                      273     09/04/2022 22:00:36
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54729 | Arquivo   C:\DayZServer\battleye\Bec\Config\Commands.xml                      13560   09/04/2022 22:00:36
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54730 | Arquivo   C:\DayZServer\battleye\Bec\Config\Config.cfg                        160     15/11/2026 13:16:59
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54731 | Arquivo   C:\DayZServer\battleye\Bec\Config\Scheduler - Example.xml           3147    09/04/2022 22:00:36
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54732 | Arquivo   C:\DayZServer\battleye\Bec\Config\Scheduler-FAQ.txt                 7584    09/04/2022 22:00:36
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54733 | Arquivo   C:\DayZServer\battleye\Bec\Config\Scheduler.xml                     977     15/11/2026 13:31:22
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54734 | Arquivo   C:\DayZServer\battleye\Bec\Config\WhiteList.txt                     0       09/04/2022 22:00:36
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54735 | Diretorio C:\DayZServer\battleye\Bec\Log\Config                                       15/11/2026 13:13:21
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54736 | Diretorio C:\DayZServer\battleye\Bec\Log\Config\BeLog                                 16/11/2026 12:13:03
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54737 | Diretorio C:\DayZServer\battleye\Bec\Log\Config\Chat                                  15/11/2026 13:13:21
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54738 | Diretorio C:\DayZServer\battleye\Bec\Log\Config\Error                                 15/11/2026 13:15:10
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54739 | Arquivo   C:\DayZServer\battleye\Bec\Log\Config\BeLog\Be_2026-11-15.log       4229    15/11/2026 18:08:28
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54740 | Arquivo   C:\DayZServer\battleye\Bec\Log\Config\BeLog\Be_2026-11-16.log       1723    16/11/2026 20:00:37
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54741 | Arquivo   C:\DayZServer\battleye\Bec\Log\Config\Error\BecError_2026-11-15.log 159     15/11/2026 16:15:03
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54749 | C:\DayZServer\battleye\Bec\BecGuide.txt                   .txt       28237
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54750 | C:\DayZServer\battleye\Bec\Credits.txt                    .txt         650
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54751 | C:\DayZServer\battleye\Bec\How to edit hosts file.txt     .txt         220
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54752 | C:\DayZServer\battleye\Bec\LICENSE.txt                    .txt        2569
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54753 | C:\DayZServer\battleye\Bec\Config\Admins.xml              .xml         317
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54754 | C:\DayZServer\battleye\Bec\Config\BadNames.txt            .txt         178
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54755 | C:\DayZServer\battleye\Bec\Config\BadWords.txt            .txt         273
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54756 | C:\DayZServer\battleye\Bec\Config\Commands.xml            .xml       13560
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54757 | C:\DayZServer\battleye\Bec\Config\Config.cfg              .cfg         160
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54758 | C:\DayZServer\battleye\Bec\Config\Scheduler - Example.xml .xml        3147
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54759 | C:\DayZServer\battleye\Bec\Config\Scheduler-FAQ.txt       .txt        7584
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54760 | C:\DayZServer\battleye\Bec\Config\Scheduler.xml           .xml         977
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54761 | C:\DayZServer\battleye\Bec\Config\WhiteList.txt           .txt           0
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54769 | C:\DayZServer\battleye\Bec\Config\Commands.xml              174 PLUGIN/EXTENSAO
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54770 | C:\DayZServer\battleye\Bec\Config\Commands.xml              188 PLUGIN/EXTENSAO
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54771 | C:\DayZServer\battleye\Bec\Config\Commands.xml              338 EVENTO DE ENTRADA
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54772 | C:\DayZServer\battleye\Bec\Config\Scheduler - Example.xml    23 PLUGIN/EXTENSAO
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54773 | C:\DayZServer\battleye\Bec\Config\Scheduler-FAQ.txt         176 PLUGIN/EXTENSAO
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54780 | FullName      : C:\DayZServer\battleye\Bec\Bec.exe
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54796 | BEC: C:\RavenRP\DayZServer\battleye\Bec
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54803 | Diretorio C:\RavenRP\DayZServer\battleye\Bec\Config                                           15/11/2026 13:10:29
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54804 | Diretorio C:\RavenRP\DayZServer\battleye\Bec\Log                                              15/11/2026 13:13:21
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54805 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\.gitattributes                           66      09/04/2022 22:00:36
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54806 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\Bec.exe                                  333312  09/04/2022 22:00:36
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54807 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\Bec.lib                                  5310706 09/04/2022 22:00:36
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54808 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                             28237   09/04/2022 22:00:36
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54809 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\Credits.txt                              650     09/04/2022 22:00:36
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54810 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\How to edit hosts file.txt               220     09/04/2022 22:00:36
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54811 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\LICENSE.txt                              2569    09/04/2022 22:00:36
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54812 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\README.md                                4086    09/04/2022 22:00:36
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54813 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\Config\Admins.xml                        317     15/11/2026 13:16:18
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54814 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\Config\BadNames.txt                      178     09/04/2022 22:00:36
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54815 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\Config\BadWords.txt                      273     09/04/2022 22:00:36
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54816 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\Config\Commands.xml                      13560   09/04/2022 22:00:36
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54817 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\Config\Config.cfg                        160     15/11/2026 13:16:59
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54818 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\Config\Scheduler - Example.xml           3147    09/04/2022 22:00:36
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54819 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\Config\Scheduler-FAQ.txt                 7584    09/04/2022 22:00:36
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54820 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\Config\Scheduler.xml                     977     15/11/2026 13:31:22
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54821 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\Config\WhiteList.txt                     0       09/04/2022 22:00:36
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54822 | Diretorio C:\RavenRP\DayZServer\battleye\Bec\Log\Config                                       15/11/2026 13:13:21
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54823 | Diretorio C:\RavenRP\DayZServer\battleye\Bec\Log\Config\BeLog                                 16/11/2026 12:13:03
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54824 | Diretorio C:\RavenRP\DayZServer\battleye\Bec\Log\Config\Chat                                  15/11/2026 13:13:21
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54825 | Diretorio C:\RavenRP\DayZServer\battleye\Bec\Log\Config\Error                                 15/11/2026 13:15:10
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54826 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\Log\Config\BeLog\Be_2026-11-15.log       4229    15/11/2026 18:08:28
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54827 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\Log\Config\BeLog\Be_2026-11-16.log       1723    16/11/2026 20:00:37
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54828 | Arquivo   C:\RavenRP\DayZServer\battleye\Bec\Log\Config\Error\BecError_2026-11-15.log 159     15/11/2026 16:15:03
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54836 | C:\RavenRP\DayZServer\battleye\Bec\BecGuide.txt                   .txt       28237
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54837 | C:\RavenRP\DayZServer\battleye\Bec\Credits.txt                    .txt         650
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54838 | C:\RavenRP\DayZServer\battleye\Bec\How to edit hosts file.txt     .txt         220
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54839 | C:\RavenRP\DayZServer\battleye\Bec\LICENSE.txt                    .txt        2569
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54840 | C:\RavenRP\DayZServer\battleye\Bec\Config\Admins.xml              .xml         317
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54841 | C:\RavenRP\DayZServer\battleye\Bec\Config\BadNames.txt            .txt         178
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54842 | C:\RavenRP\DayZServer\battleye\Bec\Config\BadWords.txt            .txt         273
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54843 | C:\RavenRP\DayZServer\battleye\Bec\Config\Commands.xml            .xml       13560
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54844 | C:\RavenRP\DayZServer\battleye\Bec\Config\Config.cfg              .cfg         160
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54845 | C:\RavenRP\DayZServer\battleye\Bec\Config\Scheduler - Example.xml .xml        3147
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54846 | C:\RavenRP\DayZServer\battleye\Bec\Config\Scheduler-FAQ.txt       .txt        7584
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54847 | C:\RavenRP\DayZServer\battleye\Bec\Config\Scheduler.xml           .xml         977
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54848 | C:\RavenRP\DayZServer\battleye\Bec\Config\WhiteList.txt           .txt           0
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54856 | C:\RavenRP\DayZServer\battleye\Bec\Config\Commands.xml              174 PLUGIN/EXTENSAO
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54857 | C:\RavenRP\DayZServer\battleye\Bec\Config\Commands.xml              188 PLUGIN/EXTENSAO
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54858 | C:\RavenRP\DayZServer\battleye\Bec\Config\Commands.xml              338 EVENTO DE ENTRADA
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54859 | C:\RavenRP\DayZServer\battleye\Bec\Config\Scheduler - Example.xml    23 PLUGIN/EXTENSAO
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54860 | C:\RavenRP\DayZServer\battleye\Bec\Config\Scheduler-FAQ.txt         176 PLUGIN/EXTENSAO
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54867 | FullName      : C:\RavenRP\DayZServer\battleye\Bec\Bec.exe
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54894 | "C:\DayZServer\battleye\Bec",
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54895 | "C:\RavenRP\DayZServer\battleye\Bec"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54950 | BEC: C:\DayZServer\battleye\Bec
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 54957 | 4: BePath = C:\DayZServer\Battleye
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55000 | BEC: C:\RavenRP\DayZServer\battleye\Bec
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55007 | 4: BePath = C:\DayZServer\Battleye
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55055 | "C:\DayZServer",
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55056 | "C:\RavenRP\DayZServer",
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55075 | foreach ($root in @("C:\DayZServer", "C:\RavenRP\DayZServer")) {
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55157 | --- C:\DayZServer\start.bat ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55184 | --- C:\RavenRP\DayZServer\start.bat ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55214 | C:\DayZServer\dayzsetting.xml:13: <jobsystem globalqueue="4096" threadqueue="1024">
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55215 | C:\DayZServer\server_manager\Server_manager.ps1:711: #Temporary command queues for SteamCMD
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55216 | C:\DayZServer\server_manager\Server_manager.ps1:718: #Generate command queue for SteamCMD
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55217 | C:\DayZServer\server_manager\Server_manager.ps1:735: #Save command queue to temporary file
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55218 | C:\DayZServer\server_manager\Server_manager.ps1:806: #Save command queue to temporary file
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55219 | C:\DayZServer\serverDZ.cfg:29: loginQueueConcurrentPlayers=5;
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55220 | C:\DayZServer\serverDZ.cfg:30: loginQueueMaxPlayers=500;
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55377 | "C:\DayZServer",
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55378 | "C:\RavenRP\DayZServer"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55428 | $file = "C:\DayZServer\dayzsetting.xml"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55471 | "C:\DayZServer",
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55472 | "C:\RavenRP\DayZServer"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55522 | $file = "C:\DayZServer\dayzsetting.xml"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55565 | "C:\DayZServer",
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55566 | "C:\RavenRP\DayZServer"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55619 | $file = "C:\DayZServer\dayzsetting.xml"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55652 | --- C:\DayZServer ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55656 | False C:\DayZServer\BEC\Bec.exe
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55657 | False C:\DayZServer\BEC\Config.cfg
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55658 | True C:\DayZServer\battleye\Bec\Bec.exe
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55659 | True C:\DayZServer\battleye\Bec\Config\Config.cfg
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55660 | True C:\DayZServer\battleye\Bec\Config\Scheduler.xml
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55664 | --- C:\RavenRP\DayZServer ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55668 | False C:\RavenRP\DayZServer\BEC\Bec.exe
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55669 | False C:\RavenRP\DayZServer\BEC\Config.cfg
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55670 | True C:\RavenRP\DayZServer\battleye\Bec\Bec.exe
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55671 | True C:\RavenRP\DayZServer\battleye\Bec\Config\Config.cfg
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55672 | True C:\RavenRP\DayZServer\battleye\Bec\Config\Scheduler.xml
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55680 | --- C:\DayZServer\start.bat ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55726 | --- C:\RavenRP\DayZServer\start.bat ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55791 | --- C:\DayZServer\battleye\Bec ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55808 | --- C:\RavenRP\DayZServer\battleye\Bec ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55831 | "C:\DayZServer",
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55832 | "C:\RavenRP\DayZServer"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55885 | $file = "C:\DayZServer\dayzsetting.xml"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55918 | --- C:\DayZServer ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55922 | False C:\DayZServer\BEC\Bec.exe
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55923 | False C:\DayZServer\BEC\Config.cfg
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55924 | True C:\DayZServer\battleye\Bec\Bec.exe
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55925 | True C:\DayZServer\battleye\Bec\Config\Config.cfg
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55926 | True C:\DayZServer\battleye\Bec\Config\Scheduler.xml
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55930 | --- C:\RavenRP\DayZServer ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55934 | False C:\RavenRP\DayZServer\BEC\Bec.exe
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55935 | False C:\RavenRP\DayZServer\BEC\Config.cfg
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55936 | True C:\RavenRP\DayZServer\battleye\Bec\Bec.exe
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55937 | True C:\RavenRP\DayZServer\battleye\Bec\Config\Config.cfg
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55938 | True C:\RavenRP\DayZServer\battleye\Bec\Config\Scheduler.xml
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55946 | --- C:\DayZServer\start.bat ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 55992 | --- C:\RavenRP\DayZServer\start.bat ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56057 | --- C:\DayZServer\battleye\Bec ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56074 | --- C:\RavenRP\DayZServer\battleye\Bec ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56097 | "C:\DayZServer\battleye\Bec",
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56098 | "C:\RavenRP\DayZServer\battleye\Bec"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56146 | foreach ($root in @("C:\DayZServer", "C:\RavenRP\DayZServer")) {
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56164 | $modFiles = foreach ($root in @("C:\DayZServer", "C:\RavenRP\DayZServer")) {
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56213 | --- C:\DayZServer\battleye\Bec ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56399 | --- C:\RavenRP\DayZServer\battleye\Bec ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56589 | --- C:\DayZServer ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56593 | @A_BeautifulCoyote             C:\DayZServer\@A_BeautifulCoyote             15/11/2026 15:55:45
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56594 | @A_BeautifulKomodoDragon       C:\DayZServer\@A_BeautifulKomodoDragon       16/11/2026 12:10:35
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56595 | @A_BeautifulMotorbikePassenger C:\DayZServer\@A_BeautifulMotorbikePassenger 16/11/2026 12:10:33
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56596 | @A_BeautifulNasdaraCactusHurts C:\DayZServer\@A_BeautifulNasdaraCactusHurts 16/11/2026 12:10:37
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56597 | @BuildingFortifications        C:\DayZServer\@BuildingFortifications        16/11/2026 15:43:50
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56598 | @CF                            C:\DayZServer\@CF                            16/11/2026 15:43:08
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56599 | @CodeLock                      C:\DayZServer\@CodeLock                      16/11/2026 15:43:21
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56600 | @CookZ                         C:\DayZServer\@CookZ                         16/11/2026 15:43:19
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56601 | @Coyote                        C:\DayZServer\@Coyote                        16/11/2026 15:43:50
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56602 | @CustomFlagArmband             C:\DayZServer\@CustomFlagArmband             16/11/2026 15:43:50
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56603 | @DabsFramework                 C:\DayZServer\@DabsFramework                 16/11/2026 12:10:06
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56604 | @Earplugs                      C:\DayZServer\@Earplugs                      16/11/2026 15:43:09
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56605 | @KomodoDragon                  C:\DayZServer\@KomodoDragon                  16/11/2026 15:43:50
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56606 | @MotorbikePassenger            C:\DayZServer\@MotorbikePassenger            16/11/2026 15:43:50
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56607 | @NasdaraCactus                 C:\DayZServer\@NasdaraCactus                 16/11/2026 15:43:50
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56608 | @SimpleWhistle                 C:\DayZServer\@SimpleWhistle                 16/11/2026 12:10:45
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56609 | @SuppressionMod                C:\DayZServer\@SuppressionMod                16/11/2026 12:10:46
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56610 | @SurvivorAnimations            C:\DayZServer\@SurvivorAnimations            16/11/2026 15:43:26
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56611 | @VPPAdminTools                 C:\DayZServer\@VPPAdminTools                 16/11/2026 15:43:13
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56612 | @ZensCoreMod                   C:\DayZServer\@ZensCoreMod                   16/11/2026 12:10:08
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56613 | @ZensNotes                     C:\DayZServer\@ZensNotes                     16/11/2026 15:43:50
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56614 | server_manager                 C:\DayZServer\server_manager                 15/11/2026 00:52:28
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56618 | --- C:\RavenRP\DayZServer ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56622 | @A_BeautifulCoyote             C:\RavenRP\DayZServer\@A_BeautifulCoyote             15/11/2026 15:55:45
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56623 | @A_BeautifulKomodoDragon       C:\RavenRP\DayZServer\@A_BeautifulKomodoDragon       16/11/2026 12:10:35
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56624 | @A_BeautifulMotorbikePassenger C:\RavenRP\DayZServer\@A_BeautifulMotorbikePassenger 16/11/2026 12:10:33
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56625 | @A_BeautifulNasdaraCactusHurts C:\RavenRP\DayZServer\@A_BeautifulNasdaraCactusHurts 16/11/2026 12:10:37
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56626 | @BuildingFortifications        C:\RavenRP\DayZServer\@BuildingFortifications        16/11/2026 15:43:50
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56627 | @CF                            C:\RavenRP\DayZServer\@CF                            16/11/2026 15:43:08
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56628 | @CodeLock                      C:\RavenRP\DayZServer\@CodeLock                      16/11/2026 15:43:21
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56629 | @CookZ                         C:\RavenRP\DayZServer\@CookZ                         16/11/2026 15:43:19
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56630 | @Coyote                        C:\RavenRP\DayZServer\@Coyote                        16/11/2026 15:43:50
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56631 | @CustomFlagArmband             C:\RavenRP\DayZServer\@CustomFlagArmband             16/11/2026 15:43:50
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56632 | @DabsFramework                 C:\RavenRP\DayZServer\@DabsFramework                 16/11/2026 12:10:06
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56633 | @Earplugs                      C:\RavenRP\DayZServer\@Earplugs                      16/11/2026 15:43:09
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56634 | @KomodoDragon                  C:\RavenRP\DayZServer\@KomodoDragon                  16/11/2026 15:43:50
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56635 | @MotorbikePassenger            C:\RavenRP\DayZServer\@MotorbikePassenger            16/11/2026 15:43:50
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56636 | @NasdaraCactus                 C:\RavenRP\DayZServer\@NasdaraCactus                 16/11/2026 15:43:50
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56637 | @SimpleWhistle                 C:\RavenRP\DayZServer\@SimpleWhistle                 16/11/2026 12:10:45
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56638 | @SuppressionMod                C:\RavenRP\DayZServer\@SuppressionMod                16/11/2026 12:10:46
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56639 | @SurvivorAnimations            C:\RavenRP\DayZServer\@SurvivorAnimations            16/11/2026 15:43:26
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56640 | @VPPAdminTools                 C:\RavenRP\DayZServer\@VPPAdminTools                 16/11/2026 15:43:13
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56641 | @ZensCoreMod                   C:\RavenRP\DayZServer\@ZensCoreMod                   16/11/2026 12:10:08
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56642 | @ZensNotes                     C:\RavenRP\DayZServer\@ZensNotes                     16/11/2026 15:43:50
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56643 | server_manager                 C:\RavenRP\DayZServer\server_manager                 15/11/2026 00:52:28
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56658 | $root = "C:\DayZServer"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56846 | d----- dayzOffline.chernarusplus  C:\DayZServer\mpmissions\dayzOffline.chernarusplus  15/11/2026 01:07:16
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56847 | d----- dayzOffline.enoch          C:\DayZServer\mpmissions\dayzOffline.enoch          15/11/2026 00:52:28
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56848 | d----- dayzOffline.nasdara        C:\DayZServer\mpmissions\dayzOffline.nasdara        17/11/2026 13:25:19
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56849 | d----- dayzOffline.nasdara.BACKUP C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP 16/11/2026 17:38:33
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56850 | d----- dayzOffline.sakhal         C:\DayZServer\mpmissions\dayzOffline.sakhal         15/11/2026 00:52:28
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56854 | --- C:\DayZServer\mpmissions\dayzOffline.nasdara ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56898 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfgbunkerbroadcast.json                   2809 15/11/2026 00:51:53
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56899 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfgeconomycore.xml                        2130 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56900 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfgeffectarea.json                        6868 15/11/2026 00:51:53
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56901 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfgenvironment.xml                        4336 16/11/2026 19:47:36
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56902 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfgeventgroups.xml                       79614 15/11/2026 00:51:53
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56903 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfgeventspawns.xml                       35629 16/11/2026 19:47:36
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56904 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfgexternallocks.json                      153 15/11/2026 00:51:53
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56905 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfggameplay.json                          3615 15/11/2026 16:29:23
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56906 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfgignorelist.xml                          770 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56907 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfglimitsdefinition.xml                   1430 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56908 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfglimitsdefinitionuser.xml                892 15/11/2026 00:51:53
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56909 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfgplayerspawnpoints.xml                 26821 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56910 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfgrandompresets.xml                     30392 15/11/2026 00:51:53
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56911 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfgspawnabletypes.xml                   154847 15/11/2026 00:51:53
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56912 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfgundergroundtriggers.json            1187209 15/11/2026 00:48:24
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56913 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfgweather.xml                            4713 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56914 | C:\DayZServer\mpmissions\dayzOffline.nasdara\init.c                                    3947 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56915 | C:\DayZServer\mpmissions\dayzOffline.nasdara\mapclusterproto.xml                      49240 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56916 | C:\DayZServer\mpmissions\dayzOffline.nasdara\mapgroupcluster.xml                    4447639 15/11/2026 00:48:24
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56917 | C:\DayZServer\mpmissions\dayzOffline.nasdara\mapgroupcluster01.xml                  4504943 15/11/2026 00:48:24
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56918 | C:\DayZServer\mpmissions\dayzOffline.nasdara\mapgroupcluster02.xml                  1720534 15/11/2026 00:48:25
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56919 | C:\DayZServer\mpmissions\dayzOffline.nasdara\mapgroupcluster03.xml                  4730138 15/11/2026 00:48:25
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56920 | C:\DayZServer\mpmissions\dayzOffline.nasdara\mapgroupcluster04.xml                  2399717 15/11/2026 00:48:25
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56921 | C:\DayZServer\mpmissions\dayzOffline.nasdara\mapgroupcluster05.xml                       70 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56922 | C:\DayZServer\mpmissions\dayzOffline.nasdara\mapgroupdirt.xml                            71 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56923 | C:\DayZServer\mpmissions\dayzOffline.nasdara\mapgrouppos.xml                        1821192 15/11/2026 00:48:25
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56924 | C:\DayZServer\mpmissions\dayzOffline.nasdara\mapgroupproto.xml                      1893676 15/11/2026 00:48:25
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56925 | C:\DayZServer\mpmissions\dayzOffline.nasdara\CookZ\CookZ_V003.json                      532 16/11/2026 16:14:38
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56926 | C:\DayZServer\mpmissions\dayzOffline.nasdara\db\economy.xml                             509 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56927 | C:\DayZServer\mpmissions\dayzOffline.nasdara\db\events.xml                            54203 16/11/2026 19:47:36
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56928 | C:\DayZServer\mpmissions\dayzOffline.nasdara\db\globals.xml                            1747 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56929 | C:\DayZServer\mpmissions\dayzOffline.nasdara\db\messages.xml                           1232 15/11/2026 16:29:23
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56930 | C:\DayZServer\mpmissions\dayzOffline.nasdara\db\types.xml                           1067440 16/11/2026 19:47:35
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56931 | C:\DayZServer\mpmissions\dayzOffline.nasdara\env\bear_territories.xml                  9319 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56932 | C:\DayZServer\mpmissions\dayzOffline.nasdara\env\cattle_territories.xml                  59 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56933 | C:\DayZServer\mpmissions\dayzOffline.nasdara\env\dobermann_shepherd_territories.xml   10372 15/11/2026 00:51:53
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56934 | C:\DayZServer\mpmissions\dayzOffline.nasdara\env\fox_territories.xml                  17851 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56935 | C:\DayZServer\mpmissions\dayzOffline.nasdara\env\goat_territories.xml                 11835 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56936 | C:\DayZServer\mpmissions\dayzOffline.nasdara\env\hare_territories.xml                 27025 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56937 | C:\DayZServer\mpmissions\dayzOffline.nasdara\env\hen_territories.xml                  10977 15/11/2026 00:51:53
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56938 | C:\DayZServer\mpmissions\dayzOffline.nasdara\env\monitor_territories.xml              17806 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56939 | C:\DayZServer\mpmissions\dayzOffline.nasdara\env\mouflon_territories.xml              11841 15/11/2026 00:51:53
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56940 | C:\DayZServer\mpmissions\dayzOffline.nasdara\env\pig_territories.xml                   6242 15/11/2026 00:51:53
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56941 | C:\DayZServer\mpmissions\dayzOffline.nasdara\env\red_deer_territories.xml             12287 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56942 | C:\DayZServer\mpmissions\dayzOffline.nasdara\env\roe_deer_territories.xml             13663 15/11/2026 00:51:53
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56943 | C:\DayZServer\mpmissions\dayzOffline.nasdara\env\sheep_goat_territories.xml              59 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56944 | C:\DayZServer\mpmissions\dayzOffline.nasdara\env\sheep_territories.xml                10789 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56945 | C:\DayZServer\mpmissions\dayzOffline.nasdara\env\wildboar_territories.xml              9355 15/11/2026 00:51:53
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56946 | C:\DayZServer\mpmissions\dayzOffline.nasdara\env\wild_boar_territories.xml            11612 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56947 | C:\DayZServer\mpmissions\dayzOffline.nasdara\env\wolf_territories.xml                  5707 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56948 | C:\DayZServer\mpmissions\dayzOffline.nasdara\env\zombie_territories.xml               73531 15/11/2026 00:51:53
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56952 | --- C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP ---
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56996 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgbunkerbroadcast.json                   2809 15/11/2026 00:51:53
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56997 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgeconomycore.xml                        2130 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56998 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgeffectarea.json                        6868 15/11/2026 00:51:53
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 56999 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgenvironment.xml                        4336 15/11/2026 00:51:53
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57000 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgeventgroups.xml                       79614 15/11/2026 00:51:53
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57001 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgeventspawns.xml                       35629 15/11/2026 00:51:53
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57002 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgexternallocks.json                      153 15/11/2026 00:51:53
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57003 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfggameplay.json                          3615 15/11/2026 16:29:23
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57004 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgignorelist.xml                          770 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57005 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfglimitsdefinition.xml                   1430 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57006 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfglimitsdefinitionuser.xml                892 15/11/2026 00:51:53
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57007 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgplayerspawnpoints.xml                 26821 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57008 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgrandompresets.xml                     30392 15/11/2026 00:51:53
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57009 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgspawnabletypes.xml                   154847 15/11/2026 00:51:53
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57010 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgundergroundtriggers.json            1187209 15/11/2026 00:48:24
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57011 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgweather.xml                            4713 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57012 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\init.c                                    3947 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57013 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\mapclusterproto.xml                      49240 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57014 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\mapgroupcluster.xml                    4447639 15/11/2026 00:48:24
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57015 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\mapgroupcluster01.xml                  4504943 15/11/2026 00:48:24
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57016 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\mapgroupcluster02.xml                  1720534 15/11/2026 00:48:25
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57017 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\mapgroupcluster03.xml                  4730138 15/11/2026 00:48:25
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57018 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\mapgroupcluster04.xml                  2399717 15/11/2026 00:48:25
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57019 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\mapgroupcluster05.xml                       70 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57020 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\mapgroupdirt.xml                            71 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57021 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\mapgrouppos.xml                        1821192 15/11/2026 00:48:25
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57022 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\mapgroupproto.xml                      1893676 15/11/2026 00:48:25
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57023 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\CookZ\CookZ_V003.json                      532 16/11/2026 16:14:38
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57024 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\db\economy.xml                             509 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57025 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\db\events.xml                            54203 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57026 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\db\globals.xml                            1747 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57027 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\db\messages.xml                           1232 15/11/2026 16:29:23
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57028 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\db\types.xml                           1067440 15/11/2026 00:48:24
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57029 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\env\bear_territories.xml                  9319 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57030 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\env\cattle_territories.xml                  59 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57031 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\env\dobermann_shepherd_territories.xml   10372 15/11/2026 00:51:53
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57032 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\env\fox_territories.xml                  17851 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57033 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\env\goat_territories.xml                 11835 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57034 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\env\hare_territories.xml                 27025 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57035 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\env\hen_territories.xml                  10977 15/11/2026 00:51:53
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57036 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\env\monitor_territories.xml              17806 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57037 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\env\mouflon_territories.xml              11841 15/11/2026 00:51:53
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57038 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\env\pig_territories.xml                   6242 15/11/2026 00:51:53
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57039 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\env\red_deer_territories.xml             12287 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57040 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\env\roe_deer_territories.xml             13663 15/11/2026 00:51:53
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57041 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\env\sheep_goat_territories.xml              59 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57042 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\env\sheep_territories.xml                10789 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57043 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\env\wildboar_territories.xml              9355 15/11/2026 00:51:53
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57044 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\env\wild_boar_territories.xml            11612 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57045 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\env\wolf_territories.xml                  5707 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57046 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\env\zombie_territories.xml               73531 15/11/2026 00:51:53
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57053 | C:\DayZServer\mpmissions\dayzOffline.chernarusplus\db\globals.xml:27: <var name="TimeLogin" type="0" value="15"/>
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57054 | C:\DayZServer\mpmissions\dayzOffline.enoch\db\globals.xml:27: <var name="TimeLogin" type="0" value="15"/>
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57055 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfgplayerspawnpoints.xml:123: When only counter is filled in, the group will only be active for that many logins.
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57056 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfgplayerspawnpoints.xml:275: When only counter is filled in, the group will only be active for that many logins.
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57057 | C:\DayZServer\mpmissions\dayzOffline.nasdara\cfgplayerspawnpoints.xml:427: When only counter is filled in, the group will only be active for that many logins.
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57058 | C:\DayZServer\mpmissions\dayzOffline.nasdara\db\globals.xml:27: <var name="TimeLogin" type="0" value="15"/>
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57059 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgplayerspawnpoints.xml:123: When only counter is filled in, the group will only be active for that many logins.
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57060 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgplayerspawnpoints.xml:275: When only counter is filled in, the group will only be active for that many logins.
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57061 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\cfgplayerspawnpoints.xml:427: When only counter is filled in, the group will only be active for that many logins.
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57062 | C:\DayZServer\mpmissions\dayzOffline.nasdara.BACKUP\db\globals.xml:27: <var name="TimeLogin" type="0" value="15"/>
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57063 | C:\DayZServer\mpmissions\dayzOffline.sakhal\cfgplayerspawnpoints.xml:121: When only counter is filled in, the group will only be active for that many logins.
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57064 | C:\DayZServer\mpmissions\dayzOffline.sakhal\cfgplayerspawnpoints.xml:290: When only counter is filled in, the group will only be active for that many logins.
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57065 | C:\DayZServer\mpmissions\dayzOffline.sakhal\cfgplayerspawnpoints.xml:459: When only counter is filled in, the group will only be active for that many logins.
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57066 | C:\DayZServer\mpmissions\dayzOffline.sakhal\db\globals.xml:27: <var name="TimeLogin" type="0" value="15"/>
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57072 | $SERVER = "C:\DayZServer"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57128 | "C:\DayZServer"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57270 | C:\DayZServer\mpmissions\dayzOffline.nasdara\init.c   3947 15/11/2026 00:51:54
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57281 | @A_BeautifulCoyote             ABeautiful_Coyote.pbo               23699765 15/11/2026 15:55:42 C:\DayZServer\@A_BeautifulCoyote\addons\ABeautiful_Coyote.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57282 | @A_BeautifulKomodoDragon       Beautiful_Komodo.pbo                 2877647 16/11/2026 12:10:34 C:\DayZServer\@A_BeautifulKomodoDragon\addons\Beautiful_Komodo.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57283 | @A_BeautifulMotorbikePassenger BikesSeat2.pbo                       1136037 16/11/2026 12:10:31 C:\DayZServer\@A_BeautifulMotorbikePassenger\addons\BikesSeat2.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57284 | @A_BeautifulNasdaraCactusHurts Nasdara_Cactus.pbo                      5092 16/11/2026 12:10:37 C:\DayZServer\@A_BeautifulNasdaraCactusHurts\addons\Nasdara_Cactus.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57285 | @BuildingFortifications        0_BF_Define.pbo                         1888 16/11/2026 15:43:37 C:\DayZServer\@BuildingFortifications\Addons\0_BF_Define.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57286 | @BuildingFortifications        BuildingFortifications.pbo         161106427 16/11/2026 15:43:32 C:\DayZServer\@BuildingFortifications\Addons\BuildingFortifications.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57287 | @CF                            gui.pbo                                97235 16/11/2026 15:43:08 C:\DayZServer\@CF\addons\gui.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57288 | @CF                            legacy.pbo                               525 16/11/2026 15:43:08 C:\DayZServer\@CF\addons\legacy.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57289 | @CF                            scripts.pbo                           438303 16/11/2026 15:43:07 C:\DayZServer\@CF\addons\scripts.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57290 | @CodeLock                      CodeLock.pbo                        10312938 16/11/2026 15:43:20 C:\DayZServer\@CodeLock\Addons\CodeLock.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57291 | @CookZ                         CookZ.pbo                           65861838 16/11/2026 15:43:14 C:\DayZServer\@CookZ\addons\CookZ.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57292 | @Coyote                        ABeautiful_Coyote.pbo               23699765 16/11/2026 15:43:32 C:\DayZServer\@Coyote\addons\ABeautiful_Coyote.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57293 | @CustomFlagArmband             CustomFlagArmband.pbo                 696879 16/11/2026 15:43:32 C:\DayZServer\@CustomFlagArmband\Addons\CustomFlagArmband.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57294 | @DabsFramework                 GUI.pbo                             33431015 16/11/2026 12:10:04 C:\DayZServer\@DabsFramework\addons\GUI.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57295 | @DabsFramework                 Scripts.pbo                           781331 16/11/2026 12:10:04 C:\DayZServer\@DabsFramework\addons\Scripts.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57296 | @Earplugs                      Earplugs.pbo                            7480 16/11/2026 15:43:09 C:\DayZServer\@Earplugs\addons\Earplugs.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57297 | @KomodoDragon                  Beautiful_Komodo.pbo                 2877647 16/11/2026 15:43:32 C:\DayZServer\@KomodoDragon\addons\Beautiful_Komodo.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57298 | @MotorbikePassenger            BikesSeat2.pbo                       1136037 16/11/2026 15:43:26 C:\DayZServer\@MotorbikePassenger\addons\BikesSeat2.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57299 | @NasdaraCactus                 Nasdara_Cactus.pbo                      5092 16/11/2026 15:43:36 C:\DayZServer\@NasdaraCactus\addons\Nasdara_Cactus.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57300 | @SimpleWhistle                 Whistle.pbo                           100893 16/11/2026 12:10:44 C:\DayZServer\@SimpleWhistle\Addons\Whistle.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57301 | @SuppressionMod                Scripts.pbo                            28694 16/11/2026 12:10:46 C:\DayZServer\@SuppressionMod\addons\Scripts.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57302 | @SurvivorAnimations            0_SurvivorAnimsDefines.pbo               831 16/11/2026 15:43:22 C:\DayZServer\@SurvivorAnimations\Addons\0_SurvivorAnimsDefines.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57303 | @SurvivorAnimations            player_main.pbo                      2531459 16/11/2026 15:43:22 C:\DayZServer\@SurvivorAnimations\Addons\player_main.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57304 | @SurvivorAnimations            SurvivorAnims.pbo                   97994168 16/11/2026 15:43:22 C:\DayZServer\@SurvivorAnimations\Addons\SurvivorAnims.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57305 | @VPPAdminTools                 assets.pbo                           1179261 16/11/2026 15:43:10 C:\DayZServer\@VPPAdminTools\addons\assets.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57306 | @VPPAdminTools                 VPPAdminTools.pbo                   79657389 16/11/2026 15:43:10 C:\DayZServer\@VPPAdminTools\addons\VPPAdminTools.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57307 | @VPPAdminTools                 VPPStaticItems.pbo                    160409 16/11/2026 15:43:11 C:\DayZServer\@VPPAdminTools\addons\VPPStaticItems.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57308 | @ZensCoreMod                   ZenModCore.pbo                       2430897 16/11/2026 12:10:08 C:\DayZServer\@ZensCoreMod\addons\ZenModCore.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57309 | @ZensNotes                     ZenNotes.pbo                         5196442 16/11/2026 15:43:32 C:\DayZServer\@ZensNotes\addons\ZenNotes.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57310 | addons                         ai.pbo                                119965 15/11/2026 00:48:36 C:\DayZServer\addons\ai.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57311 | addons                         ai_bliss.pbo                           10843 15/11/2026 00:48:36 C:\DayZServer\addons\ai_bliss.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57312 | addons                         animals.pbo                         67075644 15/11/2026 00:48:24 C:\DayZServer\addons\animals.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57313 | addons                         animals_bliss.pbo                    8347335 15/11/2026 00:48:24 C:\DayZServer\addons\animals_bliss.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57314 | addons                         anims_anm_infected.pbo              15016602 15/11/2026 00:48:24 C:\DayZServer\addons\anims_anm_infected.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57315 | addons                         anims_anm_player.pbo               356687985 15/11/2026 00:48:24 C:\DayZServer\addons\anims_anm_player.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57316 | addons                         anims_cfg.pbo                          55722 15/11/2026 00:48:46 C:\DayZServer\addons\anims_cfg.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57317 | addons                         anims_workspaces.pbo                 4780932 15/11/2026 00:48:24 C:\DayZServer\addons\anims_workspaces.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57318 | addons                         characters_backpacks.pbo             5651934 15/11/2026 00:48:24 C:\DayZServer\addons\characters_backpacks.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57319 | addons                         characters_belts.pbo                  423354 15/11/2026 00:48:24 C:\DayZServer\addons\characters_belts.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57320 | addons                         characters_bodies.pbo                 540281 15/11/2026 00:48:24 C:\DayZServer\addons\characters_bodies.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57321 | addons                         characters_data.pbo                   198584 15/11/2026 00:48:46 C:\DayZServer\addons\characters_data.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57322 | addons                         characters_glasses.pbo                611507 15/11/2026 00:48:24 C:\DayZServer\addons\characters_glasses.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57323 | addons                         characters_gloves.pbo                5505207 15/11/2026 00:48:24 C:\DayZServer\addons\characters_gloves.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57324 | addons                         characters_headgear.pbo              4640361 15/11/2026 00:48:24 C:\DayZServer\addons\characters_headgear.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57325 | addons                         characters_heads.pbo                 1539091 15/11/2026 00:48:24 C:\DayZServer\addons\characters_heads.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57326 | addons                         characters_masks.pbo                 1195258 15/11/2026 00:48:24 C:\DayZServer\addons\characters_masks.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57327 | addons                         characters_pants.pbo                 4402342 15/11/2026 00:48:24 C:\DayZServer\addons\characters_pants.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57328 | addons                         characters_proxies.pbo                900384 15/11/2026 00:48:24 C:\DayZServer\addons\characters_proxies.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57329 | addons                         characters_shoes.pbo                 2407099 15/11/2026 00:48:24 C:\DayZServer\addons\characters_shoes.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57330 | addons                         characters_tops.pbo                  6204922 15/11/2026 00:48:24 C:\DayZServer\addons\characters_tops.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57331 | addons                         characters_vests.pbo                 1869323 15/11/2026 00:48:24 C:\DayZServer\addons\characters_vests.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57332 | addons                         characters_zombies.pbo               3915687 15/11/2026 00:48:24 C:\DayZServer\addons\characters_zombies.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57333 | addons                         data_bliss.pbo                          2934 15/11/2026 00:48:52 C:\DayZServer\addons\data_bliss.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57334 | addons                         dz.pbo                               2270036 15/11/2026 00:48:24 C:\DayZServer\addons\dz.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57335 | addons                         gear_books.pbo                        132043 15/11/2026 00:48:48 C:\DayZServer\addons\gear_books.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57336 | addons                         gear_camping.pbo                     4615454 15/11/2026 00:48:24 C:\DayZServer\addons\gear_camping.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57337 | addons                         gear_consumables.pbo                  871502 15/11/2026 00:48:24 C:\DayZServer\addons\gear_consumables.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57338 | addons                         gear_containers.pbo                   379296 15/11/2026 00:48:24 C:\DayZServer\addons\gear_containers.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57339 | addons                         gear_cooking.pbo                      592203 15/11/2026 00:48:24 C:\DayZServer\addons\gear_cooking.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57340 | addons                         gear_crafting.pbo                     339800 15/11/2026 00:48:24 C:\DayZServer\addons\gear_crafting.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57341 | addons                         gear_cultivation.pbo                  453022 15/11/2026 00:48:24 C:\DayZServer\addons\gear_cultivation.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57342 | addons                         gear_drinks.pbo                       213231 15/11/2026 00:48:52 C:\DayZServer\addons\gear_drinks.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57343 | addons                         gear_food.pbo                        3179679 15/11/2026 00:48:24 C:\DayZServer\addons\gear_food.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57344 | addons                         gear_medical.pbo                      460680 15/11/2026 00:48:24 C:\DayZServer\addons\gear_medical.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57345 | addons                         gear_navigation.pbo                   629461 15/11/2026 00:48:24 C:\DayZServer\addons\gear_navigation.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57346 | addons                         gear_optics.pbo                       216197 15/11/2026 00:48:53 C:\DayZServer\addons\gear_optics.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57347 | addons                         gear_radio.pbo                        249042 15/11/2026 00:48:56 C:\DayZServer\addons\gear_radio.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57348 | addons                         gear_tools.pbo                       1354374 15/11/2026 00:48:24 C:\DayZServer\addons\gear_tools.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57349 | addons                         gear_traps.pbo                        192898 15/11/2026 00:48:49 C:\DayZServer\addons\gear_traps.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57350 | addons                         modules_dayz.pbo                         476 15/11/2026 00:48:49 C:\DayZServer\addons\modules_dayz.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57351 | addons                         plants.pbo                          10162379 15/11/2026 00:48:24 C:\DayZServer\addons\plants.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57352 | addons                         plants_bliss.pbo                     5095211 15/11/2026 00:48:24 C:\DayZServer\addons\plants_bliss.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57353 | addons                         rocks.pbo                           16286702 15/11/2026 00:48:24 C:\DayZServer\addons\rocks.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57354 | addons                         rocks_bliss.pbo                       443853 15/11/2026 00:48:24 C:\DayZServer\addons\rocks_bliss.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57355 | addons                         server_data.pbo                          317 15/11/2026 00:48:50 C:\DayZServer\addons\server_data.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57356 | addons                         sounds_ai.pbo                       17446972 15/11/2026 00:48:24 C:\DayZServer\addons\sounds_ai.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57357 | addons                         sounds_bliss.pbo                     4901311 15/11/2026 00:48:24 C:\DayZServer\addons\sounds_bliss.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57358 | addons                         sounds_characters.pbo               42285489 15/11/2026 00:48:24 C:\DayZServer\addons\sounds_characters.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57359 | addons                         sounds_environment.pbo              12891959 15/11/2026 00:48:24 C:\DayZServer\addons\sounds_environment.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57360 | addons                         sounds_hpp.pbo                       8578378 15/11/2026 00:48:24 C:\DayZServer\addons\sounds_hpp.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57361 | addons                         sounds_music.pbo                     5751814 15/11/2026 00:48:24 C:\DayZServer\addons\sounds_music.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57362 | addons                         sounds_vehicles.pbo                  3017878 15/11/2026 00:48:24 C:\DayZServer\addons\sounds_vehicles.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57363 | addons                         sounds_weapons.pbo                  28661473 15/11/2026 00:48:24 C:\DayZServer\addons\sounds_weapons.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57364 | addons                         structures_data.pbo                   478651 15/11/2026 00:48:24 C:\DayZServer\addons\structures_data.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57365 | addons                         structures_data_bliss.pbo             219696 15/11/2026 00:49:02 C:\DayZServer\addons\structures_data_bliss.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57366 | addons                         structures_furniture.pbo             2742258 15/11/2026 00:48:24 C:\DayZServer\addons\structures_furniture.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57367 | addons                         structures_industrial.pbo           21878724 15/11/2026 00:48:24 C:\DayZServer\addons\structures_industrial.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57368 | addons                         structures_industrial_bliss.pbo      2504232 15/11/2026 00:48:24 C:\DayZServer\addons\structures_industrial_bliss.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57369 | addons                         structures_military.pbo             19243706 15/11/2026 00:48:24 C:\DayZServer\addons\structures_military.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57370 | addons                         structures_military_bliss.pbo        1026367 15/11/2026 00:48:24 C:\DayZServer\addons\structures_military_bliss.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57371 | addons                         structures_proxy_parts.pbo            135254 15/11/2026 00:48:58 C:\DayZServer\addons\structures_proxy_parts.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57372 | addons                         structures_rail.pbo                  3305745 15/11/2026 00:48:24 C:\DayZServer\addons\structures_rail.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57373 | addons                         structures_rail_bliss.pbo             238511 15/11/2026 00:48:49 C:\DayZServer\addons\structures_rail_bliss.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57374 | addons                         structures_residential.pbo          25630439 15/11/2026 00:48:24 C:\DayZServer\addons\structures_residential.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57375 | addons                         structures_residential_bliss.pbo     2607564 15/11/2026 00:48:24 C:\DayZServer\addons\structures_residential_bliss.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57376 | addons                         structures_roads.pbo                 1880194 15/11/2026 00:48:24 C:\DayZServer\addons\structures_roads.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57377 | addons                         structures_roads_bliss.pbo            953713 15/11/2026 00:48:24 C:\DayZServer\addons\structures_roads_bliss.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57378 | addons                         structures_ruins.pbo                 1995041 15/11/2026 00:48:24 C:\DayZServer\addons\structures_ruins.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57379 | addons                         structures_ruins_bliss.pbo          15608718 15/11/2026 00:48:24 C:\DayZServer\addons\structures_ruins_bliss.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57380 | addons                         structures_signs.pbo                 8371980 15/11/2026 00:48:24 C:\DayZServer\addons\structures_signs.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57381 | addons                         structures_signs_bliss.pbo           2107970 15/11/2026 00:48:24 C:\DayZServer\addons\structures_signs_bliss.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57382 | addons                         structures_specific.pbo             17198326 15/11/2026 00:48:24 C:\DayZServer\addons\structures_specific.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57383 | addons                         structures_specific_bliss.pbo        4029425 15/11/2026 00:48:24 C:\DayZServer\addons\structures_specific_bliss.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57384 | addons                         structures_underground_bliss.pbo    11199255 15/11/2026 00:48:24 C:\DayZServer\addons\structures_underground_bliss.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57385 | addons                         structures_walls.pbo                 2479747 15/11/2026 00:48:24 C:\DayZServer\addons\structures_walls.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57386 | addons                         structures_walls_bliss.pbo           1394895 15/11/2026 00:48:24 C:\DayZServer\addons\structures_walls_bliss.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57387 | addons                         structures_wrecks.pbo               33179416 15/11/2026 00:48:24 C:\DayZServer\addons\structures_wrecks.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57388 | addons                         structures_wrecks_bliss.pbo          1143098 15/11/2026 00:48:24 C:\DayZServer\addons\structures_wrecks_bliss.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57389 | addons                         surfaces.pbo                           96644 15/11/2026 00:49:04 C:\DayZServer\addons\surfaces.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57390 | addons                         surfaces_bliss.pbo                     37314 15/11/2026 00:49:04 C:\DayZServer\addons\surfaces_bliss.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57391 | addons                         ui.pbo                                  4392 15/11/2026 00:49:04 C:\DayZServer\addons\ui.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57392 | addons                         vehicles_data.pbo                      12511 15/11/2026 00:49:04 C:\DayZServer\addons\vehicles_data.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57393 | addons                         vehicles_parts.pbo                   1183914 15/11/2026 00:48:24 C:\DayZServer\addons\vehicles_parts.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57394 | addons                         vehicles_singletrack.pbo              554294 15/11/2026 00:48:24 C:\DayZServer\addons\vehicles_singletrack.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57395 | addons                         vehicles_water.pbo                     56337 15/11/2026 00:48:53 C:\DayZServer\addons\vehicles_water.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57396 | addons                         vehicles_wheeled.pbo                18609483 15/11/2026 00:48:24 C:\DayZServer\addons\vehicles_wheeled.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57397 | addons                         water.pbo                            2729219 15/11/2026 00:48:24 C:\DayZServer\addons\water.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57398 | addons                         water_bliss.pbo                      7926369 15/11/2026 00:48:24 C:\DayZServer\addons\water_bliss.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57399 | addons                         weapon_attachments_textures.pbo       404910 15/11/2026 00:48:24 C:\DayZServer\addons\weapon_attachments_textures.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57400 | addons                         weapon_lights.pbo                     119228 15/11/2026 00:49:07 C:\DayZServer\addons\weapon_lights.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57401 | addons                         weapon_magazines.pbo                 1628581 15/11/2026 00:48:24 C:\DayZServer\addons\weapon_magazines.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57402 | addons                         weapon_muzzles.pbo                    336685 15/11/2026 00:48:24 C:\DayZServer\addons\weapon_muzzles.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57403 | addons                         weapon_optics.pbo                    4559897 15/11/2026 00:48:24 C:\DayZServer\addons\weapon_optics.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57404 | addons                         weapon_supports.pbo                  1708728 15/11/2026 00:48:24 C:\DayZServer\addons\weapon_supports.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57405 | addons                         weapon_underslung.pbo                 403866 15/11/2026 00:48:24 C:\DayZServer\addons\weapon_underslung.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57406 | addons                         weapons_ammunition.pbo                797143 15/11/2026 00:48:24 C:\DayZServer\addons\weapons_ammunition.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57407 | addons                         weapons_animations.pbo                   336 15/11/2026 00:49:06 C:\DayZServer\addons\weapons_animations.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57408 | addons                         weapons_archery.pbo                   357220 15/11/2026 00:48:24 C:\DayZServer\addons\weapons_archery.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57409 | addons                         weapons_data.pbo                        6720 15/11/2026 00:49:10 C:\DayZServer\addons\weapons_data.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57410 | addons                         weapons_explosives.pbo                290624 15/11/2026 00:48:24 C:\DayZServer\addons\weapons_explosives.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57411 | addons                         weapons_firearms.pbo                10609341 15/11/2026 00:48:24 C:\DayZServer\addons\weapons_firearms.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57412 | addons                         weapons_launchers.pbo                1168652 15/11/2026 00:48:24 C:\DayZServer\addons\weapons_launchers.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57413 | addons                         weapons_melee.pbo                    3810804 15/11/2026 00:48:24 C:\DayZServer\addons\weapons_melee.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57414 | addons                         weapons_misc.pbo                         361 15/11/2026 00:49:10 C:\DayZServer\addons\weapons_misc.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57415 | addons                         weapons_nonlethal.pbo                 265974 15/11/2026 00:48:24 C:\DayZServer\addons\weapons_nonlethal.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57416 | addons                         weapons_pistols.pbo                  1262898 15/11/2026 00:48:24 C:\DayZServer\addons\weapons_pistols.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57417 | addons                         weapons_projectiles.pbo               815670 15/11/2026 00:48:24 C:\DayZServer\addons\weapons_projectiles.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57418 | addons                         weapons_proxies.pbo                   189007 15/11/2026 00:49:14 C:\DayZServer\addons\weapons_proxies.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57419 | addons                         weapons_shotguns.pbo                  912414 15/11/2026 00:48:24 C:\DayZServer\addons\weapons_shotguns.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57420 | addons                         worlds_chernarusplus.pbo           235159991 15/11/2026 00:48:24 C:\DayZServer\addons\worlds_chernarusplus.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57421 | addons                         worlds_chernarusplus_ce.pbo        108738678 15/11/2026 00:48:24 C:\DayZServer\addons\worlds_chernarusplus_ce.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57422 | addons                         worlds_chernarusplus_data.pbo       16318316 15/11/2026 00:48:24 C:\DayZServer\addons\worlds_chernarusplus_data.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57423 | addons                         worlds_chernarusplus_nav.pbo       640304940 15/11/2026 00:48:24 C:\DayZServer\addons\worlds_chernarusplus_nav.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57424 | addons                         worlds_enoch.pbo                   237282216 15/11/2026 00:48:24 C:\DayZServer\addons\worlds_enoch.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57425 | addons                         worlds_enoch_ce.pbo                100539910 15/11/2026 00:48:24 C:\DayZServer\addons\worlds_enoch_ce.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57426 | addons                         worlds_enoch_data.pbo               24516609 15/11/2026 00:48:24 C:\DayZServer\addons\worlds_enoch_data.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57427 | addons                         worlds_enoch_nav.pbo               429659040 15/11/2026 00:48:24 C:\DayZServer\addons\worlds_enoch_nav.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57428 | dta                            bin.pbo                               294513 16/11/2026 16:01:32 C:\DayZServer\dta\bin.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57429 | dta                            core.pbo                              116768 15/11/2026 00:50:10 C:\DayZServer\dta\core.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57430 | dta                            graphics.pbo                       128013134 15/11/2026 00:48:24 C:\DayZServer\dta\graphics.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57431 | dta                            gui.pbo                            149223513 15/11/2026 00:48:24 C:\DayZServer\dta\gui.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57432 | dta                            languagecore.pbo                     5032814 15/11/2026 00:48:24 C:\DayZServer\dta\languagecore.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57433 | dta                            scripts.pbo                         14401120 15/11/2026 00:48:24 C:\DayZServer\dta\scripts.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57434 | dta                            system.pbo                          16042964 15/11/2026 00:48:24 C:\DayZServer\dta\system.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57435 | nasdara                        ai_nasdara.pbo                         35742 15/11/2026 00:50:32 C:\DayZServer\nasdara\addons\ai_nasdara.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57436 | nasdara                        animals_nasdara.pbo                 16429031 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\animals_nasdara.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57437 | nasdara                        characters_nasdara.pbo               5310747 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\characters_nasdara.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57438 | nasdara                        data_nasdara.pbo                      424669 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\data_nasdara.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57439 | nasdara                        gear_nasdara.pbo                      685613 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\gear_nasdara.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57440 | nasdara                        plants_nasdara.pbo                   1270739 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\plants_nasdara.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57441 | nasdara                        rocks_nasdara.pbo                    4550706 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\rocks_nasdara.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57442 | nasdara                        sounds_nasdara.pbo                  18073807 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\sounds_nasdara.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57443 | nasdara                        structures_data_nasdara.pbo           215985 15/11/2026 00:50:21 C:\DayZServer\nasdara\addons\structures_data_nasdara.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57444 | nasdara                        structures_industrial_nasdara.pbo   23192523 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\structures_industrial_nasdara.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57445 | nasdara                        structures_military_nasdara.pbo     11088588 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\structures_military_nasdara.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57446 | nasdara                        structures_props_nasdara.pbo         3377496 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\structures_props_nasdara.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57447 | nasdara                        structures_residential_nasdara.pbo  46958858 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\structures_residential_nasdara.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57448 | nasdara                        structures_roads_nasdara.pbo        80652105 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\structures_roads_nasdara.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57449 | nasdara                        structures_ruins_nasdara.pbo         5507240 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\structures_ruins_nasdara.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57450 | nasdara                        structures_signs_nasdara.pbo         7157215 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\structures_signs_nasdara.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57451 | nasdara                        structures_specific_nasdara.pbo     29516281 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\structures_specific_nasdara.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57452 | nasdara                        structures_walls_nasdara.pbo         2558192 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\structures_walls_nasdara.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57453 | nasdara                        structures_wrecks_nasdara.pbo       14132736 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\structures_wrecks_nasdara.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57454 | nasdara                        surfaces_nasdara.pbo                   76460 15/11/2026 00:50:39 C:\DayZServer\nasdara\addons\surfaces_nasdara.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57455 | nasdara                        weapons_nasdara.pbo                  1039827 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\weapons_nasdara.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57456 | nasdara                        worlds_nasdara_ce.pbo              101196419 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\worlds_nasdara_ce.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57457 | nasdara                        worlds_nasdara_data.pbo             18618804 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\worlds_nasdara_data.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57458 | nasdara                        worlds_nasdara_nav.pbo             870043723 15/11/2026 00:48:24 C:\DayZServer\nasdara\addons\worlds_nasdara_nav.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57459 | sakhal                         data_sakhal.pbo                         8182 15/11/2026 00:51:27 C:\DayZServer\sakhal\addons\data_sakhal.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57460 | sakhal                         plants_sakhal.pbo                    3793427 15/11/2026 00:48:24 C:\DayZServer\sakhal\addons\plants_sakhal.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57461 | sakhal                         rocks_sakhal.pbo                     2417339 15/11/2026 00:48:24 C:\DayZServer\sakhal\addons\rocks_sakhal.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57462 | sakhal                         structures_sakhal.pbo               34823592 15/11/2026 00:48:24 C:\DayZServer\sakhal\addons\structures_sakhal.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57463 | sakhal                         surfaces_sakhal.pbo                    37236 15/11/2026 00:51:19 C:\DayZServer\sakhal\addons\surfaces_sakhal.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57464 | sakhal                         water_sakhal.pbo                    24237081 15/11/2026 00:48:24 C:\DayZServer\sakhal\addons\water_sakhal.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57465 | sakhal                         worlds_sakhal_ce.pbo                93011396 15/11/2026 00:48:24 C:\DayZServer\sakhal\addons\worlds_sakhal_ce.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57466 | sakhal                         worlds_sakhal_data.pbo              12942834 15/11/2026 00:48:24 C:\DayZServer\sakhal\addons\worlds_sakhal_data.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57467 | sakhal                         worlds_sakhal_nav.pbo              558105627 15/11/2026 00:48:24 C:\DayZServer\sakhal\addons\worlds_sakhal_nav.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57468 | steamapps                      Earplugs.pbo                            7480 16/11/2026 19:42:56 C:\DayZServer\steamapps\workshop\content\221100\3617493208\addons\Earplugs.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57517 | "C:\DayZServer",
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57612 | Pesquisando: C:\DayZServer
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57832 | $serverRoot = "C:\DayZServer"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57917 | Caminho: C:\DayZServer\@CF\addons\scripts.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57923 | Caminho: C:\DayZServer\@CodeLock\Addons\CodeLock.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57929 | Caminho: C:\DayZServer\@CookZ\addons\CookZ.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57935 | Caminho: C:\DayZServer\@DabsFramework\addons\Scripts.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57941 | Caminho: C:\DayZServer\@SuppressionMod\addons\Scripts.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57947 | Caminho: C:\DayZServer\@VPPAdminTools\addons\VPPAdminTools.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57953 | Caminho: C:\DayZServer\@ZensCoreMod\addons\ZenModCore.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57959 | Caminho: C:\DayZServer\dta\scripts.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57980 | r"C:\DayZServer\@CF\addons\scripts.pbo",
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57981 | r"C:\DayZServer\@DabsFramework\addons\Scripts.pbo",
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57982 | r"C:\DayZServer\@VPPAdminTools\addons\VPPAdminTools.pbo",
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57983 | r"C:\DayZServer\@CodeLock\Addons\CodeLock.pbo",
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57984 | r"C:\DayZServer\@ZensCoreMod\addons\ZenModCore.pbo",
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57985 | r"C:\DayZServer\@SuppressionMod\addons\Scripts.pbo",
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 57986 | r"C:\DayZServer\dta\scripts.pbo",
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 58066 | PBO: C:\DayZServer\@CF\addons\scripts.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 58264 | PBO: C:\DayZServer\@DabsFramework\addons\Scripts.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 58474 | PBO: C:\DayZServer\@VPPAdminTools\addons\VPPAdminTools.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 58728 | PBO: C:\DayZServer\@CodeLock\Addons\CodeLock.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 58813 | PBO: C:\DayZServer\@ZensCoreMod\addons\ZenModCore.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59001 | PBO: C:\DayZServer\@SuppressionMod\addons\Scripts.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59064 | PBO: C:\DayZServer\dta\scripts.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59358 | "C:\DayZServer",
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59457 | Verificando: C:\DayZServer
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59580 | "C:\DayZServer\@CF\addons\scripts.pbo",
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59581 | "C:\DayZServer\@VPPAdminTools\addons\VPPAdminTools.pbo",
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59582 | "C:\DayZServer\dta\scripts.pbo"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59662 | FullName      : C:\DayZServer\@CF\addons\scripts.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59670 | FullName      : C:\DayZServer\@VPPAdminTools\addons\VPPAdminTools.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59678 | FullName      : C:\DayZServer\dta\scripts.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59699 | $root = "C:\DayZServer"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59725 | ROOT = Path(r"C:\DayZServer")
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59832 | Diretorio: C:\DayZServer
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59842 | PBO: C:\DayZServer\@A_BeautifulCoyote\addons\ABeautiful_Coyote.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59853 | PBO: C:\DayZServer\@A_BeautifulKomodoDragon\addons\Beautiful_Komodo.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59865 | PBO: C:\DayZServer\@A_BeautifulMotorbikePassenger\addons\BikesSeat2.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59876 | PBO: C:\DayZServer\@A_BeautifulNasdaraCactusHurts\addons\Nasdara_Cactus.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59881 | PBO: C:\DayZServer\@BuildingFortifications\Addons\BuildingFortifications.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59917 | PBO: C:\DayZServer\@CF\addons\gui.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59924 | PBO: C:\DayZServer\@CF\addons\scripts.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 59982 | PBO: C:\DayZServer\@CodeLock\Addons\CodeLock.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60011 | $root = "C:\DayZServer"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60037 | ROOT = Path(r"C:\DayZServer")
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60144 | Diretorio: C:\DayZServer
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60154 | PBO: C:\DayZServer\@A_BeautifulCoyote\addons\ABeautiful_Coyote.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60165 | PBO: C:\DayZServer\@A_BeautifulKomodoDragon\addons\Beautiful_Komodo.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60177 | PBO: C:\DayZServer\@A_BeautifulMotorbikePassenger\addons\BikesSeat2.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60188 | PBO: C:\DayZServer\@A_BeautifulNasdaraCactusHurts\addons\Nasdara_Cactus.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60193 | PBO: C:\DayZServer\@BuildingFortifications\Addons\BuildingFortifications.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60229 | PBO: C:\DayZServer\@CF\addons\gui.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60236 | PBO: C:\DayZServer\@CF\addons\scripts.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60294 | PBO: C:\DayZServer\@CodeLock\Addons\CodeLock.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60311 | PBO: C:\DayZServer\@CookZ\addons\CookZ.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60332 | PBO: C:\DayZServer\@Coyote\addons\ABeautiful_Coyote.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60343 | PBO: C:\DayZServer\@DabsFramework\addons\GUI.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60357 | PBO: C:\DayZServer\@DabsFramework\addons\Scripts.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60419 | PBO: C:\DayZServer\@KomodoDragon\addons\Beautiful_Komodo.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60431 | PBO: C:\DayZServer\@MotorbikePassenger\addons\BikesSeat2.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60442 | PBO: C:\DayZServer\@NasdaraCactus\addons\Nasdara_Cactus.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60447 | PBO: C:\DayZServer\@SimpleWhistle\Addons\Whistle.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60456 | PBO: C:\DayZServer\@SuppressionMod\addons\Scripts.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60481 | PBO: C:\DayZServer\@SurvivorAnimations\Addons\player_main.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60492 | PBO: C:\DayZServer\@SurvivorAnimations\Addons\SurvivorAnims.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60510 | PBO: C:\DayZServer\@VPPAdminTools\addons\assets.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60541 | PBO: C:\DayZServer\@VPPAdminTools\addons\VPPAdminTools.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60606 | PBO: C:\DayZServer\@ZensCoreMod\addons\ZenModCore.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60657 | PBO: C:\DayZServer\@ZensNotes\addons\ZenNotes.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60696 | PBO: C:\DayZServer\addons\ai.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60703 | PBO: C:\DayZServer\addons\ai_bliss.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60710 | PBO: C:\DayZServer\addons\animals.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60729 | PBO: C:\DayZServer\addons\animals_bliss.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60740 | PBO: C:\DayZServer\addons\anims_anm_player.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60747 | PBO: C:\DayZServer\addons\anims_workspaces.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60758 | PBO: C:\DayZServer\addons\characters_backpacks.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60765 | PBO: C:\DayZServer\addons\characters_belts.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60772 | PBO: C:\DayZServer\addons\characters_bodies.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60779 | PBO: C:\DayZServer\addons\characters_data.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60786 | PBO: C:\DayZServer\addons\characters_glasses.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60793 | PBO: C:\DayZServer\addons\characters_gloves.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60800 | PBO: C:\DayZServer\addons\characters_headgear.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60811 | PBO: C:\DayZServer\addons\characters_heads.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60816 | PBO: C:\DayZServer\addons\characters_masks.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60827 | PBO: C:\DayZServer\addons\characters_pants.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60834 | PBO: C:\DayZServer\addons\characters_shoes.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60841 | PBO: C:\DayZServer\addons\characters_tops.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60848 | PBO: C:\DayZServer\addons\characters_vests.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60855 | PBO: C:\DayZServer\addons\characters_zombies.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60862 | PBO: C:\DayZServer\addons\dz.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60873 | PBO: C:\DayZServer\addons\gear_camping.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60888 | PBO: C:\DayZServer\addons\gear_consumables.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60895 | PBO: C:\DayZServer\addons\gear_containers.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60901 | PBO: C:\DayZServer\addons\gear_cooking.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60908 | PBO: C:\DayZServer\addons\gear_crafting.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60915 | PBO: C:\DayZServer\addons\gear_cultivation.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60922 | PBO: C:\DayZServer\addons\gear_drinks.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60929 | PBO: C:\DayZServer\addons\gear_food.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60936 | PBO: C:\DayZServer\addons\gear_medical.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60943 | PBO: C:\DayZServer\addons\gear_navigation.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60950 | PBO: C:\DayZServer\addons\gear_optics.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60957 | PBO: C:\DayZServer\addons\gear_radio.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60964 | PBO: C:\DayZServer\addons\gear_tools.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60971 | PBO: C:\DayZServer\addons\gear_traps.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60978 | PBO: C:\DayZServer\addons\sounds_hpp.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60984 | PBO: C:\DayZServer\addons\structures_military.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 60995 | PBO: C:\DayZServer\addons\structures_proxy_parts.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61004 | PBO: C:\DayZServer\addons\structures_residential.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61019 | PBO: C:\DayZServer\addons\structures_ruins_bliss.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61024 | PBO: C:\DayZServer\addons\structures_signs.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61030 | PBO: C:\DayZServer\addons\structures_underground_bliss.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61037 | PBO: C:\DayZServer\addons\vehicles_parts.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61044 | PBO: C:\DayZServer\addons\vehicles_singletrack.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61051 | PBO: C:\DayZServer\addons\vehicles_water.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61058 | PBO: C:\DayZServer\addons\vehicles_wheeled.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61065 | PBO: C:\DayZServer\addons\weapon_lights.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61072 | PBO: C:\DayZServer\addons\weapon_magazines.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61079 | PBO: C:\DayZServer\addons\weapon_muzzles.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61086 | PBO: C:\DayZServer\addons\weapon_optics.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61093 | PBO: C:\DayZServer\addons\weapon_supports.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61100 | PBO: C:\DayZServer\addons\weapons_ammunition.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61105 | PBO: C:\DayZServer\addons\weapons_archery.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61111 | PBO: C:\DayZServer\addons\weapons_explosives.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61118 | PBO: C:\DayZServer\addons\weapons_firearms.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61125 | PBO: C:\DayZServer\addons\weapons_launchers.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61132 | PBO: C:\DayZServer\addons\weapons_melee.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61139 | PBO: C:\DayZServer\addons\weapons_nonlethal.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61146 | PBO: C:\DayZServer\addons\weapons_pistols.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61153 | PBO: C:\DayZServer\addons\weapons_shotguns.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61171 | $root = "C:\DayZServer"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61197 | ROOT = Path(r"C:\DayZServer")
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61304 | Diretorio: C:\DayZServer
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61326 | $root = "C:\DayZServer"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61352 | ROOT = Path(r"C:\DayZServer")
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61459 | Diretorio: C:\DayZServer
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61469 | PBO: C:\DayZServer\@A_BeautifulCoyote\addons\ABeautiful_Coyote.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61480 | PBO: C:\DayZServer\@A_BeautifulKomodoDragon\addons\Beautiful_Komodo.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61492 | PBO: C:\DayZServer\@A_BeautifulMotorbikePassenger\addons\BikesSeat2.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61503 | PBO: C:\DayZServer\@A_BeautifulNasdaraCactusHurts\addons\Nasdara_Cactus.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61508 | PBO: C:\DayZServer\@BuildingFortifications\Addons\BuildingFortifications.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61544 | PBO: C:\DayZServer\@CF\addons\gui.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61551 | PBO: C:\DayZServer\@CF\addons\scripts.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61609 | PBO: C:\DayZServer\@CodeLock\Addons\CodeLock.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61626 | PBO: C:\DayZServer\@CookZ\addons\CookZ.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61647 | PBO: C:\DayZServer\@Coyote\addons\ABeautiful_Coyote.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61658 | PBO: C:\DayZServer\@DabsFramework\addons\GUI.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61672 | PBO: C:\DayZServer\@DabsFramework\addons\Scripts.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61734 | PBO: C:\DayZServer\@KomodoDragon\addons\Beautiful_Komodo.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61746 | PBO: C:\DayZServer\@MotorbikePassenger\addons\BikesSeat2.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61757 | PBO: C:\DayZServer\@NasdaraCactus\addons\Nasdara_Cactus.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61762 | PBO: C:\DayZServer\@SimpleWhistle\Addons\Whistle.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61771 | PBO: C:\DayZServer\@SuppressionMod\addons\Scripts.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61796 | PBO: C:\DayZServer\@SurvivorAnimations\Addons\player_main.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61807 | PBO: C:\DayZServer\@SurvivorAnimations\Addons\SurvivorAnims.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61825 | PBO: C:\DayZServer\@VPPAdminTools\addons\assets.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61856 | PBO: C:\DayZServer\@VPPAdminTools\addons\VPPAdminTools.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61921 | PBO: C:\DayZServer\@ZensCoreMod\addons\ZenModCore.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 61972 | PBO: C:\DayZServer\@ZensNotes\addons\ZenNotes.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62011 | PBO: C:\DayZServer\addons\ai.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62018 | PBO: C:\DayZServer\addons\ai_bliss.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62025 | PBO: C:\DayZServer\addons\animals.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62044 | PBO: C:\DayZServer\addons\animals_bliss.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62055 | PBO: C:\DayZServer\addons\anims_anm_player.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62062 | PBO: C:\DayZServer\addons\anims_workspaces.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62073 | PBO: C:\DayZServer\addons\characters_backpacks.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62080 | PBO: C:\DayZServer\addons\characters_belts.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62087 | PBO: C:\DayZServer\addons\characters_bodies.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62094 | PBO: C:\DayZServer\addons\characters_data.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62101 | PBO: C:\DayZServer\addons\characters_glasses.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62108 | PBO: C:\DayZServer\addons\characters_gloves.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62115 | PBO: C:\DayZServer\addons\characters_headgear.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62126 | PBO: C:\DayZServer\addons\characters_heads.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62131 | PBO: C:\DayZServer\addons\characters_masks.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62142 | PBO: C:\DayZServer\addons\characters_pants.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62149 | PBO: C:\DayZServer\addons\characters_shoes.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62156 | PBO: C:\DayZServer\addons\characters_tops.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62163 | PBO: C:\DayZServer\addons\characters_vests.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62170 | PBO: C:\DayZServer\addons\characters_zombies.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62177 | PBO: C:\DayZServer\addons\dz.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62188 | PBO: C:\DayZServer\addons\gear_camping.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62203 | PBO: C:\DayZServer\addons\gear_consumables.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62210 | PBO: C:\DayZServer\addons\gear_containers.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62216 | PBO: C:\DayZServer\addons\gear_cooking.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62223 | PBO: C:\DayZServer\addons\gear_crafting.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62230 | PBO: C:\DayZServer\addons\gear_cultivation.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62237 | PBO: C:\DayZServer\addons\gear_drinks.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62244 | PBO: C:\DayZServer\addons\gear_food.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62251 | PBO: C:\DayZServer\addons\gear_medical.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62258 | PBO: C:\DayZServer\addons\gear_navigation.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62265 | PBO: C:\DayZServer\addons\gear_optics.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62272 | PBO: C:\DayZServer\addons\gear_radio.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62279 | PBO: C:\DayZServer\addons\gear_tools.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62286 | PBO: C:\DayZServer\addons\gear_traps.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62293 | PBO: C:\DayZServer\addons\sounds_hpp.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62299 | PBO: C:\DayZServer\addons\structures_military.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62310 | PBO: C:\DayZServer\addons\structures_proxy_parts.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62319 | PBO: C:\DayZServer\addons\structures_residential.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62334 | PBO: C:\DayZServer\addons\structures_ruins_bliss.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62339 | PBO: C:\DayZServer\addons\structures_signs.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62345 | PBO: C:\DayZServer\addons\structures_underground_bliss.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62352 | PBO: C:\DayZServer\addons\vehicles_parts.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62359 | PBO: C:\DayZServer\addons\vehicles_singletrack.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62366 | PBO: C:\DayZServer\addons\vehicles_water.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62373 | PBO: C:\DayZServer\addons\vehicles_wheeled.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62380 | PBO: C:\DayZServer\addons\weapon_lights.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62387 | PBO: C:\DayZServer\addons\weapon_magazines.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62394 | PBO: C:\DayZServer\addons\weapon_muzzles.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62401 | PBO: C:\DayZServer\addons\weapon_optics.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62408 | PBO: C:\DayZServer\addons\weapon_supports.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62415 | PBO: C:\DayZServer\addons\weapons_ammunition.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62420 | PBO: C:\DayZServer\addons\weapons_archery.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62426 | PBO: C:\DayZServer\addons\weapons_explosives.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62433 | PBO: C:\DayZServer\addons\weapons_firearms.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62440 | PBO: C:\DayZServer\addons\weapons_launchers.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62447 | PBO: C:\DayZServer\addons\weapons_melee.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62454 | PBO: C:\DayZServer\addons\weapons_nonlethal.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62461 | PBO: C:\DayZServer\addons\weapons_pistols.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62468 | PBO: C:\DayZServer\addons\weapons_shotguns.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62475 | PBO: C:\DayZServer\addons\worlds_chernarusplus.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62484 | PBO: C:\DayZServer\addons\worlds_chernarusplus_ce.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62493 | PBO: C:\DayZServer\addons\worlds_enoch.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62505 | PBO: C:\DayZServer\addons\worlds_enoch_ce.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62514 | PBO: C:\DayZServer\dta\bin.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62527 | PBO: C:\DayZServer\dta\graphics.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62532 | PBO: C:\DayZServer\dta\gui.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62573 | PBO: C:\DayZServer\dta\languagecore.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62610 | PBO: C:\DayZServer\dta\scripts.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62697 | PBO: C:\DayZServer\dta\system.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62702 | PBO: C:\DayZServer\nasdara\addons\ai_nasdara.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62709 | PBO: C:\DayZServer\nasdara\addons\characters_nasdara.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62716 | PBO: C:\DayZServer\nasdara\addons\gear_nasdara.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62723 | PBO: C:\DayZServer\nasdara\addons\sounds_nasdara.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62729 | PBO: C:\DayZServer\nasdara\addons\structures_industrial_nasdara.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62740 | PBO: C:\DayZServer\nasdara\addons\structures_props_nasdara.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62747 | PBO: C:\DayZServer\nasdara\addons\structures_residential_nasdara.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62754 | PBO: C:\DayZServer\nasdara\addons\structures_roads_nasdara.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62761 | PBO: C:\DayZServer\nasdara\addons\weapons_nasdara.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62768 | PBO: C:\DayZServer\nasdara\addons\worlds_nasdara_ce.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62787 | PBO: C:\DayZServer\sakhal\addons\structures_sakhal.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62800 | PBO: C:\DayZServer\sakhal\addons\worlds_sakhal_ce.pbo
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62828 | $A = "C:\DayZServer"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62829 | $B = "C:\RavenRP\DayZServer"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62867 | Write-Host "Inventariando C:\DayZServer..." -ForegroundColor Cyan
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62870 | Write-Host "Inventariando C:\RavenRP\DayZServer..." -ForegroundColor Cyan
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62897 | Add-Report "Arquivos em C:\DayZServer: $($KeysA.Count)"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62898 | Add-Report "Arquivos em C:\RavenRP\DayZServer: $($KeysB.Count)"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62900 | Add-Report "Ausentes em C:\RavenRP\DayZServer: $($MissingB.Count)"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62901 | Add-Report "Ausentes em C:\DayZServer: $($MissingA.Count)"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62906 | Add-Report "=== AUSENTES EM C:\RavenRP\DayZServer ==="
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62912 | Add-Report "=== AUSENTES EM C:\DayZServer ==="
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62945 | Inventariando C:\DayZServer...
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62946 | Inventariando C:\RavenRP\DayZServer...
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62956 | Arquivos em C:\DayZServer: 2004
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62957 | Arquivos em C:\RavenRP\DayZServer: 2004
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62959 | Ausentes em C:\RavenRP\DayZServer: 0
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62960 | Ausentes em C:\DayZServer: 0
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62964 | === AUSENTES EM C:\RavenRP\DayZServer ===
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62966 | === AUSENTES EM C:\DayZServer ===
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62991 | "C:/DayZServer",
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 62993 | "C:/RavenRP/DayZServer"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 63058 | "C:/DayZServer",
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 63060 | "C:/RavenRP/DayZServer"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 63125 | "C:/DayZServer",
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 63127 | "C:/RavenRP/DayZServer"
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 63185 | "C:\DayZServer",
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 63186 | "C:/DayZServer",
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 63187 | "C:\RavenRP\DayZServer",
-C:\RavenRP\ControlCenter\audit\RAVEN_AUDITORIA_6.4.1_20261119-104338.txt | Linha 63188 | "C:/RavenRP/DayZServer"
-C:\RavenRP\DayZServer\atualiza_mods.bat | Linha 13 | set "SERVER_DIR=C:\DayZServer"
-C:\RavenRP\DayZServer\restart_server.bat | Linha 11 | call "C:\DayZServer\start.bat"
-C:\RavenRP\DayZServer\start.bat | Linha 10 | set "SERVER_DIR=C:\DayZServer"
-C:\RavenRP\DayZServer\wipe.bat | Linha 6 | set "SERVER_DIR=C:\DayZServer"
-C:\RavenRP\DayZServer\battleye\Bec\Config\Config.cfg | Linha 4 | BePath = C:\DayZServer\Battleye
-C:\RavenRP\DayZServer\DuckDNS\update-duckdns.ps1 | Linha 9 | $LogDir = "C:\DayZServer\logs"
-PS C:\RavenRP\ControlCenter\API>
+RAVEN CONTROL CENTER - AUDITORIA PRE-REMOCAO
+Data: 19/11/2026 17:24:24
+==================================================
+
+FullName                                                                                                                                          Length LastWriteTime      
+--------                                                                                                                                          ------ -------------      
+C:\RavenRP\Discord-KillFeed\.env                                                                                                                     522 16/11/2026 15:27:23
+C:\RavenRP\Discord-KillFeed\.env.example                                                                                                             438 16/11/2026 13:43:41
+C:\RavenRP\Discord-KillFeed\.gitignore                                                                                                                46 16/11/2026 13:43:41
+C:\RavenRP\Discord-KillFeed\install.bat                                                                                                              408 16/11/2026 13:43:41
+C:\RavenRP\Discord-KillFeed\README.md                                                                                                               4245 16/11/2026 13:43:41
+C:\RavenRP\Discord-KillFeed\requirements.txt                                                                                                          64 16/11/2026 13:43:41
+C:\RavenRP\Discord-KillFeed\start-killfeed.bat                                                                                                         0 16/11/2026 16:37:57
+C:\RavenRP\Discord-KillFeed\start.bat                                                                                                                166 16/11/2026 13:43:41
+C:\RavenRP\Discord-KillFeed\.venv\pyvenv.cfg                                                                                                         236 16/11/2026 14:00:23
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\distutils-precedence.pth                                                                         151 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\typing_extensions.py                                                                          165012 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\certifi\cacert.pem                                                                            235863 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\certifi\core.py                                                                                 3394 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\certifi\py.typed                                                                                   0 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\certifi\__init__.py                                                                               94 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\certifi\__main__.py                                                                              243 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\certifi\tests\test_certify.py                                                                    467 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\certifi\tests\__init__.py                                                                          0 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\certifi\tests\__pycache__\test_certify.cpython-311.pyc                                          1664 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\certifi\tests\__pycache__\__init__.cpython-311.pyc                                               188 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\certifi\__pycache__\core.cpython-311.pyc                                                        2383 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\certifi\__pycache__\__init__.cpython-311.pyc                                                     324 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\certifi\__pycache__\__main__.cpython-311.pyc                                                     713 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\certifi-2026.10.23.dist-info\INSTALLER                                                             4 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\certifi-2026.10.23.dist-info\METADATA                                                           2526 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\certifi-2026.10.23.dist-info\RECORD                                                             1307 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\certifi-2026.10.23.dist-info\top_level.txt                                                         8 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\certifi-2026.10.23.dist-info\WHEEL                                                                91 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\certifi-2026.10.23.dist-info\licenses\LICENSE                                                    989 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\charset_normalizer\api.py                                                                      36708 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\charset_normalizer\cd.cp311-win_amd64.pyd                                                     116736 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\charset_normalizer\cd.py                                                                       16447 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\charset_normalizer\constant.py                                                                 63309 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\charset_normalizer\legacy.py                                                                    2730 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\charset_normalizer\md.cp311-win_amd64.pyd                                                     215552 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\charset_normalizer\md.py                                                                       36339 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\charset_normalizer\models.py                                                                   13917 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\charset_normalizer\py.typed                                                                        0 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\charset_normalizer\utils.py                                                                    14574 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\charset_normalizer\version.py                                                                    123 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\charset_normalizer\__init__.py                                                                  1630 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\charset_normalizer\__main__.py                                                                   115 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\charset_normalizer\cli\__init__.py                                                               144 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\charset_normalizer\cli\__main__.py                                                             12312 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\charset_normalizer\cli\__pycache__\__init__.cpython-311.pyc                                      368 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\charset_normalizer\cli\__pycache__\__main__.cpython-311.pyc                                    15233 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\charset_normalizer\__pycache__\api.cpython-311.pyc                                             25315 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\charset_normalizer\__pycache__\cd.cpython-311.pyc                                              16583 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\charset_normalizer\__pycache__\constant.cpython-311.pyc                                        61981 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\charset_normalizer\__pycache__\legacy.cpython-311.pyc                                           3315 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\charset_normalizer\__pycache__\md.cpython-311.pyc                                              35784 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\charset_normalizer\__pycache__\models.cpython-311.pyc                                          19216 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\charset_normalizer\__pycache__\utils.cpython-311.pyc                                           17491 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\charset_normalizer\__pycache__\version.cpython-311.pyc                                           402 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\charset_normalizer\__pycache__\__init__.cpython-311.pyc                                         1897 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\charset_normalizer\__pycache__\__main__.cpython-311.pyc                                          396 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\charset_normalizer-3.5.2.dist-info\entry_points.txt                                               65 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\charset_normalizer-3.5.2.dist-info\INSTALLER                                                       4 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\charset_normalizer-3.5.2.dist-info\METADATA                                                    47287 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\charset_normalizer-3.5.2.dist-info\RECORD                                                       2769 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\charset_normalizer-3.5.2.dist-info\top_level.txt                                                  19 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\charset_normalizer-3.5.2.dist-info\WHEEL                                                         101 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\charset_normalizer-3.5.2.dist-info\licenses\LICENSE                                             1092 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\dotenv\cli.py                                                                                   6969 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\dotenv\ipython.py                                                                               1326 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\dotenv\main.py                                                                                 15179 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\dotenv\parser.py                                                                                5806 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\dotenv\py.typed                                                                                   26 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\dotenv\variables.py                                                                             2348 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\dotenv\version.py                                                                                 22 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\dotenv\__init__.py                                                                              1230 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\dotenv\__main__.py                                                                               129 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\dotenv\__pycache__\cli.cpython-311.pyc                                                         12387 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\dotenv\__pycache__\ipython.cpython-311.pyc                                                      2308 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\dotenv\__pycache__\main.cpython-311.pyc                                                        21862 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\dotenv\__pycache__\parser.cpython-311.pyc                                                      11636 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\dotenv\__pycache__\variables.cpython-311.pyc                                                    5522 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\dotenv\__pycache__\version.cpython-311.pyc                                                       200 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\dotenv\__pycache__\__init__.cpython-311.pyc                                                     1992 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\dotenv\__pycache__\__main__.cpython-311.pyc                                                      388 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\idna\cli.py                                                                                     4245 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\idna\codec.py                                                                                   8002 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\idna\compat.py                                                                                  1376 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\idna\core.py                                                                                   32580 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\idna\idnadata.py                                                                               45763 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\idna\intranges.py                                                                               1851 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\idna\package_data.py                                                                              21 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\idna\py.typed                                                                                      0 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\idna\uts46data.py                                                                             237174 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\idna\__init__.py                                                                                 944 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\idna\__main__.py                                                                                  83 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\idna\__pycache__\cli.cpython-311.pyc                                                            6743 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\idna\__pycache__\codec.cpython-311.pyc                                                         10972 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\idna\__pycache__\compat.cpython-311.pyc                                                         2057 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\idna\__pycache__\core.cpython-311.pyc                                                          37990 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\idna\__pycache__\idnadata.cpython-311.pyc                                                      22492 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\idna\__pycache__\intranges.cpython-311.pyc                                                      2903 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\idna\__pycache__\package_data.cpython-311.pyc                                                    202 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\idna\__pycache__\uts46data.cpython-311.pyc                                                     97646 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\idna\__pycache__\__init__.cpython-311.pyc                                                       1148 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\idna\__pycache__\__main__.cpython-311.pyc                                                        385 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\idna-3.20.dist-info\entry_points.txt                                                              38 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\idna-3.20.dist-info\INSTALLER                                                                      4 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\idna-3.20.dist-info\METADATA                                                                    7207 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\idna-3.20.dist-info\RECORD                                                                      1793 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\idna-3.20.dist-info\WHEEL                                                                         81 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\idna-3.20.dist-info\licenses\LICENSE.md                                                         1541 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\py.typed                                                                                     286 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\__init__.py                                                                                  512 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\__main__.py                                                                                  873 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\__pip-runner__.py                                                                           1451 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\cache.py                                                                         10645 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\configuration.py                                                                 16463 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\main.py                                                                            338 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\pyproject.py                                                                      4555 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\self_outdated_check.py                                                            8887 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\wheel_builder.py                                                                  9146 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\__init__.py                                                                        511 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\build_env\base.py                                                                 3440 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\build_env\installer.py                                                           13046 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\build_env\noop.py                                                                 1001 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\build_env\venv.py                                                                 5700 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\build_env\virtual.py                                                              4888 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\build_env\__init__.py                                                              788 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\build_env\__pycache__\base.cpython-311.pyc                                        5456 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\build_env\__pycache__\installer.cpython-311.pyc                                  15487 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\build_env\__pycache__\noop.cpython-311.pyc                                        2262 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\build_env\__pycache__\venv.cpython-311.pyc                                        7226 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\build_env\__pycache__\virtual.cpython-311.pyc                                     8273 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\build_env\__pycache__\__init__.cpython-311.pyc                                     989 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\cli\autocompletion.py                                                             7529 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\cli\base_command.py                                                               9457 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\cli\cmdoptions.py                                                                40920 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\cli\command_context.py                                                             817 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\cli\index_command.py                                                              7904 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\cli\main.py                                                                       3489 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\cli\main_parser.py                                                                4917 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\cli\parser.py                                                                    14685 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\cli\progress_bars.py                                                              4706 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\cli\req_command.py                                                               22051 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\cli\spinners.py                                                                   7362 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\cli\status_codes.py                                                                136 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\cli\__init__.py                                                                    131 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\cli\__pycache__\autocompletion.cpython-311.pyc                                   10887 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\cli\__pycache__\base_command.cpython-311.pyc                                     13067 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\cli\__pycache__\cmdoptions.cpython-311.pyc                                       44100 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\cli\__pycache__\command_context.cpython-311.pyc                                   2155 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\cli\__pycache__\index_command.cpython-311.pyc                                    10383 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\cli\__pycache__\main.cpython-311.pyc                                              3030 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\cli\__pycache__\main_parser.cpython-311.pyc                                       6210 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\cli\__pycache__\parser.cpython-311.pyc                                           21971 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\cli\__pycache__\progress_bars.cpython-311.pyc                                     7048 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\cli\__pycache__\req_command.cpython-311.pyc                                      23331 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\cli\__pycache__\spinners.cpython-311.pyc                                         12852 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\cli\__pycache__\status_codes.cpython-311.pyc                                       400 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\cli\__pycache__\__init__.cpython-311.pyc                                           276 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\cache.py                                                                 9251 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\check.py                                                                 2244 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\completion.py                                                            4565 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\configuration.py                                                        10370 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\debug.py                                                                 6500 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\download.py                                                              5398 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\freeze.py                                                                3100 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\hash.py                                                                  1679 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\help.py                                                                  1108 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\index.py                                                                 5608 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\inspect.py                                                               3185 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\install.py                                                              40284 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\list.py                                                                 13908 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\lock.py                                                                  5981 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\search.py                                                                5597 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\show.py                                                                  8247 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\uninstall.py                                                             3868 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\wheel.py                                                                 6181 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\__init__.py                                                              4148 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\__pycache__\cache.cpython-311.pyc                                       12838 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\__pycache__\check.cpython-311.pyc                                        2956 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\__pycache__\completion.cpython-311.pyc                                   5875 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\__pycache__\configuration.cpython-311.pyc                               16056 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\__pycache__\debug.cpython-311.pyc                                       11753 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\__pycache__\download.cpython-311.pyc                                     7906 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\__pycache__\freeze.cpython-311.pyc                                       4572 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\__pycache__\hash.cpython-311.pyc                                         3305 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\__pycache__\help.cpython-311.pyc                                         1917 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\__pycache__\index.cpython-311.pyc                                        8622 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\__pycache__\inspect.cpython-311.pyc                                      4412 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\__pycache__\install.cpython-311.pyc                                     45883 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\__pycache__\list.cpython-311.pyc                                        19945 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\__pycache__\lock.cpython-311.pyc                                         8779 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\__pycache__\search.cpython-311.pyc                                       8841 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\__pycache__\show.cpython-311.pyc                                        13118 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\__pycache__\uninstall.cpython-311.pyc                                    5099 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\__pycache__\wheel.cpython-311.pyc                                        9049 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\commands\__pycache__\__init__.cpython-311.pyc                                     4850 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\distributions\base.py                                                             1907 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\distributions\installed.py                                                         994 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\distributions\sdist.py                                                            7783 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\distributions\wheel.py                                                            1429 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\distributions\__init__.py                                                          858 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\distributions\__pycache__\base.cpython-311.pyc                                    3291 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\distributions\__pycache__\installed.cpython-311.pyc                               1992 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\distributions\__pycache__\sdist.cpython-311.pyc                                  10748 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\distributions\__pycache__\wheel.cpython-311.pyc                                   2584 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\distributions\__pycache__\__init__.cpython-311.pyc                                1035 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\exceptions\build.py                                                               5444 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\exceptions\hashes.py                                                              7185 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\exceptions\network.py                                                             6497 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\exceptions\pyproject.py                                                           1568 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\exceptions\uninstall.py                                                           1818 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\exceptions\wheel.py                                                                553 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\exceptions\_base.py                                                               4692 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\exceptions\__init__.py                                                           15525 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\exceptions\__pycache__\build.cpython-311.pyc                                      8030 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\exceptions\__pycache__\hashes.cpython-311.pyc                                    11277 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\exceptions\__pycache__\network.cpython-311.pyc                                   10404 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\exceptions\__pycache__\pyproject.cpython-311.pyc                                  2686 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\exceptions\__pycache__\uninstall.cpython-311.pyc                                  2900 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\exceptions\__pycache__\wheel.cpython-311.pyc                                      1638 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\exceptions\__pycache__\_base.cpython-311.pyc                                      6552 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\exceptions\__pycache__\__init__.cpython-311.pyc                                  23803 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\index\collector.py                                                               16578 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\index\package_finder.py                                                          43209 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\index\sources.py                                                                  8621 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\index\__init__.py                                                                   29 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\index\__pycache__\collector.cpython-311.pyc                                      24630 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\index\__pycache__\package_finder.cpython-311.pyc                                 47918 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\index\__pycache__\sources.cpython-311.pyc                                        13587 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\index\__pycache__\__init__.cpython-311.pyc                                         230 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\locations\base.py                                                                 2548 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\locations\_distutils.py                                                           5938 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\locations\_sysconfig.py                                                           8205 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\locations\__init__.py                                                            14022 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\locations\__pycache__\base.cpython-311.pyc                                        3954 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\locations\__pycache__\_distutils.cpython-311.pyc                                  7230 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\locations\__pycache__\_sysconfig.cpython-311.pyc                                  8985 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\locations\__pycache__\__init__.cpython-311.pyc                                   16303 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\metadata\base.py                                                                 26627 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\metadata\direct_references.py                                                     1694 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\metadata\pkg_resources.py                                                        10792 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\metadata\_json.py                                                                 2711 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\metadata\__init__.py                                                              5824 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\metadata\importlib\_compat.py                                                     2804 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\metadata\importlib\_dists.py                                                      8979 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\metadata\importlib\_envs.py                                                       5590 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\metadata\importlib\__init__.py                                                     135 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\metadata\importlib\__pycache__\_compat.cpython-311.pyc                            4732 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\metadata\importlib\__pycache__\_dists.cpython-311.pyc                            14824 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\metadata\importlib\__pycache__\_envs.cpython-311.pyc                              9277 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\metadata\importlib\__pycache__\__init__.cpython-311.pyc                            390 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\metadata\__pycache__\base.cpython-311.pyc                                        37900 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\metadata\__pycache__\direct_references.cpython-311.pyc                            2405 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\metadata\__pycache__\pkg_resources.cpython-311.pyc                               18394 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\metadata\__pycache__\_json.cpython-311.pyc                                        3616 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\metadata\__pycache__\__init__.cpython-311.pyc                                     7440 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\models\candidate.py                                                                824 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\models\direct_url.py                                                               944 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\models\format_control.py                                                          2471 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\models\index.py                                                                   1030 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\models\installation_report.py                                                     2846 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\models\link.py                                                                   23474 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\models\release_control.py                                                         3365 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\models\scheme.py                                                                   558 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\models\search_scope.py                                                            4461 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\models\selection_prefs.py                                                         1503 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\models\target_python.py                                                           4243 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\models\wheel.py                                                                   2920 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\models\__init__.py                                                                  62 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\models\__pycache__\candidate.cpython-311.pyc                                      1981 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\models\__pycache__\direct_url.cpython-311.pyc                                     2306 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\models\__pycache__\format_control.cpython-311.pyc                                 4499 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\models\__pycache__\index.cpython-311.pyc                                          1898 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\models\__pycache__\installation_report.cpython-311.pyc                            2634 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\models\__pycache__\link.cpython-311.pyc                                          31072 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\models\__pycache__\release_control.cpython-311.pyc                                4637 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\models\__pycache__\scheme.cpython-311.pyc                                         1132 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\models\__pycache__\search_scope.cpython-311.pyc                                   5689 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\models\__pycache__\selection_prefs.cpython-311.pyc                                1959 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\models\__pycache__\target_python.cpython-311.pyc                                  5120 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\models\__pycache__\wheel.cpython-311.pyc                                          5119 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\models\__pycache__\__init__.cpython-311.pyc                                        264 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\network\auth.py                                                                  21545 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\network\cache.py                                                                  4862 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\network\download.py                                                              14761 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\network\lazy_wheel.py                                                             7646 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\network\session.py                                                               20836 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\network\utils.py                                                                  8128 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\network\xmlrpc.py                                                                 1830 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\network\__init__.py                                                                 49 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\network\__pycache__\auth.cpython-311.pyc                                         24044 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\network\__pycache__\cache.cpython-311.pyc                                         9669 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\network\__pycache__\download.cpython-311.pyc                                     19010 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\network\__pycache__\lazy_wheel.cpython-311.pyc                                   12875 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\network\__pycache__\session.cpython-311.pyc                                      23557 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\network\__pycache__\utils.cpython-311.pyc                                         7102 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\network\__pycache__\xmlrpc.cpython-311.pyc                                        3220 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\network\__pycache__\__init__.cpython-311.pyc                                       252 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\operations\check.py                                                               5891 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\operations\freeze.py                                                              9854 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\operations\prepare.py                                                            34612 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\operations\__init__.py                                                               0 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\operations\build\build_tracker.py                                                 4771 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\operations\build\metadata.py                                                      1421 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\operations\build\metadata_editable.py                                             1509 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\operations\build\wheel.py                                                         1136 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\operations\build\wheel_editable.py                                                1478 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\operations\build\__init__.py                                                         0 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\operations\build\__pycache__\build_tracker.cpython-311.pyc                        8701 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\operations\build\__pycache__\metadata.cpython-311.pyc                             2269 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\operations\build\__pycache__\metadata_editable.cpython-311.pyc                    2325 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\operations\build\__pycache__\wheel.cpython-311.pyc                                1951 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\operations\build\__pycache__\wheel_editable.cpython-311.pyc                       2395 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\operations\build\__pycache__\__init__.cpython-311.pyc                              205 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\operations\install\wheel.py                                                      34992 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\operations\install\__init__.py                                                      50 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\operations\install\__pycache__\wheel.cpython-311.pyc                             50142 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\operations\install\__pycache__\__init__.cpython-311.pyc                            264 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\operations\__pycache__\check.cpython-311.pyc                                      8078 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\operations\__pycache__\freeze.cpython-311.pyc                                    11685 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\operations\__pycache__\prepare.cpython-311.pyc                                   33214 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\operations\__pycache__\__init__.cpython-311.pyc                                    199 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\req\constructors.py                                                              21283 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\req\pep723.py                                                                     1242 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\req\req_dependency_group.py                                                       3145 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\req\req_file.py                                                                  20644 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\req\req_install.py                                                               33840 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\req\req_set.py                                                                    2828 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\req\req_uninstall.py                                                             26993 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\req\__init__.py                                                                   3289 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\req\__pycache__\constructors.cpython-311.pyc                                     25315 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\req\__pycache__\pep723.cpython-311.pyc                                            3185 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\req\__pycache__\req_dependency_group.cpython-311.pyc                              5509 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\req\__pycache__\req_file.cpython-311.pyc                                         26019 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\req\__pycache__\req_install.cpython-311.pyc                                      38691 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\req\__pycache__\req_set.cpython-311.pyc                                           5929 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\req\__pycache__\req_uninstall.cpython-311.pyc                                    40395 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\req\__pycache__\__init__.cpython-311.pyc                                          4781 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\resolution\base.py                                                                 573 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\resolution\__init__.py                                                               0 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\resolution\legacy\resolver.py                                                    24193 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\resolution\legacy\__init__.py                                                        0 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\resolution\legacy\__pycache__\resolver.cpython-311.pyc                           23630 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\resolution\legacy\__pycache__\__init__.cpython-311.pyc                             206 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\resolution\resolvelib\base.py                                                     5900 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\resolution\resolvelib\candidates.py                                              20615 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\resolution\resolvelib\factory.py                                                 36359 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\resolution\resolvelib\found_candidates.py                                         6005 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\resolution\resolvelib\provider.py                                                12310 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\resolution\resolvelib\reporter.py                                                 3992 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\resolution\resolvelib\requirements.py                                             8239 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\resolution\resolvelib\resolver.py                                                13849 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\resolution\resolvelib\__init__.py                                                    0 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\resolution\resolvelib\__pycache__\base.cpython-311.pyc                           11569 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\resolution\resolvelib\__pycache__\candidates.cpython-311.pyc                     30226 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\resolution\resolvelib\__pycache__\factory.cpython-311.pyc                        40054 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\resolution\resolvelib\__pycache__\found_candidates.cpython-311.pyc                7150 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\resolution\resolvelib\__pycache__\provider.cpython-311.pyc                       13611 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\resolution\resolvelib\__pycache__\reporter.cpython-311.pyc                        6434 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\resolution\resolvelib\__pycache__\requirements.cpython-311.pyc                   15863 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\resolution\resolvelib\__pycache__\resolver.cpython-311.pyc                       13902 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\resolution\resolvelib\__pycache__\__init__.cpython-311.pyc                         210 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\resolution\__pycache__\base.cpython-311.pyc                                       1328 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\resolution\__pycache__\__init__.cpython-311.pyc                                    199 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\appdirs.py                                                                  1681 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\compat.py                                                                   2601 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\compatibility_tags.py                                                       6630 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\datetime.py                                                                  868 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\deprecation.py                                                              5523 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\direct_url_helpers.py                                                       3363 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\egg_link.py                                                                 2459 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\entrypoints.py                                                              3324 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\filesystem.py                                                               6812 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\filetypes.py                                                                 689 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\glibc.py                                                                    3726 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\hashes.py                                                                   5040 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\logging.py                                                                 13919 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\misc.py                                                                    26942 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\packaging.py                                                                1975 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\pylock.py                                                                  11341 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\retry.py                                                                    1488 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\subprocess.py                                                               9001 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\temp_dir.py                                                                 9418 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\unpacking.py                                                               14812 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\urls.py                                                                     2151 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\virtualenv.py                                                               2272 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\wheel.py                                                                    4468 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\_jaraco_text.py                                                             3350 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\_log.py                                                                     1015 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\__init__.py                                                                    0 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\__pycache__\appdirs.cpython-311.pyc                                         2584 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\__pycache__\compat.cpython-311.pyc                                          3642 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\__pycache__\compatibility_tags.cpython-311.pyc                              8058 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\__pycache__\datetime.cpython-311.pyc                                        1598 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\__pycache__\deprecation.cpython-311.pyc                                     7118 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\__pycache__\direct_url_helpers.cpython-311.pyc                              3830 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\__pycache__\egg_link.cpython-311.pyc                                        3488 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\__pycache__\entrypoints.cpython-311.pyc                                     4305 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\__pycache__\filesystem.cpython-311.pyc                                     11146 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\__pycache__\filetypes.cpython-311.pyc                                       1256 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\__pycache__\glibc.cpython-311.pyc                                           2620 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\__pycache__\hashes.cpython-311.pyc                                          8940 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\__pycache__\logging.cpython-311.pyc                                        17476 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\__pycache__\misc.cpython-311.pyc                                           40345 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\__pycache__\packaging.cpython-311.pyc                                       2529 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\__pycache__\pylock.cpython-311.pyc                                         13657 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\__pycache__\retry.cpython-311.pyc                                           2303 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\__pycache__\subprocess.cpython-311.pyc                                      9458 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\__pycache__\temp_dir.cpython-311.pyc                                       13514 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\__pycache__\unpacking.cpython-311.pyc                                      18365 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\__pycache__\urls.cpython-311.pyc                                            3344 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\__pycache__\virtualenv.cpython-311.pyc                                      3291 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\__pycache__\wheel.cpython-311.pyc                                           6931 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\__pycache__\_jaraco_text.cpython-311.pyc                                    4757 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\__pycache__\_log.cpython-311.pyc                                            2015 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\utils\__pycache__\__init__.cpython-311.pyc                                         194 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\vcs\bazaar.py                                                                     3734 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\vcs\git.py                                                                       19273 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\vcs\mercurial.py                                                                  5575 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\vcs\subversion.py                                                                11787 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\vcs\versioncontrol.py                                                            22579 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\vcs\__init__.py                                                                    596 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\vcs\__pycache__\bazaar.cpython-311.pyc                                            5872 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\vcs\__pycache__\git.cpython-311.pyc                                              22546 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\vcs\__pycache__\mercurial.cpython-311.pyc                                         8775 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\vcs\__pycache__\subversion.cpython-311.pyc                                       14252 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\vcs\__pycache__\versioncontrol.cpython-311.pyc                                   31269 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\vcs\__pycache__\__init__.cpython-311.pyc                                           629 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\__pycache__\cache.cpython-311.pyc                                                14225 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\__pycache__\configuration.cpython-311.pyc                                        22888 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\__pycache__\main.cpython-311.pyc                                                   716 16/11/2026 13:50:52
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\__pycache__\pyproject.cpython-311.pyc                                             4645 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\__pycache__\self_outdated_check.cpython-311.pyc                                  11529 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\__pycache__\wheel_builder.cpython-311.pyc                                        11957 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_internal\__pycache__\__init__.cpython-311.pyc                                               847 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\bom.cdx.json                                                                        5324 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\README.rst                                                                          9303 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\vendor.txt                                                                           318 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\__init__.py                                                                         4932 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\cachecontrol\adapter.py                                                             6586 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\cachecontrol\cache.py                                                               1953 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\cachecontrol\controller.py                                                         19102 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\cachecontrol\filewrapper.py                                                         4354 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\cachecontrol\heuristics.py                                                          4881 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\cachecontrol\LICENSE.txt                                                             558 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\cachecontrol\py.typed                                                                  0 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\cachecontrol\serialize.py                                                           5163 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\cachecontrol\wrapper.py                                                             1417 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\cachecontrol\_cmd.py                                                                1737 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\cachecontrol\__init__.py                                                             820 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\cachecontrol\caches\file_cache.py                                                   4117 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\cachecontrol\caches\redis_cache.py                                                  1386 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\cachecontrol\caches\__init__.py                                                      303 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\cachecontrol\caches\__pycache__\file_cache.cpython-311.pyc                          8199 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\cachecontrol\caches\__pycache__\redis_cache.cpython-311.pyc                         3081 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\cachecontrol\caches\__pycache__\__init__.cpython-311.pyc                             474 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\cachecontrol\__pycache__\adapter.cpython-311.pyc                                    7104 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\cachecontrol\__pycache__\cache.cpython-311.pyc                                      4497 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\cachecontrol\__pycache__\controller.cpython-311.pyc                                18575 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\cachecontrol\__pycache__\filewrapper.cpython-311.pyc                                4816 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\cachecontrol\__pycache__\heuristics.cpython-311.pyc                                 7564 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\cachecontrol\__pycache__\serialize.cpython-311.pyc                                  5934 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\cachecontrol\__pycache__\wrapper.cpython-311.pyc                                    1865 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\cachecontrol\__pycache__\_cmd.cpython-311.pyc                                       3024 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\cachecontrol\__pycache__\__init__.cpython-311.pyc                                   1002 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\certifi\cacert.pem                                                                235863 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\certifi\core.py                                                                     3442 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\certifi\LICENSE                                                                      989 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\certifi\py.typed                                                                       0 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\certifi\__init__.py                                                                   94 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\certifi\__main__.py                                                                  255 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\certifi\tests\test_certify.py                                                        484 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\certifi\tests\__init__.py                                                              0 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\certifi\tests\__pycache__\test_certify.cpython-311.pyc                              1709 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\certifi\tests\__pycache__\__init__.cpython-311.pyc                                   200 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\certifi\__pycache__\core.cpython-311.pyc                                            2412 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\certifi\__pycache__\__init__.cpython-311.pyc                                         336 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\certifi\__pycache__\__main__.cpython-311.pyc                                         737 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\distlib\compat.py                                                                  41180 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\distlib\LICENSE.txt                                                                14531 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\distlib\resources.py                                                               11508 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\distlib\scripts.py                                                                 19132 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\distlib\t32.exe                                                                    97792 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\distlib\t64-arm.exe                                                               182784 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\distlib\t64.exe                                                                   108032 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\distlib\util.py                                                                    70311 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\distlib\w32.exe                                                                    91648 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\distlib\w64-arm.exe                                                               168448 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\distlib\w64.exe                                                                   101888 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\distlib\__init__.py                                                                  625 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\distlib\__pycache__\compat.cpython-311.pyc                                         52684 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\distlib\__pycache__\resources.cpython-311.pyc                                      19456 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\distlib\__pycache__\scripts.cpython-311.pyc                                        22097 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\distlib\__pycache__\util.cpython-311.pyc                                          102197 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\distlib\__pycache__\__init__.cpython-311.pyc                                        1463 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\distro\distro.py                                                                   49430 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\distro\LICENSE                                                                     11325 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\distro\py.typed                                                                        0 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\distro\__init__.py                                                                   981 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\distro\__main__.py                                                                    64 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\distro\__pycache__\distro.cpython-311.pyc                                          57816 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\distro\__pycache__\__init__.cpython-311.pyc                                         1192 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\distro\__pycache__\__main__.cpython-311.pyc                                          326 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\idna\cli.py                                                                         4245 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\idna\codec.py                                                                       8002 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\idna\compat.py                                                                      1376 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\idna\core.py                                                                       32580 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\idna\idnadata.py                                                                   45763 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\idna\intranges.py                                                                   1851 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\idna\LICENSE.md                                                                     1541 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\idna\package_data.py                                                                  21 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\idna\py.typed                                                                          0 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\idna\uts46data.py                                                                 237174 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\idna\__init__.py                                                                     944 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\idna\__main__.py                                                                      83 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\idna\__pycache__\cli.cpython-311.pyc                                                6755 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\idna\__pycache__\codec.cpython-311.pyc                                             10984 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\idna\__pycache__\compat.cpython-311.pyc                                             2069 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\idna\__pycache__\core.cpython-311.pyc                                              38002 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\idna\__pycache__\idnadata.cpython-311.pyc                                          22504 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\idna\__pycache__\intranges.cpython-311.pyc                                          2915 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\idna\__pycache__\package_data.cpython-311.pyc                                        214 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\idna\__pycache__\uts46data.cpython-311.pyc                                         97658 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\idna\__pycache__\__init__.cpython-311.pyc                                           1160 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\idna\__pycache__\__main__.cpython-311.pyc                                            397 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\msgpack\COPYING                                                                      614 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\msgpack\exceptions.py                                                               1081 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\msgpack\ext.py                                                                      6428 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\msgpack\fallback.py                                                                33710 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\msgpack\__init__.py                                                                 1109 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\msgpack\__pycache__\exceptions.cpython-311.pyc                                      2373 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\msgpack\__pycache__\ext.cpython-311.pyc                                             8799 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\msgpack\__pycache__\fallback.cpython-311.pyc                                       45931 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\msgpack\__pycache__\__init__.cpython-311.pyc                                        1976 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\dependency_groups.py                                                     11224 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\direct_url.py                                                            11645 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\errors.py                                                                 2680 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\LICENSE                                                                    197 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\LICENSE.APACHE                                                           10174 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\LICENSE.BSD                                                               1344 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\markers.py                                                               20566 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\metadata.py                                                              42059 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\py.typed                                                                     0 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\pylock.py                                                                35232 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\ranges.py                                                                83090 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\requirements.py                                                           7052 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\specifiers.py                                                            52834 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\tags.py                                                                  38314 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\utils.py                                                                 12215 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\version.py                                                               39064 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\_elffile.py                                                               3236 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\_manylinux.py                                                            10000 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\_musllinux.py                                                             2774 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\_parser.py                                                               12639 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\_ranges.py                                                               30850 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\_structures.py                                                            1109 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\_tokenizer.py                                                             5573 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\__init__.py                                                                494 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\licenses\_spdx.py                                                        51122 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\licenses\__init__.py                                                      7859 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\licenses\__pycache__\_spdx.cpython-311.pyc                               52904 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\licenses\__pycache__\__init__.cpython-311.pyc                             6816 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\__pycache__\dependency_groups.cpython-311.pyc                            13756 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\__pycache__\direct_url.cpython-311.pyc                                   17319 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\__pycache__\errors.cpython-311.pyc                                        4779 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\__pycache__\markers.cpython-311.pyc                                      23418 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\__pycache__\metadata.cpython-311.pyc                                     38276 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\__pycache__\pylock.cpython-311.pyc                                       43183 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\__pycache__\ranges.cpython-311.pyc                                       77365 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\__pycache__\requirements.cpython-311.pyc                                  9367 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\__pycache__\specifiers.cpython-311.pyc                                   61151 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\__pycache__\tags.cpython-311.pyc                                         45806 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\__pycache__\utils.cpython-311.pyc                                        14169 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\__pycache__\version.cpython-311.pyc                                      44532 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\__pycache__\_elffile.cpython-311.pyc                                      5422 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\__pycache__\_manylinux.cpython-311.pyc                                   11809 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\__pycache__\_musllinux.cpython-311.pyc                                    5405 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\__pycache__\_parser.cpython-311.pyc                                      19107 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\__pycache__\_ranges.cpython-311.pyc                                      32360 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\__pycache__\_structures.cpython-311.pyc                                   1816 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\__pycache__\_tokenizer.cpython-311.pyc                                    9056 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\packaging\__pycache__\__init__.cpython-311.pyc                                       556 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pkg_resources\LICENSE                                                               1023 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pkg_resources\__init__.py                                                         124451 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pkg_resources\__pycache__\__init__.cpython-311.pyc                                176826 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\platformdirs\android.py                                                            10294 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\platformdirs\api.py                                                                27616 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\platformdirs\ios.py                                                                 6892 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\platformdirs\LICENSE                                                                1089 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\platformdirs\macos.py                                                               8152 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\platformdirs\py.typed                                                                  0 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\platformdirs\pytest_plugin.py                                                        824 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\platformdirs\testing.py                                                             2641 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\platformdirs\unix.py                                                               16684 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\platformdirs\version.py                                                              522 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\platformdirs\windows.py                                                            16549 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\platformdirs\_xdg.py                                                                8460 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\platformdirs\__init__.py                                                           43369 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\platformdirs\__main__.py                                                            2045 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\platformdirs\__pycache__\android.cpython-311.pyc                                   15196 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\platformdirs\__pycache__\api.cpython-311.pyc                                       42124 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\platformdirs\__pycache__\ios.cpython-311.pyc                                        9879 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\platformdirs\__pycache__\macos.cpython-311.pyc                                     13198 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\platformdirs\__pycache__\pytest_plugin.cpython-311.pyc                              1326 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\platformdirs\__pycache__\testing.cpython-311.pyc                                    4895 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\platformdirs\__pycache__\unix.cpython-311.pyc                                      26460 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\platformdirs\__pycache__\version.cpython-311.pyc                                     709 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\platformdirs\__pycache__\windows.cpython-311.pyc                                   23435 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\platformdirs\__pycache__\_xdg.cpython-311.pyc                                      15310 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\platformdirs\__pycache__\__init__.cpython-311.pyc                                  34078 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\platformdirs\__pycache__\__main__.cpython-311.pyc                                   2953 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\console.py                                                                 1721 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\filter.py                                                                  1913 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\formatter.py                                                               4393 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\lexer.py                                                                  35395 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\LICENSE                                                                    1331 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\modeline.py                                                                1008 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\plugin.py                                                                  1933 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\regexopt.py                                                                3313 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\scanner.py                                                                 3095 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\sphinxext.py                                                               7984 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\style.py                                                                   6491 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\token.py                                                                   6229 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\unistring.py                                                              63211 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\util.py                                                                   10770 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\__init__.py                                                                2986 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\__main__.py                                                                 356 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\filters\__init__.py                                                       40397 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\filters\__pycache__\__init__.cpython-311.pyc                              40164 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\formatters\_mapping.py                                                     4176 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\formatters\__init__.py                                                     5388 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\formatters\__pycache__\_mapping.cpython-311.pyc                            4218 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\formatters\__pycache__\__init__.cpython-311.pyc                            7778 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\lexers\python.py                                                          54622 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\lexers\_mapping.py                                                        78442 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\lexers\__init__.py                                                        12118 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\lexers\__pycache__\python.cpython-311.pyc                                 44234 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\lexers\__pycache__\_mapping.cpython-311.pyc                               70976 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\lexers\__pycache__\__init__.cpython-311.pyc                               16432 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\styles\_mapping.py                                                         3381 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\styles\__init__.py                                                         2045 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\styles\__pycache__\_mapping.cpython-311.pyc                                3974 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\styles\__pycache__\__init__.cpython-311.pyc                                3107 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\__pycache__\console.cpython-311.pyc                                        3049 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\__pycache__\filter.cpython-311.pyc                                         3496 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\__pycache__\formatter.cpython-311.pyc                                      4979 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\__pycache__\lexer.cpython-311.pyc                                         42458 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\__pycache__\modeline.cpython-311.pyc                                       1723 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\__pycache__\plugin.cpython-311.pyc                                         2935 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\__pycache__\regexopt.cpython-311.pyc                                       5502 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\__pycache__\scanner.cpython-311.pyc                                        4884 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\__pycache__\sphinxext.cpython-311.pyc                                     14017 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\__pycache__\style.cpython-311.pyc                                          7503 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\__pycache__\token.cpython-311.pyc                                          7502 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\__pycache__\unistring.cpython-311.pyc                                     33845 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\__pycache__\util.cpython-311.pyc                                          16586 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\__pycache__\__init__.cpython-311.pyc                                       3830 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pygments\__pycache__\__main__.cpython-311.pyc                                        779 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pyproject_hooks\LICENSE                                                             1081 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pyproject_hooks\py.typed                                                               0 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pyproject_hooks\_impl.py                                                           15780 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pyproject_hooks\__init__.py                                                          743 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pyproject_hooks\_in_process\_in_process.py                                         12856 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pyproject_hooks\_in_process\__init__.py                                              557 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pyproject_hooks\_in_process\__pycache__\_in_process.cpython-311.pyc                18969 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pyproject_hooks\_in_process\__pycache__\__init__.cpython-311.pyc                    1152 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pyproject_hooks\__pycache__\_impl.cpython-311.pyc                                  21542 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\pyproject_hooks\__pycache__\__init__.cpython-311.pyc                                 917 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\adapters.py                                                               28208 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\api.py                                                                     7152 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\auth.py                                                                   12233 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\certs.py                                                                    442 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\compat.py                                                                  2035 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\cookies.py                                                                21549 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\exceptions.py                                                              4576 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\help.py                                                                    4114 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\hooks.py                                                                   1138 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\LICENSE                                                                   10142 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\models.py                                                                 41848 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\packages.py                                                                1057 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\py.typed                                                                      0 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\sessions.py                                                               34248 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\status_codes.py                                                            4351 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\structures.py                                                              4134 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\utils.py                                                                  36334 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\_internal_utils.py                                                         1542 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\_types.py                                                                  5838 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\__init__.py                                                                5869 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\__version__.py                                                              435 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\__pycache__\adapters.cpython-311.pyc                                      31811 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\__pycache__\api.cpython-311.pyc                                            8302 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\__pycache__\auth.cpython-311.pyc                                          17154 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\__pycache__\certs.cpython-311.pyc                                           728 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\__pycache__\compat.cpython-311.pyc                                         2439 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\__pycache__\cookies.cpython-311.pyc                                       30620 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\__pycache__\exceptions.cpython-311.pyc                                     9607 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\__pycache__\help.cpython-311.pyc                                           4434 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\__pycache__\hooks.cpython-311.pyc                                          1881 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\__pycache__\models.cpython-311.pyc                                        45864 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\__pycache__\packages.cpython-311.pyc                                       1342 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\__pycache__\sessions.cpython-311.pyc                                      33934 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\__pycache__\status_codes.cpython-311.pyc                                   6448 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\__pycache__\structures.cpython-311.pyc                                     8201 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\__pycache__\utils.cpython-311.pyc                                         44891 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\__pycache__\_internal_utils.cpython-311.pyc                                2260 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\__pycache__\_types.cpython-311.pyc                                         8722 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\__pycache__\__init__.cpython-311.pyc                                       6585 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\requests\__pycache__\__version__.cpython-311.pyc                                     582 16/11/2026 13:50:54
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\resolvelib\LICENSE                                                                   751 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\resolvelib\providers.py                                                             8914 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\resolvelib\py.typed                                                                    0 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\resolvelib\reporters.py                                                             2037 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\resolvelib\structs.py                                                               6420 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\resolvelib\__init__.py                                                               541 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\resolvelib\resolvers\abstract.py                                                    1543 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\resolvelib\resolvers\criterion.py                                                   1768 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\resolvelib\resolvers\exceptions.py                                                  1768 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\resolvelib\resolvers\resolution.py                                                 24212 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\resolvelib\resolvers\__init__.py                                                     640 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\resolvelib\resolvers\__pycache__\abstract.cpython-311.pyc                           2793 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\resolvelib\resolvers\__pycache__\criterion.cpython-311.pyc                          3530 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\resolvelib\resolvers\__pycache__\exceptions.cpython-311.pyc                         5053 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\resolvelib\resolvers\__pycache__\resolution.cpython-311.pyc                        28072 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\resolvelib\resolvers\__pycache__\__init__.cpython-311.pyc                            889 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\resolvelib\__pycache__\providers.cpython-311.pyc                                   10442 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\resolvelib\__pycache__\reporters.cpython-311.pyc                                    3665 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\resolvelib\__pycache__\structs.cpython-311.pyc                                     14151 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\resolvelib\__pycache__\__init__.cpython-311.pyc                                      753 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\abc.py                                                                          890 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\align.py                                                                      10798 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\ansi.py                                                                        6947 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\bar.py                                                                         3263 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\box.py                                                                        10686 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\cells.py                                                                      12347 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\color.py                                                                      18211 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\color_triplet.py                                                               1054 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\columns.py                                                                     7131 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\console.py                                                                   101421 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\constrain.py                                                                   1288 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\containers.py                                                                  5502 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\control.py                                                                     6487 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\default_styles.py                                                              8437 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\diagnose.py                                                                    1025 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\emoji.py                                                                       2412 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\errors.py                                                                       642 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\filesize.py                                                                    2484 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\file_proxy.py                                                                  1750 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\highlighter.py                                                                 9729 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\json.py                                                                        5031 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\jupyter.py                                                                     3252 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\layout.py                                                                     14004 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\LICENSE                                                                        1056 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\live.py                                                                       15317 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\live_render.py                                                                 3803 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\logging.py                                                                    12634 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\markup.py                                                                      8451 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\measure.py                                                                     5305 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\padding.py                                                                     4908 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\pager.py                                                                        828 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\palette.py                                                                     3396 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\panel.py                                                                      11157 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\pretty.py                                                                     36385 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\progress.py                                                                   60393 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\progress_bar.py                                                                8162 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\prompt.py                                                                     12460 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\protocol.py                                                                    1372 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\py.typed                                                                          0 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\region.py                                                                       166 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\repr.py                                                                        4448 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\rule.py                                                                        4602 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\scope.py                                                                       3251 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\screen.py                                                                      1591 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\segment.py                                                                    25776 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\spinner.py                                                                     4214 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\status.py                                                                      4424 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\style.py                                                                      27068 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\styled.py                                                                      1258 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\syntax.py                                                                     36413 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\table.py                                                                      40057 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\terminal_theme.py                                                              3370 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\text.py                                                                       47667 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\theme.py                                                                       3780 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\themes.py                                                                       102 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\traceback.py                                                                  37607 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\tree.py                                                                        9451 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_emoji_codes.py                                                              140235 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_emoji_replace.py                                                              1067 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_export_format.py                                                              2128 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_extension.py                                                                   265 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_fileno.py                                                                      799 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_inspect.py                                                                    9894 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_log_render.py                                                                 3225 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_loop.py                                                                       1236 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_null_file.py                                                                  1394 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_palettes.py                                                                   7063 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_pick.py                                                                        423 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_ratio.py                                                                      5325 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_spinners.py                                                                  19919 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_stack.py                                                                       351 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_timer.py                                                                       417 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_win32_console.py                                                             22755 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_windows.py                                                                    1925 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_windows_renderer.py                                                           2783 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_wrap.py                                                                       3404 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__init__.py                                                                    6155 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__main__.py                                                                    7869 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\unicode10-0-0.py                                                14508 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\unicode11-0-0.py                                                14886 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\unicode12-0-0.py                                                15228 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\unicode12-1-0.py                                                15201 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\unicode13-0-0.py                                                15531 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\unicode14-0-0.py                                                15896 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\unicode15-0-0.py                                                16168 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\unicode15-1-0.py                                                16141 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\unicode16-0-0.py                                                16492 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\unicode17-0-0.py                                                16716 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\unicode4-1-0.py                                                  9500 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\unicode5-0-0.py                                                  9625 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\unicode5-1-0.py                                                  9662 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\unicode5-2-0.py                                                 10402 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\unicode6-0-0.py                                                 10616 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\unicode6-1-0.py                                                 10911 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\unicode6-2-0.py                                                 10911 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\unicode6-3-0.py                                                 10936 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\unicode7-0-0.py                                                 11642 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\unicode8-0-0.py                                                 11876 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\unicode9-0-0.py                                                 14160 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\_versions.py                                                      298 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\__init__.py                                                      2646 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\__pycache__\unicode10-0-0.cpython-311.pyc                        8714 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\__pycache__\unicode11-0-0.cpython-311.pyc                        8952 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\__pycache__\unicode12-0-0.cpython-311.pyc                        9156 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\__pycache__\unicode12-1-0.cpython-311.pyc                        9139 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\__pycache__\unicode13-0-0.cpython-311.pyc                        9343 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\__pycache__\unicode14-0-0.cpython-311.pyc                        9564 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\__pycache__\unicode15-0-0.cpython-311.pyc                        9734 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\__pycache__\unicode15-1-0.cpython-311.pyc                        9717 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\__pycache__\unicode16-0-0.cpython-311.pyc                        9938 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\__pycache__\unicode17-0-0.cpython-311.pyc                       10074 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\__pycache__\unicode4-1-0.cpython-311.pyc                         5547 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\__pycache__\unicode5-0-0.cpython-311.pyc                         5632 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\__pycache__\unicode5-1-0.cpython-311.pyc                         5683 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\__pycache__\unicode5-2-0.cpython-311.pyc                         6159 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\__pycache__\unicode6-0-0.cpython-311.pyc                         6295 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\__pycache__\unicode6-1-0.cpython-311.pyc                         6482 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\__pycache__\unicode6-2-0.cpython-311.pyc                         6482 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\__pycache__\unicode6-3-0.cpython-311.pyc                         6499 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\__pycache__\unicode7-0-0.cpython-311.pyc                         6944 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\__pycache__\unicode8-0-0.cpython-311.pyc                         7080 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\__pycache__\unicode9-0-0.cpython-311.pyc                         8491 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\__pycache__\_versions.cpython-311.pyc                             377 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\_unicode_data\__pycache__\__init__.cpython-311.pyc                             4093 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\abc.cpython-311.pyc                                                1923 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\align.cpython-311.pyc                                             13872 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\ansi.cpython-311.pyc                                              10585 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\bar.cpython-311.pyc                                                4545 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\box.cpython-311.pyc                                               12816 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\cells.cpython-311.pyc                                             12584 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\color.cpython-311.pyc                                             27775 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\color_triplet.cpython-311.pyc                                      1871 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\columns.cpython-311.pyc                                           10642 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\console.cpython-311.pyc                                          125918 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\constrain.cpython-311.pyc                                          2463 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\containers.cpython-311.pyc                                        10809 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\control.cpython-311.pyc                                           11723 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\default_styles.cpython-311.pyc                                    13241 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\diagnose.cpython-311.pyc                                           1851 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\emoji.cpython-311.pyc                                              4685 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\errors.cpython-311.pyc                                             2327 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\filesize.cpython-311.pyc                                           3266 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\file_proxy.cpython-311.pyc                                         4232 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\highlighter.cpython-311.pyc                                       11417 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\json.cpython-311.pyc                                               6542 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\jupyter.cpython-311.pyc                                            6402 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\layout.cpython-311.pyc                                            23309 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\live.cpython-311.pyc                                              22510 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\live_render.cpython-311.pyc                                        5391 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\logging.cpython-311.pyc                                           15022 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\markup.cpython-311.pyc                                            10760 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\measure.cpython-311.pyc                                            7269 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\padding.cpython-311.pyc                                            7238 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\pager.cpython-311.pyc                                              2243 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\palette.cpython-311.pyc                                            5976 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\panel.cpython-311.pyc                                             13386 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\pretty.cpython-311.pyc                                            44937 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\progress.cpython-311.pyc                                          80106 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\progress_bar.cpython-311.pyc                                      11010 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\prompt.cpython-311.pyc                                            17953 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\protocol.cpython-311.pyc                                           2067 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\region.cpython-311.pyc                                              657 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\repr.cpython-311.pyc                                               7631 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\rule.cpython-311.pyc                                               7163 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\scope.cpython-311.pyc                                              4754 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\screen.cpython-311.pyc                                             2772 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\segment.cpython-311.pyc                                           33038 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\spinner.cpython-311.pyc                                            6691 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\status.cpython-311.pyc                                             6756 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\style.cpython-311.pyc                                             35395 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\styled.cpython-311.pyc                                             2437 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\syntax.cpython-311.pyc                                            43690 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\table.cpython-311.pyc                                             49045 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\terminal_theme.cpython-311.pyc                                     3703 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\text.cpython-311.pyc                                              67655 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\theme.cpython-311.pyc                                              7306 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\themes.cpython-311.pyc                                              353 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\traceback.cpython-311.pyc                                         41354 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\tree.cpython-311.pyc                                              12860 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\_emoji_codes.cpython-311.pyc                                     208518 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\_emoji_replace.cpython-311.pyc                                     1919 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\_export_format.cpython-311.pyc                                     2349 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\_extension.cpython-311.pyc                                          631 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\_fileno.cpython-311.pyc                                             973 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\_inspect.cpython-311.pyc                                          14379 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\_log_render.cpython-311.pyc                                        4765 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\_loop.cpython-311.pyc                                              2111 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\_null_file.cpython-311.pyc                                         4177 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\_palettes.cpython-311.pyc                                          5247 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\_pick.cpython-311.pyc                                               791 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\_ratio.cpython-311.pyc                                             7756 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\_spinners.cpython-311.pyc                                         13680 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\_stack.cpython-311.pyc                                             1126 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\_timer.cpython-311.pyc                                              979 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\_win32_console.cpython-311.pyc                                    29946 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\_windows.cpython-311.pyc                                           2826 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\_windows_renderer.cpython-311.pyc                                  4017 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\_wrap.cpython-311.pyc                                              3853 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\__init__.cpython-311.pyc                                           7557 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\rich\__pycache__\__main__.cpython-311.pyc                                          10699 16/11/2026 13:50:55
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\tomli\LICENSE                                                                       1072 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\tomli\py.typed                                                                        26 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\tomli\_parser.py                                                                   26519 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\tomli\_re.py                                                                        3235 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\tomli\_types.py                                                                      254 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\tomli\__init__.py                                                                    314 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\tomli\__pycache__\_parser.cpython-311.pyc                                          33994 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\tomli\__pycache__\_re.cpython-311.pyc                                               4715 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\tomli\__pycache__\_types.cpython-311.pyc                                             400 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\tomli\__pycache__\__init__.cpython-311.pyc                                           362 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\tomli_w\LICENSE                                                                     1072 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\tomli_w\py.typed                                                                      26 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\tomli_w\_writer.py                                                                  6961 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\tomli_w\__init__.py                                                                  169 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\tomli_w\__pycache__\_writer.cpython-311.pyc                                        12025 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\tomli_w\__pycache__\__init__.cpython-311.pyc                                         345 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\truststore\LICENSE                                                                  1086 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\truststore\py.typed                                                                    0 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\truststore\_api.py                                                                 13222 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\truststore\_macos.py                                                               20503 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\truststore\_openssl.py                                                              2370 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\truststore\_ssl_constants.py                                                        1106 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\truststore\_windows.py                                                             18035 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\truststore\__init__.py                                                              1307 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\truststore\__pycache__\_api.cpython-311.pyc                                        21483 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\truststore\__pycache__\_macos.cpython-311.pyc                                      19819 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\truststore\__pycache__\_openssl.cpython-311.pyc                                     2597 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\truststore\__pycache__\_ssl_constants.cpython-311.pyc                               1063 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\truststore\__pycache__\_windows.cpython-311.pyc                                    17540 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\truststore\__pycache__\__init__.cpython-311.pyc                                     1555 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\connection.py                                                              47903 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\connectionpool.py                                                          45250 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\exceptions.py                                                               9945 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\fields.py                                                                  10801 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\filepost.py                                                                 2388 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\LICENSE.txt                                                                 1093 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\poolmanager.py                                                             25060 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\py.typed                                                                      93 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\response.py                                                                54440 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\_base_connection.py                                                         5580 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\_collections.py                                                            17669 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\_request_methods.py                                                         9931 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\_version.py                                                                  520 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\__init__.py                                                                 6979 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\contrib\pyopenssl.py                                                       21520 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\contrib\socks.py                                                            7566 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\contrib\__init__.py                                                            0 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\contrib\emscripten\connection.py                                            8960 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\contrib\emscripten\emscripten_fetch_worker.js                               3677 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\contrib\emscripten\fetch.py                                                23520 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\contrib\emscripten\request.py                                                566 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\contrib\emscripten\response.py                                              9719 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\contrib\emscripten\__init__.py                                               870 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\contrib\emscripten\__pycache__\connection.cpython-311.pyc                  10761 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\contrib\emscripten\__pycache__\fetch.cpython-311.pyc                       31300 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\contrib\emscripten\__pycache__\request.cpython-311.pyc                      1660 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\contrib\emscripten\__pycache__\response.cpython-311.pyc                    13107 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\contrib\emscripten\__pycache__\__init__.cpython-311.pyc                     1124 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\contrib\__pycache__\pyopenssl.cpython-311.pyc                              31841 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\contrib\__pycache__\socks.cpython-311.pyc                                   8587 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\contrib\__pycache__\__init__.cpython-311.pyc                                 202 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\http2\connection.py                                                        12613 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\http2\probe.py                                                              3014 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\http2\__init__.py                                                           1741 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\http2\__pycache__\connection.cpython-311.pyc                               19063 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\http2\__pycache__\probe.cpython-311.pyc                                     4347 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\http2\__pycache__\__init__.cpython-311.pyc                                  2027 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\util\connection.py                                                          4444 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\util\proxy.py                                                               1148 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\util\request.py                                                             9951 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\util\response.py                                                            3374 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\util\retry.py                                                              20151 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\util\ssltransport.py                                                        8847 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\util\ssl_.py                                                               17856 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\util\ssl_match_hostname.py                                                  5479 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\util\timeout.py                                                            10363 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\util\url.py                                                                19630 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\util\util.py                                                                1146 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\util\wait.py                                                                4423 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\util\__init__.py                                                            1001 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\util\__pycache__\connection.cpython-311.pyc                                 5058 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\util\__pycache__\proxy.cpython-311.pyc                                      1293 16/11/2026 13:50:57
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\util\__pycache__\request.cpython-311.pyc                                   10811 16/11/2026 13:50:57
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\util\__pycache__\response.cpython-311.pyc                                   3367 16/11/2026 13:50:57
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\util\__pycache__\retry.cpython-311.pyc                                     22533 16/11/2026 13:50:57
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\util\__pycache__\ssltransport.cpython-311.pyc                              14326 16/11/2026 13:50:57
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\util\__pycache__\ssl_.cpython-311.pyc                                      16876 16/11/2026 13:50:57
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\util\__pycache__\ssl_match_hostname.cpython-311.pyc                         6091 16/11/2026 13:50:57
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\util\__pycache__\timeout.cpython-311.pyc                                   12097 16/11/2026 13:50:57
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\util\__pycache__\url.cpython-311.pyc                                       22666 16/11/2026 13:50:57
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\util\__pycache__\util.cpython-311.pyc                                       2183 16/11/2026 13:50:57
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\util\__pycache__\wait.cpython-311.pyc                                       3754 16/11/2026 13:50:57
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\util\__pycache__\__init__.cpython-311.pyc                                   1235 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\__pycache__\connection.cpython-311.pyc                                     44112 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\__pycache__\connectionpool.cpython-311.pyc                                 42263 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\__pycache__\exceptions.cpython-311.pyc                                     20096 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\__pycache__\fields.cpython-311.pyc                                         12710 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\__pycache__\filepost.cpython-311.pyc                                        3880 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\__pycache__\poolmanager.cpython-311.pyc                                    26642 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\__pycache__\response.cpython-311.pyc                                       62510 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\__pycache__\_base_connection.cpython-311.pyc                                7123 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\__pycache__\_collections.cpython-311.pyc                                   26487 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\__pycache__\_request_methods.cpython-311.pyc                               10724 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\__pycache__\_version.cpython-311.pyc                                         704 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\urllib3\__pycache__\__init__.cpython-311.pyc                                        7677 16/11/2026 13:50:56
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\_vendor\__pycache__\__init__.cpython-311.pyc                                                5527 16/11/2026 13:50:53
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\__pycache__\__init__.cpython-311.pyc                                                         844 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\__pycache__\__main__.cpython-311.pyc                                                         911 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip\__pycache__\__pip-runner__.cpython-311.pyc                                                  2503 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip-26.3.dist-info\entry_points.txt                                                               82 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip-26.3.dist-info\INSTALLER                                                                       4 16/11/2026 13:50:57
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip-26.3.dist-info\METADATA                                                                     4632 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip-26.3.dist-info\RECORD                                                                      75319 16/11/2026 13:50:57
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip-26.3.dist-info\REQUESTED                                                                       0 16/11/2026 13:50:57
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip-26.3.dist-info\WHEEL                                                                          81 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip-26.3.dist-info\licenses\AUTHORS.txt                                                        12239 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip-26.3.dist-info\licenses\LICENSE.txt                                                         1093 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip-26.3.dist-info\licenses\src\pip\_vendor\cachecontrol\LICENSE.txt                             558 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip-26.3.dist-info\licenses\src\pip\_vendor\certifi\LICENSE                                      989 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip-26.3.dist-info\licenses\src\pip\_vendor\distlib\LICENSE.txt                                14531 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip-26.3.dist-info\licenses\src\pip\_vendor\distro\LICENSE                                     11325 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip-26.3.dist-info\licenses\src\pip\_vendor\idna\LICENSE.md                                     1541 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip-26.3.dist-info\licenses\src\pip\_vendor\msgpack\COPYING                                      614 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip-26.3.dist-info\licenses\src\pip\_vendor\packaging\LICENSE                                    197 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip-26.3.dist-info\licenses\src\pip\_vendor\packaging\LICENSE.APACHE                           10174 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip-26.3.dist-info\licenses\src\pip\_vendor\packaging\LICENSE.BSD                               1344 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip-26.3.dist-info\licenses\src\pip\_vendor\pkg_resources\LICENSE                               1023 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip-26.3.dist-info\licenses\src\pip\_vendor\platformdirs\LICENSE                                1089 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip-26.3.dist-info\licenses\src\pip\_vendor\pygments\LICENSE                                    1331 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip-26.3.dist-info\licenses\src\pip\_vendor\pyproject_hooks\LICENSE                             1081 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip-26.3.dist-info\licenses\src\pip\_vendor\requests\LICENSE                                   10142 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip-26.3.dist-info\licenses\src\pip\_vendor\resolvelib\LICENSE                                   751 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip-26.3.dist-info\licenses\src\pip\_vendor\rich\LICENSE                                        1056 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip-26.3.dist-info\licenses\src\pip\_vendor\tomli\LICENSE                                       1072 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip-26.3.dist-info\licenses\src\pip\_vendor\tomli_w\LICENSE                                     1072 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip-26.3.dist-info\licenses\src\pip\_vendor\truststore\LICENSE                                  1086 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pip-26.3.dist-info\licenses\src\pip\_vendor\urllib3\LICENSE.txt                                 1093 16/11/2026 13:50:51
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\__init__.py                                                                     108568 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\extern\__init__.py                                                                2426 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\extern\__pycache__\__init__.cpython-311.pyc                                       4315 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\appdirs.py                                                               24701 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\zipp.py                                                                   8425 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\__init__.py                                                                  0 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\importlib_resources\abc.py                                                3886 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\importlib_resources\readers.py                                            3566 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\importlib_resources\simple.py                                             2836 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\importlib_resources\_adapters.py                                          4504 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\importlib_resources\_common.py                                            2741 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\importlib_resources\_compat.py                                            2706 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\importlib_resources\_itertools.py                                          884 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\importlib_resources\_legacy.py                                            3494 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\importlib_resources\__init__.py                                            506 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\importlib_resources\__pycache__\abc.cpython-311.pyc                       7491 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\importlib_resources\__pycache__\readers.cpython-311.pyc                   8365 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\importlib_resources\__pycache__\simple.cpython-311.pyc                    6387 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\importlib_resources\__pycache__\_adapters.cpython-311.pyc                10747 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\importlib_resources\__pycache__\_common.cpython-311.pyc                   4274 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\importlib_resources\__pycache__\_compat.cpython-311.pyc                   5559 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\importlib_resources\__pycache__\_itertools.cpython-311.pyc                1392 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\importlib_resources\__pycache__\_legacy.cpython-311.pyc                   6490 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\importlib_resources\__pycache__\__init__.cpython-311.pyc                   830 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\jaraco\context.py                                                         5420 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\jaraco\functools.py                                                      13515 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\jaraco\__init__.py                                                           0 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\jaraco\text\__init__.py                                                  15526 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\jaraco\text\__pycache__\__init__.cpython-311.pyc                         26606 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\jaraco\__pycache__\context.cpython-311.pyc                                9426 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\jaraco\__pycache__\functools.cpython-311.pyc                             20289 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\jaraco\__pycache__\__init__.cpython-311.pyc                                203 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\more_itertools\more.py                                                  132569 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\more_itertools\recipes.py                                                18410 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\more_itertools\__init__.py                                                  83 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\more_itertools\__pycache__\more.cpython-311.pyc                         167958 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\more_itertools\__pycache__\recipes.cpython-311.pyc                       26949 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\more_itertools\__pycache__\__init__.cpython-311.pyc                        297 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\packaging\markers.py                                                      8496 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\packaging\requirements.py                                                 4706 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\packaging\specifiers.py                                                  30110 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\packaging\tags.py                                                        15699 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\packaging\utils.py                                                        4200 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\packaging\version.py                                                     14665 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\packaging\_manylinux.py                                                  11488 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\packaging\_musllinux.py                                                   4378 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\packaging\_structures.py                                                  1431 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\packaging\__about__.py                                                     661 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\packaging\__init__.py                                                      497 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\packaging\__pycache__\markers.cpython-311.pyc                            16539 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\packaging\__pycache__\requirements.cpython-311.pyc                        7654 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\packaging\__pycache__\specifiers.cpython-311.pyc                         34368 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\packaging\__pycache__\tags.cpython-311.pyc                               21353 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\packaging\__pycache__\utils.cpython-311.pyc                               6688 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\packaging\__pycache__\version.cpython-311.pyc                            21880 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\packaging\__pycache__\_manylinux.cpython-311.pyc                         13234 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\packaging\__pycache__\_musllinux.cpython-311.pyc                          8002 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\packaging\__pycache__\_structures.cpython-311.pyc                         3690 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\packaging\__pycache__\__about__.cpython-311.pyc                            647 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\packaging\__pycache__\__init__.cpython-311.pyc                             568 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\pyparsing\actions.py                                                      6426 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\pyparsing\common.py                                                      12936 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\pyparsing\core.py                                                       213310 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\pyparsing\exceptions.py                                                   9023 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\pyparsing\helpers.py                                                     39129 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\pyparsing\results.py                                                     25341 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\pyparsing\testing.py                                                     13402 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\pyparsing\unicode.py                                                     10787 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\pyparsing\util.py                                                         6805 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\pyparsing\__init__.py                                                     9159 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\pyparsing\diagram\__init__.py                                            23668 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\pyparsing\diagram\__pycache__\__init__.cpython-311.pyc                   28004 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\pyparsing\__pycache__\actions.cpython-311.pyc                             8467 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\pyparsing\__pycache__\common.cpython-311.pyc                             14789 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\pyparsing\__pycache__\core.cpython-311.pyc                              277641 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\pyparsing\__pycache__\exceptions.cpython-311.pyc                         12931 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\pyparsing\__pycache__\helpers.cpython-311.pyc                            53632 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\pyparsing\__pycache__\results.cpython-311.pyc                            36315 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\pyparsing\__pycache__\testing.cpython-311.pyc                            19511 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\pyparsing\__pycache__\unicode.cpython-311.pyc                            15369 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\pyparsing\__pycache__\util.cpython-311.pyc                               14268 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\pyparsing\__pycache__\__init__.cpython-311.pyc                            8341 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\__pycache__\appdirs.cpython-311.pyc                                      29444 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\__pycache__\zipp.cpython-311.pyc                                         15989 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\_vendor\__pycache__\__init__.cpython-311.pyc                                       196 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\pkg_resources\__pycache__\__init__.cpython-311.pyc                                            159568 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\abc.py                                                                                  7965 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\adapt.py                                                                                5437 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\client_cursor.py                                                                        2681 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\connection.py                                                                          21325 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\connection_async.py                                                                    23623 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\conninfo.py                                                                             4470 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\copy.py                                                                                  806 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\cursor.py                                                                              11116 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\cursor_async.py                                                                        11426 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\dbapi20.py                                                                              3309 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\errors.py                                                                              46563 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\generators.py                                                                          12462 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\postgres.py                                                                             6439 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\py.typed                                                                                   0 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\raw_cursor.py                                                                           1159 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\rows.py                                                                                 7959 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\sql.py                                                                                 19116 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\transaction.py                                                                         10964 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\version.py                                                                               232 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\waiting.py                                                                             21050 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\_acompat.py                                                                             2238 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\_adapters_map.py                                                                       11008 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\_capabilities.py                                                                        5387 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\_cmodule.py                                                                              872 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\_column.py                                                                              3004 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\_compat.py                                                                              1504 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\_connection_base.py                                                                    24343 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\_connection_info.py                                                                     6680 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\_conninfo_attempts.py                                                                   3501 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\_conninfo_attempts_async.py                                                             3590 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\_conninfo_utils.py                                                                      3164 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\_copy.py                                                                               11045 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\_copy_async.py                                                                         11292 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\_copy_base.py                                                                          14446 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\_cursor_base.py                                                                        23103 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\_dns.py                                                                                 8006 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\_encodings.py                                                                           4599 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\_enums.py                                                                               1691 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\_oids.py                                                                                1875 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\_pipeline.py                                                                            2165 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\_pipeline_async.py                                                                      2108 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\_pipeline_base.py                                                                       6669 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\_preparing.py                                                                           6398 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\_py_transformer.py                                                                     11919 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\_queries.py                                                                            15724 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\_server_cursor.py                                                                       4662 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\_server_cursor_async.py                                                                 4711 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\_server_cursor_base.py                                                                  7537 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\_struct.py                                                                              2000 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\_tpc.py                                                                                 3529 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\_transformer.py                                                                          451 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\_tstrings.py                                                                            5617 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\_typeinfo.py                                                                           10644 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\_typemod.py                                                                             3165 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\_tz.py                                                                                  1186 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\_wrappers.py                                                                            3126 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__init__.py                                                                             3423 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\crdb\connection.py                                                                      2758 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\crdb\_types.py                                                                          7296 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\crdb\__init__.py                                                                         439 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\crdb\__pycache__\connection.cpython-311.pyc                                             5521 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\crdb\__pycache__\_types.cpython-311.pyc                                                10860 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\crdb\__pycache__\__init__.cpython-311.pyc                                                685 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\pq\abc.py                                                                               8095 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\pq\misc.py                                                                              6726 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\pq\pq_ctypes.py                                                                        42415 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\pq\_debug.py                                                                            3098 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\pq\_enums.py                                                                            6004 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\pq\_pq_ctypes.py                                                                       22497 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\pq\_pq_ctypes.pyi                                                                      10320 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\pq\__init__.py                                                                          3976 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\pq\__pycache__\abc.cpython-311.pyc                                                     21231 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\pq\__pycache__\misc.cpython-311.pyc                                                     9805 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\pq\__pycache__\pq_ctypes.cpython-311.pyc                                               69778 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\pq\__pycache__\_debug.cpython-311.pyc                                                   6018 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\pq\__pycache__\_enums.cpython-311.pyc                                                   6318 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\pq\__pycache__\_pq_ctypes.cpython-311.pyc                                              21925 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\pq\__pycache__\__init__.cpython-311.pyc                                                 4670 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\types\array.py                                                                         17027 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\types\bool.py                                                                           1163 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\types\composite.py                                                                     18725 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\types\datetime.py                                                                      25585 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\types\enum.py                                                                           7479 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\types\hstore.py                                                                         7076 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\types\json.py                                                                           9713 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\types\multirange.py                                                                    18829 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\types\net.py                                                                            6732 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\types\none.py                                                                            666 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\types\numeric.py                                                                       17498 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\types\numpy.py                                                                          3273 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\types\range.py                                                                         23533 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\types\shapely.py                                                                        2594 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\types\string.py                                                                         7547 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\types\uuid.py                                                                           1589 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\types\__init__.py                                                                        181 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\types\__pycache__\array.cpython-311.pyc                                                27449 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\types\__pycache__\bool.cpython-311.pyc                                                  3208 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\types\__pycache__\composite.cpython-311.pyc                                            28205 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\types\__pycache__\datetime.cpython-311.pyc                                             44468 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\types\__pycache__\enum.cpython-311.pyc                                                 13160 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\types\__pycache__\hstore.cpython-311.pyc                                               12159 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\types\__pycache__\json.cpython-311.pyc                                                 14901 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\types\__pycache__\multirange.cpython-311.pyc                                           32377 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\types\__pycache__\net.cpython-311.pyc                                                  12584 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\types\__pycache__\none.cpython-311.pyc                                                  1635 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\types\__pycache__\numeric.cpython-311.pyc                                              30313 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\types\__pycache__\numpy.cpython-311.pyc                                                 6557 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\types\__pycache__\range.cpython-311.pyc                                                38292 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\types\__pycache__\shapely.cpython-311.pyc                                               5708 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\types\__pycache__\string.cpython-311.pyc                                               13281 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\types\__pycache__\uuid.cpython-311.pyc                                                  3997 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\types\__pycache__\__init__.cpython-311.pyc                                               355 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\abc.cpython-311.pyc                                                        12863 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\adapt.cpython-311.pyc                                                       6854 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\client_cursor.cpython-311.pyc                                               4359 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\connection.cpython-311.pyc                                                 32060 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\connection_async.cpython-311.pyc                                           37535 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\conninfo.cpython-311.pyc                                                    5954 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\copy.cpython-311.pyc                                                        1638 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\cursor.cpython-311.pyc                                                     18468 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\cursor_async.cpython-311.pyc                                               20586 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\dbapi20.cpython-311.pyc                                                     7260 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\errors.cpython-311.pyc                                                     95129 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\generators.cpython-311.pyc                                                 14683 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\postgres.cpython-311.pyc                                                    9347 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\raw_cursor.cpython-311.pyc                                                  2392 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\rows.cpython-311.pyc                                                       13261 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\sql.cpython-311.pyc                                                        28495 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\transaction.cpython-311.pyc                                                17161 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\version.cpython-311.pyc                                                      508 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\waiting.cpython-311.pyc                                                    24968 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\_acompat.cpython-311.pyc                                                    4088 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\_adapters_map.cpython-311.pyc                                              13585 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\_capabilities.cpython-311.pyc                                               7421 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\_cmodule.cpython-311.pyc                                                    1021 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\_column.cpython-311.pyc                                                     6043 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\_compat.cpython-311.pyc                                                     2603 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\_connection_base.cpython-311.pyc                                           34180 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\_connection_info.cpython-311.pyc                                           11103 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\_conninfo_attempts.cpython-311.pyc                                          4912 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\_conninfo_attempts_async.cpython-311.pyc                                    5149 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\_conninfo_utils.cpython-311.pyc                                             5414 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\_copy.cpython-311.pyc                                                      15376 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\_copy_async.cpython-311.pyc                                                16558 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\_copy_base.cpython-311.pyc                                                 19684 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\_cursor_base.cpython-311.pyc                                               30127 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\_dns.cpython-311.pyc                                                       13394 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\_encodings.cpython-311.pyc                                                  6351 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\_enums.cpython-311.pyc                                                      2765 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\_oids.cpython-311.pyc                                                       2531 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\_pipeline.cpython-311.pyc                                                   4668 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\_pipeline_async.cpython-311.pyc                                             5237 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\_pipeline_base.cpython-311.pyc                                             10149 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\_preparing.cpython-311.pyc                                                  9162 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\_py_transformer.cpython-311.pyc                                            16681 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\_queries.cpython-311.pyc                                                   21374 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\_server_cursor.cpython-311.pyc                                              8851 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\_server_cursor_async.cpython-311.pyc                                       10343 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\_server_cursor_base.cpython-311.pyc                                        12000 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\_struct.cpython-311.pyc                                                     3901 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\_tpc.cpython-311.pyc                                                        6155 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\_transformer.cpython-311.pyc                                                 725 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\_tstrings.cpython-311.pyc                                                   9655 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\_typeinfo.cpython-311.pyc                                                  17892 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\_typemod.cpython-311.pyc                                                    5901 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\_tz.cpython-311.pyc                                                         2109 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\_wrappers.cpython-311.pyc                                                   7300 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg\__pycache__\__init__.cpython-311.pyc                                                    3631 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg-3.3.9.dist-info\INSTALLER                                                                  4 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg-3.3.9.dist-info\METADATA                                                                4369 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg-3.3.9.dist-info\RECORD                                                                 11516 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg-3.3.9.dist-info\REQUESTED                                                                  0 16/11/2026 13:51:08
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg-3.3.9.dist-info\top_level.txt                                                              8 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg-3.3.9.dist-info\WHEEL                                                                     91 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg-3.3.9.dist-info\licenses\LICENSE.txt                                                    7652 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg_binary\pq.cp311-win_amd64.pyd                                                         244736 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg_binary\py.typed                                                                            0 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg_binary\version.py                                                                        258 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg_binary\_psycopg.cp311-win_amd64.pyd                                                   592384 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg_binary\_psycopg.pyi                                                                     3354 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg_binary\__init__.py                                                                       747 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg_binary\__pycache__\version.cpython-311.pyc                                               530 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg_binary\__pycache__\__init__.cpython-311.pyc                                             1228 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg_binary-3.3.9.dist-info\DELVEWHEEL                                                        460 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg_binary-3.3.9.dist-info\INSTALLER                                                           4 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg_binary-3.3.9.dist-info\METADATA                                                         2777 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg_binary-3.3.9.dist-info\RECORD                                                           1654 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg_binary-3.3.9.dist-info\top_level.txt                                                      15 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg_binary-3.3.9.dist-info\WHEEL                                                             101 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg_binary-3.3.9.dist-info\licenses\LICENSE.txt                                             7817 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg_binary.libs\libcrypto-3-x64-603336241ac4aead8eb72978e6c2590a.dll                     5270528 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg_binary.libs\libpq-16d00050fdffffeae97527f26415b111.dll                                334848 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\psycopg_binary.libs\libssl-3-x64-237d8d45fc53d319080edc5a2b23511f.dll                         866816 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\python_dotenv-1.2.4.dist-info\entry_points.txt                                                    47 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\python_dotenv-1.2.4.dist-info\INSTALLER                                                            4 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\python_dotenv-1.2.4.dist-info\METADATA                                                         29979 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\python_dotenv-1.2.4.dist-info\RECORD                                                            1833 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\python_dotenv-1.2.4.dist-info\REQUESTED                                                            0 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\python_dotenv-1.2.4.dist-info\top_level.txt                                                        7 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\python_dotenv-1.2.4.dist-info\WHEEL                                                               91 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\python_dotenv-1.2.4.dist-info\licenses\LICENSE                                                  1556 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\adapters.py                                                                           28064 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\api.py                                                                                 7152 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\auth.py                                                                               12233 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\certs.py                                                                                430 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\compat.py                                                                              2465 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\cookies.py                                                                            21549 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\exceptions.py                                                                          4564 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\help.py                                                                                4210 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\hooks.py                                                                               1138 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\models.py                                                                             41783 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\packages.py                                                                             904 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\py.typed                                                                                  0 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\sessions.py                                                                           34248 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\status_codes.py                                                                        4351 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\structures.py                                                                          4134 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\utils.py                                                                              36322 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\_internal_utils.py                                                                     1542 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\_types.py                                                                              5838 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\__init__.py                                                                            5922 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\__version__.py                                                                          435 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\__pycache__\adapters.cpython-311.pyc                                                  31726 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\__pycache__\api.cpython-311.pyc                                                        8290 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\__pycache__\auth.cpython-311.pyc                                                      17142 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\__pycache__\certs.cpython-311.pyc                                                       704 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\__pycache__\compat.cpython-311.pyc                                                     2967 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\__pycache__\cookies.cpython-311.pyc                                                   30608 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\__pycache__\exceptions.cpython-311.pyc                                                 9583 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\__pycache__\help.cpython-311.pyc                                                       4557 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\__pycache__\hooks.cpython-311.pyc                                                      1869 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\__pycache__\models.cpython-311.pyc                                                    45771 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\__pycache__\packages.cpython-311.pyc                                                   1157 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\__pycache__\sessions.cpython-311.pyc                                                  33922 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\__pycache__\status_codes.cpython-311.pyc                                               6436 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\__pycache__\structures.cpython-311.pyc                                                 8189 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\__pycache__\utils.cpython-311.pyc                                                     44867 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\__pycache__\_internal_utils.cpython-311.pyc                                            2248 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\__pycache__\_types.cpython-311.pyc                                                     8710 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\__pycache__\__init__.cpython-311.pyc                                                   6745 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests\__pycache__\__version__.cpython-311.pyc                                                 570 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests-2.34.2.dist-info\INSTALLER                                                                4 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests-2.34.2.dist-info\METADATA                                                              4806 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests-2.34.2.dist-info\RECORD                                                                3153 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests-2.34.2.dist-info\REQUESTED                                                                0 16/11/2026 13:51:07
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests-2.34.2.dist-info\top_level.txt                                                            9 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests-2.34.2.dist-info\WHEEL                                                                   91 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests-2.34.2.dist-info\licenses\LICENSE                                                     10142 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\requests-2.34.2.dist-info\licenses\NOTICE                                                         38 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\archive_util.py                                                                      7346 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\build_meta.py                                                                       19539 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\cli-32.exe                                                                          65536 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\cli-64.exe                                                                          74752 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\cli-arm64.exe                                                                      137216 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\cli.exe                                                                             65536 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\depends.py                                                                           5499 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\dep_util.py                                                                           949 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\discovery.py                                                                        20799 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\dist.py                                                                             45578 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\errors.py                                                                            2464 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\extension.py                                                                         5591 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\glob.py                                                                              4873 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\gui-32.exe                                                                          65536 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\gui-64.exe                                                                          75264 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\gui-arm64.exe                                                                      137728 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\gui.exe                                                                             65536 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\installer.py                                                                         3824 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\launch.py                                                                             812 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\logging.py                                                                           1210 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\monkey.py                                                                            4857 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\msvc.py                                                                             47724 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\namespaces.py                                                                        3093 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\package_index.py                                                                    40020 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\py34compat.py                                                                         245 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\sandbox.py                                                                          14348 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\script (dev).tmpl                                                                     218 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\script.tmpl                                                                           138 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\unicode_utils.py                                                                      941 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\version.py                                                                            144 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\wheel.py                                                                             8376 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\windows_support.py                                                                    718 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_deprecation_warning.py                                                               218 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_entry_points.py                                                                     1972 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_imp.py                                                                              2392 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_importlib.py                                                                        1311 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_itertools.py                                                                         675 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_path.py                                                                              749 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_reqs.py                                                                              501 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\__init__.py                                                                          8429 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\alias.py                                                                     2381 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\bdist_egg.py                                                                16623 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\bdist_rpm.py                                                                 1182 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\build.py                                                                     6595 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\build_clib.py                                                                4415 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\build_ext.py                                                                15821 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\build_py.py                                                                 14115 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\develop.py                                                                   7012 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\dist_info.py                                                                 4800 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\easy_install.py                                                             85662 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\editable_wheel.py                                                           31188 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\egg_info.py                                                                 26795 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\install.py                                                                   5163 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\install_egg_info.py                                                          2226 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\install_lib.py                                                               3875 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\install_scripts.py                                                           2612 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\launcher manifest.xml                                                         628 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\py36compat.py                                                                4946 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\register.py                                                                   468 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\rotate.py                                                                    2128 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\saveopts.py                                                                   658 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\sdist.py                                                                     7071 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\setopt.py                                                                    5086 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\test.py                                                                      8102 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\upload.py                                                                     462 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\upload_docs.py                                                               7494 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\__init__.py                                                                   396 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\__pycache__\alias.cpython-311.pyc                                            3901 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\__pycache__\bdist_egg.cpython-311.pyc                                       25583 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\__pycache__\bdist_rpm.cpython-311.pyc                                        2189 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\__pycache__\build.cpython-311.pyc                                            6995 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\__pycache__\build_clib.cpython-311.pyc                                       4122 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\__pycache__\build_ext.cpython-311.pyc                                       22009 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\__pycache__\build_py.cpython-311.pyc                                        23175 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\__pycache__\develop.cpython-311.pyc                                         10917 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\__pycache__\dist_info.cpython-311.pyc                                        7979 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\__pycache__\easy_install.cpython-311.pyc                                   119334 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\__pycache__\editable_wheel.cpython-311.pyc                                  51412 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\__pycache__\egg_info.cpython-311.pyc                                        39832 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\__pycache__\install.cpython-311.pyc                                          6814 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\__pycache__\install_egg_info.cpython-311.pyc                                 4127 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\__pycache__\install_lib.cpython-311.pyc                                      6409 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\__pycache__\install_scripts.cpython-311.pyc                                  4278 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\__pycache__\py36compat.cpython-311.pyc                                       8035 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\__pycache__\register.cpython-311.pyc                                         1125 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\__pycache__\rotate.cpython-311.pyc                                           4185 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\__pycache__\saveopts.cpython-311.pyc                                         1365 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\__pycache__\sdist.cpython-311.pyc                                           13437 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\__pycache__\setopt.cpython-311.pyc                                           7677 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\__pycache__\test.cpython-311.pyc                                            14618 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\__pycache__\upload.cpython-311.pyc                                           1089 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\__pycache__\upload_docs.cpython-311.pyc                                     11940 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\command\__pycache__\__init__.cpython-311.pyc                                          634 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\config\expand.py                                                                    16319 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\config\pyprojecttoml.py                                                             19304 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\config\setupcfg.py                                                                  25198 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\config\_apply_pyprojecttoml.py                                                      13398 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\config\__init__.py                                                                   1121 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\config\_validate_pyproject\error_reporting.py                                       11266 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\config\_validate_pyproject\extra_validations.py                                      1153 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\config\_validate_pyproject\fastjsonschema_exceptions.py                              1612 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\config\_validate_pyproject\fastjsonschema_validations.py                           269900 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\config\_validate_pyproject\formats.py                                                8736 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\config\_validate_pyproject\__init__.py                                               1038 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\config\_validate_pyproject\__pycache__\error_reporting.cpython-311.pyc              20208 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\config\_validate_pyproject\__pycache__\extra_validations.cpython-311.pyc             1866 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\config\_validate_pyproject\__pycache__\fastjsonschema_exceptions.cpython-311.pyc     3241 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\config\_validate_pyproject\__pycache__\fastjsonschema_validations.cpython-311.pyc  192639 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\config\_validate_pyproject\__pycache__\formats.cpython-311.pyc                      14356 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\config\_validate_pyproject\__pycache__\__init__.cpython-311.pyc                      2317 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\config\__pycache__\expand.cpython-311.pyc                                           28243 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\config\__pycache__\pyprojecttoml.cpython-311.pyc                                    27441 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\config\__pycache__\setupcfg.cpython-311.pyc                                         33025 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\config\__pycache__\_apply_pyprojecttoml.cpython-311.pyc                             22532 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\config\__pycache__\__init__.cpython-311.pyc                                          2029 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\extern\__init__.py                                                                   2512 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\extern\__pycache__\__init__.cpython-311.pyc                                          4393 16/11/2026 13:50:42
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\archive_util.py                                                           8603 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\bcppcompiler.py                                                          14789 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\ccompiler.py                                                             47369 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\cmd.py                                                                   17973 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\config.py                                                                 4920 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\core.py                                                                   9451 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\cygwinccompiler.py                                                       12537 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\debug.py                                                                   139 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\dep_util.py                                                               3423 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\dir_util.py                                                               8082 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\dist.py                                                                  50186 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\errors.py                                                                 3589 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\extension.py                                                             10270 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\fancy_getopt.py                                                          17910 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\filelist.py                                                              13713 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\file_util.py                                                              8226 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\log.py                                                                    1972 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\msvc9compiler.py                                                         30235 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\msvccompiler.py                                                          23602 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\py38compat.py                                                              217 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\py39compat.py                                                              639 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\spawn.py                                                                  3517 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\sysconfig.py                                                             18858 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\text_file.py                                                             12096 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\unixccompiler.py                                                         15641 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\util.py                                                                  18128 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\version.py                                                               12952 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\versionpredicate.py                                                       5248 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\_collections.py                                                           1330 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\_functools.py                                                              411 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\_macos_compat.py                                                           239 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\_msvccompiler.py                                                         19672 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\__init__.py                                                                537 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\bdist.py                                                          5441 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\bdist_dumb.py                                                     4701 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\bdist_rpm.py                                                     22051 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\build.py                                                          5617 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\build_clib.py                                                     7728 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\build_ext.py                                                     31558 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\build_py.py                                                      16568 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\build_scripts.py                                                  5624 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\check.py                                                          4888 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\clean.py                                                          2603 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\config.py                                                        13137 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\install.py                                                       30221 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\install_data.py                                                   2779 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\install_egg_info.py                                               2785 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\install_headers.py                                                1189 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\install_lib.py                                                    8434 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\install_scripts.py                                                1936 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\py37compat.py                                                      672 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\register.py                                                      11765 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\sdist.py                                                         19241 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\upload.py                                                         7477 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\_framework_compat.py                                              1614 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\__init__.py                                                        430 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\__pycache__\bdist.cpython-311.pyc                                 6036 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\__pycache__\bdist_dumb.cpython-311.pyc                            5761 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\__pycache__\bdist_rpm.cpython-311.pyc                            23295 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\__pycache__\build.cpython-311.pyc                                 6091 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\__pycache__\build_clib.cpython-311.pyc                            7794 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\__pycache__\build_ext.cpython-311.pyc                            30336 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\__pycache__\build_py.cpython-311.pyc                             17612 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\__pycache__\build_scripts.cpython-311.pyc                         7863 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\__pycache__\check.cpython-311.pyc                                 7525 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\__pycache__\clean.cpython-311.pyc                                 3193 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\__pycache__\config.cpython-311.pyc                               16256 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\__pycache__\install.cpython-311.pyc                              29444 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\__pycache__\install_data.cpython-311.pyc                          3778 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\__pycache__\install_egg_info.cpython-311.pyc                      5204 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\__pycache__\install_headers.cpython-311.pyc                       2361 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\__pycache__\install_lib.cpython-311.pyc                           8693 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\__pycache__\install_scripts.cpython-311.pyc                       3158 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\__pycache__\py37compat.cpython-311.pyc                            1539 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\__pycache__\register.cpython-311.pyc                             15525 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\__pycache__\sdist.cpython-311.pyc                                23833 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\__pycache__\upload.cpython-311.pyc                               10474 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\__pycache__\_framework_compat.cpython-311.pyc                     2783 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\command\__pycache__\__init__.cpython-311.pyc                               542 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\__pycache__\archive_util.cpython-311.pyc                                 10657 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\__pycache__\bcppcompiler.cpython-311.pyc                                 13483 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\__pycache__\ccompiler.cpython-311.pyc                                    46382 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\__pycache__\cmd.cpython-311.pyc                                          18896 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\__pycache__\config.cpython-311.pyc                                        6045 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\__pycache__\core.cpython-311.pyc                                          9989 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\__pycache__\cygwinccompiler.cpython-311.pyc                              13613 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\__pycache__\debug.cpython-311.pyc                                          322 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\__pycache__\dep_util.cpython-311.pyc                                      3989 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\__pycache__\dir_util.cpython-311.pyc                                     10364 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\__pycache__\dist.cpython-311.pyc                                         55411 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\__pycache__\errors.cpython-311.pyc                                        6795 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\__pycache__\extension.cpython-311.pyc                                    10176 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\__pycache__\fancy_getopt.cpython-311.pyc                                 17241 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\__pycache__\filelist.cpython-311.pyc                                     17630 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\__pycache__\file_util.cpython-311.pyc                                    10684 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\__pycache__\log.cpython-311.pyc                                           3930 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\__pycache__\msvc9compiler.cpython-311.pyc                                33588 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\__pycache__\msvccompiler.cpython-311.pyc                                 26990 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\__pycache__\py38compat.cpython-311.pyc                                     622 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\__pycache__\py39compat.cpython-311.pyc                                     990 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\__pycache__\spawn.cpython-311.pyc                                         4459 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\__pycache__\sysconfig.cpython-311.pyc                                    21986 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\__pycache__\text_file.cpython-311.pyc                                    11271 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\__pycache__\unixccompiler.cpython-311.pyc                                16527 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\__pycache__\util.cpython-311.pyc                                         20881 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\__pycache__\version.cpython-311.pyc                                      11346 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\__pycache__\versionpredicate.cpython-311.pyc                              7747 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\__pycache__\_collections.cpython-311.pyc                                  2920 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\__pycache__\_functools.cpython-311.pyc                                     861 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\__pycache__\_macos_compat.cpython-311.pyc                                  570 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\__pycache__\_msvccompiler.cpython-311.pyc                                25105 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_distutils\__pycache__\__init__.cpython-311.pyc                                       770 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\ordered_set.py                                                              15130 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\typing_extensions.py                                                        87149 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\zipp.py                                                                      8425 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\__init__.py                                                                     0 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\importlib_metadata\_adapters.py                                              1862 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\importlib_metadata\_collections.py                                            743 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\importlib_metadata\_compat.py                                                1828 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\importlib_metadata\_functools.py                                             2895 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\importlib_metadata\_itertools.py                                             2068 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\importlib_metadata\_meta.py                                                  1154 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\importlib_metadata\_text.py                                                  2166 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\importlib_metadata\__init__.py                                              30130 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\importlib_metadata\__pycache__\_adapters.cpython-311.pyc                     3845 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\importlib_metadata\__pycache__\_collections.cpython-311.pyc                  2192 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\importlib_metadata\__pycache__\_compat.cpython-311.pyc                       2714 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\importlib_metadata\__pycache__\_functools.cpython-311.pyc                    3632 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\importlib_metadata\__pycache__\_itertools.cpython-311.pyc                    2595 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\importlib_metadata\__pycache__\_meta.cpython-311.pyc                         2999 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\importlib_metadata\__pycache__\_text.cpython-311.pyc                         4390 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\importlib_metadata\__pycache__\__init__.cpython-311.pyc                     58232 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\importlib_resources\abc.py                                                   3886 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\importlib_resources\readers.py                                               3566 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\importlib_resources\simple.py                                                2836 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\importlib_resources\_adapters.py                                             4504 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\importlib_resources\_common.py                                               2741 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\importlib_resources\_compat.py                                               2706 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\importlib_resources\_itertools.py                                             884 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\importlib_resources\_legacy.py                                               3494 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\importlib_resources\__init__.py                                               506 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\importlib_resources\__pycache__\abc.cpython-311.pyc                          7488 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\importlib_resources\__pycache__\readers.cpython-311.pyc                      8362 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\importlib_resources\__pycache__\simple.cpython-311.pyc                       6384 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\importlib_resources\__pycache__\_adapters.cpython-311.pyc                   10744 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\importlib_resources\__pycache__\_common.cpython-311.pyc                      4271 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\importlib_resources\__pycache__\_compat.cpython-311.pyc                      5556 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\importlib_resources\__pycache__\_itertools.cpython-311.pyc                   1389 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\importlib_resources\__pycache__\_legacy.cpython-311.pyc                      6487 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\importlib_resources\__pycache__\__init__.cpython-311.pyc                      827 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\jaraco\context.py                                                            5420 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\jaraco\functools.py                                                         13512 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\jaraco\__init__.py                                                              0 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\jaraco\text\__init__.py                                                     15517 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\jaraco\text\__pycache__\__init__.cpython-311.pyc                            26594 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\jaraco\__pycache__\context.cpython-311.pyc                                   9423 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\jaraco\__pycache__\functools.cpython-311.pyc                                20280 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\jaraco\__pycache__\__init__.cpython-311.pyc                                   200 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\more_itertools\more.py                                                     117959 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\more_itertools\recipes.py                                                   16256 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\more_itertools\__init__.py                                                     82 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\more_itertools\__pycache__\more.cpython-311.pyc                            149180 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\more_itertools\__pycache__\recipes.cpython-311.pyc                          23762 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\more_itertools\__pycache__\__init__.cpython-311.pyc                           293 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\packaging\markers.py                                                         8493 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\packaging\requirements.py                                                    4700 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\packaging\specifiers.py                                                     30110 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\packaging\tags.py                                                           15699 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\packaging\utils.py                                                           4200 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\packaging\version.py                                                        14665 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\packaging\_manylinux.py                                                     11488 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\packaging\_musllinux.py                                                      4378 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\packaging\_structures.py                                                     1431 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\packaging\__about__.py                                                        661 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\packaging\__init__.py                                                         497 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\packaging\__pycache__\markers.cpython-311.pyc                               16533 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\packaging\__pycache__\requirements.cpython-311.pyc                           7648 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\packaging\__pycache__\specifiers.cpython-311.pyc                            34365 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\packaging\__pycache__\tags.cpython-311.pyc                                  21350 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\packaging\__pycache__\utils.cpython-311.pyc                                  6685 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\packaging\__pycache__\version.cpython-311.pyc                               21877 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\packaging\__pycache__\_manylinux.cpython-311.pyc                            13231 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\packaging\__pycache__\_musllinux.cpython-311.pyc                             7999 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\packaging\__pycache__\_structures.cpython-311.pyc                            3687 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\packaging\__pycache__\__about__.cpython-311.pyc                               644 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\packaging\__pycache__\__init__.cpython-311.pyc                                565 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\pyparsing\actions.py                                                         6426 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\pyparsing\common.py                                                         12936 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\pyparsing\core.py                                                          213310 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\pyparsing\exceptions.py                                                      9023 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\pyparsing\helpers.py                                                        39129 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\pyparsing\results.py                                                        25341 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\pyparsing\testing.py                                                        13402 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\pyparsing\unicode.py                                                        10787 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\pyparsing\util.py                                                            6805 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\pyparsing\__init__.py                                                        9159 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\pyparsing\diagram\__init__.py                                               23668 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\pyparsing\diagram\__pycache__\__init__.cpython-311.pyc                      28001 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\pyparsing\__pycache__\actions.cpython-311.pyc                                8464 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\pyparsing\__pycache__\common.cpython-311.pyc                                14786 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\pyparsing\__pycache__\core.cpython-311.pyc                                 277638 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\pyparsing\__pycache__\exceptions.cpython-311.pyc                            12928 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\pyparsing\__pycache__\helpers.cpython-311.pyc                               53629 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\pyparsing\__pycache__\results.cpython-311.pyc                               36312 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\pyparsing\__pycache__\testing.cpython-311.pyc                               19508 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\pyparsing\__pycache__\unicode.cpython-311.pyc                               15366 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\pyparsing\__pycache__\util.cpython-311.pyc                                  14265 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\pyparsing\__pycache__\__init__.cpython-311.pyc                               8338 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\tomli\_parser.py                                                            22633 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\tomli\_re.py                                                                 2943 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\tomli\_types.py                                                               254 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\tomli\__init__.py                                                             396 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\tomli\__pycache__\_parser.cpython-311.pyc                                   30854 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\tomli\__pycache__\_re.cpython-311.pyc                                        4494 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\tomli\__pycache__\_types.cpython-311.pyc                                      407 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\tomli\__pycache__\__init__.cpython-311.pyc                                    415 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\__pycache__\ordered_set.cpython-311.pyc                                     21779 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\__pycache__\typing_extensions.cpython-311.pyc                              107610 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\__pycache__\zipp.cpython-311.pyc                                            15986 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\_vendor\__pycache__\__init__.cpython-311.pyc                                          193 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\__pycache__\archive_util.cpython-311.pyc                                            10162 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\__pycache__\build_meta.cpython-311.pyc                                              28095 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\__pycache__\depends.cpython-311.pyc                                                  7973 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\__pycache__\dep_util.cpython-311.pyc                                                 1288 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\__pycache__\discovery.cpython-311.pyc                                               31117 16/11/2026 13:50:41
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\__pycache__\dist.cpython-311.pyc                                                    64054 16/11/2026 13:50:42
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\__pycache__\errors.cpython-311.pyc                                                   2949 16/11/2026 13:50:42
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\__pycache__\extension.cpython-311.pyc                                                6805 16/11/2026 13:50:42
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\__pycache__\glob.cpython-311.pyc                                                     6562 16/11/2026 13:50:42
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\__pycache__\installer.cpython-311.pyc                                                5612 16/11/2026 13:50:42
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\__pycache__\launch.cpython-311.pyc                                                   1528 16/11/2026 13:50:42
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\__pycache__\logging.cpython-311.pyc                                                  2046 16/11/2026 13:50:42
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\__pycache__\monkey.cpython-311.pyc                                                   7005 16/11/2026 13:50:42
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\__pycache__\msvc.cpython-311.pyc                                                    64178 16/11/2026 13:50:42
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\__pycache__\namespaces.cpython-311.pyc                                               5660 16/11/2026 13:50:42
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\__pycache__\package_index.cpython-311.pyc                                           60755 16/11/2026 13:50:42
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\__pycache__\py34compat.cpython-311.pyc                                                715 16/11/2026 13:50:42
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\__pycache__\sandbox.cpython-311.pyc                                                 27331 16/11/2026 13:50:42
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\__pycache__\unicode_utils.cpython-311.pyc                                            1817 16/11/2026 13:50:42
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\__pycache__\version.cpython-311.pyc                                                   435 16/11/2026 13:50:42
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\__pycache__\wheel.cpython-311.pyc                                                   15490 16/11/2026 13:50:42
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\__pycache__\windows_support.cpython-311.pyc                                          1432 16/11/2026 13:50:42
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\__pycache__\_deprecation_warning.cpython-311.pyc                                      640 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\__pycache__\_entry_points.cpython-311.pyc                                            4789 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\__pycache__\_imp.cpython-311.pyc                                                     3653 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\__pycache__\_importlib.cpython-311.pyc                                               1953 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\__pycache__\_itertools.cpython-311.pyc                                               1152 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\__pycache__\_path.cpython-311.pyc                                                    1473 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\__pycache__\_reqs.cpython-311.pyc                                                    1134 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools\__pycache__\__init__.cpython-311.pyc                                                12905 16/11/2026 13:50:40
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools-65.5.0.dist-info\entry_points.txt                                                    2740 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools-65.5.0.dist-info\INSTALLER                                                              4 16/11/2026 13:50:42
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools-65.5.0.dist-info\LICENSE                                                             1050 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools-65.5.0.dist-info\METADATA                                                            6301 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools-65.5.0.dist-info\RECORD                                                             37694 16/11/2026 13:50:42
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools-65.5.0.dist-info\REQUESTED                                                              0 16/11/2026 13:50:42
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools-65.5.0.dist-info\top_level.txt                                                         41 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\setuptools-65.5.0.dist-info\WHEEL                                                                 92 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\typing_extensions-4.16.0.dist-info\INSTALLER                                                       4 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\typing_extensions-4.16.0.dist-info\METADATA                                                     3310 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\typing_extensions-4.16.0.dist-info\RECORD                                                        580 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\typing_extensions-4.16.0.dist-info\WHEEL                                                          82 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\typing_extensions-4.16.0.dist-info\licenses\LICENSE                                            13936 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zones                                                                                    9102 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\__init__.py                                                                               252 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\CET                                                                             1103 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\CST6CDT                                                                          922 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Cuba                                                                            1369 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\EET                                                                              682 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Egypt                                                                           1309 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Eire                                                                            1496 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\EST                                                                              149 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\EST5EDT                                                                          922 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Factory                                                                          113 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\GB                                                                              1599 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\GB-Eire                                                                         1599 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\GMT                                                                              111 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\GMT+0                                                                            111 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\GMT-0                                                                            111 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\GMT0                                                                             111 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Greenwich                                                                        111 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Hongkong                                                                         775 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\HST                                                                              221 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Iceland                                                                          130 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Iran                                                                             812 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\iso3166.tab                                                                     4841 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Israel                                                                          1074 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Jamaica                                                                          339 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Japan                                                                            213 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Kwajalein                                                                        219 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\leapseconds                                                                     3612 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Libya                                                                            431 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\MET                                                                             1103 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\MST                                                                              240 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\MST7MDT                                                                          922 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Navajo                                                                          1042 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\NZ                                                                              1043 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\NZ-CHAT                                                                          808 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Poland                                                                           923 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Portugal                                                                        1463 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\PRC                                                                              393 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\PST8PDT                                                                          922 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\ROC                                                                              511 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\ROK                                                                              415 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Singapore                                                                        256 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Turkey                                                                          1200 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\tzdata.zi                                                                     105015 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\UCT                                                                              111 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Universal                                                                        111 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\UTC                                                                              111 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\W-SU                                                                             908 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\WET                                                                             1463 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\zone.tab                                                                       18809 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\zone1970.tab                                                                   17592 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\zonenow.tab                                                                     8425 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Zulu                                                                             111 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\__init__.py                                                                        0 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Abidjan                                                                   130 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Accra                                                                     130 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Addis_Ababa                                                               191 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Algiers                                                                   470 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Asmara                                                                    191 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Asmera                                                                    191 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Bamako                                                                    130 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Bangui                                                                    180 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Banjul                                                                    130 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Bissau                                                                    149 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Blantyre                                                                  131 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Brazzaville                                                               180 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Bujumbura                                                                 131 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Cairo                                                                    1309 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Casablanca                                                                793 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Ceuta                                                                     562 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Conakry                                                                   130 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Dakar                                                                     130 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Dar_es_Salaam                                                             191 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Djibouti                                                                  191 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Douala                                                                    180 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\El_Aaiun                                                                  704 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Freetown                                                                  130 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Gaborone                                                                  131 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Harare                                                                    131 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Johannesburg                                                              190 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Juba                                                                      458 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Kampala                                                                   191 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Khartoum                                                                  458 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Kigali                                                                    131 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Kinshasa                                                                  180 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Lagos                                                                     180 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Libreville                                                                180 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Lome                                                                      130 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Luanda                                                                    180 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Lubumbashi                                                                131 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Lusaka                                                                    131 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Malabo                                                                    180 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Maputo                                                                    131 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Maseru                                                                    190 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Mbabane                                                                   190 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Mogadishu                                                                 191 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Monrovia                                                                  164 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Nairobi                                                                   191 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Ndjamena                                                                  160 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Niamey                                                                    180 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Nouakchott                                                                130 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Ouagadougou                                                               130 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Porto-Novo                                                                180 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Sao_Tome                                                                  173 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Timbuktu                                                                  130 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Tripoli                                                                   431 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Tunis                                                                     449 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\Windhoek                                                                  638 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\__init__.py                                                                 0 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Africa\__pycache__\__init__.cpython-311.pyc                                      197 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Adak                                                                     969 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Anchorage                                                                977 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Anguilla                                                                 177 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Antigua                                                                  177 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Araguaina                                                                592 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Aruba                                                                    177 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Asuncion                                                                1085 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Atikokan                                                                 149 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Atka                                                                     969 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Bahia                                                                    682 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Bahia_Banderas                                                           700 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Barbados                                                                 278 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Belem                                                                    394 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Belize                                                                  1045 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Blanc-Sablon                                                             177 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Boa_Vista                                                                430 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Bogota                                                                   179 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Boise                                                                    999 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Buenos_Aires                                                             708 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Cambridge_Bay                                                            883 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Campo_Grande                                                             952 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Cancun                                                                   538 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Caracas                                                                  190 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Catamarca                                                                708 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Cayenne                                                                  151 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Cayman                                                                   149 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Chicago                                                                 1754 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Chihuahua                                                                691 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Ciudad_Juarez                                                            718 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Coral_Harbour                                                            149 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Cordoba                                                                  708 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Costa_Rica                                                               232 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Coyhaique                                                               1362 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Creston                                                                  240 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Cuiaba                                                                   934 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Curacao                                                                  177 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Danmarkshavn                                                             447 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Dawson                                                                  1029 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Dawson_Creek                                                             683 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Denver                                                                  1042 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Detroit                                                                  899 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Dominica                                                                 177 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Edmonton                                                                1313 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Eirunepe                                                                 436 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\El_Salvador                                                              176 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Ensenada                                                                1367 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Fortaleza                                                                484 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Fort_Nelson                                                             1448 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Fort_Wayne                                                               531 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Glace_Bay                                                                880 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Godthab                                                                  965 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Goose_Bay                                                               1580 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Grand_Turk                                                               853 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Grenada                                                                  177 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Guadeloupe                                                               177 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Guatemala                                                                212 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Guayaquil                                                                179 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Guyana                                                                   181 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Halifax                                                                 1672 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Havana                                                                  1369 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Hermosillo                                                               258 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Indianapolis                                                             531 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Inuvik                                                                  1160 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Iqaluit                                                                  855 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Jamaica                                                                  339 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Jujuy                                                                    690 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Juneau                                                                   966 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Knox_IN                                                                 1016 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Kralendijk                                                               177 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\La_Paz                                                                   170 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Lima                                                                     283 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Los_Angeles                                                             1294 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Louisville                                                              1242 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Lower_Princes                                                            177 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Maceio                                                                   502 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Managua                                                                  295 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Manaus                                                                   412 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Marigot                                                                  177 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Martinique                                                               178 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Matamoros                                                                437 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Mazatlan                                                                 690 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Mendoza                                                                  708 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Menominee                                                                917 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Merida                                                                   654 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Metlakatla                                                               586 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Mexico_City                                                              773 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Miquelon                                                                 550 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Moncton                                                                 1493 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Monterrey                                                                709 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Montevideo                                                               969 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Montreal                                                                1717 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Montserrat                                                               177 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Nassau                                                                  1717 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\New_York                                                                1744 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Nipigon                                                                 1717 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Nome                                                                     975 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Noronha                                                                  484 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Nuuk                                                                     965 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Ojinaga                                                                  718 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Panama                                                                   149 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Pangnirtung                                                              855 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Paramaribo                                                               187 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Phoenix                                                                  240 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Port-au-Prince                                                           565 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Porto_Acre                                                               418 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Porto_Velho                                                              394 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Port_of_Spain                                                            177 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Puerto_Rico                                                              177 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Punta_Arenas                                                            1218 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Rainy_River                                                             1637 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Rankin_Inlet                                                             807 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Recife                                                                   484 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Regina                                                                   638 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Resolute                                                                 807 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Rio_Branco                                                               418 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Rosario                                                                  708 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Santarem                                                                 409 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Santa_Isabel                                                            1367 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Santiago                                                                1354 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Santo_Domingo                                                            317 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Sao_Paulo                                                                952 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Scoresbysund                                                             984 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Shiprock                                                                1042 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Sitka                                                                    956 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\St_Barthelemy                                                            177 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\St_Johns                                                                1878 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\St_Kitts                                                                 177 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\St_Lucia                                                                 177 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\St_Thomas                                                                177 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\St_Vincent                                                               177 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Swift_Current                                                            368 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Tegucigalpa                                                              194 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Thule                                                                    455 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Thunder_Bay                                                             1717 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Tijuana                                                                 1367 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Toronto                                                                 1717 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Tortola                                                                  177 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Vancouver                                                               1673 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Virgin                                                                   177 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Whitehorse                                                              1029 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Winnipeg                                                                1637 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Yakutat                                                                  946 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Yellowknife                                                             1313 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\__init__.py                                                                0 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Argentina\Buenos_Aires                                                   708 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Argentina\Catamarca                                                      708 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Argentina\ComodRivadavia                                                 708 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Argentina\Cordoba                                                        708 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Argentina\Jujuy                                                          690 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Argentina\La_Rioja                                                       717 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Argentina\Mendoza                                                        708 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Argentina\Rio_Gallegos                                                   708 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Argentina\Salta                                                          690 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Argentina\San_Juan                                                       717 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Argentina\San_Luis                                                       717 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Argentina\Tucuman                                                        726 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Argentina\Ushuaia                                                        708 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Argentina\__init__.py                                                      0 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Argentina\__pycache__\__init__.cpython-311.pyc                           208 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Indiana\Indianapolis                                                     531 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Indiana\Knox                                                            1016 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Indiana\Marengo                                                          567 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Indiana\Petersburg                                                       683 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Indiana\Tell_City                                                        522 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Indiana\Vevay                                                            369 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Indiana\Vincennes                                                        558 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Indiana\Winamac                                                          603 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Indiana\__init__.py                                                        0 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Indiana\__pycache__\__init__.cpython-311.pyc                             206 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Kentucky\Louisville                                                     1242 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Kentucky\Monticello                                                      972 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Kentucky\__init__.py                                                       0 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\Kentucky\__pycache__\__init__.cpython-311.pyc                            207 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\North_Dakota\Beulah                                                     1043 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\North_Dakota\Center                                                      990 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\North_Dakota\New_Salem                                                   990 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\North_Dakota\__init__.py                                                   0 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\North_Dakota\__pycache__\__init__.cpython-311.pyc                        211 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\America\__pycache__\__init__.cpython-311.pyc                                     198 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Antarctica\Casey                                                                 287 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Antarctica\Davis                                                                 197 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Antarctica\DumontDUrville                                                        154 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Antarctica\Macquarie                                                             976 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Antarctica\Mawson                                                                152 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Antarctica\McMurdo                                                              1043 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Antarctica\Palmer                                                                887 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Antarctica\Rothera                                                               132 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Antarctica\South_Pole                                                           1043 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Antarctica\Syowa                                                                 133 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Antarctica\Troll                                                                 158 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Antarctica\Vostok                                                                170 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Antarctica\__init__.py                                                             0 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Antarctica\__pycache__\__init__.cpython-311.pyc                                  201 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Arctic\Longyearbyen                                                              705 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Arctic\__init__.py                                                                 0 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Arctic\__pycache__\__init__.cpython-311.pyc                                      197 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Aden                                                                        133 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Almaty                                                                      618 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Amman                                                                       928 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Anadyr                                                                      743 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Aqtau                                                                       606 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Aqtobe                                                                      615 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Ashgabat                                                                    375 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Ashkhabad                                                                   375 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Atyrau                                                                      616 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Baghdad                                                                     630 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Bahrain                                                                     152 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Baku                                                                        744 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Bangkok                                                                     152 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Barnaul                                                                     753 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Beirut                                                                      732 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Bishkek                                                                     618 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Brunei                                                                      320 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Calcutta                                                                    220 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Chita                                                                       750 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Choibalsan                                                                  594 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Chongqing                                                                   393 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Chungking                                                                   393 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Colombo                                                                     247 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Dacca                                                                       231 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Damascus                                                                   1234 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Dhaka                                                                       231 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Dili                                                                        170 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Dubai                                                                       133 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Dushanbe                                                                    366 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Famagusta                                                                   940 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Gaza                                                                       2950 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Harbin                                                                      393 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Hebron                                                                     2968 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Hong_Kong                                                                   775 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Hovd                                                                        594 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Ho_Chi_Minh                                                                 232 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Irkutsk                                                                     760 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Istanbul                                                                   1200 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Jakarta                                                                     248 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Jayapura                                                                    171 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Jerusalem                                                                  1074 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Kabul                                                                       159 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Kamchatka                                                                   727 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Karachi                                                                     266 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Kashgar                                                                     133 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Kathmandu                                                                   161 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Katmandu                                                                    161 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Khandyga                                                                    775 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Kolkata                                                                     220 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Krasnoyarsk                                                                 741 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Kuala_Lumpur                                                                256 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Kuching                                                                     320 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Kuwait                                                                      133 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Macao                                                                       791 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Macau                                                                       791 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Magadan                                                                     751 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Makassar                                                                    190 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Manila                                                                      274 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Muscat                                                                      133 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Nicosia                                                                     597 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Novokuznetsk                                                                726 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Novosibirsk                                                                 753 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Omsk                                                                        741 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Oral                                                                        625 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Phnom_Penh                                                                  152 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Pontianak                                                                   247 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Pyongyang                                                                   183 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Qatar                                                                       152 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Qostanay                                                                    624 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Qyzylorda                                                                   624 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Rangoon                                                                     187 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Riyadh                                                                      133 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Saigon                                                                      232 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Sakhalin                                                                    755 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Samarkand                                                                   366 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Seoul                                                                       415 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Shanghai                                                                    393 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Singapore                                                                   256 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Srednekolymsk                                                               742 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Taipei                                                                      511 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Tashkent                                                                    366 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Tbilisi                                                                     620 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Tehran                                                                      812 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Tel_Aviv                                                                   1074 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Thimbu                                                                      154 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Thimphu                                                                     154 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Tokyo                                                                       213 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Tomsk                                                                       753 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Ujung_Pandang                                                               190 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Ulaanbaatar                                                                 594 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Ulan_Bator                                                                  594 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Urumqi                                                                      133 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Ust-Nera                                                                    771 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Vientiane                                                                   152 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Vladivostok                                                                 742 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Yakutsk                                                                     741 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Yangon                                                                      187 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Yekaterinburg                                                               760 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\Yerevan                                                                     708 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\__init__.py                                                                   0 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Asia\__pycache__\__init__.cpython-311.pyc                                        195 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Atlantic\Azores                                                                 1401 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Atlantic\Bermuda                                                                1024 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Atlantic\Canary                                                                  478 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Atlantic\Cape_Verde                                                              175 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Atlantic\Faeroe                                                                  441 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Atlantic\Faroe                                                                   441 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Atlantic\Jan_Mayen                                                               705 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Atlantic\Madeira                                                                1372 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Atlantic\Reykjavik                                                               130 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Atlantic\South_Georgia                                                           132 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Atlantic\Stanley                                                                 789 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Atlantic\St_Helena                                                               130 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Atlantic\__init__.py                                                               0 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Atlantic\__pycache__\__init__.cpython-311.pyc                                    199 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Australia\ACT                                                                    904 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Australia\Adelaide                                                               921 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Australia\Brisbane                                                               289 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Australia\Broken_Hill                                                            941 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Australia\Canberra                                                               904 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Australia\Currie                                                                1003 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Australia\Darwin                                                                 234 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Australia\Eucla                                                                  314 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Australia\Hobart                                                                1003 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Australia\LHI                                                                    692 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Australia\Lindeman                                                               325 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Australia\Lord_Howe                                                              692 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Australia\Melbourne                                                              904 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Australia\North                                                                  234 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Australia\NSW                                                                    904 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Australia\Perth                                                                  306 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Australia\Queensland                                                             289 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Australia\South                                                                  921 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Australia\Sydney                                                                 904 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Australia\Tasmania                                                              1003 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Australia\Victoria                                                               904 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Australia\West                                                                   306 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Australia\Yancowinna                                                             941 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Australia\__init__.py                                                              0 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Australia\__pycache__\__init__.cpython-311.pyc                                   200 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Brazil\Acre                                                                      418 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Brazil\DeNoronha                                                                 484 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Brazil\East                                                                      952 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Brazil\West                                                                      412 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Brazil\__init__.py                                                                 0 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Brazil\__pycache__\__init__.cpython-311.pyc                                      197 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Canada\Atlantic                                                                 1672 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Canada\Central                                                                  1637 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Canada\Eastern                                                                  1717 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Canada\Mountain                                                                 1313 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Canada\Newfoundland                                                             1878 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Canada\Pacific                                                                  1673 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Canada\Saskatchewan                                                              638 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Canada\Yukon                                                                    1029 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Canada\__init__.py                                                                 0 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Canada\__pycache__\__init__.cpython-311.pyc                                      197 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Chile\Continental                                                               1354 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Chile\EasterIsland                                                              1174 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Chile\__init__.py                                                                  0 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Chile\__pycache__\__init__.cpython-311.pyc                                       196 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Etc\GMT                                                                          111 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Etc\GMT+0                                                                        111 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Etc\GMT+1                                                                        113 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Etc\GMT+10                                                                       114 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Etc\GMT+11                                                                       114 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Etc\GMT+12                                                                       114 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Etc\GMT+2                                                                        113 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Etc\GMT+3                                                                        113 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Etc\GMT+4                                                                        113 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Etc\GMT+5                                                                        113 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Etc\GMT+6                                                                        113 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Etc\GMT+7                                                                        113 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Etc\GMT+8                                                                        113 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Etc\GMT+9                                                                        113 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Etc\GMT-0                                                                        111 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Etc\GMT-1                                                                        114 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Etc\GMT-10                                                                       115 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Etc\GMT-11                                                                       115 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Etc\GMT-12                                                                       115 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Etc\GMT-13                                                                       115 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Etc\GMT-14                                                                       115 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Etc\GMT-2                                                                        114 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Etc\GMT-3                                                                        114 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Etc\GMT-4                                                                        114 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Etc\GMT-5                                                                        114 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Etc\GMT-6                                                                        114 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Etc\GMT-7                                                                        114 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Etc\GMT-8                                                                        114 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Etc\GMT-9                                                                        114 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Etc\GMT0                                                                         111 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Etc\Greenwich                                                                    111 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Etc\UCT                                                                          111 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Etc\Universal                                                                    111 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Etc\UTC                                                                          111 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Etc\Zulu                                                                         111 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Etc\__init__.py                                                                    0 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Etc\__pycache__\__init__.cpython-311.pyc                                         194 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Amsterdam                                                                1103 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Andorra                                                                   389 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Astrakhan                                                                 726 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Athens                                                                    682 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Belfast                                                                  1599 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Belgrade                                                                  478 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Berlin                                                                    705 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Bratislava                                                                723 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Brussels                                                                 1103 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Bucharest                                                                 661 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Budapest                                                                  766 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Busingen                                                                  497 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Chisinau                                                                 1207 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Copenhagen                                                                705 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Dublin                                                                   1496 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Gibraltar                                                                1220 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Guernsey                                                                 1599 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Helsinki                                                                  481 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Isle_of_Man                                                              1599 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Istanbul                                                                 1200 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Jersey                                                                   1599 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Kaliningrad                                                               904 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Kiev                                                                      558 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Kirov                                                                     735 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Kyiv                                                                      558 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Lisbon                                                                   1463 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Ljubljana                                                                 478 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\London                                                                   1599 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Luxembourg                                                               1103 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Madrid                                                                    897 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Malta                                                                     928 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Mariehamn                                                                 481 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Minsk                                                                     808 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Monaco                                                                   1105 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Moscow                                                                    908 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Nicosia                                                                   597 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Oslo                                                                      705 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Paris                                                                    1105 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Podgorica                                                                 478 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Prague                                                                    723 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Riga                                                                      694 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Rome                                                                      947 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Samara                                                                    732 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\San_Marino                                                                947 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Sarajevo                                                                  478 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Saratov                                                                   726 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Simferopol                                                                865 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Skopje                                                                    478 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Sofia                                                                     592 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Stockholm                                                                 705 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Tallinn                                                                   675 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Tirane                                                                    604 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Tiraspol                                                                 1207 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Ulyanovsk                                                                 760 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Uzhgorod                                                                  558 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Vaduz                                                                     497 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Vatican                                                                   947 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Vienna                                                                    658 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Vilnius                                                                   676 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Volgograd                                                                 753 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Warsaw                                                                    923 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Zagreb                                                                    478 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Zaporozhye                                                                558 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\Zurich                                                                    497 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\__init__.py                                                                 0 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Europe\__pycache__\__init__.cpython-311.pyc                                      197 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Indian\Antananarivo                                                              191 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Indian\Chagos                                                                    152 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Indian\Christmas                                                                 152 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Indian\Cocos                                                                     187 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Indian\Comoro                                                                    191 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Indian\Kerguelen                                                                 152 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Indian\Mahe                                                                      133 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Indian\Maldives                                                                  152 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Indian\Mauritius                                                                 179 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Indian\Mayotte                                                                   191 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Indian\Reunion                                                                   133 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Indian\__init__.py                                                                 0 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Indian\__pycache__\__init__.cpython-311.pyc                                      197 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Mexico\BajaNorte                                                                1367 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Mexico\BajaSur                                                                   690 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Mexico\General                                                                   773 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Mexico\__init__.py                                                                 0 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Mexico\__pycache__\__init__.cpython-311.pyc                                      197 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Apia                                                                     407 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Auckland                                                                1043 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Bougainville                                                             201 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Chatham                                                                  808 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Chuuk                                                                    154 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Easter                                                                  1174 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Efate                                                                    342 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Enderbury                                                                172 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Fakaofo                                                                  153 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Fiji                                                                     396 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Funafuti                                                                 134 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Galapagos                                                                175 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Gambier                                                                  132 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Guadalcanal                                                              134 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Guam                                                                     350 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Honolulu                                                                 221 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Johnston                                                                 221 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Kanton                                                                   172 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Kiritimati                                                               174 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Kosrae                                                                   242 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Kwajalein                                                                219 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Majuro                                                                   134 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Marquesas                                                                139 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Midway                                                                   146 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Nauru                                                                    183 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Niue                                                                     154 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Norfolk                                                                  237 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Noumea                                                                   198 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Pago_Pago                                                                146 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Palau                                                                    148 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Pitcairn                                                                 153 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Pohnpei                                                                  134 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Ponape                                                                   134 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Port_Moresby                                                             154 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Rarotonga                                                                406 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Saipan                                                                   350 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Samoa                                                                    146 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Tahiti                                                                   133 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Tarawa                                                                   134 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Tongatapu                                                                237 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Truk                                                                     154 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Wake                                                                     134 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Wallis                                                                   134 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\Yap                                                                      154 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\__init__.py                                                                0 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\Pacific\__pycache__\__init__.cpython-311.pyc                                     198 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\US\Alaska                                                                        977 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\US\Aleutian                                                                      969 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\US\Arizona                                                                       240 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\US\Central                                                                      1754 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\US\East-Indiana                                                                  531 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\US\Eastern                                                                      1744 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\US\Hawaii                                                                        221 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\US\Indiana-Starke                                                               1016 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\US\Michigan                                                                      899 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\US\Mountain                                                                     1042 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\US\Pacific                                                                      1294 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\US\Samoa                                                                         146 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\US\__init__.py                                                                     0 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\US\__pycache__\__init__.cpython-311.pyc                                          193 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\zoneinfo\__pycache__\__init__.cpython-311.pyc                                             190 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata\__pycache__\__init__.cpython-311.pyc                                                      236 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata-2026.6.dist-info\INSTALLER                                                                  4 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata-2026.6.dist-info\METADATA                                                                1358 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata-2026.6.dist-info\RECORD                                                                 56828 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata-2026.6.dist-info\top_level.txt                                                              7 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata-2026.6.dist-info\WHEEL                                                                    109 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata-2026.6.dist-info\licenses\LICENSE                                                         625 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\tzdata-2026.6.dist-info\licenses\licenses\LICENSE_APACHE                                       11357 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\connection.py                                                                          47903 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\connectionpool.py                                                                      45250 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\exceptions.py                                                                           9945 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\fields.py                                                                              10801 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\filepost.py                                                                             2388 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\poolmanager.py                                                                         25026 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\py.typed                                                                                  93 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\response.py                                                                            54628 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\_base_connection.py                                                                     5580 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\_collections.py                                                                        17669 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\_request_methods.py                                                                     9931 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\_version.py                                                                              520 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\__init__.py                                                                             6979 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\contrib\pyopenssl.py                                                                   21494 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\contrib\socks.py                                                                        7566 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\contrib\__init__.py                                                                        0 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\contrib\emscripten\connection.py                                                        8960 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\contrib\emscripten\emscripten_fetch_worker.js                                           3677 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\contrib\emscripten\fetch.py                                                            23520 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\contrib\emscripten\request.py                                                            566 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\contrib\emscripten\response.py                                                          9719 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\contrib\emscripten\__init__.py                                                           836 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\contrib\emscripten\__pycache__\connection.cpython-311.pyc                              10749 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\contrib\emscripten\__pycache__\fetch.cpython-311.pyc                                   31288 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\contrib\emscripten\__pycache__\request.cpython-311.pyc                                  1648 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\contrib\emscripten\__pycache__\response.cpython-311.pyc                                13095 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\contrib\emscripten\__pycache__\__init__.cpython-311.pyc                                 1072 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\contrib\__pycache__\pyopenssl.cpython-311.pyc                                          31787 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\contrib\__pycache__\socks.cpython-311.pyc                                               8575 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\contrib\__pycache__\__init__.cpython-311.pyc                                             190 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\http2\connection.py                                                                    12613 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\http2\probe.py                                                                          3014 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\http2\__init__.py                                                                       1741 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\http2\__pycache__\connection.cpython-311.pyc                                           19051 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\http2\__pycache__\probe.cpython-311.pyc                                                 4335 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\http2\__pycache__\__init__.cpython-311.pyc                                              2015 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\util\connection.py                                                                      4444 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\util\proxy.py                                                                           1148 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\util\request.py                                                                        10228 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\util\response.py                                                                        3374 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\util\retry.py                                                                          20151 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\util\ssltransport.py                                                                    8847 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\util\ssl_.py                                                                           17856 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\util\ssl_match_hostname.py                                                              5479 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\util\timeout.py                                                                        10346 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\util\url.py                                                                            19579 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\util\util.py                                                                            1146 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\util\wait.py                                                                            4423 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\util\__init__.py                                                                        1001 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\util\__pycache__\connection.cpython-311.pyc                                             5046 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\util\__pycache__\proxy.cpython-311.pyc                                                  1281 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\util\__pycache__\request.cpython-311.pyc                                               11074 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\util\__pycache__\response.cpython-311.pyc                                               3355 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\util\__pycache__\retry.cpython-311.pyc                                                 22521 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\util\__pycache__\ssltransport.cpython-311.pyc                                          14314 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\util\__pycache__\ssl_.cpython-311.pyc                                                  16864 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\util\__pycache__\ssl_match_hostname.cpython-311.pyc                                     6079 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\util\__pycache__\timeout.cpython-311.pyc                                               12068 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\util\__pycache__\url.cpython-311.pyc                                                   22586 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\util\__pycache__\util.cpython-311.pyc                                                   2171 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\util\__pycache__\wait.cpython-311.pyc                                                   3742 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\util\__pycache__\__init__.cpython-311.pyc                                               1223 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\__pycache__\connection.cpython-311.pyc                                                 44100 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\__pycache__\connectionpool.cpython-311.pyc                                             42251 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\__pycache__\exceptions.cpython-311.pyc                                                 20084 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\__pycache__\fields.cpython-311.pyc                                                     12698 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\__pycache__\filepost.cpython-311.pyc                                                    3868 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\__pycache__\poolmanager.cpython-311.pyc                                                26596 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\__pycache__\response.cpython-311.pyc                                                   62710 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\__pycache__\_base_connection.cpython-311.pyc                                            7111 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\__pycache__\_collections.cpython-311.pyc                                               26475 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\__pycache__\_request_methods.cpython-311.pyc                                           10712 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\__pycache__\_version.cpython-311.pyc                                                     692 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3\__pycache__\__init__.cpython-311.pyc                                                    7665 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3-2.8.0.dist-info\INSTALLER                                                                  4 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3-2.8.0.dist-info\METADATA                                                                7389 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3-2.8.0.dist-info\RECORD                                                                  5528 16/11/2026 13:51:04
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3-2.8.0.dist-info\WHEEL                                                                     87 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\urllib3-2.8.0.dist-info\licenses\LICENSE.txt                                                    1093 16/11/2026 13:51:03
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\_distutils_hack\override.py                                                                       44 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\_distutils_hack\__init__.py                                                                     6128 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\_distutils_hack\__pycache__\override.cpython-311.pyc                                             312 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\_distutils_hack\__pycache__\__init__.cpython-311.pyc                                           11155 16/11/2026 13:50:39
+C:\RavenRP\Discord-KillFeed\.venv\Lib\site-packages\__pycache__\typing_extensions.cpython-311.pyc                                                 182672 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Scripts\activate                                                                                                  1773 16/11/2026 14:00:26
+C:\RavenRP\Discord-KillFeed\.venv\Scripts\activate.bat                                                                                              1006 16/11/2026 14:00:26
+C:\RavenRP\Discord-KillFeed\.venv\Scripts\Activate.ps1                                                                                             26199 16/11/2026 14:00:26
+C:\RavenRP\Discord-KillFeed\.venv\Scripts\deactivate.bat                                                                                             393 16/11/2026 14:00:26
+C:\RavenRP\Discord-KillFeed\.venv\Scripts\dotenv.exe                                                                                              108350 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Scripts\idna.exe                                                                                                108345 16/11/2026 13:51:05
+C:\RavenRP\Discord-KillFeed\.venv\Scripts\normalizer.exe                                                                                          108371 16/11/2026 13:51:06
+C:\RavenRP\Discord-KillFeed\.venv\Scripts\pip.exe                                                                                                 108411 16/11/2026 13:50:57
+C:\RavenRP\Discord-KillFeed\.venv\Scripts\pip3.11.exe                                                                                             108411 16/11/2026 13:50:57
+C:\RavenRP\Discord-KillFeed\.venv\Scripts\pip3.exe                                                                                                108411 16/11/2026 13:50:57
+C:\RavenRP\Discord-KillFeed\.venv\Scripts\python.exe                                                                                              274712 16/11/2026 14:00:23
+C:\RavenRP\Discord-KillFeed\.venv\Scripts\pythonw.exe                                                                                             263448 16/11/2026 14:00:23
+C:\RavenRP\Discord-KillFeed\killfeed\database.py                                                                                                    2663 16/11/2026 13:43:41
+C:\RavenRP\Discord-KillFeed\killfeed\discord.py                                                                                                     2311 16/11/2026 13:43:41
+C:\RavenRP\Discord-KillFeed\killfeed\monitor.py                                                                                                     3372 16/11/2026 13:43:41
+C:\RavenRP\Discord-KillFeed\killfeed\parser.py                                                                                                      3276 16/11/2026 13:43:41
+C:\RavenRP\Discord-KillFeed\killfeed\__init__.py                                                                                                      30 16/11/2026 13:43:41
+C:\RavenRP\Discord-KillFeed\killfeed\__main__.py                                                                                                    2521 16/11/2026 13:43:41
+C:\RavenRP\Discord-KillFeed\killfeed\__pycache__\database.cpython-311.pyc                                                                           4668 16/11/2026 13:51:16
+C:\RavenRP\Discord-KillFeed\killfeed\__pycache__\database.cpython-313.pyc                                                                           4388 16/11/2026 13:43:41
+C:\RavenRP\Discord-KillFeed\killfeed\__pycache__\discord.cpython-311.pyc                                                                            4231 16/11/2026 13:51:16
+C:\RavenRP\Discord-KillFeed\killfeed\__pycache__\discord.cpython-313.pyc                                                                            3854 16/11/2026 13:43:41
+C:\RavenRP\Discord-KillFeed\killfeed\__pycache__\monitor.cpython-311.pyc                                                                            6199 16/11/2026 13:51:17
+C:\RavenRP\Discord-KillFeed\killfeed\__pycache__\monitor.cpython-313.pyc                                                                            5870 16/11/2026 13:43:41
+C:\RavenRP\Discord-KillFeed\killfeed\__pycache__\parser.cpython-311.pyc                                                                             5247 16/11/2026 13:51:16
+C:\RavenRP\Discord-KillFeed\killfeed\__pycache__\parser.cpython-313.pyc                                                                             4576 16/11/2026 13:43:42
+C:\RavenRP\Discord-KillFeed\killfeed\__pycache__\__init__.cpython-311.pyc                                                                            196 16/11/2026 13:51:16
+C:\RavenRP\Discord-KillFeed\killfeed\__pycache__\__init__.cpython-313.pyc                                                                            155 16/11/2026 13:43:41
+C:\RavenRP\Discord-KillFeed\killfeed\__pycache__\__main__.cpython-311.pyc                                                                           4552 16/11/2026 13:51:16
+C:\RavenRP\Discord-KillFeed\killfeed\__pycache__\__main__.cpython-313.pyc                                                                           4033 16/11/2026 13:43:42
+C:\RavenRP\Discord-KillFeed\logs\killfeed-console.log                                                                                                378 17/11/2026 13:03:09
+C:\RavenRP\Discord-KillFeed\logs\killfeed.log                                                                                                        819 17/11/2026 13:04:38
+C:\RavenRP\Discord-KillFeed\sql\schema.sql                                                                                                           758 16/11/2026 13:43:42
+
+
+
+
+BUSCA: Discord-KillFeed | LOCAL: C:\RavenRP\ControlCenter
+
+BUSCA: dayz-discord-killfeed | LOCAL: C:\RavenRP\ControlCenter
+
+BUSCA: start-killfeed | LOCAL: C:\RavenRP\ControlCenter
+
+BUSCA: dayz_killfeed | LOCAL: C:\RavenRP\ControlCenter
+C:\RavenRP\ControlCenter\API\src\killfeed-db.js | Linha 30 | database: process.env.KILLFEED_DB_NAME || 'dayz_killfeed',
+
+BUSCA: killfeed-reader-secret | LOCAL: C:\RavenRP\ControlCenter
+C:\RavenRP\ControlCenter\API\src\killfeed-db.js | Linha 13 | 'killfeed-reader-secret.b64'
+
+BUSCA: killfeedPool | LOCAL: C:\RavenRP\ControlCenter
+C:\RavenRP\ControlCenter\API\backups\incidents\20261118-214700\src\routes\health.js | Linha 5 | const { killfeedPool } = require('../killfeed-db');
+C:\RavenRP\ControlCenter\API\backups\incidents\20261118-214700\src\routes\health.js | Linha 38 | checkDatabase(killfeedPool, req, 'killfeed')
+C:\RavenRP\ControlCenter\API\src\killfeed-db.js | Linha 27 | const killfeedPool = new Pool({
+C:\RavenRP\ControlCenter\API\src\killfeed-db.js | Linha 41 | killfeedPool.on('error', error => {
+C:\RavenRP\ControlCenter\API\src\killfeed-db.js | Linha 45 | module.exports = { killfeedPool };
+C:\RavenRP\ControlCenter\API\src\routes\health.js | Linha 5 | const { killfeedPool } = require('../killfeed-db');
+C:\RavenRP\ControlCenter\API\src\routes\health.js | Linha 39 | checkDatabase(killfeedPool, req, 'killfeed')
+C:\RavenRP\ControlCenter\API\src\routes\killfeed.js | Linha 5 | const { killfeedPool } = require('../killfeed-db');
+C:\RavenRP\ControlCenter\API\src\routes\killfeed.js | Linha 36 | const count = await killfeedPool.query(
+C:\RavenRP\ControlCenter\API\src\routes\killfeed.js | Linha 42 | const result = await killfeedPool.query(
+
+BUSCA: Discord-KillFeed | LOCAL: C:\RavenRP\DayZServer
+C:\RavenRP\DayZServer\start-killfeed.bat | Linha 5 | cd /d "C:\DayZ\dayz-discord-killfeed"
+C:\RavenRP\DayZServer\start.bat | Linha 33 | set "KILLFEED_DIR=C:\DayZ\dayz-discord-killfeed"
+C:\RavenRP\DayZServer\migration_backups\path_fix_20261119_170755\start.bat | Linha 33 | set "KILLFEED_DIR=C:\DayZ\dayz-discord-killfeed"
+
+BUSCA: dayz-discord-killfeed | LOCAL: C:\RavenRP\DayZServer
+C:\RavenRP\DayZServer\start-killfeed.bat | Linha 5 | cd /d "C:\DayZ\dayz-discord-killfeed"
+C:\RavenRP\DayZServer\start.bat | Linha 33 | set "KILLFEED_DIR=C:\DayZ\dayz-discord-killfeed"
+C:\RavenRP\DayZServer\migration_backups\path_fix_20261119_170755\start.bat | Linha 33 | set "KILLFEED_DIR=C:\DayZ\dayz-discord-killfeed"
+
+BUSCA: start-killfeed | LOCAL: C:\RavenRP\DayZServer
+C:\RavenRP\DayZServer\start.bat | Linha 34 | set "KILLFEED_BAT=%KILLFEED_DIR%\start-killfeed.bat"
+C:\RavenRP\DayZServer\migration_backups\path_fix_20261119_170755\start.bat | Linha 34 | set "KILLFEED_BAT=%KILLFEED_DIR%\start-killfeed.bat"
+
+BUSCA: dayz_killfeed | LOCAL: C:\RavenRP\DayZServer
+
+BUSCA: killfeed-reader-secret | LOCAL: C:\RavenRP\DayZServer
+
+BUSCA: killfeedPool | LOCAL: C:\RavenRP\DayZServer
+
+ARQUIVO: C:\RavenRP\DayZServer\start.bat
+
+@echo off
+setlocal EnableExtensions EnableDelayedExpansion
+title Raven Organic RP - DayZ Server
+
+:: ============================================================
+:: 1. CONFIGURACOES PRINCIPAIS
+:: ============================================================
+
+set "SERVER_DIR=C:\RavenRP\DayZServer"
+set "SERVER_EXE=%SERVER_DIR%\DayZServer_x64.exe"
+set "SERVER_CONFIG=%SERVER_DIR%\serverDZ.cfg"
+set "PROFILES_DIR=%SERVER_DIR%\profiles"
+set "MISSION_ROOT=%SERVER_DIR%\mpmissions"
+set "BE_DIR=%SERVER_DIR%\battleye"
+set "KEYS_DIR=%SERVER_DIR%\keys"
+
+set "PORT=2302"
+
+:: ============================================================
+:: 2. BEC
+:: Ajuste estes caminhos caso seu BEC esteja em outra pasta.
+:: ============================================================
+
+set "BEC_DIR=%SERVER_DIR%\BEC"
+set "BEC_EXE=%BEC_DIR%\Bec.exe"
+set "BEC_CONFIG=%BEC_DIR%\Config.cfg"
+
+:: ============================================================
+:: 3. DISCORD KILL FEED
+:: ============================================================
+
+set "KILLFEED_DIR=C:\DayZ\dayz-discord-killfeed"
+set "KILLFEED_BAT=%KILLFEED_DIR%\start-killfeed.bat"
+set "KILLFEED_PYTHON=%KILLFEED_DIR%\.venv\Scripts\python.exe"
+
+:: ============================================================
+:: 4. MODS
+:: ============================================================
+
+set "MODS=@CF;@DabsFramework;@ZensCoreMod;@VPPAdminTools;@CookZ;@CodeLock;@SurvivorAnimations;@A_BeautifulMotorbikePassenger;@BuildingFortifications;@A_BeautifulKomodoDragon;@A_BeautifulCoyote;@CustomFlagArmband;@ZensNotes;@Earplugs"
+
+set "SERVER_MODS=@A_BeautifulNasdaraCactusHurts"
+
+:: ============================================================
+:: 5. LOGS DO INICIALIZADOR
+:: ============================================================
+
+set "LOG_DIR=%SERVER_DIR%\logs"
+set "LOG_FILE=%LOG_DIR%\start-server.log"
+
+if not exist "%LOG_DIR%" mkdir "%LOG_DIR%"
+
+echo ============================================================ 
+echo          RAVEN ORGANIC RP - NASDARA
+echo ============================================================
+echo.
+echo [%date% %time%] Inicializando servidor...
+echo [%date% %time%] Inicializando servidor... > "%LOG_FILE%"
+
+:: ============================================================
+:: 6. VALIDAR EXECUTAVEL
+:: ============================================================
+
+echo [1/8] Verificando executavel DayZ...
+
+if not exist "%SERVER_EXE%" (
+    echo [ERRO] DayZServer_x64.exe nao encontrado.
+    echo Caminho: %SERVER_EXE%
+    echo [ERRO] Executavel nao encontrado. >> "%LOG_FILE%"
+    goto :FALHA
+)
+
+echo [OK] Executavel encontrado.
+
+:: ============================================================
+:: 7. VALIDAR CONFIGURACAO
+:: ============================================================
+
+echo.
+echo [2/8] Verificando serverDZ.cfg...
+
+if not exist "%SERVER_CONFIG%" (
+    echo [ERRO] serverDZ.cfg nao encontrado.
+    echo Caminho: %SERVER_CONFIG%
+    echo [ERRO] Configuracao nao encontrada. >> "%LOG_FILE%"
+    goto :FALHA
+)
+
+echo [OK] serverDZ.cfg encontrado.
+
+:: ============================================================
+:: 8. IDENTIFICAR E VALIDAR MISSAO
+:: ============================================================
+
+echo.
+echo [3/8] Identificando missao configurada...
+
+set "MISSION_TEMPLATE="
+
+for /f "tokens=1,* delims==" %%A in ('findstr /i "template" "%SERVER_CONFIG%"') do (
+    if not defined MISSION_TEMPLATE set "MISSION_TEMPLATE=%%B"
+)
+
+if not defined MISSION_TEMPLATE (
+    echo [ERRO] Nao foi possivel identificar o template da missao.
+    echo Verifique a linha template no serverDZ.cfg.
+    echo [ERRO] Template da missao nao identificado. >> "%LOG_FILE%"
+    goto :FALHA
+)
+
+for /f "tokens=* delims= " %%A in ("!MISSION_TEMPLATE!") do set "MISSION_TEMPLATE=%%A"
+
+set "MISSION_TEMPLATE=!MISSION_TEMPLATE:"=!"
+set "MISSION_TEMPLATE=!MISSION_TEMPLATE:;=!"
+
+set "MISSION_DIR=%MISSION_ROOT%\!MISSION_TEMPLATE!"
+
+echo Missao identificada: !MISSION_TEMPLATE!
+echo Diretorio: !MISSION_DIR!
+
+if not exist "!MISSION_DIR!\" (
+    echo [ERRO] Diretorio da missao nao encontrado.
+    echo Verifique o template configurado no serverDZ.cfg.
+    echo [ERRO] Diretorio da missao inexistente. >> "%LOG_FILE%"
+    goto :FALHA
+)
+
+echo [OK] Missao encontrada.
+
+:: ============================================================
+:: 9. VALIDAR PERFIS E BATTLEYE
+:: ============================================================
+
+echo.
+echo [4/8] Verificando diretorios de suporte...
+
+if not exist "%PROFILES_DIR%\" (
+    echo [AVISO] Pasta profiles nao encontrada. Criando...
+    mkdir "%PROFILES_DIR%"
+)
+
+if not exist "%BE_DIR%\" (
+    echo [ERRO] Pasta BattlEye nao encontrada.
+    echo Caminho esperado: %BE_DIR%
+    echo [ERRO] Diretorio BattlEye ausente. >> "%LOG_FILE%"
+    goto :FALHA
+)
+
+if not exist "%KEYS_DIR%\" (
+    echo [AVISO] Pasta keys nao encontrada.
+) else (
+    dir /b "%KEYS_DIR%\*.bikey" >nul 2>&1
+    if errorlevel 1 echo [AVISO] Nenhum arquivo .bikey encontrado em keys.
+)
+
+echo [OK] Diretorios verificados.
+
+:: ============================================================
+:: 10. VALIDAR MODS
+:: ============================================================
+
+echo.
+echo [5/8] Verificando mods instalados...
+
+set "VALIDATION_ERROR="
+
+for %%M in (
+    @CF
+    @DabsFramework
+    @ZensCoreMod
+    @VPPAdminTools
+    @CookZ
+    @CodeLock
+    @SurvivorAnimations
+    @A_BeautifulMotorbikePassenger
+    @BuildingFortifications
+    @A_BeautifulKomodoDragon
+    @A_BeautifulCoyote
+    @CustomFlagArmband
+    @ZensNotes
+    @Earplugs
+    @A_BeautifulNasdaraCactusHurts
+) do (
+    if not exist "%SERVER_DIR%\%%M\" (
+        echo [ERRO] Mod ausente: %%M
+        set "VALIDATION_ERROR=1"
+    ) else (
+        echo [OK] %%M
+    )
+)
+
+if defined VALIDATION_ERROR (
+    echo.
+    echo [ERRO] Existem mods ausentes. Inicializacao cancelada.
+    echo [ERRO] Validacao de mods falhou. >> "%LOG_FILE%"
+    goto :FALHA
+)
+
+:: ============================================================
+:: 11. VALIDAR PROCESSO DUPLICADO
+:: ============================================================
+
+echo.
+echo [6/8] Verificando se o servidor ja esta em execucao...
+
+tasklist /FI "IMAGENAME eq DayZServer_x64.exe" | find /I "DayZServer_x64.exe" >nul
+
+if not errorlevel 1 (
+    echo [AVISO] O servidor DayZ ja esta em execucao.
+    echo Nenhuma segunda instancia sera iniciada.
+    exit /b 1
+)
+
+echo [OK] Nenhuma instancia anterior encontrada.
+
+:: ============================================================
+:: 12. INICIAR DAYZ
+:: ============================================================
+
+echo.
+echo [7/8] Iniciando servidor DayZ...
+echo.
+
+echo [%date% %time%] Executando DayZServer_x64.exe... >> "%LOG_FILE%"
+
+start "Raven Organic RP - DayZ Server" /high "%SERVER_EXE%" ^
+    "-config=%SERVER_CONFIG%" ^
+    "-port=%PORT%" ^
+    "-profiles=%PROFILES_DIR%" ^
+    "-BEpath=%BE_DIR%" ^
+    -dologs ^
+    -adminlog ^
+    -netlog ^
+    -freezecheck ^
+    -cpuCount=4 ^
+    -limitFPS=60 ^
+    -maxMem=12288 ^
+    -exThreads=4 ^
+    "-mod=%MODS%" ^
+    "-serverMod=%SERVER_MODS%"
+
+:: ============================================================
+:: 13. CONFIRMAR INICIALIZACAO DO PROCESSO
+:: ============================================================
+
+echo.
+echo Aguardando o processo DayZ...
+
+set /a WAITED=0
+
+:AGUARDAR_DAYZ
+
+timeout /t 5 /nobreak >nul
+
+tasklist /FI "IMAGENAME eq DayZServer_x64.exe" | find /I "DayZServer_x64.exe" >nul
+
+if not errorlevel 1 goto :DAYZ_INICIADO
+
+set /a WAITED+=5
+
+if !WAITED! LSS 60 goto :AGUARDAR_DAYZ
+
+goto :DAYZ_FALHOU
+
+:DAYZ_INICIADO
+
+echo [OK] Processo DayZ iniciado.
+echo [%date% %time%] Processo DayZ confirmado. >> "%LOG_FILE%"
+
+:: ============================================================
+:: 14. INICIAR BEC
+:: ============================================================
+
+echo.
+echo Verificando BEC...
+
+if exist "%BEC_EXE%" if exist "%BEC_CONFIG%" (
+
+    tasklist /FI "IMAGENAME eq Bec.exe" | find /I "Bec.exe" >nul
+
+    if errorlevel 1 (
+        echo [OK] Iniciando BEC...
+        start "Raven Organic RP - BEC" /min "%BEC_EXE%" -f "%BEC_CONFIG%"
+        echo [%date% %time%] BEC iniciado. >> "%LOG_FILE%"
+    ) else (
+        echo [AVISO] BEC ja esta em execucao.
+    )
+
+) else (
+    echo [AVISO] BEC nao encontrado ou Config.cfg ausente.
+    echo Verifique: %BEC_EXE%
+    echo Verifique: %BEC_CONFIG%
+    echo [%date% %time%] BEC nao iniciado - verificar instalacao. >> "%LOG_FILE%"
+)
+
+:: ============================================================
+:: 15. INICIAR DISCORD KILL FEED
+:: ============================================================
+
+echo.
+echo Verificando Discord Kill Feed...
+
+if exist "%KILLFEED_BAT%" if exist "%KILLFEED_PYTHON%" (
+    echo [OK] Iniciando Discord Kill Feed...
+    start "Raven Organic RP - Discord Kill Feed" /min cmd.exe /c ""%KILLFEED_BAT%""
+    echo [%date% %time%] Kill Feed iniciado. >> "%LOG_FILE%"
+) else (
+    echo [AVISO] Kill Feed ou ambiente Python nao encontrado.
+    echo Projeto: %KILLFEED_DIR%
+    echo [%date% %time%] Kill Feed nao iniciado - verificar instalacao. >> "%LOG_FILE%"
+)
+
+:: ============================================================
+:: 16. CONCLUSAO
+:: ============================================================
+
+echo.
+echo ============================================================
+echo          RAVEN ORGANIC RP - SERVIDOR INICIADO
+echo ============================================================
+echo.
+echo Processo DayZ: ATIVO
+echo BEC: Verifique a mensagem acima.
+echo Discord Kill Feed: Verifique a mensagem acima.
+echo.
+echo Logs do inicializador:
+echo %LOG_FILE%
+echo.
+exit /b 0
+
+:: ============================================================
+:: ERROS
+:: ============================================================
+
+:DAYZ_FALHOU
+
+echo.
+echo [ERRO] O processo DayZ nao permaneceu ativo apos 60 segundos.
+echo Verifique os arquivos RPT e logs na pasta profiles.
+echo [%date% %time%] Falha ao iniciar ou manter processo DayZ. >> "%LOG_FILE%"
+exit /b 1
+
+:FALHA
+
+echo.
+echo ============================================================
+echo INICIALIZACAO CANCELADA
+echo Corrija os erros apresentados antes de tentar novamente.
+echo ============================================================
+echo.
+echo Consulte: %LOG_FILE%
+exit /b 1
+
+ARQUIVO: C:\RavenRP\DayZServer\restart_server.bat
+@echo off
+title Loop de Reinicio - Nasdara Organic RP
+color 0A
+
+:inicio
+echo ====================================================
+echo [%date% %time%] Iniciando o Servidor DayZ e o BEC...
+echo ====================================================
+
+:: Inicia o servidor e o BEC (chamando o start.bat)
+call "C:\RavenRP\DayZServer\start.bat"
+
+:: Fica aguardando o processo do DayZ fechar (o BEC vai fechar ele no minuto 240)
+:esperando
+timeout /t 10 /nobreak >nul
+tasklist /FI "IMAGENAME eq DayZServer_x64.exe" | find /I "DayZServer_x64.exe" >nul
+if %ERRORLEVEL% NEQ 0 (
+    echo.
+    echo [%date% %time%] Servidor desligado pelo BEC. Reiniciando em 5 segundos...
+    timeout /t 5 /nobreak >nul
+    goto inicio
+)
+goto esperando
+
+ARQUIVO: C:\RavenRP\DayZServer\start-killfeed.bat
+
+@echo off
+title Raven Organic RP - Kill Feed
+
+cd /d "C:\DayZ\dayz-discord-killfeed"
+
+echo ==========================================
+echo       RAVEN ORGANIC RP - KILL FEED
+echo ==========================================
+
+.venv\Scripts\python.exe -m killfeed
+
+echo.
+echo Kill Feed encerrado. Verifique os erros acima.
+pause
+
+
+==================================================
+FIM DA AUDITORIA - NENHUMA ALTERACAO REALIZADA
