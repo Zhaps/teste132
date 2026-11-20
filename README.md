@@ -1,7 +1,784 @@
+RAVEN CONTROL CENTER - INSPECAO 6.5.4 CORRIGIDA
+Data: 2026-11-20 17:37:37
+Modo: SOMENTE LEITURA
+
 
 ====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\Dashboard\public\index.html
+ARQUIVO: API\src\server.js
 ====================================================================================================
+[OK] Arquivo encontrado. Total de linhas: 193
+
+    1: 'use strict';
+    2: 
+    3: const path = require('path');
+    4: 
+    5: require('dotenv').config({
+    6:     path: path.resolve(__dirname, '..', '.env')
+    7: });
+    8: 
+    9: const express = require('express');
+   10: const helmet = require('helmet');
+   11: const cors = require('cors');
+   12: const rateLimit = require('express-rate-limit');
+   13: const pinoHttp = require('pino-http');
+   14: 
+   15: const logger = require('./logger');
+   16: const { pool } = require('./db');
+   17: const healthRoutes = require('./routes/health');
+   18: const authRoutes = require('./routes/auth');
+   19: const playersRoutes = require('./routes/players');
+   20: const priorityRoutes = require('./routes/priority');
+   21: const auditRoutes = require('./routes/audit');
+   22: const killfeedRoutes = require('./routes/killfeed');
+   23: const incidentsRoutes = require('./routes/incidents');
+   24: const logsRoutes = require('./routes/logs');
+   25: const ingestRoutes = require('./routes/ingest');
+   26: const { startPriorityScheduler, stopPriorityScheduler } = require('./services/priority-scheduler');
+   27: 
+   28: const app = express();
+   29: 
+   30: const HOST = process.env.API_HOST || '127.0.0.1';
+   31: const PORT = Number(process.env.API_PORT || 3100);
+   32: 
+   33: const allowedOrigins = new Set(
+   34:     (process.env.CORS_ORIGINS || '')
+   35:         .split(',')
+   36:         .map(value => value.trim())
+   37:         .filter(Boolean)
+   38: );
+   39: 
+   40: app.disable('x-powered-by');
+   41: 
+   42: app.use(pinoHttp({ logger }));
+   43: 
+   44: app.use(helmet());
+   45: 
+   46: app.use(cors({
+   47:     origin: (origin, callback) => {
+   48:         if (!origin || allowedOrigins.has(origin)) {
+   49:             return callback(null, true);
+   50:         }
+   51: 
+   52:         return callback(null, false);
+   53:     },
+   54:     credentials: true,
+   55:     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS']
+   56: }));
+   57: 
+   58: app.use('/api/v1/ingest', express.raw({
+   59:     type: 'application/json',
+   60:     limit: '64kb'
+   61: }));
+   62: app.use(express.json({ limit: '1mb' }));
+   63: app.use(express.urlencoded({ extended: false, limit: '1mb' }));
+   64: 
+   65: app.use(rateLimit({
+   66:     windowMs: 15 * 60 * 1000,
+   67:     limit: 300,
+   68:     standardHeaders: 'draft-8',
+   69:     legacyHeaders: false
+   70: }));
+   71: 
+   72: app.get('/', (req, res) => {
+   73:     res.json({
+   74:         name: 'Raven Control Center API',
+   75:         version: '1.0.0',
+   76:         status: 'running'
+   77:     });
+   78: });
+   79: 
+   80: app.use('/api/health', healthRoutes);
+   81: app.use('/api/auth', authRoutes);
+   82: app.use('/api/players', playersRoutes);
+   83: app.use('/api/priority', priorityRoutes);
+   84: app.use('/api/audit', auditRoutes);
+   85: app.use('/api/killfeed', killfeedRoutes);
+   86: app.use('/api/incidents', incidentsRoutes);
+   87: app.use('/api/logs', logsRoutes);
+   88: app.use('/api/v1/ingest', ingestRoutes);
+   89: 
+   90: app.use((req, res) => {
+   91:     res.status(404).json({
+   92:         error: 'ROUTE_NOT_FOUND'
+   93:     });
+   94: });
+   95: 
+   96: app.use((error, req, res, next) => {
+   97:     if (res.headersSent) {
+   98:         return next(error);
+   99:     }
+  100: 
+  101:     req.log.error({ error }, 'Erro na requisicao');
+  102: 
+  103:     res.status(error.status || 500).json({
+  104:         error: 'INTERNAL_SERVER_ERROR',
+  105:         message: 'Erro interno da API.'
+  106:     });
+  107: });
+  108: 
+  109: let server;
+  110: 
+  111: async function startServer() {
+  112:     await pool.query('SELECT 1');
+  113:     startPriorityScheduler();
+  114: 
+  115:     server = app.listen(PORT, HOST, () => {
+  116:         logger.info({
+  117:             host: HOST,
+  118:             port: PORT,
+  119:             database: process.env.DB_NAME
+  120:         }, 'Raven Control Center API iniciada');
+  121:     });
+  122: 
+  123:     server.on('error', (error) => {
+  124:         logger.error({ error }, 'Falha no servidor HTTP');
+  125:         process.exitCode = 1;
+  126:     });
+  127: }
+  128: 
+  129: let shuttingDown = false;
+  130: 
+  131: async function shutdown(signal) {
+  132:     if (shuttingDown) return;
+  133:     shuttingDown = true;
+  134: 
+  135:     logger.info({ signal }, 'Encerramento seguro da API iniciado');
+  136: 
+  137:     let shutdownError = null;
+  138: 
+  139:     try {
+  140:         await stopPriorityScheduler();
+  141:     } catch (error) {
+  142:         shutdownError = error;
+  143:         logger.error({ error }, 'Falha ao aguardar o agendador');
+  144:     }
+  145: 
+  146:     if (server) {
+  147:         try {
+  148:             await new Promise((resolve, reject) => {
+  149:                 server.close((error) => {
+  150:                     if (error) reject(error);
+  151:                     else resolve();
+  152:                 });
+  153: 
+  154:                 if (typeof server.closeIdleConnections === 'function') {
+  155:                     server.closeIdleConnections();
+  156:                 }
+  157:             });
+  158:         } catch (error) {
+  159:             shutdownError = shutdownError || error;
+  160:             logger.error({ error }, 'Falha ao encerrar servidor HTTP');
+  161:         }
+  162:     }
+  163: 
+  164:     try {
+  165:         await pool.end();
+  166:     } catch (error) {
+  167:         shutdownError = shutdownError || error;
+  168:         logger.error({ error }, 'Falha ao encerrar pool PostgreSQL');
+  169:     }
+  170: 
+  171:     if (shutdownError) {
+  172:         logger.error('API encerrada com erro durante o desligamento');
+  173:         process.exitCode = 1;
+  174:         return;
+  175:     }
+  176: 
+  177:     logger.info('API encerrada com seguranca');
+  178:     process.exitCode = 0;
+  179: }
+  180: 
+  181: process.on('SIGINT', () => {
+  182:     void shutdown('SIGINT');
+  183: });
+  184: 
+  185: process.on('SIGTERM', () => {
+  186:     void shutdown('SIGTERM');
+  187: });
+  188: 
+  189: startServer().catch(async (error) => {
+  190:     logger.fatal({ error }, 'Nao foi possivel iniciar a API');
+  191:     await pool.end();
+  192:     process.exit(1);
+  193: });
+
+====================================================================================================
+ARQUIVO: API\src\routes\ingest.js
+====================================================================================================
+[OK] Arquivo encontrado. Total de linhas: 105
+
+    1: 'use strict';
+    2: 
+    3: const express = require('express');
+    4: const { pool } = require('../db');
+    5: const requireIngestToken = require('../middleware/require-ingest-token');
+    6: const { normalizeServerStatus } = require('../services/server-status-normalizer');
+    7: 
+    8: const router = express.Router();
+    9: 
+   10: router.post('/:serverId', requireIngestToken, async (req, res) => {
+   11:     try {
+   12:         if (!Buffer.isBuffer(req.body)) {
+   13:             return res.status(400).json({
+   14:                 error: 'RAW_JSON_BODY_REQUIRED'
+   15:             });
+   16:         }
+   17: 
+   18:         let envelope;
+   19: 
+   20:         try {
+   21:             envelope = JSON.parse(req.body.toString('utf8'));
+   22:         } catch (_) {
+   23:             return res.status(400).json({
+   24:                 error: 'INVALID_JSON'
+   25:             });
+   26:         }
+   27: 
+   28:         const serverId = req.params.serverId;
+   29: 
+   30:         if (!/^[a-zA-Z0-9_-]{1,64}$/.test(serverId)) {
+   31:             return res.status(400).json({
+   32:                 error: 'INVALID_SERVER_ID'
+   33:             });
+   34:         }
+   35: 
+   36:         if (
+   37:             envelope.server_id !== undefined &&
+   38:             envelope.server_id !== serverId
+   39:         ) {
+   40:             return res.status(400).json({
+   41:                 error: 'SERVER_ID_MISMATCH'
+   42:             });
+   43:         }
+   44: 
+   45:         const status = normalizeServerStatus(envelope);
+   46: 
+   47:         const result = await pool.query(
+   48:             `INSERT INTO public.server_status_events
+   49:                 (server_id, event_id, occurred_at, fps,
+   50:                  uptime_seconds, players, max_players,
+   51:                  steam_queue, payload)
+   52:              VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9::jsonb)
+   53:              ON CONFLICT (server_id, event_id) DO NOTHING
+   54:              RETURNING id`,
+   55:             [
+   56:                 serverId,
+   57:                 status.eventId,
+   58:                 status.occurredAt,
+   59:                 status.fps,
+   60:                 status.uptimeSeconds,
+   61:                 status.players,
+   62:                 status.maxPlayers,
+   63:                 status.steamQueue,
+   64:                 JSON.stringify(status.rawPayload)
+   65:             ]
+   66:         );
+   67: 
+   68:         if (result.rowCount === 0) {
+   69:             return res.status(200).json({
+   70:                 status: 'duplicate',
+   71:                 event_id: status.eventId
+   72:             });
+   73:         }
+   74: 
+   75:         req.log.info({
+   76:             serverId,
+   77:             eventId: status.eventId
+   78:         }, 'Evento server.status recebido');
+   79: 
+   80:         return res.status(201).json({
+   81:             status: 'accepted',
+   82:             event_id: status.eventId,
+   83:             record_id: String(result.rows[0].id)
+   84:         });
+   85:     } catch (error) {
+   86:         if (error.message && error.message.startsWith('INVALID_') ||
+   87:             error.message && error.message.startsWith('MISSING_') ||
+   88:             error.message === 'PLAYERS_EXCEED_MAX_PLAYERS') {
+   89:             return res.status(400).json({
+   90:                 error: error.message
+   91:             });
+   92:         }
+   93: 
+   94:         req.log.error({
+   95:             code: error.code,
+   96:             message: error.message
+   97:         }, 'Falha na ingestao server.status');
+   98: 
+   99:         return res.status(500).json({
+  100:             error: 'INGESTION_FAILED'
+  101:         });
+  102:     }
+  103: });
+  104: 
+  105: module.exports = router;
+
+====================================================================================================
+ARQUIVO: API\src\routes\health.js
+====================================================================================================
+[OK] Arquivo encontrado. Total de linhas: 92
+
+    1: 'use strict';
+    2: 
+    3: const express = require('express');
+    4: const { pool } = require('../db');
+    5: const { killfeedPool } = require('../killfeed-db');
+    6: const { recordHealthSnapshot } = require('../services/incident-monitor');
+    7: 
+    8: const router = express.Router();
+    9: 
+   10: async function checkDatabase(databasePool, req, label) {
+   11:     const start = process.hrtime.bigint();
+   12: 
+   13:     try {
+   14:         await databasePool.query('SELECT 1 AS result');
+   15: 
+   16:         const latencyMs = Number(
+   17:             process.hrtime.bigint() - start
+   18:         ) / 1_000_000;
+   19: 
+   20:         return {
+   21:             status: 'connected',
+   22:             latencyMs: Number(latencyMs.toFixed(2))
+   23:         };
+   24:     } catch (error) {
+   25:         req.log.error(
+   26:             { code: error.code, component: label },
+   27:             'Health check de banco falhou'
+   28:         );
+   29: 
+   30:         return {
+   31:             status: 'disconnected'
+   32:         };
+   33:     }
+   34: }
+   35: 
+   36: router.get('/', async (req, res) => {
+   37:     const [primaryDatabase, killfeedDatabase] = await Promise.all([
+   38:         checkDatabase(pool, req, 'postgresql'),
+   39:         checkDatabase(killfeedPool, req, 'killfeed')
+   40:     ]);
+   41: 
+   42:     const primaryConnected = primaryDatabase.status === 'connected';
+   43:     const killfeedConnected = killfeedDatabase.status === 'connected';
+   44: 
+   45:     await recordHealthSnapshot({
+   46:         primary: primaryDatabase.status,
+   47:         killfeed: killfeedDatabase.status
+   48:     }, req.log);
+   49: 
+   50:     const status = !primaryConnected
+   51:         ? 'degraded'
+   52:         : killfeedConnected
+   53:             ? 'ok'
+   54:             : 'degraded';
+   55: 
+   56:     const memory = process.memoryUsage();
+   57: 
+   58:     const response = {
+   59:         status,
+   60:         service: 'raven-control-api',
+   61:         timestamp: new Date().toISOString(),
+   62:         uptimeSeconds: Math.floor(process.uptime()),
+   63:         process: {
+   64:             memory: {
+   65:                 rssMb: Number((memory.rss / 1024 / 1024).toFixed(2)),
+   66:                 heapUsedMb: Number((memory.heapUsed / 1024 / 1024).toFixed(2)),
+   67:                 heapTotalMb: Number((memory.heapTotal / 1024 / 1024).toFixed(2))
+   68:             }
+   69:         },
+   70:         databases: {
+   71:             primary: primaryDatabase,
+   72:             killfeed: killfeedDatabase
+   73:         }
+   74:     };
+   75: 
+   76:     if (!primaryConnected) {
+   77:         return res.status(503).json(response);
+   78:     }
+   79: 
+   80:     return res.status(200).json(response);
+   81: });
+   82: 
+   83: router.get('/live', (req, res) => {
+   84:     return res.status(200).json({
+   85:         status: 'alive',
+   86:         service: 'raven-control-api',
+   87:         timestamp: new Date().toISOString(),
+   88:         uptimeSeconds: Math.floor(process.uptime())
+   89:     });
+   90: });
+   91: 
+   92: module.exports = router;
+
+====================================================================================================
+ARQUIVO: API\src\middleware\require-auth.js
+====================================================================================================
+[OK] Arquivo encontrado. Total de linhas: 86
+
+    1: 'use strict';
+    2: 
+    3: const { verifyAccessToken } = require('../services/auth');
+    4: const { pool } = require('../db');
+    5: 
+    6: async function requireAuth(req, res, next) {
+    7:     const authorization = req.get('authorization') || '';
+    8:     const match = authorization.match(/^Bearer\s+(.+)$/i);
+    9: 
+   10:     if (!match) {
+   11:         return res.status(401).json({
+   12:             error: 'AUTHENTICATION_REQUIRED'
+   13:         });
+   14:     }
+   15: 
+   16:     try {
+   17:         const payload = await verifyAccessToken(match[1]);
+   18:         const adminId = Number(payload.sub);
+   19: 
+   20:         if (!Number.isSafeInteger(adminId) || adminId <= 0) {
+   21:             return res.status(401).json({
+   22:                 error: 'INVALID_TOKEN_SUBJECT'
+   23:             });
+   24:         }
+   25: 
+   26:         const result = await pool.query(
+   27:             `SELECT id, username, access_role, is_active
+   28:              FROM public.admin_users
+   29:              WHERE id = $1`,
+   30:             [adminId]
+   31:         );
+   32: 
+   33:         const admin = result.rows[0];
+   34: 
+   35:         if (!admin || !admin.is_active) {
+   36:             return res.status(401).json({
+   37:                 error: 'ADMIN_INACTIVE'
+   38:             });
+   39:         }
+   40: 
+   41:         req.admin = {
+   42:             id: admin.id,
+   43:             username: admin.username,
+   44:             role: admin.access_role
+   45:         };
+   46: 
+   47:         return next();
+   48: 
+   49:     } catch (error) {
+   50:         if (
+   51:             error.code === 'ECONNREFUSED' ||
+   52:             error.code === '57P01'
+   53:         ) {
+   54:             req.log.error({ error }, 'PostgreSQL indisponivel');
+   55: 
+   56:             return res.status(503).json({
+   57:                 error: 'AUTHENTICATION_SERVICE_UNAVAILABLE'
+   58:             });
+   59:         }
+   60: 
+   61:         if (error.name === 'JWTExpired') {
+   62:             return res.status(401).json({
+   63:                 error: 'TOKEN_EXPIRED'
+   64:             });
+   65:         }
+   66: 
+   67:         if (
+   68:             error.code === 'ERR_JWS_INVALID' ||
+   69:             error.code === 'ERR_JWT_INVALID' ||
+   70:             error.code === 'ERR_JWT_EXPIRED' ||
+   71:             error.code === 'ERR_JWS_SIGNATURE_VERIFICATION_FAILED'
+   72:         ) {
+   73:             return res.status(401).json({
+   74:                 error: 'INVALID_OR_EXPIRED_TOKEN'
+   75:             });
+   76:         }
+   77: 
+   78:         req.log.error({ error }, 'Falha na autenticacao');
+   79: 
+   80:         return res.status(500).json({
+   81:             error: 'AUTHENTICATION_ERROR'
+   82:         });
+   83:     }
+   84: }
+   85: 
+   86: module.exports = requireAuth;
+
+====================================================================================================
+ARQUIVO: API\src\db.js
+====================================================================================================
+[OK] Arquivo encontrado. Total de linhas: 33
+
+    1: 'use strict';
+    2: 
+    3: const { Pool } = require('pg');
+    4: const logger = require('./logger');
+    5: 
+    6: if (!process.env.DB_PASSWORD_B64) {
+    7:     throw new Error('DB_PASSWORD_B64 nao configurado.');
+    8: }
+    9: 
+   10: const password = Buffer
+   11:     .from(process.env.DB_PASSWORD_B64, 'base64')
+   12:     .toString('utf8');
+   13: 
+   14: const pool = new Pool({
+   15:     host: process.env.DB_HOST,
+   16:     port: Number(process.env.DB_PORT || 5432),
+   17:     database: process.env.DB_NAME,
+   18:     user: process.env.DB_USER,
+   19:     password,
+   20:     max: Number(process.env.DB_POOL_MAX || 5),
+   21:     connectionTimeoutMillis: Number(
+   22:         process.env.DB_CONNECTION_TIMEOUT || 5000
+   23:     ),
+   24:     idleTimeoutMillis: 10000,
+   25:     application_name: 'raven-control-api',
+   26:     ssl: false
+   27: });
+   28: 
+   29: pool.on('error', (error) => {
+   30:     logger.error({ error }, 'Erro inesperado no pool PostgreSQL');
+   31: });
+   32: 
+   33: module.exports = { pool };
+
+====================================================================================================
+ARQUIVO: API\src\routes\players.js
+====================================================================================================
+[OK] Arquivo encontrado. Total de linhas: 145
+
+    1: 'use strict';
+    2: 
+    3: const express = require('express');
+    4: const { z } = require('zod');
+    5: 
+    6: const { pool } = require('../db');
+    7: const { withTransaction } = require('../services/transaction');
+    8: const { writeAudit } = require('../services/audit');
+    9: const requireAuth = require('../middleware/require-auth');
+   10: const requireRole = require('../middleware/require-role');
+   11: 
+   12: const router = express.Router();
+   13: 
+   14: router.use(requireAuth);
+   15: 
+   16: const listSchema = z.object({
+   17:     search: z.string().trim().max(64).optional(),
+   18:     page: z.coerce.number().int().min(1).max(100000).default(1),
+   19:     limit: z.coerce.number().int().min(1).max(100).default(25)
+   20: }).strict();
+   21: 
+   22: const createSchema = z.object({
+   23:     steam64: z.string().regex(/^[0-9]{17}$/),
+   24:     displayName: z.string().trim().min(1).max(64).nullable().optional()
+   25: }).strict();
+   26: 
+   27: router.get('/', async (req, res) => {
+   28:     const parsed = listSchema.safeParse(req.query);
+   29: 
+   30:     if (!parsed.success) {
+   31:         return res.status(400).json({ error: 'INVALID_QUERY' });
+   32:     }
+   33: 
+   34:     const { search, page, limit } = parsed.data;
+   35:     const offset = (page - 1) * limit;
+   36: 
+   37:     try {
+   38:         const values = [];
+   39:         let where = '';
+   40: 
+   41:         if (search) {
+   42:             values.push(search, `%${search}%`);
+   43:             where = 'WHERE (steam64 = $1 OR display_name ILIKE $2)';
+   44:         }
+   45: 
+   46:         const count = await pool.query(
+   47:             `SELECT COUNT(*)::integer AS total
+   48:              FROM public.players ${where}`,
+   49:             values
+   50:         );
+   51: 
+   52:         const paginationValues = [...values, limit, offset];
+   53:         const limitPosition = values.length + 1;
+   54:         const offsetPosition = values.length + 2;
+   55: 
+   56:         const result = await pool.query(
+   57:             `SELECT id::text, steam64, display_name,
+   58:                     first_seen_at, last_seen_at, created_at, updated_at
+   59:              FROM public.players
+   60:              ${where}
+   61:              ORDER BY created_at DESC
+   62:              LIMIT $${limitPosition} OFFSET $${offsetPosition}`,
+   63:             paginationValues
+   64:         );
+   65: 
+   66:         return res.json({
+   67:             page,
+   68:             limit,
+   69:             total: count.rows[0].total,
+   70:             players: result.rows
+   71:         });
+   72:     } catch (error) {
+   73:         req.log.error({ error }, 'Falha ao listar jogadores');
+   74: 
+   75:         return res.status(500).json({
+   76:             error: 'PLAYER_LIST_ERROR'
+   77:         });
+   78:     }
+   79: });
+   80: 
+   81: router.post(
+   82:     '/',
+   83:     requireRole('owner', 'admin', 'moderator'),
+   84:     async (req, res) => {
+   85:         const parsed = createSchema.safeParse(req.body);
+   86: 
+   87:         if (!parsed.success) {
+   88:             return res.status(400).json({
+   89:                 error: 'INVALID_PLAYER_DATA',
+   90:                 details: parsed.error.issues.map(issue => ({
+   91:                     field: issue.path.join('.'),
+   92:                     message: issue.message
+   93:                 }))
+   94:             });
+   95:         }
+   96: 
+   97:         const { steam64, displayName } = parsed.data;
+   98: 
+   99:         try {
+  100:             const player = await withTransaction(async client => {
+  101:                 const result = await client.query(
+  102:                     `INSERT INTO public.players
+  103:                         (steam64, display_name)
+  104:                      VALUES ($1, $2)
+  105:                      RETURNING id::text, steam64, display_name, created_at`,
+  106:                     [steam64, displayName || null]
+  107:                 );
+  108: 
+  109:                 const created = result.rows[0];
+  110: 
+  111:                 await writeAudit(client, {
+  112:                     actorType: 'admin',
+  113:                     actorIdentifier: req.admin.username,
+  114:                     actorAdminId: req.admin.id,
+  115:                     action: 'player.created',
+  116:                     entityType: 'player',
+  117:                     entityId: created.id,
+  118:                     details: {
+  119:                         steam64,
+  120:                         displayName: displayName || null
+  121:                     },
+  122:                     sourceIp: req.ip
+  123:                 });
+  124: 
+  125:                 return created;
+  126:             });
+  127: 
+  128:             return res.status(201).json({ player });
+  129:         } catch (error) {
+  130:             if (error.code === '23505') {
+  131:                 return res.status(409).json({
+  132:                     error: 'PLAYER_ALREADY_EXISTS'
+  133:                 });
+  134:             }
+  135: 
+  136:             req.log.error({ error }, 'Falha ao cadastrar jogador');
+  137: 
+  138:             return res.status(500).json({
+  139:                 error: 'PLAYER_CREATE_ERROR'
+  140:             });
+  141:         }
+  142:     }
+  143: );
+  144: 
+  145: module.exports = router;
+
+====================================================================================================
+ARQUIVO: API\src\routes\incidents.js
+====================================================================================================
+[OK] Arquivo encontrado. Total de linhas: 75
+
+    1: 'use strict';
+    2: 
+    3: const express = require('express');
+    4: const { z } = require('zod');
+    5: 
+    6: const { pool } = require('../db');
+    7: const requireAuth = require('../middleware/require-auth');
+    8: const requireRole = require('../middleware/require-role');
+    9: 
+   10: const router = express.Router();
+   11: 
+   12: router.use(requireAuth);
+   13: router.use(requireRole('owner', 'admin'));
+   14: 
+   15: const querySchema = z.object({
+   16:     page: z.coerce.number().int().min(1).max(100000).default(1),
+   17:     limit: z.coerce.number().int().min(1).max(100).default(50)
+   18: }).strict();
+   19: 
+   20: router.get('/', async (req, res) => {
+   21:     const parsed = querySchema.safeParse(req.query);
+   22: 
+   23:     if (!parsed.success) {
+   24:         return res.status(400).json({
+   25:             error: 'INVALID_INCIDENT_QUERY'
+   26:         });
+   27:     }
+   28: 
+   29:     const { page, limit } = parsed.data;
+   30: 
+   31:     try {
+   32:         const count = await pool.query(
+   33:             `SELECT COUNT(*)::integer AS total
+   34:              FROM public.system_incidents`
+   35:         );
+   36: 
+   37:         const result = await pool.query(
+   38:             `SELECT
+   39:                 id::text,
+   40:                 component,
+   41:                 severity,
+   42:                 details,
+   43:                 started_at,
+   44:                 resolved_at,
+   45:                 CASE
+   46:                     WHEN resolved_at IS NULL
+   47:                     THEN EXTRACT(EPOCH FROM (NOW() - started_at))::integer
+   48:                     ELSE EXTRACT(EPOCH FROM (resolved_at - started_at))::integer
+   49:                 END AS duration_seconds,
+   50:                 resolved_at IS NULL AS is_open
+   51:              FROM public.system_incidents
+   52:              ORDER BY started_at DESC
+   53:              LIMIT $1 OFFSET $2`,
+   54:             [limit, (page - 1) * limit]
+   55:         );
+   56: 
+   57:         return res.json({
+   58:             page,
+   59:             limit,
+   60:             total: count.rows[0].total,
+   61:             incidents: result.rows
+   62:         });
+   63:     } catch (error) {
+   64:         req.log.error(
+   65:             { code: error.code },
+   66:             'Falha ao consultar incidentes'
+   67:         );
+   68: 
+   69:         return res.status(500).json({
+   70:             error: 'INCIDENT_QUERY_ERROR'
+   71:         });
+   72:     }
+   73: });
+   74: 
+   75: module.exports = router;
+
+====================================================================================================
+ARQUIVO: Dashboard\public\index.html
+====================================================================================================
+[OK] Arquivo encontrado. Total de linhas: 1261
+
     1: <!DOCTYPE html>
     2: <html lang="pt-BR">
     3: <head>
@@ -1264,603 +2041,4 @@ ARQUIVO: C:\RavenRP\ControlCenter\Dashboard\public\index.html
  1260: </body>
  1261: </html>
 
-====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\Dashboard\server.js
-====================================================================================================
-    1: 'use strict';
-    2: 
-    3: const http = require('node:http');
-    4: const fs = require('node:fs');
-    5: const path = require('node:path');
-    6: 
-    7: const HOST = '127.0.0.1';
-    8: const PORT = 5173;
-    9: const PUBLIC = path.join(__dirname, 'public');
-   10: 
-   11: const MIME = {
-   12:     '.html': 'text/html; charset=utf-8',
-   13:     '.css': 'text/css; charset=utf-8',
-   14:     '.js': 'application/javascript; charset=utf-8',
-   15:     '.svg': 'image/svg+xml'
-   16: };
-   17: 
-   18: const server = http.createServer((req, res) => {
-   19:     const pathname = decodeURIComponent(
-   20:         new URL(req.url, `http://${HOST}:${PORT}`).pathname
-   21:     );
-   22: 
-   23:     let requested = pathname === '/'
-   24:         ? 'index.html'
-   25:         : pathname.replace(/^\/+/, '');
-   26: 
-   27:     const file = path.resolve(PUBLIC, requested);
-   28: 
-   29:     if (!file.startsWith(PUBLIC + path.sep)) {
-   30:         res.writeHead(403);
-   31:         return res.end('Forbidden');
-   32:     }
-   33: 
-   34:     fs.readFile(file, (error, content) => {
-   35:         if (error) {
-   36:             if (error.code === 'ENOENT') {
-   37:                 res.writeHead(404);
-   38:                 return res.end('Not found');
-   39:             }
-   40: 
-   41:             res.writeHead(500);
-   42:             return res.end('Internal server error');
-   43:         }
-   44: 
-   45:         res.writeHead(200, {
-   46:             'Content-Type': MIME[path.extname(file)] || 'application/octet-stream',
-   47:             'X-Content-Type-Options': 'nosniff',
-   48:             'Cache-Control': 'no-store'
-   49:         });
-   50: 
-   51:         res.end(content);
-   52:     });
-   53: });
-   54: 
-   55: server.listen(PORT, HOST, () => {
-   56:     console.log(`Raven Dashboard disponivel em http://${HOST}:${PORT}`);
-   57: });
-   58: 
-   59: server.on('error', error => {
-   60:     console.error('Falha ao iniciar Dashboard:', error.message);
-   61:     process.exitCode = 1;
-   62: });
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\API\src\server.js
-====================================================================================================
-    1: 'use strict';
-    2: 
-    3: const path = require('path');
-    4: 
-    5: require('dotenv').config({
-    6:     path: path.resolve(__dirname, '..', '.env')
-    7: });
-    8: 
-    9: const express = require('express');
-   10: const helmet = require('helmet');
-   11: const cors = require('cors');
-   12: const rateLimit = require('express-rate-limit');
-   13: const pinoHttp = require('pino-http');
-   14: 
-   15: const logger = require('./logger');
-   16: const { pool } = require('./db');
-   17: const healthRoutes = require('./routes/health');
-   18: const authRoutes = require('./routes/auth');
-   19: const playersRoutes = require('./routes/players');
-   20: const priorityRoutes = require('./routes/priority');
-   21: const auditRoutes = require('./routes/audit');
-   22: const killfeedRoutes = require('./routes/killfeed');
-   23: const incidentsRoutes = require('./routes/incidents');
-   24: const logsRoutes = require('./routes/logs');
-   25: const ingestRoutes = require('./routes/ingest');
-   26: const { startPriorityScheduler, stopPriorityScheduler } = require('./services/priority-scheduler');
-   27: 
-   28: const app = express();
-   29: 
-   30: const HOST = process.env.API_HOST || '127.0.0.1';
-   31: const PORT = Number(process.env.API_PORT || 3100);
-   32: 
-   33: const allowedOrigins = new Set(
-   34:     (process.env.CORS_ORIGINS || '')
-   35:         .split(',')
-   36:         .map(value => value.trim())
-   37:         .filter(Boolean)
-   38: );
-   39: 
-   40: app.disable('x-powered-by');
-   41: 
-   42: app.use(pinoHttp({ logger }));
-   43: 
-   44: app.use(helmet());
-   45: 
-   46: app.use(cors({
-   47:     origin: (origin, callback) => {
-   48:         if (!origin || allowedOrigins.has(origin)) {
-   49:             return callback(null, true);
-   50:         }
-   51: 
-   52:         return callback(null, false);
-   53:     },
-   54:     credentials: true,
-   55:     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS']
-   56: }));
-   57: 
-   58: app.use('/api/v1/ingest', express.raw({
-   59:     type: 'application/json',
-   60:     limit: '64kb'
-   61: }));
-   62: app.use(express.json({ limit: '1mb' }));
-   63: app.use(express.urlencoded({ extended: false, limit: '1mb' }));
-   64: 
-   65: app.use(rateLimit({
-   66:     windowMs: 15 * 60 * 1000,
-   67:     limit: 300,
-   68:     standardHeaders: 'draft-8',
-   69:     legacyHeaders: false
-   70: }));
-   71: 
-   72: app.get('/', (req, res) => {
-   73:     res.json({
-   74:         name: 'Raven Control Center API',
-   75:         version: '1.0.0',
-   76:         status: 'running'
-   77:     });
-   78: });
-   79: 
-   80: app.use('/api/health', healthRoutes);
-   81: app.use('/api/auth', authRoutes);
-   82: app.use('/api/players', playersRoutes);
-   83: app.use('/api/priority', priorityRoutes);
-   84: app.use('/api/audit', auditRoutes);
-   85: app.use('/api/killfeed', killfeedRoutes);
-   86: app.use('/api/incidents', incidentsRoutes);
-   87: app.use('/api/logs', logsRoutes);
-   88: app.use('/api/v1/ingest', ingestRoutes);
-   89: 
-   90: app.use((req, res) => {
-   91:     res.status(404).json({
-   92:         error: 'ROUTE_NOT_FOUND'
-   93:     });
-   94: });
-   95: 
-   96: app.use((error, req, res, next) => {
-   97:     if (res.headersSent) {
-   98:         return next(error);
-   99:     }
-  100: 
-  101:     req.log.error({ error }, 'Erro na requisicao');
-  102: 
-  103:     res.status(error.status || 500).json({
-  104:         error: 'INTERNAL_SERVER_ERROR',
-  105:         message: 'Erro interno da API.'
-  106:     });
-  107: });
-  108: 
-  109: let server;
-  110: 
-  111: async function startServer() {
-  112:     await pool.query('SELECT 1');
-  113:     startPriorityScheduler();
-  114: 
-  115:     server = app.listen(PORT, HOST, () => {
-  116:         logger.info({
-  117:             host: HOST,
-  118:             port: PORT,
-  119:             database: process.env.DB_NAME
-  120:         }, 'Raven Control Center API iniciada');
-  121:     });
-  122: 
-  123:     server.on('error', (error) => {
-  124:         logger.error({ error }, 'Falha no servidor HTTP');
-  125:         process.exitCode = 1;
-  126:     });
-  127: }
-  128: 
-  129: let shuttingDown = false;
-  130: 
-  131: async function shutdown(signal) {
-  132:     if (shuttingDown) return;
-  133:     shuttingDown = true;
-  134: 
-  135:     logger.info({ signal }, 'Encerramento seguro da API iniciado');
-  136: 
-  137:     let shutdownError = null;
-  138: 
-  139:     try {
-  140:         await stopPriorityScheduler();
-  141:     } catch (error) {
-  142:         shutdownError = error;
-  143:         logger.error({ error }, 'Falha ao aguardar o agendador');
-  144:     }
-  145: 
-  146:     if (server) {
-  147:         try {
-  148:             await new Promise((resolve, reject) => {
-  149:                 server.close((error) => {
-  150:                     if (error) reject(error);
-  151:                     else resolve();
-  152:                 });
-  153: 
-  154:                 if (typeof server.closeIdleConnections === 'function') {
-  155:                     server.closeIdleConnections();
-  156:                 }
-  157:             });
-  158:         } catch (error) {
-  159:             shutdownError = shutdownError || error;
-  160:             logger.error({ error }, 'Falha ao encerrar servidor HTTP');
-  161:         }
-  162:     }
-  163: 
-  164:     try {
-  165:         await pool.end();
-  166:     } catch (error) {
-  167:         shutdownError = shutdownError || error;
-  168:         logger.error({ error }, 'Falha ao encerrar pool PostgreSQL');
-  169:     }
-  170: 
-  171:     if (shutdownError) {
-  172:         logger.error('API encerrada com erro durante o desligamento');
-  173:         process.exitCode = 1;
-  174:         return;
-  175:     }
-  176: 
-  177:     logger.info('API encerrada com seguranca');
-  178:     process.exitCode = 0;
-  179: }
-  180: 
-  181: process.on('SIGINT', () => {
-  182:     void shutdown('SIGINT');
-  183: });
-  184: 
-  185: process.on('SIGTERM', () => {
-  186:     void shutdown('SIGTERM');
-  187: });
-  188: 
-  189: startServer().catch(async (error) => {
-  190:     logger.fatal({ error }, 'Nao foi possivel iniciar a API');
-  191:     await pool.end();
-  192:     process.exit(1);
-  193: });
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\API\src\routes\health.js
-====================================================================================================
-    1: 'use strict';
-    2: 
-    3: const express = require('express');
-    4: const { pool } = require('../db');
-    5: const { killfeedPool } = require('../killfeed-db');
-    6: const { recordHealthSnapshot } = require('../services/incident-monitor');
-    7: 
-    8: const router = express.Router();
-    9: 
-   10: async function checkDatabase(databasePool, req, label) {
-   11:     const start = process.hrtime.bigint();
-   12: 
-   13:     try {
-   14:         await databasePool.query('SELECT 1 AS result');
-   15: 
-   16:         const latencyMs = Number(
-   17:             process.hrtime.bigint() - start
-   18:         ) / 1_000_000;
-   19: 
-   20:         return {
-   21:             status: 'connected',
-   22:             latencyMs: Number(latencyMs.toFixed(2))
-   23:         };
-   24:     } catch (error) {
-   25:         req.log.error(
-   26:             { code: error.code, component: label },
-   27:             'Health check de banco falhou'
-   28:         );
-   29: 
-   30:         return {
-   31:             status: 'disconnected'
-   32:         };
-   33:     }
-   34: }
-   35: 
-   36: router.get('/', async (req, res) => {
-   37:     const [primaryDatabase, killfeedDatabase] = await Promise.all([
-   38:         checkDatabase(pool, req, 'postgresql'),
-   39:         checkDatabase(killfeedPool, req, 'killfeed')
-   40:     ]);
-   41: 
-   42:     const primaryConnected = primaryDatabase.status === 'connected';
-   43:     const killfeedConnected = killfeedDatabase.status === 'connected';
-   44: 
-   45:     await recordHealthSnapshot({
-   46:         primary: primaryDatabase.status,
-   47:         killfeed: killfeedDatabase.status
-   48:     }, req.log);
-   49: 
-   50:     const status = !primaryConnected
-   51:         ? 'degraded'
-   52:         : killfeedConnected
-   53:             ? 'ok'
-   54:             : 'degraded';
-   55: 
-   56:     const memory = process.memoryUsage();
-   57: 
-   58:     const response = {
-   59:         status,
-   60:         service: 'raven-control-api',
-   61:         timestamp: new Date().toISOString(),
-   62:         uptimeSeconds: Math.floor(process.uptime()),
-   63:         process: {
-   64:             memory: {
-   65:                 rssMb: Number((memory.rss / 1024 / 1024).toFixed(2)),
-   66:                 heapUsedMb: Number((memory.heapUsed / 1024 / 1024).toFixed(2)),
-   67:                 heapTotalMb: Number((memory.heapTotal / 1024 / 1024).toFixed(2))
-   68:             }
-   69:         },
-   70:         databases: {
-   71:             primary: primaryDatabase,
-   72:             killfeed: killfeedDatabase
-   73:         }
-   74:     };
-   75: 
-   76:     if (!primaryConnected) {
-   77:         return res.status(503).json(response);
-   78:     }
-   79: 
-   80:     return res.status(200).json(response);
-   81: });
-   82: 
-   83: router.get('/live', (req, res) => {
-   84:     return res.status(200).json({
-   85:         status: 'alive',
-   86:         service: 'raven-control-api',
-   87:         timestamp: new Date().toISOString(),
-   88:         uptimeSeconds: Math.floor(process.uptime())
-   89:     });
-   90: });
-   91: 
-   92: module.exports = router;
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\API\src\routes\ingest.js
-====================================================================================================
-    1: 'use strict';
-    2: 
-    3: const express = require('express');
-    4: const { pool } = require('../db');
-    5: const requireIngestToken = require('../middleware/require-ingest-token');
-    6: const { normalizeServerStatus } = require('../services/server-status-normalizer');
-    7: 
-    8: const router = express.Router();
-    9: 
-   10: router.post('/:serverId', requireIngestToken, async (req, res) => {
-   11:     try {
-   12:         if (!Buffer.isBuffer(req.body)) {
-   13:             return res.status(400).json({
-   14:                 error: 'RAW_JSON_BODY_REQUIRED'
-   15:             });
-   16:         }
-   17: 
-   18:         let envelope;
-   19: 
-   20:         try {
-   21:             envelope = JSON.parse(req.body.toString('utf8'));
-   22:         } catch (_) {
-   23:             return res.status(400).json({
-   24:                 error: 'INVALID_JSON'
-   25:             });
-   26:         }
-   27: 
-   28:         const serverId = req.params.serverId;
-   29: 
-   30:         if (!/^[a-zA-Z0-9_-]{1,64}$/.test(serverId)) {
-   31:             return res.status(400).json({
-   32:                 error: 'INVALID_SERVER_ID'
-   33:             });
-   34:         }
-   35: 
-   36:         if (
-   37:             envelope.server_id !== undefined &&
-   38:             envelope.server_id !== serverId
-   39:         ) {
-   40:             return res.status(400).json({
-   41:                 error: 'SERVER_ID_MISMATCH'
-   42:             });
-   43:         }
-   44: 
-   45:         const status = normalizeServerStatus(envelope);
-   46: 
-   47:         const result = await pool.query(
-   48:             `INSERT INTO public.server_status_events
-   49:                 (server_id, event_id, occurred_at, fps,
-   50:                  uptime_seconds, players, max_players,
-   51:                  steam_queue, payload)
-   52:              VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9::jsonb)
-   53:              ON CONFLICT (server_id, event_id) DO NOTHING
-   54:              RETURNING id`,
-   55:             [
-   56:                 serverId,
-   57:                 status.eventId,
-   58:                 status.occurredAt,
-   59:                 status.fps,
-   60:                 status.uptimeSeconds,
-   61:                 status.players,
-   62:                 status.maxPlayers,
-   63:                 status.steamQueue,
-   64:                 JSON.stringify(status.rawPayload)
-   65:             ]
-   66:         );
-   67: 
-   68:         if (result.rowCount === 0) {
-   69:             return res.status(200).json({
-   70:                 status: 'duplicate',
-   71:                 event_id: status.eventId
-   72:             });
-   73:         }
-   74: 
-   75:         req.log.info({
-   76:             serverId,
-   77:             eventId: status.eventId
-   78:         }, 'Evento server.status recebido');
-   79: 
-   80:         return res.status(201).json({
-   81:             status: 'accepted',
-   82:             event_id: status.eventId,
-   83:             record_id: String(result.rows[0].id)
-   84:         });
-   85:     } catch (error) {
-   86:         if (error.message && error.message.startsWith('INVALID_') ||
-   87:             error.message && error.message.startsWith('MISSING_') ||
-   88:             error.message === 'PLAYERS_EXCEED_MAX_PLAYERS') {
-   89:             return res.status(400).json({
-   90:                 error: error.message
-   91:             });
-   92:         }
-   93: 
-   94:         req.log.error({
-   95:             code: error.code,
-   96:             message: error.message
-   97:         }, 'Falha na ingestao server.status');
-   98: 
-   99:         return res.status(500).json({
-  100:             error: 'INGESTION_FAILED'
-  101:         });
-  102:     }
-  103: });
-  104: 
-  105: module.exports = router;
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\API\src\services\server-status-normalizer.js
-====================================================================================================
-    1: 'use strict';
-    2: 
-    3: function normalizeServerStatus(envelope) {
-    4:     if (!envelope || typeof envelope !== 'object' || Array.isArray(envelope)) {
-    5:         throw new Error('INVALID_ENVELOPE');
-    6:     }
-    7: 
-    8:     if (envelope.event_type !== 'server.status') {
-    9:         throw new Error('INVALID_EVENT_TYPE');
-   10:     }
-   11: 
-   12:     if (
-   13:         typeof envelope.event_id !== 'string' ||
-   14:         !/^[A-Za-z0-9._:-]{1,128}$/.test(envelope.event_id)
-   15:     ) {
-   16:         throw new Error('INVALID_EVENT_ID');
-   17:     }
-   18: 
-   19:     if (
-   20:         typeof envelope.occurred_at !== 'string' ||
-   21:         !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,9})?(?:Z|[+-]\d{2}:\d{2})$/.test(envelope.occurred_at)
-   22:     ) {
-   23:         throw new Error('INVALID_OCCURRED_AT');
-   24:     }
-   25: 
-   26:     const occurredAt = new Date(envelope.occurred_at);
-   27: 
-   28:     if (Number.isNaN(occurredAt.getTime())) {
-   29:         throw new Error('INVALID_OCCURRED_AT');
-   30:     }
-   31: 
-   32:     const payload = envelope.payload;
-   33: 
-   34:     if (!payload || typeof payload !== 'object' || Array.isArray(payload)) {
-   35:         throw new Error('INVALID_PAYLOAD');
-   36:     }
-   37: 
-   38:     function numberField(value, name, options = {}) {
-   39:         if (value === undefined || value === null) {
-   40:             if (options.optional) return null;
-   41:             throw new Error(`MISSING_${name}`);
-   42:         }
-   43: 
-   44:         let number;
-   45: 
-   46:         if (typeof value === 'number') {
-   47:             number = value;
-   48:         } else if (
-   49:             typeof value === 'string' &&
-   50:             /^(?:0|[1-9]\d*)(?:\.\d+)?$/.test(value)
-   51:         ) {
-   52:             number = Number(value);
-   53:         } else {
-   54:             throw new Error(`INVALID_${name}`);
-   55:         }
-   56: 
-   57:         if (!Number.isFinite(number) || number < 0) {
-   58:             throw new Error(`INVALID_${name}`);
-   59:         }
-   60: 
-   61:         if (options.integer && !Number.isSafeInteger(number)) {
-   62:             throw new Error(`INVALID_${name}`);
-   63:         }
-   64: 
-   65:         if (options.max !== undefined && number > options.max) {
-   66:             throw new Error(`INVALID_${name}`);
-   67:         }
-   68: 
-   69:         return number;
-   70:     }
-   71: 
-   72:     const uptimeValue = payload.uptime_seconds ?? payload.uptime;
-   73:     const maxPlayersValue = payload.max_players ?? payload.maxPlayers;
-   74:     const queueValue = payload.steam_queue ?? payload.steamQueue;
-   75: 
-   76:     const result = {
-   77:         eventId: envelope.event_id,
-   78:         occurredAt: occurredAt.toISOString(),
-   79:         fps: numberField(payload.fps, 'FPS', { max: 1000 }),
-   80:         uptimeSeconds: numberField(uptimeValue, 'UPTIME', { integer: true }),
-   81:         players: numberField(payload.players, 'PLAYERS', {
-   82:             integer: true,
-   83:             max: 10000
-   84:         }),
-   85:         maxPlayers: numberField(maxPlayersValue, 'MAX_PLAYERS', {
-   86:             integer: true,
-   87:             max: 10000
-   88:         }),
-   89:         steamQueue: numberField(queueValue, 'STEAM_QUEUE', {
-   90:             integer: true,
-   91:             max: 100000,
-   92:             optional: true
-   93:         }),
-   94:         rawPayload: envelope
-   95:     };
-   96: 
-   97:     if (result.players > result.maxPlayers) {
-   98:         throw new Error('PLAYERS_EXCEED_MAX_PLAYERS');
-   99:     }
-  100: 
-  101:     return result;
-  102: }
-  103: 
-  104: module.exports = { normalizeServerStatus };
-
-====================================================================================================
-ARQUIVO: C:\RavenRP\ControlCenter\API\migrations\004_server_status_ingestion.sql
-====================================================================================================
-    1: CREATE TABLE public.server_status_events (
-    2:     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    3:     server_id VARCHAR(64) NOT NULL,
-    4:     event_id VARCHAR(128) NOT NULL,
-    5:     occurred_at TIMESTAMPTZ NOT NULL,
-    6:     received_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    7:     fps NUMERIC(8,3) NOT NULL CHECK (fps >= 0),
-    8:     uptime_seconds BIGINT NOT NULL CHECK (uptime_seconds >= 0),
-    9:     players INTEGER NOT NULL CHECK (players >= 0),
-   10:     max_players INTEGER NOT NULL CHECK (max_players >= 0),
-   11:     steam_queue INTEGER CHECK (steam_queue IS NULL OR steam_queue >= 0),
-   12:     payload JSONB NOT NULL,
-   13:     CONSTRAINT uq_server_status_event UNIQUE (server_id, event_id),
-   14:     CONSTRAINT ck_server_status_players CHECK (players <= max_players)
-   15: );
-   16: 
-   17: CREATE INDEX idx_server_status_server_occurred
-   18:     ON public.server_status_events (server_id, occurred_at DESC);
-   19: 
-   20: CREATE INDEX idx_server_status_received
-   21:     ON public.server_status_events (received_at DESC);
+FIM DA INSPECAO
