@@ -1,850 +1,322 @@
-RAVEN CONTROL CENTER - CODIGO FONTE API
-Gerado em: 11/20/2026 15:49:27
-Total de arquivos: 30
-========================================
+============================================
+RAVEN - AUDITORIA PREPARATORIA 6.7.2
+Data: 2026-11-20 20:02:07
+MODO: SOMENTE LEITURA
+============================================
 
-========================================
-ARQUIVO: migrations\001_initial_schema.sql
-========================================
-CREATE TABLE public.players (
-    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    steam64 VARCHAR(17) NOT NULL UNIQUE
-        CHECK (steam64 ~ '^[0-9]{17}$'),
-    display_name VARCHAR(64),
-    first_seen_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    last_seen_at TIMESTAMPTZ,
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);
+======================================================================
+ARQUIVO: src\services\incident-manager.js
+======================================================================
+'use strict';
 
-CREATE TABLE public.admin_users (
-    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    username VARCHAR(64) NOT NULL UNIQUE,
-    password_hash VARCHAR(255) NOT NULL,
-    access_role VARCHAR(20) NOT NULL DEFAULT 'admin'
-        CHECK (access_role IN ('owner','admin','moderator','viewer')),
-    is_active BOOLEAN NOT NULL DEFAULT TRUE,
-    last_login_at TIMESTAMPTZ,
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);
+const { pool } = require('../db');
 
-CREATE TABLE public.priority_categories (
-    id SMALLINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    code VARCHAR(32) NOT NULL UNIQUE,
-    name VARCHAR(80) NOT NULL,
-    description TEXT,
-    display_order SMALLINT NOT NULL DEFAULT 0,
-    is_active BOOLEAN NOT NULL DEFAULT TRUE,
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);
+const COMPONENTS = new Set([
+    'postgresql',
+    'killfeed',
+    'dayz',
+    'host',
+    'network',
+    'server'
+]);
 
-CREATE TABLE public.priority_grants (
-    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    player_id BIGINT NOT NULL REFERENCES public.players(id),
-    category_id SMALLINT NOT NULL REFERENCES public.priority_categories(id),
-    status VARCHAR(20) NOT NULL DEFAULT 'active'
-        CHECK (status IN ('scheduled','active','revoked','expired')),
-    grant_source VARCHAR(20) NOT NULL DEFAULT 'web'
-        CHECK (grant_source IN ('web','discord','system')),
-    reason TEXT,
-    starts_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    expires_at TIMESTAMPTZ,
-    granted_by_admin_id BIGINT REFERENCES public.admin_users(id),
-    revoked_by_admin_id BIGINT REFERENCES public.admin_users(id),
-    revoked_at TIMESTAMPTZ,
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    CHECK (expires_at IS NULL OR expires_at > starts_at)
-);
+const SEVERITIES = new Set([
+    'warning',
+    'critical'
+]);
 
-CREATE TABLE public.discord_accounts (
-    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    player_id BIGINT NOT NULL UNIQUE REFERENCES public.players(id),
-    discord_user_id VARCHAR(20) NOT NULL UNIQUE
-        CHECK (discord_user_id ~ '^[0-9]{17,20}$'),
-    discord_username VARCHAR(100),
-    verified_at TIMESTAMPTZ,
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);
-
-CREATE TABLE public.audit_logs (
-    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    actor_type VARCHAR(20) NOT NULL
-        CHECK (actor_type IN ('admin','discord','system')),
-    actor_identifier VARCHAR(100),
-    actor_admin_id BIGINT REFERENCES public.admin_users(id) ON DELETE SET NULL,
-    action VARCHAR(100) NOT NULL,
-    entity_type VARCHAR(60),
-    entity_id VARCHAR(100),
-    details JSONB NOT NULL DEFAULT '{}'::JSONB,
-    source_ip INET,
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);
-
-CREATE TABLE public.system_settings (
-    setting_key VARCHAR(100) PRIMARY KEY,
-    setting_value JSONB NOT NULL,
-    description TEXT,
-    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-);
-
-CREATE TABLE public.queue_sync_runs (
-    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    status VARCHAR(20) NOT NULL
-        CHECK (status IN ('running','success','failed')),
-    players_count INTEGER NOT NULL DEFAULT 0
-        CHECK (players_count >= 0),
-    file_checksum VARCHAR(64),
-    target_path TEXT,
-    error_message TEXT,
-    started_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    finished_at TIMESTAMPTZ
-);
-
-CREATE INDEX idx_priority_grants_player
-    ON public.priority_grants(player_id);
-
-CREATE INDEX idx_priority_grants_category
-    ON public.priority_grants(category_id);
-
-CREATE INDEX idx_priority_grants_status_expiration
-    ON public.priority_grants(status, expires_at);
-
-CREATE INDEX idx_audit_logs_created
-    ON public.audit_logs(created_at DESC);
-
-CREATE INDEX idx_audit_logs_entity
-    ON public.audit_logs(entity_type, entity_id);
-
-CREATE INDEX idx_queue_sync_runs_started
-    ON public.queue_sync_runs(started_at DESC);
-
-CREATE OR REPLACE FUNCTION public.set_updated_at()
-RETURNS TRIGGER
-LANGUAGE plpgsql
-AS $$
-BEGIN
-    NEW.updated_at = NOW();
-    RETURN NEW;
-END;
-$$;
-
-CREATE TRIGGER trg_players_updated_at
-BEFORE UPDATE ON public.players
-FOR EACH ROW EXECUTE FUNCTION public.set_updated_at();
-
-CREATE TRIGGER trg_admin_users_updated_at
-BEFORE UPDATE ON public.admin_users
-FOR EACH ROW EXECUTE FUNCTION public.set_updated_at();
-
-CREATE TRIGGER trg_priority_categories_updated_at
-BEFORE UPDATE ON public.priority_categories
-FOR EACH ROW EXECUTE FUNCTION public.set_updated_at();
-
-CREATE TRIGGER trg_priority_grants_updated_at
-BEFORE UPDATE ON public.priority_grants
-FOR EACH ROW EXECUTE FUNCTION public.set_updated_at();
-
-CREATE TRIGGER trg_system_settings_updated_at
-BEFORE UPDATE ON public.system_settings
-FOR EACH ROW EXECUTE FUNCTION public.set_updated_at();
-
-INSERT INTO public.priority_categories
-    (code, name, description, display_order)
-VALUES
-    ('staff', 'Staff', 'Equipe administrativa do Raven RP', 1),
-    ('supporters', 'Apoiadores', 'Apoiadores da comunidade', 2),
-    ('events', 'Eventos', 'Vencedores e convidados de eventos', 3),
-    ('creators', 'Criadores', 'Criadores de conteudo e parceiros', 4);
-
-========================================
-ARQUIVO: migrations\002_priority_integrity.sql
-========================================
--- Corrigir concessoes cuja validade ja terminou
-UPDATE public.priority_grants
-SET status = 'expired',
-    updated_at = NOW()
-WHERE status IN ('active', 'scheduled')
-  AND expires_at IS NOT NULL
-  AND expires_at <= NOW();
-
--- Uma concessao aberta por jogador e categoria.
--- O mesmo jogador pode possuir categorias diferentes.
-CREATE UNIQUE INDEX uq_priority_grants_player_category_open
-ON public.priority_grants (player_id, category_id)
-WHERE status IN ('active', 'scheduled');
-
--- Pesquisa de jogadores por nome
-CREATE INDEX idx_players_display_name_lower
-ON public.players (LOWER(display_name))
-WHERE display_name IS NOT NULL;
-
--- Pesquisa de concessoes por validade
-CREATE INDEX idx_priority_grants_expiration
-ON public.priority_grants (expires_at)
-WHERE status IN ('active', 'scheduled')
-  AND expires_at IS NOT NULL;
-
--- Pesquisa de auditoria por administrador
-CREATE INDEX idx_audit_logs_actor_admin
-ON public.audit_logs (actor_admin_id, created_at DESC)
-WHERE actor_admin_id IS NOT NULL;
-
-========================================
-ARQUIVO: migrations\003_system_incidents.sql
-========================================
-CREATE TABLE public.system_incidents (
-    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    component VARCHAR(32) NOT NULL
-        CHECK (component IN ('postgresql', 'killfeed')),
-    severity VARCHAR(16) NOT NULL
-        CHECK (severity IN ('warning', 'critical')),
-    details JSONB NOT NULL DEFAULT '{}'::JSONB,
-    started_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    resolved_at TIMESTAMPTZ,
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    CHECK (resolved_at IS NULL OR resolved_at >= started_at)
-);
-
-CREATE UNIQUE INDEX uq_system_incidents_open_component
-ON public.system_incidents (component)
-WHERE resolved_at IS NULL;
-
-CREATE INDEX idx_system_incidents_started
-ON public.system_incidents (started_at DESC);
-
-CREATE INDEX idx_system_incidents_resolved
-ON public.system_incidents (resolved_at DESC)
-WHERE resolved_at IS NOT NULL;
-
-
-========================================
-ARQUIVO: package.json
-========================================
-{
-    "name": "raven-control-api",
-    "version": "1.0.0",
-    "description": "API central do Raven Control Center",
-    "main": "src/server.js",
-    "scripts": {
-        "test": "node --test",
-        "start": "node src/server.js",
-        "dev": "node --watch src/server.js",
-        "db:migrate": "node src/services/migrate.js"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "type": "commonjs",
-    "private": true,
-    "dependencies": {
-        "bcryptjs": "3.0.3",
-        "cors": "2.8.6",
-        "dotenv": "18.0.10",
-        "express": "5.3.0",
-        "express-rate-limit": "8.7.4",
-        "helmet": "8.3.0",
-        "jose": "6.2.17",
-        "pg": "8.23.1",
-        "pino": "10.4.0",
-        "pino-http": "11.0.0",
-        "zod": "4.6.7"
+function validateIdentity(input) {
+    if (!input || typeof input !== 'object' || Array.isArray(input)) {
+        throw new Error('INVALID_INCIDENT_INPUT');
     }
+
+    const { component, incidentKey, serverId = null } = input;
+
+    if (!COMPONENTS.has(component)) {
+        throw new Error('INVALID_INCIDENT_COMPONENT');
+    }
+
+    if (
+        typeof incidentKey !== 'string' ||
+        !/^[A-Za-z0-9._:-]{1,100}$/.test(incidentKey)
+    ) {
+        throw new Error('INVALID_INCIDENT_KEY');
+    }
+
+    if (
+        serverId !== null &&
+        (
+            typeof serverId !== 'string' ||
+            !/^[A-Za-z0-9_-]{1,64}$/.test(serverId)
+        )
+    ) {
+        throw new Error('INVALID_INCIDENT_SERVER_ID');
+    }
+
+    return { component, incidentKey, serverId };
 }
 
+function validateDetails(details = {}) {
+    if (
+        !details ||
+        typeof details !== 'object' ||
+        Array.isArray(details)
+    ) {
+        throw new Error('INVALID_INCIDENT_DETAILS');
+    }
 
-========================================
-ARQUIVO: src\db.js
-========================================
-'use strict';
+    let serialized;
 
-const { Pool } = require('pg');
-const logger = require('./logger');
+    try {
+        serialized = JSON.stringify(details);
+    } catch (_) {
+        throw new Error('INVALID_INCIDENT_DETAILS');
+    }
 
-if (!process.env.DB_PASSWORD_B64) {
-    throw new Error('DB_PASSWORD_B64 nao configurado.');
+    if (
+        typeof serialized !== 'string' ||
+        Buffer.byteLength(serialized, 'utf8') > 16384
+    ) {
+        throw new Error('INCIDENT_DETAILS_TOO_LARGE');
+    }
+
+    return serialized;
 }
 
-const password = Buffer
-    .from(process.env.DB_PASSWORD_B64, 'base64')
-    .toString('utf8');
+function validateTimestamp(value, name) {
+    if (value === undefined || value === null) {
+        return new Date();
+    }
 
-const pool = new Pool({
-    host: process.env.DB_HOST,
-    port: Number(process.env.DB_PORT || 5432),
-    database: process.env.DB_NAME,
-    user: process.env.DB_USER,
-    password,
-    max: Number(process.env.DB_POOL_MAX || 5),
-    connectionTimeoutMillis: Number(
-        process.env.DB_CONNECTION_TIMEOUT || 5000
-    ),
-    idleTimeoutMillis: 10000,
-    application_name: 'raven-control-api',
-    ssl: false
-});
+    const date = new Date(value);
 
-pool.on('error', (error) => {
-    logger.error({ error }, 'Erro inesperado no pool PostgreSQL');
-});
+    if (Number.isNaN(date.getTime())) {
+        throw new Error(`INVALID_${name}`);
+    }
 
-module.exports = { pool };
+    return date;
+}
 
-========================================
-ARQUIVO: src\killfeed-db.js
-========================================
-'use strict';
+async function openIncident(input) {
+    const identity = validateIdentity(input);
 
-const fs = require('node:fs');
-const path = require('node:path');
-const os = require('node:os');
-const { Pool } = require('pg');
-const logger = require('./logger');
+    if (!SEVERITIES.has(input.severity)) {
+        throw new Error('INVALID_INCIDENT_SEVERITY');
+    }
 
-const secretPath = process.env.KILLFEED_READER_SECRET_FILE ||
-    path.join(
-        process.env.LOCALAPPDATA || os.homedir(),
-        'RavenControlCenter',
-        'killfeed-reader-secret.b64'
+    const details = validateDetails(input.details || {});
+    const startedAt = validateTimestamp(
+        input.startedAt,
+        'INCIDENT_STARTED_AT'
     );
 
-if (!fs.existsSync(secretPath)) {
-    throw new Error('Credencial protegida do KillFeed nao encontrada.');
+    const result = await pool.query(
+        `INSERT INTO public.system_incidents (
+            component,
+            incident_key,
+            server_id,
+            severity,
+            details,
+            started_at,
+            last_seen_at
+         )
+         VALUES ($1, $2, $3, $4, $5::jsonb, $6, NOW())
+         ON CONFLICT (
+            component,
+            incident_key,
+            (COALESCE(server_id, ''::VARCHAR))
+         )
+         WHERE resolved_at IS NULL
+         DO UPDATE SET
+            severity = EXCLUDED.severity,
+            details = public.system_incidents.details || EXCLUDED.details,
+            last_seen_at = NOW()
+         RETURNING
+            id::text,
+            component,
+            incident_key,
+            server_id,
+            severity,
+            details,
+            started_at,
+            last_seen_at,
+            resolved_at,
+            (xmax = 0) AS created`,
+        [
+            identity.component,
+            identity.incidentKey,
+            identity.serverId,
+            input.severity,
+            details,
+            startedAt
+        ]
+    );
+
+    return result.rows[0];
 }
 
-const encodedPassword = fs.readFileSync(secretPath, 'utf8').trim();
-const password = Buffer.from(encodedPassword, 'base64').toString('utf8');
+async function resolveIncident(input) {
+    const identity = validateIdentity(input);
+    const details = validateDetails(input.details || {
+        recovery: 'Condição normalizada'
+    });
 
-if (!password) {
-    throw new Error('Credencial do KillFeed esta vazia.');
+    const result = await pool.query(
+        `UPDATE public.system_incidents
+         SET
+            resolved_at = NOW(),
+            last_seen_at = NOW(),
+            details = details || $4::jsonb
+         WHERE component = $1
+           AND incident_key = $2
+           AND server_id IS NOT DISTINCT FROM $3
+           AND resolved_at IS NULL
+         RETURNING
+            id::text,
+            component,
+            incident_key,
+            server_id,
+            severity,
+            details,
+            started_at,
+            last_seen_at,
+            resolved_at`,
+        [
+            identity.component,
+            identity.incidentKey,
+            identity.serverId,
+            details
+        ]
+    );
+
+    return result.rows[0] || null;
 }
 
-const killfeedPool = new Pool({
-    host: process.env.KILLFEED_DB_HOST || '127.0.0.1',
-    port: Number(process.env.KILLFEED_DB_PORT || 5432),
-    database: process.env.KILLFEED_DB_NAME || 'dayz_killfeed',
-    user: process.env.KILLFEED_DB_USER || 'raven_killfeed_reader',
-    password,
-    max: 2,
-    connectionTimeoutMillis: 5000,
-    idleTimeoutMillis: 10000,
-    application_name: 'raven-killfeed-readonly-api',
-    ssl: false,
-    allowExitOnIdle: true
-});
+async function findOpenIncident(input) {
+    const identity = validateIdentity(input);
 
-killfeedPool.on('error', error => {
-    logger.error({ code: error.code }, 'Erro inesperado no pool read-only do KillFeed');
-});
+    const result = await pool.query(
+        `SELECT
+            id::text,
+            component,
+            incident_key,
+            server_id,
+            severity,
+            details,
+            started_at,
+            last_seen_at,
+            resolved_at
+         FROM public.system_incidents
+         WHERE component = $1
+           AND incident_key = $2
+           AND server_id IS NOT DISTINCT FROM $3
+           AND resolved_at IS NULL
+         LIMIT 1`,
+        [
+            identity.component,
+            identity.incidentKey,
+            identity.serverId
+        ]
+    );
 
-module.exports = { killfeedPool };
+    return result.rows[0] || null;
+}
 
-========================================
-ARQUIVO: src\logger.js
-========================================
+module.exports = {
+    openIncident,
+    resolveIncident,
+    findOpenIncident
+};
+
+======================================================================
+ARQUIVO: src\services\incident-monitor.js
+======================================================================
 'use strict';
 
-const fs = require('fs');
-const path = require('path');
-const { Writable } = require('stream');
-const pino = require('pino');
+const { pool } = require('../db');
 
-const logDir = path.resolve(__dirname, '..', 'logs');
-const MAX_FILE_SIZE = 10 * 1024 * 1024;
-const RETENTION_DAYS = 14;
+let primaryOutageStartedAt = null;
 
-fs.mkdirSync(logDir, { recursive: true });
-
-function getDateKey() {
+async function recordHealthSnapshot(snapshot, logger) {
     const now = new Date();
 
-    return [
-        now.getFullYear(),
-        String(now.getMonth() + 1).padStart(2, '0'),
-        String(now.getDate()).padStart(2, '0')
-    ].join('-');
-}
-
-function cleanupOldLogs() {
-    const cutoff = Date.now() - RETENTION_DAYS * 86400000;
-    const pattern = /^api-\d{4}-\d{2}-\d{2}-\d{3}\.log$/;
-
-    for (const name of fs.readdirSync(logDir)) {
-        if (!pattern.test(name)) continue;
-
-        const file = path.join(logDir, name);
-
-        try {
-            const stat = fs.statSync(file);
-
-            if (stat.isFile() && stat.mtimeMs < cutoff) {
-                fs.unlinkSync(file);
+    try {
+        if (snapshot.primary === 'disconnected') {
+            if (!primaryOutageStartedAt) {
+                primaryOutageStartedAt = now;
             }
-        } catch (error) {
-            process.stderr.write(
-                `[RAVEN LOGGER] Falha na limpeza de ${name}: ${error.message}\n`
+        } else if (primaryOutageStartedAt) {
+            await pool.query(
+                `INSERT INTO public.system_incidents
+                    (component, severity, details, started_at, resolved_at)
+                 VALUES ('postgresql', 'critical', $1::jsonb, $2, $3)`,
+                [
+                    JSON.stringify({
+                        description: 'Indisponibilidade do PostgreSQL principal',
+                        detection: 'health-check'
+                    }),
+                    primaryOutageStartedAt,
+                    now
+                ]
+            );
+
+            primaryOutageStartedAt = null;
+        }
+
+        if (snapshot.primary === 'connected') {
+            if (snapshot.killfeed === 'disconnected') {
+                await pool.query(
+                    `INSERT INTO public.system_incidents
+                        (component, severity, details)
+                     VALUES (
+                        'killfeed',
+                        'warning',
+                        $1::jsonb
+                     )
+                     ON CONFLICT (component)
+                     WHERE resolved_at IS NULL
+                     DO NOTHING`,
+                    [JSON.stringify({
+                        description: 'Banco KillFeed indisponível',
+                        detection: 'health-check'
+                    })]
+                );
+            } else {
+                await pool.query(
+                    `UPDATE public.system_incidents
+                     SET resolved_at = NOW(),
+                         details = details || $1::jsonb
+                     WHERE component = 'killfeed'
+                       AND resolved_at IS NULL`,
+                    [JSON.stringify({
+                        recovery: 'Banco KillFeed restabelecido'
+                    })]
+                );
+            }
+
+            await pool.query(
+                `DELETE FROM public.system_incidents
+                 WHERE resolved_at IS NOT NULL
+                   AND resolved_at < NOW() - INTERVAL '90 days'`
+            );
+        }
+    } catch (error) {
+        if (logger && typeof logger.error === 'function') {
+            logger.error(
+                { code: error.code, message: error.message },
+                'Falha ao registrar histórico de incidentes'
             );
         }
     }
 }
 
-class RotatingLogStream extends Writable {
-    constructor() {
-        super();
-
-        this.fd = null;
-        this.currentDate = null;
-        this.currentSize = 0;
-        this.sequence = 0;
-
-        cleanupOldLogs();
-        this.openNextFile();
-    }
-
-    openNextFile() {
-        if (this.fd !== null) {
-            fs.closeSync(this.fd);
-            this.fd = null;
-        }
-
-        this.currentDate = getDateKey();
-
-        const pattern = new RegExp(
-            `^api-${this.currentDate}-(\\d{3})\\.log$`
-        );
-
-        let highest = 0;
-
-        for (const name of fs.readdirSync(logDir)) {
-            const match = name.match(pattern);
-
-            if (match) {
-                highest = Math.max(highest, Number(match[1]));
-            }
-        }
-
-        this.sequence = highest + 1;
-
-        const filename =
-            `api-${this.currentDate}-${String(this.sequence).padStart(3, '0')}.log`;
-
-        const fullPath = path.join(logDir, filename);
-
-        this.fd = fs.openSync(fullPath, 'a');
-        this.currentSize = fs.fstatSync(this.fd).size;
-    }
-
-    _write(chunk, encoding, callback) {
-        try {
-            const buffer = Buffer.isBuffer(chunk)
-                ? chunk
-                : Buffer.from(chunk, encoding);
-
-            if (
-                getDateKey() !== this.currentDate ||
-                this.currentSize + buffer.length > MAX_FILE_SIZE
-            ) {
-                this.openNextFile();
-            }
-
-            fs.writeSync(this.fd, buffer);
-            this.currentSize += buffer.length;
-
-            callback();
-        } catch (error) {
-            callback(error);
-        }
-    }
-
-    _final(callback) {
-        try {
-            if (this.fd !== null) {
-                fs.closeSync(this.fd);
-                this.fd = null;
-            }
-
-            callback();
-        } catch (error) {
-            callback(error);
-        }
-    }
-}
-
-const fileStream = new RotatingLogStream();
-
-const streams = pino.multistream([
-    { stream: process.stdout },
-    { stream: fileStream }
-]);
-
-const logger = pino({
-    level: process.env.LOG_LEVEL || 'info',
-
-    redact: {
-        paths: [
-            'req.headers.authorization',
-            'headers.authorization',
-            'req.headers.cookie',
-            'headers.cookie',
-            'password',
-            '*.password',
-            'token',
-            '*.token',
-            'accessToken',
-            '*.accessToken',
-            'refreshToken',
-            '*.refreshToken',
-            'DB_PASSWORD_B64'
-        ],
-        censor: '[REDACTED]'
-    },
-
-    timestamp: pino.stdTimeFunctions.isoTime
-}, streams);
-
-module.exports = logger;
-
-========================================
-ARQUIVO: src\middleware\require-auth.js
-========================================
-'use strict';
-
-const { verifyAccessToken } = require('../services/auth');
-const { pool } = require('../db');
-
-async function requireAuth(req, res, next) {
-    const authorization = req.get('authorization') || '';
-    const match = authorization.match(/^Bearer\s+(.+)$/i);
-
-    if (!match) {
-        return res.status(401).json({
-            error: 'AUTHENTICATION_REQUIRED'
-        });
-    }
-
-    try {
-        const payload = await verifyAccessToken(match[1]);
-        const adminId = Number(payload.sub);
-
-        if (!Number.isSafeInteger(adminId) || adminId <= 0) {
-            return res.status(401).json({
-                error: 'INVALID_TOKEN_SUBJECT'
-            });
-        }
-
-        const result = await pool.query(
-            `SELECT id, username, access_role, is_active
-             FROM public.admin_users
-             WHERE id = $1`,
-            [adminId]
-        );
-
-        const admin = result.rows[0];
-
-        if (!admin || !admin.is_active) {
-            return res.status(401).json({
-                error: 'ADMIN_INACTIVE'
-            });
-        }
-
-        req.admin = {
-            id: admin.id,
-            username: admin.username,
-            role: admin.access_role
-        };
-
-        return next();
-
-    } catch (error) {
-        if (
-            error.code === 'ECONNREFUSED' ||
-            error.code === '57P01'
-        ) {
-            req.log.error({ error }, 'PostgreSQL indisponivel');
-
-            return res.status(503).json({
-                error: 'AUTHENTICATION_SERVICE_UNAVAILABLE'
-            });
-        }
-
-        if (error.name === 'JWTExpired') {
-            return res.status(401).json({
-                error: 'TOKEN_EXPIRED'
-            });
-        }
-
-        if (
-            error.code === 'ERR_JWS_INVALID' ||
-            error.code === 'ERR_JWT_INVALID' ||
-            error.code === 'ERR_JWT_EXPIRED' ||
-            error.code === 'ERR_JWS_SIGNATURE_VERIFICATION_FAILED'
-        ) {
-            return res.status(401).json({
-                error: 'INVALID_OR_EXPIRED_TOKEN'
-            });
-        }
-
-        req.log.error({ error }, 'Falha na autenticacao');
-
-        return res.status(500).json({
-            error: 'AUTHENTICATION_ERROR'
-        });
-    }
-}
-
-module.exports = requireAuth;
-
-========================================
-ARQUIVO: src\middleware\require-role.js
-========================================
-'use strict';
-
-module.exports = (...allowedRoles) => {
-    return (req, res, next) => {
-        if (!req.admin) {
-            return res.status(401).json({ error: 'AUTHENTICATION_REQUIRED' });
-        }
-
-        if (!allowedRoles.includes(req.admin.role)) {
-            return res.status(403).json({ error: 'INSUFFICIENT_PERMISSIONS' });
-        }
-
-        return next();
-    };
+module.exports = {
+    recordHealthSnapshot
 };
 
-========================================
-ARQUIVO: src\routes\audit.js
-========================================
-'use strict';
-
-const express = require('express');
-const { z } = require('zod');
-
-const { pool } = require('../db');
-const requireAuth = require('../middleware/require-auth');
-const requireRole = require('../middleware/require-role');
-
-const router = express.Router();
-
-router.use(requireAuth);
-router.use(requireRole('owner', 'admin'));
-
-const querySchema = z.object({
-    action: z.string().trim().max(100).optional(),
-    entityType: z.string().trim().max(60).optional(),
-    entityId: z.string().trim().max(100).optional(),
-    page: z.coerce.number().int().min(1).max(100000).default(1),
-    limit: z.coerce.number().int().min(1).max(100).default(50)
-}).strict();
-
-router.get('/', async (req, res) => {
-    const parsed = querySchema.safeParse(req.query);
-
-    if (!parsed.success) {
-        return res.status(400).json({ error: 'INVALID_AUDIT_QUERY' });
-    }
-
-    const { action, entityType, entityId, page, limit } = parsed.data;
-
-    const conditions = [];
-    const values = [];
-
-    if (action) {
-        values.push(action);
-        conditions.push(`action = $${values.length}`);
-    }
-
-    if (entityType) {
-        values.push(entityType);
-        conditions.push(`entity_type = $${values.length}`);
-    }
-
-    if (entityId) {
-        values.push(entityId);
-        conditions.push(`entity_id = $${values.length}`);
-    }
-
-    const where = conditions.length
-        ? `WHERE ${conditions.join(' AND ')}`
-        : '';
-
-    try {
-        const count = await pool.query(
-            `SELECT COUNT(*)::integer AS total
-             FROM public.audit_logs ${where}`,
-            values
-        );
-
-        const queryValues = [
-            ...values,
-            limit,
-            (page - 1) * limit
-        ];
-
-        const result = await pool.query(
-            `SELECT
-                id::text,
-                actor_type,
-                actor_identifier,
-                actor_admin_id::text,
-                action,
-                entity_type,
-                entity_id,
-                details,
-                source_ip,
-                created_at
-             FROM public.audit_logs
-             ${where}
-             ORDER BY created_at DESC
-             LIMIT $${values.length + 1}
-             OFFSET $${values.length + 2}`,
-            queryValues
-        );
-
-        return res.json({
-            page,
-            limit,
-            total: count.rows[0].total,
-            entries: result.rows
-        });
-    } catch (error) {
-        req.log.error({ error }, 'Falha ao consultar auditoria');
-
-        return res.status(500).json({
-            error: 'AUDIT_QUERY_ERROR'
-        });
-    }
-});
-
-module.exports = router;
-
-========================================
-ARQUIVO: src\routes\auth.js
-========================================
-'use strict';
-
-const express = require('express');
-const bcrypt = require('bcryptjs');
-const { z } = require('zod');
-const rateLimit = require('express-rate-limit');
-
-const { pool } = require('../db');
-const { createAccessToken } = require('../services/auth');
-const requireAuth = require('../middleware/require-auth');
-
-const router = express.Router();
-
-const loginLimiter = rateLimit({
-    windowMs: 15 * 60 * 1000,
-    limit: 5,
-    skipSuccessfulRequests: true,		
-    standardHeaders: 'draft-8',
-    legacyHeaders: false,
-    message: {
-        error: 'TOO_MANY_LOGIN_ATTEMPTS'
-    }
-});
-
-const loginSchema = z.object({
-    username: z.string()
-        .trim()
-        .toLowerCase()
-        .min(3)
-        .max(64)
-        .regex(/^[a-z0-9._-]+$/),
-
-    password: z.string().min(14).max(72)
-}).strict();
-
-const dummyHash = bcrypt.hashSync(
-    'raven-invalid-account-credential',
-    12
-);
-
-router.post('/login', loginLimiter, async (req, res) => {
-    const parsed = loginSchema.safeParse(req.body);
-
-    if (!parsed.success) {
-        return res.status(400).json({
-            error: 'INVALID_LOGIN_DATA'
-        });
-    }
-
-    const { username, password } = parsed.data;
-
-    if (Buffer.byteLength(password, 'utf8') > 72) {
-        return res.status(400).json({
-            error: 'INVALID_LOGIN_DATA'
-        });
-    }
-
-    try {
-        const result = await pool.query(
-            `SELECT id, username, password_hash,
-                    access_role, is_active
-             FROM public.admin_users
-             WHERE username = $1`,
-            [username]
-        );
-
-        const admin = result.rows[0];
-
-        const passwordValid = await bcrypt.compare(
-            password,
-            admin ? admin.password_hash : dummyHash
-        );
-
-        if (!admin || !admin.is_active || !passwordValid) {
-            return res.status(401).json({
-                error: 'INVALID_CREDENTIALS'
-            });
-        }
-
-        await pool.query(
-            `UPDATE public.admin_users
-             SET last_login_at = NOW()
-             WHERE id = $1`,
-            [admin.id]
-        );
-
-        const accessToken = await createAccessToken(admin);
-
-        return res.status(200).json({
-            accessToken,
-            tokenType: 'Bearer',
-            expiresIn: Number(
-                process.env.AUTH_ACCESS_TTL_SECONDS || 900
-            ),
-            admin: {
-                id: admin.id,
-                username: admin.username,
-                role: admin.access_role
-            }
-        });
-
-    } catch (error) {
-        req.log.error({ error }, 'Falha no login');
-
-        return res.status(500).json({
-            error: 'LOGIN_SERVICE_ERROR'
-        });
-    }
-});
-
-router.get('/me', requireAuth, (req, res) => {
-    return res.json({
-        admin: req.admin
-    });
-});
-
-module.exports = router;
-
-========================================
+======================================================================
 ARQUIVO: src\routes\health.js
-========================================
+======================================================================
 'use strict';
 
 const express = require('express');
@@ -938,1173 +410,297 @@ router.get('/live', (req, res) => {
 
 module.exports = router;
 
-
-========================================
-ARQUIVO: src\routes\incidents.js
-========================================
+======================================================================
+ARQUIVO: src\routes\host-metrics.js
+======================================================================
 'use strict';
 
 const express = require('express');
-const { z } = require('zod');
-
 const { pool } = require('../db');
-const requireAuth = require('../middleware/require-auth');
-const requireRole = require('../middleware/require-role');
+const requireHostToken = require('../middleware/require-host-token');
+const { normalizeHostMetrics } = require('../services/host-metrics-normalizer');
 
 const router = express.Router();
 
-router.use(requireAuth);
-router.use(requireRole('owner', 'admin'));
-
-const querySchema = z.object({
-    page: z.coerce.number().int().min(1).max(100000).default(1),
-    limit: z.coerce.number().int().min(1).max(100).default(50)
-}).strict();
-
-router.get('/', async (req, res) => {
-    const parsed = querySchema.safeParse(req.query);
-
-    if (!parsed.success) {
-        return res.status(400).json({
-            error: 'INVALID_INCIDENT_QUERY'
-        });
-    }
-
-    const { page, limit } = parsed.data;
-
+router.post('/:serverId', requireHostToken, async (req, res) => {
     try {
-        const count = await pool.query(
-            `SELECT COUNT(*)::integer AS total
-             FROM public.system_incidents`
-        );
+        if (!Buffer.isBuffer(req.body)) {
+            return res.status(400).json({ error: 'RAW_JSON_BODY_REQUIRED' });
+        }
+
+        let envelope;
+
+        try {
+            envelope = JSON.parse(req.body.toString('utf8'));
+        } catch (_) {
+            return res.status(400).json({ error: 'INVALID_JSON' });
+        }
+
+        const serverId = req.params.serverId;
+
+        if (!/^[a-zA-Z0-9_-]{1,64}$/.test(serverId)) {
+            return res.status(400).json({ error: 'INVALID_SERVER_ID' });
+        }
+
+        if (envelope.server_id !== serverId) {
+            return res.status(400).json({ error: 'SERVER_ID_MISMATCH' });
+        }
+
+        const metrics = normalizeHostMetrics(envelope);
 
         const result = await pool.query(
-            `SELECT
-                id::text,
-                component,
-                severity,
-                details,
-                started_at,
-                resolved_at,
-                CASE
-                    WHEN resolved_at IS NULL
-                    THEN EXTRACT(EPOCH FROM (NOW() - started_at))::integer
-                    ELSE EXTRACT(EPOCH FROM (resolved_at - started_at))::integer
-                END AS duration_seconds,
-                resolved_at IS NULL AS is_open
-             FROM public.system_incidents
-             ORDER BY started_at DESC
-             LIMIT $1 OFFSET $2`,
-            [limit, (page - 1) * limit]
+            `INSERT INTO public.server_host_metrics
+                (server_id, event_id, occurred_at, computer_name,
+                 cpu_usage_percent, memory_total_bytes, memory_used_bytes,
+                 memory_available_bytes, memory_used_percent,
+                 dayz_status, dayz_process_count, network, processes,
+                 payload, payload_hash)
+             VALUES
+                ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12::jsonb,
+                 $13::jsonb,$14::jsonb,$15)
+             ON CONFLICT (server_id, event_id) DO NOTHING
+             RETURNING id`,
+            [
+                serverId,
+                metrics.eventId,
+                metrics.occurredAt,
+                metrics.computerName,
+                metrics.cpuPercent,
+                metrics.memoryTotal,
+                metrics.memoryUsed,
+                metrics.memoryAvailable,
+                metrics.memoryPercent,
+                metrics.dayzStatus,
+                metrics.dayzProcessCount,
+                JSON.stringify(metrics.network),
+                JSON.stringify(metrics.processes),
+                JSON.stringify(metrics.payload),
+                metrics.payloadHash
+            ]
         );
 
-        return res.json({
-            page,
-            limit,
-            total: count.rows[0].total,
-            incidents: result.rows
+        if (result.rowCount === 0) {
+            return res.status(200).json({
+                status: 'duplicate',
+                event_id: metrics.eventId
+            });
+        }
+
+        req.log.info({
+            serverId,
+            eventId: metrics.eventId
+        }, 'Telemetria Windows recebida');
+
+        return res.status(201).json({
+            status: 'accepted',
+            event_id: metrics.eventId,
+            record_id: String(result.rows[0].id)
         });
     } catch (error) {
-        req.log.error(
-            { code: error.code },
-            'Falha ao consultar incidentes'
-        );
-
-        return res.status(500).json({
-            error: 'INCIDENT_QUERY_ERROR'
-        });
-    }
-});
-
-module.exports = router;
-
-
-========================================
-ARQUIVO: src\routes\killfeed.js
-========================================
-'use strict';
-
-const express = require('express');
-const { z } = require('zod');
-const { killfeedPool } = require('../killfeed-db');
-const requireAuth = require('../middleware/require-auth');
-
-const router = express.Router();
-router.use(requireAuth);
-
-const querySchema = z.object({
-    search: z.string().trim().max(64).optional(),
-    page: z.coerce.number().int().min(1).max(100000).default(1),
-    limit: z.coerce.number().int().min(1).max(100).default(50)
-}).strict();
-
-router.get('/', async (req, res) => {
-    const parsed = querySchema.safeParse(req.query);
-
-    if (!parsed.success) {
-        return res.status(400).json({ error: 'INVALID_KILLFEED_QUERY' });
-    }
-
-    const { search, page, limit } = parsed.data;
-    const offset = (page - 1) * limit;
-
-    try {
-        const values = [];
-        let where = '';
-
-        if (search) {
-            values.push(`%${search}%`);
-            where = 'WHERE (killer_name ILIKE $1 OR victim_name ILIKE $1 OR weapon ILIKE $1)';
-        }
-
-        const count = await killfeedPool.query(
-            `SELECT COUNT(*)::integer AS total
-             FROM public.pvp_kills ${where}`,
-            values
-        );
-
-        const result = await killfeedPool.query(
-            `SELECT id::text, occurred_at, killer_name, victim_name, weapon, distance_m
-             FROM public.pvp_kills
-             ${where}
-             ORDER BY occurred_at DESC, id DESC
-             LIMIT $${values.length + 1}
-             OFFSET $${values.length + 2}`,
-            [...values, limit, offset]
-        );
-
-        return res.json({
-            page,
-            limit,
-            total: count.rows[0].total,
-            kills: result.rows
-        });
-    } catch (error) {
-        req.log.error({ code: error.code }, 'Falha ao consultar historico KillFeed');
-        return res.status(503).json({ error: 'KILLFEED_DATABASE_UNAVAILABLE' });
-    }
-});
-
-module.exports = router;
-
-========================================
-ARQUIVO: src\routes\logs.js
-========================================
-'use strict';
-
-const express = require('express');
-const fs = require('fs');
-const path = require('path');
-const { z } = require('zod');
-
-const requireAuth = require('../middleware/require-auth');
-const requireRole = require('../middleware/require-role');
-
-const router = express.Router();
-
-const logDir = path.resolve(__dirname, '..', '..', 'logs');
-
-const MAX_FILES = 100;
-const MAX_SCAN_BYTES = 100 * 1024 * 1024;
-const MAX_LINE_LENGTH = 1024 * 1024;
-
-router.use(requireAuth);
-router.use(requireRole('owner', 'admin'));
-
-const querySchema = z.object({
-    level: z.enum([
-        'trace', 'debug', 'info', 'warn', 'error', 'fatal'
-    ]).optional(),
-
-    component: z.string().trim().max(80).optional(),
-    search: z.string().trim().max(200).optional(),
-
-    from: z.string().datetime({ offset: true }).optional(),
-    to: z.string().datetime({ offset: true }).optional(),
-
-    page: z.coerce.number().int().min(1).max(100000).default(1),
-    limit: z.coerce.number().int().min(1).max(100).default(50)
-}).strict().superRefine((value, context) => {
-    if (
-        value.from &&
-        value.to &&
-        new Date(value.from) > new Date(value.to)
-    ) {
-        context.addIssue({
-            code: 'custom',
-            path: ['from'],
-            message: 'FROM_AFTER_TO'
-        });
-    }
-});
-
-const levelNames = {
-    10: 'trace',
-    20: 'debug',
-    30: 'info',
-    40: 'warn',
-    50: 'error',
-    60: 'fatal'
-};
-
-function normalizeLevel(value) {
-    if (typeof value === 'string') {
-        const normalized = value.toLowerCase();
-
-        if ([
-            'trace', 'debug', 'info',
-            'warn', 'error', 'fatal'
-        ].includes(normalized)) {
-            return normalized;
-        }
-
-        if (/^\d+$/.test(value)) {
-            return levelNames[Number(value)] || 'unknown';
-        }
-    }
-
-    if (typeof value === 'number') {
-        return levelNames[value] || 'unknown';
-    }
-
-    return 'unknown';
-}
-
-function redactValue(value, key = '') {
-    const sensitiveKey =
-        /(authorization|cookie|password|passwd|token|secret|api.?key|DB_PASSWORD_B64)/i;
-
-    if (sensitiveKey.test(key)) {
-        return '[REDACTED]';
-    }
-
-    if (Array.isArray(value)) {
-        return value.map(item => redactValue(item));
-    }
-
-    if (value && typeof value === 'object') {
-        const output = {};
-
-        for (const [childKey, childValue] of Object.entries(value)) {
-            output[childKey] = redactValue(childValue, childKey);
-        }
-
-        return output;
-    }
-
-    if (typeof value === 'string') {
-        return value
-            .replace(
-                /(Bearer\s+)[A-Za-z0-9._~+/-]+=*/gi,
-                '$1[REDACTED]'
+        if (
+            error.message &&
+            (
+                error.message.startsWith('INVALID_') ||
+                error.message.startsWith('MISSING_')
             )
-            .replace(
-                /((?:password|passwd|token|secret|api[_-]?key)\s*[:=]\s*)[^,\s;]+/gi,
-                '$1[REDACTED]'
-            );
+        ) {
+            return res.status(400).json({ error: error.message });
+        }
+
+        req.log.error({
+            code: error.code,
+            message: error.message
+        }, 'Falha na ingestao de metricas Windows');
+
+        return res.status(500).json({ error: 'HOST_INGESTION_FAILED' });
+    }
+});
+
+module.exports = router;
+
+======================================================================
+ARQUIVO: src\services\host-metrics-normalizer.js
+======================================================================
+'use strict';
+
+const crypto = require('node:crypto');
+
+function finiteNumber(value, name, max = Number.MAX_SAFE_INTEGER) {
+    if (
+        typeof value !== 'number' ||
+        !Number.isFinite(value) ||
+        value < 0 ||
+        value > max
+    ) {
+        throw new Error(`INVALID_${name}`);
     }
 
     return value;
 }
 
-function getLogTimestamp(entry) {
-    const value = entry.time || entry.timestamp || entry.datetime;
-    const timestamp = typeof value === 'number'
-        ? value
-        : Date.parse(value);
-
-    if (!Number.isFinite(timestamp)) {
-        return null;
+function normalizeHostMetrics(envelope) {
+    if (!envelope || typeof envelope !== 'object' || Array.isArray(envelope)) {
+        throw new Error('INVALID_ENVELOPE');
     }
 
-    return timestamp;
-}
-
-function getComponent(entry) {
-    return String(
-        entry.component ||
-        entry.name ||
-        entry.event ||
-        'general'
-    );
-}
-
-function matchesFilters(entry, filters) {
-    const level = normalizeLevel(entry.level);
-    const component = getComponent(entry);
-    const message = String(entry.msg || entry.message || '');
-
-    if (filters.level && level !== filters.level) {
-        return false;
+    if (envelope.event_type !== 'host.metrics') {
+        throw new Error('INVALID_EVENT_TYPE');
     }
 
     if (
-        filters.component &&
-        !component.toLowerCase().includes(filters.component.toLowerCase())
+        typeof envelope.event_id !== 'string' ||
+        !/^[A-Za-z0-9._:-]{1,128}$/.test(envelope.event_id)
     ) {
-        return false;
+        throw new Error('INVALID_EVENT_ID');
     }
 
     if (
-        filters.search &&
-        !JSON.stringify(entry)
-            .toLowerCase()
-            .includes(filters.search.toLowerCase())
+        typeof envelope.occurred_at !== 'string' ||
+        !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,9})?(?:Z|[+-]\d{2}:\d{2})$/.test(envelope.occurred_at)
     ) {
-        return false;
+        throw new Error('INVALID_OCCURRED_AT');
     }
 
-    const timestamp = getLogTimestamp(entry);
+    const occurredAt = new Date(envelope.occurred_at);
 
-    if (filters.from) {
-        if (timestamp === null || timestamp < Date.parse(filters.from)) {
-            return false;
+    if (Number.isNaN(occurredAt.getTime())) {
+        throw new Error('INVALID_OCCURRED_AT');
+    }
+
+    const payload = envelope.payload;
+
+    if (!payload || typeof payload !== 'object' || Array.isArray(payload)) {
+        throw new Error('INVALID_PAYLOAD');
+    }
+
+        const cpuData = payload.cpu;
+
+    if (!cpuData || typeof cpuData !== 'object' || Array.isArray(cpuData)) {
+        throw new Error('INVALID_CPU');
+    }
+
+    const cpu = finiteNumber(cpuData.usage_percent, 'CPU', 100);
+    const memory = payload.memory;
+
+    if (!memory || typeof memory !== 'object' || Array.isArray(memory)) {
+        throw new Error('INVALID_MEMORY');
+    }
+
+    const memoryTotal = finiteNumber(memory.total_bytes, 'MEMORY_TOTAL');
+    const memoryUsed = finiteNumber(memory.used_bytes, 'MEMORY_USED');
+    const memoryAvailable = finiteNumber(memory.available_bytes, 'MEMORY_AVAILABLE');
+    const memoryPercent = finiteNumber(memory.used_percent, 'MEMORY_PERCENT', 100);
+
+    if (memoryUsed > memoryTotal || memoryAvailable > memoryTotal) {
+        throw new Error('INVALID_MEMORY_RELATION');
+    }
+
+    const dayz = payload.dayz;
+
+    if (!dayz || typeof dayz !== 'object' || Array.isArray(dayz)) {
+        throw new Error('INVALID_DAYZ');
+    }
+
+    if (!['online', 'offline'].includes(dayz.status)) {
+        throw new Error('INVALID_DAYZ_STATUS');
+    }
+
+    if (
+        !Number.isSafeInteger(dayz.process_count) ||
+        dayz.process_count < 0 ||
+        dayz.process_count > 100
+    ) {
+        throw new Error('INVALID_PROCESS_COUNT');
+    }
+
+    if (!Array.isArray(payload.network) || payload.network.length > 32) {
+        throw new Error('INVALID_NETWORK');
+    }
+
+    const network = payload.network.map(adapter => {
+        if (
+            !adapter ||
+            typeof adapter.name !== 'string' ||
+            adapter.name.length < 1 ||
+            adapter.name.length > 128
+        ) {
+            throw new Error('INVALID_NETWORK_ADAPTER');
         }
+
+        return {
+            name: adapter.name,
+            received_bytes_total: finiteNumber(adapter.received_bytes_total ?? adapter.received_bytes, 'RECEIVED_BYTES'),
+            sent_bytes_total: finiteNumber(adapter.sent_bytes_total ?? adapter.sent_bytes, 'SENT_BYTES'),
+            download_bytes_per_sec: adapter.download_bytes_per_sec === null
+                ? null
+                : finiteNumber(adapter.download_bytes_per_sec, 'DOWNLOAD_RATE'),
+            upload_bytes_per_sec: adapter.upload_bytes_per_sec === null
+                ? null
+                : finiteNumber(adapter.upload_bytes_per_sec, 'UPLOAD_RATE')
+        };
+    });
+
+    const dayzProcesses = Array.isArray(dayz.processes)
+        ? dayz.processes.slice(0, 100)
+        : [];
+
+    const processes = dayzProcesses.map(process => ({
+        pid: Number.isSafeInteger(process.pid) && process.pid > 0 ? process.pid : null,
+        executable: typeof process.executable === 'string'
+            ? process.executable.slice(0, 128)
+            : null,
+        cpu_time_seconds: process.cpu_time_seconds === null
+            ? null
+            : finiteNumber(process.cpu_time_seconds, 'PROCESS_CPU'),
+        working_set_bytes: process.working_set_bytes === null
+            ? null
+            : finiteNumber(process.working_set_bytes, 'WORKING_SET'),
+        private_memory_bytes: process.private_memory_bytes === null
+            ? null
+            : finiteNumber(process.private_memory_bytes, 'PRIVATE_MEMORY'),
+        started_at: process.started_at || null
+    }));
+
+    const host = payload.host;
+
+    if (!host || typeof host !== 'object' || Array.isArray(host)) {
+        throw new Error('INVALID_HOST');
     }
 
-    if (filters.to) {
-        if (timestamp === null || timestamp > Date.parse(filters.to)) {
-            return false;
-        }
+    if (
+        typeof host.computer_name !== 'string' ||
+        host.computer_name.length < 1 ||
+        host.computer_name.length > 128
+    ) {
+        throw new Error('INVALID_COMPUTER_NAME');
     }
-
-    return true;
-}
-
-function publicEntry(entry) {
-    const safe = redactValue(entry);
 
     return {
-        time: safe.time || safe.timestamp || safe.datetime || null,
-        level: normalizeLevel(safe.level),
-        component: getComponent(safe),
-        message: String(safe.msg || safe.message || ''),
-        pid: safe.pid ?? null,
-        hostname: safe.hostname ?? null,
-        event: safe.event ?? null,
-        details: safe
+        eventId: envelope.event_id,
+        occurredAt: occurredAt.toISOString(),
+        cpuPercent: cpu,
+        memoryTotal,
+        memoryUsed,
+        memoryAvailable,
+        memoryPercent,
+        dayzStatus: dayz.status,
+        dayzProcessCount: dayz.process_count,
+        computerName: host.computer_name,
+        network,
+        processes,
+        payload: envelope,
+        payloadHash: crypto.createHash('sha256')
+            .update(JSON.stringify(envelope))
+            .digest('hex')
     };
 }
 
-router.get('/', async (req, res) => {
-    const parsed = querySchema.safeParse(req.query);
+module.exports = { normalizeHostMetrics };
 
-    if (!parsed.success) {
-        return res.status(400).json({
-            error: 'INVALID_LOG_QUERY'
-        });
-    }
 
-    const filters = parsed.data;
-    const { page, limit } = filters;
-
-    try {
-        if (!fs.existsSync(logDir)) {
-            return res.json({
-                page,
-                limit,
-                total: 0,
-                logs: [],
-                filesScanned: 0
-            });
-        }
-
-        const pattern = /^api-\d{4}-\d{2}-\d{2}-\d{3}\.log$/;
-
-        let files = fs.readdirSync(logDir, { withFileTypes: true })
-            .filter(item => item.isFile() && pattern.test(item.name))
-            .map(item => item.name)
-            .sort()
-            .reverse();
-
-        if (filters.from || filters.to) {
-            const lower = filters.from
-                ? Date.parse(filters.from)
-                : -Infinity;
-
-            const upper = filters.to
-                ? Date.parse(filters.to)
-                : Infinity;
-
-            files = files.filter(name => {
-                const match = name.match(/^api-(\d{4}-\d{2}-\d{2})-/);
-
-                if (!match) return false;
-
-                const dayStart = Date.parse(`${match[1]}T00:00:00.000Z`);
-                const dayEnd = dayStart + 86400000 - 1;
-
-                return dayEnd >= lower && dayStart <= upper;
-            });
-        }
-
-        if (files.length > MAX_FILES) {
-            return res.status(413).json({
-                error: 'LOG_FILE_LIMIT_EXCEEDED',
-                message: 'Reduza o periodo da consulta.'
-            });
-        }
-
-        const selected = [];
-        let total = 0;
-        let scannedBytes = 0;
-        let filesScanned = 0;
-
-        const offset = (page - 1) * limit;
-        const end = offset + limit;
-
-        for (const filename of files) {
-            const fullPath = path.join(logDir, filename);
-            const stat = fs.statSync(fullPath);
-
-            if (!stat.isFile()) continue;
-
-            scannedBytes += stat.size;
-
-            if (scannedBytes > MAX_SCAN_BYTES) {
-                return res.status(413).json({
-                    error: 'LOG_SCAN_LIMIT_EXCEEDED',
-                    message: 'Reduza o periodo ou os filtros da consulta.'
-                });
-            }
-
-            const content = await fs.promises.readFile(fullPath, 'utf8');
-            const lines = content.split(/\r?\n/);
-
-            filesScanned++;
-
-            for (let index = lines.length - 1; index >= 0; index--) {
-                const line = lines[index];
-
-                if (!line || line.length > MAX_LINE_LENGTH) continue;
-
-                let entry;
-
-                try {
-                    entry = JSON.parse(line);
-                } catch {
-                    continue;
-                }
-
-                if (!matchesFilters(entry, filters)) continue;
-
-                if (total >= offset && total < end) {
-                    selected.push(publicEntry(entry));
-                }
-
-                total++;
-            }
-        }
-
-        return res.json({
-            page,
-            limit,
-            total,
-            logs: selected,
-            filesScanned
-        });
-
-    } catch (error) {
-        req.log.error(
-            { code: error.code },
-            'Falha ao consultar arquivos de log'
-        );
-
-        return res.status(500).json({
-            error: 'LOG_QUERY_ERROR'
-        });
-    }
-});
-
-module.exports = router;
-
-========================================
-ARQUIVO: src\routes\players.js
-========================================
-'use strict';
-
-const express = require('express');
-const { z } = require('zod');
-
-const { pool } = require('../db');
-const { withTransaction } = require('../services/transaction');
-const { writeAudit } = require('../services/audit');
-const requireAuth = require('../middleware/require-auth');
-const requireRole = require('../middleware/require-role');
-
-const router = express.Router();
-
-router.use(requireAuth);
-
-const listSchema = z.object({
-    search: z.string().trim().max(64).optional(),
-    page: z.coerce.number().int().min(1).max(100000).default(1),
-    limit: z.coerce.number().int().min(1).max(100).default(25)
-}).strict();
-
-const createSchema = z.object({
-    steam64: z.string().regex(/^[0-9]{17}$/),
-    displayName: z.string().trim().min(1).max(64).nullable().optional()
-}).strict();
-
-router.get('/', async (req, res) => {
-    const parsed = listSchema.safeParse(req.query);
-
-    if (!parsed.success) {
-        return res.status(400).json({ error: 'INVALID_QUERY' });
-    }
-
-    const { search, page, limit } = parsed.data;
-    const offset = (page - 1) * limit;
-
-    try {
-        const values = [];
-        let where = '';
-
-        if (search) {
-            values.push(search, `%${search}%`);
-            where = 'WHERE (steam64 = $1 OR display_name ILIKE $2)';
-        }
-
-        const count = await pool.query(
-            `SELECT COUNT(*)::integer AS total
-             FROM public.players ${where}`,
-            values
-        );
-
-        const paginationValues = [...values, limit, offset];
-        const limitPosition = values.length + 1;
-        const offsetPosition = values.length + 2;
-
-        const result = await pool.query(
-            `SELECT id::text, steam64, display_name,
-                    first_seen_at, last_seen_at, created_at, updated_at
-             FROM public.players
-             ${where}
-             ORDER BY created_at DESC
-             LIMIT $${limitPosition} OFFSET $${offsetPosition}`,
-            paginationValues
-        );
-
-        return res.json({
-            page,
-            limit,
-            total: count.rows[0].total,
-            players: result.rows
-        });
-    } catch (error) {
-        req.log.error({ error }, 'Falha ao listar jogadores');
-
-        return res.status(500).json({
-            error: 'PLAYER_LIST_ERROR'
-        });
-    }
-});
-
-router.post(
-    '/',
-    requireRole('owner', 'admin', 'moderator'),
-    async (req, res) => {
-        const parsed = createSchema.safeParse(req.body);
-
-        if (!parsed.success) {
-            return res.status(400).json({
-                error: 'INVALID_PLAYER_DATA',
-                details: parsed.error.issues.map(issue => ({
-                    field: issue.path.join('.'),
-                    message: issue.message
-                }))
-            });
-        }
-
-        const { steam64, displayName } = parsed.data;
-
-        try {
-            const player = await withTransaction(async client => {
-                const result = await client.query(
-                    `INSERT INTO public.players
-                        (steam64, display_name)
-                     VALUES ($1, $2)
-                     RETURNING id::text, steam64, display_name, created_at`,
-                    [steam64, displayName || null]
-                );
-
-                const created = result.rows[0];
-
-                await writeAudit(client, {
-                    actorType: 'admin',
-                    actorIdentifier: req.admin.username,
-                    actorAdminId: req.admin.id,
-                    action: 'player.created',
-                    entityType: 'player',
-                    entityId: created.id,
-                    details: {
-                        steam64,
-                        displayName: displayName || null
-                    },
-                    sourceIp: req.ip
-                });
-
-                return created;
-            });
-
-            return res.status(201).json({ player });
-        } catch (error) {
-            if (error.code === '23505') {
-                return res.status(409).json({
-                    error: 'PLAYER_ALREADY_EXISTS'
-                });
-            }
-
-            req.log.error({ error }, 'Falha ao cadastrar jogador');
-
-            return res.status(500).json({
-                error: 'PLAYER_CREATE_ERROR'
-            });
-        }
-    }
-);
-
-module.exports = router;
-
-========================================
-ARQUIVO: src\routes\priority.js
-========================================
-'use strict';
-
-const express = require('express');
-const { z } = require('zod');
-
-const { pool } = require('../db');
-const { withTransaction } = require('../services/transaction');
-const { writeAudit } = require('../services/audit');
-const { refreshGrantStatuses } = require('../services/priority-status');
-const requireAuth = require('../middleware/require-auth');
-const requireRole = require('../middleware/require-role');
-
-const router = express.Router();
-
-router.use(requireAuth);
-
-const grantSchema = z.object({
-    steam64: z.string().regex(/^[0-9]{17}$/),
-    categoryCode: z.string().trim().toLowerCase()
-        .regex(/^[a-z0-9_-]{1,32}$/),
-    startsAt: z.string().datetime({ offset: true }).optional(),
-    expiresAt: z.union([
-        z.string().datetime({ offset: true }),
-        z.null()
-    ]).optional(),
-    reason: z.string().trim().max(500).nullable().optional()
-}).strict();
-
-const renewSchema = z.object({
-    expiresAt: z.string().datetime({ offset: true }),
-    reason: z.string().trim().max(500).nullable().optional()
-}).strict();
-
-const revokeSchema = z.object({
-    reason: z.string().trim().max(500).nullable().optional()
-}).strict();
-
-const listSchema = z.object({
-    status: z.enum(['active','scheduled','expired','revoked']).optional(),
-    steam64: z.string().regex(/^[0-9]{17}$/).optional(),
-    category: z.string().trim().toLowerCase()
-        .regex(/^[a-z0-9_-]{1,32}$/).optional(),
-    page: z.coerce.number().int().min(1).max(100000).default(1),
-    limit: z.coerce.number().int().min(1).max(100).default(25)
-}).strict();
-
-function validId(value) {
-    return typeof value === 'string' &&
-        /^[1-9][0-9]{0,18}$/.test(value);
-}
-
-function sendOperationError(req, res, error, context) {
-    if (error.statusCode) {
-        return res.status(error.statusCode).json({
-            error: error.codeName || 'OPERATION_REJECTED',
-            message: error.message
-        });
-    }
-
-    if (error.code === '23505') {
-        return res.status(409).json({
-            error: 'PRIORITY_ALREADY_EXISTS'
-        });
-    }
-
-    req.log.error({ error }, context);
-
-    return res.status(500).json({
-        error: 'PRIORITY_OPERATION_ERROR'
-    });
-}
-
-function operationError(statusCode, codeName, message) {
-    const error = new Error(message);
-    error.statusCode = statusCode;
-    error.codeName = codeName;
-    return error;
-}
-
-/* CATEGORIAS */
-
-router.get('/categories', async (req, res) => {
-    try {
-        const result = await pool.query(
-            `SELECT id, code, name, description, display_order
-             FROM public.priority_categories
-             WHERE is_active = TRUE
-             ORDER BY display_order`
-        );
-
-        return res.json({ categories: result.rows });
-    } catch (error) {
-        req.log.error({ error }, 'Falha ao listar categorias');
-
-        return res.status(500).json({
-            error: 'CATEGORY_LIST_ERROR'
-        });
-    }
-});
-
-/* PRIORIDADES EFETIVAS */
-
-router.get('/effective', async (req, res) => {
-    try {
-        const players = await withTransaction(async client => {
-            await refreshGrantStatuses(client);
-
-            const result = await client.query(`
-                SELECT DISTINCT
-                    p.steam64,
-                    p.display_name
-                FROM public.priority_grants g
-                JOIN public.players p ON p.id = g.player_id
-                WHERE g.status = 'active'
-                  AND g.starts_at <= NOW()
-                  AND (g.expires_at IS NULL OR g.expires_at > NOW())
-                ORDER BY p.steam64
-            `);
-
-            return result.rows;
-        });
-
-        return res.json({
-            count: players.length,
-            players
-        });
-    } catch (error) {
-        req.log.error({ error }, 'Falha ao consultar fila efetiva');
-
-        return res.status(500).json({
-            error: 'EFFECTIVE_QUEUE_ERROR'
-        });
-    }
-});
-
-/* LISTAR CONCESSOES */
-
-router.get('/grants', async (req, res) => {
-    const parsed = listSchema.safeParse(req.query);
-
-    if (!parsed.success) {
-        return res.status(400).json({ error: 'INVALID_QUERY' });
-    }
-
-    const { status, steam64, category, page, limit } = parsed.data;
-
-    try {
-        await withTransaction(refreshGrantStatuses);
-
-        const conditions = [];
-        const values = [];
-
-        if (status) {
-            values.push(status);
-            conditions.push(`g.status = $${values.length}`);
-        }
-
-        if (steam64) {
-            values.push(steam64);
-            conditions.push(`p.steam64 = $${values.length}`);
-        }
-
-        if (category) {
-            values.push(category);
-            conditions.push(`c.code = $${values.length}`);
-        }
-
-        const where = conditions.length
-            ? `WHERE ${conditions.join(' AND ')}`
-            : '';
-
-        const count = await pool.query(
-            `SELECT COUNT(*)::integer AS total
-             FROM public.priority_grants g
-             JOIN public.players p ON p.id = g.player_id
-             JOIN public.priority_categories c ON c.id = g.category_id
-             ${where}`,
-            values
-        );
-
-        const offset = (page - 1) * limit;
-        const queryValues = [...values, limit, offset];
-        const limitPosition = values.length + 1;
-        const offsetPosition = values.length + 2;
-
-        const result = await pool.query(
-            `SELECT
-                g.id::text,
-                p.steam64,
-                p.display_name,
-                c.code AS category_code,
-                c.name AS category_name,
-                g.status,
-                g.grant_source,
-                g.reason,
-                g.starts_at,
-                g.expires_at,
-                g.created_at,
-                g.updated_at
-             FROM public.priority_grants g
-             JOIN public.players p ON p.id = g.player_id
-             JOIN public.priority_categories c ON c.id = g.category_id
-             ${where}
-             ORDER BY g.created_at DESC
-             LIMIT $${limitPosition} OFFSET $${offsetPosition}`,
-            queryValues
-        );
-
-        return res.json({
-            page,
-            limit,
-            total: count.rows[0].total,
-            grants: result.rows
-        });
-    } catch (error) {
-        req.log.error({ error }, 'Falha ao listar prioridades');
-
-        return res.status(500).json({
-            error: 'GRANT_LIST_ERROR'
-        });
-    }
-});
-
-/* CONCEDER PRIORIDADE */
-
-router.post(
-    '/grants',
-    requireRole('owner', 'admin', 'moderator'),
-    async (req, res) => {
-        const parsed = grantSchema.safeParse(req.body);
-
-        if (!parsed.success) {
-            return res.status(400).json({
-                error: 'INVALID_GRANT_DATA',
-                details: parsed.error.issues.map(issue => ({
-                    field: issue.path.join('.'),
-                    message: issue.message
-                }))
-            });
-        }
-
-        const input = parsed.data;
-        const startsAt = input.startsAt
-            ? new Date(input.startsAt)
-            : new Date();
-
-        const expiresAt = input.expiresAt
-            ? new Date(input.expiresAt)
-            : null;
-
-        if (expiresAt && expiresAt <= startsAt) {
-            return res.status(400).json({
-                error: 'INVALID_EXPIRATION_DATE'
-            });
-        }
-
-        const status = startsAt > new Date()
-            ? 'scheduled'
-            : 'active';
-
-        try {
-            const grant = await withTransaction(async client => {
-                await refreshGrantStatuses(client);
-
-                const playerResult = await client.query(
-                    `SELECT id FROM public.players
-                     WHERE steam64 = $1`,
-                    [input.steam64]
-                );
-
-                if (playerResult.rowCount === 0) {
-                    throw operationError(
-                        404,
-                        'PLAYER_NOT_FOUND',
-                        'Cadastre o jogador antes de conceder prioridade.'
-                    );
-                }
-
-                const categoryResult = await client.query(
-                    `SELECT id, code
-                     FROM public.priority_categories
-                     WHERE code = $1 AND is_active = TRUE`,
-                    [input.categoryCode]
-                );
-
-                if (categoryResult.rowCount === 0) {
-                    throw operationError(
-                        404,
-                        'CATEGORY_NOT_FOUND',
-                        'Categoria inexistente ou inativa.'
-                    );
-                }
-
-                const result = await client.query(
-                    `INSERT INTO public.priority_grants
-                        (player_id, category_id, status,
-                         grant_source, reason, starts_at, expires_at,
-                         granted_by_admin_id)
-                     VALUES ($1,$2,$3,'web',$4,$5,$6,$7)
-                     RETURNING id::text, status, starts_at, expires_at`,
-                    [
-                        playerResult.rows[0].id,
-                        categoryResult.rows[0].id,
-                        status,
-                        input.reason || null,
-                        startsAt,
-                        expiresAt,
-                        req.admin.id
-                    ]
-                );
-
-                const created = result.rows[0];
-
-                await writeAudit(client, {
-                    actorType: 'admin',
-                    actorIdentifier: req.admin.username,
-                    actorAdminId: req.admin.id,
-                    action: 'priority.granted',
-                    entityType: 'priority_grant',
-                    entityId: created.id,
-                    details: {
-                        steam64: input.steam64,
-                        category: input.categoryCode,
-                        status: created.status,
-                        expiresAt: created.expires_at
-                    },
-                    sourceIp: req.ip
-                });
-
-                return created;
-            });
-
-            return res.status(201).json({ grant });
-        } catch (error) {
-            return sendOperationError(
-                req, res, error, 'Falha ao conceder prioridade'
-            );
-        }
-    }
-);
-
-/* RENOVAR PRIORIDADE */
-
-router.post(
-    '/grants/:id/renew',
-    requireRole('owner', 'admin', 'moderator'),
-    async (req, res) => {
-        if (!validId(req.params.id)) {
-            return res.status(400).json({ error: 'INVALID_GRANT_ID' });
-        }
-
-        const parsed = renewSchema.safeParse(req.body);
-
-        if (!parsed.success) {
-            return res.status(400).json({
-                error: 'INVALID_RENEWAL_DATA'
-            });
-        }
-
-        const newExpiry = new Date(parsed.data.expiresAt);
-
-        try {
-            const grant = await withTransaction(async client => {
-                await refreshGrantStatuses(client);
-
-                const current = await client.query(
-                    `SELECT g.id, g.status, g.starts_at, g.expires_at,
-                            p.steam64, c.code AS category_code
-                     FROM public.priority_grants g
-                     JOIN public.players p ON p.id = g.player_id
-                     JOIN public.priority_categories c ON c.id = g.category_id
-                     WHERE g.id = $1
-                     FOR UPDATE OF g`,
-                    [req.params.id]
-                );
-
-                if (current.rowCount === 0) {
-                    throw operationError(404, 'GRANT_NOT_FOUND', 'Concessao nao encontrada.');
-                }
-
-                const old = current.rows[0];
-
-                if (!['active', 'scheduled'].includes(old.status)) {
-                    throw operationError(409, 'GRANT_NOT_RENEWABLE', 'Concessao nao esta ativa ou agendada.');
-                }
-
-                if (old.expires_at === null) {
-                    throw operationError(409, 'GRANT_IS_PERMANENT', 'Concessao permanente nao precisa de renovacao.');
-                }
-
-                if (
-                    newExpiry <= new Date(old.expires_at) ||
-                    newExpiry <= new Date(old.starts_at)
-                ) {
-                    throw operationError(400, 'INVALID_RENEWAL_DATE', 'A nova validade deve ser posterior a validade atual.');
-                }
-
-                const result = await client.query(
-                    `UPDATE public.priority_grants
-                     SET expires_at = $1,
-                         reason = COALESCE($2, reason),
-                         status = CASE
-                             WHEN starts_at > NOW() THEN 'scheduled'
-                             ELSE 'active'
-                         END
-                     WHERE id = $3
-                     RETURNING id::text, status, starts_at, expires_at`,
-                    [
-                        newExpiry,
-                        parsed.data.reason || null,
-                        req.params.id
-                    ]
-                );
-
-                const updated = result.rows[0];
-
-                await writeAudit(client, {
-                    actorType: 'admin',
-                    actorIdentifier: req.admin.username,
-                    actorAdminId: req.admin.id,
-                    action: 'priority.renewed',
-                    entityType: 'priority_grant',
-                    entityId: updated.id,
-                    details: {
-                        steam64: old.steam64,
-                        category: old.category_code,
-                        previousExpiry: old.expires_at,
-                        newExpiry: updated.expires_at
-                    },
-                    sourceIp: req.ip
-                });
-
-                return updated;
-            });
-
-            return res.json({ grant });
-        } catch (error) {
-            return sendOperationError(
-                req, res, error, 'Falha ao renovar prioridade'
-            );
-        }
-    }
-);
-
-/* REVOGAR PRIORIDADE */
-
-router.patch(
-    '/grants/:id/revoke',
-    requireRole('owner', 'admin', 'moderator'),
-    async (req, res) => {
-        if (!validId(req.params.id)) {
-            return res.status(400).json({ error: 'INVALID_GRANT_ID' });
-        }
-
-        const parsed = revokeSchema.safeParse(req.body || {});
-
-        if (!parsed.success) {
-            return res.status(400).json({
-                error: 'INVALID_REVOCATION_DATA'
-            });
-        }
-
-        try {
-            const grant = await withTransaction(async client => {
-                await refreshGrantStatuses(client);
-
-                const current = await client.query(
-                    `SELECT g.id, g.status, p.steam64, c.code AS category_code
-                     FROM public.priority_grants g
-                     JOIN public.players p ON p.id = g.player_id
-                     JOIN public.priority_categories c ON c.id = g.category_id
-                     WHERE g.id = $1
-                     FOR UPDATE OF g`,
-                    [req.params.id]
-                );
-
-                if (current.rowCount === 0) {
-                    throw operationError(404, 'GRANT_NOT_FOUND', 'Concessao nao encontrada.');
-                }
-
-                const old = current.rows[0];
-
-                if (!['active', 'scheduled'].includes(old.status)) {
-                    throw operationError(409, 'GRANT_NOT_REVOCABLE', 'Concessao nao esta ativa ou agendada.');
-                }
-
-                const result = await client.query(
-                    `UPDATE public.priority_grants
-                     SET status = 'revoked',
-                         revoked_at = NOW(),
-                         revoked_by_admin_id = $1,
-                         reason = COALESCE($2, reason)
-                     WHERE id = $3
-                     RETURNING id::text, status, revoked_at`,
-                    [
-                        req.admin.id,
-                        parsed.data.reason || null,
-                        req.params.id
-                    ]
-                );
-
-                const revoked = result.rows[0];
-
-                await writeAudit(client, {
-                    actorType: 'admin',
-                    actorIdentifier: req.admin.username,
-                    actorAdminId: req.admin.id,
-                    action: 'priority.revoked',
-                    entityType: 'priority_grant',
-                    entityId: revoked.id,
-                    details: {
-                        steam64: old.steam64,
-                        category: old.category_code,
-                        reason: parsed.data.reason || null
-                    },
-                    sourceIp: req.ip
-                });
-
-                return revoked;
-            });
-
-            return res.json({ grant });
-        } catch (error) {
-            return sendOperationError(
-                req, res, error, 'Falha ao revogar prioridade'
-            );
-        }
-    }
-);
-
-module.exports = router;
-
-========================================
+======================================================================
 ARQUIVO: src\server.js
-========================================
+======================================================================
 'use strict';
 
 const path = require('path');
@@ -2129,6 +725,10 @@ const auditRoutes = require('./routes/audit');
 const killfeedRoutes = require('./routes/killfeed');
 const incidentsRoutes = require('./routes/incidents');
 const logsRoutes = require('./routes/logs');
+const ingestRoutes = require('./routes/ingest');
+const serverStatusRoutes = require('./routes/server-status');
+const hostMetricsRoutes = require('./routes/host-metrics');
+const hostMetricsQueryRoutes = require('./routes/host-metrics-query');
 const { startPriorityScheduler, stopPriorityScheduler } = require('./services/priority-scheduler');
 
 const app = express();
@@ -2161,6 +761,10 @@ app.use(cors({
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS']
 }));
 
+app.use('/api/v1/ingest', express.raw({
+    type: 'application/json',
+    limit: '64kb'
+}));
 app.use(express.json({ limit: '1mb' }));
 app.use(express.urlencoded({ extended: false, limit: '1mb' }));
 
@@ -2187,6 +791,10 @@ app.use('/api/audit', auditRoutes);
 app.use('/api/killfeed', killfeedRoutes);
 app.use('/api/incidents', incidentsRoutes);
 app.use('/api/logs', logsRoutes);
+app.use('/api/v1/ingest', ingestRoutes);
+app.use('/api/v1/servers', serverStatusRoutes);
+app.use('/api/v1/servers', hostMetricsQueryRoutes);
+app.use('/api/v1/ingest/host', hostMetricsRoutes);
 
 app.use((req, res) => {
     res.status(404).json({
@@ -2294,839 +902,70 @@ startServer().catch(async (error) => {
 });
 
 
-========================================
-ARQUIVO: src\services\audit.js
-========================================
-'use strict';
 
-async function writeAudit(client, data) {
-    await client.query(
-        `INSERT INTO public.audit_logs
-        (actor_type, actor_identifier, actor_admin_id,
-         action, entity_type, entity_id, details, source_ip)
-         VALUES ($1,$2,$3,$4,$5,$6,$7::jsonb,$8)`,
-        [
-            data.actorType || 'admin',
-            data.actorIdentifier || null,
-            data.actorAdminId || null,
-            data.action,
-            data.entityType || null,
-            data.entityId ? String(data.entityId) : null,
-            JSON.stringify(data.details || {}),
-            data.sourceIp || null
-        ]
-    );
-}
-
-module.exports = { writeAudit };
-
-========================================
-ARQUIVO: src\services\auth.js
-========================================
-'use strict';
-
-const secret = Buffer.from(
-    process.env.AUTH_JWT_SECRET_B64 || '',
-    'base64'
-);
-
-if (secret.length !== 32) {
-    throw new Error('Chave JWT invalida.');
-}
-
-const issuer = 'raven-control-api';
-const audience = 'raven-control-dashboard';
-
-async function createAccessToken(admin) {
-    const { SignJWT } = await import('jose');
-
-    const ttl = Number(
-        process.env.AUTH_ACCESS_TTL_SECONDS || 900
-    );
-
-    if (!Number.isInteger(ttl) || ttl < 60 || ttl > 3600) {
-        throw new Error('Validade JWT invalida.');
-    }
-
-    return new SignJWT({
-        role: admin.access_role
-    })
-        .setProtectedHeader({ alg: 'HS256', typ: 'JWT' })
-        .setSubject(String(admin.id))
-        .setIssuer(issuer)
-        .setAudience(audience)
-        .setIssuedAt()
-        .setExpirationTime(`${ttl}s`)
-        .sign(secret);
-}
-
-async function verifyAccessToken(token) {
-    const { jwtVerify } = await import('jose');
-
-    const result = await jwtVerify(token, secret, {
-        issuer,
-        audience,
-        algorithms: ['HS256']
-    });
-
-    return result.payload;
-}
-
-module.exports = {
-    createAccessToken,
-    verifyAccessToken
-};
-
-========================================
-ARQUIVO: src\services\incident-monitor.js
-========================================
-'use strict';
-
-const { pool } = require('../db');
-
-let primaryOutageStartedAt = null;
-
-async function recordHealthSnapshot(snapshot, logger) {
-    const now = new Date();
-
-    try {
-        if (snapshot.primary === 'disconnected') {
-            if (!primaryOutageStartedAt) {
-                primaryOutageStartedAt = now;
-            }
-        } else if (primaryOutageStartedAt) {
-            await pool.query(
-                `INSERT INTO public.system_incidents
-                    (component, severity, details, started_at, resolved_at)
-                 VALUES ('postgresql', 'critical', $1::jsonb, $2, $3)`,
-                [
-                    JSON.stringify({
-                        description: 'Indisponibilidade do PostgreSQL principal',
-                        detection: 'health-check'
-                    }),
-                    primaryOutageStartedAt,
-                    now
-                ]
-            );
-
-            primaryOutageStartedAt = null;
-        }
-
-        if (snapshot.primary === 'connected') {
-            if (snapshot.killfeed === 'disconnected') {
-                await pool.query(
-                    `INSERT INTO public.system_incidents
-                        (component, severity, details)
-                     VALUES (
-                        'killfeed',
-                        'warning',
-                        $1::jsonb
-                     )
-                     ON CONFLICT (component)
-                     WHERE resolved_at IS NULL
-                     DO NOTHING`,
-                    [JSON.stringify({
-                        description: 'Banco KillFeed indisponível',
-                        detection: 'health-check'
-                    })]
-                );
-            } else {
-                await pool.query(
-                    `UPDATE public.system_incidents
-                     SET resolved_at = NOW(),
-                         details = details || $1::jsonb
-                     WHERE component = 'killfeed'
-                       AND resolved_at IS NULL`,
-                    [JSON.stringify({
-                        recovery: 'Banco KillFeed restabelecido'
-                    })]
-                );
-            }
-
-            await pool.query(
-                `DELETE FROM public.system_incidents
-                 WHERE resolved_at IS NOT NULL
-                   AND resolved_at < NOW() - INTERVAL '90 days'`
-            );
-        }
-    } catch (error) {
-        if (logger && typeof logger.error === 'function') {
-            logger.error(
-                { code: error.code, message: error.message },
-                'Falha ao registrar histórico de incidentes'
-            );
-        }
-    }
-}
-
-module.exports = {
-    recordHealthSnapshot
-};
-
-
-========================================
-ARQUIVO: src\services\migrate.js
-========================================
-'use strict';
-
-const fs = require('fs');
-const path = require('path');
-const crypto = require('crypto');
-
-require('dotenv').config({
-    path: path.resolve(__dirname, '..', '..', '.env')
-});
-
-const logger = require('../logger');
-const { pool } = require('../db');
-
-const MIGRATIONS_DIR = path.resolve(__dirname, '..', '..', 'migrations');
-
-async function main() {
-    let client;
-    let lockAcquired = false;
-
-    try {
-        client = await pool.connect();
-
-        await client.query(
-            'SELECT pg_advisory_lock($1::integer, $2::integer)',
-            [741923, 1]
-        );
-
-        lockAcquired = true;
-
-        await client.query(`
-            CREATE TABLE IF NOT EXISTS public.schema_migrations (
-                version VARCHAR(20) PRIMARY KEY,
-                name VARCHAR(255) NOT NULL,
-                checksum VARCHAR(64) NOT NULL,
-                execution_ms INTEGER NOT NULL DEFAULT 0,
-                applied_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
-            )
-        `);
-
-        const files = fs.readdirSync(MIGRATIONS_DIR)
-            .filter(file => /^\d+_.+\.sql$/i.test(file))
-            .sort();
-
-        if (files.length === 0) {
-            throw new Error('Nenhuma migration encontrada.');
-        }
-
-        let applied = 0;
-
-        for (const file of files) {
-            const version = file.match(/^(\d+)_/)[1];
-
-            const sql = fs.readFileSync(
-                path.join(MIGRATIONS_DIR, file),
-                'utf8'
-            );
-
-            const checksum = crypto
-                .createHash('sha256')
-                .update(sql)
-                .digest('hex');
-
-            const existing = await client.query(
-                'SELECT checksum FROM public.schema_migrations WHERE version = $1',
-                [version]
-            );
-
-            if (existing.rowCount > 0) {
-                if (existing.rows[0].checksum !== checksum) {
-                    throw new Error(`Checksum divergente: ${file}`);
-                }
-
-                logger.info({ version, file }, 'Migration ja aplicada');
-                continue;
-            }
-
-            const startedAt = Date.now();
-
-            await client.query('BEGIN');
-
-            try {
-                await client.query(sql);
-
-                const executionMs = Date.now() - startedAt;
-
-                await client.query(
-                    `INSERT INTO public.schema_migrations
-                    (version, name, checksum, execution_ms)
-                    VALUES ($1, $2, $3, $4)`,
-                    [version, file, checksum, executionMs]
-                );
-
-                await client.query('COMMIT');
-
-                applied++;
-
-                logger.info(
-                    { version, file, executionMs },
-                    'Migration aplicada'
-                );
-            } catch (error) {
-                await client.query('ROLLBACK');
-                throw error;
-            }
-        }
-
-        logger.info(
-            { applied, total: files.length },
-            'Migrations concluidas'
-        );
-    } finally {
-        if (client) {
-            if (lockAcquired) {
-                await client.query(
-                    'SELECT pg_advisory_unlock($1::integer, $2::integer)',
-                    [741923, 1]
-                );
-            }
-
-            client.release();
-        }
-
-        await pool.end();
-    }
-}
-
-main().catch(error => {
-    logger.fatal({ error }, 'Falha nas migrations');
-    process.exitCode = 1;
-});
-
-========================================
-ARQUIVO: src\services\priority-format.js
-========================================
-'use strict';
-
-function buildPriorityFileContent(rows) {
-    if (!Array.isArray(rows)) {
-        throw new TypeError('Lista de jogadores invalida.');
-    }
-
-    const ids = new Set();
-
-    for (const row of rows) {
-        const steam64 = row.steam64;
-
-        if (typeof steam64 !== 'string' || !/^[0-9]{17}$/.test(steam64)) {
-            throw new Error('Steam64 invalido encontrado na fila efetiva.');
-        }
-
-        ids.add(steam64);
-    }
-
-    return [...ids].sort().join(';');
-}
-
-module.exports = { buildPriorityFileContent };
-
-
-========================================
-ARQUIVO: src\services\priority-scheduler.js
-========================================
-'use strict';
-
-const logger = require('../logger');
-const { withTransaction } = require('./transaction');
-const { refreshGrantStatuses } = require('./priority-status');
-const { runPrioritySync } = require('./priority-sync');
-
-let timer = null;
-let runningPromise = null;
-let stopping = false;
-
-function runPriorityScheduler() {
-    if (stopping) return Promise.resolve();
-    if (runningPromise) return runningPromise;
-
-    runningPromise = (async () => {
-        try {
-            const result = await withTransaction(refreshGrantStatuses);
-
-            if (result.expired || result.activated) {
-                logger.info(result, 'Concessoes prioritarias atualizadas');
-            }
-
-            if (process.env.PRIORITY_SYNC_ENABLED === 'true') {
-                await runPrioritySync({
-                    dryRun: process.env.PRIORITY_SYNC_DRY_RUN !== 'false'
-                });
-            }
-        } catch (error) {
-            logger.error({ error }, 'Falha no agendador de prioridades');
-        }
-    })().finally(() => {
-        runningPromise = null;
-    });
-
-    return runningPromise;
-}
-
-function startPriorityScheduler() {
-    if (timer) return;
-
-    stopping = false;
-
-    void runPriorityScheduler();
-
-    timer = setInterval(() => {
-        void runPriorityScheduler();
-    }, 60 * 1000);
-
-    if (typeof timer.unref === 'function') {
-        timer.unref();
-    }
-
-    logger.info('Agendador de prioridades iniciado');
-}
-
-async function stopPriorityScheduler() {
-    stopping = true;
-
-    if (timer) {
-        clearInterval(timer);
-        timer = null;
-    }
-
-    if (runningPromise) {
-        await runningPromise;
-    }
-
-    logger.info('Agendador de prioridades encerrado');
-}
-
-module.exports = {
-    startPriorityScheduler,
-    stopPriorityScheduler,
-    runPriorityScheduler
-};
-
-========================================
-ARQUIVO: src\services\priority-status.js
-========================================
-'use strict';
-
-async function refreshGrantStatuses(client) {
-    const expired = await client.query(`
-        WITH changed AS (
-            UPDATE public.priority_grants
-            SET status = 'expired'
-            WHERE status IN ('active','scheduled')
-              AND expires_at IS NOT NULL
-              AND expires_at <= NOW()
-            RETURNING id, player_id, category_id
+======================================================================
+ARQUIVO: migrations\006_incident_core.sql
+======================================================================
+ALTER TABLE public.system_incidents
+    ADD COLUMN incident_key VARCHAR(100),
+    ADD COLUMN server_id VARCHAR(64),
+    ADD COLUMN last_seen_at TIMESTAMPTZ NOT NULL DEFAULT NOW();
+
+UPDATE public.system_incidents
+SET incident_key = 'legacy.' || component,
+    last_seen_at = COALESCE(resolved_at, started_at);
+
+ALTER TABLE public.system_incidents
+    ALTER COLUMN incident_key SET NOT NULL;
+
+DROP INDEX IF EXISTS public.uq_system_incidents_open_component;
+
+ALTER TABLE public.system_incidents
+    DROP CONSTRAINT IF EXISTS system_incidents_component_check;
+
+ALTER TABLE public.system_incidents
+    ADD CONSTRAINT ck_system_incidents_component
+    CHECK (
+        component IN (
+            'postgresql',
+            'killfeed',
+            'dayz',
+            'host',
+            'network',
+            'server'
         )
-        INSERT INTO public.audit_logs
-        (actor_type, actor_identifier, action,
-         entity_type, entity_id, details)
-        SELECT
-            'system',
-            'priority-scheduler',
-            'priority.expired',
-            'priority_grant',
-            id::text,
-            jsonb_build_object(
-                'player_id', player_id,
-                'category_id', category_id
-            )
-        FROM changed
-        RETURNING id
-    `);
-
-    const activated = await client.query(`
-        WITH changed AS (
-            UPDATE public.priority_grants
-            SET status = 'active'
-            WHERE status = 'scheduled'
-              AND starts_at <= NOW()
-              AND (expires_at IS NULL OR expires_at > NOW())
-            RETURNING id, player_id, category_id
-        )
-        INSERT INTO public.audit_logs
-        (actor_type, actor_identifier, action,
-         entity_type, entity_id, details)
-        SELECT
-            'system',
-            'priority-scheduler',
-            'priority.activated',
-            'priority_grant',
-            id::text,
-            jsonb_build_object(
-                'player_id', player_id,
-                'category_id', category_id
-            )
-        FROM changed
-        RETURNING id
-    `);
-
-    return {
-        expired: expired.rowCount,
-        activated: activated.rowCount
-    };
-}
-
-module.exports = { refreshGrantStatuses };
-
-========================================
-ARQUIVO: src\services\priority-sync.js
-========================================
-'use strict';
-
-const fs = require('node:fs/promises');
-const fsConstants = require('node:fs').constants;
-const path = require('node:path');
-const crypto = require('node:crypto');
-
-const { pool } = require('../db');
-const logger = require('../logger');
-const { buildPriorityFileContent } = require('./priority-format');
-const { shouldBlockEmptyPriorityWrite } = require('./priority-sync-guard');
-
-const TARGET_DIR = path.resolve(__dirname, '../../../../DayZServer');
-const TARGET_FILE = path.join(TARGET_DIR, 'priority.txt');
-
-const LOCK_A = 1380013138;
-const LOCK_B = 1346458195;
-
-function sha256(content) {
-    return crypto.createHash('sha256').update(content, 'utf8').digest('hex');
-}
-
-async function validateTargetDirectory() {
-    const stat = await fs.lstat(TARGET_DIR);
-
-    if (!stat.isDirectory() || stat.isSymbolicLink()) {
-        throw new Error('Diretorio de destino invalido ou simbolico.');
-    }
-}
-
-async function backupExistingFile() {
-    let stat;
-
-    try {
-        stat = await fs.lstat(TARGET_FILE);
-    } catch (error) {
-        if (error.code === 'ENOENT') return null;
-        throw error;
-    }
-
-    if (!stat.isFile() || stat.isSymbolicLink()) {
-        throw new Error('O destino priority.txt nao e um arquivo regular.');
-    }
-
-    const stamp = new Date().toISOString().replace(/[:.]/g, '-');
-    const backup = `${TARGET_FILE}.bak-${stamp}`;
-
-    await fs.copyFile(TARGET_FILE, backup, fsConstants.COPYFILE_EXCL);
-    return backup;
-}
-
-async function writePriorityFile(content) {
-    await validateTargetDirectory();
-
-    let existing = null;
-
-    try {
-        const stat = await fs.lstat(TARGET_FILE);
-
-        if (!stat.isFile() || stat.isSymbolicLink()) {
-            throw new Error('O destino priority.txt nao e um arquivo regular.');
-        }
-
-        existing = await fs.readFile(TARGET_FILE, 'utf8');
-    } catch (error) {
-        if (error.code !== 'ENOENT') throw error;
-    }
-
-    if (existing === content) {
-        return { changed: false, backup: null };
-    }
-
-    const backup = await backupExistingFile();
-
-    if (content.length === 0) {
-        try {
-            await fs.unlink(TARGET_FILE);
-        } catch (error) {
-            if (error.code !== 'ENOENT') throw error;
-        }
-
-        return { changed: true, backup };
-    }
-
-    const temp = `${TARGET_FILE}.tmp-${process.pid}-${crypto.randomBytes(6).toString('hex')}`;
-
-    try {
-        await fs.writeFile(temp, content, {
-            encoding: 'utf8',
-            flag: 'wx'
-        });
-
-        await fs.rename(temp, TARGET_FILE);
-    } catch (error) {
-        try {
-            await fs.unlink(temp);
-        } catch (_) {}
-
-        throw error;
-    }
-
-    return { changed: true, backup };
-}
-
-async function runPrioritySync(options = {}) {
-    const dryRun = options.dryRun !== false;
-    const client = await pool.connect();
-
-    let locked = false;
-    let runId = null;
-
-    try {
-        const lock = await client.query(
-            'SELECT pg_try_advisory_lock($1, $2) AS acquired',
-            [LOCK_A, LOCK_B]
-        );
-
-        locked = lock.rows[0].acquired;
-
-        if (!locked) {
-            return { status: 'skipped', reason: 'SYNC_ALREADY_RUNNING' };
-        }
-
-        const started = await client.query(
-            `INSERT INTO public.queue_sync_runs
-                (status, players_count, target_path)
-             VALUES ('running', 0, $1)
-             RETURNING id`,
-            [TARGET_FILE]
-        );
-
-        runId = started.rows[0].id;
-
-        const result = await client.query(`
-            SELECT DISTINCT p.steam64
-            FROM public.priority_grants g
-            JOIN public.players p ON p.id = g.player_id
-            WHERE g.status = 'active'
-              AND g.starts_at <= NOW()
-              AND (g.expires_at IS NULL OR g.expires_at > NOW())
-            ORDER BY p.steam64
-        `);
-
-        const content = buildPriorityFileContent(result.rows);
-        const checksum = sha256(content);
-
-        let fileResult = { changed: false, backup: null };
-        let emptyListProtected = false;
-
-        if (!dryRun) {
-            const allowEmpty = process.env.PRIORITY_SYNC_ALLOW_EMPTY === 'true';
-
-            if (shouldBlockEmptyPriorityWrite(content, allowEmpty)) {
-                emptyListProtected = true;
-
-                logger.warn({
-                    runId: String(runId),
-                    mode: 'LIVE',
-                    playersCount: 0,
-                    targetPath: TARGET_FILE
-                }, 'Sincronizacao LIVE bloqueada: lista vazia protegida');
-            } else {
-                fileResult = await writePriorityFile(content);
-            }
-        }
-
-        await client.query(
-            `UPDATE public.queue_sync_runs
-             SET status = 'success',
-                 players_count = $1,
-                 file_checksum = $2,
-                 finished_at = NOW()
-             WHERE id = $3`,
-            [result.rows.length, checksum, runId]
-        );
-
-        const response = {
-            status: 'success',
-            mode: dryRun ? 'DRY_RUN' : 'LIVE',
-            runId: String(runId),
-            playersCount: result.rows.length,
-            checksum,
-            targetPath: TARGET_FILE,
-            fileChanged: fileResult.changed,
-            backup: fileResult.backup,
-            emptyListProtected,
-            writeBlockedReason: emptyListProtected
-                ? 'EMPTY_PRIORITY_LIST_PROTECTED'
-                : null
-        };
-
-        logger.info(response, 'Sincronizacao de prioridades concluida');
-
-        return response;
-    } catch (error) {
-        if (runId !== null) {
-            try {
-                await client.query(
-                    `UPDATE public.queue_sync_runs
-                     SET status = 'failed',
-                         error_message = $1,
-                         finished_at = NOW()
-                     WHERE id = $2`,
-                    [String(error.message).slice(0, 2000), runId]
-                );
-            } catch (recordError) {
-                logger.error({ error: recordError }, 'Falha ao registrar erro da sincronizacao');
-            }
-        }
-
-        logger.error({ error }, 'Falha na sincronizacao de prioridades');
-        throw error;
-    } finally {
-        if (locked) {
-            try {
-                await client.query(
-                    'SELECT pg_advisory_unlock($1, $2)',
-                    [LOCK_A, LOCK_B]
-                );
-            } catch (error) {
-                logger.error({ error }, 'Falha ao liberar lock da sincronizacao');
-            }
-        }
-
-        client.release();
-    }
-}
-
-module.exports = {
-    buildPriorityFileContent,
-    runPrioritySync,
-    TARGET_FILE
-};
-
-
-========================================
-ARQUIVO: src\services\priority-sync.test.js
-========================================
-'use strict';
-
-const test = require('node:test');
-const assert = require('node:assert/strict');
-
-const { buildPriorityFileContent } = require('./priority-format');
-
-test('gera lista ordenada e sem duplicidades', () => {
-    const result = buildPriorityFileContent([
-        { steam64: '76561198000000002' },
-        { steam64: '76561198000000001' },
-        { steam64: '76561198000000002' }
-    ]);
-
-    assert.equal(result, '76561198000000001;76561198000000002');
-});
-
-test('lista vazia gera conteudo vazio', () => {
-    assert.equal(buildPriorityFileContent([]), '');
-});
-
-test('rejeita Steam64 invalido', () => {
-    assert.throws(
-        () => buildPriorityFileContent([{ steam64: '12345' }]),
-        /Steam64 invalido/
     );
-});
 
-test('rejeita entrada que nao seja uma lista', () => {
-    assert.throws(
-        () => buildPriorityFileContent(null),
-        /Lista de jogadores invalida/
+ALTER TABLE public.system_incidents
+    ADD CONSTRAINT ck_system_incidents_incident_key
+    CHECK (
+        length(incident_key) BETWEEN 1 AND 100
     );
-});
 
-
-========================================
-ARQUIVO: src\services\priority-sync-guard.js
-========================================
-'use strict';
-
-function shouldBlockEmptyPriorityWrite(content, allowEmpty) {
-    if (typeof content !== 'string') {
-        throw new TypeError('Conteudo da lista de prioridades invalido.');
-    }
-
-    return content.length === 0 && allowEmpty !== true;
-}
-
-module.exports = {
-    shouldBlockEmptyPriorityWrite
-};
-
-========================================
-ARQUIVO: src\services\priority-sync-guard.test.js
-========================================
-'use strict';
-
-const test = require('node:test');
-const assert = require('node:assert/strict');
-
-const {
-    shouldBlockEmptyPriorityWrite
-} = require('./priority-sync-guard');
-
-test('bloqueia escrita de lista vazia por padrao', () => {
-    assert.equal(shouldBlockEmptyPriorityWrite('', false), true);
-});
-
-test('bloqueia escrita de lista vazia quando autorizacao esta ausente', () => {
-    assert.equal(shouldBlockEmptyPriorityWrite('', undefined), true);
-});
-
-test('permite lista vazia somente com autorizacao explicita', () => {
-    assert.equal(shouldBlockEmptyPriorityWrite('', true), false);
-});
-
-test('permite escrita quando existe conteudo', () => {
-    assert.equal(
-        shouldBlockEmptyPriorityWrite('76561198000000001', false),
-        false
+ALTER TABLE public.system_incidents
+    ADD CONSTRAINT ck_system_incidents_server_id
+    CHECK (
+        server_id IS NULL OR
+        server_id ~ '^[A-Za-z0-9_-]{1,64}$'
     );
-});
 
-test('rejeita conteudo que nao seja texto', () => {
-    assert.throws(
-        () => shouldBlockEmptyPriorityWrite(null, false),
-        /Conteudo da lista/
-    );
-});
+CREATE UNIQUE INDEX uq_system_incidents_open_key
+ON public.system_incidents (
+    component,
+    incident_key,
+    (COALESCE(server_id, ''::VARCHAR))
+)
+WHERE resolved_at IS NULL;
 
-========================================
-ARQUIVO: src\services\transaction.js
-========================================
-'use strict';
+CREATE INDEX idx_system_incidents_server
+ON public.system_incidents (server_id, started_at DESC)
+WHERE server_id IS NOT NULL;
 
-const { pool } = require('../db');
+CREATE INDEX idx_system_incidents_key
+ON public.system_incidents (incident_key, started_at DESC);
 
-async function withTransaction(callback) {
-    const client = await pool.connect();
+============================================
+ESTADO DO POSTGRESQL - CONSULTAS READ ONLY
+============================================
 
-    try {
-        await client.query('BEGIN');
-
-        const result = await callback(client);
-
-        await client.query('COMMIT');
-        return result;
-    } catch (error) {
-        await client.query('ROLLBACK');
-        throw error;
-    } finally {
-        client.release();
-    }
-}
-
-module.exports = { withTransaction };
+ --- TABELAS E COLUNAS DE MONITORAMENTO --- audit_logs.id (bigint) audit_logs.actor_type (character varying) audit_logs.actor_identifier (character varying) audit_logs.actor_admin_id (bigint) audit_logs.action (character varying) audit_logs.entity_type (character varying) audit_logs.entity_id (character varying) audit_logs.details (jsonb) audit_logs.source_ip (inet) audit_logs.created_at (timestamp with time zone) server_host_metrics.id (bigint) server_host_metrics.server_id (character varying) server_host_metrics.event_id (character varying) server_host_metrics.occurred_at (timestamp with time zone) server_host_metrics.received_at (timestamp with time zone) server_host_metrics.computer_name (character varying) server_host_metrics.cpu_usage_percent (numeric) server_host_metrics.memory_total_bytes (bigint) server_host_metrics.memory_used_bytes (bigint) server_host_metrics.memory_available_bytes (bigint) server_host_metrics.memory_used_percent (numeric) server_host_metrics.dayz_status (character varying) server_host_metrics.dayz_process_count (integer) server_host_metrics.network (jsonb) server_host_metrics.processes (jsonb) server_host_metrics.payload (jsonb) server_host_metrics.payload_hash (character varying) server_status_events.id (bigint) server_status_events.server_id (character varying) server_status_events.event_id (character varying) server_status_events.occurred_at (timestamp with time zone) server_status_events.received_at (timestamp with time zone) server_status_events.fps (numeric) server_status_events.uptime_seconds (bigint) server_status_events.players (integer) server_status_events.max_players (integer) server_status_events.steam_queue (integer) server_status_events.payload (jsonb) system_incidents.id (bigint) system_incidents.component (character varying) system_incidents.severity (character varying) system_incidents.details (jsonb) system_incidents.started_at (timestamp with time zone) system_incidents.resolved_at (timestamp with time zone) system_incidents.created_at (timestamp with time zone) system_incidents.incident_key (character varying) system_incidents.server_id (character varying) system_incidents.last_seen_at (timestamp with time zone) system_settings.setting_key (character varying) system_settings.setting_value (jsonb) system_settings.description (text) system_settings.updated_at (timestamp with time zone)  --- CONTAGEM DE REGISTROS --- system_incidents: 1 system_settings: 0 server_host_metrics: 60 server_status_events: 1 audit_logs: 4  --- INCIDENTES ABERTOS --- []  --- CONFIGURACOES EXISTENTES (SOMENTE CHAVES) --- []  --- METRICAS HOST RECENTES --- [   {     "server_id": "nasdara-dayz",     "occurred_at": "2026-11-20T22:43:59.523Z",     "cpu_usage_percent": "0.00",     "memory_used_percent": "61.21",     "dayz_status": "online",     "connectivity": {       "status": "online",       "targets": [         {           "role": "gateway",           "status": "online",           "destination": "192.168.15.1",           "packets_lost": 0,           "packets_sent": 2,           "latency_avg_ms": 0,           "latency_max_ms": 0,           "latency_min_ms": 0,           "packets_received": 2,           "packet_loss_percent": 0         },         {           "role": "external_cloudflare",           "status": "online",           "destination": "1.1.1.1",           "packets_lost": 0,           "packets_sent": 2,           "latency_avg_ms": 4,           "latency_max_ms": 4,           "latency_min_ms": 4,           "packets_received": 2,           "packet_loss_percent": 0         },         {           "role": "external_google",           "status": "online",           "destination": "8.8.8.8",           "packets_lost": 0,           "packets_sent": 2,           "latency_avg_ms": 5,           "latency_max_ms": 5,           "latency_min_ms": 5,           "packets_received": 2,           "packet_loss_percent": 0         }       ],       "measured_at": "2026-11-20T22:43:59.9878306Z",       "gateway_status": "online",       "external_targets_total": 2,       "external_targets_online": 2     }   },   {     "server_id": "nasdara-dayz",     "occurred_at": "2026-11-20T22:43:43.958Z",     "cpu_usage_percent": "0.00",     "memory_used_percent": "61.25",     "dayz_status": "online",     "connectivity": {       "status": "online",       "targets": [         {           "role": "gateway",           "status": "online",           "destination": "192.168.15.1",           "packets_lost": 0,           "packets_sent": 2,           "latency_avg_ms": 0,           "latency_max_ms": 0,           "latency_min_ms": 0,           "packets_received": 2,           "packet_loss_percent": 0         },         {           "role": "external_cloudflare",           "status": "online",           "destination": "1.1.1.1",           "packets_lost": 0,           "packets_sent": 2,           "latency_avg_ms": 4,           "latency_max_ms": 4,           "latency_min_ms": 4,           "packets_received": 2,           "packet_loss_percent": 0         },         {           "role": "external_google",           "status": "online",           "destination": "8.8.8.8",           "packets_lost": 0,           "packets_sent": 2,           "latency_avg_ms": 5,           "latency_max_ms": 6,           "latency_min_ms": 4,           "packets_received": 2,           "packet_loss_percent": 0         }       ],       "measured_at": "2026-11-20T22:43:44.4335124Z",       "gateway_status": "online",       "external_targets_total": 2,       "external_targets_online": 2     }   },   {     "server_id": "nasdara-dayz",     "occurred_at": "2026-11-20T22:43:28.414Z",     "cpu_usage_percent": "0.00",     "memory_used_percent": "61.37",     "dayz_status": "online",     "connectivity": {       "status": "online",       "targets": [         {           "role": "gateway",           "status": "online",           "destination": "192.168.15.1",           "packets_lost": 0,           "packets_sent": 2,           "latency_avg_ms": 0,           "latency_max_ms": 0,           "latency_min_ms": 0,           "packets_received": 2,           "packet_loss_percent": 0         },         {           "role": "external_cloudflare",           "status": "online",           "destination": "1.1.1.1",           "packets_lost": 0,           "packets_sent": 2,           "latency_avg_ms": 4,           "latency_max_ms": 4,           "latency_min_ms": 4,           "packets_received": 2,           "packet_loss_percent": 0         },         {           "role": "external_google",           "status": "online",           "destination": "8.8.8.8",           "packets_lost": 0,           "packets_sent": 2,           "latency_avg_ms": 4.5,           "latency_max_ms": 5,           "latency_min_ms": 4,           "packets_received": 2,           "packet_loss_percent": 0         }       ],       "measured_at": "2026-11-20T22:43:28.8889557Z",       "gateway_status": "online",       "external_targets_total": 2,       "external_targets_online": 2     }   },   {     "server_id": "nasdara-dayz",     "occurred_at": "2026-11-20T22:43:12.867Z",     "cpu_usage_percent": "0.00",     "memory_used_percent": "61.39",     "dayz_status": "online",     "connectivity": {       "status": "online",       "targets": [         {           "role": "gateway",           "status": "online",           "destination": "192.168.15.1",           "packets_lost": 0,           "packets_sent": 2,           "latency_avg_ms": 0,           "latency_max_ms": 0,           "latency_min_ms": 0,           "packets_received": 2,           "packet_loss_percent": 0         },         {           "role": "external_cloudflare",           "status": "online",           "destination": "1.1.1.1",           "packets_lost": 0,           "packets_sent": 2,           "latency_avg_ms": 4,           "latency_max_ms": 4,           "latency_min_ms": 4,           "packets_received": 2,           "packet_loss_percent": 0         },         {           "role": "external_google",           "status": "online",           "destination": "8.8.8.8",           "packets_lost": 0,           "packets_sent": 2,           "latency_avg_ms": 5,           "latency_max_ms": 5,           "latency_min_ms": 5,           "packets_received": 2,           "packet_loss_percent": 0         }       ],       "measured_at": "2026-11-20T22:43:13.3333700Z",       "gateway_status": "online",       "external_targets_total": 2,       "external_targets_online": 2     }   },   {     "server_id": "nasdara-dayz",     "occurred_at": "2026-11-20T22:42:57.211Z",     "cpu_usage_percent": "1.00",     "memory_used_percent": "61.42",     "dayz_status": "online",     "connectivity": {       "status": "online",       "targets": [         {           "role": "gateway",           "status": "online",           "destination": "192.168.15.1",           "packets_lost": 0,           "packets_sent": 2,           "latency_avg_ms": 0,           "latency_max_ms": 0,           "latency_min_ms": 0,           "packets_received": 2,           "packet_loss_percent": 0         },         {           "role": "external_cloudflare",           "status": "online",           "destination": "1.1.1.1",           "packets_lost": 0,           "packets_sent": 2,           "latency_avg_ms": 4,           "latency_max_ms": 4,           "latency_min_ms": 4,           "packets_received": 2,           "packet_loss_percent": 0         },         {           "role": "external_google",           "status": "online",           "destination": "8.8.8.8",           "packets_lost": 0,           "packets_sent": 2,           "latency_avg_ms": 4.5,           "latency_max_ms": 5,           "latency_min_ms": 4,           "packets_received": 2,           "packet_loss_percent": 0         }       ],       "measured_at": "2026-11-20T22:42:57.7431433Z",       "gateway_status": "online",       "external_targets_total": 2,       "external_targets_online": 2     }   } ]  --- EVENTOS VPP RECENTES --- [   {     "server_id": "raven-selftest",     "event_id": "selftest-fabe3f3ab20a46288b069df1a37dea9d",     "occurred_at": "2026-11-20T20:21:32.382Z",     "fps": "60.000",     "players": 2,     "max_players": 60   } ]  AUDITORIA READ ONLY CONCLUIDA.
