@@ -1,204 +1,1525 @@
+RAVEN CONTROL CENTER
+AUDITORIA 6.5.3.1 - API E POSTGRESQL
+Data UTC: 2026-11-20T19:50:25.4294632Z
+Projeto: C:\RavenRP\ControlCenter
+API: C:\RavenRP\ControlCenter\API
 
-===========================================================================
-1. IDENTIFICACAO DO AMBIENTE
-===========================================================================
-Data: 19/11/2026 17:42:48
-Computador: DESKTOP-LDECQT3
-Usuario: Nasdara
-PowerShell: 5.1.19041.6456
-Raiz Raven: C:\RavenRP\ControlCenter
-ENCONTRADO: C:\RavenRP\ControlCenter\API
-ENCONTRADO: C:\RavenRP\ControlCenter\Dashboard
+AUDITORIA SOMENTE DE LEITURA.
+Nenhum arquivo foi modificado.
+Nenhuma migracao foi executada.
+Nenhuma conexao ou escrita no PostgreSQL foi realizada.
 
-===========================================================================
-2. ARQUIVOS PRINCIPAIS
-===========================================================================
-ENCONTRADO: C:\RavenRP\ControlCenter\API\src\logger.js
-Tamanho: 3809 bytes | Modificado: 11/19/2026 08:44:42
-ENCONTRADO: C:\RavenRP\ControlCenter\API\src\routes\logs.js
-Tamanho: 8184 bytes | Modificado: 11/19/2026 08:53:46
-ENCONTRADO: C:\RavenRP\ControlCenter\API\src\middleware\require-auth.js
-Tamanho: 2250 bytes | Modificado: 11/17/2026 21:27:16
-ENCONTRADO: C:\RavenRP\ControlCenter\API\src\server.js
-Tamanho: 4735 bytes | Modificado: 11/19/2026 08:53:46
-ENCONTRADO: C:\RavenRP\ControlCenter\API\package.json
-Tamanho: 810 bytes | Modificado: 11/17/2026 21:10:18
-ENCONTRADO: C:\RavenRP\ControlCenter\Dashboard\server.js
-Tamanho: 1613 bytes | Modificado: 11/18/2026 20:40:39
-ENCONTRADO: C:\RavenRP\ControlCenter\Dashboard\public\index.html
-Tamanho: 45787 bytes | Modificado: 11/19/2026 09:09:13
-ENCONTRADO: C:\RavenRP\ControlCenter\Dashboard\package.json
-Tamanho: 200 bytes | Modificado: 11/18/2026 20:40:39
+===== 1. INVENTARIO =====
+backups\incidents\20261118-214700\src\routes\health.js
+backups\incidents\20261118-214700\src\server.js
+backups\killfeed-integration-retry-20261118_211814\server.js
+backups\shutdown-20261118-200552\server.js
+migrations\001_initial_schema.sql
+migrations\002_priority_integrity.sql
+migrations\003_system_incidents.sql
+package.json
+src\db.js
+src\middleware\require-auth.js
+src\middleware\require-role.js
+src\routes\audit.js
+src\routes\auth.js
+src\routes\health.js
+src\routes\incidents.js
+src\routes\killfeed.js
+src\routes\logs.js
+src\routes\players.js
+src\routes\priority.js
+src\server.js
+src\services\audit.js
+src\services\auth.js
+src\services\incident-monitor.js
+src\services\migrate.js
+src\services\priority-format.js
+src\services\priority-scheduler.js
+src\services\priority-status.js
+src\services\priority-sync.js
+src\services\priority-sync.test.js
+src\services\priority-sync-guard.js
+src\services\priority-sync-guard.test.js
+src\services\transaction.js
 
-===========================================================================
-3. CONTEUDO DOS ARQUIVOS CENTRAIS
-===========================================================================
+===== 2. CONTEUDO DOS ARQUIVOS =====
 
------ ARQUIVO: C:\RavenRP\ControlCenter\API\src\logger.js -----
+========================================
+ARQUIVO: backups\incidents\20261118-214700\src\routes\health.js
+========================================
 'use strict';
 
-const fs = require('fs');
-const path = require('path');
-const { Writable } = require('stream');
-const pino = require('pino');
+const express = require('express');
+const { pool } = require('../db');
+const { killfeedPool } = require('../killfeed-db');
 
-const logDir = path.resolve(__dirname, '..', 'logs');
-const MAX_FILE_SIZE = 10 * 1024 * 1024;
-const RETENTION_DAYS = 14;
+const router = express.Router();
 
-fs.mkdirSync(logDir, { recursive: true });
+async function checkDatabase(databasePool, req, label) {
+    const start = process.hrtime.bigint();
 
-function getDateKey() {
-    const now = new Date();
+    try {
+        await databasePool.query('SELECT 1 AS result');
 
-    return [
-        now.getFullYear(),
-        String(now.getMonth() + 1).padStart(2, '0'),
-        String(now.getDate()).padStart(2, '0')
-    ].join('-');
-}
+        const latencyMs = Number(
+            process.hrtime.bigint() - start
+        ) / 1_000_000;
 
-function cleanupOldLogs() {
-    const cutoff = Date.now() - RETENTION_DAYS * 86400000;
-    const pattern = /^api-\d{4}-\d{2}-\d{2}-\d{3}\.log$/;
-
-    for (const name of fs.readdirSync(logDir)) {
-        if (!pattern.test(name)) continue;
-
-        const file = path.join(logDir, name);
-
-        try {
-            const stat = fs.statSync(file);
-
-            if (stat.isFile() && stat.mtimeMs < cutoff) {
-                fs.unlinkSync(file);
-            }
-        } catch (error) {
-            process.stderr.write(
-                `[RAVEN LOGGER] Falha na limpeza de ${name}: ${error.message}\n`
-            );
-        }
-    }
-}
-
-class RotatingLogStream extends Writable {
-    constructor() {
-        super();
-
-        this.fd = null;
-        this.currentDate = null;
-        this.currentSize = 0;
-        this.sequence = 0;
-
-        cleanupOldLogs();
-        this.openNextFile();
-    }
-
-    openNextFile() {
-        if (this.fd !== null) {
-            fs.closeSync(this.fd);
-            this.fd = null;
-        }
-
-        this.currentDate = getDateKey();
-
-        const pattern = new RegExp(
-            `^api-${this.currentDate}-(\\d{3})\\.log$`
+        return {
+            status: 'connected',
+            latencyMs: Number(latencyMs.toFixed(2))
+        };
+    } catch (error) {
+        req.log.error(
+            { code: error.code, component: label },
+            'Health check de banco falhou'
         );
 
-        let highest = 0;
-
-        for (const name of fs.readdirSync(logDir)) {
-            const match = name.match(pattern);
-
-            if (match) {
-                highest = Math.max(highest, Number(match[1]));
-            }
-        }
-
-        this.sequence = highest + 1;
-
-        const filename =
-            `api-${this.currentDate}-${String(this.sequence).padStart(3, '0')}.log`;
-
-        const fullPath = path.join(logDir, filename);
-
-        this.fd = fs.openSync(fullPath, 'a');
-        this.currentSize = fs.fstatSync(this.fd).size;
-    }
-
-    _write(chunk, encoding, callback) {
-        try {
-            const buffer = Buffer.isBuffer(chunk)
-                ? chunk
-                : Buffer.from(chunk, encoding);
-
-            if (
-                getDateKey() !== this.currentDate ||
-                this.currentSize + buffer.length > MAX_FILE_SIZE
-            ) {
-                this.openNextFile();
-            }
-
-            fs.writeSync(this.fd, buffer);
-            this.currentSize += buffer.length;
-
-            callback();
-        } catch (error) {
-            callback(error);
-        }
-    }
-
-    _final(callback) {
-        try {
-            if (this.fd !== null) {
-                fs.closeSync(this.fd);
-                this.fd = null;
-            }
-
-            callback();
-        } catch (error) {
-            callback(error);
-        }
+        return {
+            status: 'disconnected'
+        };
     }
 }
 
-const fileStream = new RotatingLogStream();
+router.get('/', async (req, res) => {
+    const [primaryDatabase, killfeedDatabase] = await Promise.all([
+        checkDatabase(pool, req, 'postgresql'),
+        checkDatabase(killfeedPool, req, 'killfeed')
+    ]);
 
-const streams = pino.multistream([
-    { stream: process.stdout },
-    { stream: fileStream }
-]);
+    const primaryConnected = primaryDatabase.status === 'connected';
+    const killfeedConnected = killfeedDatabase.status === 'connected';
 
-const logger = pino({
-    level: process.env.LOG_LEVEL || 'info',
+    const status = !primaryConnected
+        ? 'degraded'
+        : killfeedConnected
+            ? 'ok'
+            : 'degraded';
 
-    redact: {
-        paths: [
-            'req.headers.authorization',
-            'headers.authorization',
-            'req.headers.cookie',
-            'headers.cookie',
-            'password',
-            '*.password',
-            'token',
-            '*.token',
-            'accessToken',
-            '*.accessToken',
-            'refreshToken',
-            '*.refreshToken',
-            'DB_PASSWORD_B64'
-        ],
-        censor: '[REDACTED]'
+    const memory = process.memoryUsage();
+
+    const response = {
+        status,
+        service: 'raven-control-api',
+        timestamp: new Date().toISOString(),
+        uptimeSeconds: Math.floor(process.uptime()),
+        process: {
+            memory: {
+                rssMb: Number((memory.rss / 1024 / 1024).toFixed(2)),
+                heapUsedMb: Number((memory.heapUsed / 1024 / 1024).toFixed(2)),
+                heapTotalMb: Number((memory.heapTotal / 1024 / 1024).toFixed(2))
+            }
+        },
+        databases: {
+            primary: primaryDatabase,
+            killfeed: killfeedDatabase
+        }
+    };
+
+    if (!primaryConnected) {
+        return res.status(503).json(response);
+    }
+
+    return res.status(200).json(response);
+});
+
+router.get('/live', (req, res) => {
+    return res.status(200).json({
+        status: 'alive',
+        service: 'raven-control-api',
+        timestamp: new Date().toISOString(),
+        uptimeSeconds: Math.floor(process.uptime())
+    });
+});
+
+module.exports = router;
+
+========================================
+ARQUIVO: backups\incidents\20261118-214700\src\server.js
+========================================
+'use strict';
+
+const path = require('path');
+
+require('dotenv').config({
+    path: path.resolve(__dirname, '..', '.env')
+});
+
+const express = require('express');
+const helmet = require('helmet');
+const cors = require('cors');
+const rateLimit = require('express-rate-limit');
+const pinoHttp = require('pino-http');
+
+const logger = require('./logger');
+const { pool } = require('./db');
+const healthRoutes = require('./routes/health');
+const authRoutes = require('./routes/auth');
+const playersRoutes = require('./routes/players');
+const priorityRoutes = require('./routes/priority');
+const auditRoutes = require('./routes/audit');
+const killfeedRoutes = require('./routes/killfeed');
+const { startPriorityScheduler, stopPriorityScheduler } = require('./services/priority-scheduler');
+
+const app = express();
+
+const HOST = process.env.API_HOST || '127.0.0.1';
+const PORT = Number(process.env.API_PORT || 3100);
+
+const allowedOrigins = new Set(
+    (process.env.CORS_ORIGINS || '')
+        .split(',')
+        .map(value => value.trim())
+        .filter(Boolean)
+);
+
+app.disable('x-powered-by');
+
+app.use(pinoHttp({ logger }));
+
+app.use(helmet());
+
+app.use(cors({
+    origin: (origin, callback) => {
+        if (!origin || allowedOrigins.has(origin)) {
+            return callback(null, true);
+        }
+
+        return callback(null, false);
     },
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS']
+}));
 
-    timestamp: pino.stdTimeFunctions.isoTime
-}, streams);
+app.use(express.json({ limit: '1mb' }));
+app.use(express.urlencoded({ extended: false, limit: '1mb' }));
 
-module.exports = logger;
------ FIM DO ARQUIVO -----
+app.use(rateLimit({
+    windowMs: 15 * 60 * 1000,
+    limit: 300,
+    standardHeaders: 'draft-8',
+    legacyHeaders: false
+}));
 
------ ARQUIVO: C:\RavenRP\ControlCenter\API\src\routes\logs.js -----
+app.get('/', (req, res) => {
+    res.json({
+        name: 'Raven Control Center API',
+        version: '1.0.0',
+        status: 'running'
+    });
+});
+
+app.use('/api/health', healthRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/players', playersRoutes);
+app.use('/api/priority', priorityRoutes);
+app.use('/api/audit', auditRoutes);
+app.use('/api/killfeed', killfeedRoutes);
+
+app.use((req, res) => {
+    res.status(404).json({
+        error: 'ROUTE_NOT_FOUND'
+    });
+});
+
+app.use((error, req, res, next) => {
+    if (res.headersSent) {
+        return next(error);
+    }
+
+    req.log.error({ error }, 'Erro na requisicao');
+
+    res.status(error.status || 500).json({
+        error: 'INTERNAL_SERVER_ERROR',
+        message: 'Erro interno da API.'
+    });
+});
+
+let server;
+
+async function startServer() {
+    await pool.query('SELECT 1');
+    startPriorityScheduler();
+
+    server = app.listen(PORT, HOST, () => {
+        logger.info({
+            host: HOST,
+            port: PORT,
+            database: process.env.DB_NAME
+        }, 'Raven Control Center API iniciada');
+    });
+
+    server.on('error', (error) => {
+        logger.error({ error }, 'Falha no servidor HTTP');
+        process.exitCode = 1;
+    });
+}
+
+let shuttingDown = false;
+
+async function shutdown(signal) {
+    if (shuttingDown) return;
+    shuttingDown = true;
+
+    logger.info({ signal }, 'Encerramento seguro da API iniciado');
+
+    let shutdownError = null;
+
+    try {
+        await stopPriorityScheduler();
+    } catch (error) {
+        shutdownError = error;
+        logger.error({ error }, 'Falha ao aguardar o agendador');
+    }
+
+    if (server) {
+        try {
+            await new Promise((resolve, reject) => {
+                server.close((error) => {
+                    if (error) reject(error);
+                    else resolve();
+                });
+
+                if (typeof server.closeIdleConnections === 'function') {
+                    server.closeIdleConnections();
+                }
+            });
+        } catch (error) {
+            shutdownError = shutdownError || error;
+            logger.error({ error }, 'Falha ao encerrar servidor HTTP');
+        }
+    }
+
+    try {
+        await pool.end();
+    } catch (error) {
+        shutdownError = shutdownError || error;
+        logger.error({ error }, 'Falha ao encerrar pool PostgreSQL');
+    }
+
+    if (shutdownError) {
+        logger.error('API encerrada com erro durante o desligamento');
+        process.exitCode = 1;
+        return;
+    }
+
+    logger.info('API encerrada com seguranca');
+    process.exitCode = 0;
+}
+
+process.on('SIGINT', () => {
+    void shutdown('SIGINT');
+});
+
+process.on('SIGTERM', () => {
+    void shutdown('SIGTERM');
+});
+
+startServer().catch(async (error) => {
+    logger.fatal({ error }, 'Nao foi possivel iniciar a API');
+    await pool.end();
+    process.exit(1);
+});
+
+========================================
+ARQUIVO: backups\killfeed-integration-retry-20261118_211814\server.js
+========================================
+'use strict';
+
+const path = require('path');
+
+require('dotenv').config({
+    path: path.resolve(__dirname, '..', '.env')
+});
+
+const express = require('express');
+const helmet = require('helmet');
+const cors = require('cors');
+const rateLimit = require('express-rate-limit');
+const pinoHttp = require('pino-http');
+
+const logger = require('./logger');
+const { pool } = require('./db');
+const healthRoutes = require('./routes/health');
+const authRoutes = require('./routes/auth');
+const playersRoutes = require('./routes/players');
+const priorityRoutes = require('./routes/priority');
+const auditRoutes = require('./routes/audit');
+const { startPriorityScheduler, stopPriorityScheduler } = require('./services/priority-scheduler');
+
+const app = express();
+
+const HOST = process.env.API_HOST || '127.0.0.1';
+const PORT = Number(process.env.API_PORT || 3100);
+
+const allowedOrigins = new Set(
+    (process.env.CORS_ORIGINS || '')
+        .split(',')
+        .map(value => value.trim())
+        .filter(Boolean)
+);
+
+app.disable('x-powered-by');
+
+app.use(pinoHttp({ logger }));
+
+app.use(helmet());
+
+app.use(cors({
+    origin: (origin, callback) => {
+        if (!origin || allowedOrigins.has(origin)) {
+            return callback(null, true);
+        }
+
+        return callback(null, false);
+    },
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS']
+}));
+
+app.use(express.json({ limit: '1mb' }));
+app.use(express.urlencoded({ extended: false, limit: '1mb' }));
+
+app.use(rateLimit({
+    windowMs: 15 * 60 * 1000,
+    limit: 300,
+    standardHeaders: 'draft-8',
+    legacyHeaders: false
+}));
+
+app.get('/', (req, res) => {
+    res.json({
+        name: 'Raven Control Center API',
+        version: '1.0.0',
+        status: 'running'
+    });
+});
+
+app.use('/api/health', healthRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/players', playersRoutes);
+app.use('/api/priority', priorityRoutes);
+app.use('/api/audit', auditRoutes);
+
+app.use((req, res) => {
+    res.status(404).json({
+        error: 'ROUTE_NOT_FOUND'
+    });
+});
+
+app.use((error, req, res, next) => {
+    if (res.headersSent) {
+        return next(error);
+    }
+
+    req.log.error({ error }, 'Erro na requisicao');
+
+    res.status(error.status || 500).json({
+        error: 'INTERNAL_SERVER_ERROR',
+        message: 'Erro interno da API.'
+    });
+});
+
+let server;
+
+async function startServer() {
+    await pool.query('SELECT 1');
+    startPriorityScheduler();
+
+    server = app.listen(PORT, HOST, () => {
+        logger.info({
+            host: HOST,
+            port: PORT,
+            database: process.env.DB_NAME
+        }, 'Raven Control Center API iniciada');
+    });
+
+    server.on('error', (error) => {
+        logger.error({ error }, 'Falha no servidor HTTP');
+        process.exitCode = 1;
+    });
+}
+
+let shuttingDown = false;
+
+async function shutdown(signal) {
+    if (shuttingDown) return;
+    shuttingDown = true;
+
+    logger.info({ signal }, 'Encerramento seguro da API iniciado');
+
+    let shutdownError = null;
+
+    try {
+        await stopPriorityScheduler();
+    } catch (error) {
+        shutdownError = error;
+        logger.error({ error }, 'Falha ao aguardar o agendador');
+    }
+
+    if (server) {
+        try {
+            await new Promise((resolve, reject) => {
+                server.close((error) => {
+                    if (error) reject(error);
+                    else resolve();
+                });
+
+                if (typeof server.closeIdleConnections === 'function') {
+                    server.closeIdleConnections();
+                }
+            });
+        } catch (error) {
+            shutdownError = shutdownError || error;
+            logger.error({ error }, 'Falha ao encerrar servidor HTTP');
+        }
+    }
+
+    try {
+        await pool.end();
+    } catch (error) {
+        shutdownError = shutdownError || error;
+        logger.error({ error }, 'Falha ao encerrar pool PostgreSQL');
+    }
+
+    if (shutdownError) {
+        logger.error('API encerrada com erro durante o desligamento');
+        process.exitCode = 1;
+        return;
+    }
+
+    logger.info('API encerrada com seguranca');
+    process.exitCode = 0;
+}
+
+process.on('SIGINT', () => {
+    void shutdown('SIGINT');
+});
+
+process.on('SIGTERM', () => {
+    void shutdown('SIGTERM');
+});
+
+startServer().catch(async (error) => {
+    logger.fatal({ error }, 'Nao foi possivel iniciar a API');
+    await pool.end();
+    process.exit(1);
+});
+
+========================================
+ARQUIVO: backups\shutdown-20261118-200552\server.js
+========================================
+'use strict';
+
+const path = require('path');
+
+require('dotenv').config({
+    path: path.resolve(__dirname, '..', '.env')
+});
+
+const express = require('express');
+const helmet = require('helmet');
+const cors = require('cors');
+const rateLimit = require('express-rate-limit');
+const pinoHttp = require('pino-http');
+
+const logger = require('./logger');
+const { pool } = require('./db');
+const healthRoutes = require('./routes/health');
+const authRoutes = require('./routes/auth');
+const playersRoutes = require('./routes/players');
+const priorityRoutes = require('./routes/priority');
+const auditRoutes = require('./routes/audit');
+const { startPriorityScheduler, stopPriorityScheduler } = require('./services/priority-scheduler');
+
+const app = express();
+
+const HOST = process.env.API_HOST || '127.0.0.1';
+const PORT = Number(process.env.API_PORT || 3100);
+
+const allowedOrigins = new Set(
+    (process.env.CORS_ORIGINS || '')
+        .split(',')
+        .map(value => value.trim())
+        .filter(Boolean)
+);
+
+app.disable('x-powered-by');
+
+app.use(pinoHttp({ logger }));
+
+app.use(helmet());
+
+app.use(cors({
+    origin: (origin, callback) => {
+        if (!origin || allowedOrigins.has(origin)) {
+            return callback(null, true);
+        }
+
+        return callback(null, false);
+    },
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS']
+}));
+
+app.use(express.json({ limit: '1mb' }));
+app.use(express.urlencoded({ extended: false, limit: '1mb' }));
+
+app.use(rateLimit({
+    windowMs: 15 * 60 * 1000,
+    limit: 300,
+    standardHeaders: 'draft-8',
+    legacyHeaders: false
+}));
+
+app.get('/', (req, res) => {
+    res.json({
+        name: 'Raven Control Center API',
+        version: '1.0.0',
+        status: 'running'
+    });
+});
+
+app.use('/api/health', healthRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/players', playersRoutes);
+app.use('/api/priority', priorityRoutes);
+app.use('/api/audit', auditRoutes);
+
+app.use((req, res) => {
+    res.status(404).json({
+        error: 'ROUTE_NOT_FOUND'
+    });
+});
+
+app.use((error, req, res, next) => {
+    if (res.headersSent) {
+        return next(error);
+    }
+
+    req.log.error({ error }, 'Erro na requisicao');
+
+    res.status(error.status || 500).json({
+        error: 'INTERNAL_SERVER_ERROR',
+        message: 'Erro interno da API.'
+    });
+});
+
+let server;
+
+async function startServer() {
+    await pool.query('SELECT 1');
+    startPriorityScheduler();
+
+    server = app.listen(PORT, HOST, () => {
+        logger.info({
+            host: HOST,
+            port: PORT,
+            database: process.env.DB_NAME
+        }, 'Raven Control Center API iniciada');
+    });
+
+    server.on('error', (error) => {
+        logger.error({ error }, 'Falha no servidor HTTP');
+        process.exitCode = 1;
+    });
+}
+
+async function shutdown(signal) {
+    logger.info({ signal }, 'Encerrando API');
+    stopPriorityScheduler();
+
+    if (server) {
+        server.close();
+    }
+
+    await pool.end();
+    process.exit(0);
+}
+
+process.on('SIGINT', () => shutdown('SIGINT'));
+process.on('SIGTERM', () => shutdown('SIGTERM'));
+
+startServer().catch(async (error) => {
+    logger.fatal({ error }, 'Nao foi possivel iniciar a API');
+    await pool.end();
+    process.exit(1);
+});
+
+========================================
+ARQUIVO: migrations\001_initial_schema.sql
+========================================
+CREATE TABLE public.players (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    steam64 VARCHAR(17) NOT NULL UNIQUE
+        CHECK (steam64 ~ '^[0-9]{17}$'),
+    display_name VARCHAR(64),
+    first_seen_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    last_seen_at TIMESTAMPTZ,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE public.admin_users (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    username VARCHAR(64) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
+    access_role VARCHAR(20) NOT NULL DEFAULT 'admin'
+        CHECK (access_role IN ('owner','admin','moderator','viewer')),
+    is_active BOOLEAN NOT NULL DEFAULT TRUE,
+    last_login_at TIMESTAMPTZ,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE public.priority_categories (
+    id SMALLINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    code VARCHAR(32) NOT NULL UNIQUE,
+    name VARCHAR(80) NOT NULL,
+    description TEXT,
+    display_order SMALLINT NOT NULL DEFAULT 0,
+    is_active BOOLEAN NOT NULL DEFAULT TRUE,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE public.priority_grants (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    player_id BIGINT NOT NULL REFERENCES public.players(id),
+    category_id SMALLINT NOT NULL REFERENCES public.priority_categories(id),
+    status VARCHAR(20) NOT NULL DEFAULT 'active'
+        CHECK (status IN ('scheduled','active','revoked','expired')),
+    grant_source VARCHAR(20) NOT NULL DEFAULT 'web'
+        CHECK (grant_source IN ('web','discord','system')),
+    reason TEXT,
+    starts_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    expires_at TIMESTAMPTZ,
+    granted_by_admin_id BIGINT REFERENCES public.admin_users(id),
+    revoked_by_admin_id BIGINT REFERENCES public.admin_users(id),
+    revoked_at TIMESTAMPTZ,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    CHECK (expires_at IS NULL OR expires_at > starts_at)
+);
+
+CREATE TABLE public.discord_accounts (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    player_id BIGINT NOT NULL UNIQUE REFERENCES public.players(id),
+    discord_user_id VARCHAR(20) NOT NULL UNIQUE
+        CHECK (discord_user_id ~ '^[0-9]{17,20}$'),
+    discord_username VARCHAR(100),
+    verified_at TIMESTAMPTZ,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE public.audit_logs (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    actor_type VARCHAR(20) NOT NULL
+        CHECK (actor_type IN ('admin','discord','system')),
+    actor_identifier VARCHAR(100),
+    actor_admin_id BIGINT REFERENCES public.admin_users(id) ON DELETE SET NULL,
+    action VARCHAR(100) NOT NULL,
+    entity_type VARCHAR(60),
+    entity_id VARCHAR(100),
+    details JSONB NOT NULL DEFAULT '{}'::JSONB,
+    source_ip INET,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE public.system_settings (
+    setting_key VARCHAR(100) PRIMARY KEY,
+    setting_value JSONB NOT NULL,
+    description TEXT,
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE public.queue_sync_runs (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    status VARCHAR(20) NOT NULL
+        CHECK (status IN ('running','success','failed')),
+    players_count INTEGER NOT NULL DEFAULT 0
+        CHECK (players_count >= 0),
+    file_checksum VARCHAR(64),
+    target_path TEXT,
+    error_message TEXT,
+    started_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    finished_at TIMESTAMPTZ
+);
+
+CREATE INDEX idx_priority_grants_player
+    ON public.priority_grants(player_id);
+
+CREATE INDEX idx_priority_grants_category
+    ON public.priority_grants(category_id);
+
+CREATE INDEX idx_priority_grants_status_expiration
+    ON public.priority_grants(status, expires_at);
+
+CREATE INDEX idx_audit_logs_created
+    ON public.audit_logs(created_at DESC);
+
+CREATE INDEX idx_audit_logs_entity
+    ON public.audit_logs(entity_type, entity_id);
+
+CREATE INDEX idx_queue_sync_runs_started
+    ON public.queue_sync_runs(started_at DESC);
+
+CREATE OR REPLACE FUNCTION public.set_updated_at()
+RETURNS TRIGGER
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    NEW.updated_at = NOW();
+    RETURN NEW;
+END;
+$$;
+
+CREATE TRIGGER trg_players_updated_at
+BEFORE UPDATE ON public.players
+FOR EACH ROW EXECUTE FUNCTION public.set_updated_at();
+
+CREATE TRIGGER trg_admin_users_updated_at
+BEFORE UPDATE ON public.admin_users
+FOR EACH ROW EXECUTE FUNCTION public.set_updated_at();
+
+CREATE TRIGGER trg_priority_categories_updated_at
+BEFORE UPDATE ON public.priority_categories
+FOR EACH ROW EXECUTE FUNCTION public.set_updated_at();
+
+CREATE TRIGGER trg_priority_grants_updated_at
+BEFORE UPDATE ON public.priority_grants
+FOR EACH ROW EXECUTE FUNCTION public.set_updated_at();
+
+CREATE TRIGGER trg_system_settings_updated_at
+BEFORE UPDATE ON public.system_settings
+FOR EACH ROW EXECUTE FUNCTION public.set_updated_at();
+
+INSERT INTO public.priority_categories
+    (code, name, description, display_order)
+VALUES
+    ('staff', 'Staff', 'Equipe administrativa do Raven RP', 1),
+    ('supporters', 'Apoiadores', 'Apoiadores da comunidade', 2),
+    ('events', 'Eventos', 'Vencedores e convidados de eventos', 3),
+    ('creators', 'Criadores', 'Criadores de conteudo e parceiros', 4);
+
+========================================
+ARQUIVO: migrations\002_priority_integrity.sql
+========================================
+-- Corrigir concessoes cuja validade ja terminou
+UPDATE public.priority_grants
+SET status = 'expired',
+    updated_at = NOW()
+WHERE status IN ('active', 'scheduled')
+  AND expires_at IS NOT NULL
+  AND expires_at <= NOW();
+
+-- Uma concessao aberta por jogador e categoria.
+-- O mesmo jogador pode possuir categorias diferentes.
+CREATE UNIQUE INDEX uq_priority_grants_player_category_open
+ON public.priority_grants (player_id, category_id)
+WHERE status IN ('active', 'scheduled');
+
+-- Pesquisa de jogadores por nome
+CREATE INDEX idx_players_display_name_lower
+ON public.players (LOWER(display_name))
+WHERE display_name IS NOT NULL;
+
+-- Pesquisa de concessoes por validade
+CREATE INDEX idx_priority_grants_expiration
+ON public.priority_grants (expires_at)
+WHERE status IN ('active', 'scheduled')
+  AND expires_at IS NOT NULL;
+
+-- Pesquisa de auditoria por administrador
+CREATE INDEX idx_audit_logs_actor_admin
+ON public.audit_logs (actor_admin_id, created_at DESC)
+WHERE actor_admin_id IS NOT NULL;
+
+========================================
+ARQUIVO: migrations\003_system_incidents.sql
+========================================
+CREATE TABLE public.system_incidents (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    component VARCHAR(32) NOT NULL
+        CHECK (component IN ('postgresql', 'killfeed')),
+    severity VARCHAR(16) NOT NULL
+        CHECK (severity IN ('warning', 'critical')),
+    details JSONB NOT NULL DEFAULT '{}'::JSONB,
+    started_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    resolved_at TIMESTAMPTZ,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    CHECK (resolved_at IS NULL OR resolved_at >= started_at)
+);
+
+CREATE UNIQUE INDEX uq_system_incidents_open_component
+ON public.system_incidents (component)
+WHERE resolved_at IS NULL;
+
+CREATE INDEX idx_system_incidents_started
+ON public.system_incidents (started_at DESC);
+
+CREATE INDEX idx_system_incidents_resolved
+ON public.system_incidents (resolved_at DESC)
+WHERE resolved_at IS NOT NULL;
+
+
+========================================
+ARQUIVO: package.json
+========================================
+{
+    "name": "raven-control-api",
+    "version": "1.0.0",
+    "description": "API central do Raven Control Center",
+    "main": "src/server.js",
+    "scripts": {
+        "test": "node --test",
+        "start": "node src/server.js",
+        "dev": "node --watch src/server.js",
+        "db:migrate": "node src/services/migrate.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "commonjs",
+    "private": true,
+    "dependencies": {
+        "bcryptjs": "3.0.3",
+        "cors": "2.8.6",
+        "dotenv": "18.0.10",
+        "express": "5.3.0",
+        "express-rate-limit": "8.7.4",
+        "helmet": "8.3.0",
+        "jose": "6.2.17",
+        "pg": "8.23.1",
+        "pino": "10.4.0",
+        "pino-http": "11.0.0",
+        "zod": "4.6.7"
+    }
+}
+
+
+========================================
+ARQUIVO: src\db.js
+========================================
+'use strict';
+
+const { Pool } = require('pg');
+const logger = require('./logger');
+
+if (!process.env.DB_PASSWORD_B64) {
+    throw new Error('DB_PASSWORD_B64 nao configurado.');
+}
+
+const password = Buffer
+    .from(process.env.DB_PASSWORD_B64, 'base64')
+    .toString('utf8');
+
+const pool = new Pool({
+    host: process.env.DB_HOST,
+    port: Number(process.env.DB_PORT || 5432),
+    database: process.env.DB_NAME,
+    user: process.env.DB_USER,
+    password,
+    max: Number(process.env.DB_POOL_MAX || 5),
+    connectionTimeoutMillis: Number(
+        process.env.DB_CONNECTION_TIMEOUT || 5000
+    ),
+    idleTimeoutMillis: 10000,
+    application_name: 'raven-control-api',
+    ssl: false
+});
+
+pool.on('error', (error) => {
+    logger.error({ error }, 'Erro inesperado no pool PostgreSQL');
+});
+
+module.exports = { pool };
+
+========================================
+ARQUIVO: src\middleware\require-auth.js
+========================================
+'use strict';
+
+const { verifyAccessToken } = require('../services/auth');
+const { pool } = require('../db');
+
+async function requireAuth(req, res, next) {
+    const authorization = req.get('authorization') || '';
+    const match = authorization.match(/^Bearer\s+(.+)$/i);
+
+    if (!match) {
+        return res.status(401).json({
+            error: 'AUTHENTICATION_REQUIRED'
+        });
+    }
+
+    try {
+        const payload = await verifyAccessToken(match[1]);
+        const adminId = Number(payload.sub);
+
+        if (!Number.isSafeInteger(adminId) || adminId <= 0) {
+            return res.status(401).json({
+                error: 'INVALID_TOKEN_SUBJECT'
+            });
+        }
+
+        const result = await pool.query(
+            `SELECT id, username, access_role, is_active
+             FROM public.admin_users
+             WHERE id = $1`,
+            [adminId]
+        );
+
+        const admin = result.rows[0];
+
+        if (!admin || !admin.is_active) {
+            return res.status(401).json({
+                error: 'ADMIN_INACTIVE'
+            });
+        }
+
+        req.admin = {
+            id: admin.id,
+            username: admin.username,
+            role: admin.access_role
+        };
+
+        return next();
+
+    } catch (error) {
+        if (
+            error.code === 'ECONNREFUSED' ||
+            error.code === '57P01'
+        ) {
+            req.log.error({ error }, 'PostgreSQL indisponivel');
+
+            return res.status(503).json({
+                error: 'AUTHENTICATION_SERVICE_UNAVAILABLE'
+            });
+        }
+
+        if (error.name === 'JWTExpired') {
+            return res.status(401).json({
+                error: 'TOKEN_EXPIRED'
+            });
+        }
+
+        if (
+            error.code === 'ERR_JWS_INVALID' ||
+            error.code === 'ERR_JWT_INVALID' ||
+            error.code === 'ERR_JWT_EXPIRED' ||
+            error.code === 'ERR_JWS_SIGNATURE_VERIFICATION_FAILED'
+        ) {
+            return res.status(401).json({
+                error: 'INVALID_OR_EXPIRED_TOKEN'
+            });
+        }
+
+        req.log.error({ error }, 'Falha na autenticacao');
+
+        return res.status(500).json({
+            error: 'AUTHENTICATION_ERROR'
+        });
+    }
+}
+
+module.exports = requireAuth;
+
+========================================
+ARQUIVO: src\middleware\require-role.js
+========================================
+'use strict';
+
+module.exports = (...allowedRoles) => {
+    return (req, res, next) => {
+        if (!req.admin) {
+            return res.status(401).json({ error: 'AUTHENTICATION_REQUIRED' });
+        }
+
+        if (!allowedRoles.includes(req.admin.role)) {
+            return res.status(403).json({ error: 'INSUFFICIENT_PERMISSIONS' });
+        }
+
+        return next();
+    };
+};
+
+========================================
+ARQUIVO: src\routes\audit.js
+========================================
+'use strict';
+
+const express = require('express');
+const { z } = require('zod');
+
+const { pool } = require('../db');
+const requireAuth = require('../middleware/require-auth');
+const requireRole = require('../middleware/require-role');
+
+const router = express.Router();
+
+router.use(requireAuth);
+router.use(requireRole('owner', 'admin'));
+
+const querySchema = z.object({
+    action: z.string().trim().max(100).optional(),
+    entityType: z.string().trim().max(60).optional(),
+    entityId: z.string().trim().max(100).optional(),
+    page: z.coerce.number().int().min(1).max(100000).default(1),
+    limit: z.coerce.number().int().min(1).max(100).default(50)
+}).strict();
+
+router.get('/', async (req, res) => {
+    const parsed = querySchema.safeParse(req.query);
+
+    if (!parsed.success) {
+        return res.status(400).json({ error: 'INVALID_AUDIT_QUERY' });
+    }
+
+    const { action, entityType, entityId, page, limit } = parsed.data;
+
+    const conditions = [];
+    const values = [];
+
+    if (action) {
+        values.push(action);
+        conditions.push(`action = $${values.length}`);
+    }
+
+    if (entityType) {
+        values.push(entityType);
+        conditions.push(`entity_type = $${values.length}`);
+    }
+
+    if (entityId) {
+        values.push(entityId);
+        conditions.push(`entity_id = $${values.length}`);
+    }
+
+    const where = conditions.length
+        ? `WHERE ${conditions.join(' AND ')}`
+        : '';
+
+    try {
+        const count = await pool.query(
+            `SELECT COUNT(*)::integer AS total
+             FROM public.audit_logs ${where}`,
+            values
+        );
+
+        const queryValues = [
+            ...values,
+            limit,
+            (page - 1) * limit
+        ];
+
+        const result = await pool.query(
+            `SELECT
+                id::text,
+                actor_type,
+                actor_identifier,
+                actor_admin_id::text,
+                action,
+                entity_type,
+                entity_id,
+                details,
+                source_ip,
+                created_at
+             FROM public.audit_logs
+             ${where}
+             ORDER BY created_at DESC
+             LIMIT $${values.length + 1}
+             OFFSET $${values.length + 2}`,
+            queryValues
+        );
+
+        return res.json({
+            page,
+            limit,
+            total: count.rows[0].total,
+            entries: result.rows
+        });
+    } catch (error) {
+        req.log.error({ error }, 'Falha ao consultar auditoria');
+
+        return res.status(500).json({
+            error: 'AUDIT_QUERY_ERROR'
+        });
+    }
+});
+
+module.exports = router;
+
+========================================
+ARQUIVO: src\routes\auth.js
+========================================
+'use strict';
+
+const express = require('express');
+const bcrypt = require('bcryptjs');
+const { z } = require('zod');
+const rateLimit = require('express-rate-limit');
+
+const { pool } = require('../db');
+const { createAccessToken } = require('../services/auth');
+const requireAuth = require('../middleware/require-auth');
+
+const router = express.Router();
+
+const loginLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000,
+    limit: 5,
+    skipSuccessfulRequests: true,		
+    standardHeaders: 'draft-8',
+    legacyHeaders: false,
+    message: {
+        error: 'TOO_MANY_LOGIN_ATTEMPTS'
+    }
+});
+
+const loginSchema = z.object({
+    username: z.string()
+        .trim()
+        .toLowerCase()
+        .min(3)
+        .max(64)
+        .regex(/^[a-z0-9._-]+$/),
+
+    password: z.string().min(14).max(72)
+}).strict();
+
+const dummyHash = bcrypt.hashSync(
+    'raven-invalid-account-credential',
+    12
+);
+
+router.post('/login', loginLimiter, async (req, res) => {
+    const parsed = loginSchema.safeParse(req.body);
+
+    if (!parsed.success) {
+        return res.status(400).json({
+            error: 'INVALID_LOGIN_DATA'
+        });
+    }
+
+    const { username, password } = parsed.data;
+
+    if (Buffer.byteLength(password, 'utf8') > 72) {
+        return res.status(400).json({
+            error: 'INVALID_LOGIN_DATA'
+        });
+    }
+
+    try {
+        const result = await pool.query(
+            `SELECT id, username, password_hash,
+                    access_role, is_active
+             FROM public.admin_users
+             WHERE username = $1`,
+            [username]
+        );
+
+        const admin = result.rows[0];
+
+        const passwordValid = await bcrypt.compare(
+            password,
+            admin ? admin.password_hash : dummyHash
+        );
+
+        if (!admin || !admin.is_active || !passwordValid) {
+            return res.status(401).json({
+                error: 'INVALID_CREDENTIALS'
+            });
+        }
+
+        await pool.query(
+            `UPDATE public.admin_users
+             SET last_login_at = NOW()
+             WHERE id = $1`,
+            [admin.id]
+        );
+
+        const accessToken = await createAccessToken(admin);
+
+        return res.status(200).json({
+            accessToken,
+            tokenType: 'Bearer',
+            expiresIn: Number(
+                process.env.AUTH_ACCESS_TTL_SECONDS || 900
+            ),
+            admin: {
+                id: admin.id,
+                username: admin.username,
+                role: admin.access_role
+            }
+        });
+
+    } catch (error) {
+        req.log.error({ error }, 'Falha no login');
+
+        return res.status(500).json({
+            error: 'LOGIN_SERVICE_ERROR'
+        });
+    }
+});
+
+router.get('/me', requireAuth, (req, res) => {
+    return res.json({
+        admin: req.admin
+    });
+});
+
+module.exports = router;
+
+========================================
+ARQUIVO: src\routes\health.js
+========================================
+'use strict';
+
+const express = require('express');
+const { pool } = require('../db');
+const { killfeedPool } = require('../killfeed-db');
+const { recordHealthSnapshot } = require('../services/incident-monitor');
+
+const router = express.Router();
+
+async function checkDatabase(databasePool, req, label) {
+    const start = process.hrtime.bigint();
+
+    try {
+        await databasePool.query('SELECT 1 AS result');
+
+        const latencyMs = Number(
+            process.hrtime.bigint() - start
+        ) / 1_000_000;
+
+        return {
+            status: 'connected',
+            latencyMs: Number(latencyMs.toFixed(2))
+        };
+    } catch (error) {
+        req.log.error(
+            { code: error.code, component: label },
+            'Health check de banco falhou'
+        );
+
+        return {
+            status: 'disconnected'
+        };
+    }
+}
+
+router.get('/', async (req, res) => {
+    const [primaryDatabase, killfeedDatabase] = await Promise.all([
+        checkDatabase(pool, req, 'postgresql'),
+        checkDatabase(killfeedPool, req, 'killfeed')
+    ]);
+
+    const primaryConnected = primaryDatabase.status === 'connected';
+    const killfeedConnected = killfeedDatabase.status === 'connected';
+
+    await recordHealthSnapshot({
+        primary: primaryDatabase.status,
+        killfeed: killfeedDatabase.status
+    }, req.log);
+
+    const status = !primaryConnected
+        ? 'degraded'
+        : killfeedConnected
+            ? 'ok'
+            : 'degraded';
+
+    const memory = process.memoryUsage();
+
+    const response = {
+        status,
+        service: 'raven-control-api',
+        timestamp: new Date().toISOString(),
+        uptimeSeconds: Math.floor(process.uptime()),
+        process: {
+            memory: {
+                rssMb: Number((memory.rss / 1024 / 1024).toFixed(2)),
+                heapUsedMb: Number((memory.heapUsed / 1024 / 1024).toFixed(2)),
+                heapTotalMb: Number((memory.heapTotal / 1024 / 1024).toFixed(2))
+            }
+        },
+        databases: {
+            primary: primaryDatabase,
+            killfeed: killfeedDatabase
+        }
+    };
+
+    if (!primaryConnected) {
+        return res.status(503).json(response);
+    }
+
+    return res.status(200).json(response);
+});
+
+router.get('/live', (req, res) => {
+    return res.status(200).json({
+        status: 'alive',
+        service: 'raven-control-api',
+        timestamp: new Date().toISOString(),
+        uptimeSeconds: Math.floor(process.uptime())
+    });
+});
+
+module.exports = router;
+
+
+========================================
+ARQUIVO: src\routes\incidents.js
+========================================
+'use strict';
+
+const express = require('express');
+const { z } = require('zod');
+
+const { pool } = require('../db');
+const requireAuth = require('../middleware/require-auth');
+const requireRole = require('../middleware/require-role');
+
+const router = express.Router();
+
+router.use(requireAuth);
+router.use(requireRole('owner', 'admin'));
+
+const querySchema = z.object({
+    page: z.coerce.number().int().min(1).max(100000).default(1),
+    limit: z.coerce.number().int().min(1).max(100).default(50)
+}).strict();
+
+router.get('/', async (req, res) => {
+    const parsed = querySchema.safeParse(req.query);
+
+    if (!parsed.success) {
+        return res.status(400).json({
+            error: 'INVALID_INCIDENT_QUERY'
+        });
+    }
+
+    const { page, limit } = parsed.data;
+
+    try {
+        const count = await pool.query(
+            `SELECT COUNT(*)::integer AS total
+             FROM public.system_incidents`
+        );
+
+        const result = await pool.query(
+            `SELECT
+                id::text,
+                component,
+                severity,
+                details,
+                started_at,
+                resolved_at,
+                CASE
+                    WHEN resolved_at IS NULL
+                    THEN EXTRACT(EPOCH FROM (NOW() - started_at))::integer
+                    ELSE EXTRACT(EPOCH FROM (resolved_at - started_at))::integer
+                END AS duration_seconds,
+                resolved_at IS NULL AS is_open
+             FROM public.system_incidents
+             ORDER BY started_at DESC
+             LIMIT $1 OFFSET $2`,
+            [limit, (page - 1) * limit]
+        );
+
+        return res.json({
+            page,
+            limit,
+            total: count.rows[0].total,
+            incidents: result.rows
+        });
+    } catch (error) {
+        req.log.error(
+            { code: error.code },
+            'Falha ao consultar incidentes'
+        );
+
+        return res.status(500).json({
+            error: 'INCIDENT_QUERY_ERROR'
+        });
+    }
+});
+
+module.exports = router;
+
+
+========================================
+ARQUIVO: src\routes\killfeed.js
+========================================
+'use strict';
+
+const express = require('express');
+const { z } = require('zod');
+const { killfeedPool } = require('../killfeed-db');
+const requireAuth = require('../middleware/require-auth');
+
+const router = express.Router();
+router.use(requireAuth);
+
+const querySchema = z.object({
+    search: z.string().trim().max(64).optional(),
+    page: z.coerce.number().int().min(1).max(100000).default(1),
+    limit: z.coerce.number().int().min(1).max(100).default(50)
+}).strict();
+
+router.get('/', async (req, res) => {
+    const parsed = querySchema.safeParse(req.query);
+
+    if (!parsed.success) {
+        return res.status(400).json({ error: 'INVALID_KILLFEED_QUERY' });
+    }
+
+    const { search, page, limit } = parsed.data;
+    const offset = (page - 1) * limit;
+
+    try {
+        const values = [];
+        let where = '';
+
+        if (search) {
+            values.push(`%${search}%`);
+            where = 'WHERE (killer_name ILIKE $1 OR victim_name ILIKE $1 OR weapon ILIKE $1)';
+        }
+
+        const count = await killfeedPool.query(
+            `SELECT COUNT(*)::integer AS total
+             FROM public.pvp_kills ${where}`,
+            values
+        );
+
+        const result = await killfeedPool.query(
+            `SELECT id::text, occurred_at, killer_name, victim_name, weapon, distance_m
+             FROM public.pvp_kills
+             ${where}
+             ORDER BY occurred_at DESC, id DESC
+             LIMIT $${values.length + 1}
+             OFFSET $${values.length + 2}`,
+            [...values, limit, offset]
+        );
+
+        return res.json({
+            page,
+            limit,
+            total: count.rows[0].total,
+            kills: result.rows
+        });
+    } catch (error) {
+        req.log.error({ code: error.code }, 'Falha ao consultar historico KillFeed');
+        return res.status(503).json({ error: 'KILLFEED_DATABASE_UNAVAILABLE' });
+    }
+});
+
+module.exports = router;
+
+========================================
+ARQUIVO: src\routes\logs.js
+========================================
 'use strict';
 
 const express = require('express');
@@ -526,98 +1847,694 @@ router.get('/', async (req, res) => {
 });
 
 module.exports = router;
------ FIM DO ARQUIVO -----
 
------ ARQUIVO: C:\RavenRP\ControlCenter\API\src\middleware\require-auth.js -----
+========================================
+ARQUIVO: src\routes\players.js
+========================================
 'use strict';
 
-const { verifyAccessToken } = require('../services/auth');
+const express = require('express');
+const { z } = require('zod');
+
 const { pool } = require('../db');
+const { withTransaction } = require('../services/transaction');
+const { writeAudit } = require('../services/audit');
+const requireAuth = require('../middleware/require-auth');
+const requireRole = require('../middleware/require-role');
 
-async function requireAuth(req, res, next) {
-    const authorization = req.get('authorization') || '';
-    const match = authorization.match(/^Bearer\s+(.+)$/i);
+const router = express.Router();
 
-    if (!match) {
-        return res.status(401).json({
-            error: 'AUTHENTICATION_REQUIRED'
-        });
+router.use(requireAuth);
+
+const listSchema = z.object({
+    search: z.string().trim().max(64).optional(),
+    page: z.coerce.number().int().min(1).max(100000).default(1),
+    limit: z.coerce.number().int().min(1).max(100).default(25)
+}).strict();
+
+const createSchema = z.object({
+    steam64: z.string().regex(/^[0-9]{17}$/),
+    displayName: z.string().trim().min(1).max(64).nullable().optional()
+}).strict();
+
+router.get('/', async (req, res) => {
+    const parsed = listSchema.safeParse(req.query);
+
+    if (!parsed.success) {
+        return res.status(400).json({ error: 'INVALID_QUERY' });
     }
+
+    const { search, page, limit } = parsed.data;
+    const offset = (page - 1) * limit;
 
     try {
-        const payload = await verifyAccessToken(match[1]);
-        const adminId = Number(payload.sub);
+        const values = [];
+        let where = '';
 
-        if (!Number.isSafeInteger(adminId) || adminId <= 0) {
-            return res.status(401).json({
-                error: 'INVALID_TOKEN_SUBJECT'
-            });
+        if (search) {
+            values.push(search, `%${search}%`);
+            where = 'WHERE (steam64 = $1 OR display_name ILIKE $2)';
         }
 
-        const result = await pool.query(
-            `SELECT id, username, access_role, is_active
-             FROM public.admin_users
-             WHERE id = $1`,
-            [adminId]
+        const count = await pool.query(
+            `SELECT COUNT(*)::integer AS total
+             FROM public.players ${where}`,
+            values
         );
 
-        const admin = result.rows[0];
+        const paginationValues = [...values, limit, offset];
+        const limitPosition = values.length + 1;
+        const offsetPosition = values.length + 2;
 
-        if (!admin || !admin.is_active) {
-            return res.status(401).json({
-                error: 'ADMIN_INACTIVE'
-            });
-        }
+        const result = await pool.query(
+            `SELECT id::text, steam64, display_name,
+                    first_seen_at, last_seen_at, created_at, updated_at
+             FROM public.players
+             ${where}
+             ORDER BY created_at DESC
+             LIMIT $${limitPosition} OFFSET $${offsetPosition}`,
+            paginationValues
+        );
 
-        req.admin = {
-            id: admin.id,
-            username: admin.username,
-            role: admin.access_role
-        };
-
-        return next();
-
+        return res.json({
+            page,
+            limit,
+            total: count.rows[0].total,
+            players: result.rows
+        });
     } catch (error) {
-        if (
-            error.code === 'ECONNREFUSED' ||
-            error.code === '57P01'
-        ) {
-            req.log.error({ error }, 'PostgreSQL indisponivel');
-
-            return res.status(503).json({
-                error: 'AUTHENTICATION_SERVICE_UNAVAILABLE'
-            });
-        }
-
-        if (error.name === 'JWTExpired') {
-            return res.status(401).json({
-                error: 'TOKEN_EXPIRED'
-            });
-        }
-
-        if (
-            error.code === 'ERR_JWS_INVALID' ||
-            error.code === 'ERR_JWT_INVALID' ||
-            error.code === 'ERR_JWT_EXPIRED' ||
-            error.code === 'ERR_JWS_SIGNATURE_VERIFICATION_FAILED'
-        ) {
-            return res.status(401).json({
-                error: 'INVALID_OR_EXPIRED_TOKEN'
-            });
-        }
-
-        req.log.error({ error }, 'Falha na autenticacao');
+        req.log.error({ error }, 'Falha ao listar jogadores');
 
         return res.status(500).json({
-            error: 'AUTHENTICATION_ERROR'
+            error: 'PLAYER_LIST_ERROR'
         });
     }
+});
+
+router.post(
+    '/',
+    requireRole('owner', 'admin', 'moderator'),
+    async (req, res) => {
+        const parsed = createSchema.safeParse(req.body);
+
+        if (!parsed.success) {
+            return res.status(400).json({
+                error: 'INVALID_PLAYER_DATA',
+                details: parsed.error.issues.map(issue => ({
+                    field: issue.path.join('.'),
+                    message: issue.message
+                }))
+            });
+        }
+
+        const { steam64, displayName } = parsed.data;
+
+        try {
+            const player = await withTransaction(async client => {
+                const result = await client.query(
+                    `INSERT INTO public.players
+                        (steam64, display_name)
+                     VALUES ($1, $2)
+                     RETURNING id::text, steam64, display_name, created_at`,
+                    [steam64, displayName || null]
+                );
+
+                const created = result.rows[0];
+
+                await writeAudit(client, {
+                    actorType: 'admin',
+                    actorIdentifier: req.admin.username,
+                    actorAdminId: req.admin.id,
+                    action: 'player.created',
+                    entityType: 'player',
+                    entityId: created.id,
+                    details: {
+                        steam64,
+                        displayName: displayName || null
+                    },
+                    sourceIp: req.ip
+                });
+
+                return created;
+            });
+
+            return res.status(201).json({ player });
+        } catch (error) {
+            if (error.code === '23505') {
+                return res.status(409).json({
+                    error: 'PLAYER_ALREADY_EXISTS'
+                });
+            }
+
+            req.log.error({ error }, 'Falha ao cadastrar jogador');
+
+            return res.status(500).json({
+                error: 'PLAYER_CREATE_ERROR'
+            });
+        }
+    }
+);
+
+module.exports = router;
+
+========================================
+ARQUIVO: src\routes\priority.js
+========================================
+'use strict';
+
+const express = require('express');
+const { z } = require('zod');
+
+const { pool } = require('../db');
+const { withTransaction } = require('../services/transaction');
+const { writeAudit } = require('../services/audit');
+const { refreshGrantStatuses } = require('../services/priority-status');
+const requireAuth = require('../middleware/require-auth');
+const requireRole = require('../middleware/require-role');
+
+const router = express.Router();
+
+router.use(requireAuth);
+
+const grantSchema = z.object({
+    steam64: z.string().regex(/^[0-9]{17}$/),
+    categoryCode: z.string().trim().toLowerCase()
+        .regex(/^[a-z0-9_-]{1,32}$/),
+    startsAt: z.string().datetime({ offset: true }).optional(),
+    expiresAt: z.union([
+        z.string().datetime({ offset: true }),
+        z.null()
+    ]).optional(),
+    reason: z.string().trim().max(500).nullable().optional()
+}).strict();
+
+const renewSchema = z.object({
+    expiresAt: z.string().datetime({ offset: true }),
+    reason: z.string().trim().max(500).nullable().optional()
+}).strict();
+
+const revokeSchema = z.object({
+    reason: z.string().trim().max(500).nullable().optional()
+}).strict();
+
+const listSchema = z.object({
+    status: z.enum(['active','scheduled','expired','revoked']).optional(),
+    steam64: z.string().regex(/^[0-9]{17}$/).optional(),
+    category: z.string().trim().toLowerCase()
+        .regex(/^[a-z0-9_-]{1,32}$/).optional(),
+    page: z.coerce.number().int().min(1).max(100000).default(1),
+    limit: z.coerce.number().int().min(1).max(100).default(25)
+}).strict();
+
+function validId(value) {
+    return typeof value === 'string' &&
+        /^[1-9][0-9]{0,18}$/.test(value);
 }
 
-module.exports = requireAuth;
------ FIM DO ARQUIVO -----
+function sendOperationError(req, res, error, context) {
+    if (error.statusCode) {
+        return res.status(error.statusCode).json({
+            error: error.codeName || 'OPERATION_REJECTED',
+            message: error.message
+        });
+    }
 
------ ARQUIVO: C:\RavenRP\ControlCenter\API\src\server.js -----
+    if (error.code === '23505') {
+        return res.status(409).json({
+            error: 'PRIORITY_ALREADY_EXISTS'
+        });
+    }
+
+    req.log.error({ error }, context);
+
+    return res.status(500).json({
+        error: 'PRIORITY_OPERATION_ERROR'
+    });
+}
+
+function operationError(statusCode, codeName, message) {
+    const error = new Error(message);
+    error.statusCode = statusCode;
+    error.codeName = codeName;
+    return error;
+}
+
+/* CATEGORIAS */
+
+router.get('/categories', async (req, res) => {
+    try {
+        const result = await pool.query(
+            `SELECT id, code, name, description, display_order
+             FROM public.priority_categories
+             WHERE is_active = TRUE
+             ORDER BY display_order`
+        );
+
+        return res.json({ categories: result.rows });
+    } catch (error) {
+        req.log.error({ error }, 'Falha ao listar categorias');
+
+        return res.status(500).json({
+            error: 'CATEGORY_LIST_ERROR'
+        });
+    }
+});
+
+/* PRIORIDADES EFETIVAS */
+
+router.get('/effective', async (req, res) => {
+    try {
+        const players = await withTransaction(async client => {
+            await refreshGrantStatuses(client);
+
+            const result = await client.query(`
+                SELECT DISTINCT
+                    p.steam64,
+                    p.display_name
+                FROM public.priority_grants g
+                JOIN public.players p ON p.id = g.player_id
+                WHERE g.status = 'active'
+                  AND g.starts_at <= NOW()
+                  AND (g.expires_at IS NULL OR g.expires_at > NOW())
+                ORDER BY p.steam64
+            `);
+
+            return result.rows;
+        });
+
+        return res.json({
+            count: players.length,
+            players
+        });
+    } catch (error) {
+        req.log.error({ error }, 'Falha ao consultar fila efetiva');
+
+        return res.status(500).json({
+            error: 'EFFECTIVE_QUEUE_ERROR'
+        });
+    }
+});
+
+/* LISTAR CONCESSOES */
+
+router.get('/grants', async (req, res) => {
+    const parsed = listSchema.safeParse(req.query);
+
+    if (!parsed.success) {
+        return res.status(400).json({ error: 'INVALID_QUERY' });
+    }
+
+    const { status, steam64, category, page, limit } = parsed.data;
+
+    try {
+        await withTransaction(refreshGrantStatuses);
+
+        const conditions = [];
+        const values = [];
+
+        if (status) {
+            values.push(status);
+            conditions.push(`g.status = $${values.length}`);
+        }
+
+        if (steam64) {
+            values.push(steam64);
+            conditions.push(`p.steam64 = $${values.length}`);
+        }
+
+        if (category) {
+            values.push(category);
+            conditions.push(`c.code = $${values.length}`);
+        }
+
+        const where = conditions.length
+            ? `WHERE ${conditions.join(' AND ')}`
+            : '';
+
+        const count = await pool.query(
+            `SELECT COUNT(*)::integer AS total
+             FROM public.priority_grants g
+             JOIN public.players p ON p.id = g.player_id
+             JOIN public.priority_categories c ON c.id = g.category_id
+             ${where}`,
+            values
+        );
+
+        const offset = (page - 1) * limit;
+        const queryValues = [...values, limit, offset];
+        const limitPosition = values.length + 1;
+        const offsetPosition = values.length + 2;
+
+        const result = await pool.query(
+            `SELECT
+                g.id::text,
+                p.steam64,
+                p.display_name,
+                c.code AS category_code,
+                c.name AS category_name,
+                g.status,
+                g.grant_source,
+                g.reason,
+                g.starts_at,
+                g.expires_at,
+                g.created_at,
+                g.updated_at
+             FROM public.priority_grants g
+             JOIN public.players p ON p.id = g.player_id
+             JOIN public.priority_categories c ON c.id = g.category_id
+             ${where}
+             ORDER BY g.created_at DESC
+             LIMIT $${limitPosition} OFFSET $${offsetPosition}`,
+            queryValues
+        );
+
+        return res.json({
+            page,
+            limit,
+            total: count.rows[0].total,
+            grants: result.rows
+        });
+    } catch (error) {
+        req.log.error({ error }, 'Falha ao listar prioridades');
+
+        return res.status(500).json({
+            error: 'GRANT_LIST_ERROR'
+        });
+    }
+});
+
+/* CONCEDER PRIORIDADE */
+
+router.post(
+    '/grants',
+    requireRole('owner', 'admin', 'moderator'),
+    async (req, res) => {
+        const parsed = grantSchema.safeParse(req.body);
+
+        if (!parsed.success) {
+            return res.status(400).json({
+                error: 'INVALID_GRANT_DATA',
+                details: parsed.error.issues.map(issue => ({
+                    field: issue.path.join('.'),
+                    message: issue.message
+                }))
+            });
+        }
+
+        const input = parsed.data;
+        const startsAt = input.startsAt
+            ? new Date(input.startsAt)
+            : new Date();
+
+        const expiresAt = input.expiresAt
+            ? new Date(input.expiresAt)
+            : null;
+
+        if (expiresAt && expiresAt <= startsAt) {
+            return res.status(400).json({
+                error: 'INVALID_EXPIRATION_DATE'
+            });
+        }
+
+        const status = startsAt > new Date()
+            ? 'scheduled'
+            : 'active';
+
+        try {
+            const grant = await withTransaction(async client => {
+                await refreshGrantStatuses(client);
+
+                const playerResult = await client.query(
+                    `SELECT id FROM public.players
+                     WHERE steam64 = $1`,
+                    [input.steam64]
+                );
+
+                if (playerResult.rowCount === 0) {
+                    throw operationError(
+                        404,
+                        'PLAYER_NOT_FOUND',
+                        'Cadastre o jogador antes de conceder prioridade.'
+                    );
+                }
+
+                const categoryResult = await client.query(
+                    `SELECT id, code
+                     FROM public.priority_categories
+                     WHERE code = $1 AND is_active = TRUE`,
+                    [input.categoryCode]
+                );
+
+                if (categoryResult.rowCount === 0) {
+                    throw operationError(
+                        404,
+                        'CATEGORY_NOT_FOUND',
+                        'Categoria inexistente ou inativa.'
+                    );
+                }
+
+                const result = await client.query(
+                    `INSERT INTO public.priority_grants
+                        (player_id, category_id, status,
+                         grant_source, reason, starts_at, expires_at,
+                         granted_by_admin_id)
+                     VALUES ($1,$2,$3,'web',$4,$5,$6,$7)
+                     RETURNING id::text, status, starts_at, expires_at`,
+                    [
+                        playerResult.rows[0].id,
+                        categoryResult.rows[0].id,
+                        status,
+                        input.reason || null,
+                        startsAt,
+                        expiresAt,
+                        req.admin.id
+                    ]
+                );
+
+                const created = result.rows[0];
+
+                await writeAudit(client, {
+                    actorType: 'admin',
+                    actorIdentifier: req.admin.username,
+                    actorAdminId: req.admin.id,
+                    action: 'priority.granted',
+                    entityType: 'priority_grant',
+                    entityId: created.id,
+                    details: {
+                        steam64: input.steam64,
+                        category: input.categoryCode,
+                        status: created.status,
+                        expiresAt: created.expires_at
+                    },
+                    sourceIp: req.ip
+                });
+
+                return created;
+            });
+
+            return res.status(201).json({ grant });
+        } catch (error) {
+            return sendOperationError(
+                req, res, error, 'Falha ao conceder prioridade'
+            );
+        }
+    }
+);
+
+/* RENOVAR PRIORIDADE */
+
+router.post(
+    '/grants/:id/renew',
+    requireRole('owner', 'admin', 'moderator'),
+    async (req, res) => {
+        if (!validId(req.params.id)) {
+            return res.status(400).json({ error: 'INVALID_GRANT_ID' });
+        }
+
+        const parsed = renewSchema.safeParse(req.body);
+
+        if (!parsed.success) {
+            return res.status(400).json({
+                error: 'INVALID_RENEWAL_DATA'
+            });
+        }
+
+        const newExpiry = new Date(parsed.data.expiresAt);
+
+        try {
+            const grant = await withTransaction(async client => {
+                await refreshGrantStatuses(client);
+
+                const current = await client.query(
+                    `SELECT g.id, g.status, g.starts_at, g.expires_at,
+                            p.steam64, c.code AS category_code
+                     FROM public.priority_grants g
+                     JOIN public.players p ON p.id = g.player_id
+                     JOIN public.priority_categories c ON c.id = g.category_id
+                     WHERE g.id = $1
+                     FOR UPDATE OF g`,
+                    [req.params.id]
+                );
+
+                if (current.rowCount === 0) {
+                    throw operationError(404, 'GRANT_NOT_FOUND', 'Concessao nao encontrada.');
+                }
+
+                const old = current.rows[0];
+
+                if (!['active', 'scheduled'].includes(old.status)) {
+                    throw operationError(409, 'GRANT_NOT_RENEWABLE', 'Concessao nao esta ativa ou agendada.');
+                }
+
+                if (old.expires_at === null) {
+                    throw operationError(409, 'GRANT_IS_PERMANENT', 'Concessao permanente nao precisa de renovacao.');
+                }
+
+                if (
+                    newExpiry <= new Date(old.expires_at) ||
+                    newExpiry <= new Date(old.starts_at)
+                ) {
+                    throw operationError(400, 'INVALID_RENEWAL_DATE', 'A nova validade deve ser posterior a validade atual.');
+                }
+
+                const result = await client.query(
+                    `UPDATE public.priority_grants
+                     SET expires_at = $1,
+                         reason = COALESCE($2, reason),
+                         status = CASE
+                             WHEN starts_at > NOW() THEN 'scheduled'
+                             ELSE 'active'
+                         END
+                     WHERE id = $3
+                     RETURNING id::text, status, starts_at, expires_at`,
+                    [
+                        newExpiry,
+                        parsed.data.reason || null,
+                        req.params.id
+                    ]
+                );
+
+                const updated = result.rows[0];
+
+                await writeAudit(client, {
+                    actorType: 'admin',
+                    actorIdentifier: req.admin.username,
+                    actorAdminId: req.admin.id,
+                    action: 'priority.renewed',
+                    entityType: 'priority_grant',
+                    entityId: updated.id,
+                    details: {
+                        steam64: old.steam64,
+                        category: old.category_code,
+                        previousExpiry: old.expires_at,
+                        newExpiry: updated.expires_at
+                    },
+                    sourceIp: req.ip
+                });
+
+                return updated;
+            });
+
+            return res.json({ grant });
+        } catch (error) {
+            return sendOperationError(
+                req, res, error, 'Falha ao renovar prioridade'
+            );
+        }
+    }
+);
+
+/* REVOGAR PRIORIDADE */
+
+router.patch(
+    '/grants/:id/revoke',
+    requireRole('owner', 'admin', 'moderator'),
+    async (req, res) => {
+        if (!validId(req.params.id)) {
+            return res.status(400).json({ error: 'INVALID_GRANT_ID' });
+        }
+
+        const parsed = revokeSchema.safeParse(req.body || {});
+
+        if (!parsed.success) {
+            return res.status(400).json({
+                error: 'INVALID_REVOCATION_DATA'
+            });
+        }
+
+        try {
+            const grant = await withTransaction(async client => {
+                await refreshGrantStatuses(client);
+
+                const current = await client.query(
+                    `SELECT g.id, g.status, p.steam64, c.code AS category_code
+                     FROM public.priority_grants g
+                     JOIN public.players p ON p.id = g.player_id
+                     JOIN public.priority_categories c ON c.id = g.category_id
+                     WHERE g.id = $1
+                     FOR UPDATE OF g`,
+                    [req.params.id]
+                );
+
+                if (current.rowCount === 0) {
+                    throw operationError(404, 'GRANT_NOT_FOUND', 'Concessao nao encontrada.');
+                }
+
+                const old = current.rows[0];
+
+                if (!['active', 'scheduled'].includes(old.status)) {
+                    throw operationError(409, 'GRANT_NOT_REVOCABLE', 'Concessao nao esta ativa ou agendada.');
+                }
+
+                const result = await client.query(
+                    `UPDATE public.priority_grants
+                     SET status = 'revoked',
+                         revoked_at = NOW(),
+                         revoked_by_admin_id = $1,
+                         reason = COALESCE($2, reason)
+                     WHERE id = $3
+                     RETURNING id::text, status, revoked_at`,
+                    [
+                        req.admin.id,
+                        parsed.data.reason || null,
+                        req.params.id
+                    ]
+                );
+
+                const revoked = result.rows[0];
+
+                await writeAudit(client, {
+                    actorType: 'admin',
+                    actorIdentifier: req.admin.username,
+                    actorAdminId: req.admin.id,
+                    action: 'priority.revoked',
+                    entityType: 'priority_grant',
+                    entityId: revoked.id,
+                    details: {
+                        steam64: old.steam64,
+                        category: old.category_code,
+                        reason: parsed.data.reason || null
+                    },
+                    sourceIp: req.ip
+                });
+
+                return revoked;
+            });
+
+            return res.json({ grant });
+        } catch (error) {
+            return sendOperationError(
+                req, res, error, 'Falha ao revogar prioridade'
+            );
+        }
+    }
+);
+
+module.exports = router;
+
+========================================
+ARQUIVO: src\server.js
+========================================
 'use strict';
 
 const path = require('path');
@@ -806,1006 +2723,870 @@ startServer().catch(async (error) => {
     process.exit(1);
 });
 
------ FIM DO ARQUIVO -----
 
------ ARQUIVO: C:\RavenRP\ControlCenter\API\package.json -----
-{
-    "name": "raven-control-api",
-    "version": "1.0.0",
-    "description": "API central do Raven Control Center",
-    "main": "src/server.js",
-    "scripts": {
-        "test": "node --test",
-        "start": "node src/server.js",
-        "dev": "node --watch src/server.js",
-        "db:migrate": "node src/services/migrate.js"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "type": "commonjs",
-    "private": true,
-    "dependencies": {
-        "bcryptjs": "3.0.3",
-        "cors": "2.8.6",
-        "dotenv": "18.0.10",
-        "express": "5.3.0",
-        "express-rate-limit": "8.7.4",
-        "helmet": "8.3.0",
-        "jose": "6.2.17",
-        "pg": "8.23.1",
-        "pino": "10.4.0",
-        "pino-http": "11.0.0",
-        "zod": "4.6.7"
+========================================
+ARQUIVO: src\services\audit.js
+========================================
+'use strict';
+
+async function writeAudit(client, data) {
+    await client.query(
+        `INSERT INTO public.audit_logs
+        (actor_type, actor_identifier, actor_admin_id,
+         action, entity_type, entity_id, details, source_ip)
+         VALUES ($1,$2,$3,$4,$5,$6,$7::jsonb,$8)`,
+        [
+            data.actorType || 'admin',
+            data.actorIdentifier || null,
+            data.actorAdminId || null,
+            data.action,
+            data.entityType || null,
+            data.entityId ? String(data.entityId) : null,
+            JSON.stringify(data.details || {}),
+            data.sourceIp || null
+        ]
+    );
+}
+
+module.exports = { writeAudit };
+
+========================================
+ARQUIVO: src\services\auth.js
+========================================
+'use strict';
+
+const secret = Buffer.from(
+    process.env.AUTH_JWT_SECRET_B64 || '',
+    'base64'
+);
+
+if (secret.length !== 32) {
+    throw new Error('Chave JWT invalida.');
+}
+
+const issuer = 'raven-control-api';
+const audience = 'raven-control-dashboard';
+
+async function createAccessToken(admin) {
+    const { SignJWT } = await import('jose');
+
+    const ttl = Number(
+        process.env.AUTH_ACCESS_TTL_SECONDS || 900
+    );
+
+    if (!Number.isInteger(ttl) || ttl < 60 || ttl > 3600) {
+        throw new Error('Validade JWT invalida.');
+    }
+
+    return new SignJWT({
+        role: admin.access_role
+    })
+        .setProtectedHeader({ alg: 'HS256', typ: 'JWT' })
+        .setSubject(String(admin.id))
+        .setIssuer(issuer)
+        .setAudience(audience)
+        .setIssuedAt()
+        .setExpirationTime(`${ttl}s`)
+        .sign(secret);
+}
+
+async function verifyAccessToken(token) {
+    const { jwtVerify } = await import('jose');
+
+    const result = await jwtVerify(token, secret, {
+        issuer,
+        audience,
+        algorithms: ['HS256']
+    });
+
+    return result.payload;
+}
+
+module.exports = {
+    createAccessToken,
+    verifyAccessToken
+};
+
+========================================
+ARQUIVO: src\services\incident-monitor.js
+========================================
+'use strict';
+
+const { pool } = require('../db');
+
+let primaryOutageStartedAt = null;
+
+async function recordHealthSnapshot(snapshot, logger) {
+    const now = new Date();
+
+    try {
+        if (snapshot.primary === 'disconnected') {
+            if (!primaryOutageStartedAt) {
+                primaryOutageStartedAt = now;
+            }
+        } else if (primaryOutageStartedAt) {
+            await pool.query(
+                `INSERT INTO public.system_incidents
+                    (component, severity, details, started_at, resolved_at)
+                 VALUES ('postgresql', 'critical', $1::jsonb, $2, $3)`,
+                [
+                    JSON.stringify({
+                        description: 'Indisponibilidade do PostgreSQL principal',
+                        detection: 'health-check'
+                    }),
+                    primaryOutageStartedAt,
+                    now
+                ]
+            );
+
+            primaryOutageStartedAt = null;
+        }
+
+        if (snapshot.primary === 'connected') {
+            if (snapshot.killfeed === 'disconnected') {
+                await pool.query(
+                    `INSERT INTO public.system_incidents
+                        (component, severity, details)
+                     VALUES (
+                        'killfeed',
+                        'warning',
+                        $1::jsonb
+                     )
+                     ON CONFLICT (component)
+                     WHERE resolved_at IS NULL
+                     DO NOTHING`,
+                    [JSON.stringify({
+                        description: 'Banco KillFeed indisponível',
+                        detection: 'health-check'
+                    })]
+                );
+            } else {
+                await pool.query(
+                    `UPDATE public.system_incidents
+                     SET resolved_at = NOW(),
+                         details = details || $1::jsonb
+                     WHERE component = 'killfeed'
+                       AND resolved_at IS NULL`,
+                    [JSON.stringify({
+                        recovery: 'Banco KillFeed restabelecido'
+                    })]
+                );
+            }
+
+            await pool.query(
+                `DELETE FROM public.system_incidents
+                 WHERE resolved_at IS NOT NULL
+                   AND resolved_at < NOW() - INTERVAL '90 days'`
+            );
+        }
+    } catch (error) {
+        if (logger && typeof logger.error === 'function') {
+            logger.error(
+                { code: error.code, message: error.message },
+                'Falha ao registrar histórico de incidentes'
+            );
+        }
     }
 }
 
------ FIM DO ARQUIVO -----
-
------ ARQUIVO: C:\RavenRP\ControlCenter\Dashboard\server.js -----
-'use strict';
-
-const http = require('node:http');
-const fs = require('node:fs');
-const path = require('node:path');
-
-const HOST = '127.0.0.1';
-const PORT = 5173;
-const PUBLIC = path.join(__dirname, 'public');
-
-const MIME = {
-    '.html': 'text/html; charset=utf-8',
-    '.css': 'text/css; charset=utf-8',
-    '.js': 'application/javascript; charset=utf-8',
-    '.svg': 'image/svg+xml'
+module.exports = {
+    recordHealthSnapshot
 };
 
-const server = http.createServer((req, res) => {
-    const pathname = decodeURIComponent(
-        new URL(req.url, `http://${HOST}:${PORT}`).pathname
-    );
 
-    let requested = pathname === '/'
-        ? 'index.html'
-        : pathname.replace(/^\/+/, '');
+========================================
+ARQUIVO: src\services\migrate.js
+========================================
+'use strict';
 
-    const file = path.resolve(PUBLIC, requested);
+const fs = require('fs');
+const path = require('path');
+const crypto = require('crypto');
 
-    if (!file.startsWith(PUBLIC + path.sep)) {
-        res.writeHead(403);
-        return res.end('Forbidden');
-    }
+require('dotenv').config({
+    path: path.resolve(__dirname, '..', '..', '.env')
+});
 
-    fs.readFile(file, (error, content) => {
-        if (error) {
-            if (error.code === 'ENOENT') {
-                res.writeHead(404);
-                return res.end('Not found');
-            }
+const logger = require('../logger');
+const { pool } = require('../db');
 
-            res.writeHead(500);
-            return res.end('Internal server error');
+const MIGRATIONS_DIR = path.resolve(__dirname, '..', '..', 'migrations');
+
+async function main() {
+    let client;
+    let lockAcquired = false;
+
+    try {
+        client = await pool.connect();
+
+        await client.query(
+            'SELECT pg_advisory_lock($1::integer, $2::integer)',
+            [741923, 1]
+        );
+
+        lockAcquired = true;
+
+        await client.query(`
+            CREATE TABLE IF NOT EXISTS public.schema_migrations (
+                version VARCHAR(20) PRIMARY KEY,
+                name VARCHAR(255) NOT NULL,
+                checksum VARCHAR(64) NOT NULL,
+                execution_ms INTEGER NOT NULL DEFAULT 0,
+                applied_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+            )
+        `);
+
+        const files = fs.readdirSync(MIGRATIONS_DIR)
+            .filter(file => /^\d+_.+\.sql$/i.test(file))
+            .sort();
+
+        if (files.length === 0) {
+            throw new Error('Nenhuma migration encontrada.');
         }
 
-        res.writeHead(200, {
-            'Content-Type': MIME[path.extname(file)] || 'application/octet-stream',
-            'X-Content-Type-Options': 'nosniff',
-            'Cache-Control': 'no-store'
-        });
+        let applied = 0;
 
-        res.end(content);
-    });
-});
+        for (const file of files) {
+            const version = file.match(/^(\d+)_/)[1];
 
-server.listen(PORT, HOST, () => {
-    console.log(`Raven Dashboard disponivel em http://${HOST}:${PORT}`);
-});
+            const sql = fs.readFileSync(
+                path.join(MIGRATIONS_DIR, file),
+                'utf8'
+            );
 
-server.on('error', error => {
-    console.error('Falha ao iniciar Dashboard:', error.message);
+            const checksum = crypto
+                .createHash('sha256')
+                .update(sql)
+                .digest('hex');
+
+            const existing = await client.query(
+                'SELECT checksum FROM public.schema_migrations WHERE version = $1',
+                [version]
+            );
+
+            if (existing.rowCount > 0) {
+                if (existing.rows[0].checksum !== checksum) {
+                    throw new Error(`Checksum divergente: ${file}`);
+                }
+
+                logger.info({ version, file }, 'Migration ja aplicada');
+                continue;
+            }
+
+            const startedAt = Date.now();
+
+            await client.query('BEGIN');
+
+            try {
+                await client.query(sql);
+
+                const executionMs = Date.now() - startedAt;
+
+                await client.query(
+                    `INSERT INTO public.schema_migrations
+                    (version, name, checksum, execution_ms)
+                    VALUES ($1, $2, $3, $4)`,
+                    [version, file, checksum, executionMs]
+                );
+
+                await client.query('COMMIT');
+
+                applied++;
+
+                logger.info(
+                    { version, file, executionMs },
+                    'Migration aplicada'
+                );
+            } catch (error) {
+                await client.query('ROLLBACK');
+                throw error;
+            }
+        }
+
+        logger.info(
+            { applied, total: files.length },
+            'Migrations concluidas'
+        );
+    } finally {
+        if (client) {
+            if (lockAcquired) {
+                await client.query(
+                    'SELECT pg_advisory_unlock($1::integer, $2::integer)',
+                    [741923, 1]
+                );
+            }
+
+            client.release();
+        }
+
+        await pool.end();
+    }
+}
+
+main().catch(error => {
+    logger.fatal({ error }, 'Falha nas migrations');
     process.exitCode = 1;
 });
 
------ FIM DO ARQUIVO -----
+========================================
+ARQUIVO: src\services\priority-format.js
+========================================
+'use strict';
 
------ ARQUIVO: C:\RavenRP\ControlCenter\Dashboard\package.json -----
-{
-  "name": "raven-control-center-dashboard",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Interface web do Raven Control Center",
-  "scripts": {
-    "start": "node server.js"
-  }
+function buildPriorityFileContent(rows) {
+    if (!Array.isArray(rows)) {
+        throw new TypeError('Lista de jogadores invalida.');
+    }
+
+    const ids = new Set();
+
+    for (const row of rows) {
+        const steam64 = row.steam64;
+
+        if (typeof steam64 !== 'string' || !/^[0-9]{17}$/.test(steam64)) {
+            throw new Error('Steam64 invalido encontrado na fila efetiva.');
+        }
+
+        ids.add(steam64);
+    }
+
+    return [...ids].sort().join(';');
 }
 
------ FIM DO ARQUIVO -----
+module.exports = { buildPriorityFileContent };
 
-===========================================================================
-4. ANALISE DA PAGINA DE LOGS DO DASHBOARD
-===========================================================================
 
-PADRAO: logs
-Linha 340: <button class="nav-btn" data-page="logs" id="logsNav">Logs e Diagnosticos</button>
-Linha 438: logsNav.classList.toggle('hidden', !['owner','admin'].includes(admin.role));
-Linha 494: logs:'Logs e Diagnosticos'
-Linha 502: if (['incidents','logs'].includes(page) && !['owner','admin'].includes(admin?.role)) {
-Linha 517: if (page === 'logs') await renderLogs();
-Linha 986: let logsPage = 1;
-Linha 988: async function renderLogs() {
-Linha 990: <h1 class="page-title">Logs e Diagnosticos</h1>
-Linha 995: <select id="logsLevel">
-Linha 1005: <input id="logsComponent" placeholder="Componente" maxlength="80">
-Linha 1006: <input id="logsSearch" placeholder="Pesquisar nos registros" maxlength="200">
-Linha 1007: <button class="btn" id="logsFilter">Filtrar</button>
-Linha 1008: <button class="btn" id="logsRefresh">Atualizar</button>
-Linha 1012: <label>De <input type="datetime-local" id="logsFrom"></label>
-Linha 1013: <label>Até <input type="datetime-local" id="logsTo"></label>
-Linha 1016: <div id="logsTable">Carregando registros...</div>
-Linha 1019: <button class="btn btn-small" id="logsPrev">Anterior</button>
-Linha 1020: <span class="muted" id="logsInfo"></span>
-Linha 1021: <button class="btn btn-small" id="logsNext">Proxima</button>
-Linha 1025: $('logsFilter').addEventListener('click', () => {
-Linha 1026: logsPage = 1;
-Linha 1027: loadLogs();
-Linha 1030: $('logsRefresh').addEventListener('click', () => loadLogs());
-Linha 1032: $('logsSearch').addEventListener('keydown', event => {
-Linha 1034: logsPage = 1;
-Linha 1035: loadLogs();
-Linha 1039: $('logsPrev').addEventListener('click', () => {
-Linha 1040: if (logsPage > 1) {
-Linha 1041: logsPage--;
-Linha 1042: loadLogs();
+========================================
+ARQUIVO: src\services\priority-scheduler.js
+========================================
+'use strict';
 
-PADRAO: diagnostic
-Linha 340: <button class="nav-btn" data-page="logs" id="logsNav">Logs e Diagnosticos</button>
-Linha 494: logs:'Logs e Diagnosticos'
-Linha 990: <h1 class="page-title">Logs e Diagnosticos</h1>
+const logger = require('../logger');
+const { withTransaction } = require('./transaction');
+const { refreshGrantStatuses } = require('./priority-status');
+const { runPrioritySync } = require('./priority-sync');
 
-PADRAO: diagnost
-Linha 340: <button class="nav-btn" data-page="logs" id="logsNav">Logs e Diagnosticos</button>
-Linha 494: logs:'Logs e Diagnosticos'
-Linha 990: <h1 class="page-title">Logs e Diagnosticos</h1>
+let timer = null;
+let runningPromise = null;
+let stopping = false;
 
-PADRAO: fetch\(
-Linha 393: const response = await fetch(API + path, {
+function runPriorityScheduler() {
+    if (stopping) return Promise.resolve();
+    if (runningPromise) return runningPromise;
 
-PADRAO: Authorization
-Linha 390: if (token) headers.Authorization = `Bearer ${token}`;
+    runningPromise = (async () => {
+        try {
+            const result = await withTransaction(refreshGrantStatuses);
 
-PADRAO: Bearer
-Linha 390: if (token) headers.Authorization = `Bearer ${token}`;
+            if (result.expired || result.activated) {
+                logger.info(result, 'Concessoes prioritarias atualizadas');
+            }
 
-PADRAO: pagination
-Nenhuma ocorrencia encontrada.
+            if (process.env.PRIORITY_SYNC_ENABLED === 'true') {
+                await runPrioritySync({
+                    dryRun: process.env.PRIORITY_SYNC_DRY_RUN !== 'false'
+                });
+            }
+        } catch (error) {
+            logger.error({ error }, 'Falha no agendador de prioridades');
+        }
+    })().finally(() => {
+        runningPromise = null;
+    });
 
-PADRAO: pageSize
-Nenhuma ocorrencia encontrada.
+    return runningPromise;
+}
 
-PADRAO: filter
-Linha 244: filter: brightness(1);
-Linha 249: filter: brightness(1.5);
-Linha 257: filter: brightness(1);
-Linha 262: filter: brightness(1.5);
-Linha 850: <button class="btn" id="auditFilter">Filtrar</button>
-Linha 859: $('auditFilter').addEventListener('click',()=>{auditPage=1;loadAudit();});
-Linha 1007: <button class="btn" id="logsFilter">Filtrar</button>
-Linha 1025: $('logsFilter').addEventListener('click', () => {
-Linha 1132: <button class="btn" id="killfeedFilter">Pesquisar</button>
-Linha 1142: $('killfeedFilter').addEventListener('click', () => {
+function startPriorityScheduler() {
+    if (timer) return;
 
-PADRAO: owner
-Linha 436: $('auditNav').classList.toggle('hidden', !['owner','admin'].includes(admin.role));
-Linha 437: incidentsNav.classList.toggle('hidden', !['owner','admin'].includes(admin.role));
-Linha 438: logsNav.classList.toggle('hidden', !['owner','admin'].includes(admin.role));
-Linha 499: if (page === 'audit' && !['owner','admin'].includes(admin?.role)) {
-Linha 502: if (['incidents','logs'].includes(page) && !['owner','admin'].includes(admin?.role)) {
+    stopping = false;
 
-PADRAO: admin
-Linha 316: <p class="subtitle">Control Center · Administração</p>
-Linha 342: <div class="user-name" id="sideUsername">Administrador</div>
-Linha 356: <div class="footer-note">RAVEN CONTROL CENTER · Ações administrativas são registradas pela API.</div>
-Linha 368: const ADMIN_KEY = 'raven_admin';
-Linha 371: let admin = null;
-Linha 434: $('sideUsername').textContent = admin.username;
-Linha 435: $('sideRole').textContent = admin.role.toUpperCase();
-Linha 436: $('auditNav').classList.toggle('hidden', !['owner','admin'].includes(admin.role));
-Linha 437: incidentsNav.classList.toggle('hidden', !['owner','admin'].includes(admin.role));
-Linha 438: logsNav.classList.toggle('hidden', !['owner','admin'].includes(admin.role));
-Linha 443: admin = null;
-Linha 445: sessionStorage.removeItem(ADMIN_KEY);
-Linha 468: admin = me.admin;
-Linha 469: sessionStorage.setItem(ADMIN_KEY, JSON.stringify(admin));
-Linha 499: if (page === 'audit' && !['owner','admin'].includes(admin?.role)) {
-Linha 502: if (['incidents','logs'].includes(page) && !['owner','admin'].includes(admin?.role)) {
-Linha 845: <p class="page-desc">Histórico de operações administrativas registradas pela API.</p>
-Linha 1248: admin=me.admin;
+    void runPriorityScheduler();
 
-PADRAO: esc\(
-Linha 385: ? `<div class="message ${type}">${esc(message)}</div>` : '';
-Linha 520: $('pageContent').innerHTML = `<div class="panel message error">${esc(error.message)}</div>`;
-Linha 689: ? `<div class="table-wrap"><table><thead><tr><th>Steam64</th><th>Nome</th></tr></thead><tbody>${effective.players.map(p => `<tr><td>${esc(p.steam64)}</td><td>${esc(p.display_name || '—')}</td></tr>`).join('')}</tbody></table></div>`
-Linha 730: ? `<div class="table-wrap"><table><thead><tr><th>Steam64</th><th>Nome</th><th>Primeiro registro</th><th>Última atividade</th></tr></thead><tbody>${data.players.map(p=>`<tr><td>${esc(p.steam64)}</td><td>${esc(p.display_name || '—')}</td><td>${formatDate(p.first_seen_at || p.created_at)}</td><td>${formatDate(p.last_seen_at)}</td></tr>`).join('')}</tbody></table></div>`
-Linha 784: ? `<div class="table-wrap"><table><thead><tr><th>Jogador</th><th>Categoria</th><th>Status</th><th>Validade</th><th>Origem</th><th>Ações</th></tr></thead><tbody>${data.grants.map(g=>`<tr><td>${esc(g.display_name || g.steam64)}<br><span class="muted">${esc(g.steam64)}</span></td><td>${esc(g.category_name)}</td><td><span class="pill ${esc(g.status)}">${esc(g.status)}</span></td><td>${g.expires_at ? formatDate(g.expires_at) : 'Permanente'}</td><td>${esc(g.grant_source)}</td><td>${['active','scheduled'].includes(g.status)?`<div class="actions"><button class="btn btn-small" data-renew="${esc(g.id)}">Renovar</button><button class="btn btn-small btn-danger" data-revoke="${esc(g.id)}">Revogar</button></div>`:'—'}</td></tr>`).join('')}</tbody></table></div>`
-Linha 792: const options = result.categories.map(c=>`<option value="${esc(c.code)}">${esc(c.name)}</option>`).join('');
-Linha 876: ? `<div class="table-wrap"><table><thead><tr><th>Data</th><th>Responsável</th><th>Ação</th><th>Entidade</th><th>ID</th></tr></thead><tbody>${data.entries.map(e=>`<tr><td>${formatDate(e.created_at)}</td><td>${esc(e.actor_identifier)}</td><td>${esc(e.action)}</td><td>${esc(e.entity_type)}</td><td>${esc(e.entity_id)}</td></tr>`).join('')}</tbody></table></div>`
-Linha 966: <td>${esc(incident.component)}</td>
-Linha 967: <td>${esc(incident.severity)}</td>
-Linha 968: <td>${esc(incident.details?.description || '-')}</td>
-Linha 980: `<div class="message error">${esc(error.message)}</div>`;
-Linha 1105: <td>${log.time ? esc(formatDate(log.time)) : '-'}</td>
-Linha 1106: <td><strong>${esc(level.toUpperCase())}</strong></td>
-Linha 1107: <td>${esc(log.component)}</td>
-Linha 1108: <td title="${esc(message)}">${esc(message)}</td>
-Linha 1118: `<div class="message error">${esc(error.message)}</div>`;
-Linha 1196: <td>${esc(k.killer_name)}</td>
-Linha 1197: <td>${esc(k.victim_name)}</td>
-Linha 1198: <td>${esc(k.weapon || '—')}</td>
-Linha 1206: `<div class="message error">${esc(error.message)}</div>`;
-Linha 1213: <h3>${esc(title)}</h3>
+    timer = setInterval(() => {
+        void runPriorityScheduler();
+    }, 60 * 1000);
 
-PADRAO: innerHTML
-Linha 384: $('globalMessage').innerHTML = message
-Linha 520: $('pageContent').innerHTML = `<div class="panel message error">${esc(error.message)}</div>`;
-Linha 631: $('pageContent').innerHTML = `
-Linha 688: $('effectiveTable').innerHTML = effective.players.length
-Linha 694: $('pageContent').innerHTML = `
-Linha 729: $('playersTable').innerHTML = data.players.length
-Linha 749: $('pageContent').innerHTML = `
-Linha 783: $('grantsTable').innerHTML = data.grants.length
-Linha 843: $('pageContent').innerHTML=`
-Linha 875: $('auditTable').innerHTML=data.entries.length
-Linha 897: $('pageContent').innerHTML = `
-Linha 949: $('incidentsTable').innerHTML = data.incidents.length
-Linha 979: $('incidentsTable').innerHTML =
-Linha 989: $('pageContent').innerHTML = `
-Linha 1088: $('logsTable').innerHTML = data.logs.length
-Linha 1117: $('logsTable').innerHTML =
-Linha 1126: $('pageContent').innerHTML = `
-Linha 1186: $('killfeedTable').innerHTML = data.kills.length
-Linha 1205: $('killfeedTable').innerHTML =
-Linha 1210: $('modalRoot').innerHTML=`
-Linha 1222: $('modalCancel').addEventListener('click',()=>$('modalRoot').innerHTML='');
-Linha 1230: $('modalRoot').innerHTML='';
+    if (typeof timer.unref === 'function') {
+        timer.unref();
+    }
 
-PADRAO: textContent
-Linha 434: $('sideUsername').textContent = admin.username;
-Linha 435: $('sideRole').textContent = admin.role.toUpperCase();
-Linha 454: message.textContent = 'Autenticando...';
-Linha 474: message.textContent = error.message;
-Linha 509: $('topTitle').textContent = titleFor(page);
-Linha 529: element.textContent = label;
-Linha 535: if (element) element.textContent = value;
-Linha 559: $('apiLabel').textContent = overallOK
-Linha 615: $('apiLabel').textContent = 'API indisponivel';
-Linha 684: $('statPlayers').textContent = players.total;
-Linha 685: $('statQueue').textContent = effective.count;
-Linha 686: $('statActive').textContent = active.total;
-Linha 687: $('statScheduled').textContent = scheduled.total;
-Linha 726: $('playersInfo').textContent = `Página ${playersPage} de ${pages} · ${data.total} registros`;
-Linha 780: $('grantsInfo').textContent = `Página ${grantsPage} de ${pages} · ${data.total} concessões`;
-Linha 872: $('auditInfo').textContent=`Página ${auditPage} de ${pages} · ${data.total} registros`;
-Linha 943: $('incidentsInfo').textContent =
-Linha 981: $('incidentsInfo').textContent = 'Falha ao consultar incidentes';
-Linha 1082: $('logsInfo').textContent =
-Linha 1120: $('logsInfo').textContent = 'Falha ao consultar logs';
-Linha 1180: $('killfeedInfo').textContent =
-Linha 1227: $('modalError').textContent='';
-Linha 1232: $('modalError').textContent=error.message;
+    logger.info('Agendador de prioridades iniciado');
+}
 
-PADRAO: health
-Linha 524: async function checkHealth() {
-Linha 549: const health = await api('/health');
-Linha 551: const primary = health.databases?.primary;
-Linha 552: const killfeed = health.databases?.killfeed;
-Linha 556: const overallOK = health.status === 'ok';
-Linha 592: formatUptime(health.uptimeSeconds)
-Linha 597: health.process?.memory?.rssMb != null
-Linha 598: ? `${health.process.memory.rssMb} MB`
-Linha 604: health.process?.memory?.heapUsedMb != null
-Linha 605: ? `${health.process.memory.heapUsedMb} / ${health.process.memory.heapTotalMb} MB`
-Linha 611: `Ultima verificacao: ${new Date(health.timestamp).toLocaleTimeString('pt-BR')}`
-Linha 1257: checkHealth();
-Linha 1258: setInterval(checkHealth,30000);
+async function stopPriorityScheduler() {
+    stopping = true;
 
-===========================================================================
-5. BUSCA DE CONFIGURACOES DE LOG
-===========================================================================
+    if (timer) {
+        clearInterval(timer);
+        timer = null;
+    }
 
-DIRETORIO: C:\RavenRP\ControlCenter\API\src
-C:\RavenRP\ControlCenter\API\src\db.js | Linha 4 | logger
-  const logger = require('./logger');
-C:\RavenRP\ControlCenter\API\src\db.js | Linha 30 | logger
-  logger.error({ error }, 'Erro inesperado no pool PostgreSQL');
-C:\RavenRP\ControlCenter\API\src\db.js | Linha 6 | password
-  if (!process.env.DB_PASSWORD_B64) {
-C:\RavenRP\ControlCenter\API\src\db.js | Linha 7 | password
-  throw new Error('DB_PASSWORD_B64 nao configurado.');
-C:\RavenRP\ControlCenter\API\src\db.js | Linha 10 | password
-  const password = Buffer
-C:\RavenRP\ControlCenter\API\src\db.js | Linha 11 | password
-  .from(process.env.DB_PASSWORD_B64, 'base64')
-C:\RavenRP\ControlCenter\API\src\db.js | Linha 19 | password
-  password,
-C:\RavenRP\ControlCenter\API\src\killfeed-db.js | Linha 7 | logger
-  const logger = require('./logger');
-C:\RavenRP\ControlCenter\API\src\killfeed-db.js | Linha 42 | logger
-  logger.error({ code: error.code }, 'Erro inesperado no pool read-only do KillFeed');
-C:\RavenRP\ControlCenter\API\src\killfeed-db.js | Linha 20 | password
-  const encodedPassword = fs.readFileSync(secretPath, 'utf8').trim();
-C:\RavenRP\ControlCenter\API\src\killfeed-db.js | Linha 21 | password
-  const password = Buffer.from(encodedPassword, 'base64').toString('utf8');
-C:\RavenRP\ControlCenter\API\src\killfeed-db.js | Linha 23 | password
-  if (!password) {
-C:\RavenRP\ControlCenter\API\src\killfeed-db.js | Linha 32 | password
-  password,
-C:\RavenRP\ControlCenter\API\src\killfeed-db.js | Linha 20 | readFile
-  const encodedPassword = fs.readFileSync(secretPath, 'utf8').trim();
-C:\RavenRP\ControlCenter\API\src\logger.js | Linha 6 | pino
-  const pino = require('pino');
-C:\RavenRP\ControlCenter\API\src\logger.js | Linha 131 | pino
-  const streams = pino.multistream([
-C:\RavenRP\ControlCenter\API\src\logger.js | Linha 136 | pino
-  const logger = pino({
-C:\RavenRP\ControlCenter\API\src\logger.js | Linha 158 | pino
-  timestamp: pino.stdTimeFunctions.isoTime
-C:\RavenRP\ControlCenter\API\src\logger.js | Linha 41 | logger
-  `[RAVEN LOGGER] Falha na limpeza de ${name}: ${error.message}\n`
-C:\RavenRP\ControlCenter\API\src\logger.js | Linha 136 | logger
-  const logger = pino({
-C:\RavenRP\ControlCenter\API\src\logger.js | Linha 161 | logger
-  module.exports = logger;
-C:\RavenRP\ControlCenter\API\src\logger.js | Linha 47 | rotat
-  class RotatingLogStream extends Writable {
-C:\RavenRP\ControlCenter\API\src\logger.js | Linha 129 | rotat
-  const fileStream = new RotatingLogStream();
-C:\RavenRP\ControlCenter\API\src\logger.js | Linha 10 | retention
-  const RETENTION_DAYS = 14;
-C:\RavenRP\ControlCenter\API\src\logger.js | Linha 25 | retention
-  const cutoff = Date.now() - RETENTION_DAYS * 86400000;
-C:\RavenRP\ControlCenter\API\src\logger.js | Linha 10 | 14
-  const RETENTION_DAYS = 14;
-C:\RavenRP\ControlCenter\API\src\logger.js | Linha 9 | 10\s*\*\s*1024
-  const MAX_FILE_SIZE = 10 * 1024 * 1024;
-C:\RavenRP\ControlCenter\API\src\logger.js | Linha 139 | redact
-  redact: {
-C:\RavenRP\ControlCenter\API\src\logger.js | Linha 155 | redact
-  censor: '[REDACTED]'
-C:\RavenRP\ControlCenter\API\src\logger.js | Linha 145 | password
-  'password',
-C:\RavenRP\ControlCenter\API\src\logger.js | Linha 146 | password
-  '*.password',
-C:\RavenRP\ControlCenter\API\src\logger.js | Linha 153 | password
-  'DB_PASSWORD_B64'
-C:\RavenRP\ControlCenter\API\src\logger.js | Linha 147 | token
-  'token',
-C:\RavenRP\ControlCenter\API\src\logger.js | Linha 148 | token
-  '*.token',
-C:\RavenRP\ControlCenter\API\src\logger.js | Linha 149 | token
-  'accessToken',
-C:\RavenRP\ControlCenter\API\src\logger.js | Linha 150 | token
-  '*.accessToken',
-C:\RavenRP\ControlCenter\API\src\logger.js | Linha 151 | token
-  'refreshToken',
-C:\RavenRP\ControlCenter\API\src\logger.js | Linha 141 | authorization
-  'req.headers.authorization',
-C:\RavenRP\ControlCenter\API\src\logger.js | Linha 142 | authorization
-  'headers.authorization',
-C:\RavenRP\ControlCenter\API\src\logger.js | Linha 28 | readdir
-  for (const name of fs.readdirSync(logDir)) {
-C:\RavenRP\ControlCenter\API\src\logger.js | Linha 74 | readdir
-  for (const name of fs.readdirSync(logDir)) {
-C:\RavenRP\ControlCenter\API\src\logger.js | Linha 34 | statSync
-  const stat = fs.statSync(file);
-C:\RavenRP\ControlCenter\API\src\logger.js | Linha 90 | statSync
-  this.currentSize = fs.fstatSync(this.fd).size;
-C:\RavenRP\ControlCenter\API\src\logger.js | Linha 37 | unlink
-  fs.unlinkSync(file);
-C:\RavenRP\ControlCenter\API\src\logger.js | Linha 37 | unlinkSync
-  fs.unlinkSync(file);
-C:\RavenRP\ControlCenter\API\src\server.js | Linha 13 | pino
-  const pinoHttp = require('pino-http');
-C:\RavenRP\ControlCenter\API\src\server.js | Linha 41 | pino
-  app.use(pinoHttp({ logger }));
-C:\RavenRP\ControlCenter\API\src\server.js | Linha 15 | logger
-  const logger = require('./logger');
-C:\RavenRP\ControlCenter\API\src\server.js | Linha 41 | logger
-  app.use(pinoHttp({ logger }));
-C:\RavenRP\ControlCenter\API\src\server.js | Linha 110 | logger
-  logger.info({
-C:\RavenRP\ControlCenter\API\src\server.js | Linha 118 | logger
-  logger.error({ error }, 'Falha no servidor HTTP');
-C:\RavenRP\ControlCenter\API\src\server.js | Linha 129 | logger
-  logger.info({ signal }, 'Encerramento seguro da API iniciado');
-C:\RavenRP\ControlCenter\API\src\server.js | Linha 131 | owner
-  let shutdownError = null;
-C:\RavenRP\ControlCenter\API\src\server.js | Linha 136 | owner
-  shutdownError = error;
-C:\RavenRP\ControlCenter\API\src\server.js | Linha 153 | owner
-  shutdownError = shutdownError || error;
-C:\RavenRP\ControlCenter\API\src\server.js | Linha 161 | owner
-  shutdownError = shutdownError || error;
-C:\RavenRP\ControlCenter\API\src\server.js | Linha 165 | owner
-  if (shutdownError) {
-C:\RavenRP\ControlCenter\API\src\server.js | Linha 12 | limit
-  const rateLimit = require('express-rate-limit');
-C:\RavenRP\ControlCenter\API\src\server.js | Linha 57 | limit
-  app.use(express.json({ limit: '1mb' }));
-C:\RavenRP\ControlCenter\API\src\server.js | Linha 58 | limit
-  app.use(express.urlencoded({ extended: false, limit: '1mb' }));
-C:\RavenRP\ControlCenter\API\src\server.js | Linha 60 | limit
-  app.use(rateLimit({
-C:\RavenRP\ControlCenter\API\src\server.js | Linha 62 | limit
-  limit: 300,
-C:\RavenRP\ControlCenter\API\src\middleware\require-auth.js | Linha 3 | token
-  const { verifyAccessToken } = require('../services/auth');
-C:\RavenRP\ControlCenter\API\src\middleware\require-auth.js | Linha 17 | token
-  const payload = await verifyAccessToken(match[1]);
-C:\RavenRP\ControlCenter\API\src\middleware\require-auth.js | Linha 22 | token
-  error: 'INVALID_TOKEN_SUBJECT'
-C:\RavenRP\ControlCenter\API\src\middleware\require-auth.js | Linha 63 | token
-  error: 'TOKEN_EXPIRED'
-C:\RavenRP\ControlCenter\API\src\middleware\require-auth.js | Linha 74 | token
-  error: 'INVALID_OR_EXPIRED_TOKEN'
-C:\RavenRP\ControlCenter\API\src\middleware\require-auth.js | Linha 7 | authorization
-  const authorization = req.get('authorization') || '';
-C:\RavenRP\ControlCenter\API\src\middleware\require-auth.js | Linha 8 | authorization
-  const match = authorization.match(/^Bearer\s+(.+)$/i);
-C:\RavenRP\ControlCenter\API\src\middleware\require-auth.js | Linha 6 | requireAuth
-  async function requireAuth(req, res, next) {
-C:\RavenRP\ControlCenter\API\src\middleware\require-auth.js | Linha 86 | requireAuth
-  module.exports = requireAuth;
-C:\RavenRP\ControlCenter\API\src\middleware\require-auth.js | Linha 18 | admin
-  const adminId = Number(payload.sub);
-C:\RavenRP\ControlCenter\API\src\middleware\require-auth.js | Linha 20 | admin
-  if (!Number.isSafeInteger(adminId) || adminId <= 0) {
-C:\RavenRP\ControlCenter\API\src\middleware\require-auth.js | Linha 28 | admin
-  FROM public.admin_users
-C:\RavenRP\ControlCenter\API\src\middleware\require-auth.js | Linha 30 | admin
-  [adminId]
-C:\RavenRP\ControlCenter\API\src\middleware\require-auth.js | Linha 33 | admin
-  const admin = result.rows[0];
-C:\RavenRP\ControlCenter\API\src\middleware\require-role.js | Linha 5 | admin
-  if (!req.admin) {
-C:\RavenRP\ControlCenter\API\src\middleware\require-role.js | Linha 9 | admin
-  if (!allowedRoles.includes(req.admin.role)) {
-C:\RavenRP\ControlCenter\API\src\routes\audit.js | Linha 77 | source_ip
-  source_ip,
-C:\RavenRP\ControlCenter\API\src\routes\audit.js | Linha 7 | requireAuth
-  const requireAuth = require('../middleware/require-auth');
-C:\RavenRP\ControlCenter\API\src\routes\audit.js | Linha 12 | requireAuth
-  router.use(requireAuth);
-C:\RavenRP\ControlCenter\API\src\routes\audit.js | Linha 13 | owner
-  router.use(requireRole('owner', 'admin'));
-C:\RavenRP\ControlCenter\API\src\routes\audit.js | Linha 13 | admin
-  router.use(requireRole('owner', 'admin'));
-C:\RavenRP\ControlCenter\API\src\routes\audit.js | Linha 72 | admin
-  actor_admin_id::text,
-C:\RavenRP\ControlCenter\API\src\routes\audit.js | Linha 20 | limit
-  limit: z.coerce.number().int().min(1).max(100).default(50)
-C:\RavenRP\ControlCenter\API\src\routes\audit.js | Linha 30 | limit
-  const { action, entityType, entityId, page, limit } = parsed.data;
-C:\RavenRP\ControlCenter\API\src\routes\audit.js | Linha 63 | limit
-  limit,
-C:\RavenRP\ControlCenter\API\src\routes\audit.js | Linha 64 | limit
-  (page - 1) * limit
-C:\RavenRP\ControlCenter\API\src\routes\audit.js | Linha 82 | limit
-  LIMIT $${values.length + 1}
-C:\RavenRP\ControlCenter\API\src\routes\auth.js | Linha 33 | 14
-  password: z.string().min(14).max(72)
-C:\RavenRP\ControlCenter\API\src\routes\auth.js | Linha 33 | password
-  password: z.string().min(14).max(72)
-C:\RavenRP\ControlCenter\API\src\routes\auth.js | Linha 50 | password
-  const { username, password } = parsed.data;
-C:\RavenRP\ControlCenter\API\src\routes\auth.js | Linha 52 | password
-  if (Buffer.byteLength(password, 'utf8') > 72) {
-C:\RavenRP\ControlCenter\API\src\routes\auth.js | Linha 60 | password
-  `SELECT id, username, password_hash,
-C:\RavenRP\ControlCenter\API\src\routes\auth.js | Linha 69 | password
-  const passwordValid = await bcrypt.compare(
-C:\RavenRP\ControlCenter\API\src\routes\auth.js | Linha 9 | token
-  const { createAccessToken } = require('../services/auth');
-C:\RavenRP\ControlCenter\API\src\routes\auth.js | Linha 87 | token
-  const accessToken = await createAccessToken(admin);
-C:\RavenRP\ControlCenter\API\src\routes\auth.js | Linha 90 | token
-  accessToken,
-C:\RavenRP\ControlCenter\API\src\routes\auth.js | Linha 91 | token
-  tokenType: 'Bearer',
-C:\RavenRP\ControlCenter\API\src\routes\auth.js | Linha 10 | requireAuth
-  const requireAuth = require('../middleware/require-auth');
-C:\RavenRP\ControlCenter\API\src\routes\auth.js | Linha 111 | requireAuth
-  router.get('/me', requireAuth, (req, res) => {
-C:\RavenRP\ControlCenter\API\src\routes\auth.js | Linha 62 | admin
-  FROM public.admin_users
-C:\RavenRP\ControlCenter\API\src\routes\auth.js | Linha 67 | admin
-  const admin = result.rows[0];
-C:\RavenRP\ControlCenter\API\src\routes\auth.js | Linha 71 | admin
-  admin ? admin.password_hash : dummyHash
-C:\RavenRP\ControlCenter\API\src\routes\auth.js | Linha 74 | admin
-  if (!admin || !admin.is_active || !passwordValid) {
-C:\RavenRP\ControlCenter\API\src\routes\auth.js | Linha 81 | admin
-  `UPDATE public.admin_users
-C:\RavenRP\ControlCenter\API\src\routes\auth.js | Linha 6 | limit
-  const rateLimit = require('express-rate-limit');
-C:\RavenRP\ControlCenter\API\src\routes\auth.js | Linha 14 | limit
-  const loginLimiter = rateLimit({
-C:\RavenRP\ControlCenter\API\src\routes\auth.js | Linha 16 | limit
-  limit: 5,
-C:\RavenRP\ControlCenter\API\src\routes\auth.js | Linha 41 | limit
-  router.post('/login', loginLimiter, async (req, res) => {
-C:\RavenRP\ControlCenter\API\src\routes\incidents.js | Linha 7 | requireAuth
-  const requireAuth = require('../middleware/require-auth');
-C:\RavenRP\ControlCenter\API\src\routes\incidents.js | Linha 12 | requireAuth
-  router.use(requireAuth);
-C:\RavenRP\ControlCenter\API\src\routes\incidents.js | Linha 13 | owner
-  router.use(requireRole('owner', 'admin'));
-C:\RavenRP\ControlCenter\API\src\routes\incidents.js | Linha 13 | admin
-  router.use(requireRole('owner', 'admin'));
-C:\RavenRP\ControlCenter\API\src\routes\incidents.js | Linha 17 | limit
-  limit: z.coerce.number().int().min(1).max(100).default(50)
-C:\RavenRP\ControlCenter\API\src\routes\incidents.js | Linha 29 | limit
-  const { page, limit } = parsed.data;
-C:\RavenRP\ControlCenter\API\src\routes\incidents.js | Linha 53 | limit
-  LIMIT $1 OFFSET $2`,
-C:\RavenRP\ControlCenter\API\src\routes\incidents.js | Linha 54 | limit
-  [limit, (page - 1) * limit]
-C:\RavenRP\ControlCenter\API\src\routes\incidents.js | Linha 59 | limit
-  limit,
-C:\RavenRP\ControlCenter\API\src\routes\killfeed.js | Linha 6 | requireAuth
-  const requireAuth = require('../middleware/require-auth');
-C:\RavenRP\ControlCenter\API\src\routes\killfeed.js | Linha 9 | requireAuth
-  router.use(requireAuth);
-C:\RavenRP\ControlCenter\API\src\routes\killfeed.js | Linha 14 | limit
-  limit: z.coerce.number().int().min(1).max(100).default(50)
-C:\RavenRP\ControlCenter\API\src\routes\killfeed.js | Linha 24 | limit
-  const { search, page, limit } = parsed.data;
-C:\RavenRP\ControlCenter\API\src\routes\killfeed.js | Linha 25 | limit
-  const offset = (page - 1) * limit;
-C:\RavenRP\ControlCenter\API\src\routes\killfeed.js | Linha 47 | limit
-  LIMIT $${values.length + 1}
-C:\RavenRP\ControlCenter\API\src\routes\killfeed.js | Linha 49 | limit
-  [...values, limit, offset]
-C:\RavenRP\ControlCenter\API\src\routes\logs.js | Linha 81 | redact
-  function redactValue(value, key = '') {
-C:\RavenRP\ControlCenter\API\src\routes\logs.js | Linha 86 | redact
-  return '[REDACTED]';
-C:\RavenRP\ControlCenter\API\src\routes\logs.js | Linha 90 | redact
-  return value.map(item => redactValue(item));
-C:\RavenRP\ControlCenter\API\src\routes\logs.js | Linha 97 | redact
-  output[childKey] = redactValue(childValue, childKey);
-C:\RavenRP\ControlCenter\API\src\routes\logs.js | Linha 107 | redact
-  '$1[REDACTED]'
-C:\RavenRP\ControlCenter\API\src\routes\logs.js | Linha 82 | sensitive
-  const sensitiveKey =
-C:\RavenRP\ControlCenter\API\src\routes\logs.js | Linha 85 | sensitive
-  if (sensitiveKey.test(key)) {
-C:\RavenRP\ControlCenter\API\src\routes\logs.js | Linha 83 | password
-  /(authorization|cookie|password|passwd|token|secret|api.?key|DB_PASSWORD_B64)/i;
-C:\RavenRP\ControlCenter\API\src\routes\logs.js | Linha 110 | password
-  /((?:password|passwd|token|secret|api[_-]?key)\s*[:=]\s*)[^,\s;]+/gi,
-C:\RavenRP\ControlCenter\API\src\routes\logs.js | Linha 83 | token
-  /(authorization|cookie|password|passwd|token|secret|api.?key|DB_PASSWORD_B64)/i;
-C:\RavenRP\ControlCenter\API\src\routes\logs.js | Linha 110 | token
-  /((?:password|passwd|token|secret|api[_-]?key)\s*[:=]\s*)[^,\s;]+/gi,
-C:\RavenRP\ControlCenter\API\src\routes\logs.js | Linha 83 | authorization
-  /(authorization|cookie|password|passwd|token|secret|api.?key|DB_PASSWORD_B64)/i;
-C:\RavenRP\ControlCenter\API\src\routes\logs.js | Linha 8 | requireAuth
-  const requireAuth = require('../middleware/require-auth');
-C:\RavenRP\ControlCenter\API\src\routes\logs.js | Linha 19 | requireAuth
-  router.use(requireAuth);
-C:\RavenRP\ControlCenter\API\src\routes\logs.js | Linha 20 | owner
-  router.use(requireRole('owner', 'admin'));
-C:\RavenRP\ControlCenter\API\src\routes\logs.js | Linha 20 | admin
-  router.use(requireRole('owner', 'admin'));
-C:\RavenRP\ControlCenter\API\src\routes\logs.js | Linha 279 | readFile
-  const content = await fs.promises.readFile(fullPath, 'utf8');
-C:\RavenRP\ControlCenter\API\src\routes\logs.js | Linha 222 | readdir
-  let files = fs.readdirSync(logDir, { withFileTypes: true })
-C:\RavenRP\ControlCenter\API\src\routes\logs.js | Linha 266 | statSync
-  const stat = fs.statSync(fullPath);
-C:\RavenRP\ControlCenter\API\src\routes\logs.js | Linha 34 | limit
-  limit: z.coerce.number().int().min(1).max(100).default(50)
-C:\RavenRP\ControlCenter\API\src\routes\logs.js | Linha 207 | limit
-  const { page, limit } = filters;
-C:\RavenRP\ControlCenter\API\src\routes\logs.js | Linha 213 | limit
-  limit,
-C:\RavenRP\ControlCenter\API\src\routes\logs.js | Linha 251 | limit
-  error: 'LOG_FILE_LIMIT_EXCEEDED',
-C:\RavenRP\ControlCenter\API\src\routes\logs.js | Linha 261 | limit
-  const offset = (page - 1) * limit;
-C:\RavenRP\ControlCenter\API\src\routes\players.js | Linha 9 | requireAuth
-  const requireAuth = require('../middleware/require-auth');
-C:\RavenRP\ControlCenter\API\src\routes\players.js | Linha 14 | requireAuth
-  router.use(requireAuth);
-C:\RavenRP\ControlCenter\API\src\routes\players.js | Linha 83 | owner
-  requireRole('owner', 'admin', 'moderator'),
-C:\RavenRP\ControlCenter\API\src\routes\players.js | Linha 83 | admin
-  requireRole('owner', 'admin', 'moderator'),
-C:\RavenRP\ControlCenter\API\src\routes\players.js | Linha 112 | admin
-  actorType: 'admin',
-C:\RavenRP\ControlCenter\API\src\routes\players.js | Linha 113 | admin
-  actorIdentifier: req.admin.username,
-C:\RavenRP\ControlCenter\API\src\routes\players.js | Linha 114 | admin
-  actorAdminId: req.admin.id,
-C:\RavenRP\ControlCenter\API\src\routes\players.js | Linha 19 | limit
-  limit: z.coerce.number().int().min(1).max(100).default(25)
-C:\RavenRP\ControlCenter\API\src\routes\players.js | Linha 34 | limit
-  const { search, page, limit } = parsed.data;
-C:\RavenRP\ControlCenter\API\src\routes\players.js | Linha 35 | limit
-  const offset = (page - 1) * limit;
-C:\RavenRP\ControlCenter\API\src\routes\players.js | Linha 52 | limit
-  const paginationValues = [...values, limit, offset];
-C:\RavenRP\ControlCenter\API\src\routes\players.js | Linha 53 | limit
-  const limitPosition = values.length + 1;
-C:\RavenRP\ControlCenter\API\src\routes\players.js | Linha 52 | pagination
-  const paginationValues = [...values, limit, offset];
-C:\RavenRP\ControlCenter\API\src\routes\players.js | Linha 63 | pagination
-  paginationValues
-C:\RavenRP\ControlCenter\API\src\routes\priority.js | Linha 10 | requireAuth
-  const requireAuth = require('../middleware/require-auth');
-C:\RavenRP\ControlCenter\API\src\routes\priority.js | Linha 15 | requireAuth
-  router.use(requireAuth);
-C:\RavenRP\ControlCenter\API\src\routes\priority.js | Linha 228 | owner
-  requireRole('owner', 'admin', 'moderator'),
-C:\RavenRP\ControlCenter\API\src\routes\priority.js | Linha 346 | owner
-  requireRole('owner', 'admin', 'moderator'),
-C:\RavenRP\ControlCenter\API\src\routes\priority.js | Linha 449 | owner
-  requireRole('owner', 'admin', 'moderator'),
-C:\RavenRP\ControlCenter\API\src\routes\priority.js | Linha 228 | admin
-  requireRole('owner', 'admin', 'moderator'),
-C:\RavenRP\ControlCenter\API\src\routes\priority.js | Linha 298 | admin
-  granted_by_admin_id)
-C:\RavenRP\ControlCenter\API\src\routes\priority.js | Linha 308 | admin
-  req.admin.id
-C:\RavenRP\ControlCenter\API\src\routes\priority.js | Linha 315 | admin
-  actorType: 'admin',
-C:\RavenRP\ControlCenter\API\src\routes\priority.js | Linha 316 | admin
-  actorIdentifier: req.admin.username,
-C:\RavenRP\ControlCenter\API\src\routes\priority.js | Linha 44 | limit
-  limit: z.coerce.number().int().min(1).max(100).default(25)
-C:\RavenRP\ControlCenter\API\src\routes\priority.js | Linha 145 | limit
-  const { status, steam64, category, page, limit } = parsed.data;
-C:\RavenRP\ControlCenter\API\src\routes\priority.js | Linha 181 | limit
-  const offset = (page - 1) * limit;
-C:\RavenRP\ControlCenter\API\src\routes\priority.js | Linha 182 | limit
-  const queryValues = [...values, limit, offset];
-C:\RavenRP\ControlCenter\API\src\routes\priority.js | Linha 183 | limit
-  const limitPosition = values.length + 1;
-C:\RavenRP\ControlCenter\API\src\services\audit.js | Linha 7 | source_ip
-  action, entity_type, entity_id, details, source_ip)
-C:\RavenRP\ControlCenter\API\src\services\audit.js | Linha 6 | admin
-  (actor_type, actor_identifier, actor_admin_id,
-C:\RavenRP\ControlCenter\API\src\services\audit.js | Linha 10 | admin
-  data.actorType || 'admin',
-C:\RavenRP\ControlCenter\API\src\services\audit.js | Linha 12 | admin
-  data.actorAdminId || null,
-C:\RavenRP\ControlCenter\API\src\services\auth.js | Linha 15 | token
-  async function createAccessToken(admin) {
-C:\RavenRP\ControlCenter\API\src\services\auth.js | Linha 38 | token
-  async function verifyAccessToken(token) {
-C:\RavenRP\ControlCenter\API\src\services\auth.js | Linha 41 | token
-  const result = await jwtVerify(token, secret, {
-C:\RavenRP\ControlCenter\API\src\services\auth.js | Linha 51 | token
-  createAccessToken,
-C:\RavenRP\ControlCenter\API\src\services\auth.js | Linha 52 | token
-  verifyAccessToken
-C:\RavenRP\ControlCenter\API\src\services\auth.js | Linha 15 | admin
-  async function createAccessToken(admin) {
-C:\RavenRP\ControlCenter\API\src\services\auth.js | Linha 27 | admin
-  role: admin.access_role
-C:\RavenRP\ControlCenter\API\src\services\auth.js | Linha 30 | admin
-  .setSubject(String(admin.id))
-C:\RavenRP\ControlCenter\API\src\services\incident-monitor.js | Linha 7 | logger
-  async function recordHealthSnapshot(snapshot, logger) {
-C:\RavenRP\ControlCenter\API\src\services\incident-monitor.js | Linha 71 | logger
-  if (logger && typeof logger.error === 'function') {
-C:\RavenRP\ControlCenter\API\src\services\incident-monitor.js | Linha 72 | logger
-  logger.error(
-C:\RavenRP\ControlCenter\API\src\services\migrate.js | Linha 11 | logger
-  const logger = require('../logger');
-C:\RavenRP\ControlCenter\API\src\services\migrate.js | Linha 73 | logger
-  logger.info({ version, file }, 'Migration ja aplicada');
-C:\RavenRP\ControlCenter\API\src\services\migrate.js | Linha 97 | logger
-  logger.info(
-C:\RavenRP\ControlCenter\API\src\services\migrate.js | Linha 107 | logger
-  logger.info(
-C:\RavenRP\ControlCenter\API\src\services\migrate.js | Linha 128 | logger
-  logger.fatal({ error }, 'Falha nas migrations');
-C:\RavenRP\ControlCenter\API\src\services\migrate.js | Linha 53 | readFile
-  const sql = fs.readFileSync(
-C:\RavenRP\ControlCenter\API\src\services\migrate.js | Linha 40 | readdir
-  const files = fs.readdirSync(MIGRATIONS_DIR)
-C:\RavenRP\ControlCenter\API\src\services\priority-scheduler.js | Linha 3 | logger
-  const logger = require('../logger');
-C:\RavenRP\ControlCenter\API\src\services\priority-scheduler.js | Linha 21 | logger
-  logger.info(result, 'Concessoes prioritarias atualizadas');
-C:\RavenRP\ControlCenter\API\src\services\priority-scheduler.js | Linha 30 | logger
-  logger.error({ error }, 'Falha no agendador de prioridades');
-C:\RavenRP\ControlCenter\API\src\services\priority-scheduler.js | Linha 54 | logger
-  logger.info('Agendador de prioridades iniciado');
-C:\RavenRP\ControlCenter\API\src\services\priority-scheduler.js | Linha 69 | logger
-  logger.info('Agendador de prioridades encerrado');
-C:\RavenRP\ControlCenter\API\src\services\priority-sync.js | Linha 9 | logger
-  const logger = require('../logger');
-C:\RavenRP\ControlCenter\API\src\services\priority-sync.js | Linha 156 | logger
-  logger.warn({
-C:\RavenRP\ControlCenter\API\src\services\priority-sync.js | Linha 192 | logger
-  logger.info(response, 'Sincronizacao de prioridades concluida');
-C:\RavenRP\ControlCenter\API\src\services\priority-sync.js | Linha 207 | logger
-  logger.error({ error: recordError }, 'Falha ao registrar erro da sincronizacao');
-C:\RavenRP\ControlCenter\API\src\services\priority-sync.js | Linha 211 | logger
-  logger.error({ error }, 'Falha na sincronizacao de prioridades');
-C:\RavenRP\ControlCenter\API\src\services\priority-sync.js | Linha 64 | readFile
-  existing = await fs.readFile(TARGET_FILE, 'utf8');
-C:\RavenRP\ControlCenter\API\src\services\priority-sync.js | Linha 77 | unlink
-  await fs.unlink(TARGET_FILE);
-C:\RavenRP\ControlCenter\API\src\services\priority-sync.js | Linha 96 | unlink
-  await fs.unlink(temp);
+    if (runningPromise) {
+        await runningPromise;
+    }
 
-DIRETORIO: C:\RavenRP\ControlCenter\Dashboard
-C:\RavenRP\ControlCenter\Dashboard\server.js | Linha 34 | readFile
-  fs.readFile(file, (error, content) => {
-C:\RavenRP\ControlCenter\Dashboard\public\index.html | Linha 18 | 14
-  --red2:#d14c59;
-C:\RavenRP\ControlCenter\Dashboard\public\index.html | Linha 75 | 14
-  padding:10px 14px;
-C:\RavenRP\ControlCenter\Dashboard\public\index.html | Linha 217 | 14
-  margin-top:14px;
-C:\RavenRP\ControlCenter\Dashboard\public\index.html | Linha 276 | 14
-  padding:12px 14px; border-radius:8px; margin:12px 0;
-C:\RavenRP\ControlCenter\Dashboard\public\index.html | Linha 299 | 14
-  .sidebar { min-height:0; padding:14px; }
-C:\RavenRP\ControlCenter\Dashboard\public\index.html | Linha 322 | password
-  <label for="password">SENHA</label>
-C:\RavenRP\ControlCenter\Dashboard\public\index.html | Linha 323 | password
-  <input id="password" name="password" type="password" autocomplete="current-password" required minlength="14" maxlength="72">
-C:\RavenRP\ControlCenter\Dashboard\public\index.html | Linha 461 | password
-  password:$('password').value
-C:\RavenRP\ControlCenter\Dashboard\public\index.html | Linha 470 | password
-  $('password').value = '';
-C:\RavenRP\ControlCenter\Dashboard\public\index.html | Linha 367 | token
-  const TOKEN_KEY = 'raven_access_token';
-C:\RavenRP\ControlCenter\Dashboard\public\index.html | Linha 370 | token
-  let token = sessionStorage.getItem(TOKEN_KEY);
-C:\RavenRP\ControlCenter\Dashboard\public\index.html | Linha 390 | token
-  if (token) headers.Authorization = `Bearer ${token}`;
-C:\RavenRP\ControlCenter\Dashboard\public\index.html | Linha 442 | token
-  token = null;
-C:\RavenRP\ControlCenter\Dashboard\public\index.html | Linha 444 | token
-  sessionStorage.removeItem(TOKEN_KEY);
-C:\RavenRP\ControlCenter\Dashboard\public\index.html | Linha 390 | authorization
-  if (token) headers.Authorization = `Bearer ${token}`;
-C:\RavenRP\ControlCenter\Dashboard\public\index.html | Linha 436 | owner
-  $('auditNav').classList.toggle('hidden', !['owner','admin'].includes(admin.role));
-C:\RavenRP\ControlCenter\Dashboard\public\index.html | Linha 437 | owner
-  incidentsNav.classList.toggle('hidden', !['owner','admin'].includes(admin.role));
-C:\RavenRP\ControlCenter\Dashboard\public\index.html | Linha 438 | owner
-  logsNav.classList.toggle('hidden', !['owner','admin'].includes(admin.role));
-C:\RavenRP\ControlCenter\Dashboard\public\index.html | Linha 499 | owner
-  if (page === 'audit' && !['owner','admin'].includes(admin?.role)) {
-C:\RavenRP\ControlCenter\Dashboard\public\index.html | Linha 502 | owner
-  if (['incidents','logs'].includes(page) && !['owner','admin'].includes(admin?.role)) {
-C:\RavenRP\ControlCenter\Dashboard\public\index.html | Linha 316 | admin
-  <p class="subtitle">Control Center · Administração</p>
-C:\RavenRP\ControlCenter\Dashboard\public\index.html | Linha 342 | admin
-  <div class="user-name" id="sideUsername">Administrador</div>
-C:\RavenRP\ControlCenter\Dashboard\public\index.html | Linha 356 | admin
-  <div class="footer-note">RAVEN CONTROL CENTER · Ações administrativas são registradas pela API.</div>
-C:\RavenRP\ControlCenter\Dashboard\public\index.html | Linha 368 | admin
-  const ADMIN_KEY = 'raven_admin';
-C:\RavenRP\ControlCenter\Dashboard\public\index.html | Linha 371 | admin
-  let admin = null;
-C:\RavenRP\ControlCenter\Dashboard\public\index.html | Linha 679 | limit
-  api('/players?limit=1'),
-C:\RavenRP\ControlCenter\Dashboard\public\index.html | Linha 681 | limit
-  api('/priority/grants?status=active&limit=1'),
-C:\RavenRP\ControlCenter\Dashboard\public\index.html | Linha 682 | limit
-  api('/priority/grants?status=scheduled&limit=1')
-C:\RavenRP\ControlCenter\Dashboard\public\index.html | Linha 721 | limit
-  const query = new URLSearchParams({page:playersPage,limit:25});
-C:\RavenRP\ControlCenter\Dashboard\public\index.html | Linha 724 | limit
-  const pages = Math.max(1,Math.ceil(data.total/data.limit));
+    logger.info('Agendador de prioridades encerrado');
+}
 
-===========================================================================
-6. TESTES AUTOMATIZADOS EXISTENTES
-===========================================================================
-TESTE ENCONTRADO: C:\RavenRP\ControlCenter\API\src\services\priority-sync-guard.test.js
-Tamanho: 937 bytes
-TESTE ENCONTRADO: C:\RavenRP\ControlCenter\API\src\services\priority-sync.test.js
-Tamanho: 911 bytes
+module.exports = {
+    startPriorityScheduler,
+    stopPriorityScheduler,
+    runPriorityScheduler
+};
 
-NAO FORAM EXECUTADOS TESTES NESTA AUDITORIA.
+========================================
+ARQUIVO: src\services\priority-status.js
+========================================
+'use strict';
 
-===========================================================================
-7. INVENTARIO DOS ARQUIVOS DE LOG
-===========================================================================
+async function refreshGrantStatuses(client) {
+    const expired = await client.query(`
+        WITH changed AS (
+            UPDATE public.priority_grants
+            SET status = 'expired'
+            WHERE status IN ('active','scheduled')
+              AND expires_at IS NOT NULL
+              AND expires_at <= NOW()
+            RETURNING id, player_id, category_id
+        )
+        INSERT INTO public.audit_logs
+        (actor_type, actor_identifier, action,
+         entity_type, entity_id, details)
+        SELECT
+            'system',
+            'priority-scheduler',
+            'priority.expired',
+            'priority_grant',
+            id::text,
+            jsonb_build_object(
+                'player_id', player_id,
+                'category_id', category_id
+            )
+        FROM changed
+        RETURNING id
+    `);
 
-DIRETORIO: C:\RavenRP\ControlCenter\API\logs
-ARQUIVO: api-2026-11-19-001.log
-Tamanho: 202 bytes
-Criado: 11/19/2026 08:43:38
-Modificado: 11/19/2026 08:43:38
-ARQUIVO: api-2026-11-19-002.log
-Tamanho: 202 bytes
-Criado: 11/19/2026 08:44:42
-Modificado: 11/19/2026 08:44:42
-ARQUIVO: api-2026-11-19-003.log
-Tamanho: 2833154 bytes
-Criado: 11/19/2026 09:01:06
-Modificado: 11/19/2026 17:39:26
-ARQUIVO: api-2026-11-19-004.log
-Tamanho: 0 bytes
-Criado: 11/19/2026 10:48:55
-Modificado: 11/19/2026 10:48:55
-ARQUIVO: api-2026-11-19-005.log
-Tamanho: 0 bytes
-Criado: 11/19/2026 10:50:49
-Modificado: 11/19/2026 10:50:49
-ARQUIVO: api-2026-11-19-006.log
-Tamanho: 0 bytes
-Criado: 11/19/2026 10:55:30
-Modificado: 11/19/2026 10:55:30
-ARQUIVO: api-2026-11-19-007.log
-Tamanho: 0 bytes
-Criado: 11/19/2026 11:01:13
-Modificado: 11/19/2026 11:01:13
-ARQUIVO: api-2026-11-19-008.log
-Tamanho: 0 bytes
-Criado: 11/19/2026 11:02:44
-Modificado: 11/19/2026 11:02:44
-ARQUIVO: api-monitoring-20261118-213548.stderr.log
-Tamanho: 32 bytes
-Criado: 11/18/2026 21:35:48
-Modificado: 11/18/2026 21:35:48
-ARQUIVO: api-monitoring-20261118-213548.stdout.log
-Tamanho: 343156 bytes
-Criado: 11/18/2026 21:35:48
-Modificado: 11/18/2026 21:35:48
-ARQUIVO: api-start-20261118-212635.stderr.log
-Tamanho: 771 bytes
-Criado: 11/18/2026 21:26:35
-Modificado: 11/18/2026 21:26:36
-ARQUIVO: api-start-20261118-212635.stdout.log
-Tamanho: 0 bytes
-Criado: 11/18/2026 21:26:35
-Modificado: 11/18/2026 21:26:35
-ARQUIVO: api-start-20261118-212709.stderr.log
-Tamanho: 32 bytes
-Criado: 11/18/2026 21:27:09
-Modificado: 11/18/2026 21:27:09
-ARQUIVO: api-start-20261118-212709.stdout.log
-Tamanho: 199202 bytes
-Criado: 11/18/2026 21:27:09
-Modificado: 11/18/2026 21:35:20
-ARQUIVO: restart-20261119-090103-stderr.log
-Tamanho: 32 bytes
-Criado: 11/19/2026 09:01:04
-Modificado: 11/19/2026 09:01:04
-ARQUIVO: restart-20261119-090103-stdout.log
-Tamanho: 2441755 bytes
-Criado: 11/19/2026 09:01:04
-Modificado: 11/19/2026 16:07:35
-TOTAL DE ARQUIVOS: 16
-TOTAL EM MB: 5.55
-PROPRIETARIO: BUILTIN\Administradores
-REGRAS DE ACESSO:
-IDENTIDADE: BUILTIN\Administradores
-ACESSO: FullControl
-TIPO: Allow
-HERDADO: True
-IDENTIDADE: AUTORIDADE NT\SISTEMA
-ACESSO: FullControl
-TIPO: Allow
-HERDADO: True
-IDENTIDADE: BUILTIN\Usuários
-ACESSO: ReadAndExecute, Synchronize
-TIPO: Allow
-HERDADO: True
-IDENTIDADE: AUTORIDADE NT\Usuários autenticados
-ACESSO: Modify, Synchronize
-TIPO: Allow
-HERDADO: True
-IDENTIDADE: AUTORIDADE NT\Usuários autenticados
-ACESSO: -536805376
-TIPO: Allow
-HERDADO: True
+    const activated = await client.query(`
+        WITH changed AS (
+            UPDATE public.priority_grants
+            SET status = 'active'
+            WHERE status = 'scheduled'
+              AND starts_at <= NOW()
+              AND (expires_at IS NULL OR expires_at > NOW())
+            RETURNING id, player_id, category_id
+        )
+        INSERT INTO public.audit_logs
+        (actor_type, actor_identifier, action,
+         entity_type, entity_id, details)
+        SELECT
+            'system',
+            'priority-scheduler',
+            'priority.activated',
+            'priority_grant',
+            id::text,
+            jsonb_build_object(
+                'player_id', player_id,
+                'category_id', category_id
+            )
+        FROM changed
+        RETURNING id
+    `);
 
-DIRETORIO: C:\RavenRP\ControlCenter\Dashboard\logs
-ARQUIVO: dashboard-20261119-083230.stderr.log
-Tamanho: 0 bytes
-Criado: 11/19/2026 08:32:30
-Modificado: 11/19/2026 08:32:30
-ARQUIVO: dashboard-20261119-083230.stdout.log
-Tamanho: 0 bytes
-Criado: 11/19/2026 08:32:30
-Modificado: 11/19/2026 08:32:30
-TOTAL DE ARQUIVOS: 2
-TOTAL EM MB: 0
-PROPRIETARIO: BUILTIN\Administradores
-REGRAS DE ACESSO:
-IDENTIDADE: BUILTIN\Administradores
-ACESSO: FullControl
-TIPO: Allow
-HERDADO: True
-IDENTIDADE: AUTORIDADE NT\SISTEMA
-ACESSO: FullControl
-TIPO: Allow
-HERDADO: True
-IDENTIDADE: BUILTIN\Usuários
-ACESSO: ReadAndExecute, Synchronize
-TIPO: Allow
-HERDADO: True
-IDENTIDADE: AUTORIDADE NT\Usuários autenticados
-ACESSO: Modify, Synchronize
-TIPO: Allow
-HERDADO: True
-IDENTIDADE: AUTORIDADE NT\Usuários autenticados
-ACESSO: -536805376
-TIPO: Allow
-HERDADO: True
+    return {
+        expired: expired.rowCount,
+        activated: activated.rowCount
+    };
+}
 
-===========================================================================
-8. VALIDACAO DE REFERENCIAS E ROTAS
-===========================================================================
-SERVER.JS LINHA 17: const healthRoutes = require('./routes/health');
-SERVER.JS LINHA 23: const incidentsRoutes = require('./routes/incidents');
-SERVER.JS LINHA 24: const logsRoutes = require('./routes/logs');
-SERVER.JS LINHA 75: app.use('/api/health', healthRoutes);
-SERVER.JS LINHA 81: app.use('/api/incidents', incidentsRoutes);
-SERVER.JS LINHA 82: app.use('/api/logs', logsRoutes);
-LOGS.JS LINHA 8: const requireAuth = require('../middleware/require-auth');
-LOGS.JS LINHA 9: const requireRole = require('../middleware/require-role');
-LOGS.JS LINHA 19: router.use(requireAuth);
-LOGS.JS LINHA 20: router.use(requireRole('owner', 'admin'));
-LOGS.JS LINHA 33: page: z.coerce.number().int().min(1).max(100000).default(1),
-LOGS.JS LINHA 34: limit: z.coerce.number().int().min(1).max(100).default(50)
-LOGS.JS LINHA 158: !JSON.stringify(entry)
-LOGS.JS LINHA 197: router.get('/', async (req, res) => {
-LOGS.JS LINHA 201: return res.status(400).json({
-LOGS.JS LINHA 207: const { page, limit } = filters;
-LOGS.JS LINHA 211: return res.json({
-LOGS.JS LINHA 212: page,
-LOGS.JS LINHA 213: limit,
-LOGS.JS LINHA 222: let files = fs.readdirSync(logDir, { withFileTypes: true })
-LOGS.JS LINHA 250: return res.status(413).json({
-LOGS.JS LINHA 251: error: 'LOG_FILE_LIMIT_EXCEEDED',
-LOGS.JS LINHA 261: const offset = (page - 1) * limit;
-LOGS.JS LINHA 262: const end = offset + limit;
-LOGS.JS LINHA 266: const stat = fs.statSync(fullPath);
-LOGS.JS LINHA 268: if (!stat.isFile()) continue;
-LOGS.JS LINHA 270: scannedBytes += stat.size;
-LOGS.JS LINHA 273: return res.status(413).json({
-LOGS.JS LINHA 274: error: 'LOG_SCAN_LIMIT_EXCEEDED',
-LOGS.JS LINHA 279: const content = await fs.promises.readFile(fullPath, 'utf8');
-LOGS.JS LINHA 292: entry = JSON.parse(line);
-LOGS.JS LINHA 307: return res.json({
-LOGS.JS LINHA 308: page,
-LOGS.JS LINHA 309: limit,
-LOGS.JS LINHA 321: return res.status(500).json({
+module.exports = { refreshGrantStatuses };
 
-===========================================================================
-9. PROCESSOS E SERVICOS - SOMENTE CONSULTA
-===========================================================================
-PROCESSO: node.exe | PID: 4636
-PROCESSO: node.exe | PID: 7320
-Nenhum processo foi iniciado, encerrado ou reiniciado.
+========================================
+ARQUIVO: src\services\priority-sync.js
+========================================
+'use strict';
 
-===========================================================================
-10. LIMITACOES DESTA AUDITORIA
-===========================================================================
-- Nenhum endpoint HTTP foi chamado.
-- Nenhuma conexao PostgreSQL foi aberta.
-- Nenhum teste automatizado foi executado.
-- Nenhum arquivo foi alterado.
-- Nenhum arquivo .env foi lido.
-- Nenhum conteudo de arquivo de log foi exibido.
-- Rotacao e retencao foram analisadas apenas pelo codigo e metadados.
-- ACL foi consultada sem modificacao.
-- Resultados precisam ser avaliados antes da homologacao.
+const fs = require('node:fs/promises');
+const fsConstants = require('node:fs').constants;
+const path = require('node:path');
+const crypto = require('node:crypto');
 
-===========================================================================
-11. RESULTADO
-===========================================================================
-AUDITORIA 6.4 CONCLUIDA.
-Tipo: SOMENTE LEITURA
-Relatorio: C:\Users\Nasdara\Desktop\RAVEN_AUDITORIA_64_LOGS_20261119_174248.txt
+const { pool } = require('../db');
+const logger = require('../logger');
+const { buildPriorityFileContent } = require('./priority-format');
+const { shouldBlockEmptyPriorityWrite } = require('./priority-sync-guard');
+
+const TARGET_DIR = path.resolve(__dirname, '../../../../DayZServer');
+const TARGET_FILE = path.join(TARGET_DIR, 'priority.txt');
+
+const LOCK_A = 1380013138;
+const LOCK_B = 1346458195;
+
+function sha256(content) {
+    return crypto.createHash('sha256').update(content, 'utf8').digest('hex');
+}
+
+async function validateTargetDirectory() {
+    const stat = await fs.lstat(TARGET_DIR);
+
+    if (!stat.isDirectory() || stat.isSymbolicLink()) {
+        throw new Error('Diretorio de destino invalido ou simbolico.');
+    }
+}
+
+async function backupExistingFile() {
+    let stat;
+
+    try {
+        stat = await fs.lstat(TARGET_FILE);
+    } catch (error) {
+        if (error.code === 'ENOENT') return null;
+        throw error;
+    }
+
+    if (!stat.isFile() || stat.isSymbolicLink()) {
+        throw new Error('O destino priority.txt nao e um arquivo regular.');
+    }
+
+    const stamp = new Date().toISOString().replace(/[:.]/g, '-');
+    const backup = `${TARGET_FILE}.bak-${stamp}`;
+
+    await fs.copyFile(TARGET_FILE, backup, fsConstants.COPYFILE_EXCL);
+    return backup;
+}
+
+async function writePriorityFile(content) {
+    await validateTargetDirectory();
+
+    let existing = null;
+
+    try {
+        const stat = await fs.lstat(TARGET_FILE);
+
+        if (!stat.isFile() || stat.isSymbolicLink()) {
+            throw new Error('O destino priority.txt nao e um arquivo regular.');
+        }
+
+        existing = await fs.readFile(TARGET_FILE, 'utf8');
+    } catch (error) {
+        if (error.code !== 'ENOENT') throw error;
+    }
+
+    if (existing === content) {
+        return { changed: false, backup: null };
+    }
+
+    const backup = await backupExistingFile();
+
+    if (content.length === 0) {
+        try {
+            await fs.unlink(TARGET_FILE);
+        } catch (error) {
+            if (error.code !== 'ENOENT') throw error;
+        }
+
+        return { changed: true, backup };
+    }
+
+    const temp = `${TARGET_FILE}.tmp-${process.pid}-${crypto.randomBytes(6).toString('hex')}`;
+
+    try {
+        await fs.writeFile(temp, content, {
+            encoding: 'utf8',
+            flag: 'wx'
+        });
+
+        await fs.rename(temp, TARGET_FILE);
+    } catch (error) {
+        try {
+            await fs.unlink(temp);
+        } catch (_) {}
+
+        throw error;
+    }
+
+    return { changed: true, backup };
+}
+
+async function runPrioritySync(options = {}) {
+    const dryRun = options.dryRun !== false;
+    const client = await pool.connect();
+
+    let locked = false;
+    let runId = null;
+
+    try {
+        const lock = await client.query(
+            'SELECT pg_try_advisory_lock($1, $2) AS acquired',
+            [LOCK_A, LOCK_B]
+        );
+
+        locked = lock.rows[0].acquired;
+
+        if (!locked) {
+            return { status: 'skipped', reason: 'SYNC_ALREADY_RUNNING' };
+        }
+
+        const started = await client.query(
+            `INSERT INTO public.queue_sync_runs
+                (status, players_count, target_path)
+             VALUES ('running', 0, $1)
+             RETURNING id`,
+            [TARGET_FILE]
+        );
+
+        runId = started.rows[0].id;
+
+        const result = await client.query(`
+            SELECT DISTINCT p.steam64
+            FROM public.priority_grants g
+            JOIN public.players p ON p.id = g.player_id
+            WHERE g.status = 'active'
+              AND g.starts_at <= NOW()
+              AND (g.expires_at IS NULL OR g.expires_at > NOW())
+            ORDER BY p.steam64
+        `);
+
+        const content = buildPriorityFileContent(result.rows);
+        const checksum = sha256(content);
+
+        let fileResult = { changed: false, backup: null };
+        let emptyListProtected = false;
+
+        if (!dryRun) {
+            const allowEmpty = process.env.PRIORITY_SYNC_ALLOW_EMPTY === 'true';
+
+            if (shouldBlockEmptyPriorityWrite(content, allowEmpty)) {
+                emptyListProtected = true;
+
+                logger.warn({
+                    runId: String(runId),
+                    mode: 'LIVE',
+                    playersCount: 0,
+                    targetPath: TARGET_FILE
+                }, 'Sincronizacao LIVE bloqueada: lista vazia protegida');
+            } else {
+                fileResult = await writePriorityFile(content);
+            }
+        }
+
+        await client.query(
+            `UPDATE public.queue_sync_runs
+             SET status = 'success',
+                 players_count = $1,
+                 file_checksum = $2,
+                 finished_at = NOW()
+             WHERE id = $3`,
+            [result.rows.length, checksum, runId]
+        );
+
+        const response = {
+            status: 'success',
+            mode: dryRun ? 'DRY_RUN' : 'LIVE',
+            runId: String(runId),
+            playersCount: result.rows.length,
+            checksum,
+            targetPath: TARGET_FILE,
+            fileChanged: fileResult.changed,
+            backup: fileResult.backup,
+            emptyListProtected,
+            writeBlockedReason: emptyListProtected
+                ? 'EMPTY_PRIORITY_LIST_PROTECTED'
+                : null
+        };
+
+        logger.info(response, 'Sincronizacao de prioridades concluida');
+
+        return response;
+    } catch (error) {
+        if (runId !== null) {
+            try {
+                await client.query(
+                    `UPDATE public.queue_sync_runs
+                     SET status = 'failed',
+                         error_message = $1,
+                         finished_at = NOW()
+                     WHERE id = $2`,
+                    [String(error.message).slice(0, 2000), runId]
+                );
+            } catch (recordError) {
+                logger.error({ error: recordError }, 'Falha ao registrar erro da sincronizacao');
+            }
+        }
+
+        logger.error({ error }, 'Falha na sincronizacao de prioridades');
+        throw error;
+    } finally {
+        if (locked) {
+            try {
+                await client.query(
+                    'SELECT pg_advisory_unlock($1, $2)',
+                    [LOCK_A, LOCK_B]
+                );
+            } catch (error) {
+                logger.error({ error }, 'Falha ao liberar lock da sincronizacao');
+            }
+        }
+
+        client.release();
+    }
+}
+
+module.exports = {
+    buildPriorityFileContent,
+    runPrioritySync,
+    TARGET_FILE
+};
+
+
+========================================
+ARQUIVO: src\services\priority-sync.test.js
+========================================
+'use strict';
+
+const test = require('node:test');
+const assert = require('node:assert/strict');
+
+const { buildPriorityFileContent } = require('./priority-format');
+
+test('gera lista ordenada e sem duplicidades', () => {
+    const result = buildPriorityFileContent([
+        { steam64: '76561198000000002' },
+        { steam64: '76561198000000001' },
+        { steam64: '76561198000000002' }
+    ]);
+
+    assert.equal(result, '76561198000000001;76561198000000002');
+});
+
+test('lista vazia gera conteudo vazio', () => {
+    assert.equal(buildPriorityFileContent([]), '');
+});
+
+test('rejeita Steam64 invalido', () => {
+    assert.throws(
+        () => buildPriorityFileContent([{ steam64: '12345' }]),
+        /Steam64 invalido/
+    );
+});
+
+test('rejeita entrada que nao seja uma lista', () => {
+    assert.throws(
+        () => buildPriorityFileContent(null),
+        /Lista de jogadores invalida/
+    );
+});
+
+
+========================================
+ARQUIVO: src\services\priority-sync-guard.js
+========================================
+'use strict';
+
+function shouldBlockEmptyPriorityWrite(content, allowEmpty) {
+    if (typeof content !== 'string') {
+        throw new TypeError('Conteudo da lista de prioridades invalido.');
+    }
+
+    return content.length === 0 && allowEmpty !== true;
+}
+
+module.exports = {
+    shouldBlockEmptyPriorityWrite
+};
+
+========================================
+ARQUIVO: src\services\priority-sync-guard.test.js
+========================================
+'use strict';
+
+const test = require('node:test');
+const assert = require('node:assert/strict');
+
+const {
+    shouldBlockEmptyPriorityWrite
+} = require('./priority-sync-guard');
+
+test('bloqueia escrita de lista vazia por padrao', () => {
+    assert.equal(shouldBlockEmptyPriorityWrite('', false), true);
+});
+
+test('bloqueia escrita de lista vazia quando autorizacao esta ausente', () => {
+    assert.equal(shouldBlockEmptyPriorityWrite('', undefined), true);
+});
+
+test('permite lista vazia somente com autorizacao explicita', () => {
+    assert.equal(shouldBlockEmptyPriorityWrite('', true), false);
+});
+
+test('permite escrita quando existe conteudo', () => {
+    assert.equal(
+        shouldBlockEmptyPriorityWrite('76561198000000001', false),
+        false
+    );
+});
+
+test('rejeita conteudo que nao seja texto', () => {
+    assert.throws(
+        () => shouldBlockEmptyPriorityWrite(null, false),
+        /Conteudo da lista/
+    );
+});
+
+========================================
+ARQUIVO: src\services\transaction.js
+========================================
+'use strict';
+
+const { pool } = require('../db');
+
+async function withTransaction(callback) {
+    const client = await pool.connect();
+
+    try {
+        await client.query('BEGIN');
+
+        const result = await callback(client);
+
+        await client.query('COMMIT');
+        return result;
+    } catch (error) {
+        await client.query('ROLLBACK');
+        throw error;
+    } finally {
+        client.release();
+    }
+}
+
+module.exports = { withTransaction };
+
+===== 3. ESTRUTURA DE DIRETORIOS =====
+backups\
+logs\
+migrations\
+node_modules\
+scripts\
+src\
+backups\empty-list-protection-20261118-202749\
+backups\incidents\
+backups\killfeed-integration-20261118_211705\
+backups\killfeed-integration-retry-20261118_211814\
+backups\logging\
+backups\logs-diagnostics\
+backups\monitoring\
+backups\priority-sync-20261118-194214\
+backups\priority-sync-fix-20261118-194353\
+backups\shutdown-20261118-200552\
+backups\incidents\20261118-214700\
+backups\incidents\20261118-215606\
+backups\incidents\20261118-214700\src\
+backups\incidents\20261118-214700\src\routes\
+src\middleware\
+src\routes\
+src\services\
+
+===== 4. RESUMO =====
+Arquivos analisados: 32
+Relatorio: C:\Users\Nasdara\Desktop\RAVEN_AUDITORIA_6.5.3.1.txt
+FIM DA AUDITORIA
