@@ -1,0 +1,1713 @@
+﻿RAVEN - VALIDACAO DO FORMATO DE CONFIGURACAO VPP
+Data: 2026-11-21 01:54:35
+Somente leitura: SIM
+
+Fontes examinadas: 11
+
+==============================================================================
+SOURCE: C:\Users\Nasdara\AppData\Local\RavenControlCenter\VPP_Inspection\Extracted_WebHooks_20261121_010109\3_Game\VPPAdminTools\WebHooks\VPPWebhookDefs.c
+==============================================================================
+
+LINHA: 64
+class VPPWebhookDefs
+{
+	const static string EV_ADMIN = "admin.action";
+	const static string EV_KILL = "kill";
+	const static string EV_HIT = "hit";
+	const static string EV_JOIN = "join";
+	const static string EV_LEAVE = "leave";
+
+LINHA: 65
+{
+	const static string EV_ADMIN = "admin.action";
+	const static string EV_KILL = "kill";
+	const static string EV_HIT = "hit";
+	const static string EV_JOIN = "join";
+	const static string EV_LEAVE = "leave";
+	const static string EV_LEAVE_EARLY = "leave.early";
+
+LINHA: 66
+	const static string EV_ADMIN = "admin.action";
+	const static string EV_KILL = "kill";
+	const static string EV_HIT = "hit";
+	const static string EV_JOIN = "join";
+	const static string EV_LEAVE = "leave";
+	const static string EV_LEAVE_EARLY = "leave.early";
+	const static string EV_LOGOUT_START = "logout.start";
+
+LINHA: 67
+	const static string EV_KILL = "kill";
+	const static string EV_HIT = "hit";
+	const static string EV_JOIN = "join";
+	const static string EV_LEAVE = "leave";
+	const static string EV_LEAVE_EARLY = "leave.early";
+	const static string EV_LOGOUT_START = "logout.start";
+	const static string EV_LOGOUT_CANCEL = "logout.cancel";
+
+LINHA: 68
+	const static string EV_HIT = "hit";
+	const static string EV_JOIN = "join";
+	const static string EV_LEAVE = "leave";
+	const static string EV_LEAVE_EARLY = "leave.early";
+	const static string EV_LOGOUT_START = "logout.start";
+	const static string EV_LOGOUT_CANCEL = "logout.cancel";
+	const static string EV_STATUS = "server.status";
+
+LINHA: 69
+	const static string EV_JOIN = "join";
+	const static string EV_LEAVE = "leave";
+	const static string EV_LEAVE_EARLY = "leave.early";
+	const static string EV_LOGOUT_START = "logout.start";
+	const static string EV_LOGOUT_CANCEL = "logout.cancel";
+	const static string EV_STATUS = "server.status";
+	const static string EV_BOOT = "server.boot";
+
+LINHA: 70
+	const static string EV_LEAVE = "leave";
+	const static string EV_LEAVE_EARLY = "leave.early";
+	const static string EV_LOGOUT_START = "logout.start";
+	const static string EV_LOGOUT_CANCEL = "logout.cancel";
+	const static string EV_STATUS = "server.status";
+	const static string EV_BOOT = "server.boot";
+
+
+LINHA: 71
+	const static string EV_LEAVE_EARLY = "leave.early";
+	const static string EV_LOGOUT_START = "logout.start";
+	const static string EV_LOGOUT_CANCEL = "logout.cancel";
+	const static string EV_STATUS = "server.status";
+	const static string EV_BOOT = "server.boot";
+
+	const static string GROUP_DEATH = "death";
+
+LINHA: 72
+	const static string EV_LOGOUT_START = "logout.start";
+	const static string EV_LOGOUT_CANCEL = "logout.cancel";
+	const static string EV_STATUS = "server.status";
+	const static string EV_BOOT = "server.boot";
+
+	const static string GROUP_DEATH = "death";
+	const static string GROUP_ADMIN = "admin";
+
+LINHA: 73
+	const static string EV_LOGOUT_CANCEL = "logout.cancel";
+	const static string EV_STATUS = "server.status";
+	const static string EV_BOOT = "server.boot";
+
+	const static string GROUP_DEATH = "death";
+	const static string GROUP_ADMIN = "admin";
+	const static string GROUP_HIT = "hit";
+
+LINHA: 111
+
+		s_Defs = new array<ref VPPWebhookEventDef>();
+		VPPWebhookEventDef def = NewDef(EV_ADMIN, GROUP_ADMIN);
+		def.AddVar("admin.name", "SurvivorAdmin");
+		def.AddVar("admin.id", "76561198000000000");
+		def.AddVar("action", "[ItemManager] Spawned Item: M4A1 on self");
+		def.AddVar("action.text", "Spawned Item: M4A1 on self");
+
+LINHA: 118
+		def.AddVar("module", "ItemManager");
+
+		def = NewDef(EV_KILL, GROUP_DEATH);
+		def.AddVar("victim.name", "Survivor");
+		def.AddVar("victim.id", "76561198000000001");
+		def.AddVar("victim.pos", "7500.1, 290.5, 7700.2");
+		def.AddVar("killer.name", "Bandit");
+
+LINHA: 130
+		def.AddVar("details", "Survivor (7500, 7700) killed by: Bandit (7560, 7712) with [M4-A1] from [61.4] meters");
+
+		def = NewDef(EV_HIT, GROUP_HIT);
+		def.AddVar("victim.name", "Survivor");
+		def.AddVar("victim.id", "76561198000000001");
+		def.AddVar("victim.pos", "7500.1, 290.5, 7700.2");
+		def.AddVar("source.name", "Bandit");
+
+LINHA: 144
+		def.AddVar("details", "Survivor (7500, 7700) hit by Bandit (7560, 7712) into Torso(72.5 HP left) with (M4-A1) from (61.4) meters");
+
+		AddPlayerEvent(EV_JOIN, "joined the server!");
+		AddPlayerEvent(EV_LEAVE, "left the server!");
+		AddPlayerEvent(EV_LEAVE_EARLY, "disconnected early from server (EXIT NOW).");
+		AddPlayerEvent(EV_LOGOUT_START, "initiated disconnect process..");
+		AddPlayerEvent(EV_LOGOUT_CANCEL, "canceled logout");
+
+LINHA: 145
+
+		AddPlayerEvent(EV_JOIN, "joined the server!");
+		AddPlayerEvent(EV_LEAVE, "left the server!");
+		AddPlayerEvent(EV_LEAVE_EARLY, "disconnected early from server (EXIT NOW).");
+		AddPlayerEvent(EV_LOGOUT_START, "initiated disconnect process..");
+		AddPlayerEvent(EV_LOGOUT_CANCEL, "canceled logout");
+
+
+LINHA: 146
+		AddPlayerEvent(EV_JOIN, "joined the server!");
+		AddPlayerEvent(EV_LEAVE, "left the server!");
+		AddPlayerEvent(EV_LEAVE_EARLY, "disconnected early from server (EXIT NOW).");
+		AddPlayerEvent(EV_LOGOUT_START, "initiated disconnect process..");
+		AddPlayerEvent(EV_LOGOUT_CANCEL, "canceled logout");
+
+		def = NewDef(EV_STATUS, GROUP_STATUS);
+
+LINHA: 147
+		AddPlayerEvent(EV_LEAVE, "left the server!");
+		AddPlayerEvent(EV_LEAVE_EARLY, "disconnected early from server (EXIT NOW).");
+		AddPlayerEvent(EV_LOGOUT_START, "initiated disconnect process..");
+		AddPlayerEvent(EV_LOGOUT_CANCEL, "canceled logout");
+
+		def = NewDef(EV_STATUS, GROUP_STATUS);
+		def.AddVar("server.fps", "58");
+
+LINHA: 148
+		AddPlayerEvent(EV_LEAVE_EARLY, "disconnected early from server (EXIT NOW).");
+		AddPlayerEvent(EV_LOGOUT_START, "initiated disconnect process..");
+		AddPlayerEvent(EV_LOGOUT_CANCEL, "canceled logout");
+
+		def = NewDef(EV_STATUS, GROUP_STATUS);
+		def.AddVar("server.fps", "58");
+		def.AddVar("uptime", "0d 5h 12m 40s");
+
+LINHA: 150
+		AddPlayerEvent(EV_LOGOUT_CANCEL, "canceled logout");
+
+		def = NewDef(EV_STATUS, GROUP_STATUS);
+		def.AddVar("server.fps", "58");
+		def.AddVar("uptime", "0d 5h 12m 40s");
+		def.AddVar("uptime.seconds", "18760");
+
+
+LINHA: 155
+		def.AddVar("uptime.seconds", "18760");
+
+		NewDef(EV_BOOT, GROUP_STATUS);
+
+		foreach (VPPWebhookEventDef common : s_Defs)
+		{
+			AddCommonVars(common);
+==============================================================================
+SOURCE: C:\Users\Nasdara\AppData\Local\RavenControlCenter\VPP_Inspection\Extracted_WebHooks_20261121_010109\3_Game\VPPAdminTools\WebHooks\VPPWebhookPresets.c
+==============================================================================
+
+LINHA: 299
+		piece.Line = "**Admin Activity:** [{{admin.name}}](<{{admin.id|steamurl}}>) Details: **{{action}}**";
+		piece.PlainLine = "Admin activity: {{admin.name}} ({{admin.id}}): {{action}}";
+		s_Pieces.Set(VPPWebhookDefs.EV_ADMIN, piece);
+
+		piece = new VPPWebhookPiece("Kill / Death Report:", 16711680);
+		piece.AddField("Victim:", victimValue, true, "");
+		string killerValue = "{{#ifeq cause suicide}}Suicide{{else}}{{#if killer.id}}{{killer.name}}\\n[{{killer.id}}]\\n[Steam Profile]({{killer.id|steamurl}}){{else}}{{killer.name}}{{/if}}{{/ifeq}}";
+
+LINHA: 313
+		killPlain = killPlain + "{{#ifeq cause infected}}, killed by infected{{/ifeq}}{{#if weapon}} with {{weapon}}{{/if}}{{#if distance}} from {{distance}} m{{/if}}.";
+		piece.PlainLine = killPlain;
+		s_Pieces.Set(VPPWebhookDefs.EV_KILL, piece);
+
+		piece = new VPPWebhookPiece("Hit Report:", 16711680);
+		piece.AddField("Victim:", victimValue, true, "");
+		string sourceValue = "{{#ifeq source.kind object}}{{source.name|default:Unknown}}{{else}}{{#ifeq source.kind self}}Self Harm{{else}}";
+
+LINHA: 327
+		piece.Line = hitLine;
+		piece.PlainLine = "{{victim.name}} was hit by {{source.name}}{{#if weapon}} with {{weapon}}{{/if}}{{#if zone}} in the {{zone}}{{/if}}.";
+		s_Pieces.Set(VPPWebhookDefs.EV_HIT, piece);
+
+		array<string> playerEvents = new array<string>();
+		playerEvents.Insert(VPPWebhookDefs.EV_JOIN);
+		playerEvents.Insert(VPPWebhookDefs.EV_LEAVE);
+
+LINHA: 330
+
+		array<string> playerEvents = new array<string>();
+		playerEvents.Insert(VPPWebhookDefs.EV_JOIN);
+		playerEvents.Insert(VPPWebhookDefs.EV_LEAVE);
+		playerEvents.Insert(VPPWebhookDefs.EV_LEAVE_EARLY);
+		playerEvents.Insert(VPPWebhookDefs.EV_LOGOUT_START);
+		playerEvents.Insert(VPPWebhookDefs.EV_LOGOUT_CANCEL);
+
+LINHA: 331
+		array<string> playerEvents = new array<string>();
+		playerEvents.Insert(VPPWebhookDefs.EV_JOIN);
+		playerEvents.Insert(VPPWebhookDefs.EV_LEAVE);
+		playerEvents.Insert(VPPWebhookDefs.EV_LEAVE_EARLY);
+		playerEvents.Insert(VPPWebhookDefs.EV_LOGOUT_START);
+		playerEvents.Insert(VPPWebhookDefs.EV_LOGOUT_CANCEL);
+		foreach (string playerEvent : playerEvents)
+
+LINHA: 332
+		playerEvents.Insert(VPPWebhookDefs.EV_JOIN);
+		playerEvents.Insert(VPPWebhookDefs.EV_LEAVE);
+		playerEvents.Insert(VPPWebhookDefs.EV_LEAVE_EARLY);
+		playerEvents.Insert(VPPWebhookDefs.EV_LOGOUT_START);
+		playerEvents.Insert(VPPWebhookDefs.EV_LOGOUT_CANCEL);
+		foreach (string playerEvent : playerEvents)
+		{
+
+LINHA: 333
+		playerEvents.Insert(VPPWebhookDefs.EV_LEAVE);
+		playerEvents.Insert(VPPWebhookDefs.EV_LEAVE_EARLY);
+		playerEvents.Insert(VPPWebhookDefs.EV_LOGOUT_START);
+		playerEvents.Insert(VPPWebhookDefs.EV_LOGOUT_CANCEL);
+		foreach (string playerEvent : playerEvents)
+		{
+			piece = new VPPWebhookPiece("Player: {{player.name}} {{action}}", 255);
+
+LINHA: 334
+		playerEvents.Insert(VPPWebhookDefs.EV_LEAVE_EARLY);
+		playerEvents.Insert(VPPWebhookDefs.EV_LOGOUT_START);
+		playerEvents.Insert(VPPWebhookDefs.EV_LOGOUT_CANCEL);
+		foreach (string playerEvent : playerEvents)
+		{
+			piece = new VPPWebhookPiece("Player: {{player.name}} {{action}}", 255);
+			piece.AddField("Steam64ID:", "{{player.id}}\\n[Steam Profile]({{player.id|steamurl}})", true, "");
+
+LINHA: 350
+		piece.Line = "**Server Status:** [{{server.name}}]" + serverLink + " Up-Time: **{{uptime}}** Server FPS: **{{server.fps}}** Players: **{{players}}**";
+		piece.PlainLine = "{{server.name}}: up {{uptime}}, {{server.fps}} FPS, {{players}} players";
+		s_Pieces.Set(VPPWebhookDefs.EV_STATUS, piece);
+
+		piece = new VPPWebhookPiece("**SERVER BOOT-UP REPORT**", 65280);
+		piece.AddField("Server Online!", "Server [**{{server.name}}**]" + serverLink + " has **booted-up** successfully!", true, "");
+		piece.Line = "Server [**{{server.name}}**]" + serverLink + " successfully started, player connect enabled.";
+
+LINHA: 356
+		piece.Line = "Server [**{{server.name}}**]" + serverLink + " successfully started, player connect enabled.";
+		piece.PlainLine = "{{server.name}} started, players can connect.";
+		s_Pieces.Set(VPPWebhookDefs.EV_BOOT, piece);
+	}
+};
+==============================================================================
+SOURCE: C:\Users\Nasdara\AppData\Local\RavenControlCenter\VPP_Inspection\Extracted_WebHooks_20261121_010109\4_World\VPPAdminTools\Plugins\PluginBase\SteamAPIManager\SteamAPIManager.c
+==============================================================================
+
+LINHA: 17
+	void SteamAPIManager()
+	{
+		JSONPATH = "$profile:VPPAdminTools/ConfigurablePlugins/SteamAPI.json";
+	}
+
+	override void OnInit()
+	{
+
+LINHA: 22
+	override void OnInit()
+	{
+		if (!FileExist(JSONPATH))
+		{
+			GetSimpleLogger().Log("[SteamAPIManager] configuration file missing...creating default.");
+			Save();
+			return;
+
+LINHA: 30
+
+		//load settings
+		JsonFileLoader<SteamAPIManager>.JsonLoadFile(JSONPATH, this);
+		g_Game.VSetServerIP(SERVER_IP);
+
+		//Query port
+		if (!QUERY_PORT || QUERY_PORT == string.Empty)
+
+LINHA: 79
+	}
+
+	override void Save()
+	{
+		JsonFileLoader<SteamAPIManager>.JsonSaveFile(JSONPATH, this);
+	}
+
+
+LINHA: 81
+	override void Save()
+	{
+		JsonFileLoader<SteamAPIManager>.JsonSaveFile(JSONPATH, this);
+	}
+
+	/*
+	* Called by the timer setup with the interval of your choice, and or manually if you wish.
+
+LINHA: 108
+	{
+		VPPATSteamAPIResponse dta;
+		JsonFileLoader<ref VPPATSteamAPIResponse>.JsonLoadFile(string.Format("$profile:GameServer_%1.json", g_Game.VGetServerIP()), dta);
+		if (dta == NULL)
+			return;
+
+		array<ref VPPATSteamGameServer> servers = dta.response.servers;
+==============================================================================
+SOURCE: C:\Users\Nasdara\AppData\Local\RavenControlCenter\VPP_Inspection\Extracted_WebHooks_20261121_010109\4_World\VPPAdminTools\Plugins\PluginBase\WebHooksManager\WebHooksManager.c
+==============================================================================
+
+LINHA: 18
+	const static string TEMPLATE_EXT = ".tpl";
+
+	private ref array<ref WebHook> 		 M_DATA;
+
+	[NonSerialized()]
+	protected ref map<string, ref VPPWebhookSender> m_Senders;
+	// senders of deleted / replaced webhooks: kept until the engine answered their requests
+
+LINHA: 31
+	protected bool m_Ticking;
+	[NonSerialized()]
+	protected int m_IdSerial;
+	// a preset template hash changed (WebHooks.json needs saving)
+	[NonSerialized()]
+	protected bool m_TemplatesDirty;
+
+
+LINHA: 38
+	void WebHooksManager()
+	{
+		M_DATA = new array<ref WebHook>;
+		m_Senders = new map<string, ref VPPWebhookSender>();
+		m_Retired = new array<ref VPPWebhookSender>();
+		m_StatusDue = new map<string, int>();
+
+
+LINHA: 46
+			MakeDirectory(ROOT_DIR);
+
+		JSONPATH = ROOT_DIR + "/WebHooks.json";
+
+		GetRPCManager().AddRPC("RPC_WebHooksManager", "GetWebHooks", this, SingleplayerExecutionType.Server);
+		GetRPCManager().AddRPC("RPC_WebHooksManager", "DeleteWebHooks", this, SingleplayerExecutionType.Server);
+		GetRPCManager().AddRPC("RPC_WebHooksManager", "CreateWebHooks", this, SingleplayerExecutionType.Server);
+
+LINHA: 81
+
+		bool migrated = false;
+		foreach (WebHook hook : M_DATA)
+		{
+			if (hook && hook.Migrate(NextSerial()))
+			{
+				migrated = true;
+
+LINHA: 96
+
+		WriteReadme();
+		foreach (WebHook loaded : M_DATA)
+		{
+			if (loaded)
+			{
+				StartSender(loaded);
+
+LINHA: 115
+	override void Load()
+	{
+		if (FileExist( JSONPATH ))
+		{
+			JsonFileLoader<WebHooksManager>.JsonLoadFile(JSONPATH, this);
+			Print("[WebHooksManager] Loading Saved Webhooks configuration");
+		}
+
+LINHA: 117
+		if (FileExist( JSONPATH ))
+		{
+			JsonFileLoader<WebHooksManager>.JsonLoadFile(JSONPATH, this);
+			Print("[WebHooksManager] Loading Saved Webhooks configuration");
+		}
+
+		if (!M_DATA)
+
+LINHA: 121
+		}
+
+		if (!M_DATA)
+		{
+			M_DATA = new array<ref WebHook>;
+		}
+	}
+
+LINHA: 123
+		if (!M_DATA)
+		{
+			M_DATA = new array<ref WebHook>;
+		}
+	}
+
+	override void Save()
+
+LINHA: 127
+	}
+
+	override void Save()
+	{
+		JsonFileLoader<WebHooksManager>.JsonSaveFile(JSONPATH, this);
+	}
+
+
+LINHA: 129
+	override void Save()
+	{
+		JsonFileLoader<WebHooksManager>.JsonSaveFile(JSONPATH, this);
+	}
+
+	protected int NextSerial()
+	{
+
+LINHA: 134
+	protected int NextSerial()
+	{
+		m_IdSerial++;
+		return m_IdSerial;
+	}
+
+	// ---------------------------------------------------------------- events
+
+LINHA: 135
+	{
+		m_IdSerial++;
+		return m_IdSerial;
+	}
+
+	// ---------------------------------------------------------------- events
+
+
+LINHA: 159
+	void PostServerBootup()
+	{
+		VPPWebhookEvent bootEvent = new VPPWebhookEvent(VPPWebhookDefs.EV_BOOT);
+		Emit(bootEvent);
+	}
+
+	// Sends an event to every webhook that has it enabled and whose filters let it through.
+
+LINHA: 166
+	void Emit(VPPWebhookEvent webhookEvent)
+	{
+		if (!webhookEvent || !CanSend() || !M_DATA || M_DATA.Count() == 0)
+		{
+			return;
+		}
+
+
+LINHA: 172
+
+		FillCommonVars(webhookEvent);
+		foreach (WebHook hook : M_DATA)
+		{
+			if (!hook || !hook.IsEventEnabled(webhookEvent.Id))
+			{
+				continue;
+
+LINHA: 192
+	protected bool SendTo(WebHook hook, VPPWebhookEvent webhookEvent, string testBy, int testReqId)
+	{
+		VPPWebhookSender sender = m_Senders.Get(hook.m_Id);
+		if (!sender)
+		{
+			return false;
+		}
+
+LINHA: 256
+
+		string eventId = webhookEvent.Id;
+		if (eventId == VPPWebhookDefs.EV_KILL || eventId == VPPWebhookDefs.EV_HIT)
+		{
+			string kind = webhookEvent.Get("cause");
+			if (eventId == VPPWebhookDefs.EV_HIT)
+			{
+
+LINHA: 259
+		{
+			string kind = webhookEvent.Get("cause");
+			if (eventId == VPPWebhookDefs.EV_HIT)
+			{
+				kind = webhookEvent.Get("source.kind");
+			}
+
+
+LINHA: 287
+		}
+
+		if (eventId == VPPWebhookDefs.EV_ADMIN)
+		{
+			string moduleName = webhookEvent.Get("module");
+			moduleName.ToLower();
+			if (cfg.ExcludedModules && cfg.ExcludedModules.Find(moduleName) >= 0)
+
+LINHA: 310
+	{
+		VPPWebhookSender sender = new VPPWebhookSender(hook);
+		m_Senders.Set(hook.m_Id, sender);
+		LoadTemplates(hook, sender, true);
+		int due = GetGame().GetTime() + hook.GetServerStatsInterval() * 1000;
+		m_StatusDue.Set(hook.m_Id, due);
+	}
+
+LINHA: 312
+		m_Senders.Set(hook.m_Id, sender);
+		LoadTemplates(hook, sender, true);
+		int due = GetGame().GetTime() + hook.GetServerStatsInterval() * 1000;
+		m_StatusDue.Set(hook.m_Id, due);
+	}
+
+	// The old sender keeps living until its requests are answered (the engine holds its callbacks).
+
+LINHA: 313
+		LoadTemplates(hook, sender, true);
+		int due = GetGame().GetTime() + hook.GetServerStatsInterval() * 1000;
+		m_StatusDue.Set(hook.m_Id, due);
+	}
+
+	// The old sender keeps living until its requests are answered (the engine holds its callbacks).
+	protected void RetireSender(string hookId)
+
+LINHA: 331
+	string TemplatePath(WebHook hook, string eventId)
+	{
+		return TEMPLATE_DIR + "/" + hook.m_Id + "/" + eventId + TEMPLATE_EXT;
+	}
+
+	// Reads every event template of the webhook (missing files are written from the preset first) and compiles it.
+	// Returns how many templates have errors (they are logged; such an event sends nothing until fixed).
+
+LINHA: 340
+		EnsureHookDir(hook);
+		int broken = 0;
+		array<ref VPPWebhookEventDef> eventDefs = VPPWebhookDefs.All();
+		foreach (VPPWebhookEventDef def : eventDefs)
+		{
+			string path = TemplatePath(hook, def.Id);
+			RefreshPresetTemplate(hook, def.Id, false);
+
+LINHA: 380
+		}
+
+		string hookDir = TEMPLATE_DIR + "/" + hook.m_Id;
+		if (!FileExist(hookDir))
+		{
+			MakeDirectory(hookDir);
+		}
+
+LINHA: 391
+	{
+		EnsureHookDir(hook);
+		array<ref VPPWebhookEventDef> eventDefs = VPPWebhookDefs.All();
+		foreach (VPPWebhookEventDef def : eventDefs)
+		{
+			RefreshPresetTemplate(hook, def.Id, true);
+		}
+
+LINHA: 409
+		int currentHash = 0;
+		int writtenHash = 0;
+		bool known = hook.m_PresetHashes.Contains(eventId);
+		if (known)
+		{
+			writtenHash = hook.m_PresetHashes.Get(eventId);
+		}
+
+LINHA: 412
+		if (known)
+		{
+			writtenHash = hook.m_PresetHashes.Get(eventId);
+		}
+
+		if (!force && FileExist(path))
+		{
+
+LINHA: 423
+				if (!known || writtenHash != presetHash)
+				{
+					hook.m_PresetHashes.Set(eventId, presetHash);
+					m_TemplatesDirty = true;
+				}
+
+				return;
+
+LINHA: 440
+
+		VPPXmlText.WriteAll(path, presetText);
+		hook.m_PresetHashes.Set(eventId, presetHash);
+		m_TemplatesDirty = true;
+	}
+
+	protected void SaveIfTemplatesChanged()
+
+LINHA: 477
+		text = text + "  {{hook.<name>}}                        a custom variable of the webhook (username, avatar, chat_id, ...)" + nl + nl;
+		text = text + "Webhooks:" + nl;
+		foreach (WebHook hook : M_DATA)
+		{
+			if (hook)
+			{
+				string hookName = hook.GetName();
+
+LINHA: 482
+			{
+				string hookName = hook.GetName();
+				text = text + "  " + hook.m_Id + "  " + hookName + "  (" + hook.m_Preset + ")" + nl;
+			}
+		}
+
+		text = text + nl + "Events and their variables:" + nl;
+
+LINHA: 487
+
+		text = text + nl + "Events and their variables:" + nl;
+		array<ref VPPWebhookEventDef> eventDefs = VPPWebhookDefs.All();
+		foreach (VPPWebhookEventDef def : eventDefs)
+		{
+			text = text + nl + "  " + def.Id + nl;
+			foreach (VPPWebhookVar webhookVar : def.Vars)
+
+LINHA: 506
+	{
+		int now = GetGame().GetTime();
+		foreach (WebHook hook : M_DATA)
+		{
+			if (!hook)
+			{
+				continue;
+
+LINHA: 513
+			}
+
+			VPPWebhookSender sender = m_Senders.Get(hook.m_Id);
+			if (!sender)
+			{
+				continue;
+			}
+
+LINHA: 519
+			}
+
+			if (hook.IsEventEnabled(VPPWebhookDefs.EV_STATUS) && m_StatusDue.Contains(hook.m_Id) && now >= m_StatusDue.Get(hook.m_Id))
+			{
+				int nextDue = now + hook.GetServerStatsInterval() * 1000;
+				m_StatusDue.Set(hook.m_Id, nextDue);
+				PostStatusTo(hook);
+
+LINHA: 521
+			if (hook.IsEventEnabled(VPPWebhookDefs.EV_STATUS) && m_StatusDue.Contains(hook.m_Id) && now >= m_StatusDue.Get(hook.m_Id))
+			{
+				int nextDue = now + hook.GetServerStatsInterval() * 1000;
+				m_StatusDue.Set(hook.m_Id, nextDue);
+				PostStatusTo(hook);
+			}
+
+
+LINHA: 522
+			{
+				int nextDue = now + hook.GetServerStatsInterval() * 1000;
+				m_StatusDue.Set(hook.m_Id, nextDue);
+				PostStatusTo(hook);
+			}
+
+			sender.Pump();
+
+LINHA: 565
+		bool showUrl = CanViewUrls(plainId);
+		array<ref WebHook> copies = new array<ref WebHook>();
+		foreach (WebHook hook : M_DATA)
+		{
+			if (hook)
+			{
+				WebHook copy = hook.CopyForClient(showUrl);
+
+LINHA: 639
+				return;
+
+			if (data.param1 >= 0 && data.param1 < M_DATA.Count() && M_DATA.Get(data.param1).GetName() == data.param2)
+			{
+				WebHook removed = M_DATA.Get(data.param1);
+				string removedName = removed.GetName();
+				GetWebHooksManager().PostData(AdminActivityMessage, new AdminActivityMessage(sender.GetPlainId(), sender.GetName(), "[WebHooksManager] Deleted WebHook: " + removedName));
+
+LINHA: 641
+			if (data.param1 >= 0 && data.param1 < M_DATA.Count() && M_DATA.Get(data.param1).GetName() == data.param2)
+			{
+				WebHook removed = M_DATA.Get(data.param1);
+				string removedName = removed.GetName();
+				GetWebHooksManager().PostData(AdminActivityMessage, new AdminActivityMessage(sender.GetPlainId(), sender.GetName(), "[WebHooksManager] Deleted WebHook: " + removedName));
+				RetireSender(removed.m_Id);
+				M_DATA.RemoveOrdered(data.param1);
+
+LINHA: 644
+				string removedName = removed.GetName();
+				GetWebHooksManager().PostData(AdminActivityMessage, new AdminActivityMessage(sender.GetPlainId(), sender.GetName(), "[WebHooksManager] Deleted WebHook: " + removedName));
+				RetireSender(removed.m_Id);
+				M_DATA.RemoveOrdered(data.param1);
+				Save();
+				WriteReadme();
+				GetPermissionManager().NotifyPlayer(sender.GetPlainId(),"WebHook: "+data.param2 + " was successfully deleted!", NotifyTypes.NOTIFY);
+
+LINHA: 645
+				GetWebHooksManager().PostData(AdminActivityMessage, new AdminActivityMessage(sender.GetPlainId(), sender.GetName(), "[WebHooksManager] Deleted WebHook: " + removedName));
+				RetireSender(removed.m_Id);
+				M_DATA.RemoveOrdered(data.param1);
+				Save();
+				WriteReadme();
+				GetPermissionManager().NotifyPlayer(sender.GetPlainId(),"WebHook: "+data.param2 + " was successfully deleted!", NotifyTypes.NOTIFY);
+				SendList(sender);
+
+LINHA: 679
+
+			// a fresh webhook: the preset follows the menu's "simplified" switch, the events its category switches
+			webHook.m_Id = "";
+			webHook.m_Version = 0;
+			webHook.m_Preset = "";
+			webHook.m_ContentType = "";
+			webHook.Migrate(NextSerial());
+
+LINHA: 680
+			// a fresh webhook: the preset follows the menu's "simplified" switch, the events its category switches
+			webHook.m_Id = "";
+			webHook.m_Version = 0;
+			webHook.m_Preset = "";
+			webHook.m_ContentType = "";
+			webHook.Migrate(NextSerial());
+			M_DATA.Insert(webHook);
+
+LINHA: 684
+			webHook.m_ContentType = "";
+			webHook.Migrate(NextSerial());
+			M_DATA.Insert(webHook);
+			WritePresetTemplates(webHook);
+			StartSender(webHook);
+
+			string createdName = webHook.GetName();
+
+LINHA: 711
+				return;
+
+			if (data.param1 < 0 || data.param1 >= M_DATA.Count() || !data.param3)
+				return;
+
+			WebHook stored = M_DATA.Get(data.param1);
+			if (!stored)
+
+LINHA: 714
+				return;
+
+			WebHook stored = M_DATA.Get(data.param1);
+			if (!stored)
+				return;
+
+			WebHook edited = data.param3;
+
+LINHA: 738
+			stored.m_joinLeaveLog = edited.m_joinLeaveLog;
+			stored.m_serverStatusLog = edited.m_serverStatusLog;
+			VPPWebHookServerStatsTime editedInterval = edited.GetServerStatsInterval();
+			stored.SetServerStatsInterval(editedInterval);
+			stored.SyncEventsFromSwitches();
+			bool presetChanged = false;
+			if (stored.m_simplifiedMessages != edited.m_simplifiedMessages && VPPWebhookPresets.IsDiscord(stored.m_Preset))
+
+LINHA: 739
+			stored.m_serverStatusLog = edited.m_serverStatusLog;
+			VPPWebHookServerStatsTime editedInterval = edited.GetServerStatsInterval();
+			stored.SetServerStatsInterval(editedInterval);
+			stored.SyncEventsFromSwitches();
+			bool presetChanged = false;
+			if (stored.m_simplifiedMessages != edited.m_simplifiedMessages && VPPWebhookPresets.IsDiscord(stored.m_Preset))
+			{
+
+LINHA: 740
+			VPPWebHookServerStatsTime editedInterval = edited.GetServerStatsInterval();
+			stored.SetServerStatsInterval(editedInterval);
+			stored.SyncEventsFromSwitches();
+			bool presetChanged = false;
+			if (stored.m_simplifiedMessages != edited.m_simplifiedMessages && VPPWebhookPresets.IsDiscord(stored.m_Preset))
+			{
+				stored.m_Preset = VPPWebhookPresets.DISCORD_EMBED;
+
+LINHA: 756
+				WritePresetTemplates(stored);
+
+			RetireSender(stored.m_Id);
+			StartSender(stored);
+			Save();
+			WriteReadme();
+			GetPermissionManager().NotifyPlayer(sender.GetPlainId(),"WebHook: " + editedName + " was successfully edited & saved!", NotifyTypes.NOTIFY);
+
+LINHA: 781
+		string lowerName = name;
+		lowerName.ToLower();
+		foreach (WebHook hook : M_DATA)
+		{
+			if (!hook || hook.m_Id == exceptId)
+			{
+				continue;
+
+LINHA: 783
+		foreach (WebHook hook : M_DATA)
+		{
+			if (!hook || hook.m_Id == exceptId)
+			{
+				continue;
+			}
+
+
+LINHA: 799
+	}
+
+	// Creates (empty or unknown m_Id) or updates a webhook with everything the menu edits. A changed preset rewrites
+	// the webhook's templates from the new preset; the legacy switches are kept in step for older tools.
+	void SaveWebhook(CallType type, ParamsReadContext ctx, PlayerIdentity sender, Object target)
+	{
+		if (type != CallType.Server || !sender)
+
+LINHA: 822
+		}
+
+		WebHook stored = FindHook(incoming.m_Id);
+		bool creating = false;
+		if (!stored)
+		{
+			creating = true;
+
+LINHA: 844
+		if (newName.Length() < 3)
+		{
+			ReplySaved(sender, reqId, false, incoming.m_Id, "NAME_SHORT");
+			return;
+		}
+
+		string exceptId = "";
+
+LINHA: 851
+		if (stored)
+		{
+			exceptId = stored.m_Id;
+		}
+
+		if (NameInUse(newName, exceptId))
+		{
+
+LINHA: 856
+		if (NameInUse(newName, exceptId))
+		{
+			ReplySaved(sender, reqId, false, incoming.m_Id, "NAME_IN_USE");
+			return;
+		}
+
+		string newUrl = incoming.GetURL();
+
+LINHA: 880
+			stored.m_Preset = newPreset;
+			stored.Migrate(NextSerial());
+			M_DATA.Insert(stored);
+		}
+
+		bool presetChanged = stored.m_Preset != newPreset;
+		stored.SetName(newName);
+
+LINHA: 915
+		stored.m_HideServerAddress = incoming.m_HideServerAddress;
+		VPPWebHookServerStatsTime interval = ValidInterval(incoming.m_serverStatsInterval);
+		stored.SetServerStatsInterval(interval);
+		CopyVars(incoming, stored);
+		CopyEvents(incoming, stored);
+		stored.SyncSwitchesFromEvents();
+		if (creating || presetChanged)
+
+LINHA: 918
+		CopyVars(incoming, stored);
+		CopyEvents(incoming, stored);
+		stored.SyncSwitchesFromEvents();
+		if (creating || presetChanged)
+		{
+			WritePresetTemplates(stored);
+		}
+
+LINHA: 924
+		}
+
+		RetireSender(stored.m_Id);
+		StartSender(stored);
+		Save();
+		SaveIfTemplatesChanged();
+		WriteReadme();
+
+LINHA: 937
+		string logText = "[WebHooksManager] " + verb + " WebHook: " + newName;
+		GetWebHooksManager().PostData(AdminActivityMessage, new AdminActivityMessage(plainId, sender.GetName(), logText));
+		ReplySaved(sender, reqId, true, stored.m_Id, "");
+		SendList(sender);
+	}
+
+	protected VPPWebHookServerStatsTime ValidInterval(VPPWebHookServerStatsTime interval)
+
+LINHA: 993
+	protected void CopyEvents(WebHook source, WebHook target)
+	{
+		array<ref VPPWebhookEventDef> eventDefs = VPPWebhookDefs.All();
+		foreach (VPPWebhookEventDef def : eventDefs)
+		{
+			VPPWebhookEventCfg sourceCfg = null;
+			if (source.m_Events)
+
+LINHA: 997
+		{
+			VPPWebhookEventCfg sourceCfg = null;
+			if (source.m_Events)
+			{
+				sourceCfg = source.m_Events.Get(def.Id);
+			}
+
+
+LINHA: 999
+			if (source.m_Events)
+			{
+				sourceCfg = source.m_Events.Get(def.Id);
+			}
+
+			VPPWebhookEventCfg cfg = target.m_Events.Get(def.Id);
+			if (!cfg)
+
+LINHA: 1002
+			}
+
+			VPPWebhookEventCfg cfg = target.m_Events.Get(def.Id);
+			if (!cfg)
+			{
+				cfg = new VPPWebhookEventCfg();
+				target.m_Events.Set(def.Id, cfg);
+
+LINHA: 1006
+			{
+				cfg = new VPPWebhookEventCfg();
+				target.m_Events.Set(def.Id, cfg);
+			}
+
+			if (!sourceCfg)
+			{
+
+LINHA: 1064
+
+		int index = -1;
+		for (int i = 0; i < M_DATA.Count(); i++)
+		{
+			if (M_DATA[i] && M_DATA[i].m_Id == data.param1)
+			{
+				index = i;
+
+LINHA: 1066
+		for (int i = 0; i < M_DATA.Count(); i++)
+		{
+			if (M_DATA[i] && M_DATA[i].m_Id == data.param1)
+			{
+				index = i;
+				break;
+			}
+
+LINHA: 1079
+		}
+
+		WebHook removed = M_DATA[index];
+		string removedName = removed.GetName();
+		RetireSender(removed.m_Id);
+		M_DATA.RemoveOrdered(index);
+		Save();
+
+LINHA: 1081
+		WebHook removed = M_DATA[index];
+		string removedName = removed.GetName();
+		RetireSender(removed.m_Id);
+		M_DATA.RemoveOrdered(index);
+		Save();
+		WriteReadme();
+		string logText = "[WebHooksManager] Deleted WebHook: " + removedName;
+
+LINHA: 1082
+		string removedName = removed.GetName();
+		RetireSender(removed.m_Id);
+		M_DATA.RemoveOrdered(index);
+		Save();
+		WriteReadme();
+		string logText = "[WebHooksManager] Deleted WebHook: " + removedName;
+		GetWebHooksManager().PostData(AdminActivityMessage, new AdminActivityMessage(plainId, sender.GetName(), logText));
+
+LINHA: 1118
+
+		WebHook copy = source.CopyForClient(true);
+		copy.m_Id = WebHook.NewId(NextSerial());
+		string baseName = source.GetName() + " (copy)";
+		string copyName = baseName;
+		int attempt = 2;
+		while (NameInUse(copyName, ""))
+
+LINHA: 1129
+
+		copy.SetName(copyName);
+		copy.m_PresetHashes.Copy(source.m_PresetHashes);
+		EnsureHookDir(copy);
+		array<ref VPPWebhookEventDef> eventDefs = VPPWebhookDefs.All();
+		foreach (VPPWebhookEventDef def : eventDefs)
+		{
+
+LINHA: 1131
+		copy.m_PresetHashes.Copy(source.m_PresetHashes);
+		EnsureHookDir(copy);
+		array<ref VPPWebhookEventDef> eventDefs = VPPWebhookDefs.All();
+		foreach (VPPWebhookEventDef def : eventDefs)
+		{
+			string fromPath = TemplatePath(source, def.Id);
+			string toPath = TemplatePath(copy, def.Id);
+
+LINHA: 1149
+		}
+
+		M_DATA.Insert(copy);
+		StartSender(copy);
+		Save();
+		SaveIfTemplatesChanged();
+		WriteReadme();
+
+LINHA: 1156
+		string logText = "[WebHooksManager] Duplicated WebHook: " + copyName;
+		GetWebHooksManager().PostData(AdminActivityMessage, new AdminActivityMessage(plainId, sender.GetName(), logText));
+		ReplySaved(sender, data.param1, true, copy.m_Id, "");
+		SendList(sender);
+	}
+
+	// Puts one event template back to the webhook's preset and answers like GetTemplate.
+
+LINHA: 1192
+		string path = TemplatePath(hook, def.Id);
+		VPPXmlText.ReadAll(path, text);
+		VPPWebhookSender hookSender = m_Senders.Get(hook.m_Id);
+		if (hookSender)
+		{
+			VPPWebhookTemplate tpl = new VPPWebhookTemplate();
+			tpl.Parse(text, def);
+
+LINHA: 1203
+		VPPWebhookTemplateReply reply = new VPPWebhookTemplateReply();
+		reply.ReqId = data.param1;
+		reply.HookId = hook.m_Id;
+		reply.EventId = def.Id;
+		reply.Text = text;
+		GetRPCManager().VSendRPC("RPC_MenuWebHooks", "OnTemplate", new Param1<ref VPPWebhookTemplateReply>(reply), true, sender);
+	}
+
+LINHA: 1222
+
+		array<ref VPPWebhookStatsWire> rows = new array<ref VPPWebhookStatsWire>();
+		foreach (WebHook hook : M_DATA)
+		{
+			if (!hook)
+			{
+				continue;
+
+LINHA: 1229
+			}
+
+			VPPWebhookSender hookSender = m_Senders.Get(hook.m_Id);
+			if (!hookSender)
+			{
+				continue;
+			}
+
+LINHA: 1236
+
+			VPPWebhookStatsWire row = new VPPWebhookStatsWire();
+			row.HookId = hook.m_Id;
+			row.Queued = hookSender.Stats.Queued;
+			row.Delivered = hookSender.Stats.Delivered;
+			row.NoReply = hookSender.Stats.NoReply;
+			row.Failed = hookSender.Stats.Failed;
+
+LINHA: 1257
+	protected WebHook FindHook(string hookId)
+	{
+		foreach (WebHook hook : M_DATA)
+		{
+			if (hook && hook.m_Id == hookId)
+			{
+				return hook;
+
+LINHA: 1259
+		foreach (WebHook hook : M_DATA)
+		{
+			if (hook && hook.m_Id == hookId)
+			{
+				return hook;
+			}
+		}
+
+LINHA: 1348
+			string path = TemplatePath(hook, def.Id);
+			VPPXmlText.WriteAll(path, data.param4);
+			VPPWebhookSender hookSender = m_Senders.Get(hook.m_Id);
+			if (hookSender)
+			{
+				VPPWebhookTemplate tpl = new VPPWebhookTemplate();
+				tpl.Parse(data.param4, def);
+
+LINHA: 1367
+	{
+		VPPWebhookCheckReply reply = new VPPWebhookCheckReply();
+		reply.HookId = hook.m_Id;
+		reply.EventId = def.Id;
+		VPPWebhookTemplate tpl = new VPPWebhookTemplate();
+		tpl.Parse(text, def);
+		foreach (VPPWebhookIssue issue : tpl.Issues)
+
+LINHA: 1453
+		if (!SendTo(hook, sample, plainId, data.param1))
+		{
+			OnTestResult(plainId, data.param1, hook.m_Id, def.Id, false, "TEMPLATE_ERROR");
+			return;
+		}
+
+		GetWebHooksManager().PostData(AdminActivityMessage, new AdminActivityMessage(plainId, sender.GetName(), "[WebHooksManager] Test send of " + def.Id + " to WebHook: " + hookName));
+
+LINHA: 1520
+		VPPWebhookReloadReply reply = new VPPWebhookReloadReply();
+		reply.ReqId = data.param1;
+		foreach (WebHook hook : M_DATA)
+		{
+			VPPWebhookSender hookSender = m_Senders.Get(hook.m_Id);
+			if (!hookSender)
+			{
+
+LINHA: 1522
+		foreach (WebHook hook : M_DATA)
+		{
+			VPPWebhookSender hookSender = m_Senders.Get(hook.m_Id);
+			if (!hookSender)
+			{
+				continue;
+			}
+
+LINHA: 1529
+
+			int broken = LoadTemplates(hook, hookSender, true);
+			reply.HookIds.Insert(hook.m_Id);
+			reply.TemplateErrors.Insert(broken);
+		}
+
+		SaveIfTemplatesChanged();
+==============================================================================
+SOURCE: C:\Users\Nasdara\AppData\Local\RavenControlCenter\VPP_Inspection\Extracted_WebHooks_20261121_010109\4_World\VPPAdminTools\Plugins\PluginBase\WebHooksManager\Classes\VPPWebhookSender.c
+==============================================================================
+
+LINHA: 434
+		if (manager)
+		{
+			manager.OnTestResult(job.TestBy, job.TestReqId, m_Hook.m_Id, job.EventId, ok, reason);
+		}
+	}
+
+	// A 4xx: the full body goes to Rejected/<webhook id>_<event>.txt (the newest one per event), and the log says
+
+LINHA: 456
+		}
+
+		path = dir + "/" + m_Hook.m_Id + "_" + job.EventId + ".txt";
+		VPPXmlText.WriteAll(path, job.Body);
+		Print("[WebHooksManager] Rejected body saved to " + path);
+		if (!IsJson())
+		{
+==============================================================================
+SOURCE: C:\Users\Nasdara\AppData\Local\RavenControlCenter\VPP_Inspection\Extracted_WebHooks_20261121_010109\4_World\VPPAdminTools\Plugins\PluginBase\WebHooksManager\Classes\WebHook.c
+==============================================================================
+
+LINHA: 10
+
+// Per event settings of a webhook: on/off and what gets through.
+class VPPWebhookEventCfg : Managed
+{
+	bool Enabled;
+	// kill / hit: only player vs player
+	bool PvPOnly;
+
+LINHA: 33
+	One webhook. The legacy fields (the per-category switches and "simplified messages") are kept so old configs load
+	and the current menu keeps working: on load a v0 config is migrated to events + a Discord preset with the same
+	switches (Migrate). Templates live in files (Templates/<m_Id>/<event>.tpl), runtime state in VPPWebhookSender.
+*/
+class WebHook : Managed
+{
+	const static int VERSION = 2;
+
+LINHA: 35
+	switches (Migrate). Templates live in files (Templates/<m_Id>/<event>.tpl), runtime state in VPPWebhookSender.
+*/
+class WebHook : Managed
+{
+	const static int VERSION = 2;
+
+	private string 			  m_Name;
+
+LINHA: 50
+
+	// v2
+	int m_Version;
+	// stable id (template folder name)
+	string m_Id;
+	bool m_Disabled;
+	string m_Preset;
+
+LINHA: 52
+	int m_Version;
+	// stable id (template folder name)
+	string m_Id;
+	bool m_Disabled;
+	string m_Preset;
+	string m_ContentType;
+	// messages per minute (0 = the preset default)
+
+LINHA: 62
+	// "hook.<key>" template variables (Discord username / avatar, Telegram chat_id, role mentions, ...)
+	ref map<string, string> m_Vars;
+	ref map<string, ref VPPWebhookEventCfg> m_Events;
+	// per event: hash of the preset template text the server wrote to disk. A file still matching it is untouched
+	// and follows preset updates; a file an admin edited no longer matches and is never overwritten.
+	ref map<string, int> m_PresetHashes;
+
+
+LINHA: 65
+	// per event: hash of the preset template text the server wrote to disk. A file still matching it is untouched
+	// and follows preset updates; a file an admin edited no longer matches and is never overwritten.
+	ref map<string, int> m_PresetHashes;
+
+	void WebHook(string name, string url)
+	{
+		m_Name = name;
+
+LINHA: 72
+		m_URL  = url;
+		m_Vars = new map<string, string>();
+		m_Events = new map<string, ref VPPWebhookEventCfg>();
+		m_PresetHashes = new map<string, int>();
+	}
+
+	// ---------------------------------------------------------------- migration
+
+LINHA: 73
+		m_Vars = new map<string, string>();
+		m_Events = new map<string, ref VPPWebhookEventCfg>();
+		m_PresetHashes = new map<string, int>();
+	}
+
+	// ---------------------------------------------------------------- migration
+
+
+LINHA: 86
+		}
+
+		if (!m_Events)
+		{
+			m_Events = new map<string, ref VPPWebhookEventCfg>();
+		}
+
+
+LINHA: 88
+		if (!m_Events)
+		{
+			m_Events = new map<string, ref VPPWebhookEventCfg>();
+		}
+
+		if (!m_PresetHashes)
+		{
+
+LINHA: 91
+		}
+
+		if (!m_PresetHashes)
+		{
+			m_PresetHashes = new map<string, int>();
+		}
+
+
+LINHA: 93
+		if (!m_PresetHashes)
+		{
+			m_PresetHashes = new map<string, int>();
+		}
+
+		bool changed = false;
+		if (m_Id == "")
+
+LINHA: 97
+
+		bool changed = false;
+		if (m_Id == "")
+		{
+			m_Id = NewId(serial);
+			changed = true;
+		}
+
+LINHA: 99
+		if (m_Id == "")
+		{
+			m_Id = NewId(serial);
+			changed = true;
+		}
+
+		if (m_Version < VERSION)
+
+LINHA: 103
+		}
+
+		if (m_Version < VERSION)
+		{
+			if (m_Preset == "")
+			{
+				m_Preset = VPPWebhookPresets.DISCORD_EMBED;
+
+LINHA: 114
+			}
+
+			SyncEventsFromSwitches();
+			m_Version = VERSION;
+			changed = true;
+		}
+
+
+LINHA: 115
+
+			SyncEventsFromSwitches();
+			m_Version = VERSION;
+			changed = true;
+		}
+
+		if (!VPPWebhookPresets.IsPreset(m_Preset))
+
+LINHA: 131
+		}
+
+		array<ref VPPWebhookEventDef> eventDefs = VPPWebhookDefs.All();
+		foreach (VPPWebhookEventDef def : eventDefs)
+		{
+			if (!m_Events.Contains(def.Id))
+			{
+
+LINHA: 134
+		foreach (VPPWebhookEventDef def : eventDefs)
+		{
+			if (!m_Events.Contains(def.Id))
+			{
+				VPPWebhookEventCfg added = new VPPWebhookEventCfg();
+				added.Enabled = SwitchOf(def.LegacyGroup);
+				m_Events.Set(def.Id, added);
+
+LINHA: 138
+				VPPWebhookEventCfg added = new VPPWebhookEventCfg();
+				added.Enabled = SwitchOf(def.LegacyGroup);
+				m_Events.Set(def.Id, added);
+				changed = true;
+			}
+		}
+
+
+LINHA: 178
+		}
+
+		if (!m_Events)
+		{
+			m_Events = new map<string, ref VPPWebhookEventCfg>();
+		}
+
+
+LINHA: 180
+		if (!m_Events)
+		{
+			m_Events = new map<string, ref VPPWebhookEventCfg>();
+		}
+
+		if (!m_PresetHashes)
+		{
+
+LINHA: 183
+		}
+
+		if (!m_PresetHashes)
+		{
+			m_PresetHashes = new map<string, int>();
+		}
+
+
+LINHA: 185
+		if (!m_PresetHashes)
+		{
+			m_PresetHashes = new map<string, int>();
+		}
+
+		array<ref VPPWebhookEventDef> eventDefs = VPPWebhookDefs.All();
+		foreach (VPPWebhookEventDef def : eventDefs)
+
+LINHA: 188
+		}
+
+		array<ref VPPWebhookEventDef> eventDefs = VPPWebhookDefs.All();
+		foreach (VPPWebhookEventDef def : eventDefs)
+		{
+			VPPWebhookEventCfg cfg = m_Events.Get(def.Id);
+			if (!cfg)
+
+LINHA: 191
+		foreach (VPPWebhookEventDef def : eventDefs)
+		{
+			VPPWebhookEventCfg cfg = m_Events.Get(def.Id);
+			if (!cfg)
+			{
+				cfg = new VPPWebhookEventCfg();
+				cfg.Enabled = SwitchOf(def.LegacyGroup);
+
+LINHA: 196
+				cfg = new VPPWebhookEventCfg();
+				cfg.Enabled = SwitchOf(def.LegacyGroup);
+				m_Events.Set(def.Id, cfg);
+				repaired++;
+				continue;
+			}
+
+
+LINHA: 216
+
+	// The old per-category switches decide which events are on (old menu and old configs).
+	void SyncEventsFromSwitches()
+	{
+		if (!m_Events)
+		{
+			m_Events = new map<string, ref VPPWebhookEventCfg>();
+
+LINHA: 218
+	void SyncEventsFromSwitches()
+	{
+		if (!m_Events)
+		{
+			m_Events = new map<string, ref VPPWebhookEventCfg>();
+		}
+
+
+LINHA: 220
+		if (!m_Events)
+		{
+			m_Events = new map<string, ref VPPWebhookEventCfg>();
+		}
+
+		array<ref VPPWebhookEventDef> eventDefs = VPPWebhookDefs.All();
+		foreach (VPPWebhookEventDef def : eventDefs)
+
+LINHA: 223
+		}
+
+		array<ref VPPWebhookEventDef> eventDefs = VPPWebhookDefs.All();
+		foreach (VPPWebhookEventDef def : eventDefs)
+		{
+			VPPWebhookEventCfg cfg = m_Events.Get(def.Id);
+			if (!cfg)
+
+LINHA: 226
+		foreach (VPPWebhookEventDef def : eventDefs)
+		{
+			VPPWebhookEventCfg cfg = m_Events.Get(def.Id);
+			if (!cfg)
+			{
+				cfg = new VPPWebhookEventCfg();
+				m_Events.Set(def.Id, cfg);
+
+LINHA: 230
+			{
+				cfg = new VPPWebhookEventCfg();
+				m_Events.Set(def.Id, cfg);
+			}
+
+			cfg.Enabled = SwitchOf(def.LegacyGroup);
+		}
+
+LINHA: 238
+
+	// The legacy per-category switches follow the event settings (a group is on when any of its events is).
+	void SyncSwitchesFromEvents()
+	{
+		m_deathKillLogs = IsEventEnabled(VPPWebhookDefs.EV_KILL);
+		m_adminActivityLog = IsEventEnabled(VPPWebhookDefs.EV_ADMIN);
+		m_admHitLog = IsEventEnabled(VPPWebhookDefs.EV_HIT);
+
+LINHA: 240
+	void SyncSwitchesFromEvents()
+	{
+		m_deathKillLogs = IsEventEnabled(VPPWebhookDefs.EV_KILL);
+		m_adminActivityLog = IsEventEnabled(VPPWebhookDefs.EV_ADMIN);
+		m_admHitLog = IsEventEnabled(VPPWebhookDefs.EV_HIT);
+		m_joinLeaveLog = false;
+		m_serverStatusLog = false;
+
+LINHA: 241
+	{
+		m_deathKillLogs = IsEventEnabled(VPPWebhookDefs.EV_KILL);
+		m_adminActivityLog = IsEventEnabled(VPPWebhookDefs.EV_ADMIN);
+		m_admHitLog = IsEventEnabled(VPPWebhookDefs.EV_HIT);
+		m_joinLeaveLog = false;
+		m_serverStatusLog = false;
+		array<ref VPPWebhookEventDef> eventDefs = VPPWebhookDefs.All();
+
+LINHA: 242
+		m_deathKillLogs = IsEventEnabled(VPPWebhookDefs.EV_KILL);
+		m_adminActivityLog = IsEventEnabled(VPPWebhookDefs.EV_ADMIN);
+		m_admHitLog = IsEventEnabled(VPPWebhookDefs.EV_HIT);
+		m_joinLeaveLog = false;
+		m_serverStatusLog = false;
+		array<ref VPPWebhookEventDef> eventDefs = VPPWebhookDefs.All();
+		foreach (VPPWebhookEventDef def : eventDefs)
+
+LINHA: 245
+		m_joinLeaveLog = false;
+		m_serverStatusLog = false;
+		array<ref VPPWebhookEventDef> eventDefs = VPPWebhookDefs.All();
+		foreach (VPPWebhookEventDef def : eventDefs)
+		{
+			VPPWebhookEventCfg cfg = m_Events.Get(def.Id);
+			if (!cfg || !cfg.Enabled)
+
+LINHA: 248
+		foreach (VPPWebhookEventDef def : eventDefs)
+		{
+			VPPWebhookEventCfg cfg = m_Events.Get(def.Id);
+			if (!cfg || !cfg.Enabled)
+			{
+				continue;
+			}
+
+LINHA: 316
+		copy.m_serverStatsInterval = m_serverStatsInterval;
+		copy.m_simplifiedMessages = m_simplifiedMessages;
+		copy.m_Version = m_Version;
+		copy.m_Id = m_Id;
+		copy.m_Disabled = m_Disabled;
+		copy.m_Preset = m_Preset;
+		copy.m_ContentType = m_ContentType;
+
+LINHA: 317
+		copy.m_simplifiedMessages = m_simplifiedMessages;
+		copy.m_Version = m_Version;
+		copy.m_Id = m_Id;
+		copy.m_Disabled = m_Disabled;
+		copy.m_Preset = m_Preset;
+		copy.m_ContentType = m_ContentType;
+		copy.m_RateLimit = m_RateLimit;
+
+LINHA: 330
+
+		RepairEvents();
+		int total = m_Events.Count();
+		for (int i = 0; i < total; i++)
+		{
+			string eventId = m_Events.GetKey(i);
+			VPPWebhookEventCfg source = m_Events.GetElement(i);
+
+LINHA: 333
+		for (int i = 0; i < total; i++)
+		{
+			string eventId = m_Events.GetKey(i);
+			VPPWebhookEventCfg source = m_Events.GetElement(i);
+			VPPWebhookEventCfg cloned = new VPPWebhookEventCfg();
+			if (source)
+			{
+
+LINHA: 334
+		{
+			string eventId = m_Events.GetKey(i);
+			VPPWebhookEventCfg source = m_Events.GetElement(i);
+			VPPWebhookEventCfg cloned = new VPPWebhookEventCfg();
+			if (source)
+			{
+				cloned.Enabled = source.Enabled;
+
+LINHA: 353
+			}
+
+			copy.m_Events.Set(eventId, cloned);
+		}
+
+		return copy;
+	}
+
+LINHA: 404
+	}
+
+	void SetServerStatsInterval(VPPWebHookServerStatsTime interval)
+	{
+		m_serverStatsInterval = interval;
+	}
+
+
+LINHA: 449
+	}
+
+	VPPWebHookServerStatsTime GetServerStatsInterval()
+	{
+		return m_serverStatsInterval;
+	}
+
+
+LINHA: 461
+	bool IsEventEnabled(string eventId)
+	{
+		if (m_Disabled || !m_Events)
+		{
+			return false;
+		}
+
+
+LINHA: 466
+		}
+
+		VPPWebhookEventCfg cfg = m_Events.Get(eventId);
+		return cfg && cfg.Enabled;
+	}
+
+	VPPWebhookEventCfg GetEventCfg(string eventId)
+
+LINHA: 472
+	VPPWebhookEventCfg GetEventCfg(string eventId)
+	{
+		if (!m_Events)
+		{
+			return null;
+		}
+
+
+LINHA: 477
+		}
+
+		return m_Events.Get(eventId);
+	}
+
+	// Messages per minute this webhook may send (Discord allows about 30 per webhook).
+	int GetRateLimit()
+==============================================================================
+SOURCE: C:\Users\Nasdara\AppData\Local\RavenControlCenter\VPP_Inspection\Extracted_WebHooks_20261121_010109\4_World\VPPAdminTools\Plugins\PluginBase\WebHooksManager\Classes\MessageTypes\ServerStatusMessage.c
+==============================================================================
+
+LINHA: 50
+		if (m_BoottUp)
+		{
+			return new VPPWebhookEvent(VPPWebhookDefs.EV_BOOT);
+		}
+
+		VPPWebhookEvent webhookEvent = new VPPWebhookEvent(VPPWebhookDefs.EV_STATUS);
+		int fps = g_Game.GetServerFPS();
+
+LINHA: 53
+		}
+
+		VPPWebhookEvent webhookEvent = new VPPWebhookEvent(VPPWebhookDefs.EV_STATUS);
+		int fps = g_Game.GetServerFPS();
+		webhookEvent.Set("server.fps", fps.ToString());
+		string upTime = FormatUpTime();
+		webhookEvent.Set("uptime", upTime);
+
+=== PERFIL ATUAL ===
+Diretorio: C:\RavenRP\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager
+Existe: True
+ARQUIVO: C:\RavenRP\DayZServer\profiles\VPPAdminTools\ConfigurablePlugins\WebHooksManager\Templates\README.txt | BYTES: 6496
+
+=== RESUMO ===
+Fontes originais alteradas: NAO
+Perfil VPP alterado: NAO
+PBO alterado: NAO
+Adaptador alterado: NAO
+DayZ iniciado: NAO
+API reiniciada: NAO
+Banco alterado: NAO
