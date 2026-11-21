@@ -1,0 +1,1980 @@
+﻿RAVEN CONTROL CENTER - AUDITORIA 6.8.7.8
+Confirmacao HTTP do VPP e persistencia do adaptador
+Data: 2026-11-21 02:03:35
+Modo: SOMENTE LEITURA
+
+====================================================================================================
+ARQUIVO: C:\Users\Nasdara\AppData\Local\RavenControlCenter\VPP_Inspection\Extracted_WebHooks_20261121_010109\4_World\VPPAdminTools\Plugins\PluginBase\WebHooksManager\Classes\VPPWebhookSender.c
+====================================================================================================
+
+--- TRECHO ---
+   36: 	// accepted without an answer (a 2xx without body is reported by the engine like a timeout)
+   37: 	int NoReply;
+   38: 	int Failed;
+   39: 	int Dropped;
+   40: 	int ConsecutiveFailures;
+   41: 	string LastError;
+   42: 	string LastErrorTime;
+   43: 	string LastSuccessTime;
+   44: };
+   45: 
+   46: // A request in flight or waiting in the queue.
+   47: class VPPWebhookJob : Managed
+   48: {
+   49: 	int Id;
+   50: 	string EventId;
+   51: 	string Body;
+   52: 	int Attempts;
+   53: 	// GetGame().GetTime() before which it is not sent (retry backoff)
+   54: 	int NotBefore;
+   55: 	// a test send: who asked (plain id) and their request id
+   56: 	string TestBy;
+   57: 	int TestReqId;
+   58: };
+   59: 
+   60: // One request's answer. Bound to a sender + job while the request runs, unbound on the first answer (a second
+   61: // answer for the same request is ignored) and then reused through VPPWebhookCallbackPool.
+   62: class VPPWebhookRequestCallback : RestCallback
+   63: {
+   64: 	protected VPPWebhookSender m_Owner;
+   65: 	protected int m_JobId;
+   66: 
+   67: 	void Bind(VPPWebhookSender owner, int jobId)
+   68: 	{
+   69: 		m_Owner = owner;
+   70: 		m_JobId = jobId;
+   71: 	}
+   72: 
+   73: 	protected void Answer(int state)
+   74: 	{
+   75: 		VPPWebhookSender owner = m_Owner;
+   76: 		int jobId = m_JobId;
+   77: 		m_Owner = null;
+   78: 		if (owner)
+   79: 		{
+   80: 			owner.OnRequestDone(jobId, state, this);
+   81: 		}
+   82: 	}
+   83: 
+   84: 	override void OnSuccess(string data, int dataSize)
+   85: 	{
+   86: 		Answer(VPPWebhookSender.RESULT_SUCCESS);
+   87: 	}
+   88: 
+   89: 	override void OnError(int errorCode)
+   90: 	{
+   91: 		Answer(errorCode);
+   92: 	}
+   93: 
+   94: 	override void OnTimeout()
+   95: 	{
+   96: 		Answer(VPPWebhookSender.RESULT_NO_REPLY);
+   97: 	}
+   98: };
+   99: 
+  100: // The engine keeps a reference to every RestCallback it is given (proven 2026-09-29: every callback, also the older
+  101: // VPPAT_IPIFY one, showed as leaked at shutdown), so one new callback per message would grow without end. Answered
+  102: // callbacks go back here and are bound to the next request; the pool never holds more than were in flight at once.
+  103: class VPPWebhookCallbackPool
+  104: {
+  105: 	protected static ref array<ref VPPWebhookRequestCallback> s_Free;
+  106: 
+  107: 	static VPPWebhookRequestCallback Acquire(VPPWebhookSender owner, int jobId)
+  108: 	{
+  109: 		VPPWebhookRequestCallback callback = null;
+  110: 		if (!s_Free)
+  111: 		{
+  112: 			s_Free = new array<ref VPPWebhookRequestCallback>();
+  113: 		}
+  114: 
+  115: 		int last = s_Free.Count() - 1;
+  116: 		if (last >= 0)
+  117: 		{
+  118: 			callback = s_Free[last];
+  119: 			s_Free.Remove(last);
+  120: 		}
+  121: 		else
+  122: 		{
+  123: 			callback = new VPPWebhookRequestCallback();
+  124: 		}
+  125: 
+  126: 		callback.Bind(owner, jobId);
+  127: 		return callback;
+  128: 	}
+  129: 
+  130: 	static void Release(VPPWebhookRequestCallback callback)
+  131: 	{
+  132: 		if (!callback)
+  133: 		{
+  134: 			return;
+  135: 		}
+  136: 
+  137: 		if (!s_Free)
+  138: 		{
+  139: 			s_Free = new array<ref VPPWebhookRequestCallback>();
+  140: 		}
+  141: 
+  142: 		if (s_Free.Find(callback) < 0)
+  143: 		{
+  144: 			s_Free.Insert(callback);
+  145: 		}
+  146: 	}
+  147: };
+  148: 
+  149: /*
+  150: 	Runtime of one webhook (server): its compiled templates, the send queue (rate limited per minute, retried with
+  151: 	backoff) and the delivery stats. Request callbacks stay referenced until the engine calls them: the engine keeps a
+  152: 	raw pointer, so they are never freed early.
+  153: */
+  154: class VPPWebhookSender : Managed
+  155: {
+  156: 	// Result codes as the engine really reports them (DayZServer 1.30 sub_1408B07C0 / sub_1408C9260). The script
+  157: 	// ERestResultState names are one step off (its EREST_ERROR is 5, the engine's 4xx code), so they are not used.
+  158: 	const static int RESULT_SUCCESS = 3;
+  159: 	// HTTP 4xx (bad body, bad / deleted webhook URL, rate limited)
+  160: 	const static int RESULT_HTTP_4XX = 5;
+  161: 	// HTTP 5xx
+  162: 	const static int RESULT_HTTP_5XX = 6;
+  163: 	// any other curl failure: connect, DNS, TLS, or a 3xx redirect (redirects are not followed)
+  164: 	const static int RESULT_NETWORK = 7;
+  165: 	// curl timeout, or a 2xx without a body (Discord without ?wait=true answers 204)
+  166: 	const static int RESULT_NO_REPLY = 8;
+  167: 
+  168: 	const static int MAX_QUEUE = 100;
+  169: 	const static int MAX_IN_FLIGHT = 50;
+  170: 	const static int MAX_ATTEMPTS = 4;
+  171: 
+  172: 	protected WebHook m_Hook;
+  173: 	protected ref map<string, ref VPPWebhookTemplate> m_Templates;
+  174: 	protected ref array<ref VPPWebhookJob> m_Queue;
+  175: 	protected ref map<int, ref VPPWebhookJob> m_InFlight;
+  176: 	// callbacks of the requests in flight (back to VPPWebhookCallbackPool when answered)
+  177: 	protected ref map<int, ref VPPWebhookRequestCallback> m_Callbacks;
+  178: 	protected ref array<int> m_SentTimes;
+  179: 	protected int m_NextJobId;
+  180: 	ref VPPWebhookStats Stats;
+  181: 
+  182: 	void VPPWebhookSender(WebHook hook)
+  183: 	{
+  184: 		m_Hook = hook;
+  185: 		m_Templates = new map<string, ref VPPWebhookTemplate>();
+  186: 		m_Queue = new array<ref VPPWebhookJob>();
+  187: 		m_InFlight = new map<int, ref VPPWebhookJob>();
+  188: 		m_Callbacks = new map<int, ref VPPWebhookRequestCallback>();
+  189: 		m_SentTimes = new array<int>();
+  190: 		Stats = new VPPWebhookStats();
+  191: 	}
+  192: 
+  193: 	WebHook GetHook()
+  194: 	{
+  195: 		return m_Hook;
+  196: 	}
+  197: 
+  198: 	void SetTemplate(string eventId, VPPWebhookTemplate tpl)
+  199: 	{
+  200: 		m_Templates.Set(eventId, tpl);
+  201: 	}
+  202: 
+  203: 	VPPWebhookTemplate GetTemplate(string eventId)
+  204: 	{
+  205: 		return m_Templates.Get(eventId);
+  206: 	}
+  207: 
+  208: 	bool IsJson()
+  209: 	{
+  210: 		return m_Hook.m_ContentType.Contains("json");
+  211: 	}
+  212: 
+  213: 	// Render with the webhook's variables added (hook.*) and its redaction applied; "" when there is no usable template.
+  214: 	string Render(VPPWebhookEvent webhookEvent)
+  215: 	{
+  216: 		VPPWebhookTemplate tpl = m_Templates.Get(webhookEvent.Id);
+  217: 		if (!tpl || tpl.HasErrors())
+  218: 		{
+  219: 			return "";
+  220: 		}
+  221: 
+  222: 		map<string, string> vars = new map<string, string>();
+  223: 		vars.Copy(webhookEvent.Vars);
+  224: 		for (int i = 0; i < m_Hook.m_Vars.Count(); i++)
+  225: 		{
+  226: 			string hookKey = m_Hook.m_Vars.GetKey(i);
+  227: 			string hookValue = m_Hook.m_Vars.GetElement(i);
+  228: 			vars.Set("hook." + hookKey, hookValue);
+  229: 		}
+  230: 
+  231: 		Redact(vars);
+  232: 		bool jsonBody = IsJson();
+  233: 		return tpl.Render(vars, jsonBody);
+
+--- TRECHO ---
+  289: 		if (m_Queue.Count() == 0 || !m_Hook)
+  290: 		{
+  291: 			return;
+  292: 		}
+  293: 
+  294: 		for (int i = m_SentTimes.Count() - 1; i >= 0; i--)
+  295: 		{
+  296: 			if (now - m_SentTimes[i] > 60000)
+  297: 			{
+  298: 				m_SentTimes.Remove(i);
+  299: 			}
+  300: 		}
+  301: 
+  302: 		int budget = m_Hook.GetRateLimit() - m_SentTimes.Count();
+  303: 		int index = 0;
+  304: 		while (budget > 0 && index < m_Queue.Count() && m_InFlight.Count() < MAX_IN_FLIGHT)
+  305: 		{
+  306: 			VPPWebhookJob job = m_Queue[index];
+  307: 			if (job.NotBefore > now)
+  308: 			{
+  309: 				index++;
+  310: 				continue;
+  311: 			}
+  312: 
+  313: 			m_Queue.RemoveOrdered(index);
+  314: 			Send(job);
+  315: 			m_SentTimes.Insert(now);
+  316: 			budget--;
+  317: 		}
+  318: 	}
+  319: 
+  320: 	// Messages waiting in the queue (not sent yet).
+  321: 	int QueueCount()
+  322: 	{
+  323: 		return m_Queue.Count();
+  324: 	}
+  325: 
+  326: 	// Requests still waiting for the engine (the manager keeps a sender alive until this is 0).
+  327: 	int PendingRequests()
+  328: 	{
+  329: 		return m_InFlight.Count();
+  330: 	}
+  331: 
+  332: 	protected void Send(VPPWebhookJob job)
+  333: 	{
+  334: 		string url = m_Hook.GetSendUrl();
+  335: 		if (url == "" || !GetRestApi())
+  336: 		{
+  337: 			Finish(job, false, "no URL or no RestApi");
+  338: 			return;
+  339: 		}
+  340: 
+  341: 		job.Attempts++;
+  342: 		VPPWebhookRequestCallback callback = VPPWebhookCallbackPool.Acquire(this, job.Id);
+  343: 		m_Callbacks.Set(job.Id, callback);
+  344: 		m_InFlight.Set(job.Id, job);
+  345: 		RestContext context = GetRestApi().GetRestContext(url);
+  346: 		context.SetHeader(m_Hook.m_ContentType);
+  347: 		context.POST(callback, "", job.Body);
+  348: 	}
+  349: 
+  350: 	void OnRequestDone(int jobId, int state, VPPWebhookRequestCallback callback)
+  351: 	{
+  352: 		VPPWebhookJob job = m_InFlight.Get(jobId);
+  353: 		m_InFlight.Remove(jobId);
+  354: 		VPPWebhookCallbackPool.Release(callback);
+  355: 		m_Callbacks.Remove(jobId);
+  356: 		// a retired sender (its webhook was deleted / replaced) only waits for its callbacks
+  357: 		if (!job || !m_Hook)
+  358: 		{
+  359: 			return;
+  360: 		}
+  361: 
+  362: 		if (state == RESULT_SUCCESS)
+  363: 		{
+  364: 			Finish(job, true, "");
+  365: 			return;
+  366: 		}
+  367: 
+  368: 		// a bodyless 2xx and a real timeout look the same; with Discord's ?wait=true a delivered message has a body
+  369: 		if (state == RESULT_NO_REPLY && !m_Hook.ExpectsReply())
+  370: 		{
+  371: 			Stats.NoReply++;
+  372: 			Stats.ConsecutiveFailures = 0;
+  373: 			string noReplyTime = TimeText();
+  374: 			Stats.LastSuccessTime = noReplyTime;
+  375: 			ReportTest(job, true, "NO_REPLY");
+  376: 			return;
+  377: 		}
+  378: 
+  379: 		string reason = StateName(state);
+  380: 		// 4xx is usually a bad payload or URL: one retry (covers a 429 rate limit); server / network errors retry more
+  381: 		int maxAttempts = MAX_ATTEMPTS;
+  382: 		if (state == RESULT_HTTP_4XX)
+  383: 		{
+  384: 			maxAttempts = 2;
+  385: 		}
+  386: 
+  387: 		if (job.Attempts < maxAttempts && job.TestBy == "")
+  388: 		{
+  389: 			int delay = 10000 * job.Attempts * job.Attempts;
+  390: 			job.NotBefore = GetGame().GetTime() + delay;
+  391: 			m_Queue.InsertAt(job, 0);
+  392: 			return;
+  393: 		}
+  394: 
+  395: 		Finish(job, false, reason);
+  396: 	}
+  397: 
+  398: 	protected void Finish(VPPWebhookJob job, bool ok, string reason)
+  399: 	{
+  400: 		string now = TimeText();
+  401: 		if (ok)
+  402: 		{
+  403: 			Stats.Delivered++;
+  404: 			Stats.ConsecutiveFailures = 0;
+  405: 			Stats.LastSuccessTime = now;
+  406: 			ReportTest(job, true, "DELIVERED");
+  407: 			return;
+  408: 		}
+  409: 
+  410: 		Stats.Failed++;
+  411: 		Stats.ConsecutiveFailures++;
+  412: 		Stats.LastError = reason;
+  413: 		Stats.LastErrorTime = now;
+  414: 		string hookName = m_Hook.GetName();
+  415: 		Print("[WebHooksManager] Webhook \"" + hookName + "\" failed to deliver " + job.EventId + ": " + reason);
+  416: 		if (reason.IndexOf("HTTP_4XX") == 0)
+  417: 		{
+  418: 			DiagnoseRejected(job);
+  419: 		}
+  420: 
+  421: 		ReportTest(job, false, reason);
+  422: 	}
+  423: 
+  424: 	protected void ReportTest(VPPWebhookJob job, bool ok, string reason)
+  425: 	{
+  426: 		if (job.TestBy == "")
+  427: 		{
+  428: 			return;
+  429: 		}
+  430: 
+  431: 		WebHooksManager manager = GetWebHooksManager();
+  432: 		if (manager)
+  433: 		{
+  434: 			manager.OnTestResult(job.TestBy, job.TestReqId, m_Hook.m_Id, job.EventId, ok, reason);
+  435: 		}
+  436: 	}
+  437: 
+  438: 	// A 4xx: the full body goes to Rejected/<webhook id>_<event>.txt (the newest one per event), and the log says
+  439: 	// whether the game's JSON parser accepts it (with line / column) and which Discord limits it breaks. Valid JSON
+  440: 	// with no limit problems points at the URL or the service's rate limit instead.
+  441: 	protected void DiagnoseRejected(VPPWebhookJob job)
+  442: 	{
+  443: 		string dir = "$profile:VPPAdminTools/ConfigurablePlugins/WebHooksManager/Rejected";
+  444: 		string path = "";
+  445: 		string verdictText = "";
+  446: 		string lineText = "";
+  447: 		string colText = "";
+  448: 		string problem = "";
+  449: 		VPPJsonCheckResult verdict = null;
+  450: 		array<string> problems = new array<string>();
+  451: 		if (!FileExist(dir))
+  452: 		{
+  453: 			MakeDirectory(dir);
+  454: 		}
+  455: 
+  456: 		path = dir + "/" + m_Hook.m_Id + "_" + job.EventId + ".txt";
+  457: 		VPPXmlText.WriteAll(path, job.Body);
+  458: 		Print("[WebHooksManager] Rejected body saved to " + path);
+  459: 		if (!IsJson())
+  460: 		{
+  461: 			return;
+
+--- TRECHO ---
+  477: 			string presetName = m_Hook.m_Preset;
+  478: 			Print("[WebHooksManager] The URL is a Discord webhook but the preset is " + presetName + ": Discord only accepts the discord_embed / discord_simple formats");
+  479: 			return;
+  480: 		}
+  481: 
+  482: 		if (discordPreset)
+  483: 		{
+  484: 			VPPDiscordLint.Check(job.Body, problems);
+  485: 		}
+  486: 
+  487: 		if (problems.Count() == 0)
+  488: 		{
+  489: 			Print("[WebHooksManager] The body is valid JSON within Discord limits: check the URL, or the service is rate limiting");
+  490: 			return;
+  491: 		}
+  492: 
+  493: 		foreach (string lintProblem : problems)
+  494: 		{
+  495: 			problem = "[WebHooksManager] Discord limit: " + lintProblem;
+  496: 			Print(problem);
+  497: 		}
+  498: 	}
+  499: 
+  500: 	static string StateName(int state)
+  501: 	{
+  502: 		if (state == RESULT_HTTP_4XX)
+  503: 		{
+  504: 			return "HTTP_4XX (bad body, wrong or deleted URL, or rate limited)";
+  505: 		}
+  506: 
+  507: 		if (state == RESULT_HTTP_5XX)
+  508: 		{
+  509: 			return "HTTP_5XX (the service had an error)";
+  510: 		}
+  511: 
+  512: 		if (state == RESULT_NETWORK)
+  513: 		{
+  514: 			return "NETWORK_ERROR (connect, DNS, TLS, or a redirecting URL)";
+  515: 		}
+  516: 
+  517: 		if (state == RESULT_NO_REPLY)
+  518: 		{
+  519: 			return "TIMEOUT (or an empty reply)";
+  520: 		}
+  521: 
+  522: 		return "ERROR_" + state.ToString();
+  523: 	}
+  524: 
+  525: 	static string TimeText()
+  526: 	{
+  527: 		int year;
+  528: 		int month;
+  529: 		int day;
+  530: 		int hour;
+  531: 		int minute;
+  532: 		int second;
+  533: 		GetYearMonthDayUTC(year, month, day);
+  534: 		GetHourMinuteSecondUTC(hour, minute, second);
+  535: 		string dateText = VPPWebhookClock.Pad(year, 4) + "-" + VPPWebhookClock.Pad(month, 2) + "-" + VPPWebhookClock.Pad(day, 2);
+  536: 		return dateText + " " + VPPWebhookClock.Pad(hour, 2) + ":" + VPPWebhookClock.Pad(minute, 2) + ":" + VPPWebhookClock.Pad(second, 2) + " UTC";
+  537: 	}
+  538: };
+  539: 
+  540: // UTC time texts for the common template variables.
+  541: class VPPWebhookClock
+  542: {
+  543: 	static string Pad(int value, int width)
+  544: 	{
+  545: 		string text = value.ToString();
+  546: 		while (text.Length() < width)
+  547: 		{
+  548: 			text = "0" + text;
+  549: 		}
+  550: 
+  551: 		return text;
+  552: 	}
+  553: 
+  554: 	// Seconds since 1970-01-01 UTC (days-from-civil, no CF dependency).
+
+====================================================================================================
+ARQUIVO: C:\Users\Nasdara\AppData\Local\RavenControlCenter\VPP_Inspection\Extracted_WebHooks_20261121_010109\4_World\VPPAdminTools\Plugins\PluginBase\WebHooksManager\WebHooksManager.c
+====================================================================================================
+
+--- TRECHO ---
+   37: 	{
+   38: 		M_DATA = new array<ref WebHook>;
+   39: 		m_Senders = new map<string, ref VPPWebhookSender>();
+   40: 		m_Retired = new array<ref VPPWebhookSender>();
+   41: 		m_StatusDue = new map<string, int>();
+   42: 
+   43: 		if (!FileExist(ROOT_DIR))
+   44: 			MakeDirectory(ROOT_DIR);
+   45: 
+   46: 		JSONPATH = ROOT_DIR + "/WebHooks.json";
+   47: 
+   48: 		GetRPCManager().AddRPC("RPC_WebHooksManager", "GetWebHooks", this, SingleplayerExecutionType.Server);
+   49: 		GetRPCManager().AddRPC("RPC_WebHooksManager", "DeleteWebHooks", this, SingleplayerExecutionType.Server);
+   50: 		GetRPCManager().AddRPC("RPC_WebHooksManager", "CreateWebHooks", this, SingleplayerExecutionType.Server);
+   51: 		GetRPCManager().AddRPC("RPC_WebHooksManager", "EditWebHooks", this, SingleplayerExecutionType.Server);
+   52: 		GetRPCManager().AddRPC("RPC_WebHooksManager", "GetTemplate", this, SingleplayerExecutionType.Server);
+   53: 		GetRPCManager().AddRPC("RPC_WebHooksManager", "ValidateTemplate", this, SingleplayerExecutionType.Server);
+   54: 		GetRPCManager().AddRPC("RPC_WebHooksManager", "SaveTemplate", this, SingleplayerExecutionType.Server);
+   55: 		GetRPCManager().AddRPC("RPC_WebHooksManager", "TestSend", this, SingleplayerExecutionType.Server);
+   56: 		GetRPCManager().AddRPC("RPC_WebHooksManager", "ReloadTemplates", this, SingleplayerExecutionType.Server);
+   57: 		GetRPCManager().AddRPC("RPC_WebHooksManager", "SaveWebhook", this, SingleplayerExecutionType.Server);
+   58: 		GetRPCManager().AddRPC("RPC_WebHooksManager", "DeleteWebhookById", this, SingleplayerExecutionType.Server);
+   59: 		GetRPCManager().AddRPC("RPC_WebHooksManager", "DuplicateWebhook", this, SingleplayerExecutionType.Server);
+   60: 		GetRPCManager().AddRPC("RPC_WebHooksManager", "ResetTemplate", this, SingleplayerExecutionType.Server);
+   61: 		GetRPCManager().AddRPC("RPC_WebHooksManager", "GetWebhookStats", this, SingleplayerExecutionType.Server);
+   62: 	}
+   63: 
+   64: 	void ~WebHooksManager()
+   65: 	{
+   66: 		if (GetGame())
+   67: 		{
+   68: 			GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).Remove(this.Tick);
+   69: 		}
+   70: 	}
+   71: 
+   72: 	override void OnInit()
+   73: 	{
+   74: 		Load();
+   75: 		if (!GetGame().IsServer())
+   76: 		{
+   77: 			return;
+   78: 		}
+   79: 
+   80: 		bool migrated = false;
+   81: 		foreach (WebHook hook : M_DATA)
+   82: 		{
+   83: 			if (hook && hook.Migrate(NextSerial()))
+   84: 			{
+   85: 				migrated = true;
+   86: 			}
+   87: 		}
+   88: 
+   89: 		if (migrated)
+   90: 		{
+   91: 			Save();
+   92: 			Print("[WebHooksManager] Webhooks migrated to templated events (v" + WebHook.VERSION.ToString() + ")");
+   93: 		}
+   94: 
+   95: 		WriteReadme();
+   96: 		foreach (WebHook loaded : M_DATA)
+   97: 		{
+   98: 			if (loaded)
+   99: 			{
+  100: 				StartSender(loaded);
+  101: 			}
+  102: 		}
+  103: 
+  104: 		SaveIfTemplatesChanged();
+  105: 
+  106: 		if (!m_Ticking)
+  107: 		{
+  108: 			m_Ticking = true;
+  109: 			GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(this.Tick, 1000, true);
+  110: 		}
+  111: 	}
+  112: 
+  113: 	override void Load()
+  114: 	{
+  115: 		if (FileExist( JSONPATH ))
+  116: 		{
+  117: 			JsonFileLoader<WebHooksManager>.JsonLoadFile(JSONPATH, this);
+  118: 			Print("[WebHooksManager] Loading Saved Webhooks configuration");
+  119: 		}
+  120: 
+  121: 		if (!M_DATA)
+  122: 		{
+  123: 			M_DATA = new array<ref WebHook>;
+  124: 		}
+  125: 	}
+  126: 
+  127: 	override void Save()
+  128: 	{
+  129: 		JsonFileLoader<WebHooksManager>.JsonSaveFile(JSONPATH, this);
+  130: 	}
+  131: 
+  132: 	protected int NextSerial()
+  133: 	{
+  134: 		m_IdSerial++;
+  135: 		return m_IdSerial;
+  136: 	}
+  137: 
+  138: 	// ---------------------------------------------------------------- events
+  139: 
+  140: 	/*
+  141: 		Called from many other instances such as admin logs and vppat plugins
+  142: 	*/
+  143: 	void PostData(typename messageType, WebHookMessageBase dataClass)
+  144: 	{
+  145: 		if (!dataClass)
+
+--- TRECHO ---
+  287: 		if (eventId == VPPWebhookDefs.EV_ADMIN)
+  288: 		{
+  289: 			string moduleName = webhookEvent.Get("module");
+  290: 			moduleName.ToLower();
+  291: 			if (cfg.ExcludedModules && cfg.ExcludedModules.Find(moduleName) >= 0)
+  292: 			{
+  293: 				return false;
+  294: 			}
+  295: 
+  296: 			if (cfg.Modules && cfg.Modules.Count() > 0 && cfg.Modules.Find(moduleName) < 0)
+  297: 			{
+  298: 				return false;
+  299: 			}
+  300: 		}
+  301: 
+  302: 		return true;
+  303: 	}
+  304: 
+  305: 	// ---------------------------------------------------------------- senders, templates
+  306: 
+  307: 	protected void StartSender(WebHook hook)
+  308: 	{
+  309: 		VPPWebhookSender sender = new VPPWebhookSender(hook);
+  310: 		m_Senders.Set(hook.m_Id, sender);
+  311: 		LoadTemplates(hook, sender, true);
+  312: 		int due = GetGame().GetTime() + hook.GetServerStatsInterval() * 1000;
+  313: 		m_StatusDue.Set(hook.m_Id, due);
+  314: 	}
+  315: 
+  316: 	// The old sender keeps living until its requests are answered (the engine holds its callbacks).
+  317: 	protected void RetireSender(string hookId)
+  318: 	{
+  319: 		VPPWebhookSender sender = m_Senders.Get(hookId);
+  320: 		if (sender)
+  321: 		{
+  322: 			m_Retired.Insert(sender);
+  323: 		}
+  324: 
+  325: 		m_Senders.Remove(hookId);
+  326: 		m_StatusDue.Remove(hookId);
+  327: 	}
+  328: 
+  329: 	string TemplatePath(WebHook hook, string eventId)
+  330: 	{
+  331: 		return TEMPLATE_DIR + "/" + hook.m_Id + "/" + eventId + TEMPLATE_EXT;
+  332: 	}
+  333: 
+  334: 	// Reads every event template of the webhook (missing files are written from the preset first) and compiles it.
+  335: 	// Returns how many templates have errors (they are logged; such an event sends nothing until fixed).
+  336: 	protected int LoadTemplates(WebHook hook, VPPWebhookSender sender, bool logIssues)
+  337: 	{
+  338: 		EnsureHookDir(hook);
+  339: 		int broken = 0;
+  340: 		array<ref VPPWebhookEventDef> eventDefs = VPPWebhookDefs.All();
+  341: 		foreach (VPPWebhookEventDef def : eventDefs)
+  342: 		{
+  343: 			string path = TemplatePath(hook, def.Id);
+  344: 			RefreshPresetTemplate(hook, def.Id, false);
+  345: 			string text = "";
+  346: 			VPPXmlText.ReadAll(path, text);
+  347: 			VPPWebhookTemplate tpl = new VPPWebhookTemplate();
+  348: 			tpl.Parse(text, def);
+  349: 			sender.SetTemplate(def.Id, tpl);
+  350: 			if (tpl.HasErrors())
+  351: 			{
+  352: 				broken++;
+
+--- TRECHO ---
+  666: 
+  667: 			if (!ctx.Read(data))
+  668: 				return;
+  669: 
+  670: 			WebHook webHook = data.param1;
+  671: 			if (!webHook)
+  672: 				return;
+  673: 
+  674: 			string createdUrl = webHook.GetURL();
+  675: 			if (createdUrl == "" || WebHook.IsMasked(createdUrl))
+  676: 				return;
+  677: 
+  678: 			// a fresh webhook: the preset follows the menu's "simplified" switch, the events its category switches
+  679: 			webHook.m_Id = "";
+  680: 			webHook.m_Version = 0;
+  681: 			webHook.m_Preset = "";
+  682: 			webHook.m_ContentType = "";
+  683: 			webHook.Migrate(NextSerial());
+  684: 			M_DATA.Insert(webHook);
+  685: 			WritePresetTemplates(webHook);
+  686: 			StartSender(webHook);
+  687: 
+  688: 			string createdName = webHook.GetName();
+  689: 			GetWebHooksManager().PostData(AdminActivityMessage, new AdminActivityMessage(sender.GetPlainId(), sender.GetName(), "[WebHooksManager] Created new WebHook: " + createdName));
+  690: 			GetPermissionManager().NotifyPlayer(sender.GetPlainId(),"New WebHook: " + createdName + " successfully created and saved!", NotifyTypes.NOTIFY);
+  691: 			Save();
+  692: 			WriteReadme();
+  693: 			SendList(sender);
+  694: 		}
+  695: 	}
+  696: 
+  697: 	// The current menu edits name, URL, the category switches, the status interval and "simplified": they are merged
+  698: 	// into the stored webhook, which keeps its id, templates, variables and filters.
+  699: 	void EditWebHooks(CallType type, ParamsReadContext ctx, PlayerIdentity sender, Object target)
+  700: 	{
+  701: 		if(type == CallType.Server && sender)
+  702: 		{
+  703: 			Param3<int,string,ref WebHook> data;
+  704: 
+  705: 			if (!GetPermissionManager().VerifyPermission(sender.GetPlainId(),"MenuWebHooks:Edit"))
+  706: 				return;
+  707: 
+  708: 			if (!ctx.Read(data))
+  709: 				return;
+  710: 
+  711: 			if (data.param1 < 0 || data.param1 >= M_DATA.Count() || !data.param3)
+  712: 				return;
+  713: 
+  714: 			WebHook stored = M_DATA.Get(data.param1);
+  715: 			if (!stored)
+  716: 				return;
+  717: 
+  718: 			WebHook edited = data.param3;
+  719: 			string storedName = stored.GetName();
+  720: 			string editedName = edited.GetName();
+  721: 			if (storedName != data.param2)
+  722: 			{
+  723: 				GetPermissionManager().NotifyPlayer(sender.GetPlainId(),"Failed to save changes to webhook: " + editedName + "\n\nCould not find old instance, another admin deleted it?", NotifyTypes.NOTIFY);
+  724: 				return;
+  725: 			}
+  726: 
+  727: 			GetWebHooksManager().PostData(AdminActivityMessage, new AdminActivityMessage(sender.GetPlainId(), sender.GetName(), "[WebHooksManager] Edited WebHook: " + storedName));
+  728: 			stored.SetName(editedName);
+  729: 			string newUrl = edited.GetURL();
+  730: 			if (newUrl != "" && !WebHook.IsMasked(newUrl))
+  731: 				stored.SetURL(newUrl);
+  732: 
+  733: 			stored.m_deathKillLogs = edited.m_deathKillLogs;
+  734: 			stored.m_adminActivityLog = edited.m_adminActivityLog;
+  735: 			stored.m_admHitLog = edited.m_admHitLog;
+  736: 			stored.m_joinLeaveLog = edited.m_joinLeaveLog;
+  737: 			stored.m_serverStatusLog = edited.m_serverStatusLog;
+  738: 			VPPWebHookServerStatsTime editedInterval = edited.GetServerStatsInterval();
+  739: 			stored.SetServerStatsInterval(editedInterval);
+  740: 			stored.SyncEventsFromSwitches();
+  741: 			bool presetChanged = false;
+  742: 			if (stored.m_simplifiedMessages != edited.m_simplifiedMessages && VPPWebhookPresets.IsDiscord(stored.m_Preset))
+  743: 			{
+  744: 				stored.m_Preset = VPPWebhookPresets.DISCORD_EMBED;
+  745: 				if (edited.m_simplifiedMessages)
+  746: 					stored.m_Preset = VPPWebhookPresets.DISCORD_SIMPLE;
+  747: 
+  748: 				presetChanged = true;
+  749: 			}
+  750: 
+  751: 			stored.m_simplifiedMessages = edited.m_simplifiedMessages;
+  752: 			stored.Migrate(NextSerial());
+  753: 			if (presetChanged)
+  754: 				WritePresetTemplates(stored);
+  755: 
+  756: 			RetireSender(stored.m_Id);
+  757: 			StartSender(stored);
+  758: 			Save();
+  759: 			WriteReadme();
+  760: 			GetPermissionManager().NotifyPlayer(sender.GetPlainId(),"WebHook: " + editedName + " was successfully edited & saved!", NotifyTypes.NOTIFY);
+  761: 			SendList(sender);
+  762: 		}
+  763: 	}
+  764: 
+  765: 	// ---------------------------------------------------------------- webhook RPCs of the new menu
+  766: 
+  767: 	protected void ReplySaved(PlayerIdentity sender, int reqId, bool ok, string hookId, string error)
+  768: 	{
+  769: 		VPPWebhookSaveReply reply = new VPPWebhookSaveReply();
+  770: 		reply.ReqId = reqId;
+  771: 		reply.Ok = ok;
+  772: 		reply.HookId = hookId;
+  773: 		reply.Error = error;
+  774: 		GetRPCManager().VSendRPC("RPC_MenuWebHooks", "OnWebhookSaved", new Param1<ref VPPWebhookSaveReply>(reply), true, sender);
+  775: 	}
+  776: 
+  777: 	protected bool NameInUse(string name, string exceptId)
+  778: 	{
+  779: 		string lowerName = name;
+  780: 		lowerName.ToLower();
+  781: 		foreach (WebHook hook : M_DATA)
+  782: 		{
+  783: 			if (!hook || hook.m_Id == exceptId)
+  784: 			{
+  785: 				continue;
+  786: 			}
+  787: 
+  788: 			string otherName = hook.GetName();
+  789: 			otherName.ToLower();
+  790: 			if (otherName == lowerName)
+  791: 			{
+  792: 				return true;
+  793: 			}
+  794: 		}
+  795: 
+  796: 		return false;
+  797: 	}
+  798: 
+  799: 	// Creates (empty or unknown m_Id) or updates a webhook with everything the menu edits. A changed preset rewrites
+  800: 	// the webhook's templates from the new preset; the legacy switches are kept in step for older tools.
+  801: 	void SaveWebhook(CallType type, ParamsReadContext ctx, PlayerIdentity sender, Object target)
+  802: 	{
+  803: 		if (type != CallType.Server || !sender)
+  804: 		{
+  805: 			return;
+  806: 		}
+  807: 
+  808: 		Param2<int, ref WebHook> data;
+  809: 		if (!ctx.Read(data))
+  810: 		{
+  811: 			return;
+  812: 		}
+  813: 
+  814: 		string plainId = sender.GetPlainId();
+  815: 		WebHook incoming = data.param2;
+  816: 		int reqId = data.param1;
+  817: 		if (!incoming)
+  818: 		{
+  819: 			return;
+  820: 		}
+  821: 
+  822: 		WebHook stored = FindHook(incoming.m_Id);
+  823: 		bool creating = false;
+  824: 		if (!stored)
+  825: 		{
+  826: 			creating = true;
+  827: 		}
+  828: 
+  829: 		string permission = "MenuWebHooks:Edit";
+  830: 		if (creating)
+  831: 		{
+  832: 			permission = "MenuWebHooks:Create";
+  833: 		}
+  834: 
+  835: 		if (!GetPermissionManager().VerifyPermission(plainId, permission))
+  836: 		{
+  837: 			return;
+  838: 		}
+  839: 
+  840: 		string newName = incoming.GetName();
+  841: 		newName = newName.Trim();
+  842: 		if (newName.Length() < 3)
+  843: 		{
+  844: 			ReplySaved(sender, reqId, false, incoming.m_Id, "NAME_SHORT");
+  845: 			return;
+  846: 		}
+
+--- TRECHO ---
+  898: 		stored.m_ContentType = contentType;
+  899: 		int rateLimit = incoming.m_RateLimit;
+  900: 		if (rateLimit < 0)
+  901: 		{
+  902: 			rateLimit = 0;
+  903: 		}
+  904: 
+  905: 		if (rateLimit > 600)
+  906: 		{
+  907: 			rateLimit = 600;
+  908: 		}
+  909: 
+  910: 		stored.m_RateLimit = rateLimit;
+  911: 		stored.m_Disabled = incoming.m_Disabled;
+  912: 		stored.m_HideIds = incoming.m_HideIds;
+  913: 		stored.m_HideServerAddress = incoming.m_HideServerAddress;
+  914: 		VPPWebHookServerStatsTime interval = ValidInterval(incoming.m_serverStatsInterval);
+  915: 		stored.SetServerStatsInterval(interval);
+  916: 		CopyVars(incoming, stored);
+  917: 		CopyEvents(incoming, stored);
+  918: 		stored.SyncSwitchesFromEvents();
+  919: 		if (creating || presetChanged)
+  920: 		{
+  921: 			WritePresetTemplates(stored);
+  922: 		}
+  923: 
+  924: 		RetireSender(stored.m_Id);
+  925: 		StartSender(stored);
+  926: 		Save();
+  927: 		SaveIfTemplatesChanged();
+  928: 		WriteReadme();
+  929: 		string verb = "Edited";
+  930: 		if (creating)
+  931: 		{
+  932: 			verb = "Created";
+  933: 		}
+  934: 
+  935: 		string logText = "[WebHooksManager] " + verb + " WebHook: " + newName;
+  936: 		GetWebHooksManager().PostData(AdminActivityMessage, new AdminActivityMessage(plainId, sender.GetName(), logText));
+  937: 		ReplySaved(sender, reqId, true, stored.m_Id, "");
+  938: 		SendList(sender);
+  939: 	}
+  940: 
+  941: 	protected VPPWebHookServerStatsTime ValidInterval(VPPWebHookServerStatsTime interval)
+  942: 	{
+  943: 		if (interval == VPPWebHookServerStatsTime.ONE_MINUTE || interval == VPPWebHookServerStatsTime.FIVE_MINUTES)
+  944: 		{
+  945: 			return interval;
+  946: 		}
+  947: 
+  948: 		if (interval == VPPWebHookServerStatsTime.TEN_MINUTES || interval == VPPWebHookServerStatsTime.FIFTEEN_MINUTES)
+  949: 		{
+  950: 			return interval;
+  951: 		}
+  952: 
+  953: 		return VPPWebHookServerStatsTime.FIVE_MINUTES;
+  954: 	}
+  955: 
+  956: 	// hook.* variables: plain names only (letters, digits, _ and .), at most 32, values up to 500 characters.
+  957: 	protected void CopyVars(WebHook source, WebHook target)
+  958: 	{
+  959: 		target.m_Vars.Clear();
+  960: 		if (!source.m_Vars)
+  961: 		{
+  962: 			return;
+  963: 		}
+  964: 
+  965: 		int total = source.m_Vars.Count();
+  966: 		for (int i = 0; i < total; i++)
+  967: 		{
+  968: 			if (target.m_Vars.Count() >= 32)
+  969: 			{
+  970: 				break;
+
+--- TRECHO ---
+  977: 			{
+  978: 				continue;
+  979: 			}
+  980: 
+  981: 			if (varValue.Length() > 500)
+  982: 			{
+  983: 				varValue = varValue.Substring(0, 500);
+  984: 			}
+  985: 
+  986: 			target.m_Vars.Set(varName, varValue);
+  987: 		}
+  988: 	}
+  989: 
+  990: 	// Event settings for the known events (unknown ids are ignored); module names are kept lower case and trimmed.
+  991: 	protected void CopyEvents(WebHook source, WebHook target)
+  992: 	{
+  993: 		array<ref VPPWebhookEventDef> eventDefs = VPPWebhookDefs.All();
+  994: 		foreach (VPPWebhookEventDef def : eventDefs)
+  995: 		{
+  996: 			VPPWebhookEventCfg sourceCfg = null;
+  997: 			if (source.m_Events)
+  998: 			{
+  999: 				sourceCfg = source.m_Events.Get(def.Id);
+ 1000: 			}
+ 1001: 
+ 1002: 			VPPWebhookEventCfg cfg = target.m_Events.Get(def.Id);
+ 1003: 			if (!cfg)
+ 1004: 			{
+ 1005: 				cfg = new VPPWebhookEventCfg();
+ 1006: 				target.m_Events.Set(def.Id, cfg);
+ 1007: 			}
+ 1008: 
+ 1009: 			if (!sourceCfg)
+ 1010: 			{
+ 1011: 				continue;
+ 1012: 			}
+ 1013: 
+ 1014: 			cfg.Enabled = sourceCfg.Enabled;
+ 1015: 			cfg.PvPOnly = sourceCfg.PvPOnly;
+ 1016: 			cfg.SkipAI = sourceCfg.SkipAI;
+ 1017: 			cfg.MinDistance = Math.Clamp(sourceCfg.MinDistance, 0, 20000);
+ 1018: 			CopyModules(sourceCfg.Modules, cfg.Modules);
+ 1019: 			CopyModules(sourceCfg.ExcludedModules, cfg.ExcludedModules);
+ 1020: 		}
+ 1021: 	}
+ 1022: 
+ 1023: 	protected void CopyModules(array<string> source, array<string> target)
+ 1024: 	{
+ 1025: 		target.Clear();
+ 1026: 		if (!source)
+ 1027: 		{
+ 1028: 			return;
+ 1029: 		}
+ 1030: 
+ 1031: 		foreach (string moduleName : source)
+ 1032: 		{
+ 1033: 			string cleanName = moduleName.Trim();
+ 1034: 			cleanName.ToLower();
+ 1035: 			if (cleanName == "" || target.Find(cleanName) >= 0 || target.Count() >= 50)
+ 1036: 			{
+ 1037: 				continue;
+ 1038: 			}
+ 1039: 
+ 1040: 			target.Insert(cleanName);
+ 1041: 		}
+ 1042: 	}
+ 1043: 
+ 1044: 	void DeleteWebhookById(CallType type, ParamsReadContext ctx, PlayerIdentity sender, Object target)
+ 1045: 	{
+ 1046: 		if (type != CallType.Server || !sender)
+ 1047: 		{
+ 1048: 			return;
+ 1049: 		}
+ 1050: 
+ 1051: 		Param1<string> data;
+
+--- TRECHO ---
+ 1130: 		EnsureHookDir(copy);
+ 1131: 		array<ref VPPWebhookEventDef> eventDefs = VPPWebhookDefs.All();
+ 1132: 		foreach (VPPWebhookEventDef def : eventDefs)
+ 1133: 		{
+ 1134: 			string fromPath = TemplatePath(source, def.Id);
+ 1135: 			string toPath = TemplatePath(copy, def.Id);
+ 1136: 			string text = "";
+ 1137: 			bool readOk = false;
+ 1138: 			if (FileExist(fromPath))
+ 1139: 			{
+ 1140: 				readOk = VPPXmlText.ReadAll(fromPath, text);
+ 1141: 			}
+ 1142: 
+ 1143: 			if (readOk)
+ 1144: 			{
+ 1145: 				VPPXmlText.WriteAll(toPath, text);
+ 1146: 			}
+ 1147: 		}
+ 1148: 
+ 1149: 		M_DATA.Insert(copy);
+ 1150: 		StartSender(copy);
+ 1151: 		Save();
+ 1152: 		SaveIfTemplatesChanged();
+ 1153: 		WriteReadme();
+ 1154: 		string logText = "[WebHooksManager] Duplicated WebHook: " + copyName;
+ 1155: 		GetWebHooksManager().PostData(AdminActivityMessage, new AdminActivityMessage(plainId, sender.GetName(), logText));
+ 1156: 		ReplySaved(sender, data.param1, true, copy.m_Id, "");
+ 1157: 		SendList(sender);
+ 1158: 	}
+ 1159: 
+ 1160: 	// Puts one event template back to the webhook's preset and answers like GetTemplate.
+ 1161: 	void ResetTemplate(CallType type, ParamsReadContext ctx, PlayerIdentity sender, Object target)
+ 1162: 	{
+ 1163: 		if (type != CallType.Server || !sender)
+ 1164: 		{
+ 1165: 			return;
+ 1166: 		}
+ 1167: 
+ 1168: 		Param3<int, string, string> data;
+ 1169: 		if (!ctx.Read(data))
+ 1170: 		{
+ 1171: 			return;
+ 1172: 		}
+ 1173: 
+ 1174: 		string plainId = sender.GetPlainId();
+ 1175: 		if (!GetPermissionManager().VerifyPermission(plainId, "MenuWebHooks:EditTemplates"))
+ 1176: 		{
+ 1177: 			return;
+ 1178: 		}
+ 1179: 
+ 1180: 		WebHook hook = FindHook(data.param2);
+ 1181: 		VPPWebhookEventDef def = VPPWebhookDefs.Get(data.param3);
+ 1182: 		if (!hook || !def)
+ 1183: 		{
+ 1184: 			return;
+ 1185: 		}
+ 1186: 
+ 1187: 		EnsureHookDir(hook);
+ 1188: 		RefreshPresetTemplate(hook, def.Id, true);
+ 1189: 		string text = "";
+ 1190: 		string path = TemplatePath(hook, def.Id);
+ 1191: 		VPPXmlText.ReadAll(path, text);
+ 1192: 		VPPWebhookSender hookSender = m_Senders.Get(hook.m_Id);
+ 1193: 		if (hookSender)
+ 1194: 		{
+ 1195: 			VPPWebhookTemplate tpl = new VPPWebhookTemplate();
+
+====================================================================================================
+ARQUIVO: C:\Users\Nasdara\AppData\Local\RavenControlCenter\VPP_Inspection\Extracted_WebHooks_20261121_010109\4_World\VPPAdminTools\Plugins\PluginBase\WebHooksManager\Classes\WebHook.c
+====================================================================================================
+
+--- TRECHO ---
+   17: 	// kill / hit: minimum distance in meters (0 = any)
+   18: 	float MinDistance;
+   19: 	// admin.action: only these modules (lower case, empty = all) / never these
+   20: 	ref array<string> Modules;
+   21: 	ref array<string> ExcludedModules;
+   22: 
+   23: 	void VPPWebhookEventCfg()
+   24: 	{
+   25: 		Modules = new array<string>();
+   26: 		ExcludedModules = new array<string>();
+   27: 	}
+   28: };
+   29: 
+   30: /*
+   31: 	One webhook. The legacy fields (the per-category switches and "simplified messages") are kept so old configs load
+   32: 	and the current menu keeps working: on load a v0 config is migrated to events + a Discord preset with the same
+   33: 	switches (Migrate). Templates live in files (Templates/<m_Id>/<event>.tpl), runtime state in VPPWebhookSender.
+   34: */
+   35: class WebHook : Managed
+   36: {
+   37: 	const static int VERSION = 2;
+   38: 
+   39: 	private string 			  m_Name;
+   40: 	private string 			  m_URL;
+   41: 	bool   					  m_deathKillLogs;
+   42: 	bool   					  m_adminActivityLog;
+   43: 	bool   					  m_admHitLog;
+   44: 	bool   					  m_joinLeaveLog;
+   45: 	bool   					  m_serverStatusLog;
+   46: 	VPPWebHookServerStatsTime m_serverStatsInterval;
+   47: 	bool 					  m_simplifiedMessages;
+   48: 
+   49: 	// v2
+   50: 	int m_Version;
+   51: 	// stable id (template folder name)
+   52: 	string m_Id;
+   53: 	bool m_Disabled;
+   54: 	string m_Preset;
+   55: 	string m_ContentType;
+   56: 	// messages per minute (0 = the preset default)
+   57: 	int m_RateLimit;
+   58: 	bool m_HideIds;
+   59: 	bool m_HideServerAddress;
+   60: 	// "hook.<key>" template variables (Discord username / avatar, Telegram chat_id, role mentions, ...)
+   61: 	ref map<string, string> m_Vars;
+   62: 	ref map<string, ref VPPWebhookEventCfg> m_Events;
+   63: 	// per event: hash of the preset template text the server wrote to disk. A file still matching it is untouched
+   64: 	// and follows preset updates; a file an admin edited no longer matches and is never overwritten.
+   65: 	ref map<string, int> m_PresetHashes;
+   66: 
+   67: 	void WebHook(string name, string url)
+   68: 	{
+   69: 		m_Name = name;
+   70: 		m_URL  = url;
+   71: 		m_Vars = new map<string, string>();
+   72: 		m_Events = new map<string, ref VPPWebhookEventCfg>();
+   73: 		m_PresetHashes = new map<string, int>();
+   74: 	}
+   75: 
+   76: 	// ---------------------------------------------------------------- migration
+   77: 
+   78: 	// v0 (switches only) -> v2: an id, a Discord preset and one event config per event, enabled from the old switches.
+   79: 	bool Migrate(int serial)
+   80: 	{
+   81: 		if (!m_Vars)
+   82: 		{
+   83: 			m_Vars = new map<string, string>();
+   84: 		}
+   85: 
+   86: 		if (!m_Events)
+   87: 		{
+   88: 			m_Events = new map<string, ref VPPWebhookEventCfg>();
+   89: 		}
+   90: 
+   91: 		if (!m_PresetHashes)
+   92: 		{
+   93: 			m_PresetHashes = new map<string, int>();
+   94: 		}
+   95: 
+   96: 		bool changed = false;
+   97: 		if (m_Id == "")
+   98: 		{
+   99: 			m_Id = NewId(serial);
+  100: 			changed = true;
+  101: 		}
+  102: 
+  103: 		if (m_Version < VERSION)
+  104: 		{
+  105: 			if (m_Preset == "")
+  106: 			{
+  107: 				m_Preset = VPPWebhookPresets.DISCORD_EMBED;
+  108: 				if (m_simplifiedMessages)
+  109: 				{
+  110: 					m_Preset = VPPWebhookPresets.DISCORD_SIMPLE;
+  111: 				}
+  112: 			}
+  113: 
+  114: 			SyncEventsFromSwitches();
+  115: 			m_Version = VERSION;
+  116: 			changed = true;
+  117: 		}
+  118: 
+  119: 		if (!VPPWebhookPresets.IsPreset(m_Preset))
+  120: 		{
+  121: 			m_Preset = VPPWebhookPresets.DISCORD_EMBED;
+  122: 			changed = true;
+  123: 		}
+  124: 
+  125: 		if (m_ContentType == "")
+  126: 		{
+  127: 			m_ContentType = VPPWebhookPresets.ContentTypeOf(m_Preset);
+  128: 			changed = true;
+  129: 		}
+  130: 
+  131: 		array<ref VPPWebhookEventDef> eventDefs = VPPWebhookDefs.All();
+  132: 		foreach (VPPWebhookEventDef def : eventDefs)
+  133: 		{
+  134: 			if (!m_Events.Contains(def.Id))
+  135: 			{
+  136: 				VPPWebhookEventCfg added = new VPPWebhookEventCfg();
+  137: 				added.Enabled = SwitchOf(def.LegacyGroup);
+  138: 				m_Events.Set(def.Id, added);
+  139: 				changed = true;
+  140: 			}
+  141: 		}
+  142: 
+  143: 		if (m_serverStatsInterval <= 0)
+  144: 		{
+  145: 			m_serverStatsInterval = VPPWebHookServerStatsTime.FIVE_MINUTES;
+  146: 			changed = true;
+  147: 		}
+  148: 
+  149: 		return changed;
+  150: 	}
+  151: 
+  152: 	static string NewId(int serial)
+  153: 	{
+  154: 		int year;
+  155: 		int month;
+  156: 		int day;
+  157: 		int hour;
+  158: 		int minute;
+  159: 		int second;
+  160: 		GetYearMonthDayUTC(year, month, day);
+  161: 		GetHourMinuteSecondUTC(hour, minute, second);
+  162: 		int stamp = ((day * 24 + hour) * 60 + minute) * 60 + second;
+  163: 		int random = Math.RandomInt(1000, 9999);
+  164: 		return "wh" + stamp.ToString() + serial.ToString() + random.ToString();
+  165: 	}
+  166: 
+  167: 	// Makes the webhook safe to read: missing maps and lists are created, and a missing (null) event setting is
+  168: 	// rebuilt from the legacy switch of its group (the server keeps those in step). Returns how many settings were
+  169: 	// missing, so a caller can report data that arrived damaged.
+  170: 	int RepairEvents()
+  171: 	{
+  172: 		int repaired = 0;
+  173: 		if (!m_Vars)
+  174: 		{
+  175: 			m_Vars = new map<string, string>();
+  176: 		}
+  177: 
+  178: 		if (!m_Events)
+  179: 		{
+  180: 			m_Events = new map<string, ref VPPWebhookEventCfg>();
+  181: 		}
+  182: 
+  183: 		if (!m_PresetHashes)
+  184: 		{
+  185: 			m_PresetHashes = new map<string, int>();
+  186: 		}
+  187: 
+  188: 		array<ref VPPWebhookEventDef> eventDefs = VPPWebhookDefs.All();
+  189: 		foreach (VPPWebhookEventDef def : eventDefs)
+  190: 		{
+  191: 			VPPWebhookEventCfg cfg = m_Events.Get(def.Id);
+  192: 			if (!cfg)
+  193: 			{
+  194: 				cfg = new VPPWebhookEventCfg();
+  195: 				cfg.Enabled = SwitchOf(def.LegacyGroup);
+  196: 				m_Events.Set(def.Id, cfg);
+  197: 				repaired++;
+  198: 				continue;
+  199: 			}
+  200: 
+  201: 			if (!cfg.Modules)
+  202: 			{
+  203: 				cfg.Modules = new array<string>();
+  204: 			}
+  205: 
+  206: 			if (!cfg.ExcludedModules)
+  207: 			{
+  208: 				cfg.ExcludedModules = new array<string>();
+  209: 			}
+  210: 		}
+  211: 
+  212: 		return repaired;
+  213: 	}
+  214: 
+  215: 	// The old per-category switches decide which events are on (old menu and old configs).
+  216: 	void SyncEventsFromSwitches()
+  217: 	{
+  218: 		if (!m_Events)
+  219: 		{
+  220: 			m_Events = new map<string, ref VPPWebhookEventCfg>();
+  221: 		}
+  222: 
+  223: 		array<ref VPPWebhookEventDef> eventDefs = VPPWebhookDefs.All();
+  224: 		foreach (VPPWebhookEventDef def : eventDefs)
+  225: 		{
+  226: 			VPPWebhookEventCfg cfg = m_Events.Get(def.Id);
+  227: 			if (!cfg)
+  228: 			{
+  229: 				cfg = new VPPWebhookEventCfg();
+  230: 				m_Events.Set(def.Id, cfg);
+  231: 			}
+  232: 
+  233: 			cfg.Enabled = SwitchOf(def.LegacyGroup);
+  234: 		}
+  235: 	}
+  236: 
+  237: 	// The legacy per-category switches follow the event settings (a group is on when any of its events is).
+  238: 	void SyncSwitchesFromEvents()
+  239: 	{
+  240: 		m_deathKillLogs = IsEventEnabled(VPPWebhookDefs.EV_KILL);
+  241: 		m_adminActivityLog = IsEventEnabled(VPPWebhookDefs.EV_ADMIN);
+  242: 		m_admHitLog = IsEventEnabled(VPPWebhookDefs.EV_HIT);
+  243: 		m_joinLeaveLog = false;
+  244: 		m_serverStatusLog = false;
+  245: 		array<ref VPPWebhookEventDef> eventDefs = VPPWebhookDefs.All();
+  246: 		foreach (VPPWebhookEventDef def : eventDefs)
+  247: 		{
+  248: 			VPPWebhookEventCfg cfg = m_Events.Get(def.Id);
+  249: 			if (!cfg || !cfg.Enabled)
+  250: 			{
+  251: 				continue;
+  252: 			}
+  253: 
+  254: 			if (def.LegacyGroup == VPPWebhookDefs.GROUP_JOINLEAVE)
+  255: 			{
+  256: 				m_joinLeaveLog = true;
+  257: 			}
+  258: 
+  259: 			if (def.LegacyGroup == VPPWebhookDefs.GROUP_STATUS)
+  260: 			{
+  261: 				m_serverStatusLog = true;
+  262: 			}
+  263: 		}
+  264: 
+  265: 		m_simplifiedMessages = m_Preset == VPPWebhookPresets.DISCORD_SIMPLE;
+  266: 	}
+  267: 
+  268: 	protected bool SwitchOf(string legacyGroup)
+  269: 	{
+  270: 		if (legacyGroup == VPPWebhookDefs.GROUP_DEATH)
+  271: 		{
+  272: 			return m_deathKillLogs;
+  273: 		}
+  274: 
+  275: 		if (legacyGroup == VPPWebhookDefs.GROUP_ADMIN)
+  276: 		{
+  277: 			return m_adminActivityLog;
+  278: 		}
+  279: 
+  280: 		if (legacyGroup == VPPWebhookDefs.GROUP_HIT)
+  281: 		{
+  282: 			return m_admHitLog;
+  283: 		}
+  284: 
+  285: 		if (legacyGroup == VPPWebhookDefs.GROUP_JOINLEAVE)
+  286: 		{
+  287: 			return m_joinLeaveLog;
+  288: 		}
+  289: 
+  290: 		if (legacyGroup == VPPWebhookDefs.GROUP_STATUS)
+  291: 		{
+  292: 			return m_serverStatusLog;
+  293: 		}
+  294: 
+  295: 		return false;
+  296: 	}
+  297: 
+  298: 	// ---------------------------------------------------------------- client copy
+  299: 
+  300: 	// What an admin client gets: the URL masked unless showUrl (a webhook URL is a secret), no runtime state.
+  301: 	WebHook CopyForClient(bool showUrl)
+  302: 	{
+  303: 		WebHook copy = new WebHook(m_Name, m_URL);
+  304: 		if (!showUrl)
+  305: 		{
+  306: 			copy.SetURL(MaskUrl(m_URL));
+  307: 		}
+  308: 
+  309: 		copy.m_deathKillLogs = m_deathKillLogs;
+  310: 		copy.m_adminActivityLog = m_adminActivityLog;
+  311: 		copy.m_admHitLog = m_admHitLog;
+  312: 		copy.m_joinLeaveLog = m_joinLeaveLog;
+  313: 		copy.m_serverStatusLog = m_serverStatusLog;
+  314: 		copy.m_serverStatsInterval = m_serverStatsInterval;
+  315: 		copy.m_simplifiedMessages = m_simplifiedMessages;
+  316: 		copy.m_Version = m_Version;
+  317: 		copy.m_Id = m_Id;
+  318: 		copy.m_Disabled = m_Disabled;
+  319: 		copy.m_Preset = m_Preset;
+  320: 		copy.m_ContentType = m_ContentType;
+  321: 		copy.m_RateLimit = m_RateLimit;
+  322: 		copy.m_HideIds = m_HideIds;
+  323: 		copy.m_HideServerAddress = m_HideServerAddress;
+  324: 		if (m_Vars)
+  325: 		{
+  326: 			copy.m_Vars.Copy(m_Vars);
+  327: 		}
+  328: 
+  329: 		RepairEvents();
+  330: 		int total = m_Events.Count();
+  331: 		for (int i = 0; i < total; i++)
+  332: 		{
+  333: 			string eventId = m_Events.GetKey(i);
+  334: 			VPPWebhookEventCfg source = m_Events.GetElement(i);
+  335: 			VPPWebhookEventCfg cloned = new VPPWebhookEventCfg();
+  336: 			if (source)
+  337: 			{
+  338: 				cloned.Enabled = source.Enabled;
+  339: 				cloned.PvPOnly = source.PvPOnly;
+  340: 				cloned.SkipAI = source.SkipAI;
+  341: 				cloned.MinDistance = source.MinDistance;
+  342: 				if (source.Modules)
+  343: 				{
+  344: 					cloned.Modules.Copy(source.Modules);
+  345: 				}
+  346: 
+  347: 				if (source.ExcludedModules)
+  348: 				{
+  349: 					cloned.ExcludedModules.Copy(source.ExcludedModules);
+  350: 				}
+  351: 			}
+  352: 
+  353: 			copy.m_Events.Set(eventId, cloned);
+  354: 		}
+  355: 
+  356: 		return copy;
+  357: 	}
+  358: 
+  359: 	// "https://discord.com/api/webhooks/â€¦Ab3F": scheme and host, then â€¦ and the last 4 characters.
+  360: 	static string MaskUrl(string url)
+  361: 	{
+  362: 		if (url == "")
+  363: 		{
+  364: 			return "";
+  365: 		}
+  366: 
+  367: 		int schemeEnd = url.IndexOf("://");
+  368: 		int hostEnd = -1;
+  369: 		if (schemeEnd >= 0)
+  370: 		{
+  371: 			hostEnd = url.IndexOfFrom(schemeEnd + 3, "/");
+  372: 		}
+  373: 
+  374: 		string head = url;
+  375: 		if (hostEnd > 0)
+  376: 		{
+  377: 			head = url.Substring(0, hostEnd + 1);
+  378: 		}
+  379: 
+  380: 		int total = url.Length();
+  381: 		string tail = "";
+  382: 		if (total > 4)
+  383: 		{
+  384: 			tail = url.Substring(total - 4, 4);
+  385: 		}
+  386: 
+  387: 		return head + MASK_MARK + tail;
+  388: 	}
+
+--- TRECHO ---
+  431: 		return m_adminActivityLog;
+  432: 	}
+  433: 
+  434: 	bool SendHitLogs()
+  435: 	{
+  436: 		return m_admHitLog;
+  437: 	}
+  438: 
+  439: 	bool SendJoinLeaveLogs()
+  440: 	{
+  441: 		return m_joinLeaveLog;
+  442: 	}
+  443: 
+  444: 	bool ReportServerStatus()
+  445: 	{
+  446: 		return m_serverStatusLog;
+  447: 	}
+  448: 
+  449: 	VPPWebHookServerStatsTime GetServerStatsInterval()
+  450: 	{
+  451: 		return m_serverStatsInterval;
+  452: 	}
+  453: 
+  454: 	bool SimplifyMessages()
+  455: 	{
+  456: 		return m_simplifiedMessages;
+  457: 	}
+  458: 
+  459: 	bool IsEventEnabled(string eventId)
+  460: 	{
+  461: 		if (m_Disabled || !m_Events)
+  462: 		{
+  463: 			return false;
+  464: 		}
+  465: 
+  466: 		VPPWebhookEventCfg cfg = m_Events.Get(eventId);
+  467: 		return cfg && cfg.Enabled;
+  468: 	}
+  469: 
+  470: 	VPPWebhookEventCfg GetEventCfg(string eventId)
+  471: 	{
+  472: 		if (!m_Events)
+  473: 		{
+  474: 			return null;
+  475: 		}
+  476: 
+  477: 		return m_Events.Get(eventId);
+  478: 	}
+  479: 
+  480: 	// Messages per minute this webhook may send (Discord allows about 30 per webhook).
+  481: 	int GetRateLimit()
+  482: 	{
+  483: 		if (m_RateLimit > 0)
+  484: 		{
+  485: 			return m_RateLimit;
+  486: 		}
+  487: 
+  488: 		// Discord allows about 30 per minute per webhook, Lolka 30 (then 429)
+  489: 		if (VPPWebhookPresets.UsesDiscordLimits(m_Preset))
+  490: 		{
+  491: 			return 25;
+  492: 		}
+  493: 
+  494: 		return 60;
+  495: 	}
+  496: 
+  497: 	// The URL requests go to: Discord gets ?wait=true so a delivered message answers with a body (the engine reports a
+  498: 	// bodyless 204 as a timeout, memory dayz-restapi-json-internals).
+  499: 	bool IsDiscordUrl()
+  500: 	{
+  501: 		string lower = m_URL;
+  502: 		lower.ToLower();
+  503: 		return lower.Contains("discord.com/api/webhooks") || lower.Contains("discordapp.com/api/webhooks");
+  504: 	}
+  505: 
+  506: 	bool IsLolkaUrl()
+  507: 	{
+  508: 		string lower = m_URL;
+  509: 		lower.ToLower();
+  510: 		return lower.Contains("lolka.app/api/webhooks");
+  511: 	}
+  512: 
+
+====================================================================================================
+ARQUIVO: C:\RavenRP\ControlCenter\API\src\adapters\vpp-adapter.js
+====================================================================================================
+
+--- TRECHO ---
+    1: 'use strict';
+    2: 
+    3: const http = require('node:http');
+    4: const crypto = require('node:crypto');
+    5: const path = require('node:path');
+    6: const fs = require('node:fs');
+    7: const fsp = require('node:fs/promises');
+    8: const dotenv = require('dotenv');
+    9: 
+   10: dotenv.config({
+   11:     path: path.resolve(__dirname, '../../.env'),
+   12:     quiet: true
+   13: });
+   14: 
+   15: const HOST = '127.0.0.1';
+   16: const PORT = 3101;
+   17: const SERVER_ID = process.env.RAVEN_MONITORED_SERVER_ID || 'nasdara-dayz';
+   18: const API_HOST = process.env.API_HOST || '127.0.0.1';
+   19: const API_PORT = Number(process.env.API_PORT || 3100);
+   20: const API_TOKEN_B64 = process.env.RAVEN_INGEST_TOKEN_B64 || '';
+   21: 
+   22: const MAX_BODY = 64 * 1024;
+   23: const MAX_QUEUE_FILES = 1000;
+   24: const MAX_QUEUE_BYTES = 128 * 1024 * 1024;
+   25: const RETRY_BASE_MS = 1000;
+   26: const RETRY_MAX_MS = 60000;
+   27: 
+   28: const OUTBOX_DIR = process.env.RAVEN_VPP_OUTBOX_DIR
+   29:     ? path.resolve(process.env.RAVEN_VPP_OUTBOX_DIR)
+   30:     : path.resolve(__dirname, '../../data/vpp-outbox');
+   31: 
+   32: let workerTimer = null;
+   33: let workerRunning = false;
+   34: let stopping = false;
+   35: 
+   36: function getValue(obj, dottedKey) {
+   37:     if (Object.prototype.hasOwnProperty.call(obj, dottedKey)) {
+   38:         return obj[dottedKey];
+   39:     }
+   40: 
+   41:     return dottedKey.split('.').reduce((value, key) => {
+   42:         if (value && typeof value === 'object') return value[key];
+   43:         return undefined;
+   44:     }, obj);
+   45: }
+   46: 
+   47: function numeric(value, field) {
+   48:     if (typeof value !== 'string' && typeof value !== 'number') {
+   49:         throw new Error(`Campo ${field} ausente ou invalido.`);
+   50:     }
+   51: 
+   52:     if (String(value).trim() === '') {
+   53:         throw new Error(`Campo ${field} vazio.`);
+   54:     }
+   55: 
+   56:     const result = Number(value);
+   57: 
+
+--- TRECHO ---
+  224:     const temp = `${file}.${process.pid}.${crypto.randomBytes(8).toString('hex')}.tmp`;
+  225: 
+  226:     try {
+  227:         await fsp.writeFile(temp, content, {
+  228:             encoding: 'utf8',
+  229:             flag: 'wx'
+  230:         });
+  231: 
+  232:         await fsp.rename(temp, file);
+  233:     } catch (error) {
+  234:         try {
+  235:             await fsp.unlink(temp);
+  236:         } catch {}
+  237: 
+  238:         throw error;
+  239:     }
+  240: }
+  241: 
+  242: async function enqueueEvent(envelope, directory = OUTBOX_DIR) {
+  243:     await fsp.mkdir(directory, { recursive: true });
+  244: 
+  245:     const snapshot = await queueSnapshot(directory);
+  246:     const file = getEventFile(envelope.event_id, directory);
+  247: 
+  248:     try {
+  249:         await fsp.access(file);
+  250:         return { duplicate: true, event_id: envelope.event_id };
+  251:     } catch {}
+  252: 
+  253:     const record = {
+  254:         version: 1,
+  255:         envelope,
+  256:         attempts: 0,
+  257:         nextAttemptAt: 0,
+  258:         createdAt: new Date().toISOString()
+  259:     };
+  260: 
+  261:     const serialized = JSON.stringify(record);
+  262:     const bytes = Buffer.byteLength(serialized, 'utf8');
+  263: 
+  264:     if (snapshot.pending >= MAX_QUEUE_FILES ||
+  265:         snapshot.bytes + bytes > MAX_QUEUE_BYTES) {
+  266:         const error = new Error('Limite de armazenamento da fila atingido.');
+  267:         error.code = 'OUTBOX_FULL';
+  268:         throw error;
+  269:     }
+  270: 
+  271:     const temp = `${file}.${process.pid}.${crypto.randomBytes(8).toString('hex')}.tmp`;
+  272: 
+  273:     try {
+  274:         await fsp.writeFile(temp, serialized, {
+  275:             encoding: 'utf8',
+  276:             flag: 'wx'
+  277:         });
+  278: 
+  279:         try {
+  280:             await fsp.rename(temp, file);
+  281:         } catch (error) {
+  282:             if (error.code === 'EEXIST' || error.code === 'EPERM') {
+
+--- TRECHO ---
+  285:                     await fsp.unlink(temp);
+  286:                     return { duplicate: true, event_id: envelope.event_id };
+  287:                 } catch {}
+  288:             }
+  289: 
+  290:             throw error;
+  291:         }
+  292:     } catch (error) {
+  293:         try {
+  294:             await fsp.unlink(temp);
+  295:         } catch {}
+  296: 
+  297:         throw error;
+  298:     }
+  299: 
+  300:     return { duplicate: false, event_id: envelope.event_id };
+  301: }
+  302: 
+  303: function forwardToRaven(envelope) {
+  304:     return new Promise((resolve, reject) => {
+  305:         if (API_HOST !== '127.0.0.1') {
+  306:             return reject(new Error('API_HOST precisa ser 127.0.0.1.'));
+  307:         }
+  308: 
+  309:         if (!Number.isInteger(API_PORT) ||
+  310:             API_PORT < 1 || API_PORT > 65535) {
+  311:             return reject(new Error('API_PORT invalida.'));
+  312:         }
+  313: 
+  314:         const token = Buffer.from(API_TOKEN_B64, 'base64').toString('utf8');
+  315: 
+  316:         if (token.length < 40) {
+  317:             return reject(new Error('Token de ingestao ausente ou invalido.'));
+  318:         }
+  319: 
+  320:         const body = Buffer.from(JSON.stringify(envelope));
+  321: 
+  322:         const request = http.request({
+  323:             hostname: API_HOST,
+  324:             port: API_PORT,
+  325:             path: `/api/v1/ingest/${SERVER_ID}`,
+  326:             method: 'POST',
+  327:             timeout: 10000,
+  328:             headers: {
+  329:                 'Content-Type': 'application/json',
+  330:                 'Authorization': `Bearer ${token}`,
+  331:                 'Content-Length': body.length
+  332:             }
+  333:         }, response => {
+  334:             response.resume();
+  335: 
+  336:             response.on('end', () => {
+  337:                 if (response.statusCode === 200 ||
+  338:                     response.statusCode === 201) {
+  339:                     resolve(response.statusCode);
+  340:                 } else {
+  341:                     reject(new Error(
+  342:                         `API Raven respondeu HTTP ${response.statusCode}.`
+  343:                     ));
+  344:                 }
+  345:             });
+  346:         });
+  347: 
+  348:         request.on('timeout', () => {
+  349:             request.destroy(new Error('Timeout na API Raven.'));
+  350:         });
+  351: 
+  352:         request.on('error', reject);
+  353:         request.end(body);
+  354:     });
+  355: }
+  356: 
+  357: async function persistRetry(file, record) {
+  358:     record.attempts += 1;
+  359: 
+  360:     const delay = Math.min(
+  361:         RETRY_BASE_MS * Math.pow(2, Math.min(record.attempts - 1, 16)),
+  362:         RETRY_MAX_MS
+  363:     );
+  364: 
+  365:     record.nextAttemptAt = Date.now() + delay;
+  366:     record.lastAttemptAt = new Date().toISOString();
+  367: 
+  368:     await atomicWrite(file, JSON.stringify(record));
+  369: 
+  370:     return delay;
+  371: }
+  372: 
+  373: async function processQueueOnce(options = {}) {
+  374:     const directory = options.directory || OUTBOX_DIR;
+  375:     const sender = options.forward || forwardToRaven;
+  376: 
+  377:     const files = await listQueue(directory);
+  378: 
+  379:     if (files.length === 0) {
+  380:         return { processed: false, pending: 0 };
+  381:     }
+  382: 
+  383:     const item = files[0];
+  384:     let record;
+  385: 
+  386:     try {
+  387:         record = JSON.parse(await fsp.readFile(item.file, 'utf8'));
+  388: 
+  389:         if (!record || record.version !== 1 ||
+  390:             !record.envelope || !record.envelope.event_id) {
+  391:             throw new Error('Registro de fila invalido.');
+  392:         }
+  393:     } catch (error) {
+  394:         console.error('Registro de fila invalido; preservado:', item.name);
+  395:         return { processed: false, invalid: true };
+  396:     }
+  397: 
+  398:     const remaining = Number(record.nextAttemptAt || 0) - Date.now();
+  399: 
+  400:     if (remaining > 0) {
+  401:         return { processed: false, waiting: remaining };
+  402:     }
+  403: 
+  404:     try {
+  405:         const status = await sender(record.envelope);
+  406: 
+  407:         await fsp.unlink(item.file);
+  408: 
+  409:         console.log(
+  410:             'Evento entregue ao Raven:',
+  411:             record.envelope.event_id,
+  412:             'HTTP',
+  413:             status
+  414:         );
+  415: 
+
+--- TRECHO ---
+  424:             error.message
+  425:         );
+  426: 
+  427:         return { processed: true, delivered: false, delay };
+  428:     }
+  429: }
+  430: 
+  431: function scheduleWorker(delay = 1000) {
+  432:     if (stopping || workerTimer) return;
+  433: 
+  434:     workerTimer = setTimeout(async () => {
+  435:         workerTimer = null;
+  436: 
+  437:         if (workerRunning || stopping) return;
+  438: 
+  439:         workerRunning = true;
+  440: 
+  441:         try {
+  442:             const result = await processQueueOnce();
+  443: 
+  444:             if (result.waiting) {
+  445:                 scheduleWorker(Math.max(250, Math.min(result.waiting, 5000)));
+  446:             } else if (result.processed && result.delivered) {
+  447:                 scheduleWorker(0);
+  448:             } else if (result.processed && result.delay) {
+  449:                 scheduleWorker(result.delay);
+  450:             } else {
+  451:                 scheduleWorker(2000);
+  452:             }
+  453:         } catch (error) {
+  454:             console.error('Erro interno na fila VPP:', error.message);
+  455:             scheduleWorker(5000);
+  456:         } finally {
+  457:             workerRunning = false;
+  458:         }
+  459:     }, delay);
+  460: 
+  461:     if (workerTimer.unref) workerTimer.unref();
+  462: }
+  463: 
+  464: function startDispatcher() {
+  465:     stopping = false;
+  466:     scheduleWorker(0);
+  467: }
+  468: 
+  469: function stopDispatcher() {
+  470:     stopping = true;
+  471: 
+  472:     if (workerTimer) {
+  473:         clearTimeout(workerTimer);
+  474:         workerTimer = null;
+  475:     }
+  476: }
+  477: 
+  478: function isLoopback(address) {
+  479:     return address === '127.0.0.1' ||
+  480:         address === '::1' ||
+  481:         address === '::ffff:127.0.0.1';
+  482: }
+  483: 
+  484: function createServer() {
+  485:     return http.createServer(async (req, res) => {
+  486:         res.setHeader('Content-Type', 'application/json; charset=utf-8');
+  487: 
+  488:         if (!isLoopback(req.socket.remoteAddress)) {
+  489:             res.writeHead(403);
+  490:             return res.end(JSON.stringify({ error: 'LOCAL_ONLY' }));
+  491:         }
+  492: 
+  493:         if (req.method === 'GET' && req.url === '/health') {
+  494:             try {
+  495:                 const snapshot = await queueSnapshot();
+  496: 
+  497:                 res.writeHead(200);
+  498:                 return res.end(JSON.stringify({
+  499:                     status: 'ok',
+  500:                     adapter: 'raven-vpp-adapter',
+  501:                     queue: snapshot
+  502:                 }));
+  503:             } catch {
+  504:                 res.writeHead(503);
+  505:                 return res.end(JSON.stringify({ error: 'OUTBOX_UNAVAILABLE' }));
+  506:             }
+  507:         }
+  508: 
+  509:         if (req.method !== 'POST' || req.url !== '/vpp/status') {
+  510:             res.writeHead(404);
+  511:             return res.end(JSON.stringify({ error: 'NOT_FOUND' }));
+  512:         }
+  513: 
+  514:         if (!String(req.headers['content-type'] || '')
+  515:             .toLowerCase().startsWith('application/json')) {
+  516:             res.writeHead(415);
+  517:             return res.end(JSON.stringify({ error: 'JSON_REQUIRED' }));
+  518:         }
+  519: 
+  520:         const chunks = [];
+  521:         let size = 0;
+  522:         let tooLarge = false;
+  523: 
+  524:         req.on('data', chunk => {
+  525:             size += chunk.length;
+  526: 
+  527:             if (size > MAX_BODY) {
+  528:                 tooLarge = true;
+  529:                 return;
+  530:             }
+  531: 
+  532:             chunks.push(chunk);
+  533:         });
+  534: 
+  535:         req.on('end', async () => {
+  536:             if (tooLarge) {
+  537:                 res.writeHead(413);
+  538:                 return res.end(JSON.stringify({ error: 'BODY_TOO_LARGE' }));
+  539:             }
+  540: 
+  541:             try {
+  542:                 const rawBody = Buffer.concat(chunks);
+  543:                 const input = JSON.parse(rawBody.toString('utf8'));
+  544:                 const envelope = normalizeVppStatus(input, rawBody);
+  545: 
+  546:                 const queued = await enqueueEvent(envelope);
+  547: 
+  548:                 res.writeHead(200);
+  549:                 res.end(JSON.stringify({
+  550:                     accepted: true,
+  551:                     queued: true,
+  552:                     duplicate: queued.duplicate,
+  553:                     event_id: envelope.event_id
+  554:                 }));
+  555: 
+  556:                 scheduleWorker(0);
+  557:             } catch (error) {
+  558:                 const full = error.code === 'OUTBOX_FULL';
+  559: 
+  560:                 console.error('Falha no recebimento VPP:', error.message);
+  561: 
+  562:                 res.writeHead(full ? 503 : 400);
+  563:                 res.end(JSON.stringify({
+  564:                     accepted: false,
+  565:                     error: full ? 'OUTBOX_FULL' : 'INVALID_EVENT'
+  566:                 }));
+  567:             }
+  568:         });
+  569: 
+  570:         req.on('error', error => {
+  571:             console.error('Erro recebendo evento VPP:', error.message);
+  572:         });
+  573:     });
+  574: }
+  575: 
+  576: if (require.main === module) {
+  577:     const server = createServer();
+  578: 
+  579:     server.listen(PORT, HOST, () => {
+  580:         console.log(`Raven VPP Adapter escutando em ${HOST}:${PORT}`);
+  581:         console.log(`Destino API: ${API_HOST}:${API_PORT}`);
+  582:         console.log(`Servidor monitorado: ${SERVER_ID}`);
+  583:         console.log(`Fila persistente: ${OUTBOX_DIR}`);
+  584: 
+  585:         startDispatcher();
+  586:     });
+  587: 
+  588:     server.on('error', error => {
+  589:         console.error('Falha ao iniciar adaptador:', error.message);
+  590:         process.exitCode = 1;
+  591:     });
+  592: 
+  593:     function shutdown(signal) {
+  594:         console.log(`Encerramento solicitado: ${signal}`);
+  595: 
+  596:         stopDispatcher();
+  597: 
+  598:         server.close(() => {
+  599:             process.exit(0);
+  600:         });
+  601: 
+  602:         setTimeout(() => process.exit(1), 10000).unref();
+  603:     }
+  604: 
+  605:     process.on('SIGINT', () => shutdown('SIGINT'));
+  606:     process.on('SIGTERM', () => shutdown('SIGTERM'));
+  607: }
+  608: 
+  609: module.exports = {
+  610:     normalizeVppStatus,
+  611:     createServer,
+  612:     enqueueEvent,
+  613:     listQueue,
+  614:     queueSnapshot,
+  615:     processQueueOnce,
+  616:     startDispatcher,
+  617:     stopDispatcher
+  618: };
+  619: 
+  620: 
+  621: 
+
+====================================================================================================
+VERIFICACOES DO AMBIENTE
+====================================================================================================
+EXTRACT_ROOT_EXISTS: True
+ADAPTER_EXISTS: True
+ADAPTER_SHA256: 58EB8FBA324C6534CA8AA5629E242A0BC0C773806536E48C5148FCB2FB19A5C5
+VPP_PROFILE_EXISTS: True
+WEBHOOKS_JSON_EXISTS: False
+DAYZ_PROCESS_RUNNING: False
+
+FIM DO RELATORIO
